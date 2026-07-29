@@ -836,3 +836,26 @@ Use this file as the single running document for results, parameter changes, and
   - create a new `experiment/<short-name>` branch before modifying the active training line
   - commit each confirmed change and keep `TRAINING_LOG.md` as the canonical experiment memory
   - prefer switching to or branching from `baseline-protocol-smoke-20260729` over destructive reset commands when recovery is needed
+
+### 2026-07-29 | Persistent Git workflow policy (completed)
+- User decision:
+  - persist the rollback/versioning workflow in repository guidance so future work in this folder follows it automatically
+- Branch and scope:
+  - created `maintenance/versioning-policy` from the clean `main` baseline before editing
+  - changed only `AGENTS.md` and this trace entry; no source code, parameter, dataset, model, checkpoint, or result was changed
+- Policy added to `AGENTS.md`:
+  - inspect Git state before edits and preserve unrelated user changes
+  - use scoped branches for material work while protecting `main` and existing baseline tags
+  - commit coherent verified changes rather than every keystroke
+  - verify in proportion to risk; documentation-only work does not trigger the full training suite
+  - record experiment-affecting changes and every completed run in `TRAINING_LOG.md`
+  - require committed code identity before formal/long runs
+  - keep large assets out of Git and refresh hashes only when assets change or at a deliberate milestone
+  - create tags and refresh the standalone bundle only for meaningful stable milestones
+  - report branch, commit, verification, and final worktree state at task completion
+- Resource decision:
+  - routine commits and branches add only small text deltas and negligible metadata
+  - full asset rehashing, full test suites, tags, and bundle refreshes are explicitly not required for unrelated small edits
+- Intended stable integration:
+  - commit message: `chore: persist repository versioning policy`
+  - after focused verification, fast-forward `main` to the verified maintenance commit; no new tag or bundle refresh is warranted for this policy-only update
