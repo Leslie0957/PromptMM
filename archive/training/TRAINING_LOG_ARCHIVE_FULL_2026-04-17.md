@@ -1,0 +1,2218 @@
+﻿# Training Log
+
+This is the canonical training record for PromptMM experiments.
+Use this file as the single running document for results, parameter changes, and next-step decisions.
+
+## Working Rules
+- Active experiment path: `codes/main_mmlight.py`
+- Default argument source: `codes/utility/parser.py`
+- `codes/run_patent.py` is a separate standalone script and should not be treated as part of the active training line unless explicitly requested.
+- If a training command passes `--student_lr`, that CLI value overrides the parser default.
+- Record teacher-stage best metrics and student-stage best metrics separately for every completed run.
+- For student-only sweeps, keep the teacher fixed by reusing a saved checkpoint with `--if_train_teacher false`.
+- After each completed run, append a new entry under `## Run History`.
+- If a run becomes the new reference point, also update `## Current Baseline`.
+- Artifact behavior for `codes/main_mmlight.py`: each run now writes a unique archived teacher checkpoint under `Model/<dataset>/runs/` and a unique converge result file under `exp/converge/<dataset>/`; compatibility alias files may still update, but prior run artifacts are preserved.
+
+## Project Objective
+- This work is based on `PromptMM`; the current research line is an extension/modification of the PromptMM framework rather than a separate training line built from scratch.
+- The original goal is to develop a multimodal recommendation method combined with knowledge distillation.
+- The intended deliverables are a master's thesis and a patent-style technical result; publication is not required for this project.
+- Experiment decisions should therefore be evaluated not only by metric gains, but also by whether they help form a coherent thesis/patent story: clear problem setting, identifiable method contribution, reproducible training path, and defensible ablations.
+
+### 2026-04-11 | Research Focus Snapshot
+- Deliverable order:
+  - first shape a patent-style technical scheme
+  - then use that scheme as the backbone of the master's thesis
+- Real target:
+  - stay on the `PromptMM`-based multimodal recommendation + knowledge distillation line
+  - replace heavy student-side graph / prompt-dependent inference with a lightweight student while preserving recommendation quality as much as possible
+- Preferred method story:
+  - `TD-Distill` / train-infer decoupled lightweight multimodal recommendation
+  - training uses teacher-side multimodal semantics plus a bridge/projection module
+  - inference removes the bridge and serves with a lightweight embedding-based student
+- Claim language to preserve:
+  - student-to-teacher alignment can be described as asymmetric semantic distillation
+  - normalized MSE / cosine-space alignment can be described as directional distillation
+- Core evidence the thesis/patent should eventually support:
+  - student quality stays reasonably close to the teacher
+  - inference cost is much lower than the heavy teacher-side pipeline
+  - distillation-based lightweight student is stronger than a plain lightweight baseline without the same semantic transfer
+- Interpretation rule:
+  - LR tuning, logging cleanup, and checkpoint fixes are support work for stability and reproducibility
+  - the main line should return to lightweight-student structure and distillation design, not stay on LR tuning for too long
+
+## Current Baseline
+- Date: 2026-04-12
+- Historical best quality reference:
+  - command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon`
+  - protocol note: pre bundled-teacher refresh / not a strict frozen-teacher comparison baseline
+  - best epoch: 436
+  - Recall@20: 0.09767902
+  - NDCG@20: 0.10535289
+  - Precision@20: 0.01846349
+- Clean comparison baseline for future frozen-teacher sweeps:
+  - command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_lr 6e-5 --if_train_teacher false`
+  - protocol note: current clean frozen-teacher LR reference; this is the first completed `--if_train_teacher false` run that clearly improves on the refreshed bundled-teacher `5e-5` baseline
+  - teacher source: reused bundled checkpoint produced on `2026-04-11 19:50:25`
+  - teacher best epoch: 19
+  - teacher Recall@20 / NDCG@20 / Precision@20: 0.14755461 / 0.14741283 / 0.02665822
+  - student best epoch: 321
+  - student Recall@20 / NDCG@20 / Precision@20: 0.09302971 / 0.10014018 / 0.01738844
+  - student full best result:
+    - precision: [0.02119675, 0.01738844, 0.01383874, 0.01270791]
+    - recall: [0.05716351, 0.09302971, 0.14312269, 0.16385911]
+    - ndcg: [0.07651317, 0.10014018, 0.12907822, 0.13926112]
+    - hit_ratio: [0.17484787, 0.25851927, 0.36014199, 0.39320487]
+- Current method-side reference for the train-infer decoupled line:
+  - command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.1`
+  - protocol note: first completed frozen-teacher `TD-Distill` run under the same clean teacher anchor and LR reference
+  - teacher source: reused bundled checkpoint produced on `2026-04-11 19:50:25`
+  - teacher best epoch: 19
+  - teacher Recall@20 / NDCG@20 / Precision@20: 0.14755461 / 0.14741283 / 0.02665822
+  - TD-Distill best epoch: 12
+  - TD-Distill Recall@20 / NDCG@20 / Precision@20: 0.14796617 / 0.14750383 / 0.02671907
+  - TD-Distill full best result:
+    - precision: [0.03445233, 0.02671907, 0.01997972, 0.01805477]
+    - recall: [0.09826668, 0.14796617, 0.21427575, 0.24020877]
+    - ndcg: [0.11717615, 0.14750383, 0.18210728, 0.19410078]
+    - hit_ratio: [0.26247465, 0.36135903, 0.47008114, 0.50476673]
+- Current no-warm-start `TD-Distill` reference:
+  - command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false`
+  - protocol note: current best completed strict frozen-teacher `TD-Distill` point without teacher-embedding warm start
+  - teacher source: reused bundled checkpoint produced on `2026-04-11 19:50:25`
+  - teacher best epoch: 19
+  - teacher Recall@20 / NDCG@20 / Precision@20: 0.14755461 / 0.14741283 / 0.02665822
+  - TD-Distill best epoch: 344
+  - TD-Distill Recall@20 / NDCG@20 / Precision@20: 0.10717427 / 0.11065527 / 0.01872211
+  - TD-Distill full best result:
+    - precision: [0.02295132, 0.01872211, 0.01428753, 0.01318458]
+    - recall: [0.06750604, 0.10717427, 0.15855713, 0.1829785]
+    - ndcg: [0.08474159, 0.11065527, 0.13931511, 0.1506387]
+    - hit_ratio: [0.19229209, 0.28326572, 0.38529412, 0.42413793]
+- Current post-refactor no-warm-start structure reference (updated 2026-04-15):
+  - command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0`
+  - protocol note: current strongest completed post-refactor no-warm-start point in the structure-disambiguation line
+  - teacher source: reused bundled checkpoint produced on `2026-04-11 19:50:25`
+  - teacher best epoch: 19
+  - teacher Recall@20 / NDCG@20 / Precision@20: 0.14755461 / 0.14741283 / 0.02665822
+  - TD-Distill best epoch: 416
+  - TD-Distill Recall@20 / NDCG@20 / Precision@20: 0.10947864 / 0.11405268 / 0.01934584
+  - TD-Distill full best result:
+    - precision: [0.02404665, 0.01934584, 0.0148859, 0.01371602]
+    - recall: [0.06843828, 0.10947864, 0.16399599, 0.18788375]
+    - ndcg: [0.08817225, 0.11405268, 0.1437104, 0.15526111]
+    - hit_ratio: [0.2005071, 0.29066937, 0.39513185, 0.43448276]
+- Current post-refactor warm-start check reference (updated 2026-04-15):
+  - command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher true --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0`
+  - protocol note: strongest completed warm-start point under the current no-projection asymmetric structure; used to quantify initialization dependence, not as strict no-warm-start default
+  - teacher source: reused bundled checkpoint produced on `2026-04-11 19:50:25`
+  - teacher best epoch: 19
+  - teacher Recall@20 / NDCG@20 / Precision@20: 0.14755461 / 0.14741283 / 0.02665822
+  - TD-Distill best epoch: 13
+  - TD-Distill Recall@20 / NDCG@20 / Precision@20: 0.14800863 / 0.14752959 / 0.02672921
+  - TD-Distill full best result:
+    - precision: [0.03446247, 0.02672921, 0.01999239, 0.01807708]
+    - recall: [0.09829842, 0.14800863, 0.21452438, 0.2406796]
+    - ndcg: [0.11716284, 0.14752959, 0.1821848, 0.19423934]
+    - hit_ratio: [0.26267748, 0.36176471, 0.47058824, 0.50557809]
+- Current read:
+  - under current no-projection asymmetric structure, the completed distillation-off control (`td_distill_alpha=0.0`, no warm start) reached `Recall@20=0.08209192`, `NDCG@20=0.09161002`, `Precision@20=0.01519270`, confirming a sharp quality drop relative to the active-distillation anchor
+  - under the same structure, enabling warm start (`td_init_from_teacher=true`) reached `Recall@20=0.14800863`, `NDCG@20=0.14752959`, `Precision@20=0.02672921`, showing very strong initialization dependence and near-teacher quality
+  - adding lightweight user-side supervision (`td_user_image_rate=0.1`) under no warm start reached `Recall@20=0.10417320`, `NDCG@20=0.11037305`, `Precision@20=0.01828093`, which stays above clean lightgcn but below the current no-user anchor
+  - parser default still remains `student_lr=5e-5`, but the clean frozen-teacher LR reference is now the CLI `6e-5` run above
+  - relative to the clean bundled-teacher `5e-5` baseline, `6e-5` improved Recall@20 by about 5.48%, NDCG@20 by about 5.03%, and Precision@20 by about 5.06%
+  - the first frozen-teacher `TD-Distill` run nearly matches and slightly exceeds the reused teacher summary while vastly outperforming the clean lightgcn student baseline
+  - the directional-loss ablation `td_distill_alpha=0.0` stayed essentially tied with the `0.1` run (`Recall@20 0.14796617 -> 0.14793405`, `NDCG@20 0.14750383 -> 0.14757129`, `Precision@20 0.02671907 -> 0.02671907`)
+  - the no-warm-start `TD-Distill` run (`td_init_from_teacher=false`) dropped to `Recall@20=0.10244326`, `NDCG@20=0.10648479`, `Precision@20=0.01804767`, confirming that teacher-embedding warm start is a major contributor to the near-teacher `TD-Distill` result
+  - even without warm start, `TD-Distill` still stayed above the clean frozen-teacher lightgcn baseline by about 10.12% on Recall@20, 6.34% on NDCG@20, and 3.79% on Precision@20
+  - the no-warm-start plus no-directional-loss ablation (`td_init_from_teacher=false`, `td_distill_alpha=0.0`) dropped further to `Recall@20=0.07972688`, `NDCG@20=0.08829759`, `Precision@20=0.01495943`, which is below both the no-warm-start `0.1` run and the clean frozen-teacher lightgcn baseline
+  - the intermediate no-warm-start alpha sweep point (`td_init_from_teacher=false`, `td_distill_alpha=0.05`) reached `Recall@20=0.09244762`, `NDCG@20=0.09815337`, `Precision@20=0.01633367`; this recovered much of the gap from the `0.0` endpoint but remained clearly below the completed no-warm-start `0.1` run
+  - relative to the no-warm-start `td_distill_alpha=0.0` endpoint, the `0.05` run improved Recall@20 by about 15.96%, NDCG@20 by about 11.16%, and Precision@20 by about 9.19%; relative to the clean frozen-teacher lightgcn baseline, it still underperformed slightly by about 0.63%, 1.98%, and 6.07%
+  - the stronger no-warm-start alpha sweep point (`td_init_from_teacher=false`, `td_distill_alpha=0.2`) reached `Recall@20=0.10681890`, `NDCG@20=0.11001266`, `Precision@20=0.01864097`, which is now the best completed no-warm-start `TD-Distill` result
+  - relative to the completed no-warm-start `td_distill_alpha=0.1` run, the `0.2` point improved Recall@20 by about 4.27%, NDCG@20 by about 3.31%, and Precision@20 by about 3.29%; relative to the clean frozen-teacher lightgcn baseline, it improved by about 14.82%, 9.86%, and 7.20%
+  - the next no-warm-start sweep point (`td_init_from_teacher=false`, `td_distill_alpha=0.3`) reached `Recall@20=0.10717427`, `NDCG@20=0.11065527`, `Precision@20=0.01872211`, which is now the strongest completed no-warm-start `TD-Distill` result
+  - relative to the completed no-warm-start `td_distill_alpha=0.2` run, the `0.3` point improved Recall@20 by about 0.33%, NDCG@20 by about 0.58%, and Precision@20 by about 0.44%; relative to the clean frozen-teacher lightgcn baseline, it improved by about 15.20%, 10.50%, and 7.67%
+  - under no warm start, the observed alpha ordering is now `0.0 < 0.05 < 0.1 < 0.2 < 0.3` on Recall@20, NDCG@20, and Precision@20, which means the directional-loss term is still helping through `0.3`, although the gain from `0.2` to `0.3` is already much smaller than the gain from `0.1` to `0.2`
+  - the larger no-warm-start alpha sweep point (`td_init_from_teacher=false`, `td_distill_alpha=0.4`) collapsed to `Recall@20=0.08000176`, `NDCG@20=0.08538574`, `Precision@20=0.01387424`, so it not only failed to improve over `0.3` but also fell below the clean frozen-teacher lightgcn baseline
+  - relative to the completed no-warm-start `td_distill_alpha=0.3` run, the `0.4` point dropped Recall@20 by about 25.35%, NDCG@20 by about 22.84%, and Precision@20 by about 25.89%; relative to the clean frozen-teacher lightgcn baseline, it underperformed by about 14.00%, 14.73%, and 20.21%
+  - under no warm start, the alpha story is now clear: performance improves across `0.0 < 0.05 < 0.1 < 0.2 < 0.3`, then collapses sharply at `0.4`, so the useful no-warm-start directional-loss range appears to be around `0.2-0.3` rather than "the larger the better"
+  - the final local no-warm-start alpha refinement (`td_init_from_teacher=false`, `td_distill_alpha=0.25`) reached `Recall@20=0.09945852`, `NDCG@20=0.10333377`, `Precision@20=0.01724138`, so it did not beat either the completed `0.2` or `0.3` runs
+  - relative to the completed no-warm-start `td_distill_alpha=0.3` run, the `0.25` point dropped Recall@20 by about 7.20%, NDCG@20 by about 6.62%, and Precision@20 by about 7.91%; relative to the clean frozen-teacher lightgcn baseline, it improved Recall@20 and NDCG@20 by about 6.91% and 3.19% but still trailed Precision@20 by about 0.85%
+  - under no warm start, the alpha story is now closed for the current structure: performance improved from `0.0` through `0.3`, overshot badly at `0.4`, and the nearby local refinement `0.25` also failed to beat `0.3`, so the useful no-warm-start directional-loss range remains around `0.2-0.3` with `0.3` as the stable reference
+  - the first post-refactor no-warm-start anchor run (`td_distill_alpha=0.3` with all four semantic heads active at rate `1.0`) collapsed to `Recall@20=0.07658530`, `NDCG@20=0.08219743`, `Precision@20=0.01315416`
+  - relative to the pre-refactor no-warm-start `td_distill_alpha=0.3` reference (`0.10717427 / 0.11065527 / 0.01872211`), the first post-refactor anchor run dropped by about 28.54% on Recall@20, 25.72% on NDCG@20, and 29.74% on Precision@20
+  - relative to the clean frozen-teacher lightgcn baseline (`0.09302971 / 0.10014018 / 0.01738844`), the first post-refactor anchor run underperformed by about 17.68%, 17.92%, and 24.35%
+  - the item-only no-projection structure control (`student_model_type=td_distill_no_projection`, `td_distill_alpha=0.3`) reached `Recall@20=0.10337251`, `NDCG@20=0.10930838`, `Precision@20=0.01821501`, which is now the strongest completed post-refactor structure-disambiguation result
+  - relative to the post-refactor item-only projection run (`0.09276946 / 0.09900840 / 0.01619675`), the no-projection run improved by about 11.43% on Recall@20, 10.40% on NDCG@20, and 12.46% on Precision@20
+  - relative to the clean frozen-teacher lightgcn baseline (`0.09302971 / 0.10014018 / 0.01738844`), the no-projection run improved by about 11.12%, 9.16%, and 4.75%
+  - relative to the pre-refactor no-warm-start `td_distill_alpha=0.3` reference (`0.10717427 / 0.11065527 / 0.01872211`), the no-projection run is now only lower by about 3.55%, 1.22%, and 2.71%
+  - interpretation update: once user-side supervision is removed, most of the remaining post-refactor quality gap is recovered by removing the projection heads, so the main bottleneck is no longer well explained by `td_distill_alpha` or component rates; it is much more consistent with projection-induced information loss or supervision mismatch inside the refactored semantic transfer path
+  - interpretation: the naive full phase-1 all-heads=`1.0` setup is not a valid new default under no warm start; the next step is component isolation inside the refactored structure, not more alpha-only tuning
+  - for strict frozen-teacher follow-up runs, keep two anchors in view: the clean `6e-5` lightgcn baseline for student-vs-student comparison and the `TD-Distill` run above for method-line continuation
+- KD-related weights: unchanged from the previous run
+- Current priority:
+  - LR tuning remains closed for now
+  - the old no-warm-start alpha question remains closed for the pre-refactor structure with `td_distill_alpha=0.3` as the stable reference
+  - the first post-refactor anchor run has now completed and failed clearly under the all-heads=`1.0` setup, and the later item-only plus no-projection control has already recovered most of that loss
+  - do not reopen alpha sweeps or simple rate sweeps under the refactored structure unless a later structure-control result gives a concrete reason
+  - the current mainline is now structure disambiguation, not parameter tuning
+  - the next high-value step is to keep the item-only no-projection run as the new structure-control reference and isolate the remaining residual gap from the disentangle / multi-head semantic design itself
+- Current priority update after the completed `td_distill_alpha=0.0` ablation:
+  - the question "can `TD-Distill` beat lightgcn?" is already answered yes under the frozen-teacher protocol
+  - the question "does `td_distill_alpha` matter?" is now mostly answered too: under warm start, `0.0` and `0.1` are effectively tied
+  - the next high-value check is no-warm-start `TD-Distill`, so initialization dependence can be separated from the method's directional distillation story
+- Current priority update after the completed no-warm-start `TD-Distill` ablation:
+  - the question "can `TD-Distill` still beat the clean lightgcn baseline without warm start?" is now answered yes, but only modestly
+  - the question "is warm start a dominant contributor?" is now also answered yes; removing it caused a large drop from the warm-started `TD-Distill` result
+  - the next high-value check is whether the directional term still helps once warm start is removed, so the fair next ablation is `td_init_from_teacher=false` plus `td_distill_alpha=0.0`
+- Current priority update after the completed no-warm-start + no-directional-loss ablation:
+  - the question "does the directional term still matter once warm start is removed?" is now answered yes
+  - under the fair no-warm-start setting, `td_distill_alpha=0.0` fell clearly below the completed `td_distill_alpha=0.1` run and also below the clean frozen-teacher lightgcn baseline
+  - the next high-value check is now a small no-warm-start alpha sweep around `0.1`, starting with `td_distill_alpha=0.05`
+- Current priority update after the completed no-warm-start `td_distill_alpha=0.05` sweep point:
+  - the question "can a smaller but nonzero directional term recover most of the no-warm-start `0.1` gain?" is now answered not fully
+  - `td_distill_alpha=0.05` landed between the completed `0.0` and `0.1` endpoints, nearly matched the clean lightgcn baseline on Recall@20, but still stayed slightly below that baseline overall and clearly below the completed no-warm-start `0.1` run
+  - the next high-value check is whether the no-warm-start curve keeps improving above `0.1`; the most informative next point is `td_distill_alpha=0.2`
+- Current priority update after the completed no-warm-start `td_distill_alpha=0.2` sweep point:
+  - the question "does the no-warm-start alpha curve keep improving above `0.1`?" is now answered yes at least through `0.2`
+  - `td_distill_alpha=0.2` is now the strongest completed no-warm-start setting, beating both the clean frozen-teacher lightgcn baseline and the previous no-warm-start `0.1` reference
+  - the next high-value check is whether the no-warm-start curve keeps improving or starts to bend back above `0.2`; the most informative next point is `td_distill_alpha=0.3`
+- Current priority update after the completed no-warm-start `td_distill_alpha=0.3` sweep point:
+  - the question "does the no-warm-start alpha curve keep improving above `0.2`?" is now answered yes, but only marginally
+  - `td_distill_alpha=0.3` is now the strongest completed no-warm-start setting, but the improvement over `0.2` is small enough that saturation may already be starting
+  - the next high-value check is whether the no-warm-start line is still rising at `0.4` or whether `0.3` is already near the useful peak
+- Current priority update after the completed no-warm-start `td_distill_alpha=0.4` sweep point:
+  - the question "is the no-warm-start line still rising at `0.4`?" is now answered no
+  - `td_distill_alpha=0.4` is too strong in the current no-warm-start setup and causes a sharp regression relative to both the completed `0.3` run and the clean frozen-teacher lightgcn baseline
+  - the next high-value step is no longer a larger-alpha sweep; use `0.3` as the best no-warm-start reference and return to code/method changes, or at most do local refinement near `0.2-0.3` later if tuning must be revisited
+
+- Current priority update after the completed no-warm-start `td_distill_alpha=0.25` local refinement:
+  - the question "does one nearby point between `0.2` and `0.3` change the no-warm-start conclusion?" is now answered no
+  - `td_distill_alpha=0.25` failed to beat both the completed `0.2` and `0.3` runs, so it did not reopen the alpha story or reveal a better local optimum
+  - alpha tuning is now closed for the current no-warm-start structure; keep `0.3` as the stable reference and return directly to code/method changes
+
+## Fresh Window Resume Snapshot
+- This section is the shortest recovery point for a fresh Codex window.
+- Current direction:
+  - the real goal is a lightweight, patent/thesis-ready multimodal recommendation method on top of `PromptMM`
+  - LR tuning is support work only, not the final contribution claim
+- Current trustworthy baseline:
+  - the best recorded historical student result is still the older `student_lr=5e-5` run under `codes/main_mmlight.py`, but it is not the direct comparator for strict frozen-teacher sweeps
+  - the clean comparison baseline is now the frozen-teacher `student_lr=6e-5` lightgcn run logged on 2026-04-12 with student `Recall@20=0.09303`
+  - the first frozen-teacher `TD-Distill` method reference is now logged on 2026-04-12 with `Recall@20=0.14797`
+  - the frozen-teacher `td_distill_alpha=0.0` ablation is now also logged on 2026-04-12 and is effectively tied with the `0.1` run
+  - the no-warm-start `TD-Distill` ablation is now also logged on 2026-04-12 with `Recall@20=0.10244`, which is clearly below the warm-started method result but still above the clean lightgcn baseline
+  - the no-warm-start `td_distill_alpha=0.0` ablation is now also logged on 2026-04-12 with `Recall@20=0.07973`, which is below both the no-warm-start `0.1` run and the clean lightgcn baseline
+  - the no-warm-start `td_distill_alpha=0.05` sweep point is now also logged on 2026-04-12 with `Recall@20=0.09245`; it sits between the `0.0` and `0.1` endpoints, nearly matches the clean lightgcn baseline on Recall@20, but does not beat the completed no-warm-start `0.1` run
+  - the no-warm-start `td_distill_alpha=0.2` sweep point is now also logged on 2026-04-12 with `Recall@20=0.10682`; it is the best completed no-warm-start point so far and clearly beats both the clean lightgcn baseline and the completed no-warm-start `0.1` run
+  - the no-warm-start `td_distill_alpha=0.3` sweep point is now also logged on 2026-04-12 with `Recall@20=0.10717`; it is the current best completed no-warm-start point, but only slightly above the completed `0.2` run
+  - the no-warm-start `td_distill_alpha=0.4` sweep point is now also logged on 2026-04-13 with `Recall@20=0.08000`; it collapsed far below the completed `0.2/0.3` runs and even below the clean lightgcn baseline
+  - the local no-warm-start `td_distill_alpha=0.25` refinement is now also logged on 2026-04-13 with `Recall@20=0.09946`; it did not beat the completed `0.2` or `0.3` runs, so the nearby local check did not change the conclusion
+  - the first post-refactor anchor run with all four component rates at `1.0` is now also logged on 2026-04-13 with `Recall@20=0.07659`; it underperformed both the clean lightgcn baseline and the pre-refactor no-warm-start `TD-Distill` reference
+  - the item-only no-distillation control is now also logged on 2026-04-13 with `Recall@20=0.07691`; it confirms that item-side distillation itself is beneficial and that the remaining issue is structural rather than weight-only
+  - the item-only no-projection structure control is now also logged on 2026-04-13 with `Recall@20=0.10337`; it strongly recovers the post-refactor regression and is now the best completed post-refactor structure-control point
+  - latest completed no-warm-start command before sign-off: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_user_image_rate 0 --td_user_text_rate 0`
+- Current code-state truth:
+  - `--if_train_teacher false` now parses correctly
+  - clean frozen-teacher student-only sweeps now require a bundled teacher checkpoint containing both `teacher_model` and `prompt_module`
+  - legacy teacher checkpoints are not valid for strict frozen-teacher comparison
+  - `TD-Distill` warm-starts user/item ID embeddings from the teacher by default unless that behavior is explicitly disabled
+  - `--td_init_from_teacher` has now been validated in a completed no-warm-start ablation
+  - the latest code refactor has upgraded `TD-Distill` from a single summed item-side semantic alignment to a componentized setup with separate item/user and image/text training-only projection heads
+  - the latest code refactor also added explicit per-component weights (`td_item_image_rate`, `td_item_text_rate`, `td_user_image_rate`, `td_user_text_rate`) while preserving `td_distill_alpha` as the outer base scale
+  - the infer-only `TD-Distill` export remains lightweight: only user/item ID embeddings are exported, while the new projection heads stay training-only
+  - once warm start is removed, the directional term is no longer optional in the current setup; `td_distill_alpha=0.0` underperformed the clean lightgcn baseline
+  - under no warm start, the main alpha sweep rose through `0.3`, overshot sharply at `0.4`, and the nearby local refinement `0.25` also stayed below both `0.2` and `0.3`, so the useful directional-loss range remains around `0.2-0.3` with `0.3` as the stable reference
+  - the first post-refactor anchor run is now completed and shows that the full four-head equal-weight configuration is too strong or poorly balanced under no warm start
+  - the completed item-only no-projection control shows that projection removal alone recovers most of the post-refactor loss, so projection-head design is now the leading bottleneck candidate
+- Immediate rule:
+  - do not assume a user-mentioned run is complete unless its result has been pasted and logged
+  - do not treat the old pre-fix `6e-5` attempt as a canonical comparison point
+  - do not keep extending LR-only sweeps unless a later method run gives a concrete reason to reopen them
+- Near-term next step:
+  - keep using the bundled teacher produced on `2026-04-11 19:50:25` as the fixed teacher anchor
+  - treat the completed `TD-Distill` runs as valid method-side evidence rather than unverified candidates
+  - warm-start dependence is now established, so future interpretation must separate "teacher initialization effect" from "distillation effect"
+  - the completed `td_distill_alpha=0.3` point remains the best no-warm-start result and should now be treated as the stable no-warm-start reference
+  - the completed `td_distill_alpha=0.25` local refinement did not beat the completed `td_distill_alpha=0.3` result, so alpha tuning should now be treated as closed under the current structure
+  - the completed `td_distill_alpha=0.4` point already showed that larger no-warm-start directional weight can overshoot badly, so the next mainline step should return to code/method changes rather than continue alpha tuning
+  - the first post-refactor anchor run has now completed and failed clearly
+  - the next mainline step should be component-isolation ablation inside the refactored structure, beginning with item-only semantic distill (`td_user_image_rate=0`, `td_user_text_rate=0`) under the same fixed-teacher no-warm-start protocol
+  - the completed item-only post-refactor ablation (`td_user_image_rate=0`, `td_user_text_rate=0`) reached `Recall@20=0.09276946`, `NDCG@20=0.09900840`, `Precision@20=0.01619675`, which recovers substantially from the failed all-heads=`1.0` post-refactor anchor but still remains below the pre-refactor no-warm-start `td_distill_alpha=0.3` reference
+  - relative to the failed post-refactor all-heads=`1.0` anchor (`0.07658530 / 0.08219743 / 0.01315416`), the item-only run improved Recall@20 by about 21.13%, NDCG@20 by about 20.45%, and Precision@20 by about 23.13%
+  - relative to the clean frozen-teacher lightgcn baseline (`0.09302971 / 0.10014018 / 0.01738844`), the item-only run is still slightly lower by about 0.28%, 1.13%, and 6.85%
+  - relative to the pre-refactor no-warm-start `td_distill_alpha=0.3` reference (`0.10717427 / 0.11065527 / 0.01872211`), the item-only run is still lower by about 13.44%, 10.53%, and 13.48%
+  - interpretation: User-side semantic distillation introduces conflicting supervision signals that degrade recommendation quality, while item-side disentangled distillation remains beneficial
+  - updated interpretation after the completed item-only no-distillation control:
+  - User-side semantic distillation introduces conflicting supervision signals that degrade recommendation quality.
+  - Item-side disentangled distillation is consistently beneficial, as removing it (`td_distill_alpha=0.0`) causes a clear performance drop.
+  - However, even with item-only distillation, the refactored structure fails to recover the pre-refactor performance ceiling.
+  - Therefore, the main limitation of the current post-refactor design is not the usefulness of semantic distillation itself, but structural information loss or supervision mismatch introduced by the disentangled semantic-transfer pipeline.
+  - the completed lower-strength item-only sweep (`td_item_image_rate=0.5`, `td_item_text_rate=0.5`, `td_user_image_rate=0`, `td_user_text_rate=0`) reached the same best point as the previous item-only `1.0 / 1.0` run: `Recall@20=0.09276946`, `NDCG@20=0.09900840`, `Precision@20=0.01619675`
+  - reducing the item-side component rates from `1.0 / 1.0` to `0.5 / 0.5` did not recover any additional quality, so the remaining post-refactor gap is unlikely to be explained by item-side weight magnitude alone
+  - the completed item-only no-distillation control (`td_distill_alpha=0.0`, `td_user_image_rate=0`, `td_user_text_rate=0`) reached `Recall@20=0.07691166`, `NDCG@20=0.08679020`, `Precision@20=0.01430020`
+  - relative to the post-refactor item-only `td_distill_alpha=0.3` recovery run (`0.09276946 / 0.09900840 / 0.01619675`), the no-distillation control dropped by about 17.10% on Recall@20, 12.34% on NDCG@20, and 11.71% on Precision@20
+  - relative to the failed post-refactor all-heads=`1.0` anchor (`0.07658530 / 0.08219743 / 0.01315416`), the no-distillation control is effectively back in the same degraded range
+  - updated interpretation after the completed item-only no-distillation control:
+    - User-side semantic distillation introduces conflicting supervision signals that degrade recommendation quality.
+    - Item-side disentangled distillation is consistently beneficial, as removing it (`td_distill_alpha=0.0`) causes a clear performance drop.
+    - However, even with item-only distillation, the refactored structure fails to recover the pre-refactor performance ceiling.
+    - Therefore, the main limitation of the current post-refactor design is not the usefulness of semantic distillation itself, but structural information loss or supervision mismatch introduced by the disentangled semantic-transfer pipeline.
+  - next step after the completed item-only no-distillation control: stop all weight tuning (`td_distill_alpha` / rate sweeps) and move to structure-disambiguation experiments
+  - next decisive comparison (updated after no-projection control): run modality-isolation residual-gap localization (`item_image-only` / `item_text-only`) on both projection and no-projection branches under the same frozen-teacher no-warm-start protocol
+  - update after the completed item-only no-projection structure control:
+    - The no-projection variant reached `Recall@20=0.10337251`, `NDCG@20=0.10930838`, `Precision@20=0.01821501`.
+    - Relative to the post-refactor item-only projection run (`0.09276946 / 0.09900840 / 0.01619675`), it improved by about 11.43%, 10.40%, and 12.46%.
+    - Relative to the clean frozen-teacher lightgcn baseline (`0.09302971 / 0.10014018 / 0.01738844`), it improved by about 11.12%, 9.16%, and 4.75%.
+    - Relative to the pre-refactor no-warm-start `td_distill_alpha=0.3` reference (`0.10717427 / 0.11065527 / 0.01872211`), it is now only lower by about 3.55%, 1.22%, and 2.71%.
+    - Interpretation: projection-head removal recovers most of the remaining post-refactor gap, so the projection structure is now the primary bottleneck candidate; the residual gap, if any, should next be attributed to the remaining disentangle / dual-head semantic design rather than to `td_distill_alpha` or simple rate magnitude.
+
+## End-of-Day Snapshot
+- Completed clean frozen-teacher LR closure as of 2026-04-12 01:19:
+  - command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_lr 6e-5 --if_train_teacher false`
+  - outcome: student best epoch `321`, Recall@20 `0.09303`, NDCG@20 `0.10014`, Precision@20 `0.01739`
+- Decision taken after the run:
+  - fixed-teacher `6e-5` clearly beat the clean bundled-teacher `5e-5` baseline, so `6e-5` is promoted as the clean LR reference
+  - LR tuning is now considered closed unless a later method experiment exposes a concrete need to revisit it
+- Immediate work after LR closure:
+  - move back to code/method work rather than more optimizer sweeps
+  - prioritize `TD-Distill` / train-infer decoupling / asymmetric semantic distillation framing
+  - first method result is now in hand:
+    - lightweight distilled student vs heavy teacher is essentially tied on the tracked top-k metrics
+    - lightweight distilled student vs current lightgcn KD student baseline is a large win
+    - an inference-only embedding checkpoint was exported under `Model/amazon/td_distill/`
+
+## Thesis / Patent Reuse Notes
+- This log is intended to be reusable later for both thesis writing and patent drafting, not only for experiment tracking.
+- Keep preserving these four kinds of information for every important run:
+  - exact command and key parameter changes
+  - teacher-stage and student-stage best summaries separately
+  - archived artifact paths for checkpoints / converge files
+  - interpretation notes explaining why a run matters to the method story
+- This file should support later writing in three ways:
+  - reproducibility: which command, which checkpoint protocol, which comparison anchor
+  - method evolution: what changed relative to original `PromptMM`, and why
+  - evidence chain: whether the lightweight distilled student is close enough to the teacher while being simpler at inference
+
+## Next Planned Comparison
+- LR-only comparison is closed; do not schedule more learning-rate sweeps unless later method results make it necessary.
+- Keep using the refreshed bundled teacher generated on `2026-04-11 19:50:25` as the clean teacher anchor.
+- Use the clean frozen-teacher `student_lr=6e-5` lightgcn student (`Recall@20=0.09303`, `NDCG@20=0.10014`, `Precision@20=0.01739`) as the direct student reference point.
+- Use the completed frozen-teacher `TD-Distill` run (`Recall@20=0.14797`, `NDCG@20=0.14750`, `Precision@20=0.02672`) as the current method reference point.
+- Use the completed no-warm-start `td_distill_alpha=0.3` sweep point (`Recall@20=0.10717`, `NDCG@20=0.11066`, `Precision@20=0.01872`) as the current best no-warm-start pre-refactor reference.
+- Use the first post-refactor anchor run with all four semantic heads active at rate `1.0` (`Recall@20=0.07659`, `NDCG@20=0.08220`, `Precision@20=0.01315`) as a failed structural anchor rather than a new method reference.
+- Use the completed post-refactor item-only recovery run (`td_distill_alpha=0.3`, `td_user_image_rate=0`, `td_user_text_rate=0`) with (`Recall@20=0.09277`, `NDCG@20=0.09901`, `Precision@20=0.01620`) as the post-refactor recovery anchor.
+- Use the completed post-refactor symmetric lower-strength item-only sweep (`td_item_image_rate=0.5`, `td_item_text_rate=0.5`) as evidence that simple symmetric item-side downscaling does not recover the remaining gap.
+- Use the completed post-refactor item-only no-distillation control (`td_distill_alpha=0.0`, `td_user_image_rate=0`, `td_user_text_rate=0`) with (`Recall@20=0.07691`, `NDCG@20=0.08679`, `Precision@20=0.01430`) as evidence that item-side semantic distillation is still effective under the refactored structure, because removing it drops performance back to the degraded post-refactor range.
+- Use the completed post-refactor item-only no-projection control (`student_model_type=td_distill_no_projection`) with (`Recall@20=0.10337`, `NDCG@20=0.10931`, `Precision@20=0.01822`) as the formal structure-control baseline for subsequent residual-gap localization.
+
+### Updated interpretation (after item-only no-distill control)
+- User-side semantic distillation introduces conflicting supervision signals that degrade recommendation quality.
+- Item-side disentangled distillation is consistently beneficial, as removing it (`td_distill_alpha=0.0`) causes a clear performance drop.
+- However, even with item-only distillation, the refactored structure fails to recover the pre-refactor performance ceiling.
+- Therefore, the main limitation of the current post-refactor design is not the usefulness of semantic distillation itself, but structural information loss or supervision mismatch introduced by the disentangled semantic-transfer pipeline.
+- The completed item-only no-projection run recovers most of the post-refactor gap, so projection-head design is now the leading bottleneck candidate.
+- `td_distill_alpha` / rate magnitude is now treated as a closed factor under the current protocol unless a later structure control contradicts this.
+
+### Updated next-step rule
+- promote `td_distill_no_projection` (item-only, `td_distill_alpha=0.3`) to formal structure-control baseline.
+- stop all weight tuning (`td_distill_alpha` / rate sweeps) until structure-disambiguation conclusions are exhausted.
+- run residual-gap localization with modality-isolation controls only:
+  - projection line: `item_image-only` and `item_text-only`
+  - no-projection line: `item_image-only` and `item_text-only`
+- keep protocol fixed across all four runs: frozen teacher, no warm start, same dataset, same `student_lr`, same `td_distill_alpha`.
+
+### next decisive comparison
+- projection branch | item_image-only:
+  - `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0 --td_user_image_rate 0 --td_user_text_rate 0`
+- projection branch | item_text-only:
+  - `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 0 --td_item_text_rate 1 --td_user_image_rate 0 --td_user_text_rate 0`
+- no-projection branch | item_image-only:
+  - `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0 --td_user_image_rate 0 --td_user_text_rate 0`
+- no-projection branch | item_text-only:
+  - `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 0 --td_item_text_rate 1 --td_user_image_rate 0 --td_user_text_rate 0`
+
+### goal
+- verify whether the performance drop comes from:
+  - projection head information loss
+  - item-image vs item-text transfer mismatch
+  - or the remaining disentangle pipeline itself
+
+## Historical Interrupted Run Snapshot
+- Snapshot date: 2026-04-11
+- Status:
+  - retained only for traceability; not a current anchor task
+- Historical run state:
+  - `student_lr=6e-5` run started at `2026-04-11 18:23`, but it was not a clean student-only comparison because teacher training was still enabled
+- Command:
+  - `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_lr 6e-5`
+- Key note:
+  - do not enter this run into `## Run History` as the canonical `6e-5` comparison
+  - if `6e-5` is revisited, rerun it later with `--if_train_teacher false` after the bundled-teacher refresh
+
+## Procedure Updates
+
+### 2026-04-13 | Structure-control baseline freeze + residual-gap localization protocol (confirmed parameter change)
+- Files:
+  - `TRAINING_LOG.md`
+  - `codes/td_distill_model_no_projection.py`
+  - `codes/main_mmlight.py`
+- Decision:
+  - promote `td_distill_no_projection` item-only setting as the formal structure-control baseline
+  - stop `td_distill_alpha` / rate sweeps until structure-disambiguation checks are completed
+  - move to modality-isolation residual-gap localization (`item_image-only` and `item_text-only`)
+- Fixed protocol for the next four runs:
+  - `--dataset amazon`
+  - `--student_lr 6e-5`
+  - `--if_train_teacher false`
+  - `--td_distill_alpha 0.3`
+  - `--td_init_from_teacher false`
+  - `--td_user_image_rate 0 --td_user_text_rate 0`
+- Scheduled commands:
+  - `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0 --td_user_image_rate 0 --td_user_text_rate 0`
+  - `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 0 --td_item_text_rate 1 --td_user_image_rate 0 --td_user_text_rate 0`
+  - `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0 --td_user_image_rate 0 --td_user_text_rate 0`
+  - `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 0 --td_item_text_rate 1 --td_user_image_rate 0 --td_user_text_rate 0`
+- Status:
+  - protocol/parameter update confirmed
+  - run execution pending
+- Resume note:
+  - after each run finishes, append a normal run-history block with full best metrics and relative deltas against both item-only projection and item-only no-projection baselines.
+
+### 2026-04-13 | Residual-gap localization run interruption (projection branch, `item_image-only`)
+- Files:
+  - `TRAINING_LOG.md`
+  - `codes/main_mmlight.py`
+  - `codes/td_distill_model.py`
+- Command:
+  - `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0 --td_user_image_rate 0 --td_user_text_rate 0`
+- Confirmed parameter changes:
+  - projection branch (`student_model_type=td_distill`)
+  - modality isolation `item_image-only` (`td_item_image_rate=1`, `td_item_text_rate=0`)
+  - user-side distillation disabled (`td_user_image_rate=0`, `td_user_text_rate=0`)
+- Observed run state:
+  - run started correctly; log confirms `TD-Distill active semantic heads: item_image`
+  - epoch `0` finished and test summary was emitted (`TD-Test_Recall@20: 0.00217`)
+  - run then interrupted during checkpoint saving with:
+    - `AttributeError: 'TDDistillModel' object has no attribute 'item_teacher_dim'`
+- Root cause:
+  - `save_td_distill_checkpoints()` expects `self.td_distill_model.item_teacher_dim` and `self.td_distill_model.user_teacher_dim`
+  - `TDDistillNoProjectionModel` defines these fields, but `TDDistillModel` previously did not
+- Fix applied:
+  - added explicit metadata fields in `codes/td_distill_model.py`:
+    - `self.item_teacher_dim`
+    - `self.user_teacher_dim`
+    - plus head-name tuples for consistent metadata export
+  - updated user projection construction to use `self.user_teacher_dim`
+  - quick instantiation sanity check passed after patch
+- Status:
+  - parameter change is confirmed
+  - run result is invalid/incomplete due to interruption
+  - rerun required with the same command
+
+### 2026-04-13 | TD-Distill phase-1 item-only component-isolation result
+- Files:
+  - `TRAINING_LOG.md`
+  - `codes/main_mmlight.py`
+- Command:
+  - `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_user_image_rate 0 --td_user_text_rate 0`
+- Outcome:
+  - item-only post-refactor ablation completed with best epoch `209` and metrics `Recall@20=0.09276946`, `NDCG@20=0.09900840`, `Precision@20=0.01619675`
+- Interpretation:
+  - User-side semantic distillation introduces conflicting supervision signals that degrade recommendation quality, while item-side disentangled distillation remains beneficial
+  - disabling user-side semantic distillation recovered a large portion of the failed post-refactor all-heads=`1.0` regression, so the refactor is not a blanket structural failure
+  - however, the item-only result still remains below both the clean frozen-teacher lightgcn baseline and the pre-refactor no-warm-start `td_distill_alpha=0.3` reference, which means the refactored item-side branch still appears overweighted or otherwise not yet calibrated
+- Resume note:
+  - if this section exists without a newer recovery run, treat the item-only setting as the current post-refactor recovery anchor and keep user-side distillation disabled while tuning item-side rates first
+
+### 2026-04-13 | TD-Distill phase-1 symmetric lower-strength item-only sweep
+- Files:
+  - `TRAINING_LOG.md`
+  - `codes/main_mmlight.py`
+- Command:
+  - `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 0.5 --td_item_text_rate 0.5 --td_user_image_rate 0 --td_user_text_rate 0`
+- Outcome:
+  - symmetric lower-strength item-only sweep completed with best epoch `209` and metrics `Recall@20=0.09276946`, `NDCG@20=0.09900840`, `Precision@20=0.01619675`
+- Interpretation:
+  - this run matched the earlier item-only `1.0 / 1.0` result instead of improving it
+  - the remaining post-refactor gap is therefore unlikely to be explained by excessive item-side weight magnitude alone
+  - the next step should move from same-family rate tuning to a semantic-distillation-off control that tests whether the refactored item-side path is still contributing meaningful gain at all
+- Resume note:
+  - if this section exists without a newer control run, treat the next decisive comparison as the item-only `td_distill_alpha=0.0` control, not another symmetric item-rate sweep
+
+### 2026-04-13 | TD-Distill phase-1 post-refactor anchor run result
+- Files:
+  - `TRAINING_LOG.md`
+  - `codes/main_mmlight.py`
+- Command:
+  - `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false`
+- Outcome:
+  - first post-refactor no-warm-start anchor run completed with best epoch `21` and metrics `Recall@20=0.07658530`, `NDCG@20=0.08219743`, `Precision@20=0.01315416`
+- Interpretation:
+  - the all-four-head equal-weight setup is not a drop-in improvement over the old structure
+  - the added user-side semantic transfer and/or equal weighting across four heads likely overwhelms the no-warm-start student
+  - the next step is targeted component ablation, not alpha retuning
+- Resume note:
+  - if this section exists without a newer successful post-refactor run, assume the refactor code stays in place but the all-heads=`1.0` configuration has been rejected as the default post-refactor setting
+
+### 2026-04-13 | TD-Distill phase-1 method refactor plan (in progress)
+- Files:
+  - `codes/utility/parser.py`
+  - `codes/td_distill_model.py`
+  - `codes/main_mmlight.py`
+- Why now:
+  - the no-warm-start alpha line is now closed for the current structure: `0.3` is the best completed point, `0.4` is a clear overshoot, and the local `0.25` refinement did not reopen the conclusion
+  - the current `TD-Distill` implementation still only distills a single summed item semantic target (`image + text`) and does not yet transfer user-side multimodal semantics
+  - further alpha-only refinement is therefore lower value than strengthening the method structure itself
+- Phase-1 implementation target:
+  - replace the current single item-side bridge with disentangled training-only heads for image/text semantics
+  - add user-side multimodal semantic distillation so the no-warm-start branch is not learning user representations from BPR alone
+  - expose each distillation component as an independent parser/logging knob so later ablations can answer which part really contributes
+  - keep the inference student lightweight: export only user/item ID embeddings, not the training-only distillation heads
+- Planned rollout order:
+  - add parser arguments for component weights and logging-friendly switches
+  - upgrade `TDDistillModel` to support separate item/user projection heads
+  - rewire `train_td_distill()` to cache teacher image/text user/item semantics and optimize a weighted component loss
+  - keep `td_distill_alpha=0.3` as the first no-warm-start comparison anchor after the structural change
+- Execution status:
+  - plan confirmed against both `TRAINING_LOG.md` and current code
+  - code edits were completed and the first post-refactor anchor run has now been executed
+  - the first all-heads=`1.0` no-warm-start anchor run failed clearly, so phase-1 remains in progress but is no longer untested
+- Resume note for a fresh window:
+  - if this section exists without a newer completed run entry, assume the repository is in the middle of the phase-1 `TD-Distill` refactor rather than another alpha sweep
+
+### 2026-04-13 | TD-Distill phase-1 code progress update
+- Files:
+  - `codes/utility/parser.py`
+  - `codes/td_distill_model.py`
+  - `codes/main_mmlight.py`
+- Completed in code:
+  - Added four explicit `TD-Distill` component weights:
+    - `--td_item_image_rate`
+    - `--td_item_text_rate`
+    - `--td_user_image_rate`
+    - `--td_user_text_rate`
+  - Kept `--td_distill_alpha` as the outer base weight, but changed the semantic-loss structure from a single summed item target to a weighted average over active item/user image/text components.
+  - Replaced the old single `bridge` in `TDDistillModel` with separate training-only projection heads for:
+    - item-image
+    - item-text
+    - user-image
+    - user-text
+  - Updated `train_td_distill()` so it now:
+    - caches teacher image/text semantics for both items and users once before the epoch loop
+    - computes no-warm-start distillation on sampled users plus sampled positive items
+    - logs active component rates at run start
+    - records per-component epoch losses into the converge pickle
+    - saves component-rate metadata and separate item/user teacher semantic dims into the full `TD-Distill` checkpoint
+  - Kept inference export lightweight: the infer-only checkpoint still exports only user/item ID embeddings, not the training-only projection heads.
+- Verification:
+  - completed a read-only AST parse check for:
+    - `codes/main_mmlight.py`
+    - `codes/td_distill_model.py`
+    - `codes/utility/parser.py`
+  - the first post-refactor anchor run has now completed and is logged below; it showed that the all-heads=`1.0` configuration regressed sharply under no warm start
+- Interpretation impact:
+  - from this code point onward, `TD-Distill` no longer means "BPR + one item-side summed semantic alignment"; it now means a componentized train-only semantic transfer setup that can separately ablate item/user and image/text contributions
+  - this is the intended phase-1 structure for the thesis/patent line because it reduces the mismatch between the method story and the actual code path
+- Current status:
+  - phase-1 part A is now landed in code: disentangled multimodal semantic distillation plus user-side transfer plus ablation knobs
+  - phase-1 part B is still pending for a later step if needed:
+    - alpha scheduling / curriculum
+    - teacher ranking-behavior distillation
+  - the next action is not another alpha sweep under the old structure; it is the first post-refactor anchor run under the fixed teacher and no-warm-start setting
+
+### 2026-04-12 | TD-Distill ablation-support updates
+- Files:
+  - `codes/utility/parser.py`
+  - `codes/main_mmlight.py`
+- Changes:
+  - Added an explicit `--td_init_from_teacher` parser argument so warm-start dependence can be switched on or off from the CLI for `TD-Distill`.
+  - Added warm-start state logging in the `TD-Distill` branch so each future run states whether teacher final user/item embeddings were reused.
+  - When `td_distill_alpha=0.0`, the `TD-Distill` branch now skips the bridge / directional-distillation computation entirely instead of still paying the extra compute cost for a zero-weight term.
+  - The `TD-Distill` branch now writes a converge pickle to the logged `exp/converge/<dataset>/...` artifact path, matching the startup artifact summary.
+- Impact on interpretation:
+  - Future no-warm-start ablations can now be launched directly from the command line without code edits between runs.
+  - Future `td_distill_alpha=0.0` runs will be cheaper and easier to interpret as true BPR-only warm-start ablations.
+  - Future `TD-Distill` artifacts will be more consistent with the normal student branch, improving reproducibility and handoff quality.
+
+### 2026-04-12 | TD-Distill run-readiness updates
+- Files:
+  - `codes/utility/parser.py`
+  - `codes/main_mmlight.py`
+- Changes:
+  - Added an explicit `--td_distill_alpha` parser argument so `TD-Distill` runs do not rely on an implicit fallback value in `codes/main_mmlight.py`.
+  - Changed `TD-Distill` training to cache frozen-teacher item semantics once before the epoch loop instead of recomputing the full teacher forward pass inside every batch.
+  - Added `TD-Distill best summary` logging so the final log now keeps the best epoch and best metrics rather than only the last evaluated epoch.
+- Impact on interpretation:
+  - Future `TD-Distill` commands are now self-describing in logs and easier to compare or reproduce later in thesis/patent writing.
+  - The first `TD-Distill` run should now be both faster and easier to summarize cleanly in `TRAINING_LOG.md`.
+
+### 2026-04-11 | Teacher reuse and stage-aware logging fix
+- Files:
+  - `codes/utility/parser.py`
+  - `codes/main_mmlight.py`
+- Changes:
+  - Added reliable boolean parsing so `--if_train_teacher false` now actually disables teacher retraining instead of being parsed as `True`.
+  - Split teacher and student early-stopping logs so console output now says `Teacher ...` or `Student ...` explicitly.
+  - Added teacher best-summary and student best-summary log lines, including best epoch and `Recall@20` / `Precision@20` / `NDCG@20`.
+  - Added an explicit checkpoint existence check before student distillation starts when reusing teacher.
+- Impact on interpretation:
+  - Historical LR comparisons before this point are still useful, but they are not perfectly clean student-only ablations because teacher was retrained each time.
+  - From this point forward, LR sweeps should prefer a fixed teacher checkpoint and compare only the student-side change.
+
+### 2026-04-11 | Full teacher-freeze fix for student-only sweeps
+- Files:
+  - `codes/main_mmlight.py`
+  - `codes/Models_mmlight.py`
+- Changes:
+  - Teacher checkpoints now save both `teacher_model` and `prompt_module`, so a reused teacher is now a full bundle rather than only partial weights.
+  - Student-stage distillation now keeps teacher-side modules in `eval()` mode instead of switching the teacher back to `train()` inside the batch loop.
+  - `PromptLearner` dropout now follows module mode, so `eval()` truly disables prompt dropout during teacher reuse.
+  - Student-only reuse now rejects legacy teacher checkpoints that do not contain `prompt_module`; in that case, run one fresh teacher stage first to refresh the checkpoint bundle.
+- Impact on interpretation:
+  - A new teacher checkpoint must be produced once under this code before any `--if_train_teacher false` run can be treated as a clean frozen-teacher student comparison.
+  - Older teacher checkpoints remain usable for reference, but not for strict teacher-frozen ablations.
+
+## Run History
+
+### 2026-04-10 | Student baseline after learning-rate bump
+- Script: `codes/main_mmlight.py`
+- Command: not preserved in the original handoff document
+- Parameter change: changed default `student_lr` in `codes/utility/parser.py` from `2e-5` to `5e-5`
+- KD-related weights: unchanged
+- Status: completed normally with early stopping
+- Best metrics:
+  - Recall@20: 0.08522735
+  - NDCG@20: 0.09222543
+  - Precision@20: 0.01581643
+- Full best result:
+  - precision: [0.01960446, 0.01581643, 0.01254057, 0.01146856]
+  - recall: [0.05367307, 0.08522735, 0.13113896, 0.14939358]
+  - ndcg: [0.07052794, 0.09222543, 0.11911175, 0.12849575]
+  - hit_ratio: [0.163286, 0.24016227, 0.33782961, 0.37089249]
+- Notes:
+  - Recorded from `TRAINING_HANDOFF_2026-04-10.md`.
+  - The active training line is `codes/main_mmlight.py`.
+  - The key issue observed in this run was slow convergence rather than instability.
+
+### 2026-04-11 | Default `student_lr=5e-5` confirmed as improved baseline
+- Script: `codes/main_mmlight.py`
+- Command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon`
+- Parameter changes: none in code during this run; effective `student_lr=5e-5` came from the parser default with no CLI override
+- KD-related weights: unchanged
+- Status: completed normally with early stopping at epoch 445; best result appeared at epoch 436
+- Best metrics:
+  - Recall@20: 0.09767902
+  - NDCG@20: 0.10535289
+  - Precision@20: 0.01846349
+- Full best result:
+  - precision: [0.02218053, 0.01846349, 0.01432302, 0.0131643]
+  - recall: [0.06021809, 0.09767902, 0.15052899, 0.17090017]
+  - ndcg: [0.07996493, 0.10535289, 0.13426904, 0.14462933]
+  - hit_ratio: [0.1811359, 0.2703854, 0.37251521, 0.40486815]
+- Notes:
+  - Archived teacher checkpoint: `Model/amazon/runs/teacher_model_great__2026-04-11 00_27_22_amazon_light_init_pid17924.pt`
+  - Archived converge result: `exp/converge/amazon/auto__2026-04-11 00_27_22_amazon_light_init_pid17924.pkl`
+  - Relative to the previous 2026-04-10 baseline, Recall@20 improved by about 14.6% and NDCG@20 improved by about 14.2%.
+  - Training remained stable, but convergence was still slow enough to justify a single-variable `--student_lr 1e-4` comparison.
+
+### 2026-04-11 | Bundled-teacher refresh baseline under fixed teacher-save/load protocol
+- Script: `codes/main_mmlight.py`
+- Command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon`
+- Parameter changes:
+  - no CLI override; effective `student_lr=5e-5` came from the parser default
+  - this run was executed after the full teacher-freeze / bundled-checkpoint fix
+- KD-related weights: unchanged
+- Status: completed normally with teacher early stopping at epoch 28 and student early stopping at epoch 302
+- Teacher summary:
+  - Reused or retrained: retrained
+  - Best epoch: 19
+  - Recall@20: 0.14755461
+  - NDCG@20: 0.14741283
+  - Precision@20: 0.02665822
+- Best metrics:
+  - Recall@20: 0.08819490
+  - NDCG@20: 0.09534853
+  - Precision@20: 0.01655172
+- Full best result:
+  - precision: [0.02021298, 0.01655172, 0.01312627, 0.01207302]
+  - recall: [0.05408191, 0.0881949, 0.13806993, 0.15621476]
+  - ndcg: [0.07251681, 0.09534853, 0.12324792, 0.13298367]
+  - hit_ratio: [0.16622718, 0.24766734, 0.3489858, 0.38042596]
+- Notes:
+  - Archived teacher checkpoint: `Model/amazon/runs/teacher_model_great__2026-04-11 19_50_25_amazon_light_init_pid21780.pt`
+  - Archived converge result: `exp/converge/amazon/auto__2026-04-11 19_50_25_amazon_light_init_pid21780.pkl`
+  - This is the first completed baseline after the bundled teacher save/load fix, so it becomes the direct comparison anchor for future clean `--if_train_teacher false` sweeps.
+  - Student quality was noticeably lower than the older historical-best `5e-5` run (`Recall@20 0.09768 -> 0.08819`), so future conclusions should compare like-with-like under the same clean protocol rather than mixing old and new baselines.
+
+### 2026-04-11 | CLI `student_lr=1e-4` comparison
+- Script: `codes/main_mmlight.py`
+- Command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_lr 1e-4`
+- Parameter changes:
+  - CLI override `student_lr=1e-4`
+  - Parser default unchanged at `student_lr=5e-5`
+  - `batch_size=512` unchanged for a clean single-variable learning-rate comparison
+- KD-related weights: unchanged
+- Status: completed normally with early stopping at epoch 250; best result appeared at epoch 241
+- Best metrics:
+  - Recall@20: 0.09822313
+  - NDCG@20: 0.10529881
+  - Precision@20: 0.01839249
+- Full best result:
+  - precision: [0.02270791, 0.01839249, 0.01434331, 0.01309533]
+  - recall: [0.06244827, 0.09822313, 0.14888977, 0.16898513]
+  - ndcg: [0.08072169, 0.10529881, 0.13407635, 0.14422551]
+  - hit_ratio: [0.18498986, 0.27099391, 0.3693712, 0.40436105]
+- Notes:
+  - Archived teacher checkpoint: `Model/amazon/runs/teacher_model_great__2026-04-11 11_59_06_amazon_light_init_pid26300.pt`
+  - Archived converge result: `exp/converge/amazon/auto__2026-04-11 11_59_06_amazon_light_init_pid26300.pkl`
+  - Relative to the current `5e-5` baseline, Recall@20 improved slightly (`0.09767902 -> 0.09822313`), while NDCG@20 (`0.10535289 -> 0.10529881`) and Precision@20 (`0.01846349 -> 0.01839249`) were essentially flat to slightly lower.
+  - The main benefit of `1e-4` is convergence speed: best validation quality arrived far earlier (`epoch 241` vs `epoch 436`).
+  - Best interpretation: `1e-4` is a faster near-tied setting, not a clear replacement for the `5e-5` quality baseline.
+
+### 2026-04-11 | CLI `student_lr=7e-5` comparison
+- Script: `codes/main_mmlight.py`
+- Command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_lr 7e-5`
+- Parameter changes:
+  - CLI override `student_lr=7e-5`
+  - Parser default unchanged at `student_lr=5e-5`
+  - `batch_size=512` unchanged for a clean single-variable learning-rate comparison
+- KD-related weights: unchanged
+- Status: completed normally with early stopping at epoch 270; best result appeared at epoch 261
+- Best metrics:
+  - Recall@20: 0.09483903
+  - NDCG@20: 0.10135743
+  - Precision@20: 0.01772819
+- Full best result:
+  - precision: [0.02134888, 0.01772819, 0.01370943, 0.01253347]
+  - recall: [0.05792433, 0.09483903, 0.14226363, 0.16266129]
+  - ndcg: [0.07646354, 0.10135743, 0.12859931, 0.13856201]
+  - hit_ratio: [0.17636917, 0.26247465, 0.35730223, 0.39097363]
+- Notes:
+  - Archived teacher checkpoint: `Model/amazon/runs/teacher_model_great__2026-04-11 15_38_13_amazon_light_init_pid19316.pt`
+  - Archived converge result: `exp/converge/amazon/auto__2026-04-11 15_38_13_amazon_light_init_pid19316.pkl`
+  - Relative to the current `5e-5` baseline, Recall@20 dropped from `0.09767902` to `0.09483903`, NDCG@20 dropped from `0.10535289` to `0.10135743`, and Precision@20 dropped from `0.01846349` to `0.01772819`.
+  - Relative to the CLI `1e-4` comparison, `7e-5` was also weaker across the tracked student metrics while not materially improving the speed-quality tradeoff.
+  - Best interpretation: `7e-5` does not support moving the default upward; if LR tuning continues, `6e-5` is more sensible than `8e-5`.
+
+### 2026-04-11 to 2026-04-12 | Clean frozen-teacher CLI `student_lr=6e-5` comparison
+- Script: `codes/main_mmlight.py`
+- Command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_lr 6e-5 --if_train_teacher false`
+- Parameter changes:
+  - CLI override `student_lr=6e-5`
+  - CLI override `if_train_teacher=false`, so the student reused the saved bundled teacher checkpoint instead of retraining teacher
+  - Parser default unchanged at `student_lr=5e-5`
+  - `batch_size=512` unchanged for a clean single-variable learning-rate comparison under frozen teacher
+- KD-related weights: unchanged (`kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`)
+- Status: completed normally with student early stopping at epoch 330; best result appeared at epoch 321
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: 19
+  - Recall@20: 0.14755461
+  - NDCG@20: 0.14741283
+  - Precision@20: 0.02665822
+- Best metrics:
+  - Recall@20: 0.09302971
+  - NDCG@20: 0.10014018
+  - Precision@20: 0.01738844
+- Full best result:
+  - precision: [0.02119675, 0.01738844, 0.01383874, 0.01270791]
+  - recall: [0.05716351, 0.09302971, 0.14312269, 0.16385911]
+  - ndcg: [0.07651317, 0.10014018, 0.12907822, 0.13926112]
+  - hit_ratio: [0.17484787, 0.25851927, 0.36014199, 0.39320487]
+- Notes:
+  - Reused teacher checkpoint: `Model/amazon/teacher_model_great.pt`
+  - Teacher source run: `Model/amazon/runs/teacher_model_great__2026-04-11 19_50_25_amazon_light_init_pid21780.pt`
+  - Archived converge result: `exp/converge/amazon/auto__2026-04-11 22_56_26_amazon_light_init_pid2384.pkl`
+  - Run log: `logs/2026-04-11 22_56_26_amazon_light_init_pid2384`
+  - Relative to the clean bundled-teacher `5e-5` baseline, Recall@20 improved from `0.08819490` to `0.09302971`, NDCG@20 improved from `0.09534853` to `0.10014018`, and Precision@20 improved from `0.01655172` to `0.01738844`.
+  - Best interpretation: under the strict frozen-teacher protocol, `6e-5` is a clear improvement over the clean `5e-5` baseline and should become the new LR reference before returning to method work.
+
+### 2026-04-12 | First frozen-teacher `TD-Distill` method comparison
+- Script: `codes/main_mmlight.py`
+- Command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.1`
+- Parameter changes:
+  - CLI override `student_model_type=td_distill`
+  - CLI override `student_lr=6e-5`
+  - CLI override `if_train_teacher=false`, so the run reused the saved bundled teacher checkpoint instead of retraining teacher
+  - explicit method weight `td_distill_alpha=0.1`
+  - parser default unchanged at `student_lr=5e-5`
+- KD-related weights:
+  - inherited PromptMM KD flags stayed at `kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`
+  - the active `TD-Distill` branch optimized `BPR + td_distill_alpha * directional_distillation_loss`
+- Status: completed normally with `TD-Distill` early stop at epoch 21; best result appeared at epoch 12
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: 19
+  - Recall@20: 0.14755461
+  - NDCG@20: 0.14741283
+  - Precision@20: 0.02665822
+- Best metrics:
+  - Recall@20: 0.14796617
+  - NDCG@20: 0.14750383
+  - Precision@20: 0.02671907
+- Full best result:
+  - precision: [0.03445233, 0.02671907, 0.01997972, 0.01805477]
+  - recall: [0.09826668, 0.14796617, 0.21427575, 0.24020877]
+  - ndcg: [0.11717615, 0.14750383, 0.18210728, 0.19410078]
+  - hit_ratio: [0.26247465, 0.36135903, 0.47008114, 0.50476673]
+- Notes:
+  - Reused teacher checkpoint: `Model/amazon/teacher_model_great.pt`
+  - Teacher source run: `Model/amazon/runs/teacher_model_great__2026-04-11 19_50_25_amazon_light_init_pid21780.pt`
+  - Run log: `logs/2026-04-12 11_14_02_amazon_light_init_pid14172`
+  - TD-Distill full checkpoint: `Model/amazon/td_distill/td_distill_full__2026-04-12 11_14_02_amazon_light_init_pid14172.pth`
+  - TD-Distill infer-only checkpoint: `Model/amazon/td_distill/td_distill_infer_only__2026-04-12 11_14_02_amazon_light_init_pid14172.pth`
+  - The startup log still printed a generic `converge_run` artifact path, but the `TD-Distill` branch did not write a matching `exp/converge/amazon/*14172*` pickle in this run.
+  - Relative to the clean frozen-teacher lightgcn reference (`Recall@20=0.09302971`, `NDCG@20=0.10014018`, `Precision@20=0.01738844`), `TD-Distill` improved Recall@20 by about 59.05%, NDCG@20 by about 47.30%, and Precision@20 by about 53.66%.
+  - Relative to the reused heavy teacher summary, `TD-Distill` was effectively tied and slightly higher on the tracked top-k metrics (`Recall@20 0.14755461 -> 0.14796617`, `NDCG@20 0.14741283 -> 0.14750383`, `Precision@20 0.02665822 -> 0.02671907`).
+  - Interpretation guardrail: this strong result is not a logging bug in `test()`; the `TD-Distill` branch evaluates `self.td_distill_model()` directly. However, the method is warm-started from teacher final user/item embeddings, so the next ablation should isolate the added value of directional distillation from the value of teacher-embedding initialization.
+
+### 2026-04-12 | Frozen-teacher `TD-Distill` directional-loss ablation (`td_distill_alpha=0.0`)
+- Script: `codes/main_mmlight.py`
+- Command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.0`
+- Parameter changes:
+  - CLI override `student_model_type=td_distill`
+  - CLI override `student_lr=6e-5`
+  - CLI override `if_train_teacher=false`, so the run reused the saved bundled teacher checkpoint instead of retraining teacher
+  - explicit ablation weight `td_distill_alpha=0.0`
+  - at this run point, `TD-Distill` still warm-started from teacher final user/item embeddings by default
+  - parser default unchanged at `student_lr=5e-5`
+- KD-related weights:
+  - inherited PromptMM KD flags stayed at `kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`
+  - because `td_distill_alpha=0.0`, the effective optimization target reduced to BPR under the current warm-started `TD-Distill` setup
+- Status: completed normally with `TD-Distill` early stop at epoch 21; best result appeared at epoch 12
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: 19
+  - Recall@20: 0.14755461
+  - NDCG@20: 0.14741283
+  - Precision@20: 0.02665822
+- Best metrics:
+  - Recall@20: 0.14793405
+  - NDCG@20: 0.14757129
+  - Precision@20: 0.02671907
+- Full best result:
+  - precision: [0.03444219, 0.02671907, 0.01997972, 0.01805477]
+  - recall: [0.09828116, 0.14793405, 0.2144345, 0.24028759]
+  - ndcg: [0.11725762, 0.14757129, 0.18218541, 0.19418397]
+  - hit_ratio: [0.26247465, 0.36146045, 0.47018256, 0.50496957]
+- Notes:
+  - Reused teacher checkpoint: `Model/amazon/teacher_model_great.pt`
+  - Teacher source run: `Model/amazon/runs/teacher_model_great__2026-04-11 19_50_25_amazon_light_init_pid21780.pt`
+  - Run log: `logs/2026-04-12 11_57_24_amazon_light_init_pid33984`
+  - TD-Distill full checkpoint: `Model/amazon/td_distill/td_distill_full__2026-04-12 11_57_24_amazon_light_init_pid33984.pth`
+  - TD-Distill infer-only checkpoint: `Model/amazon/td_distill/td_distill_infer_only__2026-04-12 11_57_24_amazon_light_init_pid33984.pth`
+  - The startup log still printed a generic `converge_run` artifact path, but this run happened before the later converge-save patch for the `TD-Distill` branch, so no matching `exp/converge/amazon/*33984*` pickle was produced here.
+  - Relative to the clean frozen-teacher lightgcn reference (`Recall@20=0.09302971`, `NDCG@20=0.10014018`, `Precision@20=0.01738844`), this ablation still improved Recall@20 by about 59.02%, NDCG@20 by about 47.36%, and Precision@20 by about 53.66%.
+  - Relative to the `td_distill_alpha=0.1` method run, metrics were effectively tied (`Recall@20 0.14796617 -> 0.14793405`, `NDCG@20 0.14750383 -> 0.14757129`, `Precision@20 0.02671907 -> 0.02671907`).
+  - Interpretation: under warm start, the current gain is not mainly explained by the directional-distillation term; the next decisive ablation should disable teacher-embedding initialization directly.
+
+### 2026-04-12 | Frozen-teacher `TD-Distill` no-warm-start ablation (`td_init_from_teacher=false`)
+- Script: `codes/main_mmlight.py`
+- Command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.1 --td_init_from_teacher false`
+- Parameter changes:
+  - CLI override `student_model_type=td_distill`
+  - CLI override `student_lr=6e-5`
+  - CLI override `if_train_teacher=false`, so the run reused the saved bundled teacher checkpoint instead of retraining teacher
+  - explicit method weight `td_distill_alpha=0.1`
+  - explicit warm-start ablation `td_init_from_teacher=false`, so teacher final user/item ID embeddings were not copied into the student
+  - parser default unchanged at `student_lr=5e-5`
+- KD-related weights:
+  - inherited PromptMM KD flags stayed at `kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`
+  - the active `TD-Distill` branch still optimized `BPR + td_distill_alpha * directional_distillation_loss`, but now from random student ID-embedding initialization
+- Status: completed normally with `TD-Distill` early stop at epoch 370; best result appeared at epoch 361
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: 19
+  - Recall@20: 0.14755461
+  - NDCG@20: 0.14741283
+  - Precision@20: 0.02665822
+- Best metrics:
+  - Recall@20: 0.10244326
+  - NDCG@20: 0.10648479
+  - Precision@20: 0.01804767
+- Full best result:
+  - precision: [0.02262677, 0.01804767, 0.01403905, 0.01286613]
+  - recall: [0.06591414, 0.10244326, 0.15496779, 0.17702656]
+  - ndcg: [0.08245171, 0.10648479, 0.13539401, 0.14599942]
+  - hit_ratio: [0.18995943, 0.27535497, 0.37778905, 0.41470588]
+- Notes:
+  - Reused teacher checkpoint: `Model/amazon/teacher_model_great.pt`
+  - Run log: `logs/2026-04-12 12_16_10_amazon_light_init_pid21848`
+  - Converge artifact: `exp/converge/amazon/auto__2026-04-12 12_16_10_amazon_light_init_pid21848.pkl`
+  - TD-Distill full checkpoint: `Model/amazon/td_distill/td_distill_full__2026-04-12 12_16_10_amazon_light_init_pid21848.pth`
+  - TD-Distill infer-only checkpoint: `Model/amazon/td_distill/td_distill_infer_only__2026-04-12 12_16_10_amazon_light_init_pid21848.pth`
+  - The run log explicitly states `TD-Distill warm start disabled; user/item ID embeddings keep their own random initialization.`
+  - Relative to the clean frozen-teacher lightgcn reference (`Recall@20=0.09302971`, `NDCG@20=0.10014018`, `Precision@20=0.01738844`), this no-warm-start run still improved Recall@20 by about 10.12%, NDCG@20 by about 6.34%, and Precision@20 by about 3.79%.
+  - Relative to the warm-started `td_distill_alpha=0.1` method run, metrics dropped sharply (`Recall@20 0.14796617 -> 0.10244326`, `NDCG@20 0.14750383 -> 0.10648479`, `Precision@20 0.02671907 -> 0.01804767`), corresponding to relative drops of about 30.77%, 27.81%, and 32.45%.
+  - Interpretation: teacher-embedding warm start is a major contributor to the near-teacher `TD-Distill` result, but the no-warm-start `TD-Distill` setup still modestly beats the clean lightgcn student baseline. The next fair ablation is now `td_distill_alpha=0.0` under the same `td_init_from_teacher=false` condition.
+
+### 2026-04-12 | Frozen-teacher `TD-Distill` no-warm-start directional-loss ablation (`td_init_from_teacher=false`, `td_distill_alpha=0.0`)
+- Script: `codes/main_mmlight.py`
+- Command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.0 --td_init_from_teacher false`
+- Parameter changes:
+  - CLI override `student_model_type=td_distill`
+  - CLI override `student_lr=6e-5`
+  - CLI override `if_train_teacher=false`, so the run reused the saved bundled teacher checkpoint instead of retraining teacher
+  - explicit directional-loss ablation `td_distill_alpha=0.0`
+  - explicit warm-start ablation `td_init_from_teacher=false`, so teacher final user/item ID embeddings were not copied into the student
+  - parser default unchanged at `student_lr=5e-5`
+- KD-related weights:
+  - inherited PromptMM KD flags stayed at `kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`
+  - because `td_distill_alpha=0.0`, the effective optimization target reduced to BPR-only training from random student ID-embedding initialization under the `TD-Distill` branch
+- Status: completed normally with `TD-Distill` early stop at epoch 371; best result appeared at epoch 362
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: 19
+  - Recall@20: 0.14755461
+  - NDCG@20: 0.14741283
+  - Precision@20: 0.02665822
+- Best metrics:
+  - Recall@20: 0.07972688
+  - NDCG@20: 0.08829759
+  - Precision@20: 0.01495943
+- Full best result:
+  - precision: [0.01894523, 0.01495943, 0.01141734, 0.01040974]
+  - recall: [0.05288426, 0.07972688, 0.11665614, 0.13187326]
+  - ndcg: [0.06901606, 0.08829759, 0.11082681, 0.11920347]
+  - hit_ratio: [0.15436105, 0.22170385, 0.30030426, 0.33073022]
+- Notes:
+  - Reused teacher checkpoint: `Model/amazon/teacher_model_great.pt`
+  - Run log: `logs/2026-04-12 15_16_41_amazon_light_init_pid26012`
+  - Converge artifact: `exp/converge/amazon/auto__2026-04-12 15_16_41_amazon_light_init_pid26012.pkl`
+  - TD-Distill full checkpoint: `Model/amazon/td_distill/td_distill_full__2026-04-12 15_16_41_amazon_light_init_pid26012.pth`
+  - TD-Distill infer-only checkpoint: `Model/amazon/td_distill/td_distill_infer_only__2026-04-12 15_16_41_amazon_light_init_pid26012.pth`
+  - The run log explicitly states `TD-Distill warm start disabled; user/item ID embeddings keep their own random initialization.`
+  - The run log also explicitly states `TD-Distill directional loss disabled because td_distill_alpha=0.0`, confirming that this was the fair no-warm-start BPR-only endpoint.
+  - Relative to the completed no-warm-start `td_distill_alpha=0.1` run (`Recall@20=0.10244326`, `NDCG@20=0.10648479`, `Precision@20=0.01804767`), metrics dropped sharply (`Recall@20 0.10244326 -> 0.07972688`, `NDCG@20 0.10648479 -> 0.08829759`, `Precision@20 0.01804767 -> 0.01495943`), corresponding to relative drops of about 22.17%, 17.08%, and 17.11%.
+  - Relative to the clean frozen-teacher lightgcn reference (`Recall@20=0.09302971`, `NDCG@20=0.10014018`, `Precision@20=0.01738844`), this run underperformed by about 14.30%, 11.83%, and 13.97%.
+  - Interpretation: once teacher-embedding warm start is removed, the directional term is no longer a cosmetic add-on in the current setup. It is the main reason the no-warm-start `TD-Distill` line stays above the clean lightgcn baseline.
+
+### 2026-04-12 | Frozen-teacher `TD-Distill` no-warm-start intermediate alpha sweep (`td_init_from_teacher=false`, `td_distill_alpha=0.05`)
+- Script: `codes/main_mmlight.py`
+- Command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.05 --td_init_from_teacher false`
+- Parameter changes:
+  - CLI override `student_model_type=td_distill`
+  - CLI override `student_lr=6e-5`
+  - CLI override `if_train_teacher=false`, so the run reused the saved bundled teacher checkpoint instead of retraining teacher
+  - explicit directional-loss weight `td_distill_alpha=0.05`
+  - explicit warm-start ablation `td_init_from_teacher=false`, so teacher final user/item ID embeddings were not copied into the student
+  - parser default unchanged at `student_lr=5e-5`
+- KD-related weights:
+  - inherited PromptMM KD flags stayed at `kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`
+  - the active `TD-Distill` branch optimized `BPR + td_distill_alpha * directional_distillation_loss`, but now from random student ID-embedding initialization
+- Status: completed normally with `TD-Distill` early stop at epoch 264; best result appeared at epoch 255
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: 19
+  - Recall@20: 0.14755461
+  - NDCG@20: 0.14741283
+  - Precision@20: 0.02665822
+- Best metrics:
+  - Recall@20: 0.09244762
+  - NDCG@20: 0.09815337
+  - Precision@20: 0.01633367
+- Full best result:
+  - precision: [0.02052738, 0.01633367, 0.01271045, 0.011643]
+  - recall: [0.05876424, 0.09244762, 0.13991799, 0.15945358]
+  - ndcg: [0.076084, 0.09815337, 0.12465994, 0.13433003]
+  - hit_ratio: [0.17434077, 0.25334686, 0.34837728, 0.3821501]
+- Notes:
+  - Reused teacher checkpoint: `Model/amazon/teacher_model_great.pt`
+  - Run log: `logs/2026-04-12 17_00_13_amazon_light_init_pid18928`
+  - Converge artifact: `exp/converge/amazon/auto__2026-04-12 17_00_13_amazon_light_init_pid18928.pkl`
+  - TD-Distill full checkpoint: `Model/amazon/td_distill/td_distill_full__2026-04-12 17_00_13_amazon_light_init_pid18928.pth`
+  - TD-Distill infer-only checkpoint: `Model/amazon/td_distill/td_distill_infer_only__2026-04-12 17_00_13_amazon_light_init_pid18928.pth`
+  - The run log explicitly states `TD-Distill warm start disabled; user/item ID embeddings keep their own random initialization.`
+  - Relative to the completed no-warm-start `td_distill_alpha=0.0` run (`Recall@20=0.07972688`, `NDCG@20=0.08829759`, `Precision@20=0.01495943`), metrics improved by about 15.96%, 11.16%, and 9.19%.
+  - Relative to the completed no-warm-start `td_distill_alpha=0.1` run (`Recall@20=0.10244326`, `NDCG@20=0.10648479`, `Precision@20=0.01804767`), metrics remained lower by about 9.76%, 7.82%, and 9.50%.
+  - Relative to the clean frozen-teacher lightgcn reference (`Recall@20=0.09302971`, `NDCG@20=0.10014018`, `Precision@20=0.01738844`), this run underperformed slightly by about 0.63%, 1.98%, and 6.07%.
+  - Best quality arrived earlier than both no-warm-start endpoints (`epoch 255` here vs `361` for `td_distill_alpha=0.1` and `362` for `td_distill_alpha=0.0`), suggesting that the smaller directional-loss weight may ease optimization even though it does not recover the best final quality.
+  - Interpretation: under no warm start, a nonzero directional term clearly helps, but `td_distill_alpha=0.05` behaves more like an intermediate recovery point than a replacement for `0.1`. The next informative check is whether a stronger weight such as `0.2` improves further or whether `0.1` is already near the useful peak.
+
+### 2026-04-12 | Frozen-teacher `TD-Distill` stronger no-warm-start alpha sweep (`td_init_from_teacher=false`, `td_distill_alpha=0.2`)
+- Script: `codes/main_mmlight.py`
+- Command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.2 --td_init_from_teacher false`
+- Parameter changes:
+  - CLI override `student_model_type=td_distill`
+  - CLI override `student_lr=6e-5`
+  - CLI override `if_train_teacher=false`, so the run reused the saved bundled teacher checkpoint instead of retraining teacher
+  - explicit directional-loss weight `td_distill_alpha=0.2`
+  - explicit warm-start ablation `td_init_from_teacher=false`, so teacher final user/item ID embeddings were not copied into the student
+  - parser default unchanged at `student_lr=5e-5`
+- KD-related weights:
+  - inherited PromptMM KD flags stayed at `kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`
+  - the active `TD-Distill` branch optimized `BPR + td_distill_alpha * directional_distillation_loss`, but now from random student ID-embedding initialization
+- Status: completed normally with `TD-Distill` early stop at epoch 363; best result appeared at epoch 354
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: 19
+  - Recall@20: 0.14755461
+  - NDCG@20: 0.14741283
+  - Precision@20: 0.02665822
+- Best metrics:
+  - Recall@20: 0.10681890
+  - NDCG@20: 0.11001266
+  - Precision@20: 0.01864097
+- Full best result:
+  - precision: [0.0228499, 0.01864097, 0.0143357, 0.01318458]
+  - recall: [0.06673651, 0.1068189, 0.15894568, 0.18150388]
+  - ndcg: [0.08417312, 0.11001266, 0.13899456, 0.14999325]
+  - hit_ratio: [0.19087221, 0.28255578, 0.38509128, 0.42302231]
+- Notes:
+  - Reused teacher checkpoint: `Model/amazon/teacher_model_great.pt`
+  - Run log: `logs/2026-04-12 19_03_46_amazon_light_init_pid6348`
+  - Converge artifact: `exp/converge/amazon/auto__2026-04-12 19_03_46_amazon_light_init_pid6348.pkl`
+  - TD-Distill full checkpoint: `Model/amazon/td_distill/td_distill_full__2026-04-12 19_03_46_amazon_light_init_pid6348.pth`
+  - TD-Distill infer-only checkpoint: `Model/amazon/td_distill/td_distill_infer_only__2026-04-12 19_03_46_amazon_light_init_pid6348.pth`
+  - The run log explicitly states `TD-Distill warm start disabled; user/item ID embeddings keep their own random initialization.`
+  - Relative to the completed no-warm-start `td_distill_alpha=0.1` run (`Recall@20=0.10244326`, `NDCG@20=0.10648479`, `Precision@20=0.01804767`), metrics improved by about 4.27%, 3.31%, and 3.29%.
+  - Relative to the completed no-warm-start `td_distill_alpha=0.05` run (`Recall@20=0.09244762`, `NDCG@20=0.09815337`, `Precision@20=0.01633367`), metrics improved by about 15.55%, 12.08%, and 14.13%.
+  - Relative to the clean frozen-teacher lightgcn reference (`Recall@20=0.09302971`, `NDCG@20=0.10014018`, `Precision@20=0.01738844`), this run improved by about 14.82%, 9.86%, and 7.20%.
+  - Interpretation: under no warm start, the completed alpha sweep is now monotonic across `0.0 < 0.05 < 0.1 < 0.2`, so stronger directional supervision is still helping at least through `0.2`. Warm-started `TD-Distill` remains much higher, so teacher-embedding initialization and directional distillation should still be treated as separate contributors. The next informative check is a slightly stronger no-warm-start point such as `td_distill_alpha=0.3`.
+
+### 2026-04-12 | Frozen-teacher `TD-Distill` stronger no-warm-start alpha sweep (`td_init_from_teacher=false`, `td_distill_alpha=0.3`)
+- Script: `codes/main_mmlight.py`
+- Command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false`
+- Parameter changes:
+  - CLI override `student_model_type=td_distill`
+  - CLI override `student_lr=6e-5`
+  - CLI override `if_train_teacher=false`, so the run reused the saved bundled teacher checkpoint instead of retraining teacher
+  - explicit directional-loss weight `td_distill_alpha=0.3`
+  - explicit warm-start ablation `td_init_from_teacher=false`, so teacher final user/item ID embeddings were not copied into the student
+  - parser default unchanged at `student_lr=5e-5`
+- KD-related weights:
+  - inherited PromptMM KD flags stayed at `kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`
+  - the active `TD-Distill` branch optimized `BPR + td_distill_alpha * directional_distillation_loss`, again from random student ID-embedding initialization
+- Status: completed normally with `TD-Distill` early stop at epoch 353; best result appeared at epoch 344
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: 19
+  - Recall@20: 0.14755461
+  - NDCG@20: 0.14741283
+  - Precision@20: 0.02665822
+- Best metrics:
+  - Recall@20: 0.10717427
+  - NDCG@20: 0.11065527
+  - Precision@20: 0.01872211
+- Full best result:
+  - precision: [0.02295132, 0.01872211, 0.01428753, 0.01318458]
+  - recall: [0.06750604, 0.10717427, 0.15855713, 0.1829785]
+  - ndcg: [0.08474159, 0.11065527, 0.13931511, 0.1506387]
+  - hit_ratio: [0.19229209, 0.28326572, 0.38529412, 0.42413793]
+- Notes:
+  - Reused teacher checkpoint: `Model/amazon/teacher_model_great.pt`
+  - Run log: `logs/2026-04-12 22_05_54_amazon_light_init_pid19636`
+  - Converge artifact: `exp/converge/amazon/auto__2026-04-12 22_05_54_amazon_light_init_pid19636.pkl`
+  - TD-Distill full checkpoint: `Model/amazon/td_distill/td_distill_full__2026-04-12 22_05_54_amazon_light_init_pid19636.pth`
+  - TD-Distill infer-only checkpoint: `Model/amazon/td_distill/td_distill_infer_only__2026-04-12 22_05_54_amazon_light_init_pid19636.pth`
+  - The run log explicitly states `Teacher training skipped; will reuse checkpoint ...`, `TD-Distill warm start disabled; user/item ID embeddings keep their own random initialization.`, and `td_distill_alpha=0.3` in the parsed namespace.
+  - Relative to the completed no-warm-start `td_distill_alpha=0.2` run (`Recall@20=0.10681890`, `NDCG@20=0.11001266`, `Precision@20=0.01864097`), metrics improved by about 0.33%, 0.58%, and 0.44%.
+  - Relative to the completed no-warm-start `td_distill_alpha=0.1` run (`Recall@20=0.10244326`, `NDCG@20=0.10648479`, `Precision@20=0.01804767`), metrics improved by about 4.62%, 3.92%, and 3.74%.
+  - Relative to the clean frozen-teacher lightgcn reference (`Recall@20=0.09302971`, `NDCG@20=0.10014018`, `Precision@20=0.01738844`), this run improved by about 15.20%, 10.50%, and 7.67%.
+  - Interpretation: under no warm start, the completed alpha sweep is now monotonic across `0.0 < 0.05 < 0.1 < 0.2 < 0.3`. The directional term is still helping at `0.3`, but the gain over `0.2` is already small, so the curve may be approaching saturation. The next informative check is a nearby stronger point such as `td_distill_alpha=0.4`.
+
+### 2026-04-13 | Frozen-teacher `TD-Distill` overshoot no-warm-start alpha sweep (`td_init_from_teacher=false`, `td_distill_alpha=0.4`)
+- Script: `codes/main_mmlight.py`
+- Command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.4 --td_init_from_teacher false`
+- Parameter changes:
+  - CLI override `student_model_type=td_distill`
+  - CLI override `student_lr=6e-5`
+  - CLI override `if_train_teacher=false`, so the run reused the saved bundled teacher checkpoint instead of retraining teacher
+  - explicit directional-loss weight `td_distill_alpha=0.4`
+  - explicit warm-start ablation `td_init_from_teacher=false`, so teacher final user/item ID embeddings were not copied into the student
+  - parser default unchanged at `student_lr=5e-5`
+- KD-related weights:
+  - inherited PromptMM KD flags stayed at `kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`
+  - the active `TD-Distill` branch optimized `BPR + td_distill_alpha * directional_distillation_loss`, again from random student ID-embedding initialization
+- Status: completed normally with `TD-Distill` early stop at epoch 35; best result appeared at epoch 26
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: 19
+  - Recall@20: 0.14755461
+  - NDCG@20: 0.14741283
+  - Precision@20: 0.02665822
+- Best metrics:
+  - Recall@20: 0.08000176
+  - NDCG@20: 0.08538574
+  - Precision@20: 0.01387424
+- Full best result:
+  - precision: [0.01693712, 0.01387424, 0.010786, 0.00999797]
+  - recall: [0.04892535, 0.08000176, 0.11980748, 0.13787271]
+  - ndcg: [0.06503824, 0.08538574, 0.10825037, 0.11735847]
+  - hit_ratio: [0.14604462, 0.2198783, 0.30334686, 0.3362069]
+- Notes:
+  - Reused teacher checkpoint: `Model/amazon/teacher_model_great.pt`
+  - Archived teacher path emitted at run start: `Model/amazon/runs/teacher_model_great__2026-04-13 00_02_36_amazon_light_init_pid30912.pt`
+  - Converge artifact: `exp/converge/amazon/auto__2026-04-13 00_02_36_amazon_light_init_pid30912.pkl`
+  - The run header explicitly confirms `Teacher training skipped; will reuse checkpoint ...`, `TD-Distill warm start disabled; user/item ID embeddings keep their own random initialization.`, and `td_distill_alpha=0.4` in the parsed namespace.
+  - Relative to the completed no-warm-start `td_distill_alpha=0.3` run (`Recall@20=0.10717427`, `NDCG@20=0.11065527`, `Precision@20=0.01872211`), metrics dropped by about 25.35%, 22.84%, and 25.89%.
+  - Relative to the completed no-warm-start `td_distill_alpha=0.2` run (`Recall@20=0.10681890`, `NDCG@20=0.11001266`, `Precision@20=0.01864097`), metrics dropped by about 25.11%, 22.38%, and 25.57%.
+  - Relative to the clean frozen-teacher lightgcn reference (`Recall@20=0.09302971`, `NDCG@20=0.10014018`, `Precision@20=0.01738844`), this run underperformed by about 14.00%, 14.73%, and 20.21%.
+  - Relative to the completed no-warm-start `td_distill_alpha=0.0` run (`Recall@20=0.07972688`, `NDCG@20=0.08829759`, `Precision@20=0.01495943`), this run only barely improved Recall@20 by about 0.34% while still underperforming on NDCG@20 and Precision@20.
+  - Interpretation: `td_distill_alpha=0.4` is a clear overshoot under no warm start. The no-warm-start alpha line now rises through `0.3` and then collapses at `0.4`, so `0.3` should remain the best no-warm-start reference and the next mainline work should return to code/method changes rather than larger-alpha sweeps.
+
+### 2026-04-13 | Frozen-teacher `TD-Distill` local no-warm-start alpha refinement (`td_init_from_teacher=false`, `td_distill_alpha=0.25`)
+- Script: `codes/main_mmlight.py`
+- Command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.25 --td_init_from_teacher false`
+- Parameter changes:
+  - CLI override `student_model_type=td_distill`
+  - CLI override `student_lr=6e-5`
+  - CLI override `if_train_teacher=false`, so the run reused the saved bundled teacher checkpoint instead of retraining teacher
+  - explicit directional-loss weight `td_distill_alpha=0.25`
+  - explicit warm-start ablation `td_init_from_teacher=false`, so teacher final user/item ID embeddings were not copied into the student
+  - parser default unchanged at `student_lr=5e-5`
+- KD-related weights:
+  - inherited PromptMM KD flags stayed at `kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`
+  - the active `TD-Distill` branch optimized `BPR + td_distill_alpha * directional_distillation_loss`, again from random student ID-embedding initialization
+- Status: completed normally with `TD-Distill` early stop at epoch 238; best result appeared at epoch 229
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: 19
+  - Recall@20: 0.14755461
+  - NDCG@20: 0.14741283
+  - Precision@20: 0.02665822
+- Best metrics:
+  - Recall@20: 0.09945852
+  - NDCG@20: 0.10333377
+  - Precision@20: 0.01724138
+- Full best result:
+  - precision: [0.02121704, 0.01724138, 0.01338235, 0.01237728]
+  - recall: [0.0619868, 0.09945852, 0.14952742, 0.17177985]
+  - ndcg: [0.07923582, 0.10333377, 0.1310757, 0.14199778]
+  - hit_ratio: [0.17991886, 0.26643002, 0.36602434, 0.40436105]
+- Notes:
+  - Reused teacher checkpoint: `Model/amazon/teacher_model_great.pt`
+  - Archived teacher path emitted at run start: `Model/amazon/runs/teacher_model_great__2026-04-13 00_58_16_amazon_light_init_pid25648.pt`
+  - Run log: `logs/2026-04-13 00_58_16_amazon_light_init_pid25648`
+  - Converge artifact: `exp/converge/amazon/auto__2026-04-13 00_58_16_amazon_light_init_pid25648.pkl`
+  - TD-Distill full checkpoint: `Model/amazon/td_distill/td_distill_full__2026-04-13 00_58_16_amazon_light_init_pid25648.pth`
+  - TD-Distill infer-only checkpoint: `Model/amazon/td_distill/td_distill_infer_only__2026-04-13 00_58_16_amazon_light_init_pid25648.pth`
+  - The run header explicitly confirms `Teacher training skipped; will reuse checkpoint ...`, `TD-Distill warm start disabled; user/item ID embeddings keep their own random initialization.`, and `td_distill_alpha=0.25` in the parsed namespace.
+  - Relative to the completed no-warm-start `td_distill_alpha=0.3` run (`Recall@20=0.10717427`, `NDCG@20=0.11065527`, `Precision@20=0.01872211`), metrics dropped by about 7.20%, 6.62%, and 7.91%.
+  - Relative to the completed no-warm-start `td_distill_alpha=0.2` run (`Recall@20=0.10681890`, `NDCG@20=0.11001266`, `Precision@20=0.01864097`), metrics dropped by about 6.89%, 6.07%, and 7.51%.
+  - Relative to the clean frozen-teacher lightgcn reference (`Recall@20=0.09302971`, `NDCG@20=0.10014018`, `Precision@20=0.01738844`), this run improved Recall@20 by about 6.91% and NDCG@20 by about 3.19%, but still trailed Precision@20 by about 0.85%.
+  - Interpretation: this local refinement did not change the no-warm-start alpha conclusion. `td_distill_alpha=0.3` remains the best completed no-warm-start point, `0.4` remains a clear overshoot, and the nearby `0.25` check also failed to beat `0.2/0.3`, so alpha tuning should now be treated as closed for the current structure and the next mainline work should return to code/method changes.
+
+### 2026-04-13 | First post-refactor frozen-teacher `TD-Distill` anchor run (`td_init_from_teacher=false`, `td_distill_alpha=0.3`, all semantic heads active)
+- Script: `codes/main_mmlight.py`
+- Command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false`
+- Parameter changes:
+  - CLI override `student_model_type=td_distill`
+  - CLI override `student_lr=6e-5`
+  - CLI override `if_train_teacher=false`, so the run reused the saved bundled teacher checkpoint instead of retraining teacher
+  - explicit directional-loss weight `td_distill_alpha=0.3`
+  - explicit warm-start ablation `td_init_from_teacher=false`, so teacher final user/item ID embeddings were not copied into the student
+  - explicit post-refactor component defaults active:
+    - `td_item_image_rate=1.0`
+    - `td_item_text_rate=1.0`
+    - `td_user_image_rate=1.0`
+    - `td_user_text_rate=1.0`
+  - parser default unchanged at `student_lr=5e-5`
+- KD-related weights:
+  - inherited PromptMM KD flags unchanged (`kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`)
+  - active `TD-Distill` branch optimized `BPR + 0.3 * averaged four-component semantic distillation loss`
+- Status:
+  - completed normally with `TD-Distill` early stop at epoch `30`; best result appeared at epoch `21`
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: `19`
+  - Recall@20: `0.14755461`
+  - NDCG@20: `0.14741283`
+  - Precision@20: `0.02665822`
+- Best metrics:
+  - Recall@20: `0.07658530`
+  - NDCG@20: `0.08219743`
+  - Precision@20: `0.01315416`
+- Full best result:
+  - precision: `[0.01660243, 0.01315416, 0.01010903, 0.00938742]`
+  - recall: `[0.04878752, 0.0765853, 0.11381625, 0.13060362]`
+  - ndcg: `[0.06375741, 0.08219743, 0.10371496, 0.11245796]`
+  - hit_ratio: `[0.14503043, 0.21206897, 0.29259635, 0.32484787]`
+- Notes:
+  - Reused teacher checkpoint: `Model/amazon/teacher_model_great.pt`
+  - Archived teacher path emitted at run start: `Model/amazon/runs/teacher_model_great__2026-04-13 09_58_53_amazon_light_init_pid27712.pt`
+  - Converge artifact: `exp/converge/amazon/auto__2026-04-13 09_58_53_amazon_light_init_pid27712.pkl`
+  - The run header explicitly confirms `Teacher training skipped; will reuse checkpoint ...`, `TD-Distill warm start disabled; user/item ID embeddings keep their own random initialization.`, and all four component rates equal to `1.0`.
+  - Relative to the pre-refactor no-warm-start `td_distill_alpha=0.3` reference (`Recall@20=0.10717427`, `NDCG@20=0.11065527`, `Precision@20=0.01872211`), metrics dropped by about 28.54%, 25.72%, and 29.74%.
+  - Relative to the clean frozen-teacher lightgcn baseline (`Recall@20=0.09302971`, `NDCG@20=0.10014018`, `Precision@20=0.01738844`), this run underperformed by about 17.68%, 17.92%, and 24.35%.
+  - Interpretation: the first post-refactor all-heads configuration is rejected as the current default; the next step should isolate user-side distillation from item-side disentangled distillation before touching `td_distill_alpha` again.
+
+### 2026-04-13 | Post-refactor item-only semantic distillation recovery run
+- Script: `codes/main_mmlight.py`
+- Command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_user_image_rate 0 --td_user_text_rate 0`
+- Parameter changes:
+  - CLI override `student_model_type=td_distill`
+  - CLI override `student_lr=6e-5`
+  - CLI override `if_train_teacher=false`, so the run reused the saved bundled teacher checkpoint instead of retraining teacher
+  - explicit directional-loss weight `td_distill_alpha=0.3`
+  - explicit warm-start ablation `td_init_from_teacher=false`
+  - explicit component-isolation ablation:
+    - `td_item_image_rate=1.0`
+    - `td_item_text_rate=1.0`
+    - `td_user_image_rate=0.0`
+    - `td_user_text_rate=0.0`
+- KD-related weights:
+  - inherited PromptMM KD flags unchanged (`kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`)
+  - active `TD-Distill` branch optimized `BPR + 0.3 * averaged item-only semantic distillation loss`
+- Status:
+  - completed normally with `TD-Distill` early stop at epoch `218`; best result appeared at epoch `209`
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: `19`
+  - Recall@20: `0.14755461`
+  - NDCG@20: `0.14741283`
+  - Precision@20: `0.02665822`
+- Best metrics:
+  - Recall@20: `0.09276946`
+  - NDCG@20: `0.09900840`
+  - Precision@20: `0.01619675`
+- Full best result:
+  - precision: `[0.02031440, 0.01619675, 0.01274594, 0.01174037]`
+  - recall: `[0.05845192, 0.09276946, 0.14244495, 0.16181679]`
+  - ndcg: `[0.07706657, 0.09900840, 0.12649995, 0.13650599]`
+  - hit_ratio: `[0.17454361, 0.25212982, 0.35314402, 0.38813387]`
+- Notes:
+  - Relative to the failed post-refactor all-heads=`1.0` anchor (`Recall@20=0.07658530`, `NDCG@20=0.08219743`, `Precision@20=0.01315416`), this item-only run recovered by about 21.13%, 20.45%, and 23.13%.
+  - Relative to the clean frozen-teacher lightgcn baseline (`Recall@20=0.09302971`, `NDCG@20=0.10014018`, `Precision@20=0.01738844`), this run remained slightly lower by about 0.28%, 1.13%, and 6.85%.
+  - Relative to the pre-refactor no-warm-start `td_distill_alpha=0.3` reference (`Recall@20=0.10717427`, `NDCG@20=0.11065527`, `Precision@20=0.01872211`), this run remained lower by about 13.44%, 10.53%, and 13.48%.
+  - Interpretation: User-side semantic distillation introduces conflicting supervision signals that degrade recommendation quality, while item-side disentangled distillation remains beneficial.
+  - Method implication: the post-refactor regression is mainly caused by the current user-side transfer path and/or the equal-strength coupling between user-side and item-side semantic supervision, rather than by item-side disentangled distillation itself.
+
+### 2026-04-13 | Post-refactor symmetric lower-strength item-only sweep
+- Script: `codes/main_mmlight.py`
+- Command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 0.5 --td_item_text_rate 0.5 --td_user_image_rate 0 --td_user_text_rate 0`
+- Parameter changes:
+  - CLI override `student_model_type=td_distill`
+  - CLI override `student_lr=6e-5`
+  - CLI override `if_train_teacher=false`
+  - explicit directional-loss weight `td_distill_alpha=0.3`
+  - explicit warm-start ablation `td_init_from_teacher=false`
+  - explicit item-only lower-strength sweep:
+    - `td_item_image_rate=0.5`
+    - `td_item_text_rate=0.5`
+    - `td_user_image_rate=0.0`
+    - `td_user_text_rate=0.0`
+- KD-related weights:
+  - inherited PromptMM KD flags unchanged (`kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`)
+  - active `TD-Distill` branch optimized `BPR + 0.3 * averaged item-only semantic distillation loss`
+- Status:
+  - completed normally with `TD-Distill` early stop at epoch `218`; best result appeared at epoch `209`
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: `19`
+  - Recall@20: `0.14755461`
+  - NDCG@20: `0.14741283`
+  - Precision@20: `0.02665822`
+- Best metrics:
+  - Recall@20: `0.09276946`
+  - NDCG@20: `0.09900840`
+  - Precision@20: `0.01619675`
+- Full best result:
+  - precision: `[0.02031440, 0.01619675, 0.01274594, 0.01174037]`
+  - recall: `[0.05845192, 0.09276946, 0.14244495, 0.16181679]`
+  - ndcg: `[0.07706657, 0.09900840, 0.12649995, 0.13650599]`
+  - hit_ratio: `[0.17454361, 0.25212982, 0.35314402, 0.38813387]`
+- Notes:
+  - This run matched the previous item-only `1.0 / 1.0` run at the tracked best point instead of improving it.
+  - Interpretation: simple item-side downscaling does not explain the remaining post-refactor gap; the limitation is more consistent with structural information loss or supervision mismatch inside the refactored semantic-transfer path.
+  - Next-step implication: the next decisive comparison should be an item-only `td_distill_alpha=0.0` control rather than another symmetric rate sweep.
+
+### 2026-04-13 | Code regeneration (stable replacement)
+
+- Regenerated `td_distill_model.py` as a clean standalone replacement version.
+- Removed dependency on previous runtime-generated artifacts (code interpreter session).
+- Ensured compatibility with:
+  - post-refactor TD-Distill structure
+  - item/user projection heads
+  - lightweight inference export
+
+
+
+
+#### Notes
+- This version is safe for direct overwrite.
+- No behavior change intended relative to latest committed structure.
+- Only improves reproducibility and environment independence.
+
+#### Action
+- Replace existing `codes/td_distill_model.py`
+- No need to retrain unless code was partially missing before
+
+
+
+### 2026-04-13 | Post-refactor item-only no-distillation control (`td_distill_alpha=0.0`)
+- Script: `codes/main_mmlight.py`
+- Command:
+  `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.0 --td_init_from_teacher false --td_user_image_rate 0 --td_user_text_rate 0`
+- Parameter changes:
+  - same item-only structure as previous run
+  - semantic distillation fully disabled (`td_distill_alpha=0.0`)
+- KD-related weights:
+  - effective objective reduced to BPR-only under the refactored item-only path
+- Status:
+  - completed normally with `TD-Distill` early stop at epoch `277`; best result appeared at epoch `268`
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: `19`
+  - Recall@20: `0.14755461`
+  - NDCG@20: `0.14741283`
+  - Precision@20: `0.02665822`
+- Best metrics:
+  - Recall@20: `0.07691166`
+  - NDCG@20: `0.08679020`
+  - Precision@20: `0.01430020`
+- Full best result:
+  - precision: `[0.01833671, 0.01430020, 0.01068966, 0.00963692]`
+  - recall: `[0.05065475, 0.07691166, 0.11120686, 0.12559998]`
+  - ndcg: `[0.06861871, 0.08679020, 0.10753076, 0.11468026]`
+  - hit_ratio: `[0.15131846, 0.21419878, 0.28742394, 0.31369168]`
+- Notes:
+  - Relative to the post-refactor item-only `td_distill_alpha=0.3` recovery run (`Recall@20=0.09276946`, `NDCG@20=0.09900840`, `Precision@20=0.01619675`), performance dropped by about 17.10%, 12.34%, and 11.71%.
+  - Relative to the failed post-refactor all-heads=`1.0` anchor (`Recall@20=0.07658530`, `NDCG@20=0.08219743`, `Precision@20=0.01315416`), this run is effectively back in the same degraded range.
+  - Interpretation:
+    - item-side semantic distillation is confirmed effective under the refactored structure
+    - removing semantic distillation collapses performance back to the degraded post-refactor baseline range
+    - therefore, the remaining performance gap is not caused by semantic distillation being ineffective, but by limitations in the refactored semantic-transfer structure
+
+### 2026-04-13 | Post-refactor item-only no-projection structure control (`td_distill_no_projection`)
+- Script: `codes/main_mmlight.py`
+- Command:
+  `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_user_image_rate 0 --td_user_text_rate 0`
+- Parameter changes:
+  - CLI override `student_model_type=td_distill_no_projection`
+  - CLI override `student_lr=6e-5`
+  - CLI override `if_train_teacher=false`
+  - explicit directional-loss weight `td_distill_alpha=0.3`
+  - explicit warm-start ablation `td_init_from_teacher=false`
+  - explicit item-only setting:
+    - `td_item_image_rate=1.0`
+    - `td_item_text_rate=1.0`
+    - `td_user_image_rate=0.0`
+    - `td_user_text_rate=0.0`
+  - structural control change:
+    - projection heads removed from the active `TD-Distill` student branch
+    - student item embedding directly aligned to teacher item image/text semantics
+    - no user semantic heads were active in this run
+- KD-related weights:
+  - inherited PromptMM KD flags unchanged (`kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`)
+  - active objective remained `BPR + 0.3 * averaged item-only semantic distillation loss`
+  - unlike the post-refactor default branch, semantic transfer used direct embedding-to-teacher alignment without train-time projection heads
+- Status:
+  - completed normally with `TD-Distill` early stop at epoch `308`; best result appeared at epoch `299`
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: `19`
+  - Recall@20: `0.14755461`
+  - NDCG@20: `0.14741283`
+  - Precision@20: `0.02665822`
+- Best metrics:
+  - Recall@20: `0.10337251`
+  - NDCG@20: `0.10930838`
+  - Precision@20: `0.01821501`
+- Full best result:
+  - precision: `[0.02245436, 0.01821501, 0.01409990, 0.01295943]`
+  - recall: `[0.06430432, 0.10337251, 0.15589971, 0.17900997]`
+  - ndcg: `[0.08424190, 0.10930838, 0.13825822, 0.14927960]`
+  - hit_ratio: `[0.18924949, 0.27809331, 0.38083164, 0.41967546]`
+- Notes:
+  - Run log: `logs/2026-04-13 17_25_32_amazon_light_init_pid5896`
+  - Reused teacher checkpoint: `Model/amazon/teacher_model_great.pt`
+  - Archived teacher path emitted at run start: `Model/amazon/runs/teacher_model_great__2026-04-13 17_25_32_amazon_light_init_pid5896.pt`
+  - Converge artifact: `exp/converge/amazon/auto__2026-04-13 17_25_32_amazon_light_init_pid5896.pkl`
+  - TD-Distill full checkpoint: `Model/amazon/td_distill/td_distill_full__2026-04-13 17_25_32_amazon_light_init_pid5896.pth`
+  - TD-Distill infer-only checkpoint: `Model/amazon/td_distill/td_distill_infer_only__2026-04-13 17_25_32_amazon_light_init_pid5896.pth`
+  - The run header explicitly confirms `student_model_type='td_distill_no_projection'`, `TD-Distill NO-PROJECTION semantic heads initialized ... item_heads=['image', 'text'], user_heads=[]`, and `TD-Distill warm start disabled.`
+  - Relative to the post-refactor item-only projection run (`Recall@20=0.09276946`, `NDCG@20=0.09900840`, `Precision@20=0.01619675`), this run improved by about 11.43%, 10.40%, and 12.46%.
+  - Relative to the item-only no-distillation control (`Recall@20=0.07691166`, `NDCG@20=0.08679020`, `Precision@20=0.01430020`), this run improved by about 34.40%, 25.95%, and 27.38%.
+  - Relative to the clean frozen-teacher lightgcn baseline (`Recall@20=0.09302971`, `NDCG@20=0.10014018`, `Precision@20=0.01738844`), this run improved by about 11.12%, 9.16%, and 4.75%.
+  - Relative to the pre-refactor no-warm-start `td_distill_alpha=0.3` reference (`Recall@20=0.10717427`, `NDCG@20=0.11065527`, `Precision@20=0.01872211`), this run is now only lower by about 3.55%, 1.22%, and 2.71%.
+  - Interpretation:
+    - This run validates the current structure-disambiguation hypothesis.
+    - The remaining post-refactor regression is no longer consistent with `td_distill_alpha` or component-rate mis-setting.
+    - Once user-side supervision is removed, eliminating the projection heads recovers most of the lost quality.
+    - Therefore, the projection design is the primary bottleneck candidate, while any residual gap should next be attributed to the remaining item-side disentangle / dual-head semantic structure.
+
+### 2026-04-13 | Post-refactor projection branch single-head isolation (`td_distill`, item-image only)
+- Script: `codes/main_mmlight.py`
+- Command:
+  `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0 --td_user_image_rate 0 --td_user_text_rate 0`
+- Parameter changes:
+  - CLI override `student_model_type=td_distill`
+  - CLI override `student_lr=6e-5`
+  - CLI override `if_train_teacher=false`
+  - explicit directional-loss weight `td_distill_alpha=0.3`
+  - explicit warm-start ablation `td_init_from_teacher=false`
+  - explicit single-head isolation:
+    - `td_item_image_rate=1.0`
+    - `td_item_text_rate=0.0`
+    - `td_user_image_rate=0.0`
+    - `td_user_text_rate=0.0`
+- KD-related weights:
+  - inherited PromptMM KD flags unchanged (`kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`)
+  - active objective remained `BPR + 0.3 * item-image semantic distillation loss`
+- Status:
+  - completed normally with `TD-Distill` early stop at epoch `365`; best result appeared at epoch `356`
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: `19`
+  - Recall@20: `0.14755461`
+  - NDCG@20: `0.14741283`
+  - Precision@20: `0.02665822`
+- Best metrics:
+  - Recall@20: `0.10910197`
+  - NDCG@20: `0.11266417`
+  - Precision@20: `0.01915314`
+- Full best result:
+  - precision: `[0.02353955, 0.01915314, 0.01453854, 0.01329615]`
+  - recall: `[0.06878396, 0.10910197, 0.16135070, 0.18370308]`
+  - ndcg: `[0.08632445, 0.11266417, 0.14105348, 0.15190330]`
+  - hit_ratio: `[0.19665314, 0.28803245, 0.38853955, 0.42606491]`
+- Notes:
+  - Relative to the post-refactor item-only dual-head projection run (`0.09276946 / 0.09900840 / 0.01619675`), this run improved by about `17.61% / 13.79% / 18.25%`.
+  - Relative to the current item-only no-projection reference (`0.10337251 / 0.10930838 / 0.01821501`), this run further improved by about `5.54% / 3.07% / 5.15%`.
+  - Relative to the clean frozen-teacher lightgcn baseline (`0.09302971 / 0.10014018 / 0.01738844`), this run improved by about `17.28% / 12.51% / 10.15%`.
+  - Interpretation: under the projection branch, isolating to item-image supervision is strongly effective and currently becomes the best completed post-refactor student point in this window.
+
+### 2026-04-13 | Post-refactor projection branch single-head isolation (`td_distill`, item-text only)
+- Script: `codes/main_mmlight.py`
+- Command:
+  `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 0 --td_item_text_rate 1 --td_user_image_rate 0 --td_user_text_rate 0`
+- Parameter changes:
+  - CLI override `student_model_type=td_distill`
+  - CLI override `student_lr=6e-5`
+  - CLI override `if_train_teacher=false`
+  - explicit directional-loss weight `td_distill_alpha=0.3`
+  - explicit warm-start ablation `td_init_from_teacher=false`
+  - explicit single-head isolation:
+    - `td_item_image_rate=0.0`
+    - `td_item_text_rate=1.0`
+    - `td_user_image_rate=0.0`
+    - `td_user_text_rate=0.0`
+- KD-related weights:
+  - inherited PromptMM KD flags unchanged (`kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`)
+  - active objective remained `BPR + 0.3 * item-text semantic distillation loss`
+- Status:
+  - completed normally with `TD-Distill` early stop at epoch `233`; best result appeared at epoch `224`
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: `19`
+  - Recall@20: `0.14755461`
+  - NDCG@20: `0.14741283`
+  - Precision@20: `0.02665822`
+- Best metrics:
+  - Recall@20: `0.09882311`
+  - NDCG@20: `0.10316774`
+  - Precision@20: `0.01710953`
+- Full best result:
+  - precision: `[0.02122718, 0.01710953, 0.01335700, 0.01234686]`
+  - recall: `[0.06139525, 0.09882311, 0.14986842, 0.17115795]`
+  - ndcg: `[0.07958417, 0.10316774, 0.13146735, 0.14211072]`
+  - hit_ratio: `[0.17991886, 0.26379310, 0.36815416, 0.40385396]`
+- Notes:
+  - Relative to the post-refactor item-only dual-head projection run (`0.09276946 / 0.09900840 / 0.01619675`), this run improved by about `6.53% / 4.20% / 5.64%`.
+  - Relative to the current item-only no-projection reference (`0.10337251 / 0.10930838 / 0.01821501`), this run is lower by about `4.40% / 5.62% / 6.07%`.
+  - Relative to the clean frozen-teacher lightgcn baseline (`0.09302971 / 0.10014018 / 0.01738844`), this run improved Recall/NDCG by about `6.23% / 3.02%`, but Precision dropped by about `1.60%`.
+  - Relative to the projection item-image-only run above (`0.10910197 / 0.11266417 / 0.01915314`), this run is lower by about `10.40% / 9.20% / 11.94%`.
+  - Interpretation: in the projection branch, item-image supervision is clearly stronger than item-text supervision.
+
+### 2026-04-14 | No-projection branch single-head isolation (`td_distill_no_projection`, item-image only)
+- Script: `codes/main_mmlight.py`
+- Command:
+  `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0 --td_user_image_rate 0 --td_user_text_rate 0`
+- Parameter changes:
+  - CLI override `student_model_type=td_distill_no_projection`
+  - CLI override `student_lr=6e-5`
+  - CLI override `if_train_teacher=false`
+  - explicit directional-loss weight `td_distill_alpha=0.3`
+  - explicit warm-start ablation `td_init_from_teacher=false`
+  - explicit single-head isolation:
+    - `td_item_image_rate=1.0`
+    - `td_item_text_rate=0.0`
+    - `td_user_image_rate=0.0`
+    - `td_user_text_rate=0.0`
+- KD-related weights:
+  - inherited PromptMM KD flags unchanged (`kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`)
+  - active objective remained `BPR + 0.3 * item-image semantic distillation loss` without projection heads
+- Status:
+  - completed normally with `TD-Distill` early stop at epoch `268`; best result appeared at epoch `259`
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: `19`
+  - Recall@20: `0.14755461`
+  - NDCG@20: `0.14741283`
+  - Precision@20: `0.02665822`
+- Best metrics:
+  - Recall@20: `0.09827431`
+  - NDCG@20: `0.10586973`
+  - Precision@20: `0.01728702`
+- Full best result:
+  - precision: `[0.02168357, 0.01728702, 0.01362069, 0.01251521]`
+  - recall: `[0.06161126, 0.09827431, 0.15062385, 0.17180555]`
+  - ndcg: `[0.08270865, 0.10586973, 0.13493653, 0.14549626]`
+  - hit_ratio: `[0.18377282, 0.26643002, 0.36997972, 0.40699797]`
+- Notes:
+  - Relative to the no-projection item-only dual-head reference (`0.10337251 / 0.10930838 / 0.01821501`), this run is lower by about `4.93% / 3.15% / 5.09%`.
+  - Relative to the projection item-image-only run (`0.10910197 / 0.11266417 / 0.01915314`), this run is lower by about `11.02% / 6.42% / 10.79%`.
+  - Relative to the clean frozen-teacher lightgcn baseline (`0.09302971 / 0.10014018 / 0.01738844`), this run improved Recall/NDCG by about `5.64% / 5.72%`, while Precision is slightly lower by about `0.58%`.
+  - Interpretation: for item-image-only supervision, removing projection heads is not beneficial; the projection branch is currently better.
+
+### 2026-04-14 | No-projection branch single-head isolation (`td_distill_no_projection`, item-text only)
+- Script: `codes/main_mmlight.py`
+- Command:
+  `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 0 --td_item_text_rate 1 --td_user_image_rate 0 --td_user_text_rate 0`
+- Parameter changes:
+  - CLI override `student_model_type=td_distill_no_projection`
+  - CLI override `student_lr=6e-5`
+  - CLI override `if_train_teacher=false`
+  - explicit directional-loss weight `td_distill_alpha=0.3`
+  - explicit warm-start ablation `td_init_from_teacher=false`
+  - explicit single-head isolation:
+    - `td_item_image_rate=0.0`
+    - `td_item_text_rate=1.0`
+    - `td_user_image_rate=0.0`
+    - `td_user_text_rate=0.0`
+- KD-related weights:
+  - inherited PromptMM KD flags unchanged (`kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`)
+  - active objective remained `BPR + 0.3 * item-text semantic distillation loss` without projection heads
+- Status:
+  - completed normally with `TD-Distill` early stop at epoch `229`; best result appeared at epoch `220`
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: `19`
+  - Recall@20: `0.14755461`
+  - NDCG@20: `0.14741283`
+  - Precision@20: `0.02665822`
+- Best metrics:
+  - Recall@20: `0.09861568`
+  - NDCG@20: `0.10523513`
+  - Precision@20: `0.01728195`
+- Full best result:
+  - precision: `[0.02160243, 0.01728195, 0.01344574, 0.01229615]`
+  - recall: `[0.06189986, 0.09861568, 0.14947757, 0.17036365]`
+  - ndcg: `[0.08189228, 0.10523513, 0.13370474, 0.14381666]`
+  - hit_ratio: `[0.18336714, 0.26643002, 0.36977688, 0.40527383]`
+- Notes:
+  - Relative to the no-projection item-only dual-head reference (`0.10337251 / 0.10930838 / 0.01821501`), this run is lower by about `4.60% / 3.73% / 5.12%`.
+  - Relative to the no-projection item-image-only run above (`0.09827431 / 0.10586973 / 0.01728702`), this run is nearly tied: Recall `+0.35%`, NDCG `-0.60%`, Precision `-0.03%`.
+  - Relative to the projection item-text-only run (`0.09882311 / 0.10316774 / 0.01710953`), this run has slightly lower Recall (`-0.21%`) but better NDCG/Precision (`+1.96% / +1.00%`).
+  - Relative to the clean frozen-teacher lightgcn baseline (`0.09302971 / 0.10014018 / 0.01738844`), this run improved Recall/NDCG by about `6.00% / 5.09%`, while Precision is slightly lower by about `0.61%`.
+  - Interpretation: under no-projection single-head settings, image-only and text-only are effectively tied; neither can beat the no-projection dual-head reference.
+
+### 2026-04-14 | A1 completion: projection image-only semantic-distillation off control (`td_distill_alpha=0.0`)
+- Script: `codes/main_mmlight.py`
+- Command:
+  `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.0 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0 --td_user_image_rate 0 --td_user_text_rate 0`
+- Parameter changes:
+  - CLI override `student_model_type=td_distill`
+  - CLI override `student_lr=6e-5`
+  - CLI override `if_train_teacher=false`
+  - explicit semantic-distillation off control `td_distill_alpha=0.0`
+  - explicit warm-start ablation `td_init_from_teacher=false`
+  - explicit item-image-only setting (`td_item_image_rate=1.0`, `td_item_text_rate=0.0`, `td_user_*_rate=0.0`)
+- KD-related weights:
+  - inherited PromptMM KD flags unchanged (`kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`)
+  - active objective reduced to BPR-only (`+ 0.0 * distill_loss`)
+- Status:
+  - completed normally with `TD-Distill` early stop at epoch `371`; best result appeared at epoch `362`
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: `19`
+  - Recall@20: `0.14755461`
+  - NDCG@20: `0.14741283`
+  - Precision@20: `0.02665822`
+- Best metrics:
+  - Recall@20: `0.07972688`
+  - NDCG@20: `0.08829759`
+  - Precision@20: `0.01495943`
+- Full best result:
+  - precision: `[0.01894523, 0.01495943, 0.01141734, 0.01040974]`
+  - recall: `[0.05288426, 0.07972688, 0.11665614, 0.13187326]`
+  - ndcg: `[0.06901606, 0.08829759, 0.11082681, 0.11920347]`
+  - hit_ratio: `[0.15436105, 0.22170385, 0.30030426, 0.33073022]`
+- Notes:
+  - Relative to projection image-only `alpha=0.3` reference (`0.10910197 / 0.11266417 / 0.01915314`), this run dropped by about `26.92% / 21.63% / 21.90%`.
+  - Relative to no-projection item-only dual-head reference (`0.10337251 / 0.10930838 / 0.01821501`), this run dropped by about `22.87% / 19.22% / 17.87%`.
+  - Relative to clean frozen-teacher lightgcn baseline (`0.09302971 / 0.10014018 / 0.01738844`), this run dropped by about `14.30% / 11.83% / 13.97%`.
+  - Interpretation: in the current best projection image-only structure, semantic distillation remains a core gain source; turning it off collapses performance.
+
+### 2026-04-14 | A2-1 completion: projection image-only with weak text injection (`td_item_text_rate=0.1`)
+- Script: `codes/main_mmlight.py`
+- Command:
+  `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0.1 --td_user_image_rate 0 --td_user_text_rate 0`
+- Parameter changes:
+  - same as projection image-only `alpha=0.3` reference, with additional weak text injection `td_item_text_rate=0.1`
+- KD-related weights:
+  - inherited PromptMM KD flags unchanged (`kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`)
+  - active objective: `BPR + 0.3 * (image + weak-text) distillation`
+- Status:
+  - completed normally with `TD-Distill` early stop at epoch `44`; best result appeared at epoch `35`
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: `19`
+  - Recall@20: `0.14755461`
+  - NDCG@20: `0.14741283`
+  - Precision@20: `0.02665822`
+- Best metrics:
+  - Recall@20: `0.07666581`
+  - NDCG@20: `0.08372868`
+  - Precision@20: `0.01340264`
+- Full best result:
+  - precision: `[0.01662272, 0.01340264, 0.01043103, 0.00978296]`
+  - recall: `[0.04762478, 0.07666581, 0.11706514, 0.13567162]`
+  - ndcg: `[0.06441712, 0.08372868, 0.10642088, 0.11620817]`
+  - hit_ratio: `[0.14300203, 0.21440162, 0.30010142, 0.33671400]`
+- Notes:
+  - Relative to projection image-only `alpha=0.3` reference (`0.10910197 / 0.11266417 / 0.01915314`), this run dropped by about `29.73% / 25.68% / 30.02%`.
+  - Relative to no-projection item-only dual-head reference (`0.10337251 / 0.10930838 / 0.01821501`), this run dropped by about `25.84% / 23.40% / 26.42%`.
+  - Relative to clean frozen-teacher lightgcn baseline (`0.09302971 / 0.10014018 / 0.01738844`), this run dropped by about `17.59% / 16.39% / 22.92%`.
+  - Interpretation: even weak text injection (`0.1`) is harmful in the projection image-dominant setup.
+
+### 2026-04-15 | A2-2 completion: projection image-only with weak text injection (`td_item_text_rate=0.2`)
+- Script: `codes/main_mmlight.py`
+- Command:
+  `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0.2 --td_user_image_rate 0 --td_user_text_rate 0`
+- Parameter changes:
+  - same as projection image-only `alpha=0.3` reference, with text injection increased to `td_item_text_rate=0.2`
+- KD-related weights:
+  - inherited PromptMM KD flags unchanged (`kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`)
+  - active objective: `BPR + 0.3 * (image + weak-text) distillation`
+- Status:
+  - completed normally with `TD-Distill` early stop at epoch `44`; best result appeared at epoch `35`
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: `19`
+  - Recall@20: `0.14755461`
+  - NDCG@20: `0.14741283`
+  - Precision@20: `0.02665822`
+- Best metrics:
+  - Recall@20: `0.07634552`
+  - NDCG@20: `0.08411150`
+  - Precision@20: `0.01336207`
+- Full best result:
+  - precision: `[0.01667343, 0.01336207, 0.01039047, 0.00970385]`
+  - recall: `[0.04771478, 0.07634552, 0.11670681, 0.13456480]`
+  - ndcg: `[0.06511803, 0.08411150, 0.10668184, 0.11611119]`
+  - hit_ratio: `[0.14340771, 0.21419878, 0.29949290, 0.33448276]`
+- Notes:
+  - Relative to projection image-only `alpha=0.3` reference (`0.10910197 / 0.11266417 / 0.01915314`), this run dropped by about `30.02% / 25.34% / 30.24%`.
+  - Relative to no-projection item-only dual-head reference (`0.10337251 / 0.10930838 / 0.01821501`), this run dropped by about `26.15% / 23.05% / 26.64%`.
+  - Relative to clean frozen-teacher lightgcn baseline (`0.09302971 / 0.10014018 / 0.01738844`), this run dropped by about `17.93% / 16.01% / 23.16%`.
+  - Relative to the `td_item_text_rate=0.1` run, this run is essentially tied (Recall `-0.42%`, NDCG `+0.46%`, Precision `-0.30%`).
+  - Interpretation: the observed degradation is not a simple over-weight effect between `0.1` and `0.2`; text injection itself appears to conflict with the current projection image-only path.
+
+### 2026-04-15 | A3 completion (conditional path): no-projection asymmetric dual-head (`image=1.0, text=0.3`)
+- Script: `codes/main_mmlight.py`
+- Command:
+  `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0`
+- Parameter changes:
+  - CLI override `student_model_type=td_distill_no_projection`
+  - CLI override `student_lr=6e-5`
+  - CLI override `if_train_teacher=false`
+  - explicit directional-loss weight `td_distill_alpha=0.3`
+  - explicit warm-start ablation `td_init_from_teacher=false`
+  - explicit asymmetric dual-head item-only setting:
+    - `td_item_image_rate=1.0`
+    - `td_item_text_rate=0.3`
+    - `td_user_image_rate=0.0`
+    - `td_user_text_rate=0.0`
+- KD-related weights:
+  - inherited PromptMM KD flags unchanged (`kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`)
+  - active objective remained `BPR + 0.3 * asymmetric item-only semantic distillation loss` without projection heads
+- Status:
+  - completed normally with `TD-Distill` early stop at epoch `425`; best result appeared at epoch `416`
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: `19`
+  - Recall@20: `0.14755461`
+  - NDCG@20: `0.14741283`
+  - Precision@20: `0.02665822`
+- Best metrics:
+  - Recall@20: `0.10947864`
+  - NDCG@20: `0.11405268`
+  - Precision@20: `0.01934584`
+- Full best result:
+  - precision: `[0.02404665, 0.01934584, 0.01488590, 0.01371602]`
+  - recall: `[0.06843828, 0.10947864, 0.16399599, 0.18788375]`
+  - ndcg: `[0.08817225, 0.11405268, 0.14371040, 0.15526111]`
+  - hit_ratio: `[0.20050710, 0.29066937, 0.39513185, 0.43448276]`
+- Notes:
+  - Relative to projection image-only `alpha=0.3` reference (`0.10910197 / 0.11266417 / 0.01915314`), this run improved by about `0.35% / 1.23% / 1.01%`.
+  - Relative to no-projection item-only dual-head reference (`0.10337251 / 0.10930838 / 0.01821501`), this run improved by about `5.91% / 4.34% / 6.21%`.
+  - Relative to clean frozen-teacher lightgcn baseline (`0.09302971 / 0.10014018 / 0.01738844`), this run improved by about `17.68% / 13.89% / 11.26%`.
+  - Interpretation: under no-projection, weak text reintroduction with asymmetric weighting (`1.0/0.3`) is effective and currently gives the strongest completed post-refactor no-warm-start result.
+
+### 2026-04-15 | Stability rerun #1 completion (`td_distill_no_projection`, `image=1.0`, `text=0.3`)
+- Script: `codes/main_mmlight.py`
+- Command:
+  `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0`
+- Parameter changes:
+  - same as current anchor (`td_distill_no_projection`, `td_distill_alpha=0.3`, `td_init_from_teacher=false`, item-only asymmetric `1.0/0.3`)
+- KD-related weights:
+  - inherited PromptMM KD flags unchanged (`kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`)
+  - active objective remained `BPR + 0.3 * asymmetric item-only semantic distillation loss` without projection heads
+- Status:
+  - completed normally with `TD-Distill` early stop at epoch `425`; best result appeared at epoch `416`
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: `19`
+  - Recall@20: `0.14755461`
+  - NDCG@20: `0.14741283`
+  - Precision@20: `0.02665822`
+- Best metrics:
+  - Recall@20: `0.10947864`
+  - NDCG@20: `0.11405268`
+  - Precision@20: `0.01934584`
+- Full best result:
+  - precision: `[0.02404665, 0.01934584, 0.01488590, 0.01371602]`
+  - recall: `[0.06843828, 0.10947864, 0.16399599, 0.18788375]`
+  - ndcg: `[0.08817225, 0.11405268, 0.14371040, 0.15526111]`
+  - hit_ratio: `[0.20050710, 0.29066937, 0.39513185, 0.43448276]`
+- Notes:
+  - Relative to current anchor (`0.10947864 / 0.11405268 / 0.01934584`), this rerun is exactly tied (`0.00% / 0.00% / 0.00%`).
+  - Relative to clean frozen-teacher lightgcn baseline (`0.09302971 / 0.10014018 / 0.01738844`), this rerun improved by about `17.68% / 13.89% / 11.26%`.
+  - Interpretation: stability rerun #1 confirms no observable metric drift.
+
+### 2026-04-15 | Stability rerun #2 completion (`td_distill_no_projection`, `image=1.0`, `text=0.3`)
+- Script: `codes/main_mmlight.py`
+- Command:
+  `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0`
+- Parameter changes:
+  - same as current anchor (`td_distill_no_projection`, `td_distill_alpha=0.3`, `td_init_from_teacher=false`, item-only asymmetric `1.0/0.3`)
+- KD-related weights:
+  - inherited PromptMM KD flags unchanged (`kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`)
+  - active objective remained `BPR + 0.3 * asymmetric item-only semantic distillation loss` without projection heads
+- Status:
+  - completed normally with `TD-Distill` early stop at epoch `425`; best result appeared at epoch `416`
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: `19`
+  - Recall@20: `0.14755461`
+  - NDCG@20: `0.14741283`
+  - Precision@20: `0.02665822`
+- Best metrics:
+  - Recall@20: `0.10947864`
+  - NDCG@20: `0.11405268`
+  - Precision@20: `0.01934584`
+- Full best result:
+  - precision: `[0.02404665, 0.01934584, 0.01488590, 0.01371602]`
+  - recall: `[0.06843828, 0.10947864, 0.16399599, 0.18788375]`
+  - ndcg: `[0.08817225, 0.11405268, 0.14371040, 0.15526111]`
+  - hit_ratio: `[0.20050710, 0.29066937, 0.39513185, 0.43448276]`
+- Notes:
+  - Relative to current anchor (`0.10947864 / 0.11405268 / 0.01934584`), this rerun is exactly tied (`0.00% / 0.00% / 0.00%`).
+  - Relative to clean frozen-teacher lightgcn baseline (`0.09302971 / 0.10014018 / 0.01738844`), this rerun improved by about `17.68% / 13.89% / 11.26%`.
+  - Interpretation: stability rerun #2 repeats rerun #1 and anchor exactly; the point is highly reproducible in current environment.
+
+### 2026-04-15 | Text-rate low-side refinement completion (`td_distill_no_projection`, `image=1.0`, `text=0.2`)
+- Script: `codes/main_mmlight.py`
+- Command:
+  `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0.2 --td_user_image_rate 0 --td_user_text_rate 0`
+- Parameter changes:
+  - same as current anchor except `td_item_text_rate=0.2` (from `0.3`)
+- KD-related weights:
+  - inherited PromptMM KD flags unchanged (`kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`)
+  - active objective remained `BPR + 0.3 * asymmetric item-only semantic distillation loss` without projection heads
+- Status:
+  - completed normally with `TD-Distill` early stop at epoch `56`; best result appeared at epoch `47`
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: `19`
+  - Recall@20: `0.14755461`
+  - NDCG@20: `0.14741283`
+  - Precision@20: `0.02665822`
+- Best metrics:
+  - Recall@20: `0.07756238`
+  - NDCG@20: `0.08822163`
+  - Precision@20: `0.01367647`
+- Full best result:
+  - precision: `[0.01720081, 0.01367647, 0.01056288, 0.00978093]`
+  - recall: `[0.04875770, 0.07756238, 0.11794184, 0.13519583]`
+  - ndcg: `[0.06911970, 0.08822163, 0.11073398, 0.11960512]`
+  - hit_ratio: `[0.14959432, 0.21774848, 0.30243408, 0.33407708]`
+- Notes:
+  - Relative to current anchor (`0.10947864 / 0.11405268 / 0.01934584`), this run dropped by about `29.15% / 22.65% / 29.30%`.
+  - Relative to clean frozen-teacher lightgcn baseline (`0.09302971 / 0.10014018 / 0.01738844`), this run dropped by about `16.63% / 11.91% / 21.34%`.
+  - Interpretation: reducing text-rate from `0.3` to `0.2` causes a severe regression and early-stop collapse.
+
+### 2026-04-15 | Text-rate high-side refinement completion (`td_distill_no_projection`, `image=1.0`, `text=0.4`)
+- Script: `codes/main_mmlight.py`
+- Command:
+  `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0.4 --td_user_image_rate 0 --td_user_text_rate 0`
+- Parameter changes:
+  - same as current anchor except `td_item_text_rate=0.4` (from `0.3`)
+- KD-related weights:
+  - inherited PromptMM KD flags unchanged (`kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`)
+  - active objective remained `BPR + 0.3 * asymmetric item-only semantic distillation loss` without projection heads
+- Status:
+  - completed normally with `TD-Distill` early stop at epoch `374`; best result appeared at epoch `365`
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: `19`
+  - Recall@20: `0.14755461`
+  - NDCG@20: `0.14741283`
+  - Precision@20: `0.02665822`
+- Best metrics:
+  - Recall@20: `0.10710962`
+  - NDCG@20: `0.11309071`
+  - Precision@20: `0.01890467`
+- Full best result:
+  - precision: `[0.02347870, 0.01890467, 0.01447515, 0.01338337]`
+  - recall: `[0.06697096, 0.10710962, 0.16015620, 0.18308500]`
+  - ndcg: `[0.08762456, 0.11309071, 0.14204400, 0.15351761]`
+  - hit_ratio: `[0.19705882, 0.28590264, 0.38995943, 0.42849899]`
+- Notes:
+  - Relative to current anchor (`0.10947864 / 0.11405268 / 0.01934584`), this run is lower by about `2.16% / 0.84% / 2.28%`.
+  - Relative to clean frozen-teacher lightgcn baseline (`0.09302971 / 0.10014018 / 0.01738844`), this run improved by about `15.14% / 12.93% / 8.72%`.
+  - Interpretation: increasing text-rate from `0.3` to `0.4` keeps quality strong but still does not beat `0.3`.
+
+### 2026-04-15 | Next-step execution plan (completed)
+- Status: completed
+- Completed checks:
+  - stability rerun #1 (`text=0.3`): exact tie with anchor
+  - stability rerun #2 (`text=0.3`): exact tie with anchor
+  - local refinement `text=0.2`: severe regression
+  - local refinement `text=0.4`: close but still below anchor
+- Decision:
+  - freeze `td_item_text_rate=0.3` as the structure-stage default under current no-projection asymmetric setup
+  - keep current primary anchor unchanged:
+    - `td_distill_no_projection`, `td_distill_alpha=0.3`, `td_init_from_teacher=false`
+    - `td_item_image_rate=1.0`, `td_item_text_rate=0.3`, `td_user_image_rate=0`, `td_user_text_rate=0`
+    - `Recall@20=0.10947864`, `NDCG@20=0.11405268`, `Precision@20=0.01934584`
+
+### 2026-04-15 | B1 completion: no-projection asymmetric distillation-off control (`td_distill_alpha=0.0`)
+- Script: `codes/main_mmlight.py`
+- Command:
+  `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.0 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0`
+- Parameter changes:
+  - same as current no-projection asymmetric anchor, with semantic distillation turned off (`td_distill_alpha=0.0`)
+  - no warm start (`td_init_from_teacher=false`) retained
+- KD-related weights:
+  - inherited PromptMM KD flags unchanged (`kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`)
+  - active objective reduced to BPR-only (`+ 0.0 * distill_loss`), and all printed semantic components stayed `0.00000`
+- Status:
+  - completed normally with `TD-Distill` early stop at epoch `361`; best result appeared at epoch `352`
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: `19`
+  - Recall@20: `0.14755461`
+  - NDCG@20: `0.14741283`
+  - Precision@20: `0.02665822`
+- Best metrics:
+  - Recall@20: `0.08209192`
+  - NDCG@20: `0.09161002`
+  - Precision@20: `0.01519270`
+- Full best result:
+  - precision: `[0.01935091, 0.01519270, 0.01134128, 0.01039351]`
+  - recall: `[0.05313823, 0.08209192, 0.11828020, 0.13396677]`
+  - ndcg: `[0.07192386, 0.09161002, 0.11329275, 0.12171252]`
+  - hit_ratio: `[0.15993915, 0.22697769, 0.30436105, 0.33275862]`
+- Notes:
+  - Relative to the current no-projection asymmetric anchor (`0.10947864 / 0.11405268 / 0.01934584`), this run dropped by about `25.02% / 19.68% / 21.47%`.
+  - Relative to clean frozen-teacher lightgcn baseline (`0.09302971 / 0.10014018 / 0.01738844`), this run dropped by about `11.76% / 8.52% / 12.63%`.
+  - Interpretation: under the current best structure, semantic distillation is a core gain source rather than a redundant term.
+
+### 2026-04-15 | B2 completion: no-projection asymmetric warm-start dependence check (`td_init_from_teacher=true`)
+- Script: `codes/main_mmlight.py`
+- Command:
+  `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher true --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0`
+- Parameter changes:
+  - same as current no-projection asymmetric anchor, with warm start enabled (`td_init_from_teacher=true`)
+- KD-related weights:
+  - inherited PromptMM KD flags unchanged (`kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`)
+  - active objective remained `BPR + 0.3 * asymmetric item-only semantic distillation loss` without projection heads
+- Status:
+  - completed normally with `TD-Distill` early stop at epoch `22`; best result appeared at epoch `13`
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: `19`
+  - Recall@20: `0.14755461`
+  - NDCG@20: `0.14741283`
+  - Precision@20: `0.02665822`
+- Best metrics:
+  - Recall@20: `0.14800863`
+  - NDCG@20: `0.14752959`
+  - Precision@20: `0.02672921`
+- Full best result:
+  - precision: `[0.03446247, 0.02672921, 0.01999239, 0.01807708]`
+  - recall: `[0.09829842, 0.14800863, 0.21452438, 0.24067960]`
+  - ndcg: `[0.11716284, 0.14752959, 0.18218480, 0.19423934]`
+  - hit_ratio: `[0.26267748, 0.36176471, 0.47058824, 0.50557809]`
+- Notes:
+  - Relative to the current no-projection asymmetric no-warm-start anchor (`0.10947864 / 0.11405268 / 0.01934584`), this run improved by about `35.19% / 29.35% / 38.17%`.
+  - Relative to teacher summary (`0.14755461 / 0.14741283 / 0.02665822`), this run is slightly higher by about `0.31% / 0.08% / 0.27%`.
+  - Interpretation: warm start is a dominant contributor under the current no-projection asymmetric structure and must be reported as a method dependency.
+
+### 2026-04-15 | B3 completion: no-projection asymmetric user-side reintroduction check (`td_user_image_rate=0.1`)
+- Script: `codes/main_mmlight.py`
+- Command:
+  `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0.1 --td_user_text_rate 0`
+- Parameter changes:
+  - same as current no-projection asymmetric no-warm-start anchor, with lightweight user-side image supervision enabled (`td_user_image_rate=0.1`)
+- KD-related weights:
+  - inherited PromptMM KD flags unchanged (`kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`)
+  - active objective remained `BPR + 0.3 * asymmetric semantic distillation loss` with added user-image term
+- Status:
+  - completed normally with `TD-Distill` early stop at epoch `298`; best result appeared at epoch `289`
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: `19`
+  - Recall@20: `0.14755461`
+  - NDCG@20: `0.14741283`
+  - Precision@20: `0.02665822`
+- Best metrics:
+  - Recall@20: `0.10417320`
+  - NDCG@20: `0.11037305`
+  - Precision@20: `0.01828093`
+- Full best result:
+  - precision: `[0.02296146, 0.01828093, 0.01414807, 0.01301014]`
+  - recall: `[0.06624205, 0.10417320, 0.15626763, 0.17865194]`
+  - ndcg: `[0.08598535, 0.11037305, 0.13941200, 0.15037883]`
+  - hit_ratio: `[0.19411765, 0.27839757, 0.38194726, 0.42048682]`
+- Notes:
+  - Relative to the current no-user anchor (`0.10947864 / 0.11405268 / 0.01934584`), this run dropped by about `4.85% / 3.23% / 5.50%`.
+  - Relative to clean frozen-teacher lightgcn baseline (`0.09302971 / 0.10014018 / 0.01738844`), this run improved by about `12.00% / 10.22% / 5.13%`.
+  - Interpretation: in the current no-projection asymmetric line, reintroducing user-side supervision hurts versus the no-user anchor; keep `td_user_*_rate=0` as the structure default.
+
+### 2026-04-15 | Next-step execution plan (completed, updated)
+- Status: completed
+- Completed checks:
+  - Step 1 (`td_distill_alpha=0.0`, no warm start): completed, clear drop
+  - Step 2 (`td_init_from_teacher=true`): completed, large gain to near-teacher range
+  - Step 3 (`td_user_image_rate=0.1`, no warm start): completed, below no-user anchor
+- Decision:
+  - lock in that semantic distillation is a core gain source for the no-projection asymmetric line
+  - report warm-start dependence explicitly as a method limitation and analysis axis
+  - freeze `td_user_image_rate=0`, `td_user_text_rate=0` as current structure default under no warm start
+
+### 2026-04-16 | Next-step execution plan (archived pending snapshot, superseded)
+- Status: archived (superseded by completed section below)
+- Goal:
+  - decompose warm-start-path gains into initialization effect, residual distillation effect, and user-side supervision effect under the fixed no-projection asymmetric structure
+- Step 1 | warm-start pure-initialization control (`alpha=0.0`):
+  - `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.0 --td_init_from_teacher true --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0`
+- Step 2 | warm-start + weak distillation check (`alpha=0.1`):
+  - `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.1 --td_init_from_teacher true --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0`
+- Step 3 | warm-start user-side reintroduction check (`user_image=0.1` on Step 2):
+  - `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.1 --td_init_from_teacher true --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0.1 --td_user_text_rate 0`
+- Decision rule:
+  - If Step 1 is already near the current warm-start reference, attribute most gain to initialization and mark this as a key limitation.
+  - If Step 2 clearly improves over Step 1, keep a nonzero distillation term in warm-start mode and treat distillation as additive rather than redundant.
+  - If Step 3 underperforms Step 2, keep `td_user_*_rate=0` as the default in both no-warm-start and warm-start paths.
+
+### 2026-04-16 | Warm-start pure-initialization control completion (`td_distill_alpha=0.0`, `td_init_from_teacher=true`)
+- Script: `codes/main_mmlight.py`
+- Command:
+  `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.0 --td_init_from_teacher true --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0`
+- Parameter changes:
+  - warm-start path activated with pure-initialization control (`td_init_from_teacher=true`, `td_distill_alpha=0.0`)
+  - fixed no-projection asymmetric structure retained (`td_item_image_rate=1.0`, `td_item_text_rate=0.3`, `td_user_image_rate=0`, `td_user_text_rate=0`)
+- KD-related weights:
+  - inherited PromptMM KD flags unchanged (`kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`)
+  - active objective reduced to BPR-only (`+ 0.0 * distill_loss`), and all semantic components stayed `0.00000`
+- Status:
+  - completed normally with `TD-Distill` early stop at epoch `21`; best result appeared at epoch `12`
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: `19`
+  - Recall@20: `0.14755461`
+  - NDCG@20: `0.14741283`
+  - Precision@20: `0.02665822`
+- Best metrics:
+  - Recall@20: `0.14793405`
+  - NDCG@20: `0.14757129`
+  - Precision@20: `0.02671907`
+- Full best result:
+  - precision: `[0.03444219, 0.02671907, 0.01997972, 0.01805477]`
+  - recall: `[0.09828116, 0.14793405, 0.21443450, 0.24028759]`
+  - ndcg: `[0.11725762, 0.14757129, 0.18218541, 0.19418397]`
+  - hit_ratio: `[0.26247465, 0.36146045, 0.47018256, 0.50496957]`
+- Notes:
+  - Relative to teacher summary (`0.14755461 / 0.14741283 / 0.02665822`), this run is slightly higher by about `0.26% / 0.11% / 0.23%`.
+  - Relative to warm-start `alpha=0.3` reference (`0.14800863 / 0.14752959 / 0.02672921`), this run is effectively tied and only lower by about `0.05% / 0.03% / 0.04%`.
+  - Interpretation: warm-start initialization alone already recovers near-teacher quality; residual distillation gain in warm-start mode is likely very small.
+
+### 2026-04-16 | Warm-start weak-distillation check completion (`td_distill_alpha=0.1`, `td_init_from_teacher=true`)
+- Script: `codes/main_mmlight.py`
+- Command:
+  `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.1 --td_init_from_teacher true --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0`
+- Parameter changes:
+  - same warm-start structure as Step 1, with weak nonzero distillation (`td_distill_alpha=0.1`)
+- KD-related weights:
+  - inherited PromptMM KD flags unchanged (`kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`)
+  - active objective: `BPR + 0.1 * asymmetric item-only semantic distillation loss` without projection heads
+- Status:
+  - completed normally with `TD-Distill` early stop at epoch `22`; best result appeared at epoch `13`
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: `19`
+  - Recall@20: `0.14755461`
+  - NDCG@20: `0.14741283`
+  - Precision@20: `0.02665822`
+- Best metrics:
+  - Recall@20: `0.14801415`
+  - NDCG@20: `0.14771683`
+  - Precision@20: `0.02672921`
+- Full best result:
+  - precision: `[0.03445233, 0.02672921, 0.01998732, 0.01805680]`
+  - recall: `[0.09830936, 0.14801415, 0.21447270, 0.24032225]`
+  - ndcg: `[0.11731006, 0.14771683, 0.18234390, 0.19430037]`
+  - hit_ratio: `[0.26257606, 0.36176471, 0.47058824, 0.50517241]`
+- Notes:
+  - Relative to Step 1 warm-start pure-init control (`0.14793405 / 0.14757129 / 0.02671907`), this run improved by about `0.05% / 0.10% / 0.04%`.
+  - Relative to teacher summary (`0.14755461 / 0.14741283 / 0.02665822`), this run is slightly higher by about `0.31% / 0.21% / 0.27%`.
+  - Interpretation: weak distillation provides only marginal additive gain over pure warm-start initialization under the current structure.
+
+### 2026-04-16 | Warm-start user-side reintroduction check completion (`td_user_image_rate=0.1` on warm-start `alpha=0.1`)
+- Script: `codes/main_mmlight.py`
+- Command:
+  `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.1 --td_init_from_teacher true --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0.1 --td_user_text_rate 0`
+- Parameter changes:
+  - same as Step 2, with warm-start user-image supervision enabled (`td_user_image_rate=0.1`)
+- KD-related weights:
+  - inherited PromptMM KD flags unchanged (`kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`)
+  - active objective remained `BPR + 0.1 * asymmetric semantic distillation loss` with added user-image term
+- Status:
+  - completed normally with `TD-Distill` early stop at epoch `22`; best result appeared at epoch `13`
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: `19`
+  - Recall@20: `0.14755461`
+  - NDCG@20: `0.14741283`
+  - Precision@20: `0.02665822`
+- Best metrics:
+  - Recall@20: `0.14801656`
+  - NDCG@20: `0.14769490`
+  - Precision@20: `0.02672414`
+- Full best result:
+  - precision: `[0.03446247, 0.02672414, 0.01998225, 0.01806288]`
+  - recall: `[0.09831858, 0.14801656, 0.21437884, 0.24039005]`
+  - ndcg: `[0.11730971, 0.14769490, 0.18229956, 0.19432571]`
+  - hit_ratio: `[0.26257606, 0.36176471, 0.47038540, 0.50537525]`
+- Notes:
+  - Relative to Step 2 warm-start no-user run (`0.14801415 / 0.14771683 / 0.02672921`), this run is essentially tied: `+0.00% / -0.01% / -0.02%`.
+  - Relative to teacher summary (`0.14755461 / 0.14741283 / 0.02665822`), this run is slightly higher by about `0.31% / 0.19% / 0.25%`.
+  - Interpretation: user-side reintroduction does not provide stable improvement in warm-start mode; keep user-side rates at `0` for the default path.
+
+### 2026-04-16 | Next-step execution plan (completed, warm-start-path ablations)
+- Status: completed
+- Completed checks:
+  - Step 1 (`td_distill_alpha=0.0`, `td_init_from_teacher=true`): completed, already near teacher and near warm-start reference
+  - Step 2 (`td_distill_alpha=0.1`, `td_init_from_teacher=true`): completed, only marginal improvement over Step 1
+  - Step 3 (`td_user_image_rate=0.1` on Step 2): completed, essentially tied with slight NDCG/Precision drop
+- Decision:
+  - in warm-start mode, most quality gain should be attributed to initialization rather than residual distillation weight size
+  - keep a small nonzero `td_distill_alpha` as optional additive regularization, but do not frame it as a major warm-start gain source
+  - keep `td_user_image_rate=0`, `td_user_text_rate=0` as the default in both no-warm-start and warm-start paths
+
+## Entry Template
+
+### YYYY-MM-DD | Short label
+- Script:
+- Command:
+- Parameter changes:
+- KD-related weights:
+- Status:
+- Teacher summary:
+  - Reused or retrained:
+  - Best epoch:
+  - Recall@20:
+  - NDCG@20:
+  - Precision@20:
+- Best metrics:
+  - Recall@20:
+  - NDCG@20:
+  - Precision@20:
+- Full best result:
+  - precision:
+  - recall:
+  - ndcg:
+  - hit_ratio:
+- Notes:
+
+
+
+### 2026-04-16 | Next-step execution plan (pending, no-warm-start 3-seed robustness)
+- Status: pending
+- Goal:
+  - consolidate robustness evidence on the main no-warm-start path under the fixed no-projection asymmetric structure
+  - provide variance-aware support for thesis/patent claims beyond a single-seed point estimate
+- Fixed protocol:
+  - script: `codes/main_mmlight.py`
+  - dataset: `amazon`
+  - strict frozen-teacher protocol: `--if_train_teacher false`
+  - student structure: `--student_model_type td_distill_no_projection`
+  - no warm start: `--td_init_from_teacher false`
+  - directional term: `--td_distill_alpha 0.3`
+  - asymmetric item-only rates: `--td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0`
+  - LR anchor: `--student_lr 6e-5` (CLI override)
+- Run list (3-seed):
+  - Seed 2022:
+    - `python .\codes\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0 --seed 2022`
+  - Seed 2023:
+    - `python .\codes\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0 --seed 2023`
+  - Seed 2024:
+    - `python .\codes\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0 --seed 2024`
+- Decision rule:
+  - if all three seeds remain clearly above the clean frozen-teacher lightgcn baseline, treat the no-warm-start gain as robust
+  - if one seed collapses strongly, open a targeted stability diagnosis before claiming robustness
+
+### 2026-04-17 | Next-step execution plan (completion update, no-warm-start 3-seed robustness)
+- Status: completed
+- Supersedes:
+  - `2026-04-16 | Next-step execution plan (pending, no-warm-start 3-seed robustness)`
+- Outcome:
+  - all three planned seed runs (`2022/2023/2024`) completed
+  - no run collapsed below the clean frozen-teacher lightgcn baseline
+
+### 2026-04-16 | No-warm-start 3-seed robustness run completion (`seed=2022`)
+- Script: `codes/main_mmlight.py`
+- Command:
+  `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0 --seed 2022`
+- Parameter changes:
+  - no new parameter change versus current no-projection asymmetric no-warm-start anchor; this run is seed-control evaluation with `seed=2022`
+- KD-related weights:
+  - inherited PromptMM KD flags unchanged (`kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`)
+  - active objective remained `BPR + 0.3 * asymmetric item-only semantic distillation loss` without projection heads
+- Status:
+  - completed normally with `TD-Distill` early stop at epoch `425`; best result appeared at epoch `416`
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: `19`
+  - Recall@20: `0.14755461`
+  - NDCG@20: `0.14741283`
+  - Precision@20: `0.02665822`
+- Best metrics:
+  - Recall@20: `0.10947864`
+  - NDCG@20: `0.11405268`
+  - Precision@20: `0.01934584`
+- Full best result:
+  - precision: `[0.02404665, 0.01934584, 0.01488590, 0.01371602]`
+  - recall: `[0.06843828, 0.10947864, 0.16399599, 0.18788375]`
+  - ndcg: `[0.08817225, 0.11405268, 0.14371040, 0.15526111]`
+  - hit_ratio: `[0.20050710, 0.29066937, 0.39513185, 0.43448276]`
+- Notes:
+  - This run reproduces the current no-warm-start anchor exactly on all three `@20` metrics.
+  - Relative to clean frozen-teacher lightgcn baseline (`0.09302971 / 0.10014018 / 0.01738844`), this run improved by about `17.68% / 13.89% / 11.26%`.
+### 2026-04-16 | No-warm-start 3-seed robustness run completion (`seed=2023`)
+- Script: `codes/main_mmlight.py`
+- Command:
+  `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0 --seed 2023`
+- Parameter changes:
+  - no new parameter change versus current no-projection asymmetric no-warm-start anchor; this run is seed-control evaluation with `seed=2023`
+- KD-related weights:
+  - inherited PromptMM KD flags unchanged (`kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`)
+  - active objective remained `BPR + 0.3 * asymmetric item-only semantic distillation loss` without projection heads
+- Status:
+  - completed normally with `TD-Distill` early stop at epoch `269`; best result appeared at epoch `260`
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: `19`
+  - Recall@20: `0.14755461`
+  - NDCG@20: `0.14741283`
+  - Precision@20: `0.02665822`
+- Best metrics:
+  - Recall@20: `0.09994591`
+  - NDCG@20: `0.10698744`
+  - Precision@20: `0.01757606`
+- Full best result:
+  - precision: `[0.02156187, 0.01757606, 0.01381592, 0.01255984]`
+  - recall: `[0.06171866, 0.09994591, 0.15284976, 0.17328897]`
+  - ndcg: `[0.08252793, 0.10698744, 0.13625755, 0.14617685]`
+  - hit_ratio: `[0.18286004, 0.27008114, 0.37454361, 0.40953347]`
+- Notes:
+  - Relative to the current no-warm-start anchor (`0.10947864 / 0.11405268 / 0.01934584`), this run dropped by about `8.71% / 6.20% / 9.15%`.
+  - Relative to clean frozen-teacher lightgcn baseline (`0.09302971 / 0.10014018 / 0.01738844`), this run still improved by about `7.43% / 6.84% / 1.08%`.
+### 2026-04-17 | No-warm-start 3-seed robustness run completion (`seed=2024`)
+- Script: `codes/main_mmlight.py`
+- Command:
+  `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0 --seed 2024`
+- Parameter changes:
+  - no new parameter change versus current no-projection asymmetric no-warm-start anchor; this run is seed-control evaluation with `seed=2024`
+- KD-related weights:
+  - inherited PromptMM KD flags unchanged (`kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`)
+  - active objective remained `BPR + 0.3 * asymmetric item-only semantic distillation loss` without projection heads
+- Status:
+  - completed normally with `TD-Distill` early stop at epoch `314`; best result appeared at epoch `305`
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: `19`
+  - Recall@20: `0.14755461`
+  - NDCG@20: `0.14741283`
+  - Precision@20: `0.02665822`
+- Best metrics:
+  - Recall@20: `0.10264270`
+  - NDCG@20: `0.10959122`
+  - Precision@20: `0.01815923`
+- Full best result:
+  - precision: `[0.02232252, 0.01815923, 0.01411765, 0.01286410]`
+  - recall: `[0.06371455, 0.10264270, 0.15680588, 0.17803862]`
+  - ndcg: `[0.08453028, 0.10959122, 0.13899765, 0.14913678]`
+  - hit_ratio: `[0.18884381, 0.27748479, 0.38245436, 0.41734280]`
+- Notes:
+  - Relative to the current no-warm-start anchor (`0.10947864 / 0.11405268 / 0.01934584`), this run dropped by about `6.24% / 3.91% / 6.13%`.
+  - Relative to clean frozen-teacher lightgcn baseline (`0.09302971 / 0.10014018 / 0.01738844`), this run improved by about `10.33% / 9.44% / 4.43%`.
+### 2026-04-17 | No-warm-start 3-seed robustness summary (completed)
+- Status: completed
+- Aggregate over seeds (`2022/2023/2024`) under fixed no-projection asymmetric no-warm-start protocol:
+  - mean Recall@20 / NDCG@20 / Precision@20: `0.10402242 / 0.11021045 / 0.01836038`
+  - std Recall@20 / NDCG@20 / Precision@20: `0.00401214 / 0.00291742 / 0.00073638`
+  - range (min~max):
+    - Recall@20: `0.09994591 ~ 0.10947864`
+    - NDCG@20: `0.10698744 ~ 0.11405268`
+    - Precision@20: `0.01757606 ~ 0.01934584`
+- Notes:
+  - Relative to clean frozen-teacher lightgcn baseline (`0.09302971 / 0.10014018 / 0.01738844`), the 3-seed mean improved by about `11.82% / 10.06% / 5.59%`.
+  - The worst seed (`2023`) still stayed above the clean baseline by about `7.43% / 6.84% / 1.08%`, so the no-warm-start gain is robust but with visible seed sensitivity, especially on Precision@20 lower-bound.
+  - Decision: keep the current no-warm-start default configuration unchanged and carry this as variance-aware evidence in thesis/patent reporting.
+
+### 2026-04-17 | Efficiency evidence implementation (completed, code-only)
+- Script: `codes/main_mmlight.py`
+- Related files:
+  - `codes/efficiency_benchmark.py` (new)
+  - `codes/utility/parser.py` (new CLI flags)
+- Goal:
+  - add a reproducible inference-efficiency benchmark path (teacher vs student) without changing existing training defaults
+  - keep original train/eval flow unchanged unless explicitly enabled by CLI
+- Status:
+  - completed (implementation finished, no training/evaluation run executed in this entry)
+- Parameter changes (code defaults, backward-compatible):
+  - added `--run_efficiency_benchmark` (default `false`)
+  - added `--efficiency_warmup_runs` (default `3`)
+  - added `--efficiency_measure_runs` (default `10`)
+  - added `--efficiency_batch_size` (default `2048`)
+  - added `--efficiency_topk` (default `20`)
+  - added `--efficiency_student_ckpt` (default empty; optional manual checkpoint path)
+- Behavioral notes:
+  - default commands are unchanged because benchmark mode is opt-in
+  - when benchmark mode is enabled and `if_train_teacher=true`, training is automatically skipped (`if_train_teacher` forced to `false`) to avoid accidental retraining
+  - for `td_distill` / `td_distill_no_projection`, benchmark mode auto-loads latest `td_distill_infer_only__*.pth` if `--efficiency_student_ckpt` is not provided
+  - benchmark outputs include: teacher/student embedding+ranking latency, per-user latency, throughput, peak GPU memory, and parameter count
+  - benchmark artifact is saved to `exp/efficiency/<dataset>/efficiency__<run_name>.pkl`
+
+### 2026-04-17 | Next-step execution plan (pending, efficiency evidence run)
+- Status: pending
+- Goal:
+  - collect thesis-ready efficiency evidence for the locked mainline config (`td_distill_no_projection`, no warm start, `alpha=0.3`, item=`1/0.3`, user=`0/0`, `student_lr=6e-5`)
+- Command (recommended):
+  - `python .\codes\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0 --seed 2022 --run_efficiency_benchmark true --efficiency_warmup_runs 5 --efficiency_measure_runs 20 --efficiency_batch_size 2048 --efficiency_topk 20`
+- Optional checkpoint pinning (for strict reproducibility):
+  - append `--efficiency_student_ckpt "Model/amazon/td_distill/td_distill_infer_only__<your_target_run>.pth"`
+- Decision rule:
+  - if student keeps clear latency/throughput advantage with acceptable memory footprint, mark efficiency evidence complete for thesis/patent mainline
+  - if speedup is weak or unstable, rerun once with same checkpoint and fixed batch size before concluding
+
+### 2026-04-17 | Efficiency code path safety check (completed)
+- Status: completed
+- Scope:
+  - structural safety check for newly added efficiency benchmark path
+  - parser compatibility fix across multi-parser sections
+- Confirmed checks:
+  - `codes/main_mmlight.py` benchmark gates are opt-in only (`--run_efficiency_benchmark`), default training flow remains unchanged
+  - benchmark early-return is attached after student model initialization/loading and before training loops
+  - `codes/utility/parser.py` now includes efficiency CLI flags in all parser sections (netflix/tiktok/amazon), avoiding unknown-arg issues
+  - static compile passed for `codes/main_mmlight.py`, `codes/utility/parser.py`, `codes/efficiency_benchmark.py`
+  - direct parser smoke parse passed for `--run_efficiency_benchmark true`
+- Residual risk:
+  - full runtime integration test in this environment is blocked by missing `dgl` dependency; execute in the standard training environment for final runtime confirmation

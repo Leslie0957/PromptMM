@@ -1,0 +1,57 @@
+# Python bytecode and tool caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Local editor and OS metadata
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Codex and temporary working state
+/.agents/
+/.codex/
+/.codex_tmp/
+/.codex_review_user/
+/_qa_current_doc/
+
+# Reproducibility assets kept on disk and fingerprinted separately
+/data/
+/Model/
+/exp/
+/zhuanli/
+
+# Generated run logs: keep only the directory guide in Git
+/logs/*
+!/logs/README.md
+
+# Historical reports are tracked, historical model binaries are not
+/archive/run_patent_results/*
+!/archive/run_patent_results/README.md
+
+# Local standalone Git bundles
+/backups/
+
+# Large/generated binary formats
+*.pt
+*.pth
+*.ckpt
+*.pkl
+*.npy
+*.npz
+*.zip
+*.7z
+*.rar
+*.msi
+*.exe
+
+# Runtime scratch files
+*.tmp
+*.temp
+*.pid
+
