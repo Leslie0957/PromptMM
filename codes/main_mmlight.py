@@ -80,6 +80,7 @@ from utility.experiment_protocol import (
     result_to_dict,
     run_dataset_preflight,
     teacher_inference_config_from_namespace,
+    training_batch_count,
     validate_teacher_checkpoint_metadata,
     write_json,
 )
@@ -155,6 +156,11 @@ class Trainer(object):
         self.early_stopping_limit = early_stopping_non_improvement_limit(
             self.eval_protocol, args.early_stopping_patience
         )
+        self.train_batch_count = training_batch_count(
+            data_generator.n_train,
+            args.batch_size,
+            getattr(args, 'smoke_train_batches', 0),
+        )
         if self.eval_protocol == PAPER_READY_PROTOCOL and DATASET_PREFLIGHT_REPORT.get('status') == 'disabled':
             raise ValueError('val_test_once_v1 requires dataset preflight to remain enabled.')
         self.dataset_identity = (
@@ -223,6 +229,8 @@ class Trainer(object):
             self.paper_ready_blockers.append('image and text feature arrays are identical')
         if getattr(args, 'dataset_config_profile', '') == 'unvalidated_amazon_default_fallback':
             self.paper_ready_blockers.append('dataset-specific defaults are not validated')
+        if getattr(args, 'smoke_train_batches', 0) > 0:
+            self.paper_ready_blockers.append('training batches are capped for smoke')
         if DATASET_PREFLIGHT_REPORT.get('status') == 'disabled':
             self.paper_ready_blockers.append('dataset preflight is disabled')
         self.paper_ready_eligible = not self.paper_ready_blockers
@@ -329,6 +337,14 @@ class Trainer(object):
             self.logger.logging(
                 'DATASET CONFIG WARNING: %s currently uses unvalidated Amazon fallback defaults; '
                 'formal runs must pin and document dataset-specific settings.' % args.dataset
+            )
+        if getattr(args, 'smoke_train_batches', 0) > 0:
+            self.logger.logging(
+                'SMOKE TRAINING CAP: using %d batch(es) per epoch instead of the full %d; '
+                'this run is not paper-ready.' % (
+                    self.train_batch_count,
+                    data_generator.n_train // args.batch_size + 1,
+                )
             )
 
         self.mess_dropout = eval(args.mess_dropout)
@@ -873,7 +889,7 @@ class Trainer(object):
             'user_text': max(0.0, float(getattr(args, 'td_user_text_rate', 1.0))),
         }
         td_direction_enabled = abs(td_alpha) > 0 and any(rate > 0 for rate in td_component_rates.values())
-        n_batch = data_generator.n_train // args.batch_size + 1
+        n_batch = self.train_batch_count
         td_final_test_ret = None
         td_batch_loss_list, td_bpr_loss_list, td_distill_loss_list = [], [], []
         td_item_image_loss_list, td_item_text_loss_list = [], []
@@ -1147,13 +1163,13 @@ class Trainer(object):
                 print("########begin:T###################################")
                 print(args.point)
                 print("###########################################")
-            n_batch = data_generator.n_train // args.batch_size + 1
+            n_batch = self.train_batch_count
             teacher_selection_users, teacher_selection_is_val, teacher_selection_label = self._selection_target()
             for epoch in range(args.epoch):
                 t1 = time()
                 loss, mf_loss, emb_loss, reg_loss = 0., 0., 0., 0.
                 contrastive_loss = 0.
-                n_batch = data_generator.n_train // args.batch_size + 1
+                n_batch = self.train_batch_count
                 f_time, b_time, loss_time, opt_time, clip_time, emb_time = 0., 0., 0., 0., 0., 0.
                 sample_time = 0.
                 build_item_graph = True
@@ -1351,7 +1367,7 @@ class Trainer(object):
         if args.point:
             print(args.point)
             print("###########################################")
-        n_batch = data_generator.n_train // args.batch_size + 1
+        n_batch = self.train_batch_count
         student_best_selection_recall = -1.
         # self.teacher_feat_dict = torch.load('/home/weiw/Code/MM/KDMM/Model/' + args.dataset + '/teacher_feat_dict.pt')
         teacher_checkpoint_for_student = (
@@ -1542,7 +1558,7 @@ class Trainer(object):
             t1 = time()
             loss, mf_loss, emb_loss, kd_total_loss = 0., 0., 0., 0.
             kd_pair_loss_total, kd_list_image_loss_total, kd_list_text_loss_total, kd_feat_loss_total = 0., 0., 0., 0.
-            n_batch = data_generator.n_train // args.batch_size + 1
+            n_batch = self.train_batch_count
             f_time, b_time, loss_time, opt_time, clip_time, emb_time = 0., 0., 0., 0., 0., 0.
             student_batch_loss_List = []
             batch_mf_loss_List = []

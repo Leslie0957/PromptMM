@@ -658,6 +658,8 @@ parser.add_argument('--point', default='ours', type=str, help='point')
 # train
 parser.add_argument('--batch_size', type=int, default=1024, help='Batch size.')  # [1024:4096]
 parser.add_argument('--epoch', type=int, default=1000, help='Number of epoch.')  #default: 1000
+parser.add_argument('--smoke_train_batches', type=int, default=0,
+                    help='Positive value caps training batches per epoch for non-formal smoke runs; 0 disables the cap.')
 parser.add_argument('--cf_model', nargs='?', default='light_init', help='Downstream Collaborative Filtering model {mf, ngcf, lightgcn, vbpr, hafr}')   
 parser.add_argument('--early_stopping_patience', type=int, default=7, help='') 
 parser.add_argument('--gpu_id', type=int, default=0, help='GPU id')
@@ -773,6 +775,8 @@ parser.add_argument('--point', default='ours', type=str, help='point')
 # train
 parser.add_argument('--batch_size', type=int, default=1024, help='Batch size.')
 parser.add_argument('--epoch', type=int, default=1000, help='Number of epoch.')  #default: 1000
+parser.add_argument('--smoke_train_batches', type=int, default=0,
+                    help='Positive value caps training batches per epoch for non-formal smoke runs; 0 disables the cap.')
 parser.add_argument('--cf_model', nargs='?', default='light_init', help='Downstream Collaborative Filtering model {mf, ngcf, lightgcn, vbpr, hafr}')   
 parser.add_argument('--early_stopping_patience', type=int, default=8, help='') 
 parser.add_argument('--gpu_id', type=int, default=2, help='GPU id')
@@ -882,6 +886,8 @@ parser.add_argument('--point', default='', type=str, help='point')
 # train
 parser.add_argument('--batch_size', type=int, default=512, help='Batch size.')
 parser.add_argument('--epoch', type=int, default=1000, help='Number of epoch.')  #default: 1000
+parser.add_argument('--smoke_train_batches', type=int, default=0,
+                    help='Positive value caps training batches per epoch for non-formal smoke runs; 0 disables the cap.')
 parser.add_argument('--cf_model', nargs='?', default='light_init', help='Downstream Collaborative Filtering model {mf, ngcf, lightgcn, vbpr, hafr}')   
 parser.add_argument('--early_stopping_patience', type=int, default=8, help='') 
 parser.add_argument('--gpu_id', type=int, default=2, help='GPU id')

@@ -26,6 +26,7 @@ from utility.experiment_protocol import (  # noqa: E402
     resolve_primary_k_index,
     restore_checkpoint_then_evaluate,
     run_dataset_preflight,
+    training_batch_count,
     validate_teacher_checkpoint_metadata,
     write_json,
 )
@@ -36,14 +37,29 @@ from utility.hard_token_cache import (  # noqa: E402
 
 
 class ExperimentProtocolTest(unittest.TestCase):
-    def _write_dataset(self, root, overlap=False, identical_modalities=False):
+    def _write_dataset(
+        self, root, overlap=False, identical_modalities=False, cold_start=False
+    ):
         dataset_dir = Path(root) / 'tiny'
         dataset_dir.mkdir(parents=True)
 
-        train = sp.csr_matrix(([1.0], ([0], [0])), shape=(2, 3))
-        validation_col = 0 if overlap else 1
+        if cold_start:
+            train = sp.csr_matrix(
+                ([1.0, 1.0], ([0, 1], [0, 0])), shape=(2, 3)
+            )
+            validation_col = 1
+        else:
+            train = sp.csr_matrix(
+                (
+                    [1.0, 1.0, 1.0, 1.0],
+                    ([0, 0, 1, 1], [0, 1, 1, 2]),
+                ),
+                shape=(2, 3),
+            )
+            validation_col = 0 if overlap else 2
         validation = sp.csr_matrix(([1.0], ([0], [validation_col])), shape=(2, 3))
-        test = sp.csr_matrix(([1.0], ([1], [2])), shape=(2, 3))
+        test_col = 2 if cold_start else 0
+        test = sp.csr_matrix(([1.0], ([1], [test_col])), shape=(2, 3))
         for file_name, matrix in (
             ('train_mat', train),
             ('val_mat', validation),
@@ -70,6 +86,10 @@ class ExperimentProtocolTest(unittest.TestCase):
         self.assertEqual(
             early_stopping_non_improvement_limit(LEGACY_PROTOCOL, 8), 9
         )
+        self.assertEqual(training_batch_count(100, 32), 4)
+        self.assertEqual(training_batch_count(100, 32, 1), 1)
+        with self.assertRaisesRegex(ValueError, 'non-negative'):
+            training_batch_count(100, 32, -1)
 
     def test_restore_happens_before_final_evaluation(self):
         events = []
@@ -183,6 +203,28 @@ class ExperimentProtocolTest(unittest.TestCase):
             self._write_dataset(temp_dir, overlap=True)
             with self.assertRaisesRegex(ValueError, 'overlapping user-item interactions'):
                 run_dataset_preflight(temp_dir, 'tiny', 'warn')
+
+    def test_preflight_reports_cold_start_without_filtering(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            self._write_dataset(temp_dir, cold_start=True)
+            report = run_dataset_preflight(temp_dir, 'tiny', 'warn')
+            identity = dataset_identity_from_preflight(report)
+
+        self.assertEqual(report['status'], 'warning')
+        self.assertTrue(report['cold_start']['has_cold_start'])
+        self.assertEqual(
+            report['cold_start']['validation']['items_absent_from_train'], [1]
+        )
+        self.assertEqual(
+            report['cold_start']['test']['items_absent_from_train'], [2]
+        )
+        self.assertEqual(
+            report['cold_start']['validation'][
+                'interactions_with_items_absent_from_train'
+            ],
+            1,
+        )
+        self.assertIn('cold_start', identity)
 
     def test_preflight_duplicate_modality_policies(self):
         with tempfile.TemporaryDirectory() as temp_dir:

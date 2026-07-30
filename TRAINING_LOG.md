@@ -937,3 +937,59 @@ Use this file as the single running document for results, parameter changes, and
   - design a separate, reversible Baby-to-PromptMM conversion path and preflight checks
   - before conversion, inspect the active loader/evaluator assumptions and select the cold-item policy; do not silently alter the official split
   - after conversion, run only a one-epoch/one-batch smoke before any formal training
+
+### 2026-07-30 | Baby-to-PromptMM data adapter and smoke (pending)
+- Authorization and rollback point:
+  - user authorized the necessary, safety-bounded adapter implementation and testing after confirming that the raw Baby download is complete
+  - task branch: `codex/experiment/baby-data-adapter`
+  - branch base and previous recoverable acquisition commit: `254fc701d90b8d6bb90f612ab016023b620aee51`
+  - no uncommitted changes were present when the task branch was created
+- Confirmed interface gap:
+  - raw MMRec Baby provides `baby.inter` plus item feature arrays and mappings
+  - the active PromptMM loader already accepts arbitrary dataset names but requires `train_mat`, `val_mat`, `test_mat`, `image_feat.npy`, and `text_feat.npy` under `data/<dataset>/`
+  - therefore a data adapter is required; no model-architecture or innovation-module change is required for dataset ingestion
+- Safety and protocol decisions:
+  - keep `data/_incoming/mmrec_baby/` read-only and write only to the new derived directory `data/baby/`
+  - the converter must refuse to overwrite an existing output directory and must validate recorded source hashes before writing
+  - convert every observed rating row to implicit interaction value `1.0`, matching the current PromptMM matrix convention
+  - preserve the official `x_label=0/1/2` train/validation/test split
+  - retain item IDs `240`, `1212`, and `6115` in validation/test even though they are absent from training; report this condition explicitly rather than silently filtering it
+  - keep Baby on the existing `unvalidated_amazon_default_fallback` configuration profile for smoke only; do not present smoke metrics as formal results
+- Planned implementation and verification:
+  - add a standalone MMRec-to-PromptMM converter with a machine-readable conversion manifest and byte-for-byte feature preservation
+  - extend dataset preflight to report evaluation users/items and interactions absent from training
+  - add focused unit tests for conversion, source-hash enforcement, no-overwrite behavior, official-split preservation, and cold-start reporting
+  - generate `data/baby/`, run the full dataset preflight, then run one teacher epoch capped to one training batch as an execution smoke
+  - do not tune parameters, reuse an unrelated teacher, overwrite a shared checkpoint, or begin a formal run in this task
+
+### 2026-07-30 | Baby-to-PromptMM adapter conversion and preflight (completed)
+- Implementation boundary:
+  - added `tools/convert_mmrec_baby.py`; no model architecture, prompt mechanism, distillation loss, optimizer default, or existing dataset was changed
+  - converter validates the recorded download sizes and SHA256 values, requires contiguous mappings and valid labels, rejects duplicate/out-of-range interactions, validates feature rows and finite values, and refuses to overwrite either the final or staging output directory
+  - conversion is built under `data/.baby.building` and renamed to `data/baby` only after successful validation; the raw source remains under `data/_incoming/mmrec_baby`
+  - all observed ratings are converted to binary implicit values `1.0`; official `x_label=0/1/2` is preserved as train/validation/test
+  - added conversion-manifest verification and explicit cold-start reporting to `codes/utility/experiment_protocol.py`
+  - added `--smoke_train_batches` with default `0`; a positive cap automatically blocks paper-ready eligibility and does not change uncapped training behavior
+- Conversion command and identity:
+  - command: `D:\miniconda\envs\run_5060\python.exe tools\convert_mmrec_baby.py --source D:\Download\PromptMM\data\_incoming\mmrec_baby --output D:\Download\PromptMM\data\baby`
+  - converter SHA256: `085ebd219d2a57c786cb4442ede8118cf210719197ad5161f177a1c643a319ef`
+  - source download-manifest SHA256: `b7fb38d72733ff94e1991ab1e501482fae8bf5880a63c2c6a8f986f6ede29aa3`
+  - derived conversion manifest: `data/baby/conversion_manifest.json`, SHA256 `cf2d0d8c8aff9b321aad0b11d48d078794d12a4920afaa4c8efedfe3beda9df2`
+  - source fingerprints were rechecked after conversion and remained unchanged
+- Derived dataset identity:
+  - matrix shape: `(19445, 7050)` for all splits
+  - `train_mat`: `118551` interactions, `1026584` bytes, SHA256 `3cead4c601ccef4c2424cd692951935840ccc8f22df15577ced4e5f3fec37fac`
+  - `val_mat`: `20559` interactions, `242644` bytes, SHA256 `f1458ff1dc28c5371699780270e3a3e270c8f9ce19def3d5e67d4ba9644ce9d2`
+  - `test_mat`: `21682` interactions, `251628` bytes, SHA256 `773de4f57f2c1bcb6695ea57995280e7cbe114b2b579263a599bb097bb6555ac`
+  - copied image/text feature hashes remain `36c3be592b98506189a7d5de71b21577cf626f0293b539d861534673b3e9fd70` / `6667f2ad655c9ecc97cb3383f58988864ef51ec0b39c158b15986c66769f2dc4`
+  - all split overlaps are `0`; modalities are not duplicates
+  - retained official cold-item IDs `240`, `1212`, and `6115`: `11` validation interactions and `7` test interactions; cold users remain `0`
+- Verification completed before the adapter commit:
+  - `py_compile` passed for the converter, active main/parser/protocol modules, and both test modules
+  - full unit discovery: `18` tests passed (`OK`), including no-overwrite, source-hash mismatch, duplicate/invalid-label rejection, feature-row mismatch, conversion identity, and cold-start reporting
+  - full real-data preflight: `warning` only for the documented retained cold items; matrix/feature hashes and shapes passed
+  - active `Data` loader read `19445 / 7050 / 118551 / 20559 / 21682` users/items/train/validation/test and produced a `64`-sample batch whose positives and negatives passed membership checks
+- Next planned action (not started in this entry):
+  - commit this verified adapter state, then run exactly one teacher epoch capped to one training batch
+  - planned command: `D:\miniconda\envs\run_5060\python.exe .\codes\main_mmlight.py --data_path D:\Download\PromptMM\data\ --dataset baby --eval_protocol val_test_once_v1 --dataset_preflight true --duplicate_modalities_policy error --if_train_teacher true --teacher_only true --epoch 1 --smoke_train_batches 1 --batch_size 64 --early_stopping_patience 1 --hard_token_seed 2022 --seed 2022 --gpu_id 0 --point baby_adapter_smoke_20260730_v1`
+  - expected non-formal blockers: Baby-specific defaults are not validated and training batches are capped for smoke
