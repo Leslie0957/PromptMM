@@ -1133,3 +1133,33 @@ Use this file as the single running document for results, parameter changes, and
   - log: `logs/2026-07-30 11_45_57.443332_baby_light_init_pid24500`; SHA256 `b46c85215ade658b32c24b2550cfa945c1c6df90af7c2bc26a502cde1333b6f6`
 - Safety result: shared alias remained absent; no temporary files remained; exact profile metadata resolved; no historical files were deleted or overwritten.
 - Acceptance: code is ready for a committed, uncapped Baby teacher-only baseline. Formal test metrics have not yet been observed.
+
+### 2026-07-30 | Baby teacher uncapped baseline declaration (pre-run; not started)
+- Scientific status: parameters and protocol are frozen before observing any uncapped-run test metric. This entry authorizes one seed-2022 teacher-only reference run; it is not yet a multi-seed paper result.
+- Source identity:
+  - branch: `codex/experiment/baby-teacher-baseline`
+  - verified source commit: `a80235062bd05a2f3175edffa626f2ca91d48ec1` (`feat: pin safe Baby teacher baseline`)
+  - verification before this declaration: Python compile passed; all `23` unit tests passed; three same-seed `batch_size=1024` one-batch smokes completed with identical metrics
+- Environment: `D:\miniconda\envs\run_5060\python.exe`; Python `3.10.20`; PyTorch `2.11.0+cu128`; CUDA `12.8`; NVIDIA driver `595.97`; NVIDIA GeForce RTX 5060 8 GB; GPU `0`.
+- Frozen experiment contract:
+  - profile `baby_teacher_reference_v1`, scope `teacher_only`, expected `dataset_config_overrides={}`
+  - `val_test_once_v1`; validation and final test both use `candidate_exclusion_policy=train_only`; select only by validation Recall@20; restore best checkpoint; run final test once
+  - profile resolves `seed=2022`, `sparse=1`, `batch_size=1024`, `epoch=1000`, `early_stopping_patience=7`, `embed_size=64`, `lr=0.00055`, and the full values in `docs/BABY_TEACHER_PROFILE_V1.md`; `smoke_train_batches=0`
+- Exact command to launch:
+  - `D:\miniconda\envs\run_5060\python.exe .\codes\main_mmlight.py --data_path D:\Download\PromptMM\data\ --dataset baby --eval_protocol val_test_once_v1 --dataset_preflight true --duplicate_modalities_policy error --if_train_teacher true --teacher_only true --smoke_train_batches 0 --allow_teacher_alias_overwrite false --gpu_id 0 --point baby_teacher_baseline_seed2022_20260730_v1`
+- Audited data identity:
+  - shape/users/items: `(19445, 7050)`; interactions train/validation/test `118551 / 20559 / 21682`; all split overlaps `0`
+  - `train_mat` SHA256 `3cead4c601ccef4c2424cd692951935840ccc8f22df15577ced4e5f3fec37fac`
+  - `val_mat` SHA256 `f1458ff1dc28c5371699780270e3a3e270c8f9ce19def3d5e67d4ba9644ce9d2`
+  - `test_mat` SHA256 `773de4f57f2c1bcb6695ea57995280e7cbe114b2b579263a599bb097bb6555ac`
+  - image `(7050,4096)` float64 SHA256 `36c3be592b98506189a7d5de71b21577cf626f0293b539d861534673b3e9fd70`
+  - text `(7050,384)` float32 SHA256 `6667f2ad655c9ecc97cb3383f58988864ef51ec0b39c158b15986c66769f2dc4`
+  - conversion manifest SHA256 `cf2d0d8c8aff9b321aad0b11d48d078794d12a4920afaa4c8efedfe3beda9df2`; official cold items `240/1212/6115` retained
+- Hard-token cache identity:
+  - image PCA-64 cache `hard_token_image_pca_v2_7634bb6e8dcfdbdd.pkl`; SHA256 `187852dca1f62554e2d29714ca363e4a92036e948dddfb6c090a5577b6175c8c`
+  - text PCA-64 cache `hard_token_text_pca_v2_6e7c8161aaeb01f5.pkl`; SHA256 `5e9df184aca47a3c5d96d4db72977878981eca1cf67abba85b06e43528e1e562`
+- Start gates confirmed at declaration time:
+  - shared alias `Model/baby/teacher_model_val_test_once_v1.pt` is absent; `allow_teacher_alias_overwrite=false`
+  - alias publication is deferred until successful final testing and is atomic/no-clobber; run-specific checkpoint writes are atomic
+  - no historical artifact will be deleted; generated outputs remain ignored by Git and receive their own post-run hashes
+- Completion fields to append after the process exits: actual run name/times/status, resolved arguments and blockers, best validation epoch/full validation metrics, one-time full test metrics, manifest/log/checkpoint/alias paths and hashes, and the next multi-seed decision.
