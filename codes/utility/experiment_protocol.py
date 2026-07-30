@@ -3,6 +3,8 @@ import hashlib
 import json
 import os
 import pickle
+import shutil
+import uuid
 from datetime import datetime
 
 import numpy as np
@@ -13,6 +15,7 @@ PAPER_READY_PROTOCOL = 'val_test_once_v1'
 LEGACY_PROTOCOL = 'legacy_test_best'
 SUPPORTED_EVAL_PROTOCOLS = (PAPER_READY_PROTOCOL, LEGACY_PROTOCOL)
 PRIMARY_SELECTION_K = 20
+TRAIN_ONLY_CANDIDATE_EXCLUSION = 'train_only'
 TEACHER_INFERENCE_CONFIG_FIELDS = (
     'embed_size',
     'weight_size',
@@ -34,6 +37,11 @@ def protocol_uses_validation(eval_protocol):
             )
         )
     return eval_protocol == PAPER_READY_PROTOCOL
+
+
+def candidate_exclusion_policy(eval_protocol):
+    protocol_uses_validation(eval_protocol)
+    return TRAIN_ONLY_CANDIDATE_EXCLUSION
 
 
 def early_stopping_non_improvement_limit(eval_protocol, patience):
@@ -159,11 +167,15 @@ def validate_teacher_checkpoint_metadata(
     active_teacher_inference_config=None,
     active_paper_ready_eligible=None,
     active_paper_ready_blockers=None,
+    active_candidate_exclusion_policy=None,
 ):
     checkpoint_protocol = checkpoint.get('evaluation_protocol')
     checkpoint_selection_split = checkpoint.get('selection_split')
     checkpoint_primary_k = checkpoint.get('primary_k')
     checkpoint_dataset = checkpoint.get('dataset')
+    checkpoint_candidate_policy = checkpoint.get('candidate_exclusion_policy')
+    if checkpoint_candidate_policy is None and checkpoint_protocol in SUPPORTED_EVAL_PROTOCOLS:
+        checkpoint_candidate_policy = candidate_exclusion_policy(checkpoint_protocol)
 
     if active_protocol == PAPER_READY_PROTOCOL:
         if (
@@ -195,6 +207,7 @@ def validate_teacher_checkpoint_metadata(
             'teacher_inference_config': active_teacher_inference_config,
             'paper_ready_eligible': active_paper_ready_eligible,
             'paper_ready_blockers': list(active_paper_ready_blockers or []),
+            'candidate_exclusion_policy': active_candidate_exclusion_policy,
         }
         for metadata_name, expected_value in required_frozen_metadata.items():
             if expected_value is None:
@@ -203,7 +216,11 @@ def validate_teacher_checkpoint_metadata(
                         metadata_name
                     )
                 )
-            checkpoint_value = checkpoint.get(metadata_name)
+            checkpoint_value = (
+                checkpoint_candidate_policy
+                if metadata_name == 'candidate_exclusion_policy'
+                else checkpoint.get(metadata_name)
+            )
             if checkpoint_value != expected_value:
                 raise ValueError(
                     'Teacher checkpoint frozen metadata mismatch for {} at {}.'.format(
@@ -551,7 +568,43 @@ def write_json(file_path, payload):
     if parent_dir:
         os.makedirs(parent_dir, exist_ok=True)
     temporary_path = '{}.tmp.{}'.format(file_path, os.getpid())
-    with open(temporary_path, 'w', encoding='utf-8') as file_obj:
-        json.dump(_jsonable(payload), file_obj, ensure_ascii=True, indent=2, sort_keys=True)
-        file_obj.write('\n')
-    os.replace(temporary_path, file_path)
+    try:
+        with open(temporary_path, 'w', encoding='utf-8') as file_obj:
+            json.dump(_jsonable(payload), file_obj, ensure_ascii=True, indent=2, sort_keys=True)
+            file_obj.write('\n')
+        os.replace(temporary_path, file_path)
+    finally:
+        if os.path.exists(temporary_path):
+            os.unlink(temporary_path)
+
+
+def publish_file_atomically(source_path, destination_path, allow_overwrite=False):
+    source_path = os.path.abspath(source_path)
+    destination_path = os.path.abspath(destination_path)
+    if source_path == destination_path:
+        raise ValueError('Source and destination must be different paths.')
+    if not os.path.isfile(source_path):
+        raise FileNotFoundError('Publication source does not exist: {}'.format(source_path))
+    if os.path.exists(destination_path) and not allow_overwrite:
+        raise FileExistsError(
+            'Refusing to overwrite existing published artifact: {}'.format(destination_path)
+        )
+
+    destination_dir = os.path.dirname(destination_path)
+    os.makedirs(destination_dir, exist_ok=True)
+    temporary_path = '{}.tmp.{}.{}'.format(
+        destination_path, os.getpid(), uuid.uuid4().hex
+    )
+    try:
+        shutil.copy2(source_path, temporary_path)
+        if allow_overwrite:
+            os.replace(temporary_path, destination_path)
+        else:
+            # Linking a fully written temporary file gives no-clobber publication
+            # on both NTFS and common Linux filesystems.
+            os.link(temporary_path, destination_path)
+            os.unlink(temporary_path)
+    finally:
+        if os.path.exists(temporary_path):
+            os.unlink(temporary_path)
+    return file_fingerprint(destination_path)

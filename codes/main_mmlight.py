@@ -67,13 +67,20 @@ if not torch.cuda.is_available():
 import copy
 
 from utility.parser import args, select_dataset
+from utility.dataset_profiles import (
+    BABY_TEACHER_PROFILE_NAME,
+    BABY_TEACHER_PROFILE_SCOPE,
+    BABY_TEACHER_PROFILE_SOURCE,
+)
 from utility.experiment_protocol import (
     LEGACY_PROTOCOL,
     PAPER_READY_PROTOCOL,
+    candidate_exclusion_policy,
     dataset_identity_from_preflight,
     early_stopping_non_improvement_limit,
     file_fingerprint,
     namespace_to_dict,
+    publish_file_atomically,
     protocol_uses_validation,
     resolve_primary_k_index,
     restore_checkpoint_then_evaluate,
@@ -145,12 +152,13 @@ setproctitle.setproctitle('EXP@weiw')
 class Trainer(object):
     def __init__(self, data_config):
        
-        self.task_name = "%s_%s_%s_pid%d" % (datetime.now().strftime('%Y-%m-%d %H:%M:%S'), args.dataset, args.cf_model, os.getpid())
+        self.task_name = "%s_%s_%s_pid%d" % (datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f'), args.dataset, args.cf_model, os.getpid())
         self.logger = Logger(filename=self.task_name, is_debug=args.debug)
         self.run_name = self.logger.filename
         self.eval_protocol = getattr(args, 'eval_protocol', PAPER_READY_PROTOCOL)
         self.uses_validation_selection = protocol_uses_validation(self.eval_protocol)
         self.selection_split = 'validation' if self.uses_validation_selection else 'legacy_test'
+        self.candidate_exclusion_policy = candidate_exclusion_policy(self.eval_protocol)
         self.primary_k_index, self.ks = resolve_primary_k_index(args.Ks)
         self.primary_k = self.ks[self.primary_k_index]
         self.early_stopping_limit = early_stopping_non_improvement_limit(
@@ -229,6 +237,29 @@ class Trainer(object):
             self.paper_ready_blockers.append('image and text feature arrays are identical')
         if getattr(args, 'dataset_config_profile', '') == 'unvalidated_amazon_default_fallback':
             self.paper_ready_blockers.append('dataset-specific defaults are not validated')
+        if args.dataset == 'baby':
+            baby_profile_metadata = (
+                getattr(args, 'dataset_config_profile', None),
+                getattr(args, 'dataset_config_scope', None),
+                getattr(args, 'dataset_config_source', None),
+            )
+            expected_baby_profile_metadata = (
+                BABY_TEACHER_PROFILE_NAME,
+                BABY_TEACHER_PROFILE_SCOPE,
+                BABY_TEACHER_PROFILE_SOURCE,
+            )
+            if baby_profile_metadata != expected_baby_profile_metadata:
+                self.paper_ready_blockers.append(
+                    'Baby reference profile metadata is missing or mismatched'
+                )
+            if getattr(args, 'dataset_config_overrides', {}):
+                self.paper_ready_blockers.append(
+                    'Baby reference profile has resolved overrides'
+                )
+            if not getattr(args, 'teacher_only', False):
+                self.paper_ready_blockers.append(
+                    'Baby reference profile pins teacher-only settings'
+                )
         if getattr(args, 'smoke_train_batches', 0) > 0:
             self.paper_ready_blockers.append('training batches are capped for smoke')
         if DATASET_PREFLIGHT_REPORT.get('status') == 'disabled':
@@ -237,6 +268,22 @@ class Trainer(object):
         self.teacher_alias_writable = (
             self.eval_protocol != LEGACY_PROTOCOL and self.paper_ready_eligible
         )
+        self.allow_teacher_alias_overwrite = getattr(
+            args, 'allow_teacher_alias_overwrite', False
+        )
+        if (
+            args.if_train_teacher
+            and not getattr(args, 'run_efficiency_benchmark', False)
+            and self.teacher_alias_writable
+            and os.path.exists(self.teacher_model_path)
+            and not self.allow_teacher_alias_overwrite
+        ):
+            raise FileExistsError(
+                'Refusing to overwrite existing teacher alias {}. Preserve it or pass '
+                '--allow_teacher_alias_overwrite true only after explicit review.'.format(
+                    self.teacher_model_path
+                )
+            )
         teacher_archive_label = self._safe_artifact_name(
             os.path.splitext(os.path.basename(self.teacher_model_path))[0]
         )
@@ -256,6 +303,21 @@ class Trainer(object):
         self.run_manifest_path = os.path.join(
             self.run_artifact_dir, 'run_manifest__%s.json' % self.run_name
         )
+        run_specific_paths = (
+            self.teacher_model_archive_path,
+            self.student_checkpoint_path,
+            self.converge_archive_path,
+            self.preflight_report_path,
+            self.run_manifest_path,
+            os.path.join(self.logger.path, self.run_name),
+        )
+        path_collisions = [path for path in run_specific_paths if os.path.exists(path)]
+        if path_collisions:
+            raise FileExistsError(
+                'Refusing to overwrite existing run-specific artifacts: {}'.format(
+                    path_collisions
+                )
+            )
         write_json(self.preflight_report_path, DATASET_PREFLIGHT_REPORT)
         self.run_manifest = {
             'status': 'initialized',
@@ -263,8 +325,12 @@ class Trainer(object):
             'run_name': self.run_name,
             'dataset': args.dataset,
             'dataset_config_profile': getattr(args, 'dataset_config_profile', 'unknown'),
+            'dataset_config_scope': getattr(args, 'dataset_config_scope', 'unknown'),
+            'dataset_config_source': getattr(args, 'dataset_config_source', 'unknown'),
+            'dataset_config_overrides': getattr(args, 'dataset_config_overrides', {}),
             'evaluation_protocol': self.eval_protocol,
             'selection_split': self.selection_split,
+            'candidate_exclusion_policy': self.candidate_exclusion_policy,
             'primary_selection_metric': 'Recall@%d' % self.primary_k,
             'paper_ready_eligible': self.paper_ready_eligible,
             'paper_ready_blockers': self.paper_ready_blockers,
@@ -277,6 +343,7 @@ class Trainer(object):
                 'main_mmlight': file_fingerprint(os.path.join(self.repo_root, 'codes', 'main_mmlight.py')),
                 'models_mmlight': file_fingerprint(os.path.join(self.repo_root, 'codes', 'Models_mmlight.py')),
                 'parser': file_fingerprint(os.path.join(self.repo_root, 'codes', 'utility', 'parser.py')),
+                'dataset_profiles': file_fingerprint(os.path.join(self.repo_root, 'codes', 'utility', 'dataset_profiles.py')),
                 'batch_test': file_fingerprint(os.path.join(self.repo_root, 'codes', 'utility', 'batch_test.py')),
                 'load_data': file_fingerprint(os.path.join(self.repo_root, 'codes', 'utility', 'load_data.py')),
                 'experiment_protocol': file_fingerprint(os.path.join(self.repo_root, 'codes', 'utility', 'experiment_protocol.py')),
@@ -288,6 +355,8 @@ class Trainer(object):
             'artifacts': {
                 'teacher_alias': self.teacher_model_path,
                 'teacher_alias_writable': self.teacher_alias_writable,
+                'teacher_alias_allow_overwrite': self.allow_teacher_alias_overwrite,
+                'teacher_alias_publication': 'after_successful_final_test',
                 'teacher_run': self.teacher_model_archive_path,
                 'student_run': self.student_checkpoint_path,
                 'converge_run': self.converge_archive_path,
@@ -299,8 +368,11 @@ class Trainer(object):
         self.logger.logging("PID: %d" % os.getpid())
         self.logger.logging(str(args))
         self.logger.logging(
-            'Evaluation protocol: %s; selection_split=%s; primary_metric=Recall@%d' % (
-                self.eval_protocol, self.selection_split, self.primary_k
+            'Evaluation protocol: %s; selection_split=%s; candidate_exclusion=%s; primary_metric=Recall@%d' % (
+                self.eval_protocol,
+                self.selection_split,
+                self.candidate_exclusion_policy,
+                self.primary_k,
             )
         )
         self.logger.logging(
@@ -437,16 +509,20 @@ class Trainer(object):
 
     def _save_teacher_checkpoint(self, best_selection_recall, best_epoch):
         checkpoint = {
-            'format_version': 4,
+            'format_version': 5,
             'teacher_model': self.teacher_model.state_dict(),
             'prompt_module': self.prompt_module.state_dict(),
             'evaluation_protocol': self.eval_protocol,
             'selection_split': self.selection_split,
+            'candidate_exclusion_policy': self.candidate_exclusion_policy,
             'primary_k': self.primary_k,
             'best_selection_recall': float(best_selection_recall),
             'best_epoch': int(best_epoch),
             'run_name': self.run_name,
             'dataset': args.dataset,
+            'dataset_config_profile': getattr(args, 'dataset_config_profile', 'unknown'),
+            'dataset_config_source': getattr(args, 'dataset_config_source', 'unknown'),
+            'dataset_config_overrides': getattr(args, 'dataset_config_overrides', {}),
             'paper_ready_eligible': self.paper_ready_eligible,
             'paper_ready_blockers': self.paper_ready_blockers,
             'dataset_identity': self.dataset_identity,
@@ -454,9 +530,29 @@ class Trainer(object):
             'hard_token_cache': getattr(self.prompt_module, 'hard_token_cache_records', {}),
         }
         os.makedirs(os.path.dirname(self.teacher_model_path), exist_ok=True)
-        torch.save(checkpoint, self.teacher_model_archive_path)
-        if self.teacher_alias_writable:
-            torch.save(checkpoint, self.teacher_model_path)
+        temporary_path = '{}.tmp.{}'.format(
+            self.teacher_model_archive_path, os.getpid()
+        )
+        try:
+            torch.save(checkpoint, temporary_path)
+            os.replace(temporary_path, self.teacher_model_archive_path)
+        finally:
+            if os.path.exists(temporary_path):
+                os.unlink(temporary_path)
+
+    def _publish_teacher_alias(self):
+        if not self.teacher_alias_writable:
+            return None
+        alias_fingerprint = publish_file_atomically(
+            self.teacher_model_archive_path,
+            self.teacher_model_path,
+            allow_overwrite=self.allow_teacher_alias_overwrite,
+        )
+        self.logger.logging(
+            'Teacher alias published after successful final test: %s' %
+            self.teacher_model_path
+        )
+        return alias_fingerprint
 
     def _load_teacher_checkpoint(self, checkpoint_path):
         checkpoint = torch.load(checkpoint_path, map_location=self.device)
@@ -471,6 +567,7 @@ class Trainer(object):
                 self.teacher_inference_config,
                 self.paper_ready_eligible,
                 self.paper_ready_blockers,
+                self.candidate_exclusion_policy,
             )
             self.teacher_model.load_state_dict(checkpoint['teacher_model'])
             prompt_state = checkpoint.get('prompt_module')
@@ -501,11 +598,15 @@ class Trainer(object):
                 'format_version',
                 'evaluation_protocol',
                 'selection_split',
+                'candidate_exclusion_policy',
                 'primary_k',
                 'best_selection_recall',
                 'best_epoch',
                 'run_name',
                 'dataset',
+                'dataset_config_profile',
+                'dataset_config_source',
+                'dataset_config_overrides',
                 'paper_ready_eligible',
                 'paper_ready_blockers',
                 'dataset_identity',
@@ -1344,6 +1445,11 @@ class Trainer(object):
                     self.prompt_module, 'hard_token_cache_records', {}
                 ),
             )
+            teacher_alias_fingerprint = self._publish_teacher_alias()
+            self._update_run_manifest(
+                teacher_alias_published=teacher_alias_fingerprint is not None,
+                teacher_alias_fingerprint=teacher_alias_fingerprint,
+            )
             if args.point:
                 print("######end:T#####################################")
                 print(args.point)
@@ -2015,14 +2121,24 @@ if __name__ == '__main__':
     config['n_users'] = data_generator.n_users
     config['n_items'] = data_generator.n_items
     # select_dataset()
-    trainer = Trainer(data_config=config)
+    trainer = Trainer.__new__(Trainer)
     try:
+        trainer.__init__(data_config=config)
         trainer.train()
     except BaseException as error:
-        trainer._update_run_manifest(
-            status='failed',
-            failed_at=datetime.now().astimezone().isoformat(),
-            failure_type=type(error).__name__,
-            failure_message=str(error),
-        )
+        if hasattr(trainer, 'run_manifest') and hasattr(trainer, 'run_manifest_path'):
+            try:
+                trainer._update_run_manifest(
+                    status='failed',
+                    failed_at=datetime.now().astimezone().isoformat(),
+                    failure_type=type(error).__name__,
+                    failure_message=str(error),
+                )
+            except Exception as manifest_error:
+                print(
+                    'Failed to record run failure in manifest: {}'.format(
+                        manifest_error
+                    ),
+                    file=sys.stderr,
+                )
         raise

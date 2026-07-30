@@ -1068,3 +1068,68 @@ Use this file as the single running document for results, parameter changes, and
 - Next planned action (not started in this entry):
   - commit the independent audit record
   - make the existing v1 candidate policy explicit in metadata without changing ranking behavior, then pin a source-rationalized Baby teacher profile without using test metrics for parameter selection
+
+### 2026-07-30 | Baby teacher reference profile and metadata hardening (implemented and smoke-verified)
+- Authorized sequence:
+  - after the independent masking audit, pin a Baby-specific teacher configuration, verify it with a capped smoke, commit the exact code, and only then start an uncapped teacher baseline
+- Evaluation behavior to preserve:
+  - baseline protocol remains `val_test_once_v1` for PromptMM/MMRec comparability
+  - ranking behavior is unchanged: validation and test both exclude training interactions only
+  - add explicit `candidate_exclusion_policy=train_only` to manifests and new teacher checkpoints; old v1 checkpoint metadata may infer this established policy for compatibility
+- Baby profile decision made without formal test tuning:
+  - profile ID: `baby_teacher_reference_v1`; scope: teacher-only reference baseline
+  - rationale and complete values: `docs/BABY_TEACHER_PROFILE_V1.md`
+  - fixed-run identity includes `seed=2022`, `sparse=1`, `Ks=[10,20,40,50]`, and `test_flag=part`; changing any of them is recorded as a profile override
+  - Baby-specific core values come from the repository's dormant Baby parser block; prompt-only fields absent there come from the existing PromptMM profile with matching `model_cat_rate=0.55` and `weight_size=[64, 64]`
+  - this is a predeclared reproducible baseline, not a claim of Baby validation-optimal parameters
+  - command-line differences remain allowed but are recorded in `dataset_config_overrides` and block fixed-reference eligibility
+- Safety plan before the uncapped run:
+  - run focused profile/protocol tests and full unit discovery
+  - run one epoch capped to one batch using the exact Baby profile to check memory, finite loss, validation, checkpoint restore, and final evaluation plumbing; the smoke is non-formal
+  - confirm the formal shared alias does not already exist and use a unique `--point`; do not delete or overwrite historical raw data, logs, or run-specific checkpoints
+  - publish the shared teacher alias atomically only after successful final testing; default to no-clobber if an alias already exists
+  - once a run manifest exists, record model/CUDA initialization failures as well as training failures instead of leaving stale `initialized` status
+- Uncapped baseline contract:
+  - `epoch=1000`, `batch_size=1024`, `early_stopping_patience=7`, `smoke_train_batches=0`, seed/hard-token seed `2022`, teacher-only, GPU `0`
+  - select by validation Recall@20 and run test once only after restoring the selected teacher
+  - exact branch, commit, command, environment, data identity, metrics, and artifact fingerprints must be recorded before/after execution
+
+### 2026-07-30 | Baby teacher profile one-batch smoke (completed)
+- Purpose: validate the pinned 64-dimensional Baby teacher profile at its formal `batch_size=1024` before any uncapped run.
+- Environment: `D:\miniconda\envs\run_5060\python.exe`; Python `3.10.20`; PyTorch `2.11.0+cu128`; CUDA `12.8`; NVIDIA GeForce RTX 5060 8 GB; GPU `0`.
+- Command: `D:\miniconda\envs\run_5060\python.exe .\codes\main_mmlight.py --data_path D:\Download\PromptMM\data\ --dataset baby --eval_protocol val_test_once_v1 --dataset_preflight true --duplicate_modalities_policy error --Ks '[10,20,40,50]' --test_flag part --if_train_teacher true --teacher_only true --epoch 1 --smoke_train_batches 1 --batch_size 1024 --early_stopping_patience 7 --seed 2022 --sparse 1 --hard_token_seed 2022 --gpu_id 0 --point baby_teacher_profile_smoke_20260730_v1`
+- Status: completed; non-formal by construction. Resolved profile `baby_teacher_reference_v1`; only profile override was `epoch: 1000 -> 1`; `smoke_train_batches=1`; `candidate_exclusion_policy=train_only`; paper-ready alias withheld.
+- Training/selection: one finite-loss batch (`loss=1687.17029`); best validation epoch `0`; validation Recall@20 `0.0163238193`.
+- Final one-time test after checkpoint restore: Recall@20 `0.0153814789`; NDCG@20 `0.0072269171`; Precision@20 `0.0008459758`.
+- Artifacts:
+  - manifest: `exp/runs/baby/run_manifest__2026-07-30 11_32_48_baby_light_init_pid24356.json`; SHA256 `5d2133e818421e6300c60a952b9a90dcbcf02793699374fd0514e7a52dbbbeb6`
+  - preflight: `exp/runs/baby/dataset_preflight__2026-07-30 11_32_48_baby_light_init_pid24356.json`; SHA256 `8abefba3b17cf57d2744369e8bfa53261b5fd920e2b8aadcce3b146425d0c934`
+  - teacher checkpoint: `Model/baby/runs/teacher_model_val_test_once_v1__2026-07-30 11_32_48_baby_light_init_pid24356.pt`; SHA256 `0f8aafcd19647d2c4cf158be22fbfa42e26c889e22b699d2a953ade78a5e01d7`
+  - log: `logs/2026-07-30 11_32_48_baby_light_init_pid24356`; SHA256 `e0aca2f711eb44c81333aa8d5e296864ac93bb2e1850b36bf22a1760eb26db14`
+- Safety result: `Model/baby/teacher_model_val_test_once_v1.pt` remained absent; historical smoke artifacts were not overwritten or deleted. New versioned 64-dimensional PCA hard-token caches were created alongside the older 32-dimensional caches.
+- Next action: verify no-clobber/atomic alias publication, repeat a capped smoke on the safety-hardened code, then commit the exact formal-run source before launching the uncapped baseline.
+
+### 2026-07-30 | Baby teacher artifact-safety smoke (completed)
+- Purpose: rerun the one-batch Baby teacher path after adding microsecond run IDs, atomic run-checkpoint writes, run-path collision checks, deferred alias publication, and default alias no-clobber.
+- Command: same profile/protocol command as the preceding smoke, with `--point baby_teacher_safety_smoke_20260730_v2`; `epoch=1`, `smoke_train_batches=1`, `batch_size=1024`.
+- Status: completed; non-formal; profile override only `epoch: 1000 -> 1`; 64-dimensional image/text PCA caches both hit.
+- Reproducibility check: finite loss, validation metrics, and final test metrics exactly matched the preceding same-seed smoke. Best epoch `0`; validation Recall@20 `0.0163238193`; final Test Recall@20 / NDCG@20 / Precision@20 `0.0153814789 / 0.0072269171 / 0.0008459758`.
+- Artifacts:
+  - manifest: `exp/runs/baby/run_manifest__2026-07-30 11_38_19.732201_baby_light_init_pid13504.json`; SHA256 `8cc731e0fdbc165292c98e9ce413707bd2d76b46d23961f92bdbc6ff7142ee99`
+  - preflight: `exp/runs/baby/dataset_preflight__2026-07-30 11_38_19.732201_baby_light_init_pid13504.json`; SHA256 `ad8ef1f6b3878eabee4cb54e22c15b3fc729ed22d4914bef65483acf5ba6febf`
+  - teacher checkpoint: `Model/baby/runs/teacher_model_val_test_once_v1__2026-07-30 11_38_19.732201_baby_light_init_pid13504.pt`; SHA256 `6522ee7877dfd962c182b87863cc9a5214f632531e7a7acd9d2ad399a578461d`
+  - log: `logs/2026-07-30 11_38_19.732201_baby_light_init_pid13504`; SHA256 `bc9bd120774e3178e2e5b620a311e0c3318203ab70db97cf4ef9027bcd490743`
+- Safety result: manifest records `teacher_alias_published=false`; shared alias remained absent; no temporary files remained under `Model/baby` or `exp/runs/baby`; no historical artifact was deleted or overwritten.
+- Next action: commit this verified source/documentation state, record the exact commit and uncapped command, then launch the formal teacher-only baseline with profile defaults and no batch cap.
+
+### 2026-07-30 | Baby teacher final pre-commit safety smoke (completed)
+- Purpose: final one-batch verification after extending failure recording to cover `Trainer` construction and changing Baby paper-ready checks from fail-open to exact profile-name/scope/source matching.
+- Command: same pinned/capped smoke command as above with `--point baby_teacher_final_safety_smoke_20260730_v3`.
+- Status and metrics: completed, non-formal, alias withheld; results exactly matched both preceding same-seed 64-dimensional smokes. Best validation epoch `0`; validation Recall@20 `0.0163238193`; Test Recall@20 / NDCG@20 / Precision@20 `0.0153814789 / 0.0072269171 / 0.0008459758`.
+- Artifacts:
+  - manifest: `exp/runs/baby/run_manifest__2026-07-30 11_45_57.443332_baby_light_init_pid24500.json`; SHA256 `c7ad377fecd30d7864f2ea26fe8da23b03f2c7983689251b436a1a8a61c7c8a8`
+  - preflight: `exp/runs/baby/dataset_preflight__2026-07-30 11_45_57.443332_baby_light_init_pid24500.json`; SHA256 `2dcb2199468435ebca5eaa089edbc92596c456ae45d88a6651224abb040f98b5`
+  - teacher checkpoint: `Model/baby/runs/teacher_model_val_test_once_v1__2026-07-30 11_45_57.443332_baby_light_init_pid24500.pt`; SHA256 `96e50fb9cd27b4dab1f4cf6547562bb60c498fbd41acd960cdc548b0f0adf2a8`
+  - log: `logs/2026-07-30 11_45_57.443332_baby_light_init_pid24500`; SHA256 `b46c85215ade658b32c24b2550cfa945c1c6df90af7c2bc26a502cde1333b6f6`
+- Safety result: shared alias remained absent; no temporary files remained; exact profile metadata resolved; no historical files were deleted or overwritten.
+- Acceptance: code is ready for a committed, uncapped Baby teacher-only baseline. Formal test metrics have not yet been observed.
