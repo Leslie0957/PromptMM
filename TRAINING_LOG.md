@@ -993,3 +993,54 @@ Use this file as the single running document for results, parameter changes, and
   - commit this verified adapter state, then run exactly one teacher epoch capped to one training batch
   - planned command: `D:\miniconda\envs\run_5060\python.exe .\codes\main_mmlight.py --data_path D:\Download\PromptMM\data\ --dataset baby --eval_protocol val_test_once_v1 --dataset_preflight true --duplicate_modalities_policy error --if_train_teacher true --teacher_only true --epoch 1 --smoke_train_batches 1 --batch_size 64 --early_stopping_patience 1 --hard_token_seed 2022 --seed 2022 --gpu_id 0 --point baby_adapter_smoke_20260730_v1`
   - expected non-formal blockers: Baby-specific defaults are not validated and training batches are capped for smoke
+
+### 2026-07-30 | Baby adapter one-batch teacher smoke (completed)
+- Run classification and code identity:
+  - execution/integration smoke only; these metrics are not tuning evidence, a baseline result, or a paper result
+  - branch: `codex/experiment/baby-data-adapter`
+  - exact committed code: `2dc57a6cee35191e78908a55c29737faabe4e5dd`
+  - active entry: `codes/main_mmlight.py`; environment: `D:\miniconda\envs\run_5060`; GPU: NVIDIA GeForce RTX 5060 on `gpu_id=0`
+- Full command:
+  - `D:\miniconda\envs\run_5060\python.exe .\codes\main_mmlight.py --data_path D:\Download\PromptMM\data\ --dataset baby --eval_protocol val_test_once_v1 --dataset_preflight true --duplicate_modalities_policy error --if_train_teacher true --teacher_only true --epoch 1 --smoke_train_batches 1 --batch_size 64 --early_stopping_patience 1 --hard_token_seed 2022 --seed 2022 --gpu_id 0 --point baby_adapter_smoke_20260730_v1`
+- Resolved smoke behavior:
+  - `epoch=1`, `batch_size=64`, `smoke_train_batches=1`; the normal epoch would contain `1853` batches
+  - trained the teacher for exactly one batch, ran the complete validation set, saved the best run-specific checkpoint, restored it, ran the complete test set, and exited before student training
+  - started `2026-07-30T10:37:45+08:00`, completed `2026-07-30T10:38:11+08:00`; process exit code `0`; command wall time about `30.4` seconds
+- Dataset preflight during the run:
+  - matrix shape `(19445, 7050)`; train/validation/test interactions `118551 / 20559 / 21682`; split overlaps `0 / 0 / 0`
+  - image/text shapes `(7050, 4096) / (7050, 384)`; both finite and not duplicates; `duplicate_modalities_policy=error` passed
+  - retained-official cold condition was reproduced exactly: item IDs `240`, `1212`, and `6115`, with `11` validation and `7` test interactions and no cold users
+- Selection and final metrics:
+  - best and only selection epoch: `0`; validation Recall@20: `0.04336957719575384`
+  - displayed validation precision at K=`10/20/40/50`: `[0.00275, 0.00227, 0.00191, 0.00179]`
+  - displayed validation recall at K=`10/20/40/50`: `[0.02613, 0.04337, 0.07234, 0.08447]`
+  - displayed validation NDCG at K=`10/20/40/50`: `[0.01402, 0.01853, 0.02475, 0.02710]`
+  - final test precision at K=`10/20/40/50`: `[0.0028079197737207805, 0.0023965029570584013, 0.001970943687323246, 0.0018575469272307363]`
+  - final test recall at K=`10/20/40/50`: `[0.02537551674347739, 0.04330912680359866, 0.07087817456678389, 0.08362866740984444]`
+  - final test NDCG at K=`10/20/40/50`: `[0.014605429384077937, 0.019533075460667574, 0.02574166670469095, 0.02826203350467337]`
+- Run artifacts:
+  - teacher checkpoint: `Model/baby/runs/teacher_model_val_test_once_v1__2026-07-30 10_37_45_baby_light_init_pid29248.pt` (`133716199` bytes, SHA256 `2ad1715e57136da79b6e7eb72af1a93569c447f1bbcd1388be1fe94e520447cd`)
+  - preflight report: `exp/runs/baby/dataset_preflight__2026-07-30 10_37_45_baby_light_init_pid29248.json` (`3399` bytes, SHA256 `6966fc7a3a7274bd20372589db049c2325b1e97d0ed05b8526a4e8dbd6dc87f8`)
+  - completed run manifest: `exp/runs/baby/run_manifest__2026-07-30 10_37_45_baby_light_init_pid29248.json` (`23087` bytes, SHA256 `3768c203258bfa9737770b3e102019d6c6e91df4351cf7122d7db789859f8be6`)
+  - text log: `logs/2026-07-30 10_37_45_baby_light_init_pid29248` (`4579` bytes, SHA256 `182d7104cf9523a80dfd9705f2ec313083120f23673d20ddecf1e19f07f01501`)
+  - the manifest contains a planned convergence-record path, but teacher-only mode did not create that file; no student checkpoint was created
+- Deterministic hard-token caches created:
+  - image PCA cache: `data/baby/hard_token_image_pca_v2_d5fc0cacfae6ae42.pkl` (`1805452` bytes, SHA256 `a5283a467e2621a4b0f65fed23b24a52e16056ae64269a8b35dfe72435f5d9b8`)
+  - text PCA cache: `data/baby/hard_token_text_pca_v2_37836fd704363ff6.pkl` (`903050` bytes, SHA256 `27263e5580c6c4980cf53ab2ce62e08ffc6ec3f118c1ed4b1d30723df5ae5fdb`)
+  - both use PCA with `32` components, `hard_token_seed=2022`, and scikit-learn `1.7.2`; both were first-time cache creations
+- Eligibility, preservation, and warning:
+  - `paper_ready_eligible=false`; blockers: Baby-specific defaults are not validated, and training was explicitly capped to one batch
+  - the shared alias `Model/baby/teacher_model_val_test_once_v1.pt` was not created; only the run-specific checkpoint was written
+  - original Baby source files, Amazon/Yelp data, historical checkpoints, and previous logs were not overwritten or deleted
+  - one non-fatal PyTorch sparse-invariant warning occurred at `codes/main_mmlight.py:582`; the run completed and restored/evaluated the checkpoint successfully
+- Acceptance decision:
+  - Baby format conversion: `PASS`
+  - loader/preflight/model initialization/one-batch backward/checkpoint restore/full evaluation smoke: `PASS`
+  - formal-result eligibility: `NOT_YET`
+- Recovery milestone to create from this completed trace entry:
+  - stable tag: `baby-adapter-smoke-20260730`
+  - standalone source-history bundle: `backups/PromptMM_baby_adapter_smoke_20260730.bundle`
+  - this milestone protects tracked source and experiment memory; ignored Baby data, checkpoints, logs, and run manifests still require physical-file backup for deletion/disk-loss recovery
+- Next planned action (not started here):
+  - separately audit and version the final-test candidate masking rule, because the current evaluator excludes training interactions but not validation interactions; do not mix that protocol decision into this adapter commit
+  - after the evaluation rule is fixed or explicitly retained, define and record a Baby-specific configuration profile before any uncapped teacher run
