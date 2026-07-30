@@ -1211,3 +1211,9 @@ Use this file as the single running document for results, parameter changes, and
   - stable tag: `baby-teacher-baseline-seed2022-20260730`
   - standalone source-history bundle: `backups/PromptMM_baby_teacher_baseline_seed2022_20260730.bundle`
   - the tag/bundle protect tracked source and experiment memory only; ignored Baby data, checkpoints, manifests, and raw logs still require separate physical/off-device backup for disk-loss protection
+
+### 2026-07-30 | Baby teacher baseline recovery milestone (completed)
+- Stable annotated tag `baby-teacher-baseline-seed2022-20260730` was created at result-record commit `349aea33a05f89b30c87ebf563e689265a157e4d` (tag object `06239e27af85b2475e1935cab6c060ed9211b7a1`).
+- Standalone bundle `backups/PromptMM_baby_teacher_baseline_seed2022_20260730.bundle` was created without replacing any earlier bundle; SHA256 `facf74dc0a235d34060e7348a2825709a7ca5917cbc9b9d9d67005d004470aad`.
+- `git bundle verify` reported that the bundle is valid and records a complete history; matching checksum sidecar: `backups/PromptMM_baby_teacher_baseline_seed2022_20260730.bundle.sha256`.
+- Recovery boundary: the bundle contains Git-tracked source/history and the stable tag, but not ignored datasets, PCA caches, model checkpoints, manifests, or raw logs. Those artifacts remain intact on disk and are fingerprinted above, but an off-device copy is still needed for physical-disk-loss protection.
