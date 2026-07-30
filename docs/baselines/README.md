@@ -38,6 +38,17 @@ powershell -ExecutionPolicy Bypass -File .\tools\verify_baseline_assets.ps1
 
 A standalone local Git bundle is stored at `backups/PromptMM_baseline_protocol_smoke_20260729.bundle`. It is intentionally ignored by Git and can recreate the source repository if `.git` is damaged. Because it is on the same disk, it is not a substitute for an external backup.
 
+## Baby Adapter Milestone
+
+The first audited real-multimodal Baby adapter state is preserved separately after its one-batch teacher smoke:
+
+- Task branch: `codex/experiment/baby-data-adapter`
+- Stable tag: `baby-adapter-smoke-20260730`
+- Standalone bundle: `backups/PromptMM_baby_adapter_smoke_20260730.bundle`
+- Canonical conversion and smoke record: `TRAINING_LOG.md`
+
+This milestone includes the converter, protocol checks, tests, and experiment record. The raw and derived Baby data, hard-token caches, checkpoint, log, and run manifests remain ignored assets; the tag and bundle can verify their recorded hashes but cannot recreate those files after physical deletion.
+
 ## Future Work
 
 Create a branch before the next code change:
@@ -47,4 +58,3 @@ git switch -c experiment/<short-name>
 ```
 
 Commit each confirmed code or protocol change and append its training consequence to `TRAINING_LOG.md`. Completed training runs must also remain recorded there under the repository guidance.
-
