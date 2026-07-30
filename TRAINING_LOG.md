@@ -859,3 +859,81 @@ Use this file as the single running document for results, parameter changes, and
 - Intended stable integration:
   - commit message: `chore: persist repository versioning policy`
   - after focused verification, fast-forward `main` to the verified maintenance commit; no new tag or bundle refresh is warranted for this policy-only update
+
+### 2026-07-30 | Baby public multimodal dataset acquisition (pending)
+- Status:
+  - pending raw download and local integrity/protocol audit
+  - no training, tuning, model change, parameter change, checkpoint write, or overwrite of an existing dataset is authorized in this step
+- Decision context:
+  - current Amazon-Book and Yelp copies remain useful for historical reproduction and execution smoke only because each duplicates one semantic embedding as both image and text input
+  - the exact PromptMM processed-data Google Drive requires owner approval and a prior access request received no response, so that source is no longer a dependable project dependency
+  - the selected replacement candidate is the public Amazon Baby multimodal recommendation benchmark distributed by the MMRec/FREEDOM project line
+- Authoritative source entry points:
+  - MMRec data instructions: `https://github.com/enoche/MMRec/tree/master/data`
+  - FREEDOM repository data instructions: `https://github.com/enoche/FREEDOM`
+  - public data root linked by both projects: `https://drive.google.com/drive/folders/13cBy1EA_saTUuXxVllKgtfci2A09jyaG?usp=sharing`
+- Expected remote identity, provisional until verified locally:
+  - domain: Amazon Baby products implicit-feedback recommendation
+  - users/items/interactions: `19445 / 7050 / 160792`
+  - item visual features: expected shape `(7050, 4096)`
+  - item textual features: expected shape `(7050, 384)`
+  - interaction file: expected `x_label` values `0/1/2` for train/validation/test
+- Preservation boundary:
+  - download only into ignored staging path `data/_incoming/mmrec_baby/`
+  - do not rename, overwrite, delete, or move current `data/amazon` or `data/yelp`
+  - keep the downloaded source files unchanged; any PromptMM-format conversion must use a separate derived directory in a later recorded step
+- Download/audit acceptance criteria:
+  - record final source URLs, byte sizes, UTC timestamps, and SHA256 for every downloaded artifact
+  - load NPY headers/arrays and confirm expected shapes, numeric dtypes, finite values, and item-row agreement
+  - confirm image and text files are neither byte-identical nor numerically identical
+  - parse the interaction table, confirm user/item ranges, label counts, duplicate rows, and pairwise split overlap
+  - explicitly report any validation/test items absent from training before choosing a cold-start policy
+  - leave a local machine-readable manifest beside the staged raw files
+- Next action after this pending entry:
+  - download and audit the raw Baby artifacts only
+  - do not start conversion, model training, teacher training, or parameter selection until the audit is completed and recorded
+
+### 2026-07-30 | Baby public multimodal dataset acquisition (completed)
+- Scope and outcome:
+  - downloaded the complete public Baby folder into the ignored, isolated path `data/_incoming/mmrec_baby/`
+  - preserved all six remote artifacts without renaming or modifying them; no existing Amazon/Yelp data, source code, parameter, model, checkpoint, or result was changed
+  - no conversion, smoke run, training, tuning, or result comparison was started
+- Source identity:
+  - official project entry: `https://github.com/enoche/MMRec/tree/master/data`
+  - public root: `https://drive.google.com/drive/folders/13cBy1EA_saTUuXxVllKgtfci2A09jyaG`
+  - Baby folder: `https://drive.google.com/drive/folders/1Fk21441EO1l7wgOOARh2thu4FjgtKWQp`
+  - the five core PromptMM-onboarding artifacts are `baby.inter`, `i_id_mapping.csv`, `image_feat.npy`, `text_feat.npy`, and `u_id_mapping.csv`; `user_graph_dict.npy` is an optional DualGNN-style artifact and is not part of the planned PromptMM input
+- Downloader/environment trace:
+  - installed `gdown==6.1.0`, `beautifulsoup4==4.15.0`, `soupsieve==2.9.1`, and `PySocks==1.7.1` into `D:\miniconda\envs\run_5060`
+  - refreshed the tracked pip manifest with those four packages
+  - command: `D:\miniconda\envs\run_5060\python.exe -m gdown --folder --continue https://drive.google.com/drive/folders/1Fk21441EO1l7wgOOARh2thu4FjgtKWQp -O D:\Download\PromptMM\data\_incoming\mmrec_baby`
+- Downloaded file identity:
+  - `baby.inter`: `4362239` bytes; SHA256 `e0abb033ea5cc538bb2becd8c3dc50b619f28f7974ba61f5ed11ce27cf405940`
+  - `i_id_mapping.csv`: `111702` bytes; SHA256 `c56ff96cd1f703b6dc8ac4469856a856019ec1577ac243508e3d253f80878bb6`
+  - `image_feat.npy`: `231014528` bytes; SHA256 `36c3be592b98506189a7d5de71b21577cf626f0293b539d861534673b3e9fd70`
+  - `text_feat.npy`: `10828928` bytes; SHA256 `6667f2ad655c9ecc97cb3383f58988864ef51ec0b39c158b15986c66769f2dc4`
+  - `u_id_mapping.csv`: `392164` bytes; SHA256 `a80850b8b46008e3bceabdc7ab72ab6e3620616394709daed7d12dc499626b60`
+  - optional `user_graph_dict.npy`: `38955963` bytes; SHA256 `c97bf8ba2871ebe58fe864e51a2e01053288dbea767aca03358ded57eda768f9`
+  - complete machine-readable source IDs, timestamps, hashes, audit values, and command: `data/_incoming/mmrec_baby/download_manifest.json`
+- Interaction and mapping audit:
+  - `baby.inter` is tab-separated with columns `userID`, `itemID`, `rating`, `timestamp`, and `x_label`
+  - confirmed `19445` contiguous users (`0..19444`), `7050` contiguous items (`0..7049`), and `160792` unique user-item interactions with `0` duplicate pairs
+  - the complete interaction graph satisfies the 5-core property: minimum user/item interaction counts are both `5` (maximum `125 / 780`)
+  - `x_label=0/1/2` contains `118551 / 20559 / 21682` train/validation/test rows; all three pairwise split overlaps are `0`
+  - validation/test contain no users absent from training
+  - item IDs `240`, `1212`, and `6115` occur in validation and test but not training; this is a confirmed evaluation cold-item condition and must receive an explicit policy before formal comparison
+  - item/user mapping files contain `7050 / 19445` unique, contiguous numeric IDs and fully cover the interaction universe
+- Multimodal feature audit:
+  - image: shape `(7050, 4096)`, dtype `float64`, all values finite, `0` all-zero rows
+  - text: shape `(7050, 384)`, dtype `float32`, all values finite, `0` all-zero rows; row L2 norms are effectively `1.0`
+  - both feature matrices have one row per item
+  - the two modalities have different SHA256, shapes, dtypes, and feature semantics; unlike the current local Amazon/Yelp copies, they are not duplicated inputs
+  - optional `user_graph_dict.npy` has an object payload; only its safe NPY header was inspected and its pickle payload was not loaded
+- Acceptance decision:
+  - raw acquisition and integrity audit: `PASS`
+  - dataset suitability for building a real multimodal PromptMM experiment: `PASS_WITH_PROTOCOL_DECISION_REQUIRED`
+  - unresolved point: choose and document whether the three evaluation-only items remain as a cold-item condition or are filtered for warm-start comparability
+- Next planned action (not started here):
+  - design a separate, reversible Baby-to-PromptMM conversion path and preflight checks
+  - before conversion, inspect the active loader/evaluator assumptions and select the cold-item policy; do not silently alter the official split
+  - after conversion, run only a one-epoch/one-batch smoke before any formal training
