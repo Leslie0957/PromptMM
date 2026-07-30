@@ -98,7 +98,7 @@ def dataset_identity_from_preflight(preflight_report):
         raise ValueError(
             'A complete dataset preflight report is required to build dataset identity.'
         )
-    return {
+    identity = {
         'dataset': preflight_report.get('dataset'),
         'matrices': {
             split_name: {
@@ -117,6 +117,36 @@ def dataset_identity_from_preflight(preflight_report):
         'split_overlaps': preflight_report.get('split_overlaps'),
         'duplicate_modalities': preflight_report.get('duplicate_modalities'),
     }
+    cold_start = preflight_report.get('cold_start')
+    if cold_start and cold_start.get('has_cold_start'):
+        identity['cold_start'] = cold_start
+    conversion_manifest = preflight_report.get('conversion_manifest')
+    if conversion_manifest:
+        identity['conversion_manifest'] = {
+            key: conversion_manifest.get(key)
+            for key in (
+                'sha256',
+                'bytes',
+                'status',
+                'cold_item_policy',
+                'source_download_manifest_sha256',
+                'converter_sha256',
+            )
+        }
+    return identity
+
+
+def training_batch_count(n_train, batch_size, smoke_train_batches=0):
+    if n_train <= 0:
+        raise ValueError('n_train must be positive.')
+    if batch_size <= 0:
+        raise ValueError('batch_size must be positive.')
+    if smoke_train_batches < 0:
+        raise ValueError('smoke_train_batches must be non-negative.')
+    full_batch_count = n_train // batch_size + 1
+    if smoke_train_batches:
+        return min(full_batch_count, int(smoke_train_batches))
+    return full_batch_count
 
 
 def validate_teacher_checkpoint_metadata(
@@ -214,6 +244,26 @@ def _all_finite(array, row_chunk_size=4096):
     return True
 
 
+def _evaluation_cold_start(train_matrix, evaluation_matrix):
+    train_user_seen = np.asarray(train_matrix.getnnz(axis=1)).reshape(-1) > 0
+    train_item_seen = np.asarray(train_matrix.getnnz(axis=0)).reshape(-1) > 0
+    evaluation_user_seen = np.asarray(evaluation_matrix.getnnz(axis=1)).reshape(-1) > 0
+    evaluation_item_seen = np.asarray(evaluation_matrix.getnnz(axis=0)).reshape(-1) > 0
+    cold_user_mask = evaluation_user_seen & ~train_user_seen
+    cold_item_mask = evaluation_item_seen & ~train_item_seen
+    evaluation_coo = evaluation_matrix.tocoo(copy=False)
+    return {
+        'users_absent_from_train': np.flatnonzero(cold_user_mask).astype(int).tolist(),
+        'items_absent_from_train': np.flatnonzero(cold_item_mask).astype(int).tolist(),
+        'interactions_with_users_absent_from_train': int(
+            np.count_nonzero(~train_user_seen[evaluation_coo.row])
+        ),
+        'interactions_with_items_absent_from_train': int(
+            np.count_nonzero(~train_item_seen[evaluation_coo.col])
+        ),
+    }
+
+
 def _arrays_equal(left, right, row_chunk_size=4096):
     if left.shape != right.shape:
         return False
@@ -253,6 +303,18 @@ def run_dataset_preflight(data_path, dataset, duplicate_modalities_policy='warn'
                 dataset_dir, ', '.join(missing)
             )
         )
+
+    conversion_manifest_path = os.path.join(dataset_dir, 'conversion_manifest.json')
+    conversion_manifest_data = None
+    if os.path.isfile(conversion_manifest_path):
+        with open(conversion_manifest_path, 'r', encoding='utf-8') as file_obj:
+            conversion_manifest_data = json.load(file_obj)
+        if conversion_manifest_data.get('status') != 'completed':
+            raise ValueError(
+                'Conversion manifest is not completed: {}'.format(
+                    conversion_manifest_path
+                )
+            )
 
     matrices = {}
     matrix_report = {}
@@ -312,6 +374,24 @@ def run_dataset_preflight(data_path, dataset, duplicate_modalities_policy='warn'
             )
         )
 
+    conversion_policy = (
+        conversion_manifest_data.get('protocol', {}).get('cold_item_policy')
+        if conversion_manifest_data
+        else 'unspecified'
+    )
+    cold_start = {
+        'policy': conversion_policy,
+        'validation': _evaluation_cold_start(
+            matrices['train'], matrices['validation']
+        ),
+        'test': _evaluation_cold_start(matrices['train'], matrices['test']),
+    }
+    cold_start['has_cold_start'] = any(
+        cold_start[split_name]['users_absent_from_train']
+        or cold_start[split_name]['items_absent_from_train']
+        for split_name in ('validation', 'test')
+    )
+
     feature_report = {}
     feature_arrays = {}
     for modality_name, file_key in (
@@ -364,6 +444,66 @@ def run_dataset_preflight(data_path, dataset, duplicate_modalities_policy='warn'
         if duplicate_modalities_policy == 'warn':
             warnings.append(duplicate_message)
 
+    conversion_manifest_report = None
+    if conversion_manifest_data:
+        recorded_artifacts = conversion_manifest_data.get('output', {}).get(
+            'artifacts', {}
+        )
+        actual_artifacts = {
+            'train_mat': matrix_report['train'],
+            'val_mat': matrix_report['validation'],
+            'test_mat': matrix_report['test'],
+            'image_feat.npy': feature_report['image'],
+            'text_feat.npy': feature_report['text'],
+        }
+        for file_name, actual in actual_artifacts.items():
+            recorded = recorded_artifacts.get(file_name)
+            if not recorded:
+                raise ValueError(
+                    'Conversion manifest is missing output artifact {}'.format(
+                        file_name
+                    )
+                )
+            if (
+                int(recorded.get('bytes', -1)) != actual['bytes']
+                or str(recorded.get('sha256', '')).lower() != actual['sha256']
+            ):
+                raise ValueError(
+                    'Converted artifact does not match conversion manifest: {}'.format(
+                        file_name
+                    )
+                )
+        manifest_fingerprint = file_fingerprint(conversion_manifest_path)
+        conversion_manifest_report = {
+            **manifest_fingerprint,
+            'status': conversion_manifest_data.get('status'),
+            'cold_item_policy': conversion_policy,
+            'source_download_manifest_sha256': conversion_manifest_data.get(
+                'source', {}
+            ).get('download_manifest_sha256'),
+            'converter_sha256': conversion_manifest_data.get('converter', {}).get(
+                'sha256'
+            ),
+        }
+
+    if cold_start['has_cold_start']:
+        warnings.append(
+            'Evaluation contains entities absent from training: '
+            'validation users={}, items={}, interactions(user/item)={}/{}; '
+            'test users={}, items={}, interactions(user/item)={}/{}. '
+            'Cold-start policy={!r}; document this condition for formal comparison.'.format(
+                len(cold_start['validation']['users_absent_from_train']),
+                len(cold_start['validation']['items_absent_from_train']),
+                cold_start['validation']['interactions_with_users_absent_from_train'],
+                cold_start['validation']['interactions_with_items_absent_from_train'],
+                len(cold_start['test']['users_absent_from_train']),
+                len(cold_start['test']['items_absent_from_train']),
+                cold_start['test']['interactions_with_users_absent_from_train'],
+                cold_start['test']['interactions_with_items_absent_from_train'],
+                conversion_policy,
+            )
+        )
+
     return {
         'checked_at': datetime.now().astimezone().isoformat(),
         'dataset': dataset,
@@ -375,7 +515,9 @@ def run_dataset_preflight(data_path, dataset, duplicate_modalities_policy='warn'
         'numerically_identical_modalities': numerically_identical_modalities,
         'matrices': matrix_report,
         'split_overlaps': split_overlaps,
+        'cold_start': cold_start,
         'features': feature_report,
+        'conversion_manifest': conversion_manifest_report,
         'warnings': warnings,
     }
 
