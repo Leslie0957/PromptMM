@@ -1,0 +1,1219 @@
+# Training Log
+
+This is the canonical training record for PromptMM experiments.
+Use this file as the single running document for results, parameter changes, and next-step decisions.
+
+## Working Rules
+- Active experiment path: `codes/main_mmlight.py`
+- Default argument source: `codes/utility/parser.py`
+- `codes/run_patent.py` is a separate standalone script and should not be treated as part of the active training line unless explicitly requested.
+- If a training command passes `--student_lr`, that CLI value overrides the parser default.
+- Before changing training/evaluation code or confirmed experiment parameters, append a pending entry with scope, risks, acceptance criteria, and the next run plan.
+- After implementation or a completed run, append the actual changes, verification evidence, unresolved risks, and the next action; never silently replace a pending plan with an undocumented result.
+- Preserve historical logs and artifacts. New scientific protocols must use explicit protocol labels and run-specific artifacts so exploratory and paper-ready evidence cannot be mixed.
+- Record teacher-stage best metrics and student-stage best metrics separately for every completed run.
+- For student-only sweeps, keep the teacher fixed by reusing a saved checkpoint with `--if_train_teacher false`.
+- After each completed run, append a new entry under `## Active Run History (Recent, Kept In Canonical Log)`.
+- If a run becomes the new reference point, also update `## Current Baseline`.
+- Artifact behavior for `codes/main_mmlight.py`: each run now writes a unique archived teacher checkpoint under `Model/<dataset>/runs/` and a unique converge result file under `exp/converge/<dataset>/`; compatibility alias files may still update, but prior run artifacts are preserved.
+
+## Project Objective
+- This work is based on `PromptMM`; the current research line is an extension/modification of the PromptMM framework rather than a separate training line built from scratch.
+- The original goal is to develop a multimodal recommendation method combined with knowledge distillation.
+- The intended deliverables are a master's thesis and a patent-style technical result; publication is not required for this project.
+- Experiment decisions should therefore be evaluated not only by metric gains, but also by whether they help form a coherent thesis/patent story: clear problem setting, identifiable method contribution, reproducible training path, and defensible ablations.
+
+### 2026-04-11 | Research Focus Snapshot
+- Deliverable order:
+  - first shape a patent-style technical scheme
+  - then use that scheme as the backbone of the master's thesis
+- Real target:
+  - stay on the `PromptMM`-based multimodal recommendation + knowledge distillation line
+  - replace heavy student-side graph / prompt-dependent inference with a lightweight student while preserving recommendation quality as much as possible
+- Preferred method story:
+  - `TD-Distill` / train-infer decoupled lightweight multimodal recommendation
+  - training uses teacher-side multimodal semantics plus a bridge/projection module
+  - inference removes the bridge and serves with a lightweight embedding-based student
+- Claim language to preserve:
+  - student-to-teacher alignment can be described as asymmetric semantic distillation
+  - normalized MSE / cosine-space alignment can be described as directional distillation
+- Core evidence the thesis/patent should eventually support:
+  - student quality stays reasonably close to the teacher
+  - inference cost is much lower than the heavy teacher-side pipeline
+  - distillation-based lightweight student is stronger than a plain lightweight baseline without the same semantic transfer
+- Interpretation rule:
+  - LR tuning, logging cleanup, and checkpoint fixes are support work for stability and reproducibility
+  - the main line should return to lightweight-student structure and distillation design, not stay on LR tuning for too long
+
+## Current Baseline
+- Date: 2026-04-12
+- Current Baby teacher reference (added 2026-07-30):
+  - profile/protocol: `baby_teacher_reference_v1`; teacher-only; `val_test_once_v1`; candidate exclusion `train_only`; seed `2022`; full `116` batches/epoch
+  - launch HEAD/source: `6bdd5c5ae017263facfebe997550c39559797291` / `a80235062bd05a2f3175edffa626f2ca91d48ec1`
+  - run: `2026-07-30 11_50_42.544441_baby_light_init_pid2480`; completed paper-ready with no profile overrides or blockers
+  - best validation epoch `22`; exact validation Recall@20 `0.08649579399772167`
+  - final Test Recall@20 / NDCG@20 / Precision@20: `0.08665691369856875 / 0.04042213264283099 / 0.004836718950887038`
+  - checkpoint: `Model/baby/teacher_model_val_test_once_v1.pt`; SHA256 `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`
+  - interpretation: this is the frozen seed-2022 Baby teacher anchor for subsequent student/distillation work, not yet a multi-seed final paper estimate
+- Historical best quality reference:
+  - command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon`
+  - protocol note: pre bundled-teacher refresh / not a strict frozen-teacher comparison baseline
+  - best epoch: 436
+  - Recall@20: 0.09767902
+  - NDCG@20: 0.10535289
+  - Precision@20: 0.01846349
+- Clean comparison baseline for future frozen-teacher sweeps:
+  - command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_lr 6e-5 --if_train_teacher false`
+  - protocol note: current clean frozen-teacher LR reference; this is the first completed `--if_train_teacher false` run that clearly improves on the refreshed bundled-teacher `5e-5` baseline
+  - teacher source: reused bundled checkpoint produced on `2026-04-11 19:50:25`
+  - teacher best epoch: 19
+  - teacher Recall@20 / NDCG@20 / Precision@20: 0.14755461 / 0.14741283 / 0.02665822
+  - student best epoch: 321
+  - student Recall@20 / NDCG@20 / Precision@20: 0.09302971 / 0.10014018 / 0.01738844
+  - student full best result:
+    - precision: [0.02119675, 0.01738844, 0.01383874, 0.01270791]
+    - recall: [0.05716351, 0.09302971, 0.14312269, 0.16385911]
+    - ndcg: [0.07651317, 0.10014018, 0.12907822, 0.13926112]
+    - hit_ratio: [0.17484787, 0.25851927, 0.36014199, 0.39320487]
+- Current method-side reference for the train-infer decoupled line:
+  - command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.1`
+  - protocol note: first completed frozen-teacher `TD-Distill` run under the same clean teacher anchor and LR reference
+  - teacher source: reused bundled checkpoint produced on `2026-04-11 19:50:25`
+  - teacher best epoch: 19
+  - teacher Recall@20 / NDCG@20 / Precision@20: 0.14755461 / 0.14741283 / 0.02665822
+  - TD-Distill best epoch: 12
+  - TD-Distill Recall@20 / NDCG@20 / Precision@20: 0.14796617 / 0.14750383 / 0.02671907
+  - TD-Distill full best result:
+    - precision: [0.03445233, 0.02671907, 0.01997972, 0.01805477]
+    - recall: [0.09826668, 0.14796617, 0.21427575, 0.24020877]
+    - ndcg: [0.11717615, 0.14750383, 0.18210728, 0.19410078]
+    - hit_ratio: [0.26247465, 0.36135903, 0.47008114, 0.50476673]
+- Current no-warm-start `TD-Distill` reference:
+  - command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false`
+  - protocol note: current best completed strict frozen-teacher `TD-Distill` point without teacher-embedding warm start
+  - teacher source: reused bundled checkpoint produced on `2026-04-11 19:50:25`
+  - teacher best epoch: 19
+  - teacher Recall@20 / NDCG@20 / Precision@20: 0.14755461 / 0.14741283 / 0.02665822
+  - TD-Distill best epoch: 344
+  - TD-Distill Recall@20 / NDCG@20 / Precision@20: 0.10717427 / 0.11065527 / 0.01872211
+  - TD-Distill full best result:
+    - precision: [0.02295132, 0.01872211, 0.01428753, 0.01318458]
+    - recall: [0.06750604, 0.10717427, 0.15855713, 0.1829785]
+    - ndcg: [0.08474159, 0.11065527, 0.13931511, 0.1506387]
+    - hit_ratio: [0.19229209, 0.28326572, 0.38529412, 0.42413793]
+- Current post-refactor no-warm-start structure reference (updated 2026-04-15):
+  - command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0`
+  - protocol note: current strongest completed post-refactor no-warm-start point in the structure-disambiguation line
+  - teacher source: reused bundled checkpoint produced on `2026-04-11 19:50:25`
+  - teacher best epoch: 19
+  - teacher Recall@20 / NDCG@20 / Precision@20: 0.14755461 / 0.14741283 / 0.02665822
+  - TD-Distill best epoch: 416
+  - TD-Distill Recall@20 / NDCG@20 / Precision@20: 0.10947864 / 0.11405268 / 0.01934584
+  - TD-Distill full best result:
+    - precision: [0.02404665, 0.01934584, 0.0148859, 0.01371602]
+    - recall: [0.06843828, 0.10947864, 0.16399599, 0.18788375]
+    - ndcg: [0.08817225, 0.11405268, 0.1437104, 0.15526111]
+    - hit_ratio: [0.2005071, 0.29066937, 0.39513185, 0.43448276]
+- Current post-refactor warm-start check reference (updated 2026-04-15):
+  - command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher true --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0`
+  - protocol note: strongest completed warm-start point under the current no-projection asymmetric structure; used to quantify initialization dependence, not as strict no-warm-start default
+  - teacher source: reused bundled checkpoint produced on `2026-04-11 19:50:25`
+  - teacher best epoch: 19
+  - teacher Recall@20 / NDCG@20 / Precision@20: 0.14755461 / 0.14741283 / 0.02665822
+  - TD-Distill best epoch: 13
+  - TD-Distill Recall@20 / NDCG@20 / Precision@20: 0.14800863 / 0.14752959 / 0.02672921
+  - TD-Distill full best result:
+    - precision: [0.03446247, 0.02672921, 0.01999239, 0.01807708]
+    - recall: [0.09829842, 0.14800863, 0.21452438, 0.2406796]
+    - ndcg: [0.11716284, 0.14752959, 0.1821848, 0.19423934]
+    - hit_ratio: [0.26267748, 0.36176471, 0.47058824, 0.50557809]
+- Current read:
+  - under current no-projection asymmetric structure, the completed distillation-off control (`td_distill_alpha=0.0`, no warm start) reached `Recall@20=0.08209192`, `NDCG@20=0.09161002`, `Precision@20=0.01519270`, confirming a sharp quality drop relative to the active-distillation anchor
+  - under the same structure, enabling warm start (`td_init_from_teacher=true`) reached `Recall@20=0.14800863`, `NDCG@20=0.14752959`, `Precision@20=0.02672921`, showing very strong initialization dependence and near-teacher quality
+  - adding lightweight user-side supervision (`td_user_image_rate=0.1`) under no warm start reached `Recall@20=0.10417320`, `NDCG@20=0.11037305`, `Precision@20=0.01828093`, which stays above clean lightgcn but below the current no-user anchor
+  - parser default still remains `student_lr=5e-5`, but the clean frozen-teacher LR reference is now the CLI `6e-5` run above
+  - relative to the clean bundled-teacher `5e-5` baseline, `6e-5` improved Recall@20 by about 5.48%, NDCG@20 by about 5.03%, and Precision@20 by about 5.06%
+  - the first frozen-teacher `TD-Distill` run nearly matches and slightly exceeds the reused teacher summary while vastly outperforming the clean lightgcn student baseline
+  - the directional-loss ablation `td_distill_alpha=0.0` stayed essentially tied with the `0.1` run (`Recall@20 0.14796617 -> 0.14793405`, `NDCG@20 0.14750383 -> 0.14757129`, `Precision@20 0.02671907 -> 0.02671907`)
+  - the no-warm-start `TD-Distill` run (`td_init_from_teacher=false`) dropped to `Recall@20=0.10244326`, `NDCG@20=0.10648479`, `Precision@20=0.01804767`, confirming that teacher-embedding warm start is a major contributor to the near-teacher `TD-Distill` result
+  - even without warm start, `TD-Distill` still stayed above the clean frozen-teacher lightgcn baseline by about 10.12% on Recall@20, 6.34% on NDCG@20, and 3.79% on Precision@20
+  - the no-warm-start plus no-directional-loss ablation (`td_init_from_teacher=false`, `td_distill_alpha=0.0`) dropped further to `Recall@20=0.07972688`, `NDCG@20=0.08829759`, `Precision@20=0.01495943`, which is below both the no-warm-start `0.1` run and the clean frozen-teacher lightgcn baseline
+  - the intermediate no-warm-start alpha sweep point (`td_init_from_teacher=false`, `td_distill_alpha=0.05`) reached `Recall@20=0.09244762`, `NDCG@20=0.09815337`, `Precision@20=0.01633367`; this recovered much of the gap from the `0.0` endpoint but remained clearly below the completed no-warm-start `0.1` run
+  - relative to the no-warm-start `td_distill_alpha=0.0` endpoint, the `0.05` run improved Recall@20 by about 15.96%, NDCG@20 by about 11.16%, and Precision@20 by about 9.19%; relative to the clean frozen-teacher lightgcn baseline, it still underperformed slightly by about 0.63%, 1.98%, and 6.07%
+  - the stronger no-warm-start alpha sweep point (`td_init_from_teacher=false`, `td_distill_alpha=0.2`) reached `Recall@20=0.10681890`, `NDCG@20=0.11001266`, `Precision@20=0.01864097`, which is now the best completed no-warm-start `TD-Distill` result
+  - relative to the completed no-warm-start `td_distill_alpha=0.1` run, the `0.2` point improved Recall@20 by about 4.27%, NDCG@20 by about 3.31%, and Precision@20 by about 3.29%; relative to the clean frozen-teacher lightgcn baseline, it improved by about 14.82%, 9.86%, and 7.20%
+  - the next no-warm-start sweep point (`td_init_from_teacher=false`, `td_distill_alpha=0.3`) reached `Recall@20=0.10717427`, `NDCG@20=0.11065527`, `Precision@20=0.01872211`, which is now the strongest completed no-warm-start `TD-Distill` result
+  - relative to the completed no-warm-start `td_distill_alpha=0.2` run, the `0.3` point improved Recall@20 by about 0.33%, NDCG@20 by about 0.58%, and Precision@20 by about 0.44%; relative to the clean frozen-teacher lightgcn baseline, it improved by about 15.20%, 10.50%, and 7.67%
+  - under no warm start, the observed alpha ordering is now `0.0 < 0.05 < 0.1 < 0.2 < 0.3` on Recall@20, NDCG@20, and Precision@20, which means the directional-loss term is still helping through `0.3`, although the gain from `0.2` to `0.3` is already much smaller than the gain from `0.1` to `0.2`
+  - the larger no-warm-start alpha sweep point (`td_init_from_teacher=false`, `td_distill_alpha=0.4`) collapsed to `Recall@20=0.08000176`, `NDCG@20=0.08538574`, `Precision@20=0.01387424`, so it not only failed to improve over `0.3` but also fell below the clean frozen-teacher lightgcn baseline
+  - relative to the completed no-warm-start `td_distill_alpha=0.3` run, the `0.4` point dropped Recall@20 by about 25.35%, NDCG@20 by about 22.84%, and Precision@20 by about 25.89%; relative to the clean frozen-teacher lightgcn baseline, it underperformed by about 14.00%, 14.73%, and 20.21%
+  - under no warm start, the alpha story is now clear: performance improves across `0.0 < 0.05 < 0.1 < 0.2 < 0.3`, then collapses sharply at `0.4`, so the useful no-warm-start directional-loss range appears to be around `0.2-0.3` rather than "the larger the better"
+  - the final local no-warm-start alpha refinement (`td_init_from_teacher=false`, `td_distill_alpha=0.25`) reached `Recall@20=0.09945852`, `NDCG@20=0.10333377`, `Precision@20=0.01724138`, so it did not beat either the completed `0.2` or `0.3` runs
+  - relative to the completed no-warm-start `td_distill_alpha=0.3` run, the `0.25` point dropped Recall@20 by about 7.20%, NDCG@20 by about 6.62%, and Precision@20 by about 7.91%; relative to the clean frozen-teacher lightgcn baseline, it improved Recall@20 and NDCG@20 by about 6.91% and 3.19% but still trailed Precision@20 by about 0.85%
+  - under no warm start, the alpha story is now closed for the current structure: performance improved from `0.0` through `0.3`, overshot badly at `0.4`, and the nearby local refinement `0.25` also failed to beat `0.3`, so the useful no-warm-start directional-loss range remains around `0.2-0.3` with `0.3` as the stable reference
+  - the first post-refactor no-warm-start anchor run (`td_distill_alpha=0.3` with all four semantic heads active at rate `1.0`) collapsed to `Recall@20=0.07658530`, `NDCG@20=0.08219743`, `Precision@20=0.01315416`
+  - relative to the pre-refactor no-warm-start `td_distill_alpha=0.3` reference (`0.10717427 / 0.11065527 / 0.01872211`), the first post-refactor anchor run dropped by about 28.54% on Recall@20, 25.72% on NDCG@20, and 29.74% on Precision@20
+  - relative to the clean frozen-teacher lightgcn baseline (`0.09302971 / 0.10014018 / 0.01738844`), the first post-refactor anchor run underperformed by about 17.68%, 17.92%, and 24.35%
+  - the item-only no-projection structure control (`student_model_type=td_distill_no_projection`, `td_distill_alpha=0.3`) reached `Recall@20=0.10337251`, `NDCG@20=0.10930838`, `Precision@20=0.01821501`, which is now the strongest completed post-refactor structure-disambiguation result
+  - relative to the post-refactor item-only projection run (`0.09276946 / 0.09900840 / 0.01619675`), the no-projection run improved by about 11.43% on Recall@20, 10.40% on NDCG@20, and 12.46% on Precision@20
+  - relative to the clean frozen-teacher lightgcn baseline (`0.09302971 / 0.10014018 / 0.01738844`), the no-projection run improved by about 11.12%, 9.16%, and 4.75%
+  - relative to the pre-refactor no-warm-start `td_distill_alpha=0.3` reference (`0.10717427 / 0.11065527 / 0.01872211`), the no-projection run is now only lower by about 3.55%, 1.22%, and 2.71%
+  - interpretation update: once user-side supervision is removed, most of the remaining post-refactor quality gap is recovered by removing the projection heads, so the main bottleneck is no longer well explained by `td_distill_alpha` or component rates; it is much more consistent with projection-induced information loss or supervision mismatch inside the refactored semantic transfer path
+  - interpretation: the naive full phase-1 all-heads=`1.0` setup is not a valid new default under no warm start; the next step is component isolation inside the refactored structure, not more alpha-only tuning
+  - for strict frozen-teacher follow-up runs, keep two anchors in view: the clean `6e-5` lightgcn baseline for student-vs-student comparison and the `TD-Distill` run above for method-line continuation
+- KD-related weights: unchanged from the previous run
+- Current priority:
+  - LR tuning remains closed for now
+  - the old no-warm-start alpha question remains closed for the pre-refactor structure with `td_distill_alpha=0.3` as the stable reference
+  - the first post-refactor anchor run has now completed and failed clearly under the all-heads=`1.0` setup, and the later item-only plus no-projection control has already recovered most of that loss
+  - do not reopen alpha sweeps or simple rate sweeps under the refactored structure unless a later structure-control result gives a concrete reason
+  - the current mainline is now structure disambiguation, not parameter tuning
+  - the next high-value step is to keep the item-only no-projection run as the new structure-control reference and isolate the remaining residual gap from the disentangle / multi-head semantic design itself
+- Current priority update after the completed `td_distill_alpha=0.0` ablation:
+  - the question "can `TD-Distill` beat lightgcn?" is already answered yes under the frozen-teacher protocol
+  - the question "does `td_distill_alpha` matter?" is now mostly answered too: under warm start, `0.0` and `0.1` are effectively tied
+  - the next high-value check is no-warm-start `TD-Distill`, so initialization dependence can be separated from the method's directional distillation story
+- Current priority update after the completed no-warm-start `TD-Distill` ablation:
+  - the question "can `TD-Distill` still beat the clean lightgcn baseline without warm start?" is now answered yes, but only modestly
+  - the question "is warm start a dominant contributor?" is now also answered yes; removing it caused a large drop from the warm-started `TD-Distill` result
+  - the next high-value check is whether the directional term still helps once warm start is removed, so the fair next ablation is `td_init_from_teacher=false` plus `td_distill_alpha=0.0`
+- Current priority update after the completed no-warm-start + no-directional-loss ablation:
+  - the question "does the directional term still matter once warm start is removed?" is now answered yes
+  - under the fair no-warm-start setting, `td_distill_alpha=0.0` fell clearly below the completed `td_distill_alpha=0.1` run and also below the clean frozen-teacher lightgcn baseline
+  - the next high-value check is now a small no-warm-start alpha sweep around `0.1`, starting with `td_distill_alpha=0.05`
+- Current priority update after the completed no-warm-start `td_distill_alpha=0.05` sweep point:
+  - the question "can a smaller but nonzero directional term recover most of the no-warm-start `0.1` gain?" is now answered not fully
+  - `td_distill_alpha=0.05` landed between the completed `0.0` and `0.1` endpoints, nearly matched the clean lightgcn baseline on Recall@20, but still stayed slightly below that baseline overall and clearly below the completed no-warm-start `0.1` run
+  - the next high-value check is whether the no-warm-start curve keeps improving above `0.1`; the most informative next point is `td_distill_alpha=0.2`
+- Current priority update after the completed no-warm-start `td_distill_alpha=0.2` sweep point:
+  - the question "does the no-warm-start alpha curve keep improving above `0.1`?" is now answered yes at least through `0.2`
+  - `td_distill_alpha=0.2` is now the strongest completed no-warm-start setting, beating both the clean frozen-teacher lightgcn baseline and the previous no-warm-start `0.1` reference
+  - the next high-value check is whether the no-warm-start curve keeps improving or starts to bend back above `0.2`; the most informative next point is `td_distill_alpha=0.3`
+- Current priority update after the completed no-warm-start `td_distill_alpha=0.3` sweep point:
+  - the question "does the no-warm-start alpha curve keep improving above `0.2`?" is now answered yes, but only marginally
+  - `td_distill_alpha=0.3` is now the strongest completed no-warm-start setting, but the improvement over `0.2` is small enough that saturation may already be starting
+  - the next high-value check is whether the no-warm-start line is still rising at `0.4` or whether `0.3` is already near the useful peak
+- Current priority update after the completed no-warm-start `td_distill_alpha=0.4` sweep point:
+  - the question "is the no-warm-start line still rising at `0.4`?" is now answered no
+  - `td_distill_alpha=0.4` is too strong in the current no-warm-start setup and causes a sharp regression relative to both the completed `0.3` run and the clean frozen-teacher lightgcn baseline
+  - the next high-value step is no longer a larger-alpha sweep; use `0.3` as the best no-warm-start reference and return to code/method changes, or at most do local refinement near `0.2-0.3` later if tuning must be revisited
+
+- Current priority update after the completed no-warm-start `td_distill_alpha=0.25` local refinement:
+  - the question "does one nearby point between `0.2` and `0.3` change the no-warm-start conclusion?" is now answered no
+  - `td_distill_alpha=0.25` failed to beat both the completed `0.2` and `0.3` runs, so it did not reopen the alpha story or reveal a better local optimum
+  - alpha tuning is now closed for the current no-warm-start structure; keep `0.3` as the stable reference and return directly to code/method changes
+
+## Log Structure (Updated 2026-04-17)
+- This file remains the canonical **current-state log** for daily collaboration and quick resume.
+- Full historical content before this slimming migration is preserved without deletion in:
+  - `archive/training/TRAINING_LOG_ARCHIVE_FULL_2026-04-17.md`
+- Rule for new windows:
+  - read this file first (`TRAINING_LOG.md`) for current baseline + pending plan
+  - open archive only when detailed historical provenance is needed
+- Migration guarantee:
+  - no historical content was dropped; it was moved to archive for readability and faster context loading.
+
+## Archive Index
+- Full pre-slim snapshot:
+  - `archive/training/TRAINING_LOG_ARCHIVE_FULL_2026-04-17.md`
+- Historical sections moved to archive (still fully available there):
+  - `## Fresh Window Resume Snapshot`
+  - `## End-of-Day Snapshot`
+  - `## Thesis / Patent Reuse Notes`
+  - `## Next Planned Comparison`
+  - `## Historical Interrupted Run Snapshot`
+  - `## Procedure Updates`
+  - `## Run History` entries from `2026-04-10` through `2026-04-16` warm-start-path ablations
+
+## Entry Template
+
+### YYYY-MM-DD | Short label
+- Script:
+- Command:
+- Parameter changes:
+- KD-related weights:
+- Status:
+- Teacher summary:
+  - Reused or retrained:
+  - Best epoch:
+  - Recall@20:
+  - NDCG@20:
+  - Precision@20:
+- Best metrics:
+  - Recall@20:
+  - NDCG@20:
+  - Precision@20:
+- Full best result:
+  - precision:
+  - recall:
+  - ndcg:
+  - hit_ratio:
+- Notes:
+
+## Active Run History (Recent, Kept In Canonical Log)
+
+### 2026-04-16 | Next-step execution plan (pending, no-warm-start 3-seed robustness)
+- Status: pending
+- Goal:
+  - consolidate robustness evidence on the main no-warm-start path under the fixed no-projection asymmetric structure
+  - provide variance-aware support for thesis/patent claims beyond a single-seed point estimate
+- Fixed protocol:
+  - script: `codes/main_mmlight.py`
+  - dataset: `amazon`
+  - strict frozen-teacher protocol: `--if_train_teacher false`
+  - student structure: `--student_model_type td_distill_no_projection`
+  - no warm start: `--td_init_from_teacher false`
+  - directional term: `--td_distill_alpha 0.3`
+  - asymmetric item-only rates: `--td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0`
+  - LR anchor: `--student_lr 6e-5` (CLI override)
+- Run list (3-seed):
+  - Seed 2022:
+    - `python .\codes\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0 --seed 2022`
+  - Seed 2023:
+    - `python .\codes\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0 --seed 2023`
+  - Seed 2024:
+    - `python .\codes\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0 --seed 2024`
+- Decision rule:
+  - if all three seeds remain clearly above the clean frozen-teacher lightgcn baseline, treat the no-warm-start gain as robust
+  - if one seed collapses strongly, open a targeted stability diagnosis before claiming robustness
+
+### 2026-04-17 | Next-step execution plan (completion update, no-warm-start 3-seed robustness)
+- Status: completed
+- Supersedes:
+  - `2026-04-16 | Next-step execution plan (pending, no-warm-start 3-seed robustness)`
+- Outcome:
+  - all three planned seed runs (`2022/2023/2024`) completed
+  - no run collapsed below the clean frozen-teacher lightgcn baseline
+
+### 2026-04-16 | No-warm-start 3-seed robustness run completion (`seed=2022`)
+- Script: `codes/main_mmlight.py`
+- Command:
+  `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0 --seed 2022`
+- Parameter changes:
+  - no new parameter change versus current no-projection asymmetric no-warm-start anchor; this run is seed-control evaluation with `seed=2022`
+- KD-related weights:
+  - inherited PromptMM KD flags unchanged (`kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`)
+  - active objective remained `BPR + 0.3 * asymmetric item-only semantic distillation loss` without projection heads
+- Status:
+  - completed normally with `TD-Distill` early stop at epoch `425`; best result appeared at epoch `416`
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: `19`
+  - Recall@20: `0.14755461`
+  - NDCG@20: `0.14741283`
+  - Precision@20: `0.02665822`
+- Best metrics:
+  - Recall@20: `0.10947864`
+  - NDCG@20: `0.11405268`
+  - Precision@20: `0.01934584`
+- Full best result:
+  - precision: `[0.02404665, 0.01934584, 0.01488590, 0.01371602]`
+  - recall: `[0.06843828, 0.10947864, 0.16399599, 0.18788375]`
+  - ndcg: `[0.08817225, 0.11405268, 0.14371040, 0.15526111]`
+  - hit_ratio: `[0.20050710, 0.29066937, 0.39513185, 0.43448276]`
+- Notes:
+  - This run reproduces the current no-warm-start anchor exactly on all three `@20` metrics.
+  - Relative to clean frozen-teacher lightgcn baseline (`0.09302971 / 0.10014018 / 0.01738844`), this run improved by about `17.68% / 13.89% / 11.26%`.
+### 2026-04-16 | No-warm-start 3-seed robustness run completion (`seed=2023`)
+- Script: `codes/main_mmlight.py`
+- Command:
+  `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0 --seed 2023`
+- Parameter changes:
+  - no new parameter change versus current no-projection asymmetric no-warm-start anchor; this run is seed-control evaluation with `seed=2023`
+- KD-related weights:
+  - inherited PromptMM KD flags unchanged (`kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`)
+  - active objective remained `BPR + 0.3 * asymmetric item-only semantic distillation loss` without projection heads
+- Status:
+  - completed normally with `TD-Distill` early stop at epoch `269`; best result appeared at epoch `260`
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: `19`
+  - Recall@20: `0.14755461`
+  - NDCG@20: `0.14741283`
+  - Precision@20: `0.02665822`
+- Best metrics:
+  - Recall@20: `0.09994591`
+  - NDCG@20: `0.10698744`
+  - Precision@20: `0.01757606`
+- Full best result:
+  - precision: `[0.02156187, 0.01757606, 0.01381592, 0.01255984]`
+  - recall: `[0.06171866, 0.09994591, 0.15284976, 0.17328897]`
+  - ndcg: `[0.08252793, 0.10698744, 0.13625755, 0.14617685]`
+  - hit_ratio: `[0.18286004, 0.27008114, 0.37454361, 0.40953347]`
+- Notes:
+  - Relative to the current no-warm-start anchor (`0.10947864 / 0.11405268 / 0.01934584`), this run dropped by about `8.71% / 6.20% / 9.15%`.
+  - Relative to clean frozen-teacher lightgcn baseline (`0.09302971 / 0.10014018 / 0.01738844`), this run still improved by about `7.43% / 6.84% / 1.08%`.
+### 2026-04-17 | No-warm-start 3-seed robustness run completion (`seed=2024`)
+- Script: `codes/main_mmlight.py`
+- Command:
+  `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0 --seed 2024`
+- Parameter changes:
+  - no new parameter change versus current no-projection asymmetric no-warm-start anchor; this run is seed-control evaluation with `seed=2024`
+- KD-related weights:
+  - inherited PromptMM KD flags unchanged (`kd_loss_rate=1000000`, `kd_loss_list_rate=1000000`, `kd_loss_feat_rate=0.1`)
+  - active objective remained `BPR + 0.3 * asymmetric item-only semantic distillation loss` without projection heads
+- Status:
+  - completed normally with `TD-Distill` early stop at epoch `314`; best result appeared at epoch `305`
+- Teacher summary:
+  - Reused or retrained: reused
+  - Best epoch: `19`
+  - Recall@20: `0.14755461`
+  - NDCG@20: `0.14741283`
+  - Precision@20: `0.02665822`
+- Best metrics:
+  - Recall@20: `0.10264270`
+  - NDCG@20: `0.10959122`
+  - Precision@20: `0.01815923`
+- Full best result:
+  - precision: `[0.02232252, 0.01815923, 0.01411765, 0.01286410]`
+  - recall: `[0.06371455, 0.10264270, 0.15680588, 0.17803862]`
+  - ndcg: `[0.08453028, 0.10959122, 0.13899765, 0.14913678]`
+  - hit_ratio: `[0.18884381, 0.27748479, 0.38245436, 0.41734280]`
+- Notes:
+  - Relative to the current no-warm-start anchor (`0.10947864 / 0.11405268 / 0.01934584`), this run dropped by about `6.24% / 3.91% / 6.13%`.
+  - Relative to clean frozen-teacher lightgcn baseline (`0.09302971 / 0.10014018 / 0.01738844`), this run improved by about `10.33% / 9.44% / 4.43%`.
+### 2026-04-17 | No-warm-start 3-seed robustness summary (completed)
+- Status: completed
+- Aggregate over seeds (`2022/2023/2024`) under fixed no-projection asymmetric no-warm-start protocol:
+  - mean Recall@20 / NDCG@20 / Precision@20: `0.10402242 / 0.11021045 / 0.01836038`
+  - std Recall@20 / NDCG@20 / Precision@20: `0.00401214 / 0.00291742 / 0.00073638`
+  - range (min~max):
+    - Recall@20: `0.09994591 ~ 0.10947864`
+    - NDCG@20: `0.10698744 ~ 0.11405268`
+    - Precision@20: `0.01757606 ~ 0.01934584`
+- Notes:
+  - Relative to clean frozen-teacher lightgcn baseline (`0.09302971 / 0.10014018 / 0.01738844`), the 3-seed mean improved by about `11.82% / 10.06% / 5.59%`.
+  - The worst seed (`2023`) still stayed above the clean baseline by about `7.43% / 6.84% / 1.08%`, so the no-warm-start gain is robust but with visible seed sensitivity, especially on Precision@20 lower-bound.
+  - Decision: keep the current no-warm-start default configuration unchanged and carry this as variance-aware evidence in thesis/patent reporting.
+
+### 2026-04-17 | Efficiency evidence implementation (completed, code-only)
+- Script: `codes/main_mmlight.py`
+- Related files:
+  - `codes/efficiency_benchmark.py` (new)
+  - `codes/utility/parser.py` (new CLI flags)
+- Goal:
+  - add a reproducible inference-efficiency benchmark path (teacher vs student) without changing existing training defaults
+  - keep original train/eval flow unchanged unless explicitly enabled by CLI
+- Status:
+  - completed (implementation finished, no training/evaluation run executed in this entry)
+- Parameter changes (code defaults, backward-compatible):
+  - added `--run_efficiency_benchmark` (default `false`)
+  - added `--efficiency_warmup_runs` (default `3`)
+  - added `--efficiency_measure_runs` (default `10`)
+  - added `--efficiency_batch_size` (default `2048`)
+  - added `--efficiency_topk` (default `20`)
+  - added `--efficiency_student_ckpt` (default empty; optional manual checkpoint path)
+- Behavioral notes:
+  - default commands are unchanged because benchmark mode is opt-in
+  - when benchmark mode is enabled and `if_train_teacher=true`, training is automatically skipped (`if_train_teacher` forced to `false`) to avoid accidental retraining
+  - for `td_distill` / `td_distill_no_projection`, benchmark mode auto-loads latest `td_distill_infer_only__*.pth` if `--efficiency_student_ckpt` is not provided
+  - benchmark outputs include: teacher/student embedding+ranking latency, per-user latency, throughput, peak GPU memory, and parameter count
+  - benchmark artifact is saved to `exp/efficiency/<dataset>/efficiency__<run_name>.pkl`
+
+### 2026-04-17 | Next-step execution plan (pending, efficiency evidence run)
+- Status: pending
+- Goal:
+  - collect thesis-ready efficiency evidence for the locked mainline config (`td_distill_no_projection`, no warm start, `alpha=0.3`, item=`1/0.3`, user=`0/0`, `student_lr=6e-5`)
+- Command (recommended):
+  - `python .\codes\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0 --seed 2022 --run_efficiency_benchmark true --efficiency_warmup_runs 5 --efficiency_measure_runs 20 --efficiency_batch_size 2048 --efficiency_topk 20`
+- Optional checkpoint pinning (for strict reproducibility):
+  - append `--efficiency_student_ckpt "Model/amazon/td_distill/td_distill_infer_only__<your_target_run>.pth"`
+- Decision rule:
+  - if student keeps clear latency/throughput advantage with acceptable memory footprint, mark efficiency evidence complete for thesis/patent mainline
+  - if speedup is weak or unstable, rerun once with same checkpoint and fixed batch size before concluding
+
+### 2026-04-17 | Efficiency code path safety check (completed)
+- Status: completed
+- Scope:
+  - structural safety check for newly added efficiency benchmark path
+  - parser compatibility fix across multi-parser sections
+- Confirmed checks:
+  - `codes/main_mmlight.py` benchmark gates are opt-in only (`--run_efficiency_benchmark`), default training flow remains unchanged
+  - benchmark early-return is attached after student model initialization/loading and before training loops
+  - `codes/utility/parser.py` now includes efficiency CLI flags in all parser sections (netflix/tiktok/amazon), avoiding unknown-arg issues
+  - static compile passed for `codes/main_mmlight.py`, `codes/utility/parser.py`, `codes/efficiency_benchmark.py`
+  - direct parser smoke parse passed for `--run_efficiency_benchmark true`
+- Residual risk:
+  - full runtime integration test in this environment is blocked by missing `dgl` dependency; execute in the standard training environment for final runtime confirmation
+
+### 2026-04-17 | Log slimming migration completion (structure-only)
+- Status: completed
+- Scope:
+  - canonical-log slimming for faster fresh-window resume
+  - zero-loss archival of historical content
+- Actions:
+  - created full immutable archive snapshot: `archive/training/TRAINING_LOG_ARCHIVE_FULL_2026-04-17.md`
+  - rebuilt `TRAINING_LOG.md` as current-state canonical log + archive index + recent active history
+  - updated working-rule target section name to match the slim canonical structure
+- Integrity check:
+  - no historical content deleted; full pre-slim content remains preserved in the archive snapshot above
+- Usage rule:
+  - continue reading `TRAINING_LOG.md` first in new windows
+  - open archive only when detailed historical provenance is required
+
+### 2026-04-17 | Efficiency evidence run completion (teacher vs no-warm-start `td_distill_no_projection`)
+- Script: `codes/main_mmlight.py`
+- Command:
+  `python .\codes\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon --student_model_type td_distill_no_projection --student_lr 6e-5 --if_train_teacher false --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0 --seed 2022 --run_efficiency_benchmark true --efficiency_warmup_runs 5 --efficiency_measure_runs 20 --efficiency_batch_size 2048 --efficiency_topk 20`
+- Parameter changes:
+  - no training-parameter change; benchmark-only run with fixed no-warm-start mainline config
+- Status:
+  - completed normally
+- Teacher reuse summary:
+  - Recall@20: `0.14755461`
+  - NDCG@20: `0.14741283`
+  - Precision@20: `0.02665822`
+- Student checkpoint used for benchmark:
+  - `Model/amazon/td_distill/td_distill_infer_only__2026-04-16 23_59_47_amazon_light_init_pid26184.pth`
+  - load status: `missing=0, unexpected=0`
+- Efficiency metrics:
+  - teacher:
+    - total: `14.913 ms`
+    - embed: `5.711 ms`
+    - rank: `9.202 ms`
+    - latency/user: `0.001512 ms`
+    - throughput: `661167.11 users/s`
+    - peak memory: `543.48 MB`
+    - params: `29419072`
+  - student:
+    - total: `9.202 ms`
+    - embed: `0.150 ms`
+    - rank: `9.052 ms`
+    - latency/user: `0.000933 ms`
+    - throughput: `1071519.67 users/s`
+    - peak memory: `404.65 MB`
+    - params: `650624`
+  - relative:
+    - latency speedup: `1.621x`
+    - throughput gain: `1.621x`
+- Notes:
+  - Student total latency reduced by about `38.30%` vs teacher.
+  - Student peak memory reduced by about `25.54%` vs teacher.
+  - Student parameter count reduced by about `97.79%` vs teacher.
+  - Artifact saved at: `exp/efficiency/amazon/efficiency__2026-04-17 01_50_16_amazon_light_init_pid22636.pkl`
+
+### 2026-04-17 | Next-step execution plan (completion update, efficiency evidence run)
+- Status: completed
+- Supersedes:
+  - `2026-04-17 | Next-step execution plan (pending, efficiency evidence run)`
+- Outcome:
+  - efficiency evidence is now available for the locked no-warm-start mainline config
+  - quality anchor + efficiency metrics together now support the core thesis/patent claim: near-competitive recommendation quality with clearly lower inference cost
+
+### 2026-04-17 | Writing-direction decision memo (no new run)
+- Status: completed (discussion decision)
+- Scope:
+  - thesis/patent positioning after quality + robustness + efficiency evidence completion
+- Decisions:
+  - keep two contribution layers for writing:
+    - contribution A (framework/system): train-infer decoupled lightweight multimodal distillation line
+    - contribution B (core structure): asymmetric no-projection semantic distillation module (`td_distill_no_projection`, item-dominant, user-side suppressible)
+  - for patent drafting:
+    - use contribution B as the main independent-claim core
+    - place contribution A and deployment/efficiency flow into dependent claims
+  - for thesis drafting:
+    - report contribution B as the hard structural innovation
+    - report contribution A as framework-level/engineering contribution with quality-robustness-efficiency closed-loop evidence
+- Experiment state:
+  - no additional run executed in this memo; this is a writing/positioning update only
+
+### 2026-07-22 | Paper-ready evaluation protocol and traceability implementation plan (pending)
+- Status: pending; no training/evaluation run completed in this entry
+- User-approved operating principle:
+  - record the intended change and next step in this canonical log before editing the active training line
+  - after editing, record the exact implementation and verification outcome before starting a formal run
+  - preserve old code behavior through an explicit compatibility path and never delete or overwrite historical evidence without prior approval
+- Motivation and audit findings:
+  - teacher, original student, and TD-Distill currently evaluate `test_mat` every epoch and select/early-stop by test Recall@20
+  - historical LR, alpha, and component decisions were informed by repeated test observations, so pre-correction metrics are exploratory rather than confirmatory paper results
+  - current `data/amazon` matches the Amazon-Book split (`11000` users, `9332` items), not PromptMM Amazon-Electronics
+  - in both current Amazon-Book and Yelp folders, `image_feat.npy` and `text_feat.npy` are byte-identical copies of one 1536-dimensional semantic embedding; they cannot independently support an image-text complementarity claim
+  - `codes/utility/parser.py` contains sequential historical Netflix/TikTok/Amazon parsers, with the final Amazon parse overriding earlier defaults and `select_dataset()` currently doing nothing
+- Implementation scope:
+  - add an explicit evaluation protocol identifier; make `val_test_once_v1` the paper-ready default and retain `legacy_test_best` only for historical reproduction
+  - for teacher, original student, and TD-Distill: evaluate validation users during training, select and early-stop by validation Recall@20, save the validation-best run-specific checkpoint, reload it, and evaluate test users once at the end
+  - create a run-specific checkpoint for the original student, which currently has no best-checkpoint restore path
+  - keep legacy teacher/checkpoint aliases separate from new protocol aliases so the April artifacts are not overwritten by corrected runs
+  - save a run manifest containing the protocol label, resolved CLI arguments, artifact paths, dataset preflight report, and final status
+  - add dataset preflight checks for required files, matrix shape agreement, feature row/item agreement, finite values, and exact duplicate modality files; duplicate modalities warn by default and can be configured to fail
+  - expose the protocol and preflight controls consistently through every currently active parser block; do not change the confirmed Amazon `student_lr` parser default in this implementation
+- Non-goals for this change:
+  - no change to model architecture, loss equations, KD weights, sampling, candidate ranking, or the first/second innovation design
+  - no training run, parameter sweep, data download, dataset overwrite, file deletion, or movement of existing checkpoints
+  - no claim that current Amazon-Book/Yelp duplicated features are genuine independent image and text modalities
+- Locked paper-ready protocol:
+  - optimize on `train_mat`
+  - use `val_mat` Recall@20 as the predeclared checkpoint-selection and early-stopping metric
+  - restore the validation-best checkpoint and evaluate `test_mat` once
+  - keep `Ks=[10,20,40,50]`; Recall@20 is primary and NDCG/Precision are secondary
+  - retain the existing full-catalog candidate rule for comparability and apply it identically to every method
+  - pin and record one corrected teacher checkpoint per dataset for frozen-teacher student comparisons
+- Historical evidence policy:
+  - retain every pre-correction result, log, and checkpoint as exploratory evidence for motivation, debugging, and experiment selection
+  - do not copy pre-correction absolute metrics into formal result tables or update `Current Baseline` until a corrected comparison matrix is complete
+- Code acceptance criteria:
+  - static compilation passes for every modified Python file
+  - parser smoke tests accept both protocol modes and preserve explicit CLI precedence, including `--student_lr 6e-5`
+  - dataset preflight passes structural checks on current Amazon-Book and reports the duplicate image/text files without modifying them
+  - a no-training checkpoint/evaluation unit smoke confirms that best validation state is restored before final test
+  - source audit finds no validation-protocol branch whose checkpoint or early-stopping decision reads test metrics
+- Controlled rerun plan after code verification:
+  1. run a short non-paper smoke on current Amazon-Book to validate execution and artifact generation
+  2. train one corrected teacher (`seed=2022`) and pin its archived checkpoint
+  3. run a single-seed ID-BPR versus proposed sanity pair under the corrected protocol
+  4. only after the sanity pair succeeds, run the selected three-seed Amazon development/ablation matrix; use explicit `--student_lr 6e-5` where the locked mainline requires it
+  5. obtain genuine visual/textual Netflix and Amazon-Electronics data without overwriting `data/amazon`, validate their provenance and feature independence, then run one-seed gates before multi-seed formal results
+  6. rerun efficiency only with an explicitly pinned corrected proposed checkpoint
+  7. start RGCS-Distill diagnostics only after the corrected first-innovation baseline is established
+- Required completion trace:
+  - append a completion entry listing every changed file and behavior
+  - record commands and outputs for static checks, parser checks, and preflight checks
+  - record any blocked runtime check explicitly
+  - leave the next executable command and decision rule in this log
+
+### 2026-07-28 | Paper-ready protocol implementation audit amendment (pending)
+- Status: pending implementation; read-only audit and smoke checks completed before the edits below
+- Additional audit findings:
+  - `legacy_test_best` currently points teacher writes at the April compatibility alias `Model/<dataset>/teacher_model_great.pt`; a legacy training command would overwrite historical evidence
+  - a `val_test_once_v1` run can explicitly load an old teacher checkpoint that has no protocol metadata, silently mixing a test-selected teacher into a paper-ready run
+  - after training a teacher, the student stage reloads the shared alias instead of the immutable run archive, so a concurrent or later write could change the actual distillation source
+  - ordinary `gcn` and `mlp` training calls pass more positional arguments than their model `forward()` methods accept, preventing those branches from reaching protocol evaluation
+  - dataset preflight identifies matrix shapes and counts but does not fingerprint split files or reject pairwise split overlap
+  - `PromptLearner` unconditionally reuses metadata-free PCA/ICA hard-token caches; the cache is not bound to source-feature hashes, dimensions, algorithm version, or seed, and separate randomized PCA fits can manufacture differences from identical image/text inputs
+- Confirmed preservation and correction actions:
+  - make the April legacy teacher alias read-only; legacy training writes only a run-specific archive
+  - require matching validation-protocol metadata when a paper-ready run reuses a teacher; old metadata-free teachers remain usable only under the explicitly labeled legacy protocol
+  - use the just-created run archive as the teacher source for the same run's student stage and record its file fingerprint
+  - correct only the `gcn`/`mlp` call signatures to match their existing definitions; do not alter either architecture
+  - add matrix SHA256 fingerprints, numeric-value checks, and train/validation/test overlap checks to preflight
+  - route final evaluation through one tested helper that restores a checkpoint before invoking the test callback
+  - replace legacy hard-token cache reuse with deterministic, source-hash/parameter-versioned cache files and record the selected cache metadata in the run manifest; keep all legacy cache files untouched
+  - withhold shared teacher-alias updates from any run marked `paper_ready_eligible=false`; the run-specific archive remains available for explicitly labeled exploratory comparisons
+  - add a default-off `--teacher_only` control so the corrected teacher can be trained, restored, tested, and pinned without an unnecessary student run
+  - correct the validation protocol's early-stopping patience off-by-one while preserving the historical extra non-improvement epoch in `legacy_test_best`
+- Scope remains code-only:
+  - no training, hyperparameter change, dataset mutation, checkpoint deletion, or historical artifact movement is authorized by this entry
+
+### 2026-07-28 | Paper-ready protocol and traceability implementation (completed; code-only)
+- Status:
+  - implementation and lightweight verification completed
+  - this closes the code portion of the 2026-07-22 pending entry and the 2026-07-28 audit amendment
+  - the controlled rerun plan remains pending; no training or result comparison was executed in this entry
+- Changed files:
+  - `codes/main_mmlight.py`
+    - added `val_test_once_v1` validation selection and retained explicit `legacy_test_best` behavior for teacher, original student, and TD-Distill
+    - all three paths now save the selection-best checkpoint, restore it, and call final test through one restore-before-evaluate helper
+    - original students now have run-specific full checkpoints
+    - current-run students consume the immutable teacher run archive rather than reloading a shared alias
+    - paper-ready teacher reuse now requires matching protocol/split/primary-K metadata; metadata-free April teachers are accepted only in legacy mode
+    - legacy and non-paper-ready runs do not update shared teacher aliases
+    - added run manifests, code/data/checkpoint fingerprints, failure status recording, and `paper_ready_eligible` blockers
+    - added default-off `--teacher_only` support
+    - corrected `gcn` and `mlp` training call signatures to match their existing model definitions
+    - corrected the validation protocol patience off-by-one while preserving historical legacy behavior
+  - `codes/utility/parser.py`
+    - exposed protocol, preflight, duplicate-modality, read-only teacher-checkpoint, and teacher-only controls in all three active parser blocks
+    - preserved the Amazon `student_lr=5e-5` default and verified explicit CLI override precedence
+  - `codes/utility/experiment_protocol.py` (new)
+    - protocol constants/helpers, primary Recall@20 resolution, restore-before-evaluate helper, teacher metadata validation, JSON conversion/writes, and file fingerprints
+    - dataset checks for required files, sparse type/shape/nonempty/value validity, split disjointness, feature shape/rows/finiteness, and byte/numeric duplicate modalities
+    - SHA256 identity for train/validation/test matrices and image/text feature files
+  - `codes/utility/hard_token_cache.py` (new)
+    - deterministic, atomic, versioned PCA/ICA hard-token caches bound to source SHA256, shape, dtype, method, component count, seed, and sklearn version
+  - `codes/Models_mmlight.py`
+    - replaced metadata-free legacy hard-token cache reuse with the versioned cache helper
+    - identical source arrays with the same seed now produce identical PCA tokens instead of random artificial modality differences
+    - legacy cache files remain untouched and are no longer consumed by corrected runs
+  - `codes/tests/test_experiment_protocol.py` (new)
+    - 11 no-training tests for protocol selection, patience compatibility, restore-before-test ordering/state, teacher metadata compatibility, split leakage/value checks, duplicate modalities, atomic JSON output, and deterministic cache preservation
+  - `TRAINING_LOG.md`
+    - added the pending plan, audit amendment, this completion trace, and the gated next commands
+- Training-parameter status:
+  - no model architecture, objective weight, sampler, KD rate, batch size, epoch default, or learning-rate default was changed
+  - explicit `--student_lr 6e-5` remains the locked no-projection mainline override
+  - corrected runs will nevertheless differ from April runs because checkpoint selection, early stopping, final testing, and hard-token cache generation are now corrected; all affected experiments must be rerun
+- Verification completed:
+  - static compilation:
+    - `D:\miniconda\envs\run_5060\python.exe -m py_compile codes\main_mmlight.py codes\Models_mmlight.py codes\utility\parser.py codes\utility\experiment_protocol.py codes\utility\hard_token_cache.py codes\tests\test_experiment_protocol.py`
+    - result: passed with no output
+  - no-training unit tests:
+    - `D:\miniconda\envs\run_5060\python.exe -m unittest discover -s codes\tests -p "test_*.py" -v`
+    - result: 11 tests passed (`OK`)
+  - parser smoke, paper-ready mode:
+    - accepted `--eval_protocol val_test_once_v1 --student_lr 6e-5 --teacher_only true`
+    - resolved output: `val_test_once_v1 / 6e-05 / teacher_only=True / amazon_active_defaults`
+  - parser smoke, compatibility mode:
+    - accepted `--eval_protocol legacy_test_best --if_train_teacher false`
+    - resolved output: `legacy_test_best / if_train_teacher=False / amazon_active_defaults`
+  - main-module import smoke:
+    - result: imported successfully with `val_test_once_v1`; no trainer was instantiated and no training started
+  - source audit:
+    - teacher, original student, and TD-Distill selection calls use `_selection_target()`
+    - in `val_test_once_v1`, `_selection_target()` resolves to validation users with `is_val=True`
+    - checkpoint and early-stopping comparisons consume only `selection_ret` Recall@20
+    - test users with `is_val=False` appear only in restore-before-final-evaluation calls or the explicitly labeled legacy selection target
+  - optional `pyflakes` check was not run because `pyflakes` is not installed in the active environment; `py_compile`, import smoke, unit tests, and source audit passed
+- Current Amazon-Book preflight result:
+  - matrix shape: `11000 x 9332`
+  - interactions: train `120464`, validation `40290`, test `40106`
+  - pairwise split overlap: train/validation `0`, train/test `0`, validation/test `0`
+  - matrix SHA256:
+    - train: `535cc15f915858a64249e3a893cceac9efe8e6f1ce17c08879a3c099c510b309`
+    - validation: `90cd52a011f9b31081461a010e9bccb98d12a1dd7a7760085facbc7d1a2c46c3`
+    - test: `c279ce551d32536ed90d916212bc0b891ce4c189ea7cfa5e4051e0dbfc728d17`
+  - image/text feature SHA256 (both): `ab54d59f908dbf07de95bdadfbfcc4b8484680ff417e12e40d3dd83937c140ae`
+  - status: structural checks passed with duplicate-modality warning
+  - consequence: every current Amazon run is automatically recorded as `paper_ready_eligible=false`; it is suitable for execution smoke and exploratory method development, not an independent image-text complementarity claim
+- Historical-artifact preservation check:
+  - no file was deleted or moved
+  - `Model/amazon/teacher_model_great.pt` remains timestamped `2026-04-11 20:03:21`, SHA256 `BA220301EEE414D4FF2B279C8C670F3D7F66B646EEEAA11829323D064A6A07FB`
+  - legacy `hard_token_image_pca` and `hard_token_text_pca` remain timestamped `2026-04-09 16:52:53`, with SHA256 `D9FA5131FF3BCB558F67075521962DE5ECDFAEEF83D626BC1E93387564752234` and `20C4E75F4CEB27D093FEE2B2427423F4B98809BFB92CF87D7FFFC15E118B01B7`
+  - no versioned hard-token cache was generated in `data/amazon` during code verification
+- Known blockers and boundaries:
+  - a full one-epoch GPU execution smoke has not yet run; compile/import/unit checks cannot prove all CUDA/DGL training paths execute end to end
+  - current Amazon-Book and Yelp duplicate the image/text feature arrays and cannot be used as formal independent-modality evidence
+  - non-Amazon parser profiles still resolve to an explicitly labeled `unvalidated_amazon_default_fallback`; add and validate a dataset-specific config before any Netflix/Electronics formal run
+  - formal efficiency evidence remains blocked until the benchmark loader is hardened to require an explicitly pinned corrected checkpoint and strict protocol/structure validation
+- Next executable command (non-paper one-epoch end-to-end smoke; not yet run):
+  - `D:\miniconda\envs\run_5060\python.exe .\codes\main_mmlight.py --data_path D:\Download\PromptMM\data\ --dataset amazon --eval_protocol val_test_once_v1 --dataset_preflight true --duplicate_modalities_policy warn --if_train_teacher true --student_model_type td_distill_no_projection --student_lr 6e-5 --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0 --epoch 1 --early_stopping_patience 1 --seed 2022 --gpu_id 0 --point protocol_smoke_20260728`
+- Smoke acceptance gate:
+  - process exits normally and manifest status is `completed`
+  - manifest records `evaluation_protocol=val_test_once_v1`, `selection_split=validation`, and `paper_ready_eligible=false` with duplicate-modality blocker
+  - teacher and TD each log validation selection, restore their best checkpoint, and log exactly one final test
+  - run-specific teacher, TD full/inference, converge, preflight, and manifest artifacts exist
+  - legacy teacher and hard-token files retain the hashes above; the smoke creates only versioned new caches and run-specific artifacts
+- After the smoke passes:
+  - run the corrected teacher-only job with the same data/protocol/seed and normal training horizon:
+    - `D:\miniconda\envs\run_5060\python.exe .\codes\main_mmlight.py --data_path D:\Download\PromptMM\data\ --dataset amazon --eval_protocol val_test_once_v1 --dataset_preflight true --duplicate_modalities_policy warn --if_train_teacher true --teacher_only true --epoch 1000 --early_stopping_patience 8 --seed 2022 --gpu_id 0 --point teacher_val_v1_seed2022`
+  - pin the resulting run-specific teacher archive path from its manifest; later frozen-teacher runs must pass that exact path through `--teacher_checkpoint ... --if_train_teacher false`
+  - if the smoke fails any acceptance item, append the failed command/manifest state first and fix execution before starting the teacher-only job
+
+### 2026-07-28 | Frozen-teacher reproducibility post-review correction (pending)
+- Status: pending implementation; discovered by independent review after the preceding completion record
+- Blocking findings:
+  - `PromptLearner.item_hard_token` and `user_hard_token` are ordinary tensors, so they are absent from `prompt_module.state_dict()` and can change with the student run seed
+  - teacher inference reads live CLI values (`weight_size`, `layers`, `sparse`, `model_cat_rate`, `feat_soft_token_rate`, and `soft_token_rate`) that are not yet bound to the checkpoint
+  - teacher checkpoints do not yet bind the exact train/validation/test and feature fingerprints used to train/select/test them
+  - formal metadata validation currently permits a missing dataset field
+  - parser help advertises unsupported `tsne`/`lda` hard-token modes
+- Confirmed correction scope:
+  - register hard tokens as persistent prompt-module buffers and require them in corrected formal checkpoints
+  - preserve legacy reproduction by loading the existing metadata-free cache only in `legacy_test_best`; never overwrite it
+  - save and validate exact dataset identity, inference-critical teacher configuration, eligibility state, and hard-token cache metadata
+  - require the dataset field and all frozen-teacher metadata in `val_test_once_v1`; allow only the known missing hard-token buffers for old legacy prompt states
+  - restrict parser hard-token choices to implemented modes (`pca`, `ica`, `isomap`)
+  - separate deterministic preprocessing from training randomness with `--hard_token_seed 2022`; multi-seed runs change `--seed` without changing PCA/ICA inputs
+- Scope remains code-only; the one-epoch runtime smoke stays blocked until this correction passes static and no-training tests
+
+### 2026-07-28 | Frozen-teacher reproducibility post-review correction (completed)
+- Status:
+  - the post-review blocking findings above are fixed and verified
+  - no training/evaluation run was started; the end-to-end smoke remains the next action
+- Final frozen-teacher behavior:
+  - `item_hard_token` and `user_hard_token` are persistent `PromptLearner` buffers and are included in corrected teacher/student state dictionaries
+  - a formal checkpoint loads prompt state strictly, so missing hard-token buffers cannot silently pass
+  - old legacy prompt states may omit only the two known hard-token buffers; legacy mode reconstructs them from the preserved metadata-free cache and does not write that cache
+  - corrected teacher checkpoint format is now version `4` and stores exact dataset identity, inference-critical teacher configuration, eligibility/blockers, and hard-token provenance
+  - formal reuse requires an exact dataset name (missing is rejected), train/validation/test and feature identity, teacher configuration, eligibility state, blockers, and hard-token provenance
+  - the active teacher hard-token provenance and checkpoint metadata are written back to the run manifest after loading
+  - PCA/ICA preprocessing uses independent `--hard_token_seed` (default `2022`); experimental `--seed` can vary without changing preprocessing
+  - parser choices now reject unimplemented hard-token modes and accept only `pca`, `ica`, and `isomap`
+- Final verification:
+  - `py_compile` passed for `main_mmlight.py`, `Models_mmlight.py`, `parser.py`, `experiment_protocol.py`, `hard_token_cache.py`, and the test module
+  - `unittest` result: 13 tests passed (`OK`), including a real tiny `PromptLearner` state-dict restore across different training seeds
+  - formal metadata tests accept a fully matched checkpoint and reject missing dataset or mismatched teacher configuration
+  - parser smoke resolved `seed=2024`, `hard_token_seed=2022`, `hard_token_type=pca`, and `eval_protocol=val_test_once_v1` independently
+  - actual legacy Amazon PCA caches loaded read-only with expected shapes `(9332, 32)` and retained their recorded SHA256 values
+  - main-module import smoke passed after the correction
+  - AST source audit still finds all teacher/original-student/TD final tests behind `restore_checkpoint_then_evaluate`
+  - `data/amazon` still contains zero `hard_token_*_v2_*.pkl` files because no trainer was instantiated
+  - historical teacher SHA256 remains `BA220301EEE414D4FF2B279C8C670F3D7F66B646EEEAA11829323D064A6A07FB`
+- Authoritative next command (supersedes the otherwise identical command above by pinning preprocessing seed explicitly):
+  - `D:\miniconda\envs\run_5060\python.exe .\codes\main_mmlight.py --data_path D:\Download\PromptMM\data\ --dataset amazon --eval_protocol val_test_once_v1 --dataset_preflight true --duplicate_modalities_policy warn --if_train_teacher true --student_model_type td_distill_no_projection --student_lr 6e-5 --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0 --hard_token_seed 2022 --epoch 1 --early_stopping_patience 1 --seed 2022 --gpu_id 0 --point protocol_smoke_20260728`
+- Gate remains unchanged:
+  - do not start the full teacher-only run until this command exits normally, produces a `completed` manifest, shows validation-only selection plus restore-before-final-test for teacher and TD, and preserves all historical hashes
+
+### 2026-07-29 | Validation-protocol end-to-end smoke (running)
+- Status: running; this entry was written before process launch
+- Purpose:
+  - execute the first real GPU path after the protocol/checkpoint/cache corrections
+  - run one teacher epoch and one `td_distill_no_projection` epoch only
+  - verify validation-only selection, restore-before-final-test, run manifests, and run-specific artifacts
+- Environment selected:
+  - Conda environment: `D:\miniconda\envs\run_5060`
+  - Python `3.10.20`, PyTorch `2.11.0+cu128`, CUDA runtime `12.8`
+  - GPU: NVIDIA GeForce RTX 5060, one visible device, approximately `6.6 GiB` free before launch
+  - alternative discovered environments: `base`, `prompt_test`; neither is used for this run
+  - raw `import dgl` still encounters the known missing GraphBolt DLL, while the active entry path imports successfully through the repository's Windows compatibility stub
+- Command:
+  - `D:\miniconda\envs\run_5060\python.exe .\codes\main_mmlight.py --data_path D:\Download\PromptMM\data\ --dataset amazon --eval_protocol val_test_once_v1 --dataset_preflight true --duplicate_modalities_policy warn --if_train_teacher true --student_model_type td_distill_no_projection --student_lr 6e-5 --td_distill_alpha 0.3 --td_init_from_teacher false --td_item_image_rate 1 --td_item_text_rate 0.3 --td_user_image_rate 0 --td_user_text_rate 0 --hard_token_seed 2022 --epoch 1 --early_stopping_patience 1 --seed 2022 --gpu_id 0 --point protocol_smoke_20260728`
+- Pre-launch checks:
+  - project entry import: passed
+  - no conflicting artifact containing `protocol_smoke_20260728` found
+  - legacy teacher SHA256: `BA220301EEE414D4FF2B279C8C670F3D7F66B646EEEAA11829323D064A6A07FB`
+  - legacy image hard-token SHA256: `D9FA5131FF3BCB558F67075521962DE5ECDFAEEF83D626BC1E93387564752234`
+  - legacy text hard-token SHA256: `20C4E75F4CEB27D093FEE2B2427423F4B98809BFB92CF87D7FFFC15E118B01B7`
+- Completion handling:
+  - append exit status, selected validation/test metrics, generated artifact paths, hash-preservation result, and the next decision before starting any longer run
+
+### 2026-07-29 | Validation-protocol end-to-end smoke (completed)
+- Outcome: **PASSED**
+  - process exited normally with code `0`
+  - measured command wall time was approximately `55.7 s`; manifest runtime was `51.15 s` (`12:23:28.875` to `12:24:20.029`, Asia/Shanghai)
+  - run name: `2026-07-29 12_23_28_amazon_light_init_pid15100`
+  - environment: `D:\miniconda\envs\run_5060` (Python `3.10.20`, PyTorch `2.11.0+cu128`, CUDA `12.8`, NVIDIA GeForce RTX 5060)
+  - the executed command is exactly the command recorded in the immediately preceding `(running)` entry, including `--hard_token_seed 2022`
+- Protocol gate:
+  - manifest status: `completed`
+  - `evaluation_protocol=val_test_once_v1`; `selection_split=validation`; primary metric `Recall@20`
+  - teacher log counts: one validation selection, one final test after restoring the selected checkpoint
+  - TD-Distill log counts: one validation selection, one final test after restoring the selected checkpoint
+  - legacy test-selection count: `0`; failed/traceback count: `0`
+- Teacher smoke metrics (epoch `0` selected):
+  - validation: Recall@20 `0.10334092283298743`
+  - final test after restore: Precision@20 `0.01908722109533518`, Recall@20 `0.10423846630137132`, NDCG@20 `0.11015682475245014`
+- TD-Distill no-projection smoke metrics (epoch `0` selected):
+  - validation: Recall@20 `0.001708661731826263`
+  - final test after restore: Precision@20 `0.00045638945233265784`, Recall@20 `0.002603669708199622`, NDCG@20 `0.00301995290198041`
+  - the very low TD result is not treated as a method conclusion: this run intentionally trained for one epoch and is only an execution/protocol smoke
+- Generated run-specific artifacts:
+  - teacher checkpoint: `Model/amazon/runs/teacher_model_val_test_once_v1__2026-07-29 12_23_28_amazon_light_init_pid15100.pt` (`120293145` bytes, SHA256 `20B2764D0A1D9CEC1CFCBCA26F1E5E41E1E8AB3A3B3A2DDFC956A2B804297F80`)
+  - TD full checkpoint: `Model/amazon/td_distill/td_distill_full__val_test_once_v1__2026-07-29 12_23_28_amazon_light_init_pid15100.pth` (`7813977` bytes, SHA256 `7C2A0991C9950CFF6E504255C853A81D4BD5C32E39C9CD2A74F68CE214718ABA`)
+  - TD inference checkpoint: `Model/amazon/td_distill/td_distill_infer_only__val_test_once_v1__2026-07-29 12_23_28_amazon_light_init_pid15100.pth` (`2605733` bytes, SHA256 `349F5B9796E33CA2165C845C3D13C0C79A8A9F9512AC5D8BAADDE7185430AE46`)
+  - convergence record: `exp/converge/amazon/protocol_smoke_20260728__2026-07-29 12_23_28_amazon_light_init_pid15100.pkl` (`1597` bytes, SHA256 `8E55BAA7B414AFFBE78E6B453325B9ECEC76FBFEE5B681506C930036C657405E`)
+  - preflight report: `exp/runs/amazon/dataset_preflight__2026-07-29 12_23_28_amazon_light_init_pid15100.json` (`2206` bytes, SHA256 `3F1C3F5D8AC640A681B839009AE356AD5A1095AC1D42EF1E3BD6B302F90C80D9`)
+  - completed manifest: `exp/runs/amazon/run_manifest__2026-07-29 12_23_28_amazon_light_init_pid15100.json` (`20720` bytes)
+  - text log: `logs/2026-07-29 12_23_28_amazon_light_init_pid15100`
+- Deterministic hard-token caches created by this corrected run:
+  - image: `data/amazon/hard_token_image_pca_v2_fb21838b38331b6f.pkl` (`2389646` bytes, SHA256 `9668ADC42536F90178F9F656986C872C41219182748D54EC65F97980DC8317D7`)
+  - text: `data/amazon/hard_token_text_pca_v2_16eec07d3f702d09.pkl` (`2389644` bytes, SHA256 `3AC513C0458341259C55D1CAE91A6B47D9E1CC3FB83CCA716B7E78D560048E73`)
+  - both use PCA, `32` components, `hard_token_seed=2022`, and record exact source-feature hashes and sklearn version in the manifest
+- Historical-artifact preservation after the run:
+  - `Model/amazon/teacher_model_great.pt` is unchanged: SHA256 `BA220301EEE414D4FF2B279C8C670F3D7F66B646EEEAA11829323D064A6A07FB`
+  - legacy image cache is unchanged: SHA256 `D9FA5131FF3BCB558F67075521962DE5ECDFAEEF83D626BC1E93387564752234`
+  - legacy text cache is unchanged: SHA256 `20C4E75F4CEB27D093FEE2B2427423F4B98809BFB92CF87D7FFFC15E118B01B7`
+  - shared alias `Model/amazon/teacher_model_val_test_once_v1.pt` was not created, as required for an ineligible dataset
+  - no historical artifact was deleted, moved, or overwritten
+- Eligibility and warnings:
+  - `paper_ready_eligible=false`; blocker: current Amazon `image_feat.npy` and `text_feat.npy` are byte/numerically identical
+  - these numbers may be cited only as smoke/exploratory evidence, not as formal multimodal-complementarity results
+  - one non-fatal PyTorch sparse warning was emitted at `codes/main_mmlight.py:566` (`Sparse invariant checks are implicitly disabled`); it did not alter completion status and should be cleaned up before the formal result matrix
+- Next planned action (not started in this entry):
+  - run the corrected Amazon teacher-only job at the normal horizon, then pin its run-specific checkpoint from the completed manifest
+  - command: `D:\miniconda\envs\run_5060\python.exe .\codes\main_mmlight.py --data_path D:\Download\PromptMM\data\ --dataset amazon --eval_protocol val_test_once_v1 --dataset_preflight true --duplicate_modalities_policy warn --if_train_teacher true --teacher_only true --hard_token_seed 2022 --epoch 1000 --early_stopping_patience 8 --seed 2022 --gpu_id 0 --point teacher_val_v1_seed2022`
+  - because this Amazon copy duplicates its modalities, the teacher-only run is a corrected pipeline/debug anchor, not paper-ready multimodal evidence; real image/text datasets are still required for the formal paper experiments
+
+### 2026-07-29 | First recoverable repository baseline (completed)
+- Purpose and authorization:
+  - establish a rollback point from the current protocol-smoke-passing state before further paper or experiment work
+  - this is repository/reproducibility maintenance only; no training, tuning, result comparison, dataset edit, model overwrite, deletion, or file movement was performed
+- Repository initialization:
+  - the existing `.git` directory was empty and `git status` reported that the folder was not a repository
+  - initialized a local Git repository on branch `main` with Git `2.53.0.windows.2`
+  - global Git identity was empty; configured repository-local identity only as `PromptMM Research <promptmm@local>`
+  - stable baseline commit message: `baseline: preserve protocol-smoke state`
+  - stable tag: `baseline-protocol-smoke-20260729`
+- Versioning boundary:
+  - tracked source code, tests, root research documentation, `TRAINING_LOG.md`, `docs/`, the small historical Photo/LATTICE source trees, selected archive reports, environment manifests, recovery instructions, and the asset-verification utility
+  - added `.gitignore` rules for `data/`, `Model/`, `exp/`, `zhuanli/`, generated logs except `logs/README.md`, historical model binaries, Python caches, local Codex state, and local Git bundles
+  - staging audit: `75` files totaling `2037858` working-tree bytes; no ignored asset path was staged
+  - staged-text credential-pattern scan found no API key, private-key header, secret-key assignment, or password assignment
+- Large-asset preservation:
+  - generated `docs/baselines/ASSET_MANIFEST_2026-07-29.csv`
+  - manifest covers `570` files and `2631523043` bytes under `data/`, `Model/`, `logs/`, `exp/`, `zhuanli/`, and `archive/run_patent_results/`
+  - each row records repository-relative path, byte length, UTC modification time, and SHA256
+  - `tools/verify_baseline_assets.ps1` verified `570/570` files successfully
+  - the verifier's first invocation exposed an empty `$PSScriptRoot` use in a parameter default; initialization was moved into the script body and the full verification then passed
+  - hashes provide change detection, not recovery from disk loss; an external copy of the ignored asset directories is still required for physical-backup protection
+- Environment preservation:
+  - captured exact Conda packages in `environment/run_5060-conda-explicit.txt`
+  - captured pip packages in `environment/run_5060-pip-freeze.txt`
+  - captured OS, Python, PyTorch/CUDA, GPU/driver, DGL, NumPy, SciPy, and scikit-learn context in `environment/run_5060-runtime.md`
+  - a diagnostic `conda env export --from-history` returned the expected minimal history but also emitted a non-fatal warning that a locked setuptools metadata JSON could not be cleaned up; no manual deletion was attempted, and the explicit Conda plus pip manifests were used for the baseline
+- Verification before commit:
+  - `py_compile` passed for the active protocol/model/parser/cache modules and protocol test module
+  - `unittest` result: `13` tests passed (`OK`)
+  - asset fingerprint verification passed (`570/570`)
+  - `git diff --cached --check` reports legacy trailing whitespace because every pre-existing source file is an addition in the first commit; no bulk whitespace cleanup was applied, so the baseline preserves the currently tested source instead of mixing in an unrelated formatting rewrite
+  - all current Amazon historical-preservation and smoke conclusions remain unchanged
+- Recovery artifacts:
+  - instructions: `docs/baselines/README.md`
+  - local standalone bundle: `backups/PromptMM_baseline_protocol_smoke_20260729.bundle`
+  - the bundle is ignored by Git and is intended to recover the source repository if `.git` is damaged; it remains on the same disk and is not an off-device backup
+- Next-code-change rule:
+  - create a new `experiment/<short-name>` branch before modifying the active training line
+  - commit each confirmed change and keep `TRAINING_LOG.md` as the canonical experiment memory
+  - prefer switching to or branching from `baseline-protocol-smoke-20260729` over destructive reset commands when recovery is needed
+
+### 2026-07-29 | Persistent Git workflow policy (completed)
+- User decision:
+  - persist the rollback/versioning workflow in repository guidance so future work in this folder follows it automatically
+- Branch and scope:
+  - created `maintenance/versioning-policy` from the clean `main` baseline before editing
+  - changed only `AGENTS.md` and this trace entry; no source code, parameter, dataset, model, checkpoint, or result was changed
+- Policy added to `AGENTS.md`:
+  - inspect Git state before edits and preserve unrelated user changes
+  - use scoped branches for material work while protecting `main` and existing baseline tags
+  - commit coherent verified changes rather than every keystroke
+  - verify in proportion to risk; documentation-only work does not trigger the full training suite
+  - record experiment-affecting changes and every completed run in `TRAINING_LOG.md`
+  - require committed code identity before formal/long runs
+  - keep large assets out of Git and refresh hashes only when assets change or at a deliberate milestone
+  - create tags and refresh the standalone bundle only for meaningful stable milestones
+  - report branch, commit, verification, and final worktree state at task completion
+- Resource decision:
+  - routine commits and branches add only small text deltas and negligible metadata
+  - full asset rehashing, full test suites, tags, and bundle refreshes are explicitly not required for unrelated small edits
+- Intended stable integration:
+  - commit message: `chore: persist repository versioning policy`
+  - after focused verification, fast-forward `main` to the verified maintenance commit; no new tag or bundle refresh is warranted for this policy-only update
+
+### 2026-07-30 | Baby public multimodal dataset acquisition (pending)
+- Status:
+  - pending raw download and local integrity/protocol audit
+  - no training, tuning, model change, parameter change, checkpoint write, or overwrite of an existing dataset is authorized in this step
+- Decision context:
+  - current Amazon-Book and Yelp copies remain useful for historical reproduction and execution smoke only because each duplicates one semantic embedding as both image and text input
+  - the exact PromptMM processed-data Google Drive requires owner approval and a prior access request received no response, so that source is no longer a dependable project dependency
+  - the selected replacement candidate is the public Amazon Baby multimodal recommendation benchmark distributed by the MMRec/FREEDOM project line
+- Authoritative source entry points:
+  - MMRec data instructions: `https://github.com/enoche/MMRec/tree/master/data`
+  - FREEDOM repository data instructions: `https://github.com/enoche/FREEDOM`
+  - public data root linked by both projects: `https://drive.google.com/drive/folders/13cBy1EA_saTUuXxVllKgtfci2A09jyaG?usp=sharing`
+- Expected remote identity, provisional until verified locally:
+  - domain: Amazon Baby products implicit-feedback recommendation
+  - users/items/interactions: `19445 / 7050 / 160792`
+  - item visual features: expected shape `(7050, 4096)`
+  - item textual features: expected shape `(7050, 384)`
+  - interaction file: expected `x_label` values `0/1/2` for train/validation/test
+- Preservation boundary:
+  - download only into ignored staging path `data/_incoming/mmrec_baby/`
+  - do not rename, overwrite, delete, or move current `data/amazon` or `data/yelp`
+  - keep the downloaded source files unchanged; any PromptMM-format conversion must use a separate derived directory in a later recorded step
+- Download/audit acceptance criteria:
+  - record final source URLs, byte sizes, UTC timestamps, and SHA256 for every downloaded artifact
+  - load NPY headers/arrays and confirm expected shapes, numeric dtypes, finite values, and item-row agreement
+  - confirm image and text files are neither byte-identical nor numerically identical
+  - parse the interaction table, confirm user/item ranges, label counts, duplicate rows, and pairwise split overlap
+  - explicitly report any validation/test items absent from training before choosing a cold-start policy
+  - leave a local machine-readable manifest beside the staged raw files
+- Next action after this pending entry:
+  - download and audit the raw Baby artifacts only
+  - do not start conversion, model training, teacher training, or parameter selection until the audit is completed and recorded
+
+### 2026-07-30 | Baby public multimodal dataset acquisition (completed)
+- Scope and outcome:
+  - downloaded the complete public Baby folder into the ignored, isolated path `data/_incoming/mmrec_baby/`
+  - preserved all six remote artifacts without renaming or modifying them; no existing Amazon/Yelp data, source code, parameter, model, checkpoint, or result was changed
+  - no conversion, smoke run, training, tuning, or result comparison was started
+- Source identity:
+  - official project entry: `https://github.com/enoche/MMRec/tree/master/data`
+  - public root: `https://drive.google.com/drive/folders/13cBy1EA_saTUuXxVllKgtfci2A09jyaG`
+  - Baby folder: `https://drive.google.com/drive/folders/1Fk21441EO1l7wgOOARh2thu4FjgtKWQp`
+  - the five core PromptMM-onboarding artifacts are `baby.inter`, `i_id_mapping.csv`, `image_feat.npy`, `text_feat.npy`, and `u_id_mapping.csv`; `user_graph_dict.npy` is an optional DualGNN-style artifact and is not part of the planned PromptMM input
+- Downloader/environment trace:
+  - installed `gdown==6.1.0`, `beautifulsoup4==4.15.0`, `soupsieve==2.9.1`, and `PySocks==1.7.1` into `D:\miniconda\envs\run_5060`
+  - refreshed the tracked pip manifest with those four packages
+  - command: `D:\miniconda\envs\run_5060\python.exe -m gdown --folder --continue https://drive.google.com/drive/folders/1Fk21441EO1l7wgOOARh2thu4FjgtKWQp -O D:\Download\PromptMM\data\_incoming\mmrec_baby`
+- Downloaded file identity:
+  - `baby.inter`: `4362239` bytes; SHA256 `e0abb033ea5cc538bb2becd8c3dc50b619f28f7974ba61f5ed11ce27cf405940`
+  - `i_id_mapping.csv`: `111702` bytes; SHA256 `c56ff96cd1f703b6dc8ac4469856a856019ec1577ac243508e3d253f80878bb6`
+  - `image_feat.npy`: `231014528` bytes; SHA256 `36c3be592b98506189a7d5de71b21577cf626f0293b539d861534673b3e9fd70`
+  - `text_feat.npy`: `10828928` bytes; SHA256 `6667f2ad655c9ecc97cb3383f58988864ef51ec0b39c158b15986c66769f2dc4`
+  - `u_id_mapping.csv`: `392164` bytes; SHA256 `a80850b8b46008e3bceabdc7ab72ab6e3620616394709daed7d12dc499626b60`
+  - optional `user_graph_dict.npy`: `38955963` bytes; SHA256 `c97bf8ba2871ebe58fe864e51a2e01053288dbea767aca03358ded57eda768f9`
+  - complete machine-readable source IDs, timestamps, hashes, audit values, and command: `data/_incoming/mmrec_baby/download_manifest.json`
+- Interaction and mapping audit:
+  - `baby.inter` is tab-separated with columns `userID`, `itemID`, `rating`, `timestamp`, and `x_label`
+  - confirmed `19445` contiguous users (`0..19444`), `7050` contiguous items (`0..7049`), and `160792` unique user-item interactions with `0` duplicate pairs
+  - the complete interaction graph satisfies the 5-core property: minimum user/item interaction counts are both `5` (maximum `125 / 780`)
+  - `x_label=0/1/2` contains `118551 / 20559 / 21682` train/validation/test rows; all three pairwise split overlaps are `0`
+  - validation/test contain no users absent from training
+  - item IDs `240`, `1212`, and `6115` occur in validation and test but not training; this is a confirmed evaluation cold-item condition and must receive an explicit policy before formal comparison
+  - item/user mapping files contain `7050 / 19445` unique, contiguous numeric IDs and fully cover the interaction universe
+- Multimodal feature audit:
+  - image: shape `(7050, 4096)`, dtype `float64`, all values finite, `0` all-zero rows
+  - text: shape `(7050, 384)`, dtype `float32`, all values finite, `0` all-zero rows; row L2 norms are effectively `1.0`
+  - both feature matrices have one row per item
+  - the two modalities have different SHA256, shapes, dtypes, and feature semantics; unlike the current local Amazon/Yelp copies, they are not duplicated inputs
+  - optional `user_graph_dict.npy` has an object payload; only its safe NPY header was inspected and its pickle payload was not loaded
+- Acceptance decision:
+  - raw acquisition and integrity audit: `PASS`
+  - dataset suitability for building a real multimodal PromptMM experiment: `PASS_WITH_PROTOCOL_DECISION_REQUIRED`
+  - unresolved point: choose and document whether the three evaluation-only items remain as a cold-item condition or are filtered for warm-start comparability
+- Next planned action (not started here):
+  - design a separate, reversible Baby-to-PromptMM conversion path and preflight checks
+  - before conversion, inspect the active loader/evaluator assumptions and select the cold-item policy; do not silently alter the official split
+  - after conversion, run only a one-epoch/one-batch smoke before any formal training
+
+### 2026-07-30 | Baby-to-PromptMM data adapter and smoke (pending)
+- Authorization and rollback point:
+  - user authorized the necessary, safety-bounded adapter implementation and testing after confirming that the raw Baby download is complete
+  - task branch: `codex/experiment/baby-data-adapter`
+  - branch base and previous recoverable acquisition commit: `254fc701d90b8d6bb90f612ab016023b620aee51`
+  - no uncommitted changes were present when the task branch was created
+- Confirmed interface gap:
+  - raw MMRec Baby provides `baby.inter` plus item feature arrays and mappings
+  - the active PromptMM loader already accepts arbitrary dataset names but requires `train_mat`, `val_mat`, `test_mat`, `image_feat.npy`, and `text_feat.npy` under `data/<dataset>/`
+  - therefore a data adapter is required; no model-architecture or innovation-module change is required for dataset ingestion
+- Safety and protocol decisions:
+  - keep `data/_incoming/mmrec_baby/` read-only and write only to the new derived directory `data/baby/`
+  - the converter must refuse to overwrite an existing output directory and must validate recorded source hashes before writing
+  - convert every observed rating row to implicit interaction value `1.0`, matching the current PromptMM matrix convention
+  - preserve the official `x_label=0/1/2` train/validation/test split
+  - retain item IDs `240`, `1212`, and `6115` in validation/test even though they are absent from training; report this condition explicitly rather than silently filtering it
+  - keep Baby on the existing `unvalidated_amazon_default_fallback` configuration profile for smoke only; do not present smoke metrics as formal results
+- Planned implementation and verification:
+  - add a standalone MMRec-to-PromptMM converter with a machine-readable conversion manifest and byte-for-byte feature preservation
+  - extend dataset preflight to report evaluation users/items and interactions absent from training
+  - add focused unit tests for conversion, source-hash enforcement, no-overwrite behavior, official-split preservation, and cold-start reporting
+  - generate `data/baby/`, run the full dataset preflight, then run one teacher epoch capped to one training batch as an execution smoke
+  - do not tune parameters, reuse an unrelated teacher, overwrite a shared checkpoint, or begin a formal run in this task
+
+### 2026-07-30 | Baby-to-PromptMM adapter conversion and preflight (completed)
+- Implementation boundary:
+  - added `tools/convert_mmrec_baby.py`; no model architecture, prompt mechanism, distillation loss, optimizer default, or existing dataset was changed
+  - converter validates the recorded download sizes and SHA256 values, requires contiguous mappings and valid labels, rejects duplicate/out-of-range interactions, validates feature rows and finite values, and refuses to overwrite either the final or staging output directory
+  - conversion is built under `data/.baby.building` and renamed to `data/baby` only after successful validation; the raw source remains under `data/_incoming/mmrec_baby`
+  - all observed ratings are converted to binary implicit values `1.0`; official `x_label=0/1/2` is preserved as train/validation/test
+  - added conversion-manifest verification and explicit cold-start reporting to `codes/utility/experiment_protocol.py`
+  - added `--smoke_train_batches` with default `0`; a positive cap automatically blocks paper-ready eligibility and does not change uncapped training behavior
+- Conversion command and identity:
+  - command: `D:\miniconda\envs\run_5060\python.exe tools\convert_mmrec_baby.py --source D:\Download\PromptMM\data\_incoming\mmrec_baby --output D:\Download\PromptMM\data\baby`
+  - converter SHA256: `085ebd219d2a57c786cb4442ede8118cf210719197ad5161f177a1c643a319ef`
+  - source download-manifest SHA256: `b7fb38d72733ff94e1991ab1e501482fae8bf5880a63c2c6a8f986f6ede29aa3`
+  - derived conversion manifest: `data/baby/conversion_manifest.json`, SHA256 `cf2d0d8c8aff9b321aad0b11d48d078794d12a4920afaa4c8efedfe3beda9df2`
+  - source fingerprints were rechecked after conversion and remained unchanged
+- Derived dataset identity:
+  - matrix shape: `(19445, 7050)` for all splits
+  - `train_mat`: `118551` interactions, `1026584` bytes, SHA256 `3cead4c601ccef4c2424cd692951935840ccc8f22df15577ced4e5f3fec37fac`
+  - `val_mat`: `20559` interactions, `242644` bytes, SHA256 `f1458ff1dc28c5371699780270e3a3e270c8f9ce19def3d5e67d4ba9644ce9d2`
+  - `test_mat`: `21682` interactions, `251628` bytes, SHA256 `773de4f57f2c1bcb6695ea57995280e7cbe114b2b579263a599bb097bb6555ac`
+  - copied image/text feature hashes remain `36c3be592b98506189a7d5de71b21577cf626f0293b539d861534673b3e9fd70` / `6667f2ad655c9ecc97cb3383f58988864ef51ec0b39c158b15986c66769f2dc4`
+  - all split overlaps are `0`; modalities are not duplicates
+  - retained official cold-item IDs `240`, `1212`, and `6115`: `11` validation interactions and `7` test interactions; cold users remain `0`
+- Verification completed before the adapter commit:
+  - `py_compile` passed for the converter, active main/parser/protocol modules, and both test modules
+  - full unit discovery: `18` tests passed (`OK`), including no-overwrite, source-hash mismatch, duplicate/invalid-label rejection, feature-row mismatch, conversion identity, and cold-start reporting
+  - full real-data preflight: `warning` only for the documented retained cold items; matrix/feature hashes and shapes passed
+  - active `Data` loader read `19445 / 7050 / 118551 / 20559 / 21682` users/items/train/validation/test and produced a `64`-sample batch whose positives and negatives passed membership checks
+- Next planned action (not started in this entry):
+  - commit this verified adapter state, then run exactly one teacher epoch capped to one training batch
+  - planned command: `D:\miniconda\envs\run_5060\python.exe .\codes\main_mmlight.py --data_path D:\Download\PromptMM\data\ --dataset baby --eval_protocol val_test_once_v1 --dataset_preflight true --duplicate_modalities_policy error --if_train_teacher true --teacher_only true --epoch 1 --smoke_train_batches 1 --batch_size 64 --early_stopping_patience 1 --hard_token_seed 2022 --seed 2022 --gpu_id 0 --point baby_adapter_smoke_20260730_v1`
+  - expected non-formal blockers: Baby-specific defaults are not validated and training batches are capped for smoke
+
+### 2026-07-30 | Baby adapter one-batch teacher smoke (completed)
+- Run classification and code identity:
+  - execution/integration smoke only; these metrics are not tuning evidence, a baseline result, or a paper result
+  - branch: `codex/experiment/baby-data-adapter`
+  - exact committed code: `2dc57a6cee35191e78908a55c29737faabe4e5dd`
+  - active entry: `codes/main_mmlight.py`; environment: `D:\miniconda\envs\run_5060`; GPU: NVIDIA GeForce RTX 5060 on `gpu_id=0`
+- Full command:
+  - `D:\miniconda\envs\run_5060\python.exe .\codes\main_mmlight.py --data_path D:\Download\PromptMM\data\ --dataset baby --eval_protocol val_test_once_v1 --dataset_preflight true --duplicate_modalities_policy error --if_train_teacher true --teacher_only true --epoch 1 --smoke_train_batches 1 --batch_size 64 --early_stopping_patience 1 --hard_token_seed 2022 --seed 2022 --gpu_id 0 --point baby_adapter_smoke_20260730_v1`
+- Resolved smoke behavior:
+  - `epoch=1`, `batch_size=64`, `smoke_train_batches=1`; the normal epoch would contain `1853` batches
+  - trained the teacher for exactly one batch, ran the complete validation set, saved the best run-specific checkpoint, restored it, ran the complete test set, and exited before student training
+  - started `2026-07-30T10:37:45+08:00`, completed `2026-07-30T10:38:11+08:00`; process exit code `0`; command wall time about `30.4` seconds
+- Dataset preflight during the run:
+  - matrix shape `(19445, 7050)`; train/validation/test interactions `118551 / 20559 / 21682`; split overlaps `0 / 0 / 0`
+  - image/text shapes `(7050, 4096) / (7050, 384)`; both finite and not duplicates; `duplicate_modalities_policy=error` passed
+  - retained-official cold condition was reproduced exactly: item IDs `240`, `1212`, and `6115`, with `11` validation and `7` test interactions and no cold users
+- Selection and final metrics:
+  - best and only selection epoch: `0`; validation Recall@20: `0.04336957719575384`
+  - displayed validation precision at K=`10/20/40/50`: `[0.00275, 0.00227, 0.00191, 0.00179]`
+  - displayed validation recall at K=`10/20/40/50`: `[0.02613, 0.04337, 0.07234, 0.08447]`
+  - displayed validation NDCG at K=`10/20/40/50`: `[0.01402, 0.01853, 0.02475, 0.02710]`
+  - final test precision at K=`10/20/40/50`: `[0.0028079197737207805, 0.0023965029570584013, 0.001970943687323246, 0.0018575469272307363]`
+  - final test recall at K=`10/20/40/50`: `[0.02537551674347739, 0.04330912680359866, 0.07087817456678389, 0.08362866740984444]`
+  - final test NDCG at K=`10/20/40/50`: `[0.014605429384077937, 0.019533075460667574, 0.02574166670469095, 0.02826203350467337]`
+- Run artifacts:
+  - teacher checkpoint: `Model/baby/runs/teacher_model_val_test_once_v1__2026-07-30 10_37_45_baby_light_init_pid29248.pt` (`133716199` bytes, SHA256 `2ad1715e57136da79b6e7eb72af1a93569c447f1bbcd1388be1fe94e520447cd`)
+  - preflight report: `exp/runs/baby/dataset_preflight__2026-07-30 10_37_45_baby_light_init_pid29248.json` (`3399` bytes, SHA256 `6966fc7a3a7274bd20372589db049c2325b1e97d0ed05b8526a4e8dbd6dc87f8`)
+  - completed run manifest: `exp/runs/baby/run_manifest__2026-07-30 10_37_45_baby_light_init_pid29248.json` (`23087` bytes, SHA256 `3768c203258bfa9737770b3e102019d6c6e91df4351cf7122d7db789859f8be6`)
+  - text log: `logs/2026-07-30 10_37_45_baby_light_init_pid29248` (`4579` bytes, SHA256 `182d7104cf9523a80dfd9705f2ec313083120f23673d20ddecf1e19f07f01501`)
+  - the manifest contains a planned convergence-record path, but teacher-only mode did not create that file; no student checkpoint was created
+- Deterministic hard-token caches created:
+  - image PCA cache: `data/baby/hard_token_image_pca_v2_d5fc0cacfae6ae42.pkl` (`1805452` bytes, SHA256 `a5283a467e2621a4b0f65fed23b24a52e16056ae64269a8b35dfe72435f5d9b8`)
+  - text PCA cache: `data/baby/hard_token_text_pca_v2_37836fd704363ff6.pkl` (`903050` bytes, SHA256 `27263e5580c6c4980cf53ab2ce62e08ffc6ec3f118c1ed4b1d30723df5ae5fdb`)
+  - both use PCA with `32` components, `hard_token_seed=2022`, and scikit-learn `1.7.2`; both were first-time cache creations
+- Eligibility, preservation, and warning:
+  - `paper_ready_eligible=false`; blockers: Baby-specific defaults are not validated, and training was explicitly capped to one batch
+  - the shared alias `Model/baby/teacher_model_val_test_once_v1.pt` was not created; only the run-specific checkpoint was written
+  - original Baby source files, Amazon/Yelp data, historical checkpoints, and previous logs were not overwritten or deleted
+  - one non-fatal PyTorch sparse-invariant warning occurred at `codes/main_mmlight.py:582`; the run completed and restored/evaluated the checkpoint successfully
+- Acceptance decision:
+  - Baby format conversion: `PASS`
+  - loader/preflight/model initialization/one-batch backward/checkpoint restore/full evaluation smoke: `PASS`
+  - formal-result eligibility: `NOT_YET`
+- Recovery milestone to create from this completed trace entry:
+  - stable tag: `baby-adapter-smoke-20260730`
+  - standalone source-history bundle: `backups/PromptMM_baby_adapter_smoke_20260730.bundle`
+  - this milestone protects tracked source and experiment memory; ignored Baby data, checkpoints, logs, and run manifests still require physical-file backup for deletion/disk-loss recovery
+- Next planned action (not started here):
+  - separately audit and version the final-test candidate masking rule, because the current evaluator excludes training interactions but not validation interactions; do not mix that protocol decision into this adapter commit
+  - after the evaluation rule is fixed or explicitly retained, define and record a Baby-specific configuration profile before any uncapped teacher run
+
+### 2026-07-30 | Final-test validation-history masking audit (completed)
+- Scope and repository state:
+  - audit was completed independently before changing evaluator behavior or starting an uncapped Baby run
+  - task branch: `codex/experiment/baby-teacher-baseline`, created from milestone `baby-adapter-smoke-20260730` (`bde102537a01a14a628b4296ffb192de38fcf88f`)
+  - detailed audit: `docs/EVALUATION_MASK_AUDIT_2026-07-30.md`
+- Confirmed local behavior:
+  - `val_test_once_v1` selects on validation and tests once after checkpoint restore, but `codes/utility/batch_test.py` excludes only training interactions from both validation and test candidates
+  - this is compatible with official MMRec behavior, whose validation and test loaders both receive only the training split as additional mask history
+  - official RecBole instead accumulates phase history: validation excludes train; final test excludes train plus validation
+- Baby-specific impact:
+  - all `19445` test users have validation interactions
+  - `20559` validation interactions, between `1` and `12` per test user, remain false-negative candidate competition under the v1 final-test rule
+- Protocol decision:
+  - preserve `val_test_once_v1` as the paper-ready PromptMM/MMRec-compatible baseline: validation mask=`train`; final-test mask=`train`
+  - do not change the primary Baby baseline to `train + validation`, because doing so would change the evaluation task and weaken direct comparison with the official PromptMM/MMRec result family
+  - a future cumulative-history sensitivity analysis must use a new protocol identifier, rerun all compared methods, and stay explicitly separate from v1 metrics
+  - freeze the v1 candidate-history policy as `train_only` in run manifests and teacher checkpoint metadata instead of leaving it implicit
+- Safety status:
+  - no dataset, checkpoint, raw run output, or existing result was changed by this audit
+  - no training was started during the audit
+- Next planned action (not started in this entry):
+  - commit the independent audit record
+  - make the existing v1 candidate policy explicit in metadata without changing ranking behavior, then pin a source-rationalized Baby teacher profile without using test metrics for parameter selection
+
+### 2026-07-30 | Baby teacher reference profile and metadata hardening (implemented and smoke-verified)
+- Authorized sequence:
+  - after the independent masking audit, pin a Baby-specific teacher configuration, verify it with a capped smoke, commit the exact code, and only then start an uncapped teacher baseline
+- Evaluation behavior to preserve:
+  - baseline protocol remains `val_test_once_v1` for PromptMM/MMRec comparability
+  - ranking behavior is unchanged: validation and test both exclude training interactions only
+  - add explicit `candidate_exclusion_policy=train_only` to manifests and new teacher checkpoints; old v1 checkpoint metadata may infer this established policy for compatibility
+- Baby profile decision made without formal test tuning:
+  - profile ID: `baby_teacher_reference_v1`; scope: teacher-only reference baseline
+  - rationale and complete values: `docs/BABY_TEACHER_PROFILE_V1.md`
+  - fixed-run identity includes `seed=2022`, `sparse=1`, `Ks=[10,20,40,50]`, and `test_flag=part`; changing any of them is recorded as a profile override
+  - Baby-specific core values come from the repository's dormant Baby parser block; prompt-only fields absent there come from the existing PromptMM profile with matching `model_cat_rate=0.55` and `weight_size=[64, 64]`
+  - this is a predeclared reproducible baseline, not a claim of Baby validation-optimal parameters
+  - command-line differences remain allowed but are recorded in `dataset_config_overrides` and block fixed-reference eligibility
+- Safety plan before the uncapped run:
+  - run focused profile/protocol tests and full unit discovery
+  - run one epoch capped to one batch using the exact Baby profile to check memory, finite loss, validation, checkpoint restore, and final evaluation plumbing; the smoke is non-formal
+  - confirm the formal shared alias does not already exist and use a unique `--point`; do not delete or overwrite historical raw data, logs, or run-specific checkpoints
+  - publish the shared teacher alias atomically only after successful final testing; default to no-clobber if an alias already exists
+  - once a run manifest exists, record model/CUDA initialization failures as well as training failures instead of leaving stale `initialized` status
+- Uncapped baseline contract:
+  - `epoch=1000`, `batch_size=1024`, `early_stopping_patience=7`, `smoke_train_batches=0`, seed/hard-token seed `2022`, teacher-only, GPU `0`
+  - select by validation Recall@20 and run test once only after restoring the selected teacher
+  - exact branch, commit, command, environment, data identity, metrics, and artifact fingerprints must be recorded before/after execution
+
+### 2026-07-30 | Baby teacher profile one-batch smoke (completed)
+- Purpose: validate the pinned 64-dimensional Baby teacher profile at its formal `batch_size=1024` before any uncapped run.
+- Environment: `D:\miniconda\envs\run_5060\python.exe`; Python `3.10.20`; PyTorch `2.11.0+cu128`; CUDA `12.8`; NVIDIA GeForce RTX 5060 8 GB; GPU `0`.
+- Command: `D:\miniconda\envs\run_5060\python.exe .\codes\main_mmlight.py --data_path D:\Download\PromptMM\data\ --dataset baby --eval_protocol val_test_once_v1 --dataset_preflight true --duplicate_modalities_policy error --Ks '[10,20,40,50]' --test_flag part --if_train_teacher true --teacher_only true --epoch 1 --smoke_train_batches 1 --batch_size 1024 --early_stopping_patience 7 --seed 2022 --sparse 1 --hard_token_seed 2022 --gpu_id 0 --point baby_teacher_profile_smoke_20260730_v1`
+- Status: completed; non-formal by construction. Resolved profile `baby_teacher_reference_v1`; only profile override was `epoch: 1000 -> 1`; `smoke_train_batches=1`; `candidate_exclusion_policy=train_only`; paper-ready alias withheld.
+- Training/selection: one finite-loss batch (`loss=1687.17029`); best validation epoch `0`; validation Recall@20 `0.0163238193`.
+- Final one-time test after checkpoint restore: Recall@20 `0.0153814789`; NDCG@20 `0.0072269171`; Precision@20 `0.0008459758`.
+- Artifacts:
+  - manifest: `exp/runs/baby/run_manifest__2026-07-30 11_32_48_baby_light_init_pid24356.json`; SHA256 `5d2133e818421e6300c60a952b9a90dcbcf02793699374fd0514e7a52dbbbeb6`
+  - preflight: `exp/runs/baby/dataset_preflight__2026-07-30 11_32_48_baby_light_init_pid24356.json`; SHA256 `8abefba3b17cf57d2744369e8bfa53261b5fd920e2b8aadcce3b146425d0c934`
+  - teacher checkpoint: `Model/baby/runs/teacher_model_val_test_once_v1__2026-07-30 11_32_48_baby_light_init_pid24356.pt`; SHA256 `0f8aafcd19647d2c4cf158be22fbfa42e26c889e22b699d2a953ade78a5e01d7`
+  - log: `logs/2026-07-30 11_32_48_baby_light_init_pid24356`; SHA256 `e0aca2f711eb44c81333aa8d5e296864ac93bb2e1850b36bf22a1760eb26db14`
+- Safety result: `Model/baby/teacher_model_val_test_once_v1.pt` remained absent; historical smoke artifacts were not overwritten or deleted. New versioned 64-dimensional PCA hard-token caches were created alongside the older 32-dimensional caches.
+- Next action: verify no-clobber/atomic alias publication, repeat a capped smoke on the safety-hardened code, then commit the exact formal-run source before launching the uncapped baseline.
+
+### 2026-07-30 | Baby teacher artifact-safety smoke (completed)
+- Purpose: rerun the one-batch Baby teacher path after adding microsecond run IDs, atomic run-checkpoint writes, run-path collision checks, deferred alias publication, and default alias no-clobber.
+- Command: same profile/protocol command as the preceding smoke, with `--point baby_teacher_safety_smoke_20260730_v2`; `epoch=1`, `smoke_train_batches=1`, `batch_size=1024`.
+- Status: completed; non-formal; profile override only `epoch: 1000 -> 1`; 64-dimensional image/text PCA caches both hit.
+- Reproducibility check: finite loss, validation metrics, and final test metrics exactly matched the preceding same-seed smoke. Best epoch `0`; validation Recall@20 `0.0163238193`; final Test Recall@20 / NDCG@20 / Precision@20 `0.0153814789 / 0.0072269171 / 0.0008459758`.
+- Artifacts:
+  - manifest: `exp/runs/baby/run_manifest__2026-07-30 11_38_19.732201_baby_light_init_pid13504.json`; SHA256 `8cc731e0fdbc165292c98e9ce413707bd2d76b46d23961f92bdbc6ff7142ee99`
+  - preflight: `exp/runs/baby/dataset_preflight__2026-07-30 11_38_19.732201_baby_light_init_pid13504.json`; SHA256 `ad8ef1f6b3878eabee4cb54e22c15b3fc729ed22d4914bef65483acf5ba6febf`
+  - teacher checkpoint: `Model/baby/runs/teacher_model_val_test_once_v1__2026-07-30 11_38_19.732201_baby_light_init_pid13504.pt`; SHA256 `6522ee7877dfd962c182b87863cc9a5214f632531e7a7acd9d2ad399a578461d`
+  - log: `logs/2026-07-30 11_38_19.732201_baby_light_init_pid13504`; SHA256 `bc9bd120774e3178e2e5b620a311e0c3318203ab70db97cf4ef9027bcd490743`
+- Safety result: manifest records `teacher_alias_published=false`; shared alias remained absent; no temporary files remained under `Model/baby` or `exp/runs/baby`; no historical artifact was deleted or overwritten.
+- Next action: commit this verified source/documentation state, record the exact commit and uncapped command, then launch the formal teacher-only baseline with profile defaults and no batch cap.
+
+### 2026-07-30 | Baby teacher final pre-commit safety smoke (completed)
+- Purpose: final one-batch verification after extending failure recording to cover `Trainer` construction and changing Baby paper-ready checks from fail-open to exact profile-name/scope/source matching.
+- Command: same pinned/capped smoke command as above with `--point baby_teacher_final_safety_smoke_20260730_v3`.
+- Status and metrics: completed, non-formal, alias withheld; results exactly matched both preceding same-seed 64-dimensional smokes. Best validation epoch `0`; validation Recall@20 `0.0163238193`; Test Recall@20 / NDCG@20 / Precision@20 `0.0153814789 / 0.0072269171 / 0.0008459758`.
+- Artifacts:
+  - manifest: `exp/runs/baby/run_manifest__2026-07-30 11_45_57.443332_baby_light_init_pid24500.json`; SHA256 `c7ad377fecd30d7864f2ea26fe8da23b03f2c7983689251b436a1a8a61c7c8a8`
+  - preflight: `exp/runs/baby/dataset_preflight__2026-07-30 11_45_57.443332_baby_light_init_pid24500.json`; SHA256 `2dcb2199468435ebca5eaa089edbc92596c456ae45d88a6651224abb040f98b5`
+  - teacher checkpoint: `Model/baby/runs/teacher_model_val_test_once_v1__2026-07-30 11_45_57.443332_baby_light_init_pid24500.pt`; SHA256 `96e50fb9cd27b4dab1f4cf6547562bb60c498fbd41acd960cdc548b0f0adf2a8`
+  - log: `logs/2026-07-30 11_45_57.443332_baby_light_init_pid24500`; SHA256 `b46c85215ade658b32c24b2550cfa945c1c6df90af7c2bc26a502cde1333b6f6`
+- Safety result: shared alias remained absent; no temporary files remained; exact profile metadata resolved; no historical files were deleted or overwritten.
+- Acceptance: code is ready for a committed, uncapped Baby teacher-only baseline. Formal test metrics have not yet been observed.
+
+### 2026-07-30 | Baby teacher uncapped baseline declaration (pre-run; not started)
+- Scientific status: parameters and protocol are frozen before observing any uncapped-run test metric. This entry authorizes one seed-2022 teacher-only reference run; it is not yet a multi-seed paper result.
+- Source identity:
+  - branch: `codex/experiment/baby-teacher-baseline`
+  - verified source commit: `a80235062bd05a2f3175edffa626f2ca91d48ec1` (`feat: pin safe Baby teacher baseline`)
+  - verification before this declaration: Python compile passed; all `23` unit tests passed; three same-seed `batch_size=1024` one-batch smokes completed with identical metrics
+- Environment: `D:\miniconda\envs\run_5060\python.exe`; Python `3.10.20`; PyTorch `2.11.0+cu128`; CUDA `12.8`; NVIDIA driver `595.97`; NVIDIA GeForce RTX 5060 8 GB; GPU `0`.
+- Frozen experiment contract:
+  - profile `baby_teacher_reference_v1`, scope `teacher_only`, expected `dataset_config_overrides={}`
+  - `val_test_once_v1`; validation and final test both use `candidate_exclusion_policy=train_only`; select only by validation Recall@20; restore best checkpoint; run final test once
+  - profile resolves `seed=2022`, `sparse=1`, `batch_size=1024`, `epoch=1000`, `early_stopping_patience=7`, `embed_size=64`, `lr=0.00055`, and the full values in `docs/BABY_TEACHER_PROFILE_V1.md`; `smoke_train_batches=0`
+- Exact command to launch:
+  - `D:\miniconda\envs\run_5060\python.exe .\codes\main_mmlight.py --data_path D:\Download\PromptMM\data\ --dataset baby --eval_protocol val_test_once_v1 --dataset_preflight true --duplicate_modalities_policy error --if_train_teacher true --teacher_only true --smoke_train_batches 0 --allow_teacher_alias_overwrite false --gpu_id 0 --point baby_teacher_baseline_seed2022_20260730_v1`
+- Audited data identity:
+  - shape/users/items: `(19445, 7050)`; interactions train/validation/test `118551 / 20559 / 21682`; all split overlaps `0`
+  - `train_mat` SHA256 `3cead4c601ccef4c2424cd692951935840ccc8f22df15577ced4e5f3fec37fac`
+  - `val_mat` SHA256 `f1458ff1dc28c5371699780270e3a3e270c8f9ce19def3d5e67d4ba9644ce9d2`
+  - `test_mat` SHA256 `773de4f57f2c1bcb6695ea57995280e7cbe114b2b579263a599bb097bb6555ac`
+  - image `(7050,4096)` float64 SHA256 `36c3be592b98506189a7d5de71b21577cf626f0293b539d861534673b3e9fd70`
+  - text `(7050,384)` float32 SHA256 `6667f2ad655c9ecc97cb3383f58988864ef51ec0b39c158b15986c66769f2dc4`
+  - conversion manifest SHA256 `cf2d0d8c8aff9b321aad0b11d48d078794d12a4920afaa4c8efedfe3beda9df2`; official cold items `240/1212/6115` retained
+- Hard-token cache identity:
+  - image PCA-64 cache `hard_token_image_pca_v2_7634bb6e8dcfdbdd.pkl`; SHA256 `187852dca1f62554e2d29714ca363e4a92036e948dddfb6c090a5577b6175c8c`
+  - text PCA-64 cache `hard_token_text_pca_v2_6e7c8161aaeb01f5.pkl`; SHA256 `5e9df184aca47a3c5d96d4db72977878981eca1cf67abba85b06e43528e1e562`
+- Start gates confirmed at declaration time:
+  - shared alias `Model/baby/teacher_model_val_test_once_v1.pt` is absent; `allow_teacher_alias_overwrite=false`
+  - alias publication is deferred until successful final testing and is atomic/no-clobber; run-specific checkpoint writes are atomic
+  - no historical artifact will be deleted; generated outputs remain ignored by Git and receive their own post-run hashes
+- Completion fields to append after the process exits: actual run name/times/status, resolved arguments and blockers, best validation epoch/full validation metrics, one-time full test metrics, manifest/log/checkpoint/alias paths and hashes, and the next multi-seed decision.
+
+### 2026-07-30 | Baby teacher uncapped baseline seed 2022 (completed)
+- Declaration link: executed the exact command and frozen contract in the immediately preceding pre-run entry; no parameter or protocol changed after launch.
+- Version/environment:
+  - launch HEAD `6bdd5c5ae017263facfebe997550c39559797291`; verified source commit `a80235062bd05a2f3175edffa626f2ca91d48ec1`; branch `codex/experiment/baby-teacher-baseline`
+  - environment remained `run_5060`, Python `3.10.20`, PyTorch `2.11.0+cu128`, CUDA `12.8`, RTX 5060 GPU `0`
+- Run status:
+  - run name `2026-07-30 11_50_42.544441_baby_light_init_pid2480`
+  - started `2026-07-30T11:50:42.546444+08:00`; completed `2026-07-30T11:59:27.790550+08:00`; manifest duration `525.244106` seconds; process exit code `0`
+  - resolved profile `baby_teacher_reference_v1`; `dataset_config_overrides={}`; `paper_ready_eligible=true`; blockers `[]`; full batch count `116`; PCA-64 image/text caches both hit
+- Model selection:
+  - trained epochs `0-29`; early stop fired after `7` consecutive non-improvements relative to the best epoch
+  - best validation epoch `22`; exact validation Recall@20 `0.08649579399772167`
+  - log-rounded validation arrays at K=`10/20/40/50`: precision `[0.00586, 0.00459, 0.00347, 0.00313]`; recall `[0.05544, 0.08650, 0.13081, 0.14778]`; NDCG `[0.03117, 0.03936, 0.04881, 0.05200]`; Hit Ratio `[0.05827, 0.09097, 0.13690, 0.15428]`
+- One-time final test after restoring epoch-22 checkpoint:
+  - Precision@`10/20/40/50`: `[0.0061609668295192445, 0.004836718950887038, 0.0036718950887115248, 0.003338647467215454]`
+  - Recall@`10/20/40/50`: `[0.05526727993300464, 0.08665691369856875, 0.13086908092050528, 0.1485102522117184]`
+  - NDCG@`10/20/40/50`: `[0.03179171576260452, 0.04042213264283099, 0.05038651686276733, 0.05393903548463441]`
+  - Hit Ratio@`10/20/40/50`: `[0.06114682437644754, 0.09534584726150529, 0.14301877089225956, 0.16225250707122946]`
+  - AUC `0.0` by design because `test_flag=part` omits AUC calculation
+- Artifacts and fingerprints:
+  - run checkpoint: `Model/baby/runs/teacher_model_val_test_once_v1__2026-07-30 11_50_42.544441_baby_light_init_pid2480.pt`; `141098540` bytes; SHA256 `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`
+  - shared alias: `Model/baby/teacher_model_val_test_once_v1.pt`; same size and SHA256 as the run checkpoint; published only after successful final test
+  - manifest: `exp/runs/baby/run_manifest__2026-07-30 11_50_42.544441_baby_light_init_pid2480.json`; `24200` bytes; SHA256 `9b8c080f54a97a1b51ea35d67fd9fd1462030b2d4a1a3d60a2f70df6439f2bf4`
+  - preflight: `exp/runs/baby/dataset_preflight__2026-07-30 11_50_42.544441_baby_light_init_pid2480.json`; `3399` bytes; SHA256 `7d156665baccf40003169abc59260492f1bb0b5dec362f2918cbdab69f46f963`
+  - text log: `logs/2026-07-30 11_50_42.544441_baby_light_init_pid2480`; `14821` bytes; SHA256 `8ef67ed5c9f752b4b054c591d5f7393119a42b29ca423b37436b0677fc1512b6`
+  - checkpoint metadata: format `5`, dataset `baby`, selection split `validation`, primary K `20`, candidate policy `train_only`, profile exact, paper-ready true, no blockers, hard-token provenance present
+- Post-run safety verification:
+  - no Python process or temporary artifact remained; working tree was clean before this log update
+  - alias SHA matched the archived run checkpoint SHA; current code SHA values matched the manifest for `main_mmlight.py`, `Models_mmlight.py`, `parser.py`, `dataset_profiles.py`, `batch_test.py`, and `experiment_protocol.py`
+  - no dataset, historical checkpoint, smoke output, or prior log was deleted or overwritten; only the previously absent formal alias was created
+  - one non-fatal PyTorch sparse-invariant warning was emitted; training, restore, final evaluation, manifest completion, and alias publication all succeeded
+- Interpretation and next action:
+  - accept this run as the frozen seed-2022 Baby teacher reference checkpoint for student and distillation experiments
+  - do not describe a single seed as the final paper estimate; later repeat the teacher protocol across declared additional seeds or report multi-seed student comparisons as required
+  - next implementation run should reuse this exact teacher read-only with `--if_train_teacher false` and must first define a Baby student baseline/profile; do not overwrite the teacher alias
+- Recovery milestone to create from this completed record:
+  - stable tag: `baby-teacher-baseline-seed2022-20260730`
+  - standalone source-history bundle: `backups/PromptMM_baby_teacher_baseline_seed2022_20260730.bundle`
+  - the tag/bundle protect tracked source and experiment memory only; ignored Baby data, checkpoints, manifests, and raw logs still require separate physical/off-device backup for disk-loss protection
+
+### 2026-07-30 | Baby teacher baseline recovery milestone (completed)
+- Stable annotated tag `baby-teacher-baseline-seed2022-20260730` was created at result-record commit `349aea33a05f89b30c87ebf563e689265a157e4d` (tag object `06239e27af85b2475e1935cab6c060ed9211b7a1`).
+- Standalone bundle `backups/PromptMM_baby_teacher_baseline_seed2022_20260730.bundle` was created without replacing any earlier bundle; SHA256 `facf74dc0a235d34060e7348a2825709a7ca5917cbc9b9d9d67005d004470aad`.
+- `git bundle verify` reported that the bundle is valid and records a complete history; matching checksum sidecar: `backups/PromptMM_baby_teacher_baseline_seed2022_20260730.bundle.sha256`.
+- Recovery boundary: the bundle contains Git-tracked source/history and the stable tag, but not ignored datasets, PCA caches, model checkpoints, manifests, or raw logs. Those artifacts remain intact on disk and are fingerprinted above, but an off-device copy is still needed for physical-disk-loss protection.
