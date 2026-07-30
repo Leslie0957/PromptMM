@@ -1044,3 +1044,27 @@ Use this file as the single running document for results, parameter changes, and
 - Next planned action (not started here):
   - separately audit and version the final-test candidate masking rule, because the current evaluator excludes training interactions but not validation interactions; do not mix that protocol decision into this adapter commit
   - after the evaluation rule is fixed or explicitly retained, define and record a Baby-specific configuration profile before any uncapped teacher run
+
+### 2026-07-30 | Final-test validation-history masking audit (completed)
+- Scope and repository state:
+  - audit was completed independently before changing evaluator behavior or starting an uncapped Baby run
+  - task branch: `codex/experiment/baby-teacher-baseline`, created from milestone `baby-adapter-smoke-20260730` (`bde102537a01a14a628b4296ffb192de38fcf88f`)
+  - detailed audit: `docs/EVALUATION_MASK_AUDIT_2026-07-30.md`
+- Confirmed local behavior:
+  - `val_test_once_v1` selects on validation and tests once after checkpoint restore, but `codes/utility/batch_test.py` excludes only training interactions from both validation and test candidates
+  - this is compatible with official MMRec behavior, whose validation and test loaders both receive only the training split as additional mask history
+  - official RecBole instead accumulates phase history: validation excludes train; final test excludes train plus validation
+- Baby-specific impact:
+  - all `19445` test users have validation interactions
+  - `20559` validation interactions, between `1` and `12` per test user, remain false-negative candidate competition under the v1 final-test rule
+- Protocol decision:
+  - preserve `val_test_once_v1` as the paper-ready PromptMM/MMRec-compatible baseline: validation mask=`train`; final-test mask=`train`
+  - do not change the primary Baby baseline to `train + validation`, because doing so would change the evaluation task and weaken direct comparison with the official PromptMM/MMRec result family
+  - a future cumulative-history sensitivity analysis must use a new protocol identifier, rerun all compared methods, and stay explicitly separate from v1 metrics
+  - freeze the v1 candidate-history policy as `train_only` in run manifests and teacher checkpoint metadata instead of leaving it implicit
+- Safety status:
+  - no dataset, checkpoint, raw run output, or existing result was changed by this audit
+  - no training was started during the audit
+- Next planned action (not started in this entry):
+  - commit the independent audit record
+  - make the existing v1 candidate policy explicit in metadata without changing ranking behavior, then pin a source-rationalized Baby teacher profile without using test metrics for parameter selection
