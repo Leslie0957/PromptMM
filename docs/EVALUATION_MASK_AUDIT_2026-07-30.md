@@ -24,6 +24,9 @@ earlier Amazon and Baby smoke runs and their checkpoints already use it.
 
 There are two established conventions rather than one universal implementation:
 
+- The official [PromptMM evaluator](https://github.com/HKUDS/PromptMM/blob/70da1002a35d6f2c7712c16cd0b2ca24c8813008/codes/utility/batch_test.py#L85-L104)
+  also constructs both validation and test candidates by excluding only
+  `training_items`.
 - The official [MMRec quick-start implementation](https://github.com/enoche/MMRec/blob/master/src/utils/quick_start.py)
   passes only the training dataset as additional history to both validation and
   test loaders. Its [evaluation loader](https://github.com/enoche/MMRec/blob/master/src/utils/dataloader.py)

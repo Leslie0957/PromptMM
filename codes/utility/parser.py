@@ -1,6 +1,11 @@
 import argparse
 import os
 
+from utility.dataset_profiles import (
+    apply_dataset_profile_defaults,
+    resolved_profile_metadata,
+)
+
 
 def str2bool(value):
     if isinstance(value, bool):
@@ -634,6 +639,8 @@ parser.add_argument('--eval_protocol', type=str, default='val_test_once_v1',
                     help='Model-selection protocol. Paper-ready runs must use val_test_once_v1.')
 parser.add_argument('--teacher_checkpoint', type=str, default='',
                     help='Read-only teacher checkpoint for reuse with --if_train_teacher false. Relative paths resolve from the repository root.')
+parser.add_argument('--allow_teacher_alias_overwrite', default=False, type=str2bool, nargs='?', const=True,
+                    help='Explicitly allow a completed paper-ready teacher run to replace an existing shared alias.')
 parser.add_argument('--dataset_preflight', default=True, type=str2bool, nargs='?', const=True,
                     help='Validate dataset structure and feature integrity before model initialization.')
 parser.add_argument('--duplicate_modalities_policy', type=str, default='warn',
@@ -751,6 +758,8 @@ parser.add_argument('--eval_protocol', type=str, default='val_test_once_v1',
                     help='Model-selection protocol. Paper-ready runs must use val_test_once_v1.')
 parser.add_argument('--teacher_checkpoint', type=str, default='',
                     help='Read-only teacher checkpoint for reuse with --if_train_teacher false. Relative paths resolve from the repository root.')
+parser.add_argument('--allow_teacher_alias_overwrite', default=False, type=str2bool, nargs='?', const=True,
+                    help='Explicitly allow a completed paper-ready teacher run to replace an existing shared alias.')
 parser.add_argument('--dataset_preflight', default=True, type=str2bool, nargs='?', const=True,
                     help='Validate dataset structure and feature integrity before model initialization.')
 parser.add_argument('--duplicate_modalities_policy', type=str, default='warn',
@@ -862,6 +871,8 @@ parser.add_argument('--eval_protocol', type=str, default='val_test_once_v1',
                     help='Model-selection protocol. Paper-ready runs must use val_test_once_v1.')
 parser.add_argument('--teacher_checkpoint', type=str, default='',
                     help='Read-only teacher checkpoint for reuse with --if_train_teacher false. Relative paths resolve from the repository root.')
+parser.add_argument('--allow_teacher_alias_overwrite', default=False, type=str2bool, nargs='?', const=True,
+                    help='Explicitly allow a completed paper-ready teacher run to replace an existing shared alias.')
 parser.add_argument('--dataset_preflight', default=True, type=str2bool, nargs='?', const=True,
                     help='Validate dataset structure and feature integrity before model initialization.')
 parser.add_argument('--duplicate_modalities_policy', type=str, default='warn',
@@ -961,6 +972,8 @@ parser.add_argument('--decouple_beta', default=1, type=float, help='')  #
 parser.add_argument('--decouple_t', default=1, type=float, help='')  #
 
 
+profile_probe, _ = parser.parse_known_args()
+apply_dataset_profile_defaults(parser, profile_probe.dataset)
 args = parser.parse_args()
 # ===== Matrix-Format Support =====
 if args.data_path:
@@ -969,11 +982,11 @@ if args.data_path:
         args.data_path = local_data_path
     if not args.data_path.endswith('/') and not args.data_path.endswith('\\'):
         args.data_path = args.data_path + os.sep
-args.dataset_config_profile = (
-    'amazon_active_defaults'
-    if args.dataset == 'amazon'
-    else 'unvalidated_amazon_default_fallback'
-)
+profile_metadata = resolved_profile_metadata(args.dataset, args)
+args.dataset_config_profile = profile_metadata['name']
+args.dataset_config_scope = profile_metadata['scope']
+args.dataset_config_source = profile_metadata['source']
+args.dataset_config_overrides = profile_metadata['overrides']
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #---amazon-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

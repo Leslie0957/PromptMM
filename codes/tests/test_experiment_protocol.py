@@ -20,9 +20,12 @@ if str(CODES_DIR) not in sys.path:
 from utility.experiment_protocol import (  # noqa: E402
     LEGACY_PROTOCOL,
     PAPER_READY_PROTOCOL,
+    TRAIN_ONLY_CANDIDATE_EXCLUSION,
+    candidate_exclusion_policy,
     dataset_identity_from_preflight,
     early_stopping_non_improvement_limit,
     protocol_uses_validation,
+    publish_file_atomically,
     resolve_primary_k_index,
     restore_checkpoint_then_evaluate,
     run_dataset_preflight,
@@ -77,6 +80,14 @@ class ExperimentProtocolTest(unittest.TestCase):
     def test_protocol_selection_and_primary_k(self):
         self.assertTrue(protocol_uses_validation(PAPER_READY_PROTOCOL))
         self.assertFalse(protocol_uses_validation(LEGACY_PROTOCOL))
+        self.assertEqual(
+            candidate_exclusion_policy(PAPER_READY_PROTOCOL),
+            TRAIN_ONLY_CANDIDATE_EXCLUSION,
+        )
+        self.assertEqual(
+            candidate_exclusion_policy(LEGACY_PROTOCOL),
+            TRAIN_ONLY_CANDIDATE_EXCLUSION,
+        )
         index, ks = resolve_primary_k_index('[10, 20, 50]')
         self.assertEqual(index, 1)
         self.assertEqual(ks, [10, 20, 50])
@@ -112,12 +123,33 @@ class ExperimentProtocolTest(unittest.TestCase):
         self.assertEqual(checkpoint['best_epoch'], 3)
         self.assertAlmostEqual(float(result['recall'][0]), 0.25)
 
+    def test_atomic_publication_is_no_clobber_by_default(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            source_path = Path(temp_dir) / 'run.pt'
+            destination_path = Path(temp_dir) / 'teacher.pt'
+            source_path.write_bytes(b'first')
+
+            fingerprint = publish_file_atomically(source_path, destination_path)
+            self.assertEqual(destination_path.read_bytes(), b'first')
+            self.assertEqual(len(fingerprint['sha256']), 64)
+
+            source_path.write_bytes(b'second')
+            with self.assertRaisesRegex(FileExistsError, 'Refusing to overwrite'):
+                publish_file_atomically(source_path, destination_path)
+            self.assertEqual(destination_path.read_bytes(), b'first')
+
+            publish_file_atomically(
+                source_path, destination_path, allow_overwrite=True
+            )
+            self.assertEqual(destination_path.read_bytes(), b'second')
+
     def test_paper_ready_teacher_requires_matching_metadata(self):
         dataset_identity = {'dataset': 'tiny', 'fingerprint': 'abc'}
         teacher_config = {'embed_size': 2}
         valid_checkpoint = {
             'evaluation_protocol': PAPER_READY_PROTOCOL,
             'selection_split': 'validation',
+            'candidate_exclusion_policy': TRAIN_ONLY_CANDIDATE_EXCLUSION,
             'primary_k': 20,
             'dataset': 'tiny',
             'dataset_identity': dataset_identity,
@@ -136,6 +168,7 @@ class ExperimentProtocolTest(unittest.TestCase):
             teacher_config,
             True,
             [],
+            TRAIN_ONLY_CANDIDATE_EXCLUSION,
         )
         with self.assertRaisesRegex(ValueError, 'Paper-ready teacher reuse requires'):
             validate_teacher_checkpoint_metadata(
