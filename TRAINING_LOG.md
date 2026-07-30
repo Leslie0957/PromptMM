@@ -47,6 +47,14 @@ Use this file as the single running document for results, parameter changes, and
 
 ## Current Baseline
 - Date: 2026-04-12
+- Current Baby teacher reference (added 2026-07-30):
+  - profile/protocol: `baby_teacher_reference_v1`; teacher-only; `val_test_once_v1`; candidate exclusion `train_only`; seed `2022`; full `116` batches/epoch
+  - launch HEAD/source: `6bdd5c5ae017263facfebe997550c39559797291` / `a80235062bd05a2f3175edffa626f2ca91d48ec1`
+  - run: `2026-07-30 11_50_42.544441_baby_light_init_pid2480`; completed paper-ready with no profile overrides or blockers
+  - best validation epoch `22`; exact validation Recall@20 `0.08649579399772167`
+  - final Test Recall@20 / NDCG@20 / Precision@20: `0.08665691369856875 / 0.04042213264283099 / 0.004836718950887038`
+  - checkpoint: `Model/baby/teacher_model_val_test_once_v1.pt`; SHA256 `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`
+  - interpretation: this is the frozen seed-2022 Baby teacher anchor for subsequent student/distillation work, not yet a multi-seed final paper estimate
 - Historical best quality reference:
   - command: `python .\main_mmlight.py --data_path d:/Download/PromptMM/data/ --dataset amazon`
   - protocol note: pre bundled-teacher refresh / not a strict frozen-teacher comparison baseline
@@ -1163,3 +1171,43 @@ Use this file as the single running document for results, parameter changes, and
   - alias publication is deferred until successful final testing and is atomic/no-clobber; run-specific checkpoint writes are atomic
   - no historical artifact will be deleted; generated outputs remain ignored by Git and receive their own post-run hashes
 - Completion fields to append after the process exits: actual run name/times/status, resolved arguments and blockers, best validation epoch/full validation metrics, one-time full test metrics, manifest/log/checkpoint/alias paths and hashes, and the next multi-seed decision.
+
+### 2026-07-30 | Baby teacher uncapped baseline seed 2022 (completed)
+- Declaration link: executed the exact command and frozen contract in the immediately preceding pre-run entry; no parameter or protocol changed after launch.
+- Version/environment:
+  - launch HEAD `6bdd5c5ae017263facfebe997550c39559797291`; verified source commit `a80235062bd05a2f3175edffa626f2ca91d48ec1`; branch `codex/experiment/baby-teacher-baseline`
+  - environment remained `run_5060`, Python `3.10.20`, PyTorch `2.11.0+cu128`, CUDA `12.8`, RTX 5060 GPU `0`
+- Run status:
+  - run name `2026-07-30 11_50_42.544441_baby_light_init_pid2480`
+  - started `2026-07-30T11:50:42.546444+08:00`; completed `2026-07-30T11:59:27.790550+08:00`; manifest duration `525.244106` seconds; process exit code `0`
+  - resolved profile `baby_teacher_reference_v1`; `dataset_config_overrides={}`; `paper_ready_eligible=true`; blockers `[]`; full batch count `116`; PCA-64 image/text caches both hit
+- Model selection:
+  - trained epochs `0-29`; early stop fired after `7` consecutive non-improvements relative to the best epoch
+  - best validation epoch `22`; exact validation Recall@20 `0.08649579399772167`
+  - log-rounded validation arrays at K=`10/20/40/50`: precision `[0.00586, 0.00459, 0.00347, 0.00313]`; recall `[0.05544, 0.08650, 0.13081, 0.14778]`; NDCG `[0.03117, 0.03936, 0.04881, 0.05200]`; Hit Ratio `[0.05827, 0.09097, 0.13690, 0.15428]`
+- One-time final test after restoring epoch-22 checkpoint:
+  - Precision@`10/20/40/50`: `[0.0061609668295192445, 0.004836718950887038, 0.0036718950887115248, 0.003338647467215454]`
+  - Recall@`10/20/40/50`: `[0.05526727993300464, 0.08665691369856875, 0.13086908092050528, 0.1485102522117184]`
+  - NDCG@`10/20/40/50`: `[0.03179171576260452, 0.04042213264283099, 0.05038651686276733, 0.05393903548463441]`
+  - Hit Ratio@`10/20/40/50`: `[0.06114682437644754, 0.09534584726150529, 0.14301877089225956, 0.16225250707122946]`
+  - AUC `0.0` by design because `test_flag=part` omits AUC calculation
+- Artifacts and fingerprints:
+  - run checkpoint: `Model/baby/runs/teacher_model_val_test_once_v1__2026-07-30 11_50_42.544441_baby_light_init_pid2480.pt`; `141098540` bytes; SHA256 `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`
+  - shared alias: `Model/baby/teacher_model_val_test_once_v1.pt`; same size and SHA256 as the run checkpoint; published only after successful final test
+  - manifest: `exp/runs/baby/run_manifest__2026-07-30 11_50_42.544441_baby_light_init_pid2480.json`; `24200` bytes; SHA256 `9b8c080f54a97a1b51ea35d67fd9fd1462030b2d4a1a3d60a2f70df6439f2bf4`
+  - preflight: `exp/runs/baby/dataset_preflight__2026-07-30 11_50_42.544441_baby_light_init_pid2480.json`; `3399` bytes; SHA256 `7d156665baccf40003169abc59260492f1bb0b5dec362f2918cbdab69f46f963`
+  - text log: `logs/2026-07-30 11_50_42.544441_baby_light_init_pid2480`; `14821` bytes; SHA256 `8ef67ed5c9f752b4b054c591d5f7393119a42b29ca423b37436b0677fc1512b6`
+  - checkpoint metadata: format `5`, dataset `baby`, selection split `validation`, primary K `20`, candidate policy `train_only`, profile exact, paper-ready true, no blockers, hard-token provenance present
+- Post-run safety verification:
+  - no Python process or temporary artifact remained; working tree was clean before this log update
+  - alias SHA matched the archived run checkpoint SHA; current code SHA values matched the manifest for `main_mmlight.py`, `Models_mmlight.py`, `parser.py`, `dataset_profiles.py`, `batch_test.py`, and `experiment_protocol.py`
+  - no dataset, historical checkpoint, smoke output, or prior log was deleted or overwritten; only the previously absent formal alias was created
+  - one non-fatal PyTorch sparse-invariant warning was emitted; training, restore, final evaluation, manifest completion, and alias publication all succeeded
+- Interpretation and next action:
+  - accept this run as the frozen seed-2022 Baby teacher reference checkpoint for student and distillation experiments
+  - do not describe a single seed as the final paper estimate; later repeat the teacher protocol across declared additional seeds or report multi-seed student comparisons as required
+  - next implementation run should reuse this exact teacher read-only with `--if_train_teacher false` and must first define a Baby student baseline/profile; do not overwrite the teacher alias
+- Recovery milestone to create from this completed record:
+  - stable tag: `baby-teacher-baseline-seed2022-20260730`
+  - standalone source-history bundle: `backups/PromptMM_baby_teacher_baseline_seed2022_20260730.bundle`
+  - the tag/bundle protect tracked source and experiment memory only; ignored Baby data, checkpoints, manifests, and raw logs still require separate physical/off-device backup for disk-loss protection
