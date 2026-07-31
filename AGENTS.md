@@ -49,6 +49,48 @@ do not require pending/completed entries in `TRAINING_LOG.md`; their Git commit
 is the trace. Repository-policy changes and training-log reorganizations are
 material and must record their own preservation and verification evidence.
 
+## Mandatory Completion Handoff
+
+1. At the start of every task, read this complete `AGENTS.md`, read the complete
+   active `TRAINING_LOG.md`, and inspect `git status --short --branch` before
+   recommending experiments, editing files, or running project code.
+2. Use the active log to identify the current experiment stage, completed work,
+   unresolved risks, and the single recommended next step. Repository records,
+   not chat memory, are the source of continuity.
+3. For every experiment-related change, append a `pending` entry before the
+   change and a separate `completed` or `failed` entry afterward. Preserve old
+   entries verbatim; never rewrite a declaration into its outcome.
+4. After a change, run verification proportional to its risk and automatically
+   create one coherent local Git commit for the completed scope. Never stage or
+   commit unrelated files.
+5. End every task with a proactive handoff that reports all of the following:
+   - the task objective and whether it succeeded, failed, or partially
+     completed;
+   - the commands actually executed and their key parameters;
+   - verification results, metrics, and artifact paths, explicitly stating
+     when a category has no result;
+   - whether the test split was accessed and whether execution complied with
+     the declared protocol;
+   - the branch, every new commit hash, and whether the working tree is clean;
+   - the experimental meaning of the result and all unresolved risks;
+   - exactly one recommended next step, with its rationale, prerequisites, and
+     expected artifacts;
+   - one copy-ready instruction that the user can send to authorize and perform
+     that next step.
+6. If a task fails, report the root cause, valid artifacts that remain, and a
+   concrete recovery plan before recommending the next action. Never describe a
+   failed or partial result as completed.
+7. A clear next step is not authorization to start it. After completing the
+   current task, report and wait for explicit user approval such as `continue`
+   before starting any formal or long training, broad tuning, test-split
+   evaluation, merge to `main`, tag creation, or baseline-asset overwrite.
+8. Complete in-scope checks, fixes, verification, logging, and Git commits
+   autonomously when they require no user choice. Do not repeatedly return
+   discoverable or self-verifiable questions to the user.
+9. Advance only one explicit experiment stage per task. Do not launch parallel
+   experiment stages that could contaminate comparisons or make provenance
+   difficult to trace.
+
 ## Formal Run Gate
 
 - Never start a formal or long training run from dirty or uncommitted source.

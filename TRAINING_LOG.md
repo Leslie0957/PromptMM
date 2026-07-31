@@ -565,3 +565,64 @@ records remain under `exp/`; checkpoints remain under `Model/`.
 - Next action: stage only the declared protocol, tests, documentation, and
   append-only log; review the staged diff; create the local protocol commit;
   then record that commit hash in the future smoke declaration.
+
+### 2026-07-31 | Mandatory completion handoff policy (pending)
+
+- Purpose and rationale: make every experiment task self-contained from
+  startup through handoff so repository state, rather than chat memory, always
+  identifies the active stage, evidence, risks, and single recommended next
+  action.
+- Status: pending; this is a repository-policy and documentation change only.
+- Scope: add a `Mandatory Completion Handoff` section to `AGENTS.md` and
+  preserve this change through separate pending/completed entries in the
+  append-only `TRAINING_LOG.md`. No experiment code, data, preprocessing,
+  parameter, checkpoint, metric, command, or generated artifact will change.
+- Planned policy: require repository-led startup/context recovery, append-only
+  experiment tracing, proportional verification and scoped automatic commits,
+  a complete end-of-task handoff, truthful failure reporting, explicit approval
+  before guarded long-running or publication actions, autonomous completion of
+  in-scope work, and one traceable experiment stage at a time.
+- Rollback point: branch `codex/experiment/baby-teacher-baseline` at protocol
+  source commit `58fda059786067768e308f48e10ae864416334f5`.
+- Risks: duplicating existing startup/version-control rules, creating
+  contradictory authority around formal runs, or making the handoff too vague
+  to audit.
+- Acceptance criteria: all nine requested collaboration requirements are
+  stated as mandatory operational rules; the section requires a single next
+  step and copy-ready continuation instruction; it does not authorize automatic
+  formal training, broad tuning, test evaluation, `main` promotion, tagging, or
+  baseline overwrite; only the two declared documentation files are committed.
+- Planned verification: focused section/keyword checks, manual diff review,
+  `git diff --check`, exact staged-file review, and
+  `git diff --cached --check`. No project code or training will run for this
+  policy stage.
+
+### 2026-07-31 | Mandatory completion handoff policy (completed; policy-only)
+
+- Purpose and outcome: established a mandatory repository-led completion
+  handoff so every future experiment task begins from canonical state and ends
+  with an auditable result plus exactly one authorized-next-step proposal.
+- Status: completed; no experiment execution occurred in this policy stage.
+- Actual changes: added all nine requested rules under
+  `## Mandatory Completion Handoff` in `AGENTS.md`, covering startup recovery,
+  log-derived stage selection, append-only before/after traces, proportional
+  verification and scoped commits, complete success/failure handoffs, guarded
+  action approval, autonomous in-scope completion, and single-stage execution.
+- Scope control: only `AGENTS.md` and this append-only log changed. No code,
+  dataset, preprocessing, environment, parameter, checkpoint, metric, command,
+  raw log, manifest, or generated experiment artifact changed.
+- Verification evidence:
+  - focused section and keyword checks found all nine numbered requirements,
+    including test-access disclosure, all new commit hashes, clean-tree state,
+    a single recommended next step, and a copy-ready continuation instruction;
+  - manual diff review found no authority conflict with the existing formal-run
+    gate or version-control requirements;
+  - `git diff --check` passed before this outcome entry.
+- Acceptance decision: policy requirements are complete and ready for one
+  documentation-only commit. No tag or bundle is warranted for this routine
+  policy commit.
+- Unresolved risks: none within the declared documentation scope; operational
+  compliance depends on future sessions reading and following `AGENTS.md`.
+- Next action: commit only `AGENTS.md` and `TRAINING_LOG.md`, then create and
+  commit the separate declaration for the one-epoch, one-batch,
+  validation-only `baby_student_reference_v1` smoke before execution.
