@@ -1222,3 +1222,223 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   validation ranking, or Test access; the expected artifacts are the profile,
   eligibility update, focused tests, candidate document, log outcome, and
   commit hash.
+
+### 2026-07-31 | baby_td_asymmetric_no_projection_v1 profile implementation (pending)
+
+- Purpose and rationale: implement the already predeclared
+  `baby_td_asymmetric_no_projection_v1` as an independent pinned Baby student
+  profile, so a future formal candidate can resolve without overrides while
+  remaining subject to every existing paper-ready data, teacher, protocol,
+  test-isolation, and artifact gate.
+- Status and authorization: pending implementation only. The user explicitly
+  authorized profile code, focused tests, candidate documentation, this
+  append-only trace, proportional static/unit verification, and one coherent
+  commit. Training, validation ranking, Test evaluation, run-artifact
+  generation, tags, baseline overwrite, and merge to `main` are prohibited.
+- Branch and rollback/preservation point:
+  `codex/experiment/baby-teacher-baseline` at clean declaration commit
+  `161e72a018dc21bbebdb39e4306d374f7473e20a`. No rollback action is
+  authorized; this commit is the comparison point for scoped diff review.
+- Declared implementation scope:
+  - extend `codes/utility/dataset_profiles.py` with the independent candidate
+    identity/defaults and a focused Baby student paper-ready profile gate;
+  - update only the Baby student profile-identity portion of
+    `codes/main_mmlight.py` to use that gate, without changing any other
+    eligibility condition;
+  - extend `codes/tests/test_dataset_profiles.py` with baseline immutability,
+    exact profile-delta, override, eligibility, initialization, no-projection,
+    frozen-teacher, and deployment-contract checks;
+  - add `docs/BABY_TD_ASYMMETRIC_NO_PROJECTION_V1.md` and append the separate
+    completed or failed outcome to this active log.
+- Explicitly excluded scope: no change to `codes/utility/load_data.py`, either
+  TD-Distill model implementation, semantic-loss computation, optimizer or
+  training loop, evaluation protocol implementation, dataset/teacher assets,
+  `baby_student_reference_v1` defaults/identity, parser defaults, checkpoint
+  format, inference exporter, or generated artifacts. A material need to touch
+  any excluded area requires a scope amendment before continuing.
+- Fixed comparison contract inherited from `baby_student_reference_v1`: seed
+  `2022`; `td_distill_no_projection`; dimension `64`; random initialization
+  with `td_init_from_teacher=false`; AdamW `student_lr=6e-5`, weight decay
+  `0.01`; batch size `1024`; maximum `1000` epochs; patience `7`; unchanged
+  pairwise sampler; frozen read-only teacher
+  `Model/baby/teacher_model_val_test_once_v1.pt` with SHA256
+  `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`;
+  and unchanged `val_test_once_v1`, validation Recall@20 selection,
+  `train_only` candidate exclusion, preflight, finalization, and test-isolation
+  rules.
+- Only allowed profile-default differences:
+  `td_distill_alpha=0.3`, `td_item_image_rate=1.0`,
+  `td_item_text_rate=0.3`, `td_user_image_rate=0.0`, and
+  `td_user_text_rate=0.0`. Profile name/scope/source metadata must independently
+  identify the candidate; every other resolved default must equal the baseline.
+- Paper-ready gate requirement: accept exactly the existing baseline identity
+  and the new independently pinned candidate identity when metadata matches and
+  resolved overrides are empty. Continue to block missing/mismatched identities
+  and any undeclared CLI override. Do not weaken dataset profile, duplicate
+  modality, protocol, smoke-cap, final-test, preflight, frozen-teacher, or alias
+  protections.
+- Risks: shared mutable defaults could accidentally change the baseline;
+  generalized identity logic could admit unknown profiles; a CLI override could
+  escape the blocker; or tests could assert only values without checking the
+  direct ID-only deployment contract.
+- Acceptance criteria:
+  - the baseline defaults and metadata remain byte-for-value equivalent to the
+    declaration predecessor;
+  - the two default mappings differ at exactly the five declared semantic keys,
+    and the formal candidate resolves with empty dataset/student overrides;
+  - an undeclared candidate CLI override is recorded and returns a paper-ready
+    blocker, while unknown/mismatched profile metadata remains blocked;
+  - tests confirm random initialization, no-projection model selection, frozen
+    teacher/read-only alias controls, and that the maintained no-projection
+    inference exporter contains only user/item ID embeddings plus deployment
+    metadata;
+  - no sampler, model structure, semantic loss, baseline profile, protocol, or
+    run artifact changes; all scoped tests and static checks pass.
+- Planned verification: run focused dataset-profile unit tests, any focused
+  deployment-contract unit test added within the declared test file, Python
+  compilation for changed Python files, static CLI/profile resolution for both
+  formal profiles and one undeclared override, source/diff checks proving
+  excluded files are unchanged, `git diff --check`, exact staged-file review,
+  and `git diff --cached --check`. Do not instantiate the training runner or
+  access dataset splits.
+- Metrics and artifacts: none expected. This is profile/protocol-enablement
+  work only; no checkpoint, manifest, convergence record, raw log, validation
+  metric, or Test metric may be generated.
+- Next action after a verified commit: stop and request explicit authorization
+  for a separately declared one-epoch, one-batch, validation-only candidate
+  smoke with `run_final_test=false`.
+
+#### Scope amendment before implementation
+
+- Static inspection found that `codes/utility/parser.py` has three active
+  dataset-branch definitions of `--student_profile`, each with argparse
+  `choices` hard-coded to the empty selector plus
+  `baby_student_reference_v1`. Without updating those choices, the declared
+  independent candidate would be rejected by the CLI before profile defaults
+  or eligibility metadata could resolve.
+- Scope therefore expands narrowly to `codes/utility/parser.py`: import the
+  supported Baby student profile-name collection and use it in exactly those
+  three `--student_profile` choice lists. The empty default remains unchanged;
+  no parser default, parameter type, dataset selection, or unrelated CLI option
+  may change.
+- Additional acceptance and verification: parser static resolution must accept
+  both named Baby profiles, continue to reject unknown names, and preserve the
+  baseline selector/default behavior. Include `parser.py` in Python compilation
+  and final scoped diff review. No other excluded area is reopened.
+
+#### Acceptance clarification after first focused test
+
+- The first focused test correctly exposed an ambiguity in the pending phrase
+  "differ at exactly the five declared semantic keys." All five semantic fields
+  are the only allowed behavioral parameter set and must equal their
+  predeclared candidate values, but `td_user_image_rate=0.0` and
+  `td_user_text_rate=0.0` are intentionally equal to the baseline values.
+- The precise acceptance rule is therefore: both profiles have identical keys;
+  every field outside the five-field semantic set is identical; all five
+  candidate semantic values equal the declaration; and the actual value-change
+  set is exactly `td_distill_alpha`, `td_item_image_rate`, and
+  `td_item_text_rate`. This clarification changes no parameter, scope, profile
+  identity, or authorization boundary.
+
+### 2026-07-31 | baby_td_asymmetric_no_projection_v1 profile implementation (completed; no run)
+
+- Purpose and outcome: implemented and verified the independently pinned
+  `baby_td_asymmetric_no_projection_v1` profile from declaration commit
+  `161e72a018dc21bbebdb39e4306d374f7473e20a`. The profile is now accepted by
+  the Baby student paper-ready identity gate with empty overrides, while the
+  completed `baby_student_reference_v1` profile remains unchanged.
+- Status: completed successfully as profile/protocol-enablement work only. No
+  training runner, validation ranking, Test evaluation, or efficiency benchmark
+  was started.
+- Branch and source identity: branch
+  `codex/experiment/baby-teacher-baseline`; clean implementation predecessor
+  `161e72a018dc21bbebdb39e4306d374f7473e20a`; the resulting coherent commit is
+  to contain only the files listed below and will be reported in the task
+  handoff and recorded by the next formal run declaration.
+- Actual changes:
+  - `codes/utility/dataset_profiles.py` now defines the candidate name, scope,
+    source, independent copied defaults, explicit two-profile registry, CLI
+    name collection, exact paper-ready identity collection, and a pure blocker
+    helper used by the runtime gate;
+  - `codes/utility/parser.py` now accepts either explicit Baby student profile
+    name in each of its three active `--student_profile` choice lists; the empty
+    default and all parser parameter defaults are unchanged;
+  - `codes/main_mmlight.py` replaced only the hard-coded baseline student
+    identity comparison with the focused blocker helper. Dataset identity,
+    dataset overrides, duplicate modalities, teacher-only mode, smoke cap,
+    final-Test enablement, preflight, frozen-teacher validation, and alias
+    protections remain in place and unchanged;
+  - `codes/tests/test_dataset_profiles.py` locks the complete baseline default
+    mapping, exact candidate semantic contract, formal zero-override resolution,
+    override/unknown-profile blockers, fixed random/no-projection/frozen-teacher
+    settings, and ID-only inference export structure;
+  - `docs/BABY_TD_ASYMMETRIC_NO_PROJECTION_V1.md` records the profile identity,
+    data/teacher identities, pinned parameters, exact objective, comparison
+    contract, validation-only smoke and formal gates, and artifact requirements.
+- Resolved profile comparison:
+  - both profiles have the same default-key set and match on every field outside
+    `td_distill_alpha`, `td_item_image_rate`, `td_item_text_rate`,
+    `td_user_image_rate`, and `td_user_text_rate`;
+  - candidate values are exactly `0.3 / 1.0 / 0.3 / 0.0 / 0.0` in that order;
+  - because both user-side rates are intentionally `0.0` in both profiles, the
+    actual changed-value keys are alpha, item-image, and item-text only;
+  - fixed controls resolve to seed `2022`, `td_distill_no_projection`, dimension
+    `64`, random initialization, AdamW `student_lr=6e-5`, weight decay `0.01`,
+    batch size `1024`, maximum `1000` epochs, patience `7`, frozen teacher mode,
+    and the same protocol/preflight/finalization settings.
+- Paper-ready and override verification:
+  - real `utility.parser` static resolution gave `{}` for both dataset and
+    student overrides for the baseline and candidate formal configurations;
+  - the candidate resolved as scope `student_candidate`, semantic values
+    `0.3 / 1.0 / 0.3 / 0.0 / 0.0`, random no-projection 64-dimensional student,
+    `if_train_teacher=false`, and `allow_teacher_alias_overwrite=false`, with no
+    profile-identity blocker;
+  - an explicit candidate `--student_lr 0.001` resolved as an override from
+    `6e-5` and produced the existing Baby student override blocker;
+  - an unknown CLI profile name was rejected by argparse with exit code `2`,
+    and unknown/mismatched metadata remains blocked by the pure gate helper.
+- Verification evidence:
+  - focused `test_dataset_profiles.py`: `15/15` tests passed;
+  - full `codes/tests/test_*.py` suite: `35/35` tests passed in the declared
+    environment, including protocol/preflight and converter tests on temporary
+    synthetic fixtures only;
+  - Python compilation passed for `dataset_profiles.py`, `parser.py`,
+    `main_mmlight.py`, and `test_dataset_profiles.py`;
+  - frozen teacher remained `141098540` bytes with SHA256
+    `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`;
+  - static documentation checks found the candidate identity, all five semantic
+    values, both smoke/formal final-Test controls, and inference-only export
+    requirement;
+  - `git diff 161e72a... --exit-code` was empty for
+    `codes/utility/load_data.py`, `codes/td_distill_model.py`,
+    `codes/td_distill_model_no_projection.py`, and
+    `codes/utility/experiment_protocol.py`, proving no sampler, model,
+    semantic-loss, exporter, or protocol implementation change;
+  - manual scoped diff review passed; `git diff --check` passed with only the
+    repository's existing CRLF conversion warnings for two touched files.
+- Test-split and protocol audit: the real Baby train/validation/Test matrices
+  were not loaded or accessed. No teacher or student ranking was evaluated.
+  Mandatory reading of already-recorded Test evidence in this active log did
+  not influence any parameter. The executed unit tests used temporary synthetic
+  fixtures and complied with the no-run/no-Test authorization.
+- Metrics and generated artifacts: none. No validation/Test metric, checkpoint,
+  manifest, preflight report, convergence record, raw log, dataset derivative,
+  teacher alias, or efficiency artifact was generated or changed. The only
+  artifacts are scoped source, tests, documentation, this log outcome, and the
+  pending Git commit.
+- Acceptance decision: all corrected hard acceptance criteria passed. The
+  implementation is ready for one coherent local commit; this is not a smoke,
+  formal result, stable milestone, or claim that directional distillation works
+  on Baby.
+- Unresolved risks: the real runner/GPU path for the new candidate identity has
+  not yet been exercised; the semantic settings remain cross-dataset hypotheses
+  rather than Baby-validated choices; and a single future seed cannot estimate
+  variance. These risks require future staged experiments, not broader changes
+  in this implementation task.
+- Unique next action: after this implementation commit and only with explicit
+  user authorization, append and commit a separate declaration for one
+  candidate validation-only smoke using `epoch=1`,
+  `smoke_train_batches=1`, and `run_final_test=false`, then execute it once from
+  clean committed source. Expected run-specific artifacts are the preflight
+  report, manifest, convergence record, full/inference checkpoints, and raw log;
+  no Test metric may be produced.
