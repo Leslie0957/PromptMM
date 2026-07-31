@@ -1689,3 +1689,134 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   formal run as part of this task. Expected artifacts are a new formal
   preflight, manifest, convergence record, raw log, full/inference checkpoints,
   and the permitted one-time final Test evidence.
+
+### 2026-07-31 | baby_td_asymmetric_no_projection_v1 formal seed-2022 uncapped (pending)
+
+- Purpose and hypothesis: predeclare one fair, uncapped formal run of the
+  independently pinned `baby_td_asymmetric_no_projection_v1` candidate against
+  the completed Baby ID-only BPR reference. The hypothesis is that the fixed
+  item-dominant directional semantic loss can improve the deployable student
+  while leaving inference state, teacher identity, sampler, and all evaluation
+  controls unchanged. This declaration does not claim that the hypothesis is
+  true.
+- Status and authorization boundary: pending; formal, uncapped, single seed
+  `2022`, and eligible for one execution only after this declaration is in a
+  clean committed tree. This task authorizes only the declaration and its Git
+  commit. No training, validation ranking, Test evaluation, checkpoint
+  creation, tag, merge to `main`, or baseline overwrite is authorized or
+  performed here.
+- Branch and source identity: branch
+  `codex/experiment/baby-teacher-baseline`; clean declaration predecessor and
+  rollback/preservation point
+  `179ac0fb2eb96de0b546c99833fce6f87feaa191` (the preceding smoke-result
+  commit). The clean commit containing this pending declaration is the only
+  authorized launch source identity for the later run; no code or documentation
+  diff is permitted between that launch commit and the declared candidate
+  implementation commit `64739bbfa75e9baa657f666a78162f0b25aa590b`.
+- Dataset and preprocessing identity: audited MMRec Baby under `data/baby/`;
+  conversion manifest SHA256
+  `cf2d0d8c8aff9b321aad0b11d48d078794d12a4920afaa4c8efedfe3beda9df2`; retain
+  the active train/validation/Test matrix and modality hashes recorded above,
+  the `pca` hard-token/cache provenance, and the audited `train_only`
+  candidate-exclusion contract. Dataset identity, split assignment,
+  preprocessing, and feature caches are frozen for this run.
+- Evaluation protocol: `val_test_once_v1`; train only on `train_mat`; evaluate
+  validation every epoch and select/early-stop only by validation Recall@20;
+  use `Ks=[10,20,40,50]`, `test_flag=part`, and validation/Test candidates
+  excluding training interactions only. Restore the validation-best student
+  checkpoint before executing exactly one final student Test evaluation. Test
+  metrics must not influence selection, parameter changes, or technical
+  acceptance.
+- Frozen teacher identity and controls: reuse read-only
+  `Model/baby/teacher_model_val_test_once_v1.pt`, expected size `141098540`
+  bytes and SHA256
+  `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`;
+  `if_train_teacher=false`, `teacher_only=false`, and
+  `allow_teacher_alias_overwrite=false`. No teacher optimizer step, run-local
+  teacher checkpoint, shared alias publication, or overwrite is allowed.
+- Full formal command, to execute exactly once only after explicit user
+  authorization and a clean committed launch source:
+  `D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_td_asymmetric_no_projection_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --run_final_test true`
+- Resolved fixed parameters and override gate: seed `2022`; batch size `1024`;
+  `td_distill_no_projection`; student embedding dimension `64`; random
+  initialization with `td_init_from_teacher=false`; AdamW;
+  `student_lr=6e-5`; student weight decay `0.01`; maximum `epoch=1000`;
+  validation every epoch; early-stopping `patience=7`; and
+  `smoke_train_batches=0` (all `116` batches per epoch). The profile carries
+  `td_distill_alpha=0.3`, item-image rate `1.0`, item-text rate `0.3`,
+  user-image rate `0.0`, and user-text rate `0.0`. Resolved
+  `dataset_config_overrides={}` and `student_config_overrides={}` are required;
+  no CLI profile, semantic, optimizer, seed, sampler, epoch, patience, batch,
+  protocol, teacher, or final-Test override may be added.
+- Objective and sampling: preserve `data_generator.sample()` exactly, with
+  `1024` distinct existing users per batch, one training positive and one
+  non-training negative per user. Optimize
+  `L_BPR + 0.3 * ((1.0 * L_item_image + 0.3 * L_item_text) / 1.3)`; user-image
+  and user-text heads remain inactive, and the no-projection student aligns
+  directly in the 64-dimensional teacher semantic space.
+- Planned run-specific artifacts, all keyed by one new timestamp/PID run name:
+  raw log `logs/<run_name>`; preflight
+  `exp/runs/baby/dataset_preflight__<run_name>.json`; manifest
+  `exp/runs/baby/run_manifest__<run_name>.json`; convergence record
+  `exp/converge/baby/auto__<run_name>.pkl`; full checkpoint
+  `Model/baby/td_distill/td_distill_full__val_test_once_v1__<run_name>.pth`;
+  and inference-only checkpoint
+  `Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__<run_name>.pth`.
+  Generated artifacts remain ignored and must be fingerprinted in the later
+  outcome; none is created by this declaration task.
+- Hard acceptance criteria for the later run: launch source and working tree
+  are clean; exact candidate identity and both override maps resolve as
+  declared; dataset preflight and frozen-teacher validation pass; all training
+  losses and validation metrics are finite; validation-best checkpoint is
+  saved and restored; manifest reports formal completion with
+  `run_final_test=true` and `final_test_performed=true`; exactly one final Test
+  evaluation occurs after restoration; teacher SHA256 is unchanged; no teacher
+  artifact or shared alias changes; and all run-specific artifacts are present,
+  same-run, and fingerprinted with an inference export containing only finite
+  user/item ID embeddings plus deployment metadata.
+- Test-split isolation and evidence boundary: this task accessed no dataset
+  split and produced no validation/Test metric or artifact. During the later
+  formal run, Test structure may be read for preflight, but teacher and student
+  Test ranking must occur once only after validation-best restoration. A finite
+  protocol-valid result is accepted regardless of quality; no Test result may
+  be used to tune or retroactively alter this declaration.
+- Risks and preservation: the uncapped trajectory is long and single-seed;
+  the asymmetric rates remain a cross-dataset hypothesis; GPU/dependency or
+  identity/override drift could fail execution. Preserve all generated files
+  and the pending declaration on any failure; do not reset, delete, retry, or
+  roll back automatically.
+- Planned verification after explicit authorization: record environment,
+  resolved arguments and empty override maps, teacher SHA256, clean launch
+  commit, and pre-run artifact inventory; then audit one new run's chronology,
+  manifest/preflight/convergence data, validation selection and restoration,
+  exactly-one final Test event, finite metrics, checkpoint keys/shapes/finiteness
+  and full-to-inference equality, teacher/alias preservation, artifact hashes,
+  and final Git status before appending a separate completed or failed outcome.
+- Declaration verification and next action: this append-only diff is limited to
+  `TRAINING_LOG.md`; no project code, data, checkpoint, validation, or Test
+  command is run. After this pending declaration commit, wait for explicit user
+  authorization such as `continue` before launching exactly the command above
+  once; do not start another experiment stage in this task.
+
+### 2026-07-31 | baby_td_asymmetric_no_projection_v1 formal seed-2022 uncapped declaration (completed; run not started)
+
+- Status and scope: completed the requested declaration-recording change only;
+  the formal run declared immediately above remains `pending`. No training,
+  validation ranking, Test evaluation, project-code execution, checkpoint
+  creation, tag, merge, or baseline overwrite was performed.
+- Verification evidence: the append-only diff adds only the independent pending
+  declaration and this outcome record to `TRAINING_LOG.md`; `git diff --check`
+  passed; the pre-edit branch was clean; and no unrelated file is in scope.
+- Metrics and artifacts: none. No test split was accessed, no run command was
+  executed, and no validation/Test metric, manifest, preflight, convergence
+  record, checkpoint, raw log, or asset hash was created or changed.
+- Experimental meaning and unresolved risks: this commit establishes the
+  reproducibility contract for the uncapped seed-2022 candidate but provides no
+  evidence about recommendation quality or runtime. The declared semantic
+  rates remain a cross-dataset hypothesis, and the single seed will not estimate
+  variance. Preserve the pending record even if the later run is low-quality or
+  fails a hard execution gate.
+- Next action: after explicit user authorization, launch the exact declared
+  command once from this clean commit and append its separate completed/failed
+  run outcome with resolved parameters, validation selection, one-time final
+  Test evidence, and artifact fingerprints.
