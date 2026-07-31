@@ -786,3 +786,70 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   profile overrides. Expected outputs are the validation-selected full and
   inference-only checkpoints, convergence record, run manifest, raw log, and
   the single protocol-authorized final-test evaluation after restoration.
+
+### 2026-07-31 | Low-result preservation and destructive-action guard (pending)
+
+- Purpose and rationale: make experiment preservation independent of whether a
+  result is strong, weak, expected, or disappointing. Scientific outcomes must
+  remain traceable unless execution itself violates code, process, or hard
+  acceptance requirements.
+- Status: pending; repository-policy and documentation scope only.
+- Scope: add one explicit rule to `AGENTS.md` under
+  `Mandatory Completion Handoff` and preserve this change through separate
+  pending/completed entries in the append-only `TRAINING_LOG.md`. No experiment
+  code, data, parameter, protocol, checkpoint, metric, run command, or generated
+  artifact will change.
+- Planned rule: low or degraded metrics remain valid completed evidence and
+  must not trigger automatic rollback, reset, revert, or deletion; `failed` is
+  reserved for code, execution-flow, or hard-acceptance failures; failure state
+  and recovery evidence remain preserved; destructive Git/history/file actions
+  require explicit user confirmation.
+- Rollback point: branch `codex/experiment/baby-teacher-baseline` at commit
+  `4d1848de0421352e72e52aa9c7bf6c577799de2e`.
+- Risks: ambiguous wording could confuse a scientifically poor result with a
+  technically invalid run, or could appear to authorize silent destructive
+  recovery after a genuine failure.
+- Acceptance criteria: the rule explicitly preserves low or degraded results,
+  defines the narrow `failed` boundary, requires failure-site/root-cause and
+  recovery-point reporting, and prohibits revert, reset, branch restoration,
+  change deletion, or result deletion without explicit user confirmation. Only
+  `AGENTS.md` and `TRAINING_LOG.md` may enter the commit.
+- Planned verification: focused exact-concept/keyword checks, manual diff
+  review, `git diff --check`, exact staged-file review, and
+  `git diff --cached --check`. No project code, dataset command, or training
+  process will run.
+
+### 2026-07-31 | Low-result preservation and destructive-action guard (completed; policy-only)
+
+- Purpose and outcome: made weak or degraded experiment outcomes explicitly
+  preservable evidence and separated scientific disappointment from technical
+  or protocol failure.
+- Status: completed; policy-only, with no experiment execution.
+- Actual changes: added rule 10 under `Mandatory Completion Handoff` requiring
+  low or worse-than-expected metrics to remain recorded `completed` evidence
+  when code, execution flow, and hard acceptance conditions succeed. The rule
+  reserves `failed` for failures in those three areas, requires preservation of
+  the failure state plus cause and recommended recovery point, and prohibits
+  revert, reset, branch restoration, change deletion, or result deletion
+  without explicit user confirmation.
+- Scope control: only `AGENTS.md` and this append-only log changed. No source
+  code, dataset, protocol, parameter, environment, checkpoint, metric, command,
+  manifest, raw log, or generated artifact changed; no training was launched.
+- Verification evidence:
+  - focused content checks found the low/degraded-result condition, valid
+    completed-evidence treatment, narrow `failed` boundary, preserved failure
+    state, recovery-point reporting, and explicit-user confirmation guard;
+  - manual diff review confirmed the new rule is within
+    `Mandatory Completion Handoff` and does not weaken the existing formal-run
+    or version-control gates;
+  - `git diff --check` passed before this completed entry;
+  - working diff contained exactly `AGENTS.md` and `TRAINING_LOG.md`.
+- Acceptance decision: all requested policy concepts are explicit and the
+  documentation-only change is ready for one coherent local commit.
+- Metrics and artifacts: none; policy text and its Git commit are the only
+  outputs. No test split or experiment artifact was accessed.
+- Unresolved risks: none within the declared policy scope.
+- Next action: after this policy commit, retain the existing experiment gate as
+  the single recommendation: only with explicit user authorization, predeclare
+  and run the uncapped seed-2022 `baby_student_reference_v1` formal reference
+  from a clean tree without profile overrides.

@@ -90,6 +90,15 @@ material and must record their own preservation and verification evidence.
 9. Advance only one explicit experiment stage per task. Do not launch parallel
    experiment stages that could contaminate comparisons or make provenance
    difficult to trace.
+10. Never automatically roll back, reset, revert, or delete an experiment
+    result solely because its metrics are low, worse than expected, or degraded
+    relative to another method. Preserve and record low metrics as valid
+    completed evidence when the code, execution flow, and hard acceptance
+    conditions succeeded. Mark a task `failed` only when code, execution flow,
+    or hard acceptance conditions fail; preserve the failure state and report
+    its cause and recommended recovery point. Without explicit user
+    confirmation, never revert, reset, restore a branch, delete changes, or
+    delete experiment results.
 
 ## Formal Run Gate
 
