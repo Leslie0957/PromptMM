@@ -853,3 +853,98 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   the single recommendation: only with explicit user authorization, predeclare
   and run the uncapped seed-2022 `baby_student_reference_v1` formal reference
   from a clean tree without profile overrides.
+
+### 2026-07-31 | baby_student_reference_v1 formal seed-2022 reference (pending)
+
+- Purpose and hypothesis: establish the first formal Baby ID-only BPR student
+  reference under the committed `baby_student_reference_v1` profile. The run
+  tests the predeclared `student_lr=6e-5` transfer hypothesis without tuning and
+  creates the quality anchor for later directional-distillation comparisons.
+- Status: pending; formal, uncapped, validation-selected, single seed `2022`.
+- Authorization: the user explicitly authorized this formal run and its
+  protocol-required final-test evaluation after the completed validation-only
+  smoke. No later distillation experiment is authorized in this task.
+- Branch and source identity:
+  - branch `codex/experiment/baby-teacher-baseline`;
+  - protocol implementation commit
+    `58fda059786067768e308f48e10ae864416334f5`;
+  - completed smoke result commit
+    `4d1848de0421352e72e52aa9c7bf6c577799de2e`;
+  - current preservation-policy commit
+    `af4867514b20885d2b97d280cf19ff1b1758f8d7`;
+  - `git diff 58fda059786067768e308f48e10ae864416334f5 HEAD -- codes`
+    is empty;
+  - this declaration will be committed before launch, then its exact clean
+    commit will be recorded in the outcome entry.
+- Dataset and preprocessing identity: audited MMRec Baby under `data/baby/`;
+  conversion manifest SHA256
+  `cf2d0d8c8aff9b321aad0b11d48d078794d12a4920afaa4c8efedfe3beda9df2`;
+  train/validation/test matrix hashes remain the active identities recorded
+  above; hard-token type `pca`, seed `2022`, and frozen cache provenance must
+  match the teacher checkpoint.
+- Evaluation protocol: `val_test_once_v1`; train on `train_mat`; select and
+  early-stop only by validation Recall@20; candidate exclusion `train_only`;
+  `Ks=[10,20,40,50]`; restore the validation-best student checkpoint, then
+  evaluate its test split exactly once. Teacher and student metrics remain
+  separate, and no test metric may influence selection or acceptance.
+- Teacher checkpoint identity: read-only
+  `Model/baby/teacher_model_val_test_once_v1.pt`; pre-run SHA256
+  `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`;
+  `if_train_teacher=false`, `allow_teacher_alias_overwrite=false`; no teacher
+  training, publication, or overwrite is authorized.
+- Full command:
+  `D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_student_reference_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --run_final_test true`
+- Resolved parameters and override gate:
+  - formal profile resolution before declaration produced
+    `dataset_config_overrides={}` and `student_config_overrides={}`;
+  - seed `2022`, batch size `1024`, full `116` batches per epoch, maximum
+    `1000` epochs, validation interval `5`, early-stopping patience `7`;
+  - `smoke_train_batches=0`, `run_final_test=true`, dataset preflight enabled,
+    duplicate modalities policy `error`;
+  - `td_distill_no_projection`, student dimension `64`, random initialization,
+    AdamW `student_lr=6e-5`, weight decay `0.01`;
+  - `td_distill_alpha=0` and all four semantic component rates `0`, so this is
+    the declared BPR-only reference with no teacher warm start or semantic loss.
+- Environment: `D:\miniconda\envs\run_5060\python.exe`; Python `3.10.20`;
+  PyTorch `2.11.0+cu128`; CUDA runtime `12.8`; NVIDIA driver `595.97`;
+  NVIDIA GeForce RTX 5060 8 GB; GPU selector `0`; preflight free space on drive
+  D approximately `404 GB`.
+- Planned run-specific artifacts keyed by a new timestamp/PID run name:
+  `logs/<run_name>`,
+  `exp/runs/baby/dataset_preflight__<run_name>.json`,
+  `exp/runs/baby/run_manifest__<run_name>.json`,
+  `exp/converge/baby/auto__<run_name>.pkl`,
+  `Model/baby/td_distill/td_distill_full__val_test_once_v1__<run_name>.pth`,
+  and
+  `Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__<run_name>.pth`.
+- Hard acceptance criteria: launch from the clean committed declaration;
+  preflight and frozen-teacher validation pass; both profile override maps stay
+  empty; losses and validation metrics remain finite; validation Recall@20
+  alone selects/early-stops; the selected checkpoint is restored before one
+  final student test evaluation; manifest status is `completed`,
+  `paper_ready_eligible=true`, blockers are empty, and
+  `final_test_performed=true`; teacher SHA256 is unchanged; all artifacts are
+  isolated, present, and fingerprinted.
+- Quality acceptance rule: there is no minimum metric threshold. Any finite
+  result produced by the declared code and protocol is valid completed
+  evidence even if low or worse than the smoke/teacher/expectation. Quality
+  alone must not trigger rollback, reset, revert, deletion, or a `failed`
+  label.
+- Failure boundary and preservation: mark `failed` only for code failure,
+  execution-flow failure, or a hard acceptance violation. Preserve every
+  run-specific log, manifest, and checkpoint that exists; report the root cause
+  and recommended recovery point without destructive recovery.
+- Risks: uncapped runtime is substantially longer than the smoke; GPU or
+  dependency failure may interrupt the run; `6e-5` remains an unconfirmed
+  cross-dataset hypothesis; the single seed is an anchor rather than a variance
+  estimate; final test is authorized once and cannot be used to tune settings.
+- Planned verification: clean Git launch gate, exact profile resolution,
+  pre/post teacher SHA256, process exit, full manifest protocol/eligibility and
+  selection/finalization checks, finite metric checks, run-log chronology,
+  artifact existence/SHA256, and final Git status.
+- Rollback/preservation point: committed protocol source
+  `58fda059786067768e308f48e10ae864416334f5` and verified smoke result
+  `4d1848de0421352e72e52aa9c7bf6c577799de2e`; no rollback action is authorized.
+- Next action: commit this declaration only, verify the exact clean launch
+  commit and identities, then execute the command once to completion. Do not
+  start a directional-distillation run afterward.
