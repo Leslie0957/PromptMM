@@ -2545,3 +2545,106 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   `baby_student_reference_seed2023_v1` command once from the clean declaration
   HEAD, audit its protocol and artifacts, append and commit its completed or
   failed outcome, and stop. Do not begin any later arm in that task.
+
+### 2026-07-31 | baby_student_reference_seed2023_v1 formal uncapped baseline (failed)
+
+- Purpose and outcome: executed the exact declared seed-2023 ID-only BPR
+  baseline command once from clean declaration commit
+  `acc0b59f2bc1b41a76c8f8bda486e655a9b09d10`. The run passed source,
+  profile, environment, dataset-preflight, cache, and frozen-teacher gates but
+  failed before completing any optimization batch because the external command
+  execution session timed out and closed its output channel. The runner caught
+  the resulting `OSError: [Errno 22] Invalid argument`, wrote a failed manifest,
+  and exited; no retry was launched.
+- Status and acceptance: failed under the declared process/code failure
+  boundary. This is not a low-quality result: no validation-selected model or
+  recommendation metric exists. The failed attempt and all valid partial
+  artifacts are preserved; no reset, deletion, rollback, or automatic retry
+  occurred.
+- Branch and exact source identity: branch
+  `codex/experiment/baby-teacher-baseline`; clean launch HEAD
+  `acc0b59f2bc1b41a76c8f8bda486e655a9b09d10`; pre-launch
+  `git diff 03260ee2db0e9e90332588031eacf3152d260dbf HEAD -- codes docs`
+  was empty. The tracked tree was clean before launch, and the failed process
+  did not modify tracked source.
+- Executed command, exactly once:
+  `D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_student_reference_seed2023_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --run_final_test true`
+- Process and environment: run name
+  `2026-07-31 23_22_19.126721_baby_light_init_pid17888`; runner start
+  `2026-07-31T23:22:19.129277+08:00`; failed manifest time
+  `2026-07-31T23:22:31.886772+08:00`; outer execution wrapper returned exit
+  code `124` after approximately `14` seconds. Environment checks immediately
+  before launch reported Python `3.10.20`, PyTorch `2.11.0+cu128`, CUDA runtime
+  `12.8`, NVIDIA driver `595.97`, NVIDIA GeForce RTX 5060 8 GB, GPU selector
+  `0`, and approximately `405.9 GB` free on drive D.
+- Resolved profile and protocol evidence: profile/scope/source resolved as
+  `baby_student_reference_seed2023_v1` / `student_reference` /
+  `predeclared_baby_id_only_bpr_reference_seed2023`; both
+  `dataset_config_overrides` and `student_config_overrides` were `{}`. The
+  runner recorded seed `2023`, `hard_token_seed=2022`, batch size `1024`,
+  maximum `epoch=1000`, patience `7`, `smoke_train_batches=0`,
+  `run_final_test=true`, AdamW `student_lr=6e-5`, weight decay `0.01`, random
+  64-dimensional no-projection student initialization, and all semantic rates
+  plus `td_distill_alpha` at `0.0`. The manifest recorded
+  `paper_ready_eligible=true` and no blockers before the execution failure.
+- Dataset, preprocessing, and teacher audit: preflight passed the declared
+  conversion manifest, train/validation/Test matrix, and image/text feature
+  identities; split overlaps were `0 / 0 / 0`, modalities were finite and
+  non-duplicate, and the only warning was the frozen three-cold-item condition
+  covering `11` validation and `7` Test interactions. Both PCA hard-token
+  caches were hits with random state `2022`. The frozen teacher was loaded and
+  validated, remained `141098540` bytes, and retained SHA256
+  `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`;
+  no teacher optimizer step, run-local teacher checkpoint, alias publication,
+  or overwrite occurred.
+- Training, validation selection, and Test result: none. The log reaches
+  student construction, disabled warm start, cache loading, and confirmation
+  of BPR-only mode, but contains no completed optimization batch, epoch,
+  validation event, best-checkpoint save/restore, early-stop event, or student
+  final-Test event. Therefore there is no loss series, best epoch, validation
+  Recall@20, checkpoint selection, or final Test metric. No validation-best
+  checkpoint could be restored and the protocol-authorized final Test ranking
+  was not executed.
+- Test-split access and protocol compliance: the dataset preflight read Test
+  matrix structure and identity as declared, and frozen teacher Test metrics
+  were read from checkpoint metadata. Neither the teacher nor the seed-2023
+  student performed a new Test ranking evaluation. Execution complied with the
+  declared identity and Test chronology up to the process failure, but the
+  formal protocol did not complete.
+- Preserved partial artifacts:
+  - raw log
+    `logs/2026-07-31 23_22_19.126721_baby_light_init_pid17888`, `4927`
+    bytes, SHA256
+    `2d512a4ef40cf02c933f6eb3391c02bdf1ddddec60ec24e2343e36d1c41521c0`;
+  - preflight
+    `exp/runs/baby/dataset_preflight__2026-07-31 23_22_19.126721_baby_light_init_pid17888.json`,
+    `3399` bytes, SHA256
+    `6ccaec45bf975bc001ffd07f4fc3e4104c86052f85556c7737677f39a62f6f16`;
+  - failed manifest
+    `exp/runs/baby/run_manifest__2026-07-31 23_22_19.126721_baby_light_init_pid17888.json`,
+    `24366` bytes, SHA256
+    `6f6b6e49e8ee3495bab306693848c3cf0f960ca250dd3470335602ac8bb325bd`.
+  No convergence record, full student checkpoint, inference-only checkpoint,
+  run-local teacher checkpoint, or additional same-run artifact exists.
+- Root cause and recovery point: the repository runner and data path reached
+  normal BPR-only initialization, but the outer command transport was launched
+  with a short timeout inappropriate for the uncapped formal run. Closing that
+  transport caused the runner's next output operation to raise the recorded
+  Windows `EINVAL`/`OSError`. Recovery must preserve this failed run and start
+  from the same frozen implementation and parameters, using a separately
+  declared clean commit and a long-lived execution transport without a short
+  timeout. A rerun requires new explicit authorization and is not implied by
+  this outcome.
+- Experimental meaning and unresolved risks: this attempt contributes no
+  seed-2023 quality or replication evidence. The seed-2023 baseline remains
+  unresolved, so the mandatory baseline-outcome-before-candidate firewall
+  continues to block candidate declaration and execution. The next long run
+  could still encounter independent GPU, dependency, or code failures, and
+  ignored artifacts remain outside Git protection.
+- Unique next action: with explicit user authorization, append and commit a
+  recovery formal-run declaration for the same
+  `baby_student_reference_seed2023_v1` command, parameters, data, protocol, and
+  teacher identity, adding only the operational requirement for a long-lived
+  execution transport; then stop before rerunning. Do not declare or execute
+  the candidate. Expected artifacts for that next step are the append-only
+  recovery declaration and its clean Git commit only.
