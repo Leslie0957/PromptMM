@@ -1078,3 +1078,147 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   protocol, and teacher fixed; name `td_distill_alpha` and directional rates
   before any run. Stop after the declaration and wait for explicit user
   authorization; do not launch it, create a tag, or merge `main` now.
+
+### 2026-07-31 | Baby asymmetric no-projection directional candidate v1 (pending; declaration only)
+
+- Purpose and hypothesis: predeclare the first fair directional-distillation
+  candidate against the completed `baby_student_reference_v1` ID-only BPR
+  anchor. The hypothesis is that moderate, asymmetric item-dominant semantic
+  alignment can improve the same randomly initialized 64-dimensional student
+  without projection heads, teacher warm start, additional deployable state, or
+  any change to the reference optimization and evaluation budget.
+- Status and authorization boundary: pending candidate specification only.
+  Candidate/profile ID: `baby_td_asymmetric_no_projection_v1`. This task
+  authorizes only this append-only declaration and its independent Git commit.
+  No implementation, profile-resolution command, project-code execution,
+  training, validation ranking, final-test evaluation, tag, merge, checkpoint
+  publication, or baseline-asset overwrite is authorized or performed here.
+- Parameter-selection firewall:
+  - the semantic settings below are transferred unchanged from the archived
+    pre-Baby asymmetric no-projection, no-warm-start research hypothesis and
+    the transferable findings already summarized near the top of this active
+    log;
+  - they were not selected, refined, accepted, or rejected using the completed
+    `baby_student_reference_v1` formal Test metrics or the frozen teacher Test
+    metrics;
+  - those already-recorded Test results remain final reference evidence only.
+    They may be reported after a protocol-valid candidate run but may never
+    choose this candidate or trigger an undeclared parameter adjustment.
+- Branch, source identity, and rollback/preservation point:
+  - branch `codex/experiment/baby-teacher-baseline`;
+  - clean declaration predecessor and rollback point
+    `6f806fa70de1c707dd109741b1c8fd2d3efdc29a`;
+  - active student-protocol implementation commit
+    `58fda059786067768e308f48e10ae864416334f5`;
+  - completed reference launch/declaration commit
+    `8d8858547a475fd970ae9753496b2a7c06eb472c`;
+  - no rollback action is authorized; preserve this declaration and any future
+    candidate evidence even if quality is low.
+- Dataset and preprocessing identity: keep the audited MMRec Baby dataset under
+  `data/baby/`, conversion manifest SHA256
+  `cf2d0d8c8aff9b321aad0b11d48d078794d12a4920afaa4c8efedfe3beda9df2`,
+  and the active train/validation/test matrix and modality identities recorded
+  above. Keep the same `pca` hard-token/cache provenance required by the frozen
+  teacher. No dataset, split, feature, preprocessing, or cache change is part
+  of this candidate.
+- Frozen teacher identity: reuse
+  `Model/baby/teacher_model_val_test_once_v1.pt` read-only, SHA256
+  `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`;
+  keep `if_train_teacher=false` and `allow_teacher_alias_overwrite=false`.
+  Teacher training, mutation, alias publication, or overwrite is prohibited.
+- Fixed fair-comparison controls inherited exactly from
+  `baby_student_reference_v1`:
+  - seed `2022`; `student_model_type=td_distill_no_projection`; user and item
+    embedding dimension `64`; random initialization with
+    `td_init_from_teacher=false`;
+  - AdamW with `student_lr=6e-5` and `student_weight_decay=0.01`; batch size
+    `1024`; maximum `1000` epochs; full `116` optimization batches per epoch;
+    validation every epoch; early-stopping patience `7` consecutive
+    non-improving validation evaluations; no smoke batch cap for a formal run;
+  - unchanged `data_generator.sample()` pairwise BPR sampling: each batch
+    samples `1024` distinct existing users without replacement, one uniformly
+    selected training-positive item per user, and one uniformly selected item
+    absent from that user's training interactions as the negative; users may
+    recur across independently sampled batches, exactly as in the reference;
+  - `val_test_once_v1`, validation Recall@20 checkpoint selection,
+    `Ks=[10,20,40,50]`, `test_flag=part`, candidate exclusion `train_only`,
+    dataset preflight enabled, duplicate-modality policy `error`, restoration
+    of the validation-best checkpoint, and at most one final Test evaluation
+    only after restoration in a separately authorized formal run.
+- Predeclared semantic-loss delta, the only allowed behavioral difference from
+  the reference:
+  - `td_distill_alpha=0.3`;
+  - `td_item_image_rate=1.0`;
+  - `td_item_text_rate=0.3`;
+  - `td_user_image_rate=0.0`;
+  - `td_user_text_rate=0.0`.
+- Exact objective meaning under the maintained implementation: for each BPR
+  batch, the active semantic term is
+  `(1.0 * L_item_image + 0.3 * L_item_text) / 1.3`, and the optimized objective
+  is `L_BPR + 0.3 * L_semantic`. User-image and user-text heads are inactive;
+  the no-projection model aligns the 64-dimensional student embeddings directly
+  to the matching frozen-teacher semantic targets. The exported inference state
+  must still contain only user and item ID embeddings.
+- Rationale fixed before any Baby candidate run:
+  - `td_distill_alpha=0.3` preserves the archived no-warm-start moderate-strength
+    hypothesis: weaker settings under-transferred semantics, while the stronger
+    archived `0.4` point showed non-monotonic collapse; this is a cross-dataset
+    prior to retest, not a Baby optimum claim;
+  - item-image rate `1.0` is the anchor semantic direction, while item-text rate
+    `0.3` retains complementary text supervision at lower strength rather than
+    imposing naive image/text symmetry;
+  - both user-side rates remain `0.0` because the archived structure study found
+    item-dominant supervision stronger than four-head symmetry and found that
+    reintroducing user-side supervision did not improve the no-warm-start
+    anchor;
+  - no projection and no teacher warm start isolate the proposed training-only
+    semantic transfer from projection loss and initialization leakage.
+- Planned formal command after, and only after, a separately authorized and
+  committed candidate-profile implementation plus its required smoke gate:
+  `D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_td_asymmetric_no_projection_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --run_final_test true`
+  The profile must carry the declared semantic values, so the formal command
+  must not use CLI semantic or optimizer overrides.
+- Implementation readiness and declared future scope: current source recognizes
+  only `baby_student_reference_v1` and treats semantic CLI changes to it as
+  reference-profile overrides and paper-ready blockers. Therefore this
+  declaration is intentionally not yet executable as a paper-ready candidate.
+  A separately authorized next stage must add
+  `baby_td_asymmetric_no_projection_v1` as an independent pinned profile,
+  update the Baby student eligibility gate, add focused profile/protocol tests
+  and candidate documentation, and append its own pending/completed trace. It
+  must not change the sampler, model/loss implementation, reference profile, or
+  any fixed control declared above.
+- Hard acceptance criteria for the future implementation and run path:
+  - candidate profile resolution has no overrides and differs from the
+    reference resolved arguments only in profile identity plus the five
+    semantic settings declared above;
+  - focused tests prove fixed-control equality, exact semantic values, frozen
+    teacher reuse, no warm start, no projection heads, run-manifest identity,
+    and rejection of undeclared overrides;
+  - a later validation-only smoke, if separately authorized, performs no Test
+    ranking; a later formal run starts from clean committed source, uses
+    validation Recall@20 alone for selection and early stopping, restores the
+    selected checkpoint, and accesses Test once only after restoration;
+  - losses, metrics, and exported embeddings are finite; the teacher hash is
+    unchanged; artifacts are isolated and fingerprinted. There is no minimum
+    quality threshold, and Test quality is not a parameter-selection or
+    technical-acceptance criterion.
+- Risks: all semantic weights are transferred from an invalid-for-paper old
+  dataset environment and may not transfer to audited Baby; one seed cannot
+  estimate variance; the semantic loss is normalized by the sum of active
+  component rates, so the four rates encode relative direction balance rather
+  than an additional absolute scale; and any accidental CLI override, warm
+  start, sampler drift, teacher mutation, or repeated Test access would break
+  the fair-comparison contract.
+- Verification for this declaration: inspect the append-only diff and exact
+  staged-file scope, run `git diff --check` and `git diff --cached --check`,
+  create one commit containing only `TRAINING_LOG.md`, and confirm the final
+  branch/HEAD/clean-tree state. Metrics and run artifacts are intentionally
+  absent because no project code or evaluation is executed.
+- Unique next action: only after explicit user authorization, implement and
+  verify the independently pinned `baby_td_asymmetric_no_projection_v1`
+  profile from this declaration, append its separate pending/completed trace,
+  and create one code-and-documentation commit. Stop without training,
+  validation ranking, or Test access; the expected artifacts are the profile,
+  eligibility update, focused tests, candidate document, log outcome, and
+  commit hash.
