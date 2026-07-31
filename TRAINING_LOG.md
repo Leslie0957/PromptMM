@@ -11,7 +11,7 @@ and evaluation audit. The complete pre-reset record remains immutable at
 - Default argument source: `codes/utility/parser.py`
 - Canonical active dataset: audited MMRec Baby under `data/baby/`
 - Canonical protocol: `val_test_once_v1`
-- Active student profile: `baby_student_reference_v1` (defined; smoke pending)
+- Active student profile: `baby_student_reference_v1` (smoke passed; formal run pending)
 - Current completed stage: frozen Baby teacher reference, seed `2022`
 - Current incomplete stage: Baby student baseline and distillation experiments
 - `codes/run_patent.py` is standalone and outside this experiment line.
@@ -698,3 +698,91 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   manifest/log/checkpoint for diagnosis rather than altering the frozen teacher.
 - Next action: commit this declaration only, verify the exact launch commit and
   clean tree, then run the command once. Do not start an uncapped or formal run.
+
+### 2026-07-31 | baby_student_reference_v1 validation-only smoke (completed)
+
+- Purpose and outcome: the first isolated GPU-path smoke for the Baby ID-only
+  BPR reference completed successfully. It exercised frozen-teacher loading,
+  one optimization batch, validation selection, checkpoint restoration, and
+  no-final-test termination.
+- Status: completed successfully; non-formal and not paper-ready.
+- Branch and source identity:
+  - branch `codex/experiment/baby-teacher-baseline`;
+  - protocol implementation commit
+    `58fda059786067768e308f48e10ae864416334f5`;
+  - policy commit `e2ac51db163f3b4a2bef2d04a838897ab5ba1a86`;
+  - clean run-declaration/launch commit
+    `b5863217800b4505109a65a4db016fb9f5677b8b`;
+  - `git diff 58fda059786067768e308f48e10ae864416334f5 HEAD -- codes`
+    was empty immediately before launch.
+- Full executed command:
+  `D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_student_reference_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --epoch 1 --smoke_train_batches 1 --run_final_test false`
+- Environment: `D:\miniconda\envs\run_5060\python.exe`; Python `3.10.20`;
+  PyTorch `2.11.0+cu128`; CUDA runtime `12.8`; NVIDIA GeForce RTX 5060;
+  GPU selector `0`.
+- Run identity:
+  `2026-07-31 12_08_26.244081_baby_light_init_pid24060`; completed at
+  `2026-07-31T12:08:39.911356+08:00`; process exit code `0`.
+- Resolved protocol and parameters:
+  - audited Baby, `val_test_once_v1`, validation selection, Recall@20 primary,
+    candidate exclusion `train_only`, seed `2022`, batch size `1024`;
+  - `epoch=1`, `smoke_train_batches=1`, `run_final_test=false`;
+  - `td_distill_no_projection`, 64-dimensional random student, warm start
+    disabled, AdamW `student_lr=6e-5`, weight decay `0.01`;
+  - semantic alpha and all four component rates were `0`, producing BPR-only
+    training with no active semantic heads;
+  - student overrides were exactly the declared `epoch`,
+    `smoke_train_batches`, and `run_final_test`; the dataset profile separately
+    recorded the expected `epoch` override.
+- Execution and validation evidence:
+  - the cap selected `1` batch instead of the full `116` batches per epoch;
+  - epoch `0` completed in `10.3s`; finite BPR loss was `0.69320`, semantic
+    component losses were all `0`;
+  - validation-best epoch was `0`; exact validation Recall@20 was
+    `0.0029656295534413314`;
+  - the validation-selected full checkpoint was restored before exit;
+  - manifest status is `smoke_completed`, model stage `td_distill`, and the run
+    is correctly ineligible with only declared profile/cap/no-final-test
+    blockers.
+- Test-split handling: dataset loading/preflight inspected the declared split
+  only for structural integrity and identity. Neither teacher nor student
+  ranking evaluated the test split. Manifest values are
+  `run_final_test=false`, `teacher_final_test_performed=false`, and
+  `final_test_performed=false`; neither teacher nor student final-test result
+  field exists. No test metric was read or reported.
+- Frozen teacher preservation: pre- and post-run SHA256 both equal
+  `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`.
+  No run-local teacher checkpoint was created, no alias was published, and the
+  frozen alias was not overwritten.
+- Isolated artifacts and SHA256:
+  - manifest:
+    `exp/runs/baby/run_manifest__2026-07-31 12_08_26.244081_baby_light_init_pid24060.json`;
+    `7823ce0f13aaa0f995fe08b8e301bc89ed4d87ac0dde7170b82c1ded178eca0e`;
+  - preflight:
+    `exp/runs/baby/dataset_preflight__2026-07-31 12_08_26.244081_baby_light_init_pid24060.json`;
+    `a117402c47e8e71f48fddbff40a75e322acb3db6ef7e0bdd43421c582506a8b6`;
+  - convergence record:
+    `exp/converge/baby/auto__2026-07-31 12_08_26.244081_baby_light_init_pid24060.pkl`;
+    `eefabe59f4102a5a0cc43f018494c745dcbf67af0194d6864e64ec57bfa229a1`;
+  - full student checkpoint:
+    `Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-07-31 12_08_26.244081_baby_light_init_pid24060.pth`;
+    `ea8da2fd6c59a0552a9f601352100cfdefa50c2544b92d11a47c7db3dbaeaa4d`;
+  - inference-only student checkpoint:
+    `Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-07-31 12_08_26.244081_baby_light_init_pid24060.pth`;
+    `6c2b741890d9fdcb0f31243a2a6603482ec100b323cfc4d3286b07af8dad71eb`;
+  - raw log:
+    `logs/2026-07-31 12_08_26.244081_baby_light_init_pid24060`;
+    `89d4ba0734c213e284df63cc5c266eed08b64ec3030652691edb6822bd0d059c`.
+- Acceptance decision: all declared smoke criteria passed. This confirms the
+  execution and isolation path only; the capped validation value is diagnostic
+  and is not an accepted Baby student baseline result.
+- Unresolved risks: the uncapped optimizer trajectory and early stopping remain
+  untested; `student_lr=6e-5` is still a predeclared transfer hypothesis rather
+  than a Baby-confirmed optimum; and no formal student final-test evidence
+  exists.
+- Next action: after this outcome log is committed and only after explicit user
+  approval, declare and execute the uncapped seed-2022
+  `baby_student_reference_v1` formal reference from a clean tree, with no
+  profile overrides. Expected outputs are the validation-selected full and
+  inference-only checkpoints, convergence record, run manifest, raw log, and
+  the single protocol-authorized final-test evaluation after restoration.
