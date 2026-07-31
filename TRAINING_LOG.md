@@ -11,9 +11,12 @@ and evaluation audit. The complete pre-reset record remains immutable at
 - Default argument source: `codes/utility/parser.py`
 - Canonical active dataset: audited MMRec Baby under `data/baby/`
 - Canonical protocol: `val_test_once_v1`
-- Active student profile: `baby_student_reference_v1` (smoke passed; formal run pending)
-- Current completed stage: frozen Baby teacher reference, seed `2022`
-- Current incomplete stage: Baby student baseline and distillation experiments
+- Active student profile: `baby_student_reference_v1` (formal seed-2022
+  reference completed)
+- Current completed stage: frozen Baby teacher reference and ID-only BPR
+  student reference, both seed `2022`
+- Current incomplete stage: Baby directional distillation, ablation,
+  multi-seed, and efficiency experiments
 - `codes/run_patent.py` is standalone and outside this experiment line.
 - CLI flags override parser defaults. In particular, an explicit
   `--student_lr` overrides the parser value.
@@ -54,8 +57,8 @@ and evaluation audit. The complete pre-reset record remains immutable at
 
 Only results produced on audited, non-duplicate multimodal data under the
 validation-selected `val_test_once_v1` protocol may enter the main thesis result
-tables. As of this reset, the only completed paper-ready Baby result is the
-seed-2022 teacher reference.
+tables. The completed paper-ready Baby anchors are now the seed-2022 teacher
+reference and seed-2022 `baby_student_reference_v1` ID-only BPR reference.
 
 ### Historical exploratory evidence
 
@@ -205,49 +208,62 @@ student experiments. It is not a multi-seed final teacher estimate.
 
 ### Student stage status
 
-No formal Baby student, distillation, ablation, multi-seed, or efficiency result
-exists yet. No Baby student checkpoint is an accepted reference.
+- Active reference profile: `baby_student_reference_v1`
+- Scope: ID-only BPR student reference; no semantic loss and no teacher warm
+  start
+- Seed: `2022`
+- Protocol implementation commit:
+  `58fda059786067768e308f48e10ae864416334f5`
+- Run-declaration/source commit:
+  `8d8858547a475fd970ae9753496b2a7c06eb472c`
+- Run: `2026-07-31 12_33_07.292506_baby_light_init_pid7872`
+- Environment: `D:\miniconda\envs\run_5060\python.exe`; Python `3.10.20`;
+  PyTorch `2.11.0+cu128`; CUDA `12.8`; NVIDIA driver `595.97`; RTX 5060 8 GB;
+  GPU `0`
+- Resolved dataset/student profile overrides: `{}` / `{}`
+- Student: `td_distill_no_projection`, dimension `64`, random initialization,
+  AdamW `student_lr=6e-5`, weight decay `0.01`
+- Loss: BPR only; `td_distill_alpha=0` and item-image, item-text, user-image,
+  and user-text rates all `0`
+- Full training batches per epoch: `116`
+- Trained epochs: `0-170`; natural early stop at patience `7/7`
+- Validation-best epoch: `163`
+- Exact validation Recall@20: `0.04291303921928788`
+- Final Test Recall@20: `0.044279857310199594`
+- Final Test NDCG@20: `0.019996624710057805`
+- Final Test Precision@20: `0.0024787863203908794`
+- Final Test Hit Ratio@20: `0.04906145538698948`
+- Full checkpoint:
+  `Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-07-31 12_33_07.292506_baby_light_init_pid7872.pth`
+- Full checkpoint SHA256:
+  `6a9cbe7548ac41a2d362309656923aa4f21f8c4f59a372e510a97535ccb61507`
+- Inference-only checkpoint:
+  `Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-07-31 12_33_07.292506_baby_light_init_pid7872.pth`
+- Inference-only checkpoint SHA256:
+  `dbf0bf5ac0fe22ddbea6da5e777a8549b321fe25ae4df9d66f7d97c0e787e206`
+- Manifest:
+  `exp/runs/baby/run_manifest__2026-07-31 12_33_07.292506_baby_light_init_pid7872.json`
+- Manifest SHA256:
+  `cd2c5aa1fae79af8f8161dfee4fbb2bf9f451b591607df6c646d1dbf8b67af7d`
 
-Known configuration boundary before the first Baby student run:
-
-- Baby teacher semantic dimension is `64`.
-- The parser still defaults `student_embed_size` to `32`.
-- `td_distill_no_projection` requires student and teacher semantic dimensions
-  to match exactly.
-- The parser defaults to `student_model_type=lightgcn`, four component rates of
-  `1.0`, `td_distill_alpha=0.1`, and teacher warm start enabled.
-- Those parser defaults are not a validated Baby student profile and do not
-  represent the intended asymmetric no-projection method.
-- Old Amazon values such as `student_lr=6e-5`, `td_distill_alpha=0.3`, and
-  component rates `1/0.3/0/0` are hypotheses for Baby, not confirmed defaults.
+Interpretation: this is the accepted single-seed Baby student quality anchor.
+Its Test Recall@20 is below the frozen teacher, but the result is valid because
+all declared code, flow, and hard acceptance criteria passed. No formal Baby
+directional-distillation, ablation, multi-seed, or efficiency result exists yet.
 
 ## Next Experiment Gate
 
-Before launching a Baby student run:
+The unique recommended next stage is to predeclare, without launching, the
+first fair asymmetric no-projection directional-distillation candidate against
+the completed `baby_student_reference_v1` anchor. The declaration must keep
+seed `2022`, student dimension `64`, random initialization, optimizer budget,
+sampling, evaluation protocol, and frozen teacher identity fixed; it must name
+the directional component rates and `td_distill_alpha` before any new Baby test
+access. Treat teacher warm start as a later separate control.
 
-1. Define and commit a Baby student protocol/profile without observing Baby
-   test metrics.
-2. Reuse `Model/baby/teacher_model_val_test_once_v1.pt` read-only with
-   `--if_train_teacher false`; never overwrite it.
-3. Make the baseline/proposed comparison fair on student embedding dimension,
-   optimizer budget, sampling, evaluation protocol, and seed.
-4. Set `student_embed_size=64` for any no-projection run unless a separately
-   justified teacher target projection changes the method identity.
-5. Predeclare initialization policy. Treat teacher warm start as a separate
-   control because it was a major confounder historically.
-6. Run a short execution smoke before any uncapped student training.
-
-Recommended evidence sequence after the profile is declared:
-
-1. ID-only BPR student baseline.
-2. Asymmetric no-projection directional-distillation candidate.
-3. Directional-loss-off control under the same initialization.
-4. Symmetric four-component and projection controls.
-5. Single-seed gate, then declared multi-seed confirmation.
-6. Efficiency benchmark using an explicitly pinned accepted student checkpoint.
-
-Do not begin broad hyperparameter sweeps before the baseline/proposed sanity
-pair establishes that the method is viable on Baby.
+After that declaration is committed, wait for explicit user authorization
+before any smoke or formal run. Do not start broad tuning, another test
+evaluation, a tag, or a merge as part of the declaration task.
 
 ## Archive Index
 
@@ -948,3 +964,117 @@ records remain under `exp/`; checkpoints remain under `Model/`.
 - Next action: commit this declaration only, verify the exact clean launch
   commit and identities, then execute the command once to completion. Do not
   start a directional-distillation run afterward.
+
+### 2026-07-31 | baby_student_reference_v1 formal seed-2022 reference (completed)
+
+- Status: completed and accepted as valid formal evidence. The run finished
+  naturally with process exit code `0`; no training or evaluation was
+  restarted during the post-run audit, and the result was retained regardless
+  of its quality.
+- Goal and outcome: establish the first formal Baby ID-only BPR student anchor
+  under `baby_student_reference_v1`. All declared code, execution-flow, and
+  hard acceptance criteria passed, so the completed result now replaces the
+  prior "formal run pending" student state.
+- Source identity:
+  - branch `codex/experiment/baby-teacher-baseline`;
+  - launch/declaration commit
+    `8d8858547a475fd970ae9753496b2a7c06eb472c`;
+  - protocol implementation commit
+    `58fda059786067768e308f48e10ae864416334f5`;
+  - the launch tree was clean and
+    `git diff 58fda059786067768e308f48e10ae864416334f5 8d8858547a475fd970ae9753496b2a7c06eb472c -- codes`
+    was empty.
+- Executed formal command:
+  `D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_student_reference_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --run_final_test true`
+- Environment: `D:\miniconda\envs\run_5060\python.exe`; Python `3.10.20`;
+  PyTorch `2.11.0+cu128`; CUDA runtime `12.8`; NVIDIA driver `595.97`;
+  NVIDIA GeForce RTX 5060 8 GB; GPU selector `0`.
+- Run identity and duration:
+  `2026-07-31 12_33_07.292506_baby_light_init_pid7872`; manifest start
+  `2026-07-31T12:33:07.299515+08:00`; completion
+  `2026-07-31T13:39:50.548154+08:00`; manifest elapsed approximately
+  `1:06:43`; epochs `0-170` completed with `116` full training batches per
+  epoch, followed by natural patience `7/7` early stopping.
+- Resolved protocol and parameters:
+  `val_test_once_v1`, selection split `validation`, primary metric Recall@20,
+  candidate exclusion `train_only`, `Ks=[10,20,40,50]`, seed `2022`, batch
+  size `1024`, maximum epochs `1000`, patience `7`,
+  `smoke_train_batches=0`, and `run_final_test=true`;
+  `dataset_config_overrides={}`, `student_config_overrides={}`, and both
+  resolved-argument override maps are also `{}`.
+- Resolved student configuration: `td_distill_no_projection`, embedding
+  dimension `64`, random initialization, AdamW `student_lr=6e-5`, weight decay
+  `0.01`, `td_distill_alpha=0`, and item-image, item-text, user-image, and
+  user-text rates all `0`. The run is therefore the declared BPR-only reference
+  with neither semantic loss nor teacher warm start.
+- Validation selection:
+  - validation-best epoch `163`;
+  - exact Recall@20 `0.04291303921928788`;
+  - exact Recall@50 `0.08005846771724855`;
+  - exact NDCG@20 `0.01879878388702351`;
+  - exact NDCG@50 `0.026503690746942317`;
+  - the raw-log vectors at K `[10,20,40,50]`, rounded by the logger, are
+    Precision `[0.00287, 0.00228, 0.00185, 0.00170]`, Recall
+    `[0.02692, 0.04291, 0.06964, 0.08006]`, NDCG
+    `[0.01457, 0.01880, 0.02451, 0.02650]`, and Hit Ratio
+    `[0.02864, 0.04562, 0.07349, 0.08444]`.
+- One-time final Test result after restoring validation-best epoch `163`, with
+  exact vectors ordered by K `[10,20,40,50]`:
+  - Precision `[0.002993057341218855, 0.0024787863203908794, 0.0019940858832605012, 0.0018441758806892075]`;
+  - Recall `[0.026797499663274653, 0.044279857310199594, 0.07085836323043866, 0.08179702900453686]`;
+  - NDCG `[0.015145598433562857, 0.019996624710057805, 0.02605878370945137, 0.02827561590531854]`;
+  - Hit Ratio `[0.029724865003856682, 0.04906145538698948, 0.0783234764721007, 0.09040884546155713]`;
+  - AUC `0.0`, expected because `test_flag=part` omits AUC.
+- Test-access audit: the raw log contains exactly one student final-test event,
+  after the `7/7` early-stop event, and explicitly states that epoch `163` was
+  restored. The post-run closure invoked no training or test command and only
+  read the already-recorded result.
+- Manifest and eligibility audit: `status=completed`,
+  `final_test_performed=true`, `run_final_test=true`,
+  `paper_ready_eligible=true`, and `paper_ready_blockers=[]`. The retained
+  official cold-item condition remains the declared preflight warning:
+  validation/test have `11/7` interactions on three items absent from train.
+- Frozen-teacher audit: pre-run and post-run SHA256 are both
+  `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`
+  for `Model/baby/teacher_model_val_test_once_v1.pt` (`141098540` bytes).
+  Teacher training was skipped and alias overwrite remained disabled.
+- Scoped run artifacts and SHA256:
+  - manifest, `exp/runs/baby/run_manifest__2026-07-31 12_33_07.292506_baby_light_init_pid7872.json`, `25331` bytes,
+    `cd2c5aa1fae79af8f8161dfee4fbb2bf9f451b591607df6c646d1dbf8b67af7d`;
+  - raw log, `logs/2026-07-31 12_33_07.292506_baby_light_init_pid7872`, `76795` bytes,
+    `2664a00666cd95920f572dca5b1fc4441fd01d8534b1a711e65a45d300f1e256`;
+  - convergence record, `exp/converge/baby/auto__2026-07-31 12_33_07.292506_baby_light_init_pid7872.pkl`, `25278` bytes,
+    `43c600a5362dd6e7d13e7569eaec2fe2ffd2e48082d33de182a15f8e8ae3876a`;
+  - full checkpoint, `Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-07-31 12_33_07.292506_baby_light_init_pid7872.pth`, `20354833` bytes,
+    `6a9cbe7548ac41a2d362309656923aa4f21f8c4f59a372e510a97535ccb61507`;
+  - inference-only checkpoint, `Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-07-31 12_33_07.292506_baby_light_init_pid7872.pth`, `6785989` bytes,
+    `dbf0bf5ac0fe22ddbea6da5e777a8549b321fe25ae4df9d66f7d97c0e787e206`.
+- Artifact-content audit: the convergence record contains `171` finite epoch
+  entries and agrees with the manifest on best epoch/Recall and final-test
+  metrics. The format-v2 full checkpoint contains finite user
+  `(19445,64)` and item `(7050,64)` embeddings plus two optimizer-state
+  entries. The inference-only checkpoint contains exactly the two finite
+  embeddings and deployment metadata; both tensors are shape-identical and
+  bit-for-bit equal to the full checkpoint tensors.
+- Verification evidence: original process exit `0`; structured manifest and
+  raw-log chronology audit; convergence pickle finite-value/identity audit;
+  PyTorch checkpoint structure, shape, finite-value, and full-to-inference
+  exact-equality audit; SHA256 of the five scoped run artifacts and frozen
+  teacher; focused Markdown/content/diff checks and Git index scope/checks
+  passed before the result-record commit.
+- Experimental meaning: the reference provides the required fair ID-only
+  quality anchor for directional-distillation comparisons. Its final Test
+  Recall@20 is materially below the frozen teacher's `0.08665691369856875`,
+  but this is valid completed evidence rather than a failure or rollback
+  trigger.
+- Unresolved risks: this is one seed and not a variance estimate; the one-time
+  test result is consumed and must not be used to tune the next candidate;
+  `student_lr=6e-5` remains only the fixed reference choice rather than a tuned
+  Baby optimum; ignored checkpoints and raw outputs still require explicit
+  physical backup at a future stable milestone.
+- Unique recommended next action: after this result-only commit, predeclare
+  the first fair asymmetric no-projection directional-distillation candidate.
+  Keep seed, dimension, random initialization, optimizer budget, sampling,
+  protocol, and teacher fixed; name `td_distill_alpha` and directional rates
+  before any run. Stop after the declaration and wait for explicit user
+  authorization; do not launch it, create a tag, or merge `main` now.
