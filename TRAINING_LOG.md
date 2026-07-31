@@ -1442,3 +1442,119 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   clean committed source. Expected run-specific artifacts are the preflight
   report, manifest, convergence record, full/inference checkpoints, and raw log;
   no Test metric may be produced.
+
+### 2026-07-31 | baby_td_asymmetric_no_projection_v1 validation-only smoke (pending)
+
+- Purpose and hypothesis: exercise the first isolated GPU execution path for
+  the independently pinned asymmetric no-projection candidate. One optimization
+  batch should apply finite BPR plus item-image/item-text directional loss,
+  validation Recall@20 should select and restore the only checkpoint, and the
+  run should terminate without teacher or student Test ranking.
+- Status and authorization: pending; explicitly non-formal, capped to one epoch
+  and one batch, validation-only, and ineligible for paper result tables. The
+  user authorized exactly one execution of the command below plus complete
+  run-artifact/Test-isolation audit and a separate outcome commit. No uncapped
+  or formal training, final Test evaluation, efficiency run, tag, baseline
+  overwrite, or merge to `main` is authorized.
+- Branch and source identity:
+  - branch `codex/experiment/baby-teacher-baseline`;
+  - candidate declaration commit
+    `161e72a018dc21bbebdb39e4306d374f7473e20a`;
+  - verified candidate profile implementation commit
+    `64739bbfa75e9baa657f666a78162f0b25aa590b`;
+  - this pending declaration must be committed alone before launch. Its exact
+    clean commit will be the smoke launch/source identity recorded in the
+    outcome; `git diff 64739bb... <launch-commit> -- codes docs` must be empty.
+- Dataset and preprocessing identity: audited MMRec Baby under `data/baby/`;
+  conversion manifest SHA256
+  `cf2d0d8c8aff9b321aad0b11d48d078794d12a4920afaa4c8efedfe3beda9df2`;
+  train/validation/Test matrix and modality hashes remain the active identities
+  recorded above; hard-token type/cache provenance and seed remain pinned to
+  the frozen teacher contract. Dataset preflight remains enabled with duplicate
+  modalities policy `error`.
+- Evaluation protocol: `val_test_once_v1`; training uses `train_mat`; checkpoint
+  selection uses validation Recall@20 only; candidate exclusion is `train_only`;
+  `Ks=[10,20,40,50]`; `test_flag=part`. The one validation evaluation is a
+  smoke diagnostic only and cannot select parameters or enter paper tables.
+- Frozen teacher identity: reuse read-only
+  `Model/baby/teacher_model_val_test_once_v1.pt`, expected size `141098540`
+  bytes and SHA256
+  `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`;
+  `if_train_teacher=false`, `allow_teacher_alias_overwrite=false`. No teacher
+  optimizer step, run-local teacher checkpoint, alias publication, or overwrite
+  is authorized.
+- Full command, to execute exactly once only after this declaration is
+  committed and the tree is clean:
+  `D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_td_asymmetric_no_projection_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --epoch 1 --smoke_train_batches 1 --run_final_test false`
+- Resolved fixed profile values: seed `2022`; batch size `1024`;
+  `td_distill_no_projection`; embedding dimension `64`; random initialization
+  with `td_init_from_teacher=false`; AdamW `student_lr=6e-5`, weight decay
+  `0.01`; `td_distill_alpha=0.3`; component rates item-image `1.0`, item-text
+  `0.3`, user-image `0.0`, user-text `0.0`; frozen teacher mode; no efficiency
+  benchmark.
+- Declared cap and expected override maps:
+  - `epoch=1`, `smoke_train_batches=1`, `run_final_test=false`;
+  - expected `dataset_config_overrides` exactly contains
+    `epoch: 1000 -> 1`;
+  - expected `student_config_overrides` exactly contains
+    `epoch: 1000 -> 1`, `smoke_train_batches: 0 -> 1`, and
+    `run_final_test: true -> false`;
+  - explicit GPU, frozen-teacher flag, and checkpoint path equal maintained
+    settings or fields outside the profile override map. No semantic, seed,
+    optimizer, sampler, batch-size, protocol, or teacher override is allowed.
+- Sampling and objective: retain `data_generator.sample()` exactly as the
+  reference, drawing `1024` distinct existing users, one training positive and
+  one non-training item negative per user. The cap must select one batch instead
+  of the full `116`. The maintained objective is
+  `L_BPR + 0.3 * ((1.0 * L_item_image + 0.3 * L_item_text) / 1.3)`;
+  both user-side heads remain inactive and no projection head exists.
+- Test isolation: dataset loading/preflight may read Test split structure and
+  identity to enforce the audited dataset contract. Neither the frozen teacher
+  nor candidate student may rank/evaluate Test users. Required manifest fields
+  are `run_final_test=false`, `teacher_final_test_performed=false`, and
+  `final_test_performed=false`; teacher and student final-Test result fields
+  must both be absent. No Test metric may appear in the run outcome.
+- Planned run-specific artifacts, all keyed by one new timestamp/PID run name:
+  - raw log `logs/<run_name>`;
+  - preflight `exp/runs/baby/dataset_preflight__<run_name>.json`;
+  - manifest `exp/runs/baby/run_manifest__<run_name>.json`;
+  - convergence record `exp/converge/baby/auto__<run_name>.pkl`;
+  - full checkpoint
+    `Model/baby/td_distill/td_distill_full__val_test_once_v1__<run_name>.pth`;
+  - inference-only checkpoint
+    `Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__<run_name>.pth`.
+- Hard acceptance criteria: launch commit and working tree are clean; profile
+  identity and only the declared cap overrides resolve; dataset and frozen
+  teacher validation pass; exactly one optimization batch and one validation
+  selection finish with finite total/BPR/distillation/component values; active
+  heads are exactly item-image and item-text; validation-best epoch `0` is saved
+  and restored; manifest status is `smoke_completed`; final-Test fields satisfy
+  the isolation contract; teacher SHA256 is unchanged; no teacher artifact or
+  shared alias is created/updated; all six run-specific artifacts exist,
+  correspond to the same run, and are fingerprinted; the inference-only export
+  contains only finite user/item ID embeddings plus deployment metadata and is
+  exactly equal to the full checkpoint embeddings.
+- Quality acceptance rule: there is no minimum validation threshold. Any finite
+  diagnostic metric from a protocol-valid one-batch smoke is accepted as
+  execution evidence regardless of quality and must not trigger rollback,
+  deletion, or parameter changes.
+- Failure boundary and preservation: mark failed only for process/code failure,
+  Test-isolation violation, non-finite values, identity/override mismatch,
+  teacher mutation, missing/cross-run artifacts, or another hard criterion
+  failure. Preserve every generated run-specific file for diagnosis; do not
+  reset, delete, overwrite, or retry the run automatically.
+- Planned verification: before launch, record environment, exact resolved
+  profile/overrides, teacher SHA256, declaration/source diff, clean Git status,
+  and existing run-artifact inventory. After process exit, identify the single
+  new run; audit raw-log chronology and absence of Test evaluation; parse the
+  manifest/preflight/convergence structures; validate finite metrics and exact
+  profile/cap fields; inspect checkpoint keys/tensor shapes/finiteness/full-to-
+  inference equality; fingerprint all artifacts and teacher; confirm no alias
+  mutation and clean Git status; then append and commit one completed or failed
+  outcome without starting another run.
+- Rollback/preservation point: profile implementation commit
+  `64739bbfa75e9baa657f666a78162f0b25aa590b`. No rollback action is authorized.
+- Next action after the outcome commit: if and only if all smoke hard criteria
+  pass, recommend a separately predeclared uncapped seed-2022 formal candidate
+  run from clean committed source; do not execute it without new explicit user
+  authorization.
