@@ -68,6 +68,9 @@ import copy
 
 from utility.parser import args, select_dataset
 from utility.dataset_profiles import (
+    BABY_STUDENT_PROFILE_NAME,
+    BABY_STUDENT_PROFILE_SCOPE,
+    BABY_STUDENT_PROFILE_SOURCE,
     BABY_TEACHER_PROFILE_NAME,
     BABY_TEACHER_PROFILE_SCOPE,
     BABY_TEACHER_PROFILE_SOURCE,
@@ -88,6 +91,7 @@ from utility.experiment_protocol import (
     run_dataset_preflight,
     teacher_inference_config_from_namespace,
     training_batch_count,
+    validate_final_test_policy,
     validate_teacher_checkpoint_metadata,
     write_json,
 )
@@ -164,10 +168,15 @@ class Trainer(object):
         self.early_stopping_limit = early_stopping_non_improvement_limit(
             self.eval_protocol, args.early_stopping_patience
         )
+        self.smoke_mode = getattr(args, 'smoke_train_batches', 0) > 0
         self.train_batch_count = training_batch_count(
             data_generator.n_train,
             args.batch_size,
             getattr(args, 'smoke_train_batches', 0),
+        )
+        self.run_final_test = validate_final_test_policy(
+            getattr(args, 'smoke_train_batches', 0),
+            getattr(args, 'run_final_test', True),
         )
         if self.eval_protocol == PAPER_READY_PROTOCOL and DATASET_PREFLIGHT_REPORT.get('status') == 'disabled':
             raise ValueError('val_test_once_v1 requires dataset preflight to remain enabled.')
@@ -256,12 +265,37 @@ class Trainer(object):
                 self.paper_ready_blockers.append(
                     'Baby reference profile has resolved overrides'
                 )
-            if not getattr(args, 'teacher_only', False):
-                self.paper_ready_blockers.append(
-                    'Baby reference profile pins teacher-only settings'
+            if getattr(args, 'teacher_only', False):
+                if getattr(args, 'student_config_profile', 'none') != 'none':
+                    self.paper_ready_blockers.append(
+                        'Baby teacher-only run must not activate a student profile'
+                    )
+            else:
+                baby_student_profile_metadata = (
+                    getattr(args, 'student_config_profile', None),
+                    getattr(args, 'student_config_scope', None),
+                    getattr(args, 'student_config_source', None),
                 )
+                expected_baby_student_profile_metadata = (
+                    BABY_STUDENT_PROFILE_NAME,
+                    BABY_STUDENT_PROFILE_SCOPE,
+                    BABY_STUDENT_PROFILE_SOURCE,
+                )
+                if (
+                    baby_student_profile_metadata
+                    != expected_baby_student_profile_metadata
+                ):
+                    self.paper_ready_blockers.append(
+                        'Baby student profile metadata is missing or mismatched'
+                    )
+                if getattr(args, 'student_config_overrides', {}):
+                    self.paper_ready_blockers.append(
+                        'Baby student reference profile has resolved overrides'
+                    )
         if getattr(args, 'smoke_train_batches', 0) > 0:
             self.paper_ready_blockers.append('training batches are capped for smoke')
+        if not self.run_final_test:
+            self.paper_ready_blockers.append('final test evaluation is disabled')
         if DATASET_PREFLIGHT_REPORT.get('status') == 'disabled':
             self.paper_ready_blockers.append('dataset preflight is disabled')
         self.paper_ready_eligible = not self.paper_ready_blockers
@@ -328,10 +362,15 @@ class Trainer(object):
             'dataset_config_scope': getattr(args, 'dataset_config_scope', 'unknown'),
             'dataset_config_source': getattr(args, 'dataset_config_source', 'unknown'),
             'dataset_config_overrides': getattr(args, 'dataset_config_overrides', {}),
+            'student_config_profile': getattr(args, 'student_config_profile', 'none'),
+            'student_config_scope': getattr(args, 'student_config_scope', 'none'),
+            'student_config_source': getattr(args, 'student_config_source', 'none'),
+            'student_config_overrides': getattr(args, 'student_config_overrides', {}),
             'evaluation_protocol': self.eval_protocol,
             'selection_split': self.selection_split,
             'candidate_exclusion_policy': self.candidate_exclusion_policy,
             'primary_selection_metric': 'Recall@%d' % self.primary_k,
+            'run_final_test': self.run_final_test,
             'paper_ready_eligible': self.paper_ready_eligible,
             'paper_ready_blockers': self.paper_ready_blockers,
             'resolved_arguments': namespace_to_dict(args),
@@ -554,7 +593,9 @@ class Trainer(object):
         )
         return alias_fingerprint
 
-    def _load_teacher_checkpoint(self, checkpoint_path):
+    def _load_teacher_checkpoint(
+        self, checkpoint_path, require_paper_ready_reuse=True
+    ):
         checkpoint = torch.load(checkpoint_path, map_location=self.device)
         if isinstance(checkpoint, dict) and 'teacher_model' in checkpoint:
             validate_teacher_checkpoint_metadata(
@@ -568,6 +609,7 @@ class Trainer(object):
                 self.paper_ready_eligible,
                 self.paper_ready_blockers,
                 self.candidate_exclusion_policy,
+                require_paper_ready_checkpoint=require_paper_ready_reuse,
             )
             self.teacher_model.load_state_dict(checkpoint['teacher_model'])
             prompt_state = checkpoint.get('prompt_module')
@@ -953,6 +995,9 @@ class Trainer(object):
             'primary_k': self.primary_k,
             'run_name': self.run_name,
             'student_embedding_dim': self.td_distill_model.embedding_dim,
+            'student_config_profile': getattr(args, 'student_config_profile', 'none'),
+            'student_learning_rate': self.student_lr,
+            'student_weight_decay': args.student_weight_decay,
             'item_teacher_semantic_dim': self.td_distill_model.item_teacher_dim,
             'user_teacher_semantic_dim': self.td_distill_model.user_teacher_dim,
             'td_distill_alpha': getattr(args, 'td_distill_alpha', 0.1),
@@ -962,6 +1007,7 @@ class Trainer(object):
                 'user_image': getattr(args, 'td_user_image_rate', 1.0),
                 'user_text': getattr(args, 'td_user_text_rate', 1.0),
             },
+            'td_init_from_teacher': getattr(args, 'td_init_from_teacher', True),
             'student_model_type': args.student_model_type,
         }, self.td_distill_full_path)
 
@@ -1192,6 +1238,33 @@ class Trainer(object):
         if td_best_epoch is None or not os.path.exists(self.td_distill_full_path):
             raise RuntimeError('TD-Distill did not produce a selectable checkpoint.')
 
+        if not self.run_final_test:
+            self.load_td_distill_checkpoint(self.td_distill_full_path)
+            self.logger.logging(
+                'TD-Distill final Test skipped after restoring the best %s '
+                'checkpoint; test_mat was not evaluated.' % selection_label
+            )
+            td_results.update({
+                'best_selection_epoch': td_best_epoch,
+                'best_selection_recall': td_best_selection_recall,
+                'td_full_checkpoint': self.td_distill_full_path,
+                'td_infer_checkpoint': self.td_distill_infer_path,
+            })
+            self._save_pickle(td_results, self.converge_archive_path)
+            if args.point:
+                self._save_pickle(td_results, os.path.join(self.converge_dir, args.point))
+            self._update_run_manifest(
+                status='smoke_completed' if self.smoke_mode else 'validation_completed',
+                completed_at=datetime.now().astimezone().isoformat(),
+                model_stage='td_distill',
+                best_selection_epoch=td_best_epoch,
+                best_selection_recall=td_best_selection_recall,
+                final_test_performed=False,
+                td_full_checkpoint=self.td_distill_full_path,
+                td_infer_checkpoint=self.td_distill_infer_path,
+            )
+            return
+
         users_to_test = list(data_generator.test_set.keys())
         _, td_final_test_ret = restore_checkpoint_then_evaluate(
             self.td_distill_full_path,
@@ -1230,6 +1303,7 @@ class Trainer(object):
             model_stage='td_distill',
             best_selection_epoch=td_best_epoch,
             best_selection_recall=td_best_selection_recall,
+            final_test_performed=True,
             final_test_result=result_to_dict(td_final_test_ret),
             td_full_checkpoint=self.td_distill_full_path,
             td_infer_checkpoint=self.td_distill_infer_path,
@@ -1411,52 +1485,77 @@ class Trainer(object):
 
             if teacher_best_epoch is None or not os.path.exists(self.teacher_model_archive_path):
                 raise RuntimeError('Teacher training did not produce a selectable checkpoint.')
-            users_to_test = list(data_generator.test_set.keys())
-            _, teacher_test_ret = restore_checkpoint_then_evaluate(
-                self.teacher_model_archive_path,
-                self._load_teacher_checkpoint,
-                lambda: self.test(users_to_test, is_val=False, is_teacher=True),
-            )
-            self.logger.logging(
-                'Teacher final Test after restoring best %s checkpoint: '
-                'epoch=%d, best_%s_Recall@%d=%.5f, Test Recall@%d=%.5f, '
-                'precision=[%.5f], ndcg=[%.5f]' % (
-                    teacher_selection_label,
-                    teacher_best_epoch,
-                    self.selection_split,
-                    self.primary_k,
-                    teacher_best_selection_recall,
-                    self.primary_k,
-                    teacher_test_ret['recall'][self.primary_k_index],
-                    teacher_test_ret['precision'][self.primary_k_index],
-                    teacher_test_ret['ndcg'][self.primary_k_index],
+            if self.run_final_test:
+                users_to_test = list(data_generator.test_set.keys())
+                _, teacher_test_ret = restore_checkpoint_then_evaluate(
+                    self.teacher_model_archive_path,
+                    self._load_teacher_checkpoint,
+                    lambda: self.test(users_to_test, is_val=False, is_teacher=True),
                 )
-            )
-            self.logger.logging(str(teacher_test_ret))
-            self._update_run_manifest(
-                status='teacher_completed',
-                teacher_best_selection_epoch=teacher_best_epoch,
-                teacher_best_selection_recall=teacher_best_selection_recall,
-                teacher_final_test_result=result_to_dict(teacher_test_ret),
-                teacher_checkpoint=self.teacher_model_archive_path,
-                teacher_checkpoint_fingerprint=file_fingerprint(self.teacher_model_archive_path),
-                teacher_checkpoint_metadata=self.active_teacher_checkpoint_metadata,
-                active_teacher_hard_token_cache=getattr(
-                    self.prompt_module, 'hard_token_cache_records', {}
-                ),
-            )
-            teacher_alias_fingerprint = self._publish_teacher_alias()
-            self._update_run_manifest(
-                teacher_alias_published=teacher_alias_fingerprint is not None,
-                teacher_alias_fingerprint=teacher_alias_fingerprint,
-            )
+                self.logger.logging(
+                    'Teacher final Test after restoring best %s checkpoint: '
+                    'epoch=%d, best_%s_Recall@%d=%.5f, Test Recall@%d=%.5f, '
+                    'precision=[%.5f], ndcg=[%.5f]' % (
+                        teacher_selection_label,
+                        teacher_best_epoch,
+                        self.selection_split,
+                        self.primary_k,
+                        teacher_best_selection_recall,
+                        self.primary_k,
+                        teacher_test_ret['recall'][self.primary_k_index],
+                        teacher_test_ret['precision'][self.primary_k_index],
+                        teacher_test_ret['ndcg'][self.primary_k_index],
+                    )
+                )
+                self.logger.logging(str(teacher_test_ret))
+                self._update_run_manifest(
+                    status='teacher_completed',
+                    teacher_best_selection_epoch=teacher_best_epoch,
+                    teacher_best_selection_recall=teacher_best_selection_recall,
+                    teacher_final_test_performed=True,
+                    teacher_final_test_result=result_to_dict(teacher_test_ret),
+                    teacher_checkpoint=self.teacher_model_archive_path,
+                    teacher_checkpoint_fingerprint=file_fingerprint(self.teacher_model_archive_path),
+                    teacher_checkpoint_metadata=self.active_teacher_checkpoint_metadata,
+                    active_teacher_hard_token_cache=getattr(
+                        self.prompt_module, 'hard_token_cache_records', {}
+                    ),
+                )
+                teacher_alias_fingerprint = self._publish_teacher_alias()
+                self._update_run_manifest(
+                    teacher_alias_published=teacher_alias_fingerprint is not None,
+                    teacher_alias_fingerprint=teacher_alias_fingerprint,
+                )
+            else:
+                self._load_teacher_checkpoint(
+                    self.teacher_model_archive_path,
+                    require_paper_ready_reuse=False,
+                )
+                self.logger.logging(
+                    'Teacher final Test skipped after restoring the best %s '
+                    'checkpoint; test_mat was not evaluated and no shared alias '
+                    'was published.' % teacher_selection_label
+                )
+                self._update_run_manifest(
+                    status='teacher_validation_completed',
+                    teacher_best_selection_epoch=teacher_best_epoch,
+                    teacher_best_selection_recall=teacher_best_selection_recall,
+                    teacher_final_test_performed=False,
+                    teacher_checkpoint=self.teacher_model_archive_path,
+                    teacher_checkpoint_fingerprint=file_fingerprint(self.teacher_model_archive_path),
+                    teacher_checkpoint_metadata=self.active_teacher_checkpoint_metadata,
+                    teacher_alias_published=False,
+                    active_teacher_hard_token_cache=getattr(
+                        self.prompt_module, 'hard_token_cache_records', {}
+                    ),
+                )
             if args.point:
                 print("######end:T#####################################")
                 print(args.point)
                 print("###########################################")
             if getattr(args, 'teacher_only', False):
                 self._update_run_manifest(
-                    status='completed',
+                    status='smoke_completed' if self.smoke_mode else 'completed',
                     completed_at=datetime.now().astimezone().isoformat(),
                     model_stage='teacher_only',
                 )
@@ -1485,7 +1584,7 @@ class Trainer(object):
         self._load_teacher_checkpoint(teacher_checkpoint_for_student)
         self.teacher_model.eval()
         self.prompt_module.eval()
-        if teacher_test_ret is None:
+        if teacher_test_ret is None and self.run_final_test:
             users_to_test = list(data_generator.test_set.keys())
             _, teacher_test_ret = restore_checkpoint_then_evaluate(
                 teacher_checkpoint_for_student,
@@ -1502,6 +1601,21 @@ class Trainer(object):
             self._update_run_manifest(
                 status='teacher_reused',
                 teacher_final_test_result=result_to_dict(teacher_test_ret),
+                teacher_checkpoint=teacher_checkpoint_for_student,
+                teacher_checkpoint_fingerprint=file_fingerprint(teacher_checkpoint_for_student),
+                teacher_checkpoint_metadata=self.active_teacher_checkpoint_metadata,
+                active_teacher_hard_token_cache=getattr(
+                    self.prompt_module, 'hard_token_cache_records', {}
+                ),
+            )
+        elif teacher_test_ret is None:
+            self.logger.logging(
+                'Teacher checkpoint reused without test evaluation; test_mat '
+                'remains untouched for this run.'
+            )
+            self._update_run_manifest(
+                status='teacher_reused_without_test',
+                teacher_final_test_performed=False,
                 teacher_checkpoint=teacher_checkpoint_for_student,
                 teacher_checkpoint_fingerprint=file_fingerprint(teacher_checkpoint_for_student),
                 teacher_checkpoint_metadata=self.active_teacher_checkpoint_metadata,
@@ -1609,7 +1723,8 @@ class Trainer(object):
 
             self.opt_TD = optim.AdamW(
                 [{'params': self.td_distill_model.parameters()}],
-                lr=self.student_lr
+                lr=self.student_lr,
+                weight_decay=args.student_weight_decay,
             )
 
             self.td_distill_full_path = os.path.join(
@@ -1645,9 +1760,14 @@ class Trainer(object):
             self.student_model.init_user_item_embed(self.u_final_embed, self.i_final_embed)
 
         self.student_model = self.student_model.cuda()
-        self.opt_S = optim.AdamW([{'params':self.student_model.parameters()},
-                                  {'params':self.prompt_module.parameters()}
-                                  ], lr=self.student_lr)  
+        self.opt_S = optim.AdamW(
+            [
+                {'params': self.student_model.parameters()},
+                {'params': self.prompt_module.parameters()},
+            ],
+            lr=self.student_lr,
+            weight_decay=args.student_weight_decay,
+        )
 
         if getattr(args, 'run_efficiency_benchmark', False):
             maybe_load_student_checkpoint_for_efficiency(self, args)
@@ -1940,6 +2060,30 @@ class Trainer(object):
 
         if student_best_epoch is None or not os.path.exists(self.student_checkpoint_path):
             raise RuntimeError('Student training did not produce a selectable checkpoint.')
+        if not self.run_final_test:
+            self._load_student_checkpoint(self.student_checkpoint_path)
+            self.logger.logging(
+                'Student final Test skipped after restoring the best %s '
+                'checkpoint; test_mat was not evaluated.' % student_selection_label
+            )
+            results.update({
+                'best_selection_epoch': student_best_epoch,
+                'best_selection_recall': student_best_selection_recall,
+                'student_checkpoint': self.student_checkpoint_path,
+            })
+            self._save_pickle(results, self.converge_archive_path)
+            if args.point:
+                self._save_pickle(results, os.path.join(self.converge_dir, args.point))
+            self._update_run_manifest(
+                status='smoke_completed' if self.smoke_mode else 'validation_completed',
+                completed_at=datetime.now().astimezone().isoformat(),
+                model_stage='original_student',
+                best_selection_epoch=student_best_epoch,
+                best_selection_recall=student_best_selection_recall,
+                final_test_performed=False,
+                student_checkpoint=self.student_checkpoint_path,
+            )
+            return
         users_to_test = list(data_generator.test_set.keys())
         _, student_test_ret = restore_checkpoint_then_evaluate(
             self.student_checkpoint_path,
@@ -1977,6 +2121,7 @@ class Trainer(object):
             model_stage='original_student',
             best_selection_epoch=student_best_epoch,
             best_selection_recall=student_best_selection_recall,
+            final_test_performed=True,
             final_test_result=result_to_dict(student_test_ret),
             student_checkpoint=self.student_checkpoint_path,
         )

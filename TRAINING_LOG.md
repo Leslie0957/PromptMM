@@ -11,6 +11,7 @@ and evaluation audit. The complete pre-reset record remains immutable at
 - Default argument source: `codes/utility/parser.py`
 - Canonical active dataset: audited MMRec Baby under `data/baby/`
 - Canonical protocol: `val_test_once_v1`
+- Active student profile: `baby_student_reference_v1` (defined; smoke pending)
 - Current completed stage: frozen Baby teacher reference, seed `2022`
 - Current incomplete stage: Baby student baseline and distillation experiments
 - `codes/run_patent.py` is standalone and outside this experiment line.
@@ -356,3 +357,211 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   `TRAINING_LOG.md`, `archive/training/README.md`, and
   `archive/training/TRAINING_LOG_ARCHIVE_FULL_2026-07-30.md`, then create one
   documentation commit before beginning any student experiment work.
+
+### 2026-07-30 | Baby student reference protocol v1 (pending)
+
+- Purpose and hypothesis: establish the first auditable Baby student reference
+  before observing any new Baby student test metric. The reference hypothesis is
+  that a randomly initialized, deployable 64-dimensional user/item ID student
+  trained with BPR alone provides the fair lower anchor for later directional
+  semantic-distillation comparisons.
+- Status: pending; no smoke or formal student run has started.
+- Branch and rollback point:
+  `codex/experiment/baby-teacher-baseline` at commit
+  `b15b4fd` (`docs: reorganize training log and repository guidance`).
+- Dataset and protocol identity: audited MMRec Baby from
+  `data/baby/conversion_manifest.json`, SHA256
+  `cf2d0d8c8aff9b321aad0b11d48d078794d12a4920afaa4c8efedfe3beda9df2`;
+  `val_test_once_v1`; candidate exclusion `train_only`; validation Recall@20
+  selects the checkpoint.
+- Teacher checkpoint identity: reuse
+  `Model/baby/teacher_model_val_test_once_v1.pt` read-only with SHA256
+  `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`;
+  set `if_train_teacher=false` and never publish or overwrite a teacher alias.
+- Declared reference scope and parameters:
+  - profile ID `baby_student_reference_v1`;
+  - `student_model_type=td_distill_no_projection` so the trainable/deployable
+    state is only user and item ID embeddings;
+  - `student_embed_size=64`, `td_init_from_teacher=false`,
+    `td_distill_alpha=0`, and all four directional component rates `0`;
+  - seed `2022`, batch size `1024`, maximum `1000` epochs, early-stopping
+    patience `7`, AdamW `student_lr=6e-5`, and explicit student weight decay
+    `0.01`;
+  - the `6e-5` learning rate is a predeclared transfer hypothesis from the old
+    exploratory line, not a Baby-confirmed optimum; it must not be described as
+    tuned on Baby test data.
+- Planned implementation scope:
+  `codes/utility/dataset_profiles.py`, `codes/utility/parser.py`,
+  `codes/main_mmlight.py`, focused tests, a new
+  `docs/BABY_STUDENT_REFERENCE_V1.md`, and this append-only log.
+- Test-isolation requirement: a non-formal capped smoke must restore/check the
+  frozen teacher and exercise training plus validation, but must not evaluate
+  either teacher or student on `test_mat`. A formal uncapped run is the only
+  path allowed to restore the validation-best student checkpoint and evaluate
+  its test result once.
+- Comparison contract: the first directional-distillation candidate must keep
+  seed, dimension, initialization policy, optimizer, batch/sampling budget,
+  validation selection, and teacher identity equal to this reference; only the
+  predeclared semantic-loss settings may differ.
+- Risks: profile defaults could be silently overridden by CLI values; the
+  current Baby eligibility gate is teacher-only; the existing student reuse
+  path re-evaluates the teacher test split; AdamW weight decay is currently an
+  implicit library default; and a smoke could consume test metrics unless the
+  code prevents it.
+- Acceptance criteria: profile identity and overrides are recorded in every run
+  manifest; formal eligibility rejects an unpinned Baby student configuration;
+  the BPR-only profile has no active semantic heads or teacher warm start;
+  optimizer weight decay is explicit; smoke mode records no final-test result;
+  focused unit tests and `git diff --check` pass; no training is launched in
+  this change.
+- Planned verification: parser/profile unit tests, protocol unit tests, static
+  command/profile resolution checks, teacher/data fingerprint confirmation,
+  and focused diff review. The next run after the verified commit is a
+  one-batch, one-epoch, validation-only non-formal smoke.
+
+#### Scope amendment before implementation continuation
+
+- Focused verification found that frozen-teacher validation currently compares
+  the active child run's `paper_ready_eligible` and `paper_ready_blockers`
+  fields for exact equality with the teacher checkpoint. A correctly isolated
+  smoke is intentionally non-paper-ready, so it cannot reuse the paper-ready
+  frozen teacher under that rule.
+- The scope therefore expands to `codes/utility/experiment_protocol.py` and its
+  focused tests. Teacher reuse under `val_test_once_v1` will require the teacher
+  checkpoint itself to record `paper_ready_eligible=true` and an empty blocker
+  list, while active student/smoke eligibility remains independently recorded
+  in the run manifest.
+- This does not relax dataset, teacher inference configuration, protocol,
+  selection split, primary K, candidate policy, or checkpoint identity checks.
+  Acceptance additionally requires tests proving that a paper-ready teacher can
+  be reused by a non-formal child smoke and that a blocked teacher checkpoint is
+  still rejected.
+
+### 2026-07-30 | Baby student reference protocol v1 (completed; no run)
+
+- Purpose and outcome: implemented and documented the predeclared Baby ID-only
+  BPR student reference without launching training or inspecting any new Baby
+  student test metric.
+- Status: protocol implementation completed and verified; non-formal smoke and
+  formal reference run remain pending.
+- Branch and source identity: implementation is based on clean predecessor
+  commit `b15b4fd` on `codex/experiment/baby-teacher-baseline`. The resulting
+  protocol commit is pending because this Codex session cannot write `.git`;
+  record the user-created commit hash before declaring the smoke.
+- Actual profile: `baby_student_reference_v1` in
+  `codes/utility/dataset_profiles.py`, with an explicit parser selector and
+  run-manifest identity/override fields.
+- Resolved reference contract:
+  - frozen read-only teacher alias with `if_train_teacher=false`;
+  - `td_distill_no_projection`, 64-dimensional random user/item ID embeddings,
+    teacher warm start disabled, `td_distill_alpha=0`, and all four component
+    rates `0`;
+  - seed `2022`, batch size `1024`, at most `1000` epochs, patience `7`, AdamW
+    `student_lr=6e-5`, and explicit `student_weight_decay=0.01`;
+  - `val_test_once_v1`, validation Recall@20 selection, `train_only` candidate
+    exclusion, dataset preflight enabled, and duplicate modalities treated as
+    an error.
+- Test-isolation changes:
+  - added `run_final_test`; capped smoke is rejected unless it is explicitly
+    false;
+  - teacher reuse and student finalization now skip `test_mat` when final test
+    is disabled, restore the validation-best checkpoint, and record
+    `final_test_performed=false` without a final-test metric;
+  - a no-test teacher training path does not publish a shared teacher alias;
+  - formal uncapped runs retain restore-then-evaluate-once behavior.
+- Frozen-teacher validation correction: a child smoke may be non-paper-ready
+  while reusing a checkpoint that is itself paper-ready. The validator now
+  requires the checkpoint's own `paper_ready_eligible=true` and empty blockers,
+  while preserving exact dataset, teacher inference configuration, protocol,
+  split, K, candidate-policy, and hard-token provenance checks. A blocked
+  teacher checkpoint is still rejected.
+- Documentation: `docs/BABY_STUDENT_REFERENCE_V1.md` records rationale, pinned
+  values, expected official cold-item warning, smoke/formal commands,
+  comparison controls, acceptance rules, and artifact requirements.
+- Verification evidence:
+  - all `27` tests under `codes/tests/test_*.py` passed;
+  - Python compilation passed for all changed Python modules;
+  - formal profile resolution produced no dataset or student overrides;
+  - smoke resolution produced only the declared `epoch`,
+    `smoke_train_batches`, and `run_final_test` student overrides;
+  - real read-only Baby preflight plus frozen-teacher checkpoint validation
+    passed for the smoke context;
+  - image/text modalities remained non-duplicate; the only preflight warning
+    was the already documented `3` official evaluation-only items (`11`
+    validation and `7` test interactions, no cold users);
+  - teacher and conversion-manifest SHA256 values re-matched the active log;
+  - `git diff --check` passed, with only existing CRLF-to-LF Git notices.
+- Metrics and artifacts: none; no training, validation ranking, final test,
+  checkpoint, run manifest, convergence record, or raw experiment log was
+  generated by this protocol-definition task.
+- Acceptance decision: implementation acceptance criteria passed. This is a
+  protocol milestone only, not an accepted Baby student result and not yet a
+  tag/bundle milestone.
+- Unresolved risks: the real GPU execution path has not yet been exercised;
+  `6e-5` remains a predeclared cross-dataset transfer hypothesis rather than a
+  Baby-confirmed optimum; the actual protocol commit hash is still pending.
+- Next action: create one coherent local commit, record its hash in the smoke
+  declaration, then run exactly one epoch and one batch with
+  `--run_final_test false`. Do not launch the uncapped reference until that
+  smoke is logged as completed or failed.
+
+### 2026-07-30 | No-test teacher self-restore correction (pending)
+
+- Purpose and rationale: commit-readiness review found that a teacher trained
+  in the active run with `run_final_test=false` is saved as intentionally
+  non-paper-ready, but the new restore branch applies the stricter frozen
+  paper-ready teacher reuse gate to that run-local checkpoint. The restore
+  therefore fails before it can record validation completion and confirm that
+  no shared teacher alias was published.
+- Scope: distinguish run-local teacher checkpoint restoration from external
+  frozen-teacher reuse in `codes/utility/experiment_protocol.py` and
+  `codes/main_mmlight.py`, with a focused protocol unit test. No profile value,
+  optimizer, dataset, checkpoint, evaluation metric, or formal-run command
+  changes.
+- Risks: weakening frozen-teacher validation or allowing a child run to reuse
+  an ineligible checkpoint. The external reuse path must retain the strict
+  requirement that the frozen checkpoint is paper-ready and blocker-free.
+- Acceptance criteria: a run-local checkpoint must still match the active
+  dataset, inference configuration, protocol, selection split, primary K,
+  candidate policy, eligibility flag, and blocker list; external frozen
+  teacher reuse must continue to reject an ineligible checkpoint.
+- Rollback point: `b15b4fd` plus the existing uncommitted
+  `baby_student_reference_v1` implementation reviewed in this entry.
+- Planned verification: focused validator tests, all tests under
+  `codes/tests/test_*.py`, Python compilation of changed modules,
+  `git diff --check`, and final staged-diff review. No training will run.
+
+### 2026-07-30 | No-test teacher self-restore correction (completed; no run)
+
+- Actual changes: added an explicit run-local restore mode to frozen-teacher
+  metadata validation. External teacher reuse still requires a paper-ready,
+  blocker-free checkpoint; run-local restoration instead requires eligibility
+  and blockers to exactly match the active run. The no-final-test teacher path
+  uses that mode only for its own run-specific validation-best checkpoint.
+- Scope control: no profile value, dataset, optimizer, sampling behavior,
+  checkpoint asset, metric, command, or generated experiment artifact changed.
+  No training, validation ranking, or test evaluation was run.
+- Verification evidence:
+  - all `27` tests under `codes/tests/test_*.py` passed, including acceptance
+    of an exact run-local ineligible checkpoint, rejection on blocker mismatch,
+    acceptance of a paper-ready teacher by a non-formal child smoke, and
+    rejection of an ineligible external teacher;
+  - Python compilation passed for every changed Python module;
+  - real Baby preflight in the declared smoke context passed with distinct
+    modalities and only the documented `3` evaluation-only item warning;
+  - real frozen-teacher validation passed with protocol `val_test_once_v1`,
+    `paper_ready_eligible=true`, and an empty blocker list;
+  - formal profile resolution remained override-free, and the smoke resolution
+    contained only the declared `epoch`, `smoke_train_batches`, and
+    `run_final_test` student overrides;
+  - conversion-manifest and teacher checkpoint SHA256 values matched the
+    identities recorded above;
+  - `git diff --check` passed before this completion entry, with only existing
+    CRLF-to-LF conversion notices.
+- Acceptance decision: correction passed and the complete
+  `baby_student_reference_v1` change is ready for one coherent local commit.
+- Unresolved risk: GPU execution remains intentionally untested until the
+  separately declared non-formal smoke; this task did not launch training.
+- Next action: stage only the declared protocol, tests, documentation, and
+  append-only log; review the staged diff; create the local protocol commit;
+  then record that commit hash in the future smoke declaration.

@@ -30,6 +30,7 @@ from utility.experiment_protocol import (  # noqa: E402
     restore_checkpoint_then_evaluate,
     run_dataset_preflight,
     training_batch_count,
+    validate_final_test_policy,
     validate_teacher_checkpoint_metadata,
     write_json,
 )
@@ -123,6 +124,12 @@ class ExperimentProtocolTest(unittest.TestCase):
         self.assertEqual(checkpoint['best_epoch'], 3)
         self.assertAlmostEqual(float(result['recall'][0]), 0.25)
 
+    def test_capped_smoke_requires_final_test_to_be_disabled(self):
+        self.assertFalse(validate_final_test_policy(1, False))
+        self.assertTrue(validate_final_test_policy(0, True))
+        with self.assertRaisesRegex(ValueError, 'test_mat remains untouched'):
+            validate_final_test_policy(1, True)
+
     def test_atomic_publication_is_no_clobber_by_default(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             source_path = Path(temp_dir) / 'run.pt'
@@ -209,6 +216,74 @@ class ExperimentProtocolTest(unittest.TestCase):
                 teacher_config,
                 True,
                 [],
+            )
+
+        # A non-formal child run may reuse a formally accepted frozen teacher.
+        validate_teacher_checkpoint_metadata(
+            valid_checkpoint,
+            PAPER_READY_PROTOCOL,
+            20,
+            'tiny',
+            'teacher_for_smoke.pt',
+            dataset_identity,
+            teacher_config,
+            False,
+            ['training batches are capped for smoke'],
+            TRAIN_ONLY_CANDIDATE_EXCLUSION,
+        )
+
+        blocked_teacher = dict(valid_checkpoint)
+        blocked_teacher['paper_ready_eligible'] = False
+        blocked_teacher['paper_ready_blockers'] = ['teacher profile override']
+        with self.assertRaisesRegex(ValueError, 'not marked eligible'):
+            validate_teacher_checkpoint_metadata(
+                blocked_teacher,
+                PAPER_READY_PROTOCOL,
+                20,
+                'tiny',
+                'blocked_teacher.pt',
+                dataset_identity,
+                teacher_config,
+                False,
+                ['training batches are capped for smoke'],
+                TRAIN_ONLY_CANDIDATE_EXCLUSION,
+            )
+
+        # A run may restore its own validation-best teacher without publishing
+        # that intentionally non-paper-ready checkpoint for external reuse.
+        local_checkpoint = dict(valid_checkpoint)
+        local_checkpoint['paper_ready_eligible'] = False
+        local_checkpoint['paper_ready_blockers'] = [
+            'training batches are capped for smoke',
+            'final test evaluation is disabled',
+        ]
+        validate_teacher_checkpoint_metadata(
+            local_checkpoint,
+            PAPER_READY_PROTOCOL,
+            20,
+            'tiny',
+            'run_local_teacher.pt',
+            dataset_identity,
+            teacher_config,
+            False,
+            local_checkpoint['paper_ready_blockers'],
+            TRAIN_ONLY_CANDIDATE_EXCLUSION,
+            require_paper_ready_checkpoint=False,
+        )
+
+        with self.assertRaisesRegex(ValueError, 'metadata mismatch'):
+            validate_teacher_checkpoint_metadata(
+                local_checkpoint,
+                PAPER_READY_PROTOCOL,
+                20,
+                'tiny',
+                'run_local_teacher.pt',
+                dataset_identity,
+                teacher_config,
+                False,
+                ['different active blocker'],
+                TRAIN_ONLY_CANDIDATE_EXCLUSION,
+                require_paper_ready_checkpoint=False,
             )
 
     def test_legacy_teacher_allows_metadata_free_historical_checkpoint(self):

@@ -2,8 +2,11 @@ import argparse
 import os
 
 from utility.dataset_profiles import (
+    BABY_STUDENT_PROFILE_NAME,
     apply_dataset_profile_defaults,
+    apply_student_profile_defaults,
     resolved_profile_metadata,
+    resolved_student_profile_metadata,
 )
 
 
@@ -632,6 +635,9 @@ parser.add_argument('--td_user_image_rate', type=float, default=1.0, help='Relat
 parser.add_argument('--td_user_text_rate', type=float, default=1.0, help='Relative weight for user-text distillation inside TD-Distill.')
 
 parser.add_argument('--dataset', type=str, default='netflix', help='netflix, tiktok, amazon')
+parser.add_argument('--student_profile', type=str, default='',
+                    choices=['', BABY_STUDENT_PROFILE_NAME],
+                    help='Optional pinned student experiment profile.')
 
 parser.add_argument('--data_path', nargs='?', default='/home/weiw/Code/MM/KDMM/data/', help='Input data path.')  # /home/weiw/Code/MM/MICRO2Ours/data/     /home/weiw/Datasets/MM/LATTICE/    /home/weiw/Code/MM/KDMM/data/
 parser.add_argument('--eval_protocol', type=str, default='val_test_once_v1',
@@ -667,6 +673,8 @@ parser.add_argument('--batch_size', type=int, default=1024, help='Batch size.') 
 parser.add_argument('--epoch', type=int, default=1000, help='Number of epoch.')  #default: 1000
 parser.add_argument('--smoke_train_batches', type=int, default=0,
                     help='Positive value caps training batches per epoch for non-formal smoke runs; 0 disables the cap.')
+parser.add_argument('--run_final_test', default=True, type=str2bool, nargs='?', const=True,
+                    help='Evaluate test_mat once after restoring the validation-best checkpoint. Capped smoke runs must set this false.')
 parser.add_argument('--cf_model', nargs='?', default='light_init', help='Downstream Collaborative Filtering model {mf, ngcf, lightgcn, vbpr, hafr}')   
 parser.add_argument('--early_stopping_patience', type=int, default=7, help='') 
 parser.add_argument('--gpu_id', type=int, default=0, help='GPU id')
@@ -687,6 +695,8 @@ parser.add_argument('--mess_dropout', nargs='?', default='[0.1, 0.1]', help='Kee
 # kd
 parser.add_argument('--student_embed_size', type=int, default=32, help='Embedding size.')  # 16, 32        
 parser.add_argument('--student_lr', type=float, default=0.00002, help='Learning rate.')  #0.002 0.001, 0.00001  0.00002
+parser.add_argument('--student_weight_decay', type=float, default=0.01,
+                    help='AdamW weight decay for student optimization.')
 parser.add_argument('--student_reg_rate', type=float, default=1, help='')  # 
 parser.add_argument('--student_n_layers', type=int, default=1, help='Number of item graph conv layers')  
 parser.add_argument('--student_tau', type=float, default=5, help='Learning rate.')  #0.002 0.001, 0.00001    
@@ -751,6 +761,9 @@ parser.add_argument('--td_user_image_rate', type=float, default=1.0, help='Relat
 parser.add_argument('--td_user_text_rate', type=float, default=1.0, help='Relative weight for user-text distillation inside TD-Distill.')
 
 parser.add_argument('--dataset', type=str, default='tiktok', help='netflix, tiktok, amazon')
+parser.add_argument('--student_profile', type=str, default='',
+                    choices=['', BABY_STUDENT_PROFILE_NAME],
+                    help='Optional pinned student experiment profile.')
 
 parser.add_argument('--data_path', nargs='?', default='/home/weiw/Code/MM/KDMM/data/', help='Input data path.')  # /home/weiw/Code/MM/MICRO2Ours/data/     /home/weiw/Datasets/MM/LATTICE/    /home/weiw/Code/MM/KDMM/data/
 parser.add_argument('--eval_protocol', type=str, default='val_test_once_v1',
@@ -786,6 +799,8 @@ parser.add_argument('--batch_size', type=int, default=1024, help='Batch size.')
 parser.add_argument('--epoch', type=int, default=1000, help='Number of epoch.')  #default: 1000
 parser.add_argument('--smoke_train_batches', type=int, default=0,
                     help='Positive value caps training batches per epoch for non-formal smoke runs; 0 disables the cap.')
+parser.add_argument('--run_final_test', default=True, type=str2bool, nargs='?', const=True,
+                    help='Evaluate test_mat once after restoring the validation-best checkpoint. Capped smoke runs must set this false.')
 parser.add_argument('--cf_model', nargs='?', default='light_init', help='Downstream Collaborative Filtering model {mf, ngcf, lightgcn, vbpr, hafr}')   
 parser.add_argument('--early_stopping_patience', type=int, default=8, help='') 
 parser.add_argument('--gpu_id', type=int, default=2, help='GPU id')
@@ -806,6 +821,8 @@ parser.add_argument('--mess_dropout', nargs='?', default='[0.1, 0.1]', help='Kee
 # kd
 parser.add_argument('--student_embed_size', type=int, default=32, help='Embedding size.')  # 16, 32        
 parser.add_argument('--student_lr', type=float, default=0.002, help='Learning rate.')  #0.002 0.001, 0.00001 
+parser.add_argument('--student_weight_decay', type=float, default=0.01,
+                    help='AdamW weight decay for student optimization.')
 parser.add_argument('--student_reg_rate', type=float, default=1, help='')  # 
 parser.add_argument('--student_n_layers', type=int, default=1, help='Number of item graph conv layers')  
 parser.add_argument('--student_tau', type=float, default=5, help='Learning rate.')  #0.002 0.001, 0.00001    
@@ -864,6 +881,9 @@ args = parser.parse_args()
 #---amazon-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 parser = argparse.ArgumentParser(description='Deep Learning')
 parser.add_argument('--dataset', type=str, default='amazon', help='netflix, tiktok, amazon')
+parser.add_argument('--student_profile', type=str, default='',
+                    choices=['', BABY_STUDENT_PROFILE_NAME],
+                    help='Optional pinned student experiment profile.')
 
 parser.add_argument('--data_path', nargs='?', default='/home/weiw/Code/MM/KDMM/data/', help='Input data path.')  # /home/weiw/Code/MM/MICRO2Ours/data/     /home/weiw/Datasets/MM/LATTICE/    /home/weiw/Code/MM/KDMM/data/
 parser.add_argument('--eval_protocol', type=str, default='val_test_once_v1',
@@ -899,6 +919,8 @@ parser.add_argument('--batch_size', type=int, default=512, help='Batch size.')
 parser.add_argument('--epoch', type=int, default=1000, help='Number of epoch.')  #default: 1000
 parser.add_argument('--smoke_train_batches', type=int, default=0,
                     help='Positive value caps training batches per epoch for non-formal smoke runs; 0 disables the cap.')
+parser.add_argument('--run_final_test', default=True, type=str2bool, nargs='?', const=True,
+                    help='Evaluate test_mat once after restoring the validation-best checkpoint. Capped smoke runs must set this false.')
 parser.add_argument('--cf_model', nargs='?', default='light_init', help='Downstream Collaborative Filtering model {mf, ngcf, lightgcn, vbpr, hafr}')   
 parser.add_argument('--early_stopping_patience', type=int, default=8, help='') 
 parser.add_argument('--gpu_id', type=int, default=2, help='GPU id')
@@ -919,6 +941,8 @@ parser.add_argument('--mess_dropout', nargs='?', default='[0.1, 0.1]', help='Kee
 # kd
 parser.add_argument('--student_embed_size', type=int, default=32, help='Embedding size.')  # 16, 32        
 parser.add_argument('--student_lr', type=float, default=0.00005, help='Learning rate.')  # tuned from 2e-5 to 5e-5 for faster student convergence
+parser.add_argument('--student_weight_decay', type=float, default=0.01,
+                    help='AdamW weight decay for student optimization.')
 parser.add_argument('--student_reg_rate', type=float, default=1, help='')  # 
 parser.add_argument('--student_n_layers', type=int, default=1, help='Number of item graph conv layers')  
 parser.add_argument('--student_tau', type=float, default=5, help='Learning rate.')  #0.002 0.001, 0.00001    
@@ -974,6 +998,9 @@ parser.add_argument('--decouple_t', default=1, type=float, help='')  #
 
 profile_probe, _ = parser.parse_known_args()
 apply_dataset_profile_defaults(parser, profile_probe.dataset)
+apply_student_profile_defaults(
+    parser, profile_probe.dataset, profile_probe.student_profile
+)
 args = parser.parse_args()
 # ===== Matrix-Format Support =====
 if args.data_path:
@@ -987,6 +1014,13 @@ args.dataset_config_profile = profile_metadata['name']
 args.dataset_config_scope = profile_metadata['scope']
 args.dataset_config_source = profile_metadata['source']
 args.dataset_config_overrides = profile_metadata['overrides']
+student_profile_metadata = resolved_student_profile_metadata(
+    args.dataset, args.student_profile, args
+)
+args.student_config_profile = student_profile_metadata['name']
+args.student_config_scope = student_profile_metadata['scope']
+args.student_config_source = student_profile_metadata['source']
+args.student_config_overrides = student_profile_metadata['overrides']
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #---amazon-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
