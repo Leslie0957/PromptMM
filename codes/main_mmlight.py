@@ -68,12 +68,10 @@ import copy
 
 from utility.parser import args, select_dataset
 from utility.dataset_profiles import (
-    BABY_STUDENT_PROFILE_NAME,
-    BABY_STUDENT_PROFILE_SCOPE,
-    BABY_STUDENT_PROFILE_SOURCE,
     BABY_TEACHER_PROFILE_NAME,
     BABY_TEACHER_PROFILE_SCOPE,
     BABY_TEACHER_PROFILE_SOURCE,
+    baby_student_paper_ready_blockers,
 )
 from utility.experiment_protocol import (
     LEGACY_PROTOCOL,
@@ -271,27 +269,14 @@ class Trainer(object):
                         'Baby teacher-only run must not activate a student profile'
                     )
             else:
-                baby_student_profile_metadata = (
-                    getattr(args, 'student_config_profile', None),
-                    getattr(args, 'student_config_scope', None),
-                    getattr(args, 'student_config_source', None),
-                )
-                expected_baby_student_profile_metadata = (
-                    BABY_STUDENT_PROFILE_NAME,
-                    BABY_STUDENT_PROFILE_SCOPE,
-                    BABY_STUDENT_PROFILE_SOURCE,
-                )
-                if (
-                    baby_student_profile_metadata
-                    != expected_baby_student_profile_metadata
-                ):
-                    self.paper_ready_blockers.append(
-                        'Baby student profile metadata is missing or mismatched'
+                self.paper_ready_blockers.extend(
+                    baby_student_paper_ready_blockers(
+                        getattr(args, 'student_config_profile', None),
+                        getattr(args, 'student_config_scope', None),
+                        getattr(args, 'student_config_source', None),
+                        getattr(args, 'student_config_overrides', {}),
                     )
-                if getattr(args, 'student_config_overrides', {}):
-                    self.paper_ready_blockers.append(
-                        'Baby student reference profile has resolved overrides'
-                    )
+                )
         if getattr(args, 'smoke_train_batches', 0) > 0:
             self.paper_ready_blockers.append('training batches are capped for smoke')
         if not self.run_final_test:

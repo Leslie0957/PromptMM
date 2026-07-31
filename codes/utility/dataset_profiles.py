@@ -9,6 +9,13 @@ BABY_TEACHER_PROFILE_SOURCE = (
 BABY_STUDENT_PROFILE_NAME = 'baby_student_reference_v1'
 BABY_STUDENT_PROFILE_SCOPE = 'student_reference'
 BABY_STUDENT_PROFILE_SOURCE = 'predeclared_baby_id_only_bpr_reference'
+BABY_TD_ASYMMETRIC_NO_PROJECTION_PROFILE_NAME = (
+    'baby_td_asymmetric_no_projection_v1'
+)
+BABY_TD_ASYMMETRIC_NO_PROJECTION_PROFILE_SCOPE = 'student_candidate'
+BABY_TD_ASYMMETRIC_NO_PROJECTION_PROFILE_SOURCE = (
+    'predeclared_baby_asymmetric_no_projection_directional_v1'
+)
 
 # Core teacher settings come from the dormant Baby block in parser.py. Prompt
 # fields absent from that block follow the active PromptMM profile with the same
@@ -76,6 +83,37 @@ BABY_STUDENT_PROFILE_DEFAULTS = {
     'run_efficiency_benchmark': False,
 }
 
+BABY_TD_ASYMMETRIC_NO_PROJECTION_PROFILE_DEFAULTS = dict(
+    BABY_STUDENT_PROFILE_DEFAULTS
+)
+BABY_TD_ASYMMETRIC_NO_PROJECTION_PROFILE_DEFAULTS.update({
+    'td_distill_alpha': 0.3,
+    'td_item_image_rate': 1.0,
+    'td_item_text_rate': 0.3,
+    'td_user_image_rate': 0.0,
+    'td_user_text_rate': 0.0,
+})
+
+BABY_STUDENT_PROFILES = {
+    BABY_STUDENT_PROFILE_NAME: {
+        'name': BABY_STUDENT_PROFILE_NAME,
+        'scope': BABY_STUDENT_PROFILE_SCOPE,
+        'source': BABY_STUDENT_PROFILE_SOURCE,
+        'defaults': BABY_STUDENT_PROFILE_DEFAULTS,
+    },
+    BABY_TD_ASYMMETRIC_NO_PROJECTION_PROFILE_NAME: {
+        'name': BABY_TD_ASYMMETRIC_NO_PROJECTION_PROFILE_NAME,
+        'scope': BABY_TD_ASYMMETRIC_NO_PROJECTION_PROFILE_SCOPE,
+        'source': BABY_TD_ASYMMETRIC_NO_PROJECTION_PROFILE_SOURCE,
+        'defaults': BABY_TD_ASYMMETRIC_NO_PROJECTION_PROFILE_DEFAULTS,
+    },
+}
+BABY_STUDENT_PROFILE_NAMES = tuple(BABY_STUDENT_PROFILES)
+BABY_PAPER_READY_STUDENT_PROFILE_IDENTITIES = frozenset(
+    (profile['name'], profile['scope'], profile['source'])
+    for profile in BABY_STUDENT_PROFILES.values()
+)
+
 _LITERAL_FIELDS = {'Ks', 'mess_dropout', 'regs', 'weight_size'}
 
 
@@ -100,17 +138,18 @@ def apply_dataset_profile_defaults(parser, dataset):
 def student_profile(dataset, profile_name):
     if not profile_name:
         return None
-    if dataset != 'baby' or profile_name != BABY_STUDENT_PROFILE_NAME:
+    profile = BABY_STUDENT_PROFILES.get(profile_name)
+    if dataset != 'baby' or profile is None:
         raise ValueError(
             'Student profile {} is not valid for dataset {}'.format(
                 profile_name, dataset
             )
         )
     return {
-        'name': BABY_STUDENT_PROFILE_NAME,
-        'scope': BABY_STUDENT_PROFILE_SCOPE,
-        'source': BABY_STUDENT_PROFILE_SOURCE,
-        'defaults': dict(BABY_STUDENT_PROFILE_DEFAULTS),
+        'name': profile['name'],
+        'scope': profile['scope'],
+        'source': profile['source'],
+        'defaults': dict(profile['defaults']),
     }
 
 
@@ -184,3 +223,13 @@ def resolved_student_profile_metadata(dataset, profile_name, namespace):
         'source': profile['source'],
         'overrides': overrides,
     }
+
+
+def baby_student_paper_ready_blockers(name, scope, source, overrides):
+    blockers = []
+    profile_identity = (name, scope, source)
+    if profile_identity not in BABY_PAPER_READY_STUDENT_PROFILE_IDENTITIES:
+        blockers.append('Baby student profile metadata is missing or mismatched')
+    if overrides:
+        blockers.append('Baby student reference profile has resolved overrides')
+    return blockers
