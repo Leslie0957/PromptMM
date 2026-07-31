@@ -2372,3 +2372,176 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   implementation commit and full override-free command, then stop without
   training, validation, or Test. The candidate declaration and execution stay
   blocked until the baseline outcome commit exists.
+
+### 2026-07-31 | baby_student_reference_seed2023_v1 formal uncapped baseline (pending)
+
+- Purpose and hypothesis: predeclare the baseline arm of the matched Baby
+  seed-2023 replication as one uncapped formal ID-only BPR run. The purpose is
+  to measure the already frozen reference method under the new student
+  initialization and sampling stream before any seed-2023 candidate evidence
+  exists. This declaration changes no method control and makes no quality
+  claim.
+- Status and authorization boundary: pending; formal, uncapped, single run seed
+  `2023`, and eligible for one execution only after this declaration is in a
+  clean committed tree and the user gives new explicit launch authorization.
+  This task authorizes only this append-only baseline declaration, its
+  declaration outcome, focused Markdown/Git verification, and one local
+  commit. It does not authorize profile resolution by project code, dataset
+  access, training, validation ranking, Test evaluation, run-artifact creation,
+  retry, candidate declaration or execution, tag, bundle, baseline overwrite,
+  or merge to `main`.
+- Branch and exact source identity: branch
+  `codex/experiment/baby-teacher-baseline`; clean profile implementation and
+  declaration predecessor
+  `03260ee2db0e9e90332588031eacf3152d260dbf`. That commit implemented and
+  verified both seed-2023 profiles together before evidence. The commit
+  containing this pending declaration must be the later clean launch HEAD, and
+  `git diff 03260ee2... <launch-commit> -- codes docs` must be empty. No source,
+  profile, test, or documentation change is permitted between the frozen
+  implementation and launch.
+- Dataset and preprocessing identity: audited MMRec Baby under `data/baby/`;
+  conversion manifest SHA256
+  `cf2d0d8c8aff9b321aad0b11d48d078794d12a4920afaa4c8efedfe3beda9df2`;
+  train/validation/Test matrices respectively
+  `3cead4c601ccef4c2424cd692951935840ccc8f22df15577ced4e5f3fec37fac`,
+  `f1458ff1dc28c5371699780270e3a3e270c8f9ce19def3d5e67d4ba9644ce9d2`,
+  and `773de4f57f2c1bcb6695ea57995280e7cbe114b2b579263a599bb097bb6555ac`;
+  image/text features respectively
+  `36c3be592b98506189a7d5de71b21577cf626f0293b539d861534673b3e9fd70`
+  and `6667f2ad655c9ecc97cb3383f58988864ef51ec0b39c158b15986c66769f2dc4`.
+  Preserve official split assignments, cold-item policy `retain_official`,
+  duplicate-modalities policy `error`, dataset preflight, `pca` hard-token
+  type, `hard_token_seed=2022`, and the existing cache provenance. No dataset,
+  split, feature, preprocessing, or cache change is allowed.
+- Frozen teacher identity and controls: reuse read-only
+  `Model/baby/teacher_model_val_test_once_v1.pt`, expected size `141098540`
+  bytes and SHA256
+  `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`;
+  `if_train_teacher=false`, `teacher_only=false`, and
+  `allow_teacher_alias_overwrite=false`. No teacher optimizer step, run-local
+  teacher checkpoint, shared-alias publication, overwrite, or new teacher Test
+  evaluation is allowed.
+- Student input and deployment identity: no student checkpoint is loaded.
+  `td_init_from_teacher=false` requires random initialization at run seed
+  `2023`; the model is `td_distill_no_projection` with user/item ID embedding
+  dimension `64`. The inference export must contain only finite user/item ID
+  embeddings plus `embedding_dim`, user/item counts, and the no-projection
+  variant identity; it must contain no teacher, modality, prompt, semantic
+  cache, graph, projection, or optimizer state.
+- Full override-free formal command, frozen exactly and containing no `--seed`:
+  `D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_student_reference_seed2023_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --run_final_test true`
+- Resolved profile and override contract, already statically verified by
+  implementation commit `03260ee2...`: profile
+  `baby_student_reference_seed2023_v1`, scope `student_reference`, source
+  `predeclared_baby_id_only_bpr_reference_seed2023`;
+  `dataset_config_overrides={}` and `student_config_overrides={}`; training and
+  sampling `seed=2023`; teacher preprocessing/cache
+  `hard_token_seed=2022`. The command may not add CLI seed, semantic,
+  optimizer, epoch, patience, batch, sampler, protocol, teacher, or final-Test
+  overrides.
+- Fixed baseline parameters: batch size `1024`; maximum `epoch=1000`;
+  validation every epoch; early-stopping patience `7` consecutive
+  non-improving validation evaluations; `smoke_train_batches=0`, using all
+  `116` independently sampled batches per completed epoch; unchanged
+  `data_generator.sample()` pairwise BPR sampling; AdamW
+  `student_lr=6e-5`; student weight decay `0.01`; no efficiency benchmark;
+  `td_distill_alpha=0.0`; and item-image, item-text, user-image, and user-text
+  rates all `0.0`. The run is BPR-only with no semantic head, projection, or
+  teacher warm start.
+- Evaluation and Test contract: `val_test_once_v1`; train only on `train_mat`;
+  select and early-stop only by validation Recall@20; candidate exclusion
+  `train_only`; `Ks=[10,20,40,50]`; `test_flag=part`. Save and restore the
+  validation-best student checkpoint, then execute exactly one final student
+  Test evaluation. Test metrics are report-only and cannot influence selection,
+  acceptance, any profile value, or the already frozen later arm.
+- Intended environment: `D:\miniconda\envs\run_5060\python.exe`; Python
+  `3.10.20`; PyTorch `2.11.0+cu128`; CUDA runtime `12.8`; NVIDIA driver
+  `595.97`; NVIDIA GeForce RTX 5060 8 GB; GPU selector `0`. Environment, GPU,
+  free space, source HEAD, profile resolution, dataset identity, and teacher
+  fingerprint must be rechecked immediately before any separately authorized
+  launch.
+- Planned run-specific artifacts, all keyed by one new timestamp/PID run name:
+  raw log `logs/<run_name>`; preflight
+  `exp/runs/baby/dataset_preflight__<run_name>.json`; manifest
+  `exp/runs/baby/run_manifest__<run_name>.json`; convergence record
+  `exp/converge/baby/auto__<run_name>.pkl`; full checkpoint
+  `Model/baby/td_distill/td_distill_full__val_test_once_v1__<run_name>.pth`;
+  and inference-only checkpoint
+  `Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__<run_name>.pth`.
+  No shared student alias is allowed; all six artifacts must share the same run
+  identity and remain outside Git.
+- Hard acceptance criteria for the later run: launch from the exact clean
+  declaration commit; source diff gate and both empty override maps pass;
+  profile seed is `2023` while `hard_token_seed` is `2022`; dataset preflight
+  and frozen-teacher validation pass; every loss and validation series value is
+  finite; every completed epoch uses all `116` batches; validation Recall@20
+  alone selects and early-stops; the validation-best checkpoint is restored
+  before exactly one student final Test; manifest status is `completed`,
+  `paper_ready_eligible=true`, blockers are empty, and
+  `final_test_performed=true`; teacher hash and aliases are unchanged; all six
+  same-run artifacts exist and are fingerprinted; full/inference embeddings
+  are finite and bit-for-bit equal; the inference export contains only the
+  declared deployment state.
+- Quality acceptance and preservation rule: there is no minimum metric
+  threshold. Any finite result produced by the exact declared code and protocol
+  is valid completed baseline evidence even if low, reversed, or worse than
+  seed `2022`. Quality alone cannot cancel the matched replication, change the
+  frozen later profile, or trigger rollback, retry, reset, deletion, or a
+  `failed` label.
+- Failure boundary: mark a later run `failed` only for process/code failure,
+  non-finite values, source/profile/data/teacher mismatch, override drift,
+  selection/Test chronology violation, teacher mutation, missing or cross-run
+  artifacts, or another hard acceptance failure. Preserve all partial
+  run-specific files and record the root cause without automatic retry or
+  destructive recovery.
+- Risks and evidence limits: the uncapped GPU run may fail or take substantial
+  time; the final Test access is consumable once and cannot tune anything; the
+  fixed official cold-item warning remains; one additional seed may reverse the
+  seed-2022 direction; and two paired seeds will still be insufficient for a
+  strong variance or significance claim. Ignored artifacts require explicit
+  fingerprints and later physical backup.
+- Planned later verification after separate launch authorization: verify clean
+  HEAD, exact source diff, actual environment, empty profile overrides, teacher
+  SHA256, data/preflight identities, and pre-run artifact inventory; after the
+  single process exits, audit raw chronology, finite convergence series,
+  validation selection and restoration, exactly-one Test access, manifest
+  eligibility, checkpoint structure and full-to-inference equality, six
+  artifact hashes, teacher/alias preservation, and tracked Git status; then
+  append and commit one completed or failed outcome before any later stage.
+- Declaration-only verification and next action: this task must change only
+  `TRAINING_LOG.md`, run focused content/diff and Git index checks, create one
+  declaration commit, and stop. After that commit, wait for explicit user
+  authorization before executing the exact baseline command once. No later-arm
+  declaration or execution is permitted before this baseline outcome is
+  committed.
+
+### 2026-07-31 | baby_student_reference_seed2023_v1 formal baseline declaration (completed; run not started)
+
+- Status and scope: completed the requested declaration-recording task only;
+  the formal uncapped baseline above remains `pending`. No project code,
+  profile resolution, dataset, training, validation, Test, efficiency, run
+  artifact, retry, later-arm declaration, tag, bundle, baseline overwrite, or
+  merge action ran.
+- Source and verification evidence: the pre-edit branch was clean at
+  `03260ee2db0e9e90332588031eacf3152d260dbf`; focused source/document review
+  confirmed the implemented baseline identity, seed-only delta, absence of
+  `--seed` in the frozen command, empty-override contract, and unchanged
+  `hard_token_seed=2022`. The final append-only diff and staged scope must be
+  limited to `TRAINING_LOG.md` and pass `git diff --check` plus
+  `git diff --cached --check` before this declaration commit.
+- Metrics, Test access, and generated artifacts: none. No Baby split was loaded
+  or accessed; no validation/Test metric, checkpoint, preflight, manifest,
+  convergence record, raw log, dataset derivative, asset hash, or efficiency
+  result was generated or changed. This log declaration and its Git commit are
+  the only task artifacts.
+- Experimental meaning and unresolved risks: the baseline run contract is now
+  frozen before seed-2023 evidence and preserves every non-seed control from
+  the completed seed-2022 reference. It provides no new replication evidence,
+  runtime evidence, or quality result; the real GPU/data path for this profile
+  remains unexecuted, and the future one-time Test result cannot tune or cancel
+  the already frozen matched comparison.
+- Unique next action: after this declaration commit and only with new explicit
+  user authorization, execute the exact declared
+  `baby_student_reference_seed2023_v1` command once from the clean declaration
+  HEAD, audit its protocol and artifacts, append and commit its completed or
+  failed outcome, and stop. Do not begin any later arm in that task.
