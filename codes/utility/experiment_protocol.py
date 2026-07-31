@@ -157,6 +157,16 @@ def training_batch_count(n_train, batch_size, smoke_train_batches=0):
     return full_batch_count
 
 
+def validate_final_test_policy(smoke_train_batches, run_final_test):
+    run_final_test = bool(run_final_test)
+    if int(smoke_train_batches) > 0 and run_final_test:
+        raise ValueError(
+            'Capped smoke runs must set --run_final_test false so test_mat '
+            'remains untouched.'
+        )
+    return run_final_test
+
+
 def validate_teacher_checkpoint_metadata(
     checkpoint,
     active_protocol,
@@ -168,6 +178,7 @@ def validate_teacher_checkpoint_metadata(
     active_paper_ready_eligible=None,
     active_paper_ready_blockers=None,
     active_candidate_exclusion_policy=None,
+    require_paper_ready_checkpoint=True,
 ):
     checkpoint_protocol = checkpoint.get('evaluation_protocol')
     checkpoint_selection_split = checkpoint.get('selection_split')
@@ -205,8 +216,6 @@ def validate_teacher_checkpoint_metadata(
         required_frozen_metadata = {
             'dataset_identity': active_dataset_identity,
             'teacher_inference_config': active_teacher_inference_config,
-            'paper_ready_eligible': active_paper_ready_eligible,
-            'paper_ready_blockers': list(active_paper_ready_blockers or []),
             'candidate_exclusion_policy': active_candidate_exclusion_policy,
         }
         for metadata_name, expected_value in required_frozen_metadata.items():
@@ -227,6 +236,35 @@ def validate_teacher_checkpoint_metadata(
                         metadata_name, checkpoint_path
                     )
                 )
+        if require_paper_ready_checkpoint:
+            if checkpoint.get('paper_ready_eligible') is not True:
+                raise ValueError(
+                    'Paper-ready teacher checkpoint is not marked eligible: {}'.format(
+                        checkpoint_path
+                    )
+                )
+            if checkpoint.get('paper_ready_blockers') != []:
+                raise ValueError(
+                    'Paper-ready teacher checkpoint contains blockers at {}.'.format(
+                        checkpoint_path
+                    )
+                )
+        else:
+            if active_paper_ready_eligible is None or active_paper_ready_blockers is None:
+                raise ValueError(
+                    'Run-local teacher restore requires active eligibility metadata.'
+                )
+            expected_run_eligibility = {
+                'paper_ready_eligible': active_paper_ready_eligible,
+                'paper_ready_blockers': list(active_paper_ready_blockers),
+            }
+            for metadata_name, expected_value in expected_run_eligibility.items():
+                if checkpoint.get(metadata_name) != expected_value:
+                    raise ValueError(
+                        'Run-local teacher checkpoint metadata mismatch for {} at {}.'.format(
+                            metadata_name, checkpoint_path
+                        )
+                    )
         if not checkpoint.get('hard_token_cache'):
             raise ValueError(
                 'Paper-ready teacher checkpoint is missing hard-token provenance: {}'.format(
