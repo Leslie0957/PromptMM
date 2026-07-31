@@ -2161,3 +2161,214 @@ records remain under `exp/`; checkpoints remain under `Model/`.
 - Next action: with separate explicit authorization, implement and verify both
   override-free seed-2023 profiles together, create one scoped source/test/doc
   commit, and stop without running either member of the pair.
+
+### 2026-07-31 | matched Baby seed-2023 profile implementation (pending)
+
+- Purpose and rationale: implement the predeclared matched replication
+  identities `baby_student_reference_seed2023_v1` and
+  `baby_td_asymmetric_no_projection_seed2023_v1` together, before either arm
+  produces evidence. Each profile must copy its seed-2022 counterpart and
+  change only the training/sampling `seed` from `2022` to `2023`, preserving
+  the parameter-selection firewall and baseline-before-candidate run order.
+- Status and authorization: pending implementation and static/unit verification
+  only. The user authorized both profile definitions, supported identity and
+  eligibility wiring, focused tests, seed-2023 replication documentation,
+  this append-only trace, and one coherent commit. Training, validation
+  ranking, Test evaluation, dataset loading, profile smoke, run artifacts,
+  tags, bundles, baseline overwrite, and merge to `main` are prohibited.
+- Branch and rollback/preservation point: branch
+  `codex/experiment/baby-teacher-baseline` at clean declaration commit
+  `df114dcd67c68209e8f15cc7371a633f81a362d4`. Preserve both completed
+  seed-2022 profiles and all prior experiment evidence; no rollback or deletion
+  is authorized.
+- Declared implementation scope:
+  - add both independent seed-2023 identities, metadata, copied defaults, and
+    registry entries in `codes/utility/dataset_profiles.py`;
+  - narrowly make dataset-profile override resolution defer overlapping fields
+    owned by an active registered student profile to the existing student
+    override audit. This is required because the student run seed becomes
+    `2023` while the teacher/dataset profile seed remains `2022`;
+  - extend `codes/tests/test_dataset_profiles.py` to lock exact cross-seed and
+    matched-arm deltas, empty formal override maps, eligibility, rejection of
+    overrides/unknown identities, and all frozen controls;
+  - add `docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md`, then append a separate
+    completed or failed outcome to this active log.
+- Explicitly excluded scope: no change to parser defaults or unrelated CLI
+  options, `codes/main_mmlight.py`, data loading or sampling, model/loss or
+  optimizer implementation, evaluation/finalization protocol, checkpoint or
+  inference-export format, dataset/teacher assets, existing profile values, or
+  generated experiment artifacts. Existing parser choices and runtime
+  eligibility consume the central registered-profile collections and should
+  need no source edit; any material need beyond the declared files requires a
+  scope amendment before continuing.
+- Exact profile contract:
+  - seed-2023 baseline defaults equal `baby_student_reference_v1` at every key
+    except `seed=2023`;
+  - seed-2023 candidate defaults equal
+    `baby_td_asymmetric_no_projection_v1` at every key except `seed=2023`;
+  - matched seed-2023 non-semantic controls are identical; baseline semantic
+    values remain all zero, while candidate values remain alpha `0.3`,
+    item-image `1.0`, item-text `0.3`, and both user rates `0.0`;
+  - `hard_token_seed=2022` remains dataset/teacher-owned and is not added to a
+    student profile. Frozen teacher mode, no projection, no warm start,
+    dimension `64`, AdamW `student_lr=6e-5`, weight decay `0.01`, batch `1024`,
+    `epoch=1000`, patience `7`, `smoke_train_batches=0`,
+    `val_test_once_v1`, and final-Test-after-best-restore contract stay fixed.
+- Metadata-resolution boundary: for an active registered student profile,
+  overlapping fields in its defaults are student-owned for override reporting
+  and must be audited by `resolved_student_profile_metadata`; dataset-only
+  fields, including `hard_token_seed`, remain audited against the frozen
+  dataset/teacher profile. An undeclared CLI seed change must still appear in
+  `student_config_overrides` and block paper-ready eligibility. Runs without an
+  active student profile retain the current dataset-profile audit unchanged.
+- Risks: shared mutable mappings could alter seed-2022 defaults; overly broad
+  ownership logic could hide a CLI override; registry expansion could admit an
+  unknown identity; or the two seed-2023 arms could drift at a non-seed control.
+  Static resolution must prove that declared profile fields are audited once,
+  dataset-only fields remain protected, and unknown/mismatched metadata stays
+  blocked.
+- Acceptance criteria: both seed-2022 mappings remain value-identical; each
+  seed-2023 mapping has the same key set and differs from its counterpart only
+  at `seed`; the seed-2023 pair differs only at the three actually changed
+  semantic values and their profile metadata; both formal CLI configurations
+  resolve with `dataset_config_overrides={}` and
+  `student_config_overrides={}`; `seed=2023` and
+  `hard_token_seed=2022`; all four exact identities are eligible only with
+  matching metadata and empty overrides; unknown identities and a CLI seed
+  override remain blocked; all fixed teacher, protocol, initialization,
+  architecture, optimizer, budget, and deployment controls remain unchanged.
+- Planned verification: focused `test_dataset_profiles.py`; full
+  `codes/tests/test_*.py` unit suite on temporary/synthetic fixtures only;
+  Python compilation of changed Python files; static actual-parser resolution
+  of both future formal commands without importing the training runner;
+  focused documentation/registry checks; source/diff checks for excluded
+  modules; `git diff --check`; exact staged-file review; and
+  `git diff --cached --check`. No dataset split, runner, training, validation
+  ranking, or Test command will execute.
+- Metrics and run artifacts: none expected. The only task artifacts are the
+  scoped profile source, tests, documentation, this pending/outcome trace, and
+  the resulting Git commit.
+- Unique next action after a verified implementation commit: with separate
+  explicit authorization, append and commit only the seed-2023 baseline formal
+  pending declaration, then stop before execution. The candidate declaration
+  and launch remain gated until the baseline has run and its outcome commit
+  exists.
+
+#### Metadata-resolution acceptance clarification before implementation
+
+- To preserve existing override evidence for capped `epoch`, batch, protocol,
+  and other shared controls, student ownership applies only when an active
+  registered student profile intentionally pins an overlapping field to a
+  value different from the dataset/teacher profile. Identical overlapping
+  defaults retain the existing dataset-profile comparison and may continue to
+  appear in both override maps when changed by CLI.
+- For the declared seed-2023 profiles the only such field is `seed`: formal
+  resolution treats the registered student expectation as `2023`, while an
+  undeclared CLI value differs from that expectation and is recorded by both
+  metadata audits. `hard_token_seed` remains dataset-only at `2022`. This
+  clarification changes no profile value, file scope, or authorization gate.
+
+### 2026-07-31 | matched Baby seed-2023 profile implementation (completed; no run)
+
+- Purpose and outcome: implemented and verified both predeclared seed-2023
+  replication profiles together from declaration commit
+  `df114dcd67c68209e8f15cc7371a633f81a362d4`. The baseline and candidate are
+  now independently registered, accepted by the exact Baby student identity
+  gate, and resolvable without overrides before either arm produces evidence.
+- Status and authorization compliance: completed successfully as profile and
+  reproducibility-enablement work only. No dataset split or training runner was
+  loaded; no profile smoke, training, validation ranking, Test evaluation,
+  efficiency benchmark, tag, bundle, baseline overwrite, or merge to `main`
+  occurred.
+- Branch and source identity: branch
+  `codex/experiment/baby-teacher-baseline`; clean implementation predecessor
+  `df114dcd67c68209e8f15cc7371a633f81a362d4`. The resulting coherent commit
+  will contain only the four scoped files below and must be cited by the later
+  seed-2023 baseline formal declaration.
+- Actual changes:
+  - `codes/utility/dataset_profiles.py` defines independent seed-2023 baseline
+    and candidate names, sources, copied defaults, and registry entries. The
+    central profile-name tuple automatically extends the existing parser
+    choices, and the central exact-identity set automatically extends the
+    maintained runtime eligibility gate;
+  - dataset metadata resolution now adopts a registered student profile's
+    expected value only for overlapping defaults that intentionally differ
+    from the dataset/teacher profile. This permits the declared run
+    `seed=2023` without treating it as an override while preserving the prior
+    audit behavior for identical shared controls and dataset-only fields;
+  - `codes/tests/test_dataset_profiles.py` locks both seed-only cross-seed
+    deltas, the matched-arm semantic delta, exact formal resolution, frozen
+    controls, CLI seed-override evidence, dataset ownership of
+    `hard_token_seed`, supported identities, and paper-ready blockers;
+  - `docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md` records the two profile
+    identities, exact seed delta, frozen teacher/non-seed controls, mandatory
+    baseline-outcome-before-candidate sequence, future commands, and the
+    validation-best-restore-before-single-Test contract.
+- Exact defaults and comparison audit:
+  - `baby_student_reference_seed2023_v1` has the same default keys and values
+    as `baby_student_reference_v1` except `seed: 2022 -> 2023`;
+  - `baby_td_asymmetric_no_projection_seed2023_v1` has the same default keys
+    and values as `baby_td_asymmetric_no_projection_v1` except
+    `seed: 2022 -> 2023`;
+  - the matched seed-2023 profiles share seed `2023` and every non-semantic
+    control. Their actual changed-value set remains exactly
+    `td_distill_alpha`, `td_item_image_rate`, and `td_item_text_rate`;
+  - baseline semantic values are all `0.0`; candidate values are alpha `0.3`,
+    item-image `1.0`, item-text `0.3`, user-image `0.0`, and user-text `0.0`.
+- Static actual-parser resolution, using each complete future formal argument
+  list without importing `main_mmlight.py`:
+  - baseline resolved profile/scope/source as
+    `baby_student_reference_seed2023_v1` / `student_reference` /
+    `predeclared_baby_id_only_bpr_reference_seed2023`, with `seed=2023`,
+    `hard_token_seed=2022`, `epoch=1000`, patience `7`,
+    `smoke_train_batches=0`, frozen teacher mode, `run_final_test=true`, and
+    both override maps `{}`;
+  - candidate resolved profile/scope/source as
+    `baby_td_asymmetric_no_projection_seed2023_v1` / `student_candidate` /
+    `predeclared_baby_asymmetric_no_projection_directional_v1_seed2023`, with
+    the same seed/cache identities, both override maps `{}`, and semantic
+    values `0.3 / 1.0 / 0.3 / 0.0 / 0.0`;
+  - an explicit seed `2024` is recorded against expected `2023` by both
+    metadata maps and yields the existing student-profile override blocker;
+    a changed `hard_token_seed` remains a dataset override, and unknown or
+    mismatched identities remain blocked.
+- Verification evidence:
+  - focused `codes.tests.test_dataset_profiles`: `20/20` tests passed;
+  - full `codes/tests/test_*.py` unit suite: `40/40` tests passed in the
+    declared Python environment, using temporary/synthetic fixtures only;
+  - Python compilation passed for the changed profile and test modules;
+  - actual `utility.parser` static resolution passed for both complete future
+    formal commands. An initial JSON-reporting `python -c` wrapper failed with
+    a PowerShell quoting `NameError` before producing parser evidence; corrected
+    tuple-reporting wrappers passed, with no repository, dataset, or experiment
+    state change;
+  - source-diff checks against `df114dcd...` were empty for `parser.py`,
+    `main_mmlight.py`, `load_data.py`, both TD-Distill model modules, and
+    `experiment_protocol.py`, proving no parser default, runner, sampler,
+    model/loss, optimizer, exporter, or evaluation-protocol implementation
+    changed;
+  - focused registry/document review and `git diff --check` passed before this
+    outcome entry. Final exact staged-file and cached-whitespace checks remain
+    required before the implementation commit.
+- Test-split, metrics, and generated artifacts: the real Baby train,
+  validation, and Test matrices were not loaded or accessed. No validation or
+  Test metric, checkpoint, preflight report, manifest, convergence record, raw
+  log, dataset derivative, teacher alias, or efficiency artifact was generated
+  or changed. The only task artifacts are the scoped source, tests,
+  documentation, this trace, and the pending Git commit.
+- Acceptance decision: all declared implementation criteria passed. Existing
+  seed-2022 profile defaults remain unchanged, the two seed-2023 profiles are
+  frozen before evidence, formal static resolution is override-free, and the
+  baseline-before-candidate firewall remains enforceable. This is not a run or
+  a claim of replicated recommendation quality.
+- Unresolved risks: neither seed-2023 profile has exercised the real GPU/data
+  path; future long runs may fail; two paired seeds will still be insufficient
+  for a strong variance or significance claim; and future ignored run artifacts
+  will require explicit fingerprints and later physical backup. These risks do
+  not authorize profile changes based on the future baseline result.
+- Unique next action: after this implementation commit and only with explicit
+  user authorization, append and commit a standalone uncapped formal pending
+  declaration for `baby_student_reference_seed2023_v1`, citing the exact
+  implementation commit and full override-free command, then stop without
+  training, validation, or Test. The candidate declaration and execution stay
+  blocked until the baseline outcome commit exists.

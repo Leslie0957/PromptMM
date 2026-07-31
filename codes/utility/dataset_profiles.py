@@ -9,12 +9,28 @@ BABY_TEACHER_PROFILE_SOURCE = (
 BABY_STUDENT_PROFILE_NAME = 'baby_student_reference_v1'
 BABY_STUDENT_PROFILE_SCOPE = 'student_reference'
 BABY_STUDENT_PROFILE_SOURCE = 'predeclared_baby_id_only_bpr_reference'
+BABY_STUDENT_REFERENCE_SEED2023_PROFILE_NAME = (
+    'baby_student_reference_seed2023_v1'
+)
+BABY_STUDENT_REFERENCE_SEED2023_PROFILE_SCOPE = BABY_STUDENT_PROFILE_SCOPE
+BABY_STUDENT_REFERENCE_SEED2023_PROFILE_SOURCE = (
+    'predeclared_baby_id_only_bpr_reference_seed2023'
+)
 BABY_TD_ASYMMETRIC_NO_PROJECTION_PROFILE_NAME = (
     'baby_td_asymmetric_no_projection_v1'
 )
 BABY_TD_ASYMMETRIC_NO_PROJECTION_PROFILE_SCOPE = 'student_candidate'
 BABY_TD_ASYMMETRIC_NO_PROJECTION_PROFILE_SOURCE = (
     'predeclared_baby_asymmetric_no_projection_directional_v1'
+)
+BABY_TD_ASYMMETRIC_NO_PROJECTION_SEED2023_PROFILE_NAME = (
+    'baby_td_asymmetric_no_projection_seed2023_v1'
+)
+BABY_TD_ASYMMETRIC_NO_PROJECTION_SEED2023_PROFILE_SCOPE = (
+    BABY_TD_ASYMMETRIC_NO_PROJECTION_PROFILE_SCOPE
+)
+BABY_TD_ASYMMETRIC_NO_PROJECTION_SEED2023_PROFILE_SOURCE = (
+    'predeclared_baby_asymmetric_no_projection_directional_v1_seed2023'
 )
 
 # Core teacher settings come from the dormant Baby block in parser.py. Prompt
@@ -94,6 +110,16 @@ BABY_TD_ASYMMETRIC_NO_PROJECTION_PROFILE_DEFAULTS.update({
     'td_user_text_rate': 0.0,
 })
 
+BABY_STUDENT_REFERENCE_SEED2023_PROFILE_DEFAULTS = dict(
+    BABY_STUDENT_PROFILE_DEFAULTS
+)
+BABY_STUDENT_REFERENCE_SEED2023_PROFILE_DEFAULTS['seed'] = 2023
+
+BABY_TD_ASYMMETRIC_NO_PROJECTION_SEED2023_PROFILE_DEFAULTS = dict(
+    BABY_TD_ASYMMETRIC_NO_PROJECTION_PROFILE_DEFAULTS
+)
+BABY_TD_ASYMMETRIC_NO_PROJECTION_SEED2023_PROFILE_DEFAULTS['seed'] = 2023
+
 BABY_STUDENT_PROFILES = {
     BABY_STUDENT_PROFILE_NAME: {
         'name': BABY_STUDENT_PROFILE_NAME,
@@ -106,6 +132,20 @@ BABY_STUDENT_PROFILES = {
         'scope': BABY_TD_ASYMMETRIC_NO_PROJECTION_PROFILE_SCOPE,
         'source': BABY_TD_ASYMMETRIC_NO_PROJECTION_PROFILE_SOURCE,
         'defaults': BABY_TD_ASYMMETRIC_NO_PROJECTION_PROFILE_DEFAULTS,
+    },
+    BABY_STUDENT_REFERENCE_SEED2023_PROFILE_NAME: {
+        'name': BABY_STUDENT_REFERENCE_SEED2023_PROFILE_NAME,
+        'scope': BABY_STUDENT_REFERENCE_SEED2023_PROFILE_SCOPE,
+        'source': BABY_STUDENT_REFERENCE_SEED2023_PROFILE_SOURCE,
+        'defaults': BABY_STUDENT_REFERENCE_SEED2023_PROFILE_DEFAULTS,
+    },
+    BABY_TD_ASYMMETRIC_NO_PROJECTION_SEED2023_PROFILE_NAME: {
+        'name': BABY_TD_ASYMMETRIC_NO_PROJECTION_SEED2023_PROFILE_NAME,
+        'scope': BABY_TD_ASYMMETRIC_NO_PROJECTION_SEED2023_PROFILE_SCOPE,
+        'source': BABY_TD_ASYMMETRIC_NO_PROJECTION_SEED2023_PROFILE_SOURCE,
+        'defaults': (
+            BABY_TD_ASYMMETRIC_NO_PROJECTION_SEED2023_PROFILE_DEFAULTS
+        ),
     },
 }
 BABY_STUDENT_PROFILE_NAMES = tuple(BABY_STUDENT_PROFILES)
@@ -166,6 +206,27 @@ def _normalized(field_name, value):
     return value
 
 
+def _resolved_dataset_profile_defaults(dataset, profile, namespace):
+    expected_defaults = dict(profile['defaults'])
+    if dataset != 'baby':
+        return expected_defaults
+
+    profile_name = getattr(namespace, 'student_profile', '')
+    active_student_profile = BABY_STUDENT_PROFILES.get(profile_name)
+    if active_student_profile is None:
+        return expected_defaults
+
+    for field_name, student_expected in active_student_profile['defaults'].items():
+        if field_name not in expected_defaults:
+            continue
+        dataset_expected = expected_defaults[field_name]
+        if _normalized(field_name, student_expected) != _normalized(
+            field_name, dataset_expected
+        ):
+            expected_defaults[field_name] = student_expected
+    return expected_defaults
+
+
 def resolved_profile_metadata(dataset, namespace):
     profile = dataset_profile(dataset)
     if profile is None:
@@ -184,7 +245,10 @@ def resolved_profile_metadata(dataset, namespace):
         }
 
     overrides = {}
-    for field_name, expected in profile['defaults'].items():
+    expected_defaults = _resolved_dataset_profile_defaults(
+        dataset, profile, namespace
+    )
+    for field_name, expected in expected_defaults.items():
         actual = getattr(namespace, field_name)
         if _normalized(field_name, actual) != _normalized(field_name, expected):
             overrides[field_name] = {

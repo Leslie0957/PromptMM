@@ -9,9 +9,17 @@ if str(CODES_DIR) not in sys.path:
     sys.path.insert(0, str(CODES_DIR))
 
 from utility.dataset_profiles import (  # noqa: E402
+    BABY_STUDENT_REFERENCE_SEED2023_PROFILE_DEFAULTS,
+    BABY_STUDENT_REFERENCE_SEED2023_PROFILE_NAME,
+    BABY_STUDENT_REFERENCE_SEED2023_PROFILE_SCOPE,
+    BABY_STUDENT_REFERENCE_SEED2023_PROFILE_SOURCE,
     BABY_STUDENT_PROFILE_NAMES,
     BABY_STUDENT_PROFILE_DEFAULTS,
     BABY_STUDENT_PROFILE_NAME,
+    BABY_TD_ASYMMETRIC_NO_PROJECTION_SEED2023_PROFILE_DEFAULTS,
+    BABY_TD_ASYMMETRIC_NO_PROJECTION_SEED2023_PROFILE_NAME,
+    BABY_TD_ASYMMETRIC_NO_PROJECTION_SEED2023_PROFILE_SCOPE,
+    BABY_TD_ASYMMETRIC_NO_PROJECTION_SEED2023_PROFILE_SOURCE,
     BABY_TD_ASYMMETRIC_NO_PROJECTION_PROFILE_DEFAULTS,
     BABY_TD_ASYMMETRIC_NO_PROJECTION_PROFILE_NAME,
     BABY_TD_ASYMMETRIC_NO_PROJECTION_PROFILE_SCOPE,
@@ -294,6 +302,187 @@ class DatasetProfilesTest(unittest.TestCase):
             'Model/baby/teacher_model_val_test_once_v1.pt',
         )
 
+    def test_seed2023_profiles_change_only_the_training_seed(self):
+        counterparts = (
+            (
+                BABY_STUDENT_PROFILE_DEFAULTS,
+                BABY_STUDENT_REFERENCE_SEED2023_PROFILE_DEFAULTS,
+            ),
+            (
+                BABY_TD_ASYMMETRIC_NO_PROJECTION_PROFILE_DEFAULTS,
+                BABY_TD_ASYMMETRIC_NO_PROJECTION_SEED2023_PROFILE_DEFAULTS,
+            ),
+        )
+
+        for seed2022_defaults, seed2023_defaults in counterparts:
+            with self.subTest(seed2023_defaults=seed2023_defaults):
+                self.assertEqual(
+                    set(seed2023_defaults), set(seed2022_defaults)
+                )
+                self.assertEqual(seed2022_defaults['seed'], 2022)
+                self.assertEqual(seed2023_defaults['seed'], 2023)
+                self.assertEqual(
+                    {
+                        field_name
+                        for field_name in seed2022_defaults
+                        if seed2022_defaults[field_name]
+                        != seed2023_defaults[field_name]
+                    },
+                    {'seed'},
+                )
+
+    def test_seed2023_pair_preserves_the_declared_matched_delta(self):
+        baseline = BABY_STUDENT_REFERENCE_SEED2023_PROFILE_DEFAULTS
+        candidate = (
+            BABY_TD_ASYMMETRIC_NO_PROJECTION_SEED2023_PROFILE_DEFAULTS
+        )
+        changed_fields = {
+            field_name
+            for field_name in baseline
+            if baseline[field_name] != candidate[field_name]
+        }
+
+        self.assertEqual(set(baseline), set(candidate))
+        self.assertEqual(
+            changed_fields,
+            {
+                'td_distill_alpha',
+                'td_item_image_rate',
+                'td_item_text_rate',
+            },
+        )
+        for field_name, expected in DECLARED_CANDIDATE_SEMANTIC_DEFAULTS.items():
+            self.assertEqual(candidate[field_name], expected)
+        self.assertEqual(baseline['seed'], candidate['seed'])
+
+    def test_seed2023_formal_profiles_resolve_without_overrides(self):
+        identities = (
+            (
+                BABY_STUDENT_REFERENCE_SEED2023_PROFILE_NAME,
+                BABY_STUDENT_REFERENCE_SEED2023_PROFILE_SCOPE,
+                BABY_STUDENT_REFERENCE_SEED2023_PROFILE_SOURCE,
+            ),
+            (
+                BABY_TD_ASYMMETRIC_NO_PROJECTION_SEED2023_PROFILE_NAME,
+                BABY_TD_ASYMMETRIC_NO_PROJECTION_SEED2023_PROFILE_SCOPE,
+                BABY_TD_ASYMMETRIC_NO_PROJECTION_SEED2023_PROFILE_SOURCE,
+            ),
+        )
+
+        for name, scope, source in identities:
+            with self.subTest(profile=name):
+                parser = self._student_parser()
+                apply_dataset_profile_defaults(parser, 'baby')
+                apply_student_profile_defaults(parser, 'baby', name)
+                args = parser.parse_args(
+                    ['--dataset', 'baby', '--student_profile', name]
+                )
+                dataset_metadata = resolved_profile_metadata('baby', args)
+                student_metadata = resolved_student_profile_metadata(
+                    'baby', args.student_profile, args
+                )
+
+                self.assertEqual(dataset_metadata['overrides'], {})
+                self.assertEqual(student_metadata['overrides'], {})
+                self.assertEqual(
+                    (
+                        student_metadata['name'],
+                        student_metadata['scope'],
+                        student_metadata['source'],
+                    ),
+                    (name, scope, source),
+                )
+                self.assertEqual(
+                    baby_student_paper_ready_blockers(
+                        name, scope, source, student_metadata['overrides']
+                    ),
+                    [],
+                )
+                self.assertEqual(args.seed, 2023)
+                self.assertEqual(args.hard_token_seed, 2022)
+                self.assertEqual(
+                    args.student_model_type, 'td_distill_no_projection'
+                )
+                self.assertEqual(args.student_embed_size, 64)
+                self.assertFalse(args.td_init_from_teacher)
+                self.assertAlmostEqual(args.student_lr, 0.00006)
+                self.assertAlmostEqual(args.student_weight_decay, 0.01)
+                self.assertEqual(args.batch_size, 1024)
+                self.assertEqual(args.epoch, 1000)
+                self.assertEqual(args.early_stopping_patience, 7)
+                self.assertEqual(args.smoke_train_batches, 0)
+                self.assertEqual(args.eval_protocol, 'val_test_once_v1')
+                self.assertFalse(args.if_train_teacher)
+                self.assertFalse(args.teacher_only)
+                self.assertFalse(args.allow_teacher_alias_overwrite)
+                self.assertTrue(args.run_final_test)
+                self.assertFalse(args.run_efficiency_benchmark)
+
+    def test_seed2023_cli_seed_override_is_recorded_and_blocked(self):
+        parser = self._student_parser()
+        apply_dataset_profile_defaults(parser, 'baby')
+        apply_student_profile_defaults(
+            parser, 'baby', BABY_STUDENT_REFERENCE_SEED2023_PROFILE_NAME
+        )
+        args = parser.parse_args(
+            [
+                '--dataset',
+                'baby',
+                '--student_profile',
+                BABY_STUDENT_REFERENCE_SEED2023_PROFILE_NAME,
+                '--seed',
+                '2024',
+            ]
+        )
+        dataset_metadata = resolved_profile_metadata('baby', args)
+        student_metadata = resolved_student_profile_metadata(
+            'baby', args.student_profile, args
+        )
+
+        expected_override = {'expected': 2023, 'resolved': 2024}
+        self.assertEqual(
+            dataset_metadata['overrides']['seed'], expected_override
+        )
+        self.assertEqual(
+            student_metadata['overrides']['seed'], expected_override
+        )
+        self.assertIn(
+            'Baby student reference profile has resolved overrides',
+            baby_student_paper_ready_blockers(
+                student_metadata['name'],
+                student_metadata['scope'],
+                student_metadata['source'],
+                student_metadata['overrides'],
+            ),
+        )
+
+    def test_seed2023_hard_token_seed_remains_dataset_owned(self):
+        parser = self._student_parser()
+        apply_dataset_profile_defaults(parser, 'baby')
+        apply_student_profile_defaults(
+            parser, 'baby', BABY_STUDENT_REFERENCE_SEED2023_PROFILE_NAME
+        )
+        args = parser.parse_args(
+            [
+                '--dataset',
+                'baby',
+                '--student_profile',
+                BABY_STUDENT_REFERENCE_SEED2023_PROFILE_NAME,
+                '--hard_token_seed',
+                '2023',
+            ]
+        )
+        dataset_metadata = resolved_profile_metadata('baby', args)
+        student_metadata = resolved_student_profile_metadata(
+            'baby', args.student_profile, args
+        )
+
+        self.assertEqual(
+            dataset_metadata['overrides']['hard_token_seed'],
+            {'expected': 2022, 'resolved': 2023},
+        )
+        self.assertNotIn('hard_token_seed', student_metadata['overrides'])
+
     def test_candidate_cli_override_remains_a_paper_ready_blocker(self):
         parser = self._student_parser()
         apply_dataset_profile_defaults(parser, 'baby')
@@ -429,6 +618,8 @@ class DatasetProfilesTest(unittest.TestCase):
             (
                 BABY_STUDENT_PROFILE_NAME,
                 BABY_TD_ASYMMETRIC_NO_PROJECTION_PROFILE_NAME,
+                BABY_STUDENT_REFERENCE_SEED2023_PROFILE_NAME,
+                BABY_TD_ASYMMETRIC_NO_PROJECTION_SEED2023_PROFILE_NAME,
             ),
         )
 
