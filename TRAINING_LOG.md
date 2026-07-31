@@ -626,3 +626,75 @@ records remain under `exp/`; checkpoints remain under `Model/`.
 - Next action: commit only `AGENTS.md` and `TRAINING_LOG.md`, then create and
   commit the separate declaration for the one-epoch, one-batch,
   validation-only `baby_student_reference_v1` smoke before execution.
+
+### 2026-07-31 | baby_student_reference_v1 validation-only smoke (pending)
+
+- Purpose and hypothesis: execute the first isolated GPU-path smoke for the
+  committed Baby ID-only BPR student profile. One optimization batch should
+  complete, validation ranking should select and restore the only checkpoint,
+  and the run should exit without teacher or student test evaluation.
+- Status: pending; explicitly non-formal, capped, validation-only, and not
+  eligible for paper result tables.
+- Branch and source identity:
+  - branch `codex/experiment/baby-teacher-baseline`;
+  - protocol implementation commit
+    `58fda059786067768e308f48e10ae864416334f5`;
+  - policy-only successor before this declaration
+    `e2ac51db163f3b4a2bef2d04a838897ab5ba1a86`;
+  - this declaration will be committed before launch, and its resulting commit
+    will be verified as clean and recorded in the outcome entry.
+- Dataset and protocol identity: audited MMRec Baby under `data/baby/`;
+  conversion manifest SHA256
+  `cf2d0d8c8aff9b321aad0b11d48d078794d12a4920afaa4c8efedfe3beda9df2`;
+  `val_test_once_v1`; selection split `validation`; primary metric Recall@20;
+  candidate exclusion `train_only`; `Ks=[10,20,40,50]`.
+- Teacher checkpoint identity: read-only
+  `Model/baby/teacher_model_val_test_once_v1.pt`, pre-run SHA256
+  `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`;
+  `if_train_teacher=false`; no alias publication, overwrite, or teacher update
+  is authorized.
+- Full command:
+  `D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_student_reference_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --epoch 1 --smoke_train_batches 1 --run_final_test false`
+- Resolved parameters and expected overrides:
+  - seed `2022`, batch size `1024`, exactly `1` epoch and at most `1` training
+    batch, early-stopping patience `7`;
+  - `td_distill_no_projection`, student dimension `64`, random initialization,
+    AdamW `student_lr=6e-5`, weight decay `0.01`;
+  - semantic alpha and all four component rates `0`, so the batch is BPR-only;
+  - expected `student_config_overrides` are exactly `epoch: 1000 -> 1`,
+    `smoke_train_batches: 0 -> 1`, and `run_final_test: true -> false`;
+    explicit GPU `0`, frozen-teacher mode, and checkpoint path do not change
+    the pinned profile values.
+- Environment: `D:\miniconda\envs\run_5060\python.exe`; Python `3.10.20`;
+  PyTorch `2.11.0+cu128`; CUDA runtime `12.8`; NVIDIA GeForce RTX 5060;
+  GPU selector `0`.
+- Test isolation: dataset loading/preflight may inspect the declared test split
+  only for structural integrity and identity, but neither teacher nor student
+  ranking may evaluate it and no test metric may be produced or reported.
+- Planned isolated artifacts, all keyed by a new timestamp/PID run name:
+  `logs/<run_name>`,
+  `exp/runs/baby/dataset_preflight__<run_name>.json`,
+  `exp/runs/baby/run_manifest__<run_name>.json`,
+  `exp/converge/baby/auto__<run_name>.pkl`,
+  `Model/baby/td_distill/td_distill_full__val_test_once_v1__<run_name>.pth`,
+  and
+  `Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__<run_name>.pth`.
+- Risks: the real GPU path is untested; dependency or memory failures may occur;
+  validation full-item ranking remains much larger than the one training batch;
+  and this capped metric is diagnostic only, never a baseline quality estimate.
+- Acceptance criteria: clean committed launch; dataset and frozen-teacher
+  validation pass; one BPR batch and one validation selection complete with
+  finite values; the validation-selected checkpoint is restored; manifest
+  status is `smoke_completed`; `run_final_test=false`,
+  `final_test_performed=false`, and no final-test result field is present; the
+  teacher is reused without test evaluation; teacher SHA256 is unchanged; all
+  outputs use the new run-specific paths; no frozen alias is published or
+  overwritten.
+- Planned verification: pre/post teacher SHA256, clean Git launch gate, process
+  exit status, focused log inspection without test metrics, structured manifest
+  field checks, artifact existence/hashes, and post-run Git status.
+- Rollback/preservation point: source commit
+  `58fda059786067768e308f48e10ae864416334f5`; retain any run-specific failure
+  manifest/log/checkpoint for diagnosis rather than altering the frozen teacher.
+- Next action: commit this declaration only, verify the exact launch commit and
+  clean tree, then run the command once. Do not start an uncapped or formal run.
