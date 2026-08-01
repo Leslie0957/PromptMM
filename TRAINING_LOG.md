@@ -4335,3 +4335,190 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   per-arm and paired mean/sample-SD statistics. Do not load a split, rerun
   training/Validation/Test, alter parameters, launch another experiment,
   create a tag/bundle/backup, or merge `main` in that summary task.
+
+### 2026-08-02 | canonical matched Baby seeds 2022/2023/2024 descriptive summary (pending)
+
+- Purpose and rationale: consolidate the three completed, predeclared matched
+  Baby baseline/candidate pairs into one canonical descriptive Recall@20
+  record. The summary will report each seed separately and then compute
+  per-arm and paired candidate-minus-baseline statistics, without creating new
+  experimental evidence or revisiting any ranking split.
+- Status and authorization boundary: pending summary-only repository record.
+  This task may read only the already recorded outcome entries in this active
+  log and their six corresponding completed run manifests, perform arithmetic
+  verification, append a separate completed or failed summary outcome, and
+  create one local commit containing only `TRAINING_LOG.md`. It must not load
+  any data split, import or execute a project entry point, run training,
+  Validation, Test, or efficiency evaluation, modify code/profile/parameters,
+  edit the intentionally stale top-of-log summary, create a tag/bundle/backup,
+  or merge `main`.
+- Branch, source, and preservation point: branch
+  `codex/experiment/baby-teacher-baseline` at exact clean candidate-outcome
+  commit `efd974dbdd0920a44132d7fcaefb6a489671b713`. Preserve every historical
+  entry and all six formal outcomes/manifests verbatim; this task is pure EOF
+  append and authorizes no rollback, deletion, replacement, or reformatting.
+- Frozen outcome provenance, ordered baseline/candidate by seed:
+  - seed `2022`: outcome commits
+    `6f806fa70de1c707dd109741b1c8fd2d3efdc29a` /
+    `92b64136e3ca75fa0f41a11e29f907a9403d54b3` and manifests
+    `exp/runs/baby/run_manifest__2026-07-31 12_33_07.292506_baby_light_init_pid7872.json` /
+    `exp/runs/baby/run_manifest__2026-07-31 18_35_00.450484_baby_light_init_pid22864.json`;
+  - seed `2023`: outcome commits
+    `1749d46bf46087f84208a39bc3caefe92654aa50` /
+    `82eb88e7fd3e8f5110ddb14388c7117abb77d22e` and manifests
+    `exp/runs/baby/run_manifest__2026-08-01 20_20_35.101504_baby_light_init_pid29128.json` /
+    `exp/runs/baby/run_manifest__2026-08-01 21_09_59.190542_baby_light_init_pid33928.json`;
+  - seed `2024`: outcome commits
+    `1a8104b75aab9bf8ba95d6de5beb5ca18d24c0b1` /
+    `efd974dbdd0920a44132d7fcaefb6a489671b713` and manifests
+    `exp/runs/baby/run_manifest__2026-08-01 23_31_40.280800_baby_light_init_pid15908.json` /
+    `exp/runs/baby/run_manifest__2026-08-02 00_42_54.029141_baby_light_init_pid29752.json`.
+- Frozen comparison fields: for every manifest use only
+  `best_selection_recall` as Validation Recall@20 and
+  `final_test_result.recall[1]` as Test Recall@20. The candidate-minus-baseline
+  paired delta is computed independently within each seed. Summaries use
+  arithmetic mean and sample standard deviation
+  `sqrt(sum((x - mean)^2) / (n - 1))` with `n=3`, `ddof=1`; population SD is
+  not permitted.
+- Required summary content and interpretation gate: record all six per-seed
+  baseline/candidate values and all six paired deltas; record Validation and
+  Test baseline, candidate, and paired-delta mean/sample-SD values; verify all
+  three paired deltas are positive on both splits; and reproduce the exact
+  user-specified Test statistics. The outcome must state that three seeds are
+  descriptive evidence only, not statistical significance, parameter
+  optimality, or cross-dataset generalization.
+- Research-priority gate: do not recommend seed `2025`/`2026` expansion now.
+  After this summary, prioritize complementary matched ablation and efficiency
+  evidence. The next task may only predeclare the first highest-information
+  matched ablation stage; implementation and execution require later separate
+  authorization.
+- Risks and failure boundary: risks are transcription error, mixing protocol or
+  profile identities, selecting the wrong K index, using population rather
+  than sample SD, missing/mutated ignored manifests, or disagreement between a
+  manifest and its immutable outcome. Mark this summary `failed` only if those
+  hard consistency checks fail; preserve the pending entry and report the
+  mismatch. Metric magnitude and seed variance are not failure criteria.
+- Planned verification and acceptance criteria: confirm all six manifest files
+  exist and match the recorded SHA256 fingerprints; require completed status,
+  `val_test_once_v1`, Validation/Recall@20 selection, `train_only`, final Test
+  performed, paper-ready eligibility, empty blockers, canonical profile/seed,
+  and empty dataset/student override maps; compare every extracted value with
+  the corresponding outcome; independently recompute deltas, means, and
+  `ddof=1` sample SD; verify the required exact Test statistics and positive
+  directions; then review pure append scope, run `git diff --check`, stage only
+  `TRAINING_LOG.md`, run `git diff --cached --check`, commit, and confirm a
+  clean tree. No validation/Test metric is newly generated and no experiment
+  artifact is created or modified.
+
+### 2026-08-02 | canonical matched Baby seeds 2022/2023/2024 descriptive summary (completed)
+
+- Status and outcome: completed successfully as the standalone canonical
+  matched three-seed descriptive summary. All six formal outcome/manifests
+  agreed on identity and Recall@20 values, every requested statistic was
+  reproduced exactly with `n=3`, `ddof=1`, and all per-seed paired directions
+  were positive. This is a repository-record result only; no experiment was
+  implemented, launched, repeated, or extended.
+- Source and scope: branch `codex/experiment/baby-teacher-baseline`; exact clean
+  summary parent `efd974dbdd0920a44132d7fcaefb6a489671b713`. Only EOF-appended
+  `TRAINING_LOG.md` pending/completed records are in scope. No historical
+  record, code, profile, parameter, generated artifact, or intentionally stale
+  top-of-log summary was edited.
+- Outcome provenance verification: the completed seed-2022 baseline/candidate
+  commits `6f806fa70de1c707dd109741b1c8fd2d3efdc29a` /
+  `92b64136e3ca75fa0f41a11e29f907a9403d54b3`, seed-2023 commits
+  `1749d46bf46087f84208a39bc3caefe92654aa50` /
+  `82eb88e7fd3e8f5110ddb14388c7117abb77d22e`, and seed-2024 commits
+  `1a8104b75aab9bf8ba95d6de5beb5ca18d24c0b1` /
+  `efd974dbdd0920a44132d7fcaefb6a489671b713` are all ancestors of this
+  summary parent. Each commit's immutable log contains its canonical completed
+  heading and the exact Validation/Test Recall@20 values used below.
+- Manifest fingerprint verification, ordered baseline/candidate by seed:
+  - seed `2022`: `cd2c5aa1fae79af8f8161dfee4fbb2bf9f451b591607df6c646d1dbf8b67af7d` /
+    `967779e828f820ece44bd2a75331ee48a1a4e45ca2cefbb7b43bbe5eb3793480`;
+  - seed `2023`: `edcc1b4d858eecbad5724ac0c46608abb572bb9412f78a1555156cff278a7d33` /
+    `357afe298cc1a771ddd30aaddd046a73298894e899e636c6eae0bc546608a42a`;
+  - seed `2024`: `d0f3e2bb49dd641a1b88d5a16e0fb73c0fa5e45c1b5e65d2d3418d1d1ae04b7c` /
+    `96ad86aaae2ba745bb5ec78ad9091a691d9aa26b64eb77a909af2df294823212`.
+  All hashes matched the files declared in the pending entry.
+- Manifest contract audit: every manifest has `status=completed`, protocol
+  `val_test_once_v1`, selection split `validation`, primary metric
+  `Recall@20`, candidate exclusion `train_only`, final Test performed,
+  `paper_ready_eligible=true`, blockers `[]`, its expected canonical profile
+  and seed, and empty dataset/student override maps. For each run,
+  `best_selection_recall` and `final_test_result.recall[1]` exactly equal the
+  corresponding outcome values.
+- Canonical per-seed Recall@20 results and within-seed candidate-minus-baseline
+  deltas:
+
+  | Seed | Validation baseline | Validation candidate | Validation paired delta | Test baseline | Test candidate | Test paired delta |
+  | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+  | `2022` | `0.04291303921928788` | `0.06842596333982363` | `+0.025512924120535754` | `0.044279857310199594` | `0.06659234097521655` | `+0.022312483665016952` |
+  | `2023` | `0.04098274743170617` | `0.06479423036892924` | `+0.023811482937223072` | `0.03680654207653432` | `0.06531066330886427` | `+0.028504121232329954` |
+  | `2024` | `0.04086654667009528` | `0.0671997942915925` | `+0.026333247621497212` | `0.042307913651446934` | `0.06682881901961434` | `+0.024520905368167402` |
+
+  Candidate-minus-baseline Recall@20 is positive for every seed on both
+  Validation and Test; there is no reversed pair in these six completed runs.
+- Canonical descriptive statistics, computed across the three seed-level
+  values with arithmetic mean and sample SD (`n=3`, `ddof=1`):
+
+  | Split | Series | Mean | Sample SD |
+  | --- | --- | ---: | ---: |
+  | Validation | baseline | `0.04158744444036311` | `0.0011494680477004105` |
+  | Validation | candidate | `0.06680666266678179` | `0.0018475079022266937` |
+  | Validation | paired delta | `0.02521921822641868` | `0.0012862821015983998` |
+  | Test | baseline | `0.04113143767939362` | `0.0038730713819974285` |
+  | Test | candidate | `0.06624394110123172` | `0.0008168451779041365` |
+  | Test | paired delta | `0.025112503421838104` | `0.0031379268847553854` |
+
+- Exact required Test-statistic acceptance: candidate mean/sample SD are
+  `0.06624394110123172 / 0.0008168451779041365`; baseline are
+  `0.04113143767939362 / 0.0038730713819974285`; paired delta are
+  `0.025112503421838104 / 0.0031379268847553854`. All exactly match the
+  requested canonical values.
+- Recalculation evidence: a read-only PowerShell pass independently checked all
+  six paths, hashes, protocol/profile/override fields, values, positive deltas,
+  and sample-SD formula. An initial aggregate-boolean wrapper emitted a
+  spurious seed-2022 field-mismatch message; immediate labeled inspection found
+  every field true, and the corrected explicit assertions passed all six
+  manifests. A second read-only script using only Python standard-library
+  `json` and `statistics` (no repository import) then asserted every exact
+  per-seed value plus all six requested mean/sample-SD pairs. Neither check
+  imported or executed `codes/main_mmlight.py` or other project code.
+- Test access, commands, and artifacts: no data file or train/Validation/Test
+  split was loaded or accessed, and no ranking, training, Validation, Test, or
+  efficiency command ran. Reading already stored JSON result scalars does not
+  constitute a new Test evaluation. No checkpoint, manifest, convergence
+  record, raw log, metric, dataset derivative, or other experiment artifact was
+  created or modified; the summary log and its local Git commit are the only
+  outputs.
+- Evidence meaning: under the frozen Baby dataset, teacher, protocol,
+  optimizer, architecture, initialization policy, and per-seed matched design,
+  the asymmetric no-projection candidate has a consistently positive
+  descriptive Recall@20 delta across these three seeds. The evidence is not a
+  statistical-significance result, does not prove the semantic parameters are
+  optimal, and does not establish cross-dataset generalization. Three seeds
+  remain a small descriptive sample, and all recorded final Test accesses are
+  consumable evidence rather than a tuning signal.
+- Research priority and unresolved risks: do not expand to seed `2025` or
+  `2026` now; additional same-configuration seeds have lower information value
+  than isolating method components and measuring deployment cost. Prioritize a
+  matched ablation next, then efficiency evidence. The retained official
+  cold-item condition and lack of Git/off-device protection for ignored run
+  artifacts remain; neither risk changes the descriptive calculations.
+- Acceptance and commit gate: all numerical, manifest, outcome, direction, and
+  interpretation criteria passed. Before committing, the full working diff
+  must remain a pure EOF append to only `TRAINING_LOG.md`, `git diff --check`
+  must pass, the index must contain only that file, and
+  `git diff --cached --check` must pass. A failure in those final repository
+  checks requires preserving this outcome and reporting the exact blocker.
+- Unique next action: only with new explicit user authorization, start from the
+  clean summary commit and append/commit a declaration-only first
+  highest-information matched ablation stage: a three-seed item-image-only
+  ablation that keeps every baseline/candidate control fixed and changes only
+  the full candidate's `td_item_text_rate` from `0.3` to `0.0`. This nested arm
+  uses the existing baseline and full-candidate evidence to isolate whether the
+  lower-weight text component adds value beyond dominant item-image transfer.
+  The next task must stop after its pending plus declaration-completed log
+  records and one `TRAINING_LOG.md` commit; it must not implement a profile,
+  load data, run training/Validation/Test/efficiency, create artifacts, tag,
+  bundle, backup, or merge `main`.
