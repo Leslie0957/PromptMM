@@ -3254,3 +3254,159 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   parameter changes, broad tuning, merge to `main`, or any new experiment
   declaration. Expected artifacts are the committed summary, outcome commit,
   annotated tag, refreshed bundle plus SHA256, and explicit backup inventory.
+
+### 2026-08-01 | matched seed-2024 baseline/candidate replication stage (pending)
+
+- Purpose and hypothesis: predeclare the third matched Baby student replication
+  pair before either seed-2024 profile is implemented or any seed-2024 result is
+  produced. The hypothesis is that the already frozen asymmetric no-projection
+  transfer effect can be assessed under one additional independent student
+  initialization and pairwise-sampling stream without changing any method,
+  data, teacher, protocol, preprocessing, optimization, or semantic control.
+  This third pair is intended to support a descriptive three-seed mean and
+  standard-deviation summary; it is not authorization for tuning or a claim of
+  statistical significance.
+- Status and present scope: pending declaration only. This task may append and
+  commit only this `TRAINING_LOG.md` entry. It does not implement either
+  profile, modify code or any other documentation, run project tests, start training,
+  perform validation ranking, access Test, create a run artifact, tag, bundle,
+  backup, or merge. At declaration time neither seed-2024 profile is implemented
+  and no seed-2024 result exists.
+- Source and evidence anchors: branch
+  `codex/experiment/baby-teacher-baseline`; clean declaration base
+  `82eb88e7fd3e8f5110ddb14388c7117abb77d22e`; matched seed-2023 profile
+  implementation `03260ee2db0e9e90332588031eacf3152d260dbf`; completed
+  seed-2022 baseline/candidate outcomes
+  `6f806fa70de1c707dd109741b1c8fd2d3efdc29a` /
+  `92b64136e3ca75fa0f41a11e29f907a9403d54b3`; and completed seed-2023
+  baseline/candidate outcomes
+  `1749d46bf46087f84208a39bc3caefe92654aa50` /
+  `82eb88e7fd3e8f5110ddb14388c7117abb77d22e`. The Git commit containing
+  this entry is the exact declaration
+  identity and must be recorded in the later implementation outcome and formal
+  run declarations.
+- Simultaneously predeclared future profile identities, frozen now before any
+  seed-2024 result:
+  - baseline name/scope/source:
+    `baby_student_reference_seed2024_v1` / `student_reference` /
+    `predeclared_baby_id_only_bpr_reference_seed2024`;
+  - candidate name/scope/source:
+    `baby_td_asymmetric_no_projection_seed2024_v1` / `student_candidate` /
+    `predeclared_baby_asymmetric_no_projection_directional_v1_seed2024`.
+  These canonical IDs must be implemented together in one later coherent
+  change. Neither arm may be implemented, revised, or run in response to an
+  observed seed-2024 metric from the other arm.
+- Cross-seed identity contract: each future seed-2024 profile must have exactly
+  the same default keys and values as its corresponding validated seed-2022
+  and seed-2023 profile, except that student training and maintained pairwise
+  sampling `seed` is `2024`. Thus the only allowed cross-seed default delta is
+  `seed: 2022/2023 -> 2024`. `hard_token_seed=2022` remains dataset-owned and
+  unchanged because it identifies frozen teacher preprocessing and PCA cache
+  provenance. Formal commands must not pass `--seed` or repeat profile values;
+  both `dataset_config_overrides` and `student_config_overrides` must resolve to
+  `{}`.
+- Frozen dataset and preprocessing identity: audited MMRec Baby under
+  `data/baby/`; conversion manifest SHA256
+  `cf2d0d8c8aff9b321aad0b11d48d078794d12a4920afaa4c8efedfe3beda9df2`;
+  `train_mat`, `val_mat`, and `test_mat` SHA256 values respectively
+  `3cead4c601ccef4c2424cd692951935840ccc8f22df15577ced4e5f3fec37fac`,
+  `f1458ff1dc28c5371699780270e3a3e270c8f9ce19def3d5e67d4ba9644ce9d2`,
+  and `773de4f57f2c1bcb6695ea57995280e7cbe114b2b579263a599bb097bb6555ac`;
+  image/text feature SHA256 values respectively
+  `36c3be592b98506189a7d5de71b21577cf626f0293b539d861534673b3e9fd70`
+  and `6667f2ad655c9ecc97cb3383f58988864ef51ec0b39c158b15986c66769f2dc4`.
+  Preserve official split assignments, cold-item policy `retain_official`,
+  duplicate-modalities policy `error`, dataset preflight, `pca` hard-token
+  type, `hard_token_seed=2022`, and the existing cache identities. No dataset,
+  split, feature, preprocessing, or cache change is allowed.
+- Frozen teacher identity and controls: reuse the read-only
+  `Model/baby/teacher_model_val_test_once_v1.pt`, size `141098540` bytes and
+  SHA256
+  `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`;
+  `if_train_teacher=false`, `teacher_only=false`, and
+  `allow_teacher_alias_overwrite=false`. No teacher optimizer step, run-local
+  teacher checkpoint, shared-alias publication or overwrite, or new teacher
+  Test ranking is allowed.
+- Frozen controls shared by both future arms: random student initialization;
+  no student checkpoint load; `td_init_from_teacher=false`;
+  `td_distill_no_projection`; user/item ID embedding dimension `64`; AdamW
+  `student_lr=0.00006`; student weight decay `0.01`; batch size `1024`;
+  maximum `epoch=1000`; `smoke_train_batches=0`; validation every epoch;
+  early-stopping patience `7`; unchanged `data_generator.sample()` pairwise
+  BPR sampler; all `116` independently sampled batches per completed formal
+  epoch; and no efficiency benchmark, projection head, teacher warm start, or
+  extra inference state.
+- Frozen matched semantic contract: the seed-2024 baseline retains
+  `td_distill_alpha=0.0` and item-image, item-text, user-image, and user-text
+  rates all `0.0`. The seed-2024 candidate retains
+  `td_distill_alpha=0.3`, item-image `1.0`, item-text `0.3`, user-image `0.0`,
+  and user-text `0.0`, optimizing the already validated normalized asymmetric
+  item-only semantic objective. Between the matched arms, the only changed
+  values remain `td_distill_alpha`, `td_item_image_rate`, and
+  `td_item_text_rate`; all other keys and values, including `seed=2024`, must
+  be identical.
+- Frozen evaluation and deployment contract: unchanged `val_test_once_v1`;
+  train only on `train_mat`; select and early-stop only with validation
+  Recall@20; `Ks=[10,20,40,50]`; `test_flag=part`; candidate exclusion
+  `train_only`; restore the validation-best student checkpoint and only then
+  perform exactly one final student Test ranking per separately authorized
+  formal run. Test metrics are report-only and cannot change either profile,
+  determine retry, or cancel the later arm. Each inference export must contain
+  only finite user/item ID embeddings and deployment metadata, and those
+  embeddings must be bit-for-bit equal to the corresponding full checkpoint.
+- Frozen future formal commands, recorded for identity but not authorized by
+  this declaration. Baseline:
+  `D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_student_reference_seed2024_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --run_final_test true`.
+  Candidate, only after the committed baseline outcome:
+  `D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_td_asymmetric_no_projection_seed2024_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --run_final_test true`.
+  Each later launch requires its own pending declaration, explicit user
+  authorization, exact clean committed source, one continuously attached
+  foreground shell/tool session with timeout at least `10800000` ms, exactly
+  one command execution, no automatic retry, and a separately committed
+  completed or failed outcome.
+- Mandatory sequential stage order:
+  1. In one coherent future implementation task, implement and verify both
+     override-free seed-2024 profiles together before producing any seed-2024
+     result, append a separate implementation outcome, and commit it. Stop
+     without any profile execution.
+  2. In a later task, append and commit a baseline-only formal-run pending
+     declaration; only after separate explicit authorization, run the frozen
+     baseline command once and commit its completed or failed outcome.
+  3. Only after the baseline outcome commit, append and commit a candidate-only
+     formal-run pending declaration; only after another explicit authorization,
+     run the frozen candidate command once and commit its completed or failed
+     outcome. The baseline result may not tune or alter the candidate.
+  4. Only after both seed-2024 outcomes are committed, append and commit a
+     descriptive matched summary across seeds `2022`, `2023`, and `2024`,
+     reporting per-arm and paired candidate-minus-baseline means and sample
+     standard deviations (`n=3`, `ddof=1`) for the already recorded validation
+     and final Test metrics. Do not rerun or newly access any split to compute
+     that summary, and do not present three seeds as significance evidence.
+- Future implementation acceptance criteria: both profile definitions, paper-
+  ready identities, documentation, and focused tests are added together; each
+  seed-2024 defaults map has the same key set as its counterpart and differs
+  only at `seed`; the two seed-2024 arms differ only in the three already
+  declared active semantic fields; `seed=2024` and `hard_token_seed=2022`
+  resolve simultaneously; canonical invocations produce empty dataset and
+  student override maps with no paper-ready blockers; CLI `--seed`, semantic,
+  or dataset-owned preprocessing overrides remain recorded blockers; targeted
+  profile/protocol tests pass; and the implementation outcome is committed
+  before any smoke, training, validation ranking, or Test access.
+- Risks, evidence limit, and rollback/preservation point: seed-2024 may be low,
+  reversed, or fail technically; final Test access remains consumable once per
+  arm; the retained official cold-item condition remains; three seeds still
+  provide limited uncertainty evidence; and ignored run artifacts will remain
+  outside Git until a separately authorized stable backup milestone. Metric
+  quality is not a failure criterion and cannot authorize tuning, retry,
+  rollback, deletion, or profile alteration. Preserve this declaration commit,
+  clean base `82eb88e7fd3e8f5110ddb14388c7117abb77d22e`, immutable
+  seed-2022/2023 evidence, and every later
+  partial or completed artifact; no destructive rollback is authorized.
+- Declaration-task acceptance and unique next action: verify that only this
+  append-only log entry changed, run unstaged and staged diff checks, commit it,
+  and stop. No metric or run artifact is expected and no dataset split may be
+  accessed. The only next action, requiring new explicit authorization, is
+  stage 1 above: implement and verify both seed-2024 profiles simultaneously in
+  one coherent committed change, append its completed or failed outcome, and
+  stop without training, validation ranking, Test, tag, bundle, backup, or
+  merge.
