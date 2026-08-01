@@ -3410,3 +3410,182 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   one coherent committed change, append its completed or failed outcome, and
   stop without training, validation ranking, Test, tag, bundle, backup, or
   merge.
+
+### 2026-08-01 | matched seed-2024 profile implementation (pending)
+
+- Purpose and rationale: implement together the two override-free profile IDs
+  frozen by declaration commit
+  `f6dd2e4f1cd52e36e3a4fe6c87a8f5fb24454b8c` before any seed-2024 result is
+  produced: baseline `baby_student_reference_seed2024_v1` and candidate
+  `baby_td_asymmetric_no_projection_seed2024_v1`. Atomic implementation keeps
+  either observed arm from influencing the other and extends the already
+  validated seed-2023 registry pattern without changing the experiment method.
+- Status and authorization boundary: pending implementation only on branch
+  `codex/experiment/baby-teacher-baseline` from exact clean parent
+  `f6dd2e4f1cd52e36e3a4fe6c87a8f5fb24454b8c`. No profile execution, smoke,
+  training, validation ranking, Test access, formal-run declaration, generated
+  checkpoint, manifest, convergence record, raw log, tag, bundle, backup, or
+  merge is authorized.
+- Declared file scope: append-only `TRAINING_LOG.md`; profile definitions,
+  registry, and paper-ready identities in `codes/utility/dataset_profiles.py`;
+  focused static/synthetic tests in `codes/tests/test_dataset_profiles.py`; and
+  one new `docs/BABY_SEED2024_REPLICATION_PROFILES_V1.md`. Modify no other file
+  and do not update the intentionally stale top-of-log summary.
+- Frozen implementation contract: add both names/scopes/sources and defaults
+  maps together. Each seed-2024 defaults map must have exactly the same keys as
+  its corresponding seed-2022 and seed-2023 maps and differ only at student
+  training/sampling `seed=2024`; `hard_token_seed=2022` remains dataset-owned.
+  Baseline semantic values remain alpha and all four rates `0.0`. Candidate
+  values remain alpha `0.3`, item-image `1.0`, item-text `0.3`, and both user
+  rates `0.0`. The two arms may differ only at alpha, item-image, and item-text.
+  All data, split, feature, PCA/cache, frozen-teacher, `val_test_once_v1`,
+  sampler, AdamW, `student_lr=0.00006`, weight decay `0.01`, batch size `1024`,
+  maximum epoch `1000`, patience `7`, dimension `64`, random initialization,
+  and inference-export controls remain unchanged.
+- Planned implementation: mirror the existing seed-2023 constant/default-copy
+  and registry-entry structure with canonical seed-2024 sources
+  `predeclared_baby_id_only_bpr_reference_seed2024` and
+  `predeclared_baby_asymmetric_no_projection_directional_v1_seed2024`.
+  Registry-derived parser choices and paper-ready identity eligibility must
+  include both profiles without special-case relaxation or unrelated refactor.
+- Acceptance criteria: existing seed-2022/2023 profile objects remain exactly
+  unchanged; both seed-2024 profiles resolve through their canonical parser
+  invocations with `dataset_config_overrides={}`,
+  `student_config_overrides={}`, and no paper-ready blocker; explicit CLI
+  student seed and semantic overrides, dataset-owned preprocessing overrides,
+  and unknown profile names remain recorded/rejected as applicable. Tests must
+  prove equal key sets, seed-only cross-seed deltas, the exact three-field
+  matched-arm delta, frozen `hard_token_seed=2022`, and the full shared control
+  set without reading Baby data.
+- Planned verification: run the focused dataset-profile test module, discover
+  and run the complete existing unit-test suite, compile the relevant Python
+  sources, execute canonical parser static-resolution checks for both profiles,
+  confirm negative override and unknown-profile gates, run
+  `git diff --check`, inspect unstaged and staged file scope, and run
+  `git diff --cached --check`. All fixtures must be parser-only or temporary
+  synthetic data; `codes/main_mmlight.py` must not execute.
+- Risks and rollback/preservation point: copy/paste drift could expose only one
+  arm, mutate a prior defaults map, weaken eligibility, or incorrectly treat
+  `hard_token_seed` as a student seed. The rollback/preservation point is clean
+  declaration commit `f6dd2e4f1cd52e36e3a4fe6c87a8f5fb24454b8c` plus this pending record; no
+  destructive rollback is authorized. If verification fails, preserve the
+  pending entry, append a separate failed outcome with evidence, and stop.
+- Completion and next-stage gate: after successful implementation and all
+  verification, append a separate completed outcome and create one coherent
+  commit containing only the declared files. The only later action is a
+  separately authorized, baseline-only formal-run pending declaration for
+  `baby_student_reference_seed2024_v1`; this implementation task must stop
+  before declaring or launching that run.
+
+### 2026-08-01 | matched seed-2024 profile implementation (completed)
+
+- Status and outcome: completed successfully. Both predeclared override-free
+  profiles were implemented together and accepted in one coherent working-tree
+  scope before any seed-2024 execution or result:
+  `baby_student_reference_seed2024_v1` and
+  `baby_td_asymmetric_no_projection_seed2024_v1`. No partial one-arm state,
+  formal-run declaration, smoke, training, validation ranking, Test access,
+  generated run artifact, tag, bundle, backup, or merge occurred.
+- Source identity: branch `codex/experiment/baby-teacher-baseline`; exact parent
+  and replication-stage declaration commit
+  `f6dd2e4f1cd52e36e3a4fe6c87a8f5fb24454b8c`. The implementation commit is the
+  Git commit containing this outcome and must be cited by the next baseline
+  formal-run declaration. The intentionally stale top-of-log summary was not
+  changed.
+- Actual file scope:
+  - `codes/utility/dataset_profiles.py` adds both seed-2024 name/scope/source
+    identities, defaults copies, and registry entries; the registry-derived
+    parser choices and paper-ready identity set therefore include both arms;
+  - `codes/tests/test_dataset_profiles.py` adds focused frozen-value,
+    cross-seed, matched-arm, canonical-resolution, override, eligibility, and
+    registry assertions for both profiles while retaining unknown-name tests;
+  - `docs/BABY_SEED2024_REPLICATION_PROFILES_V1.md` records the frozen pair,
+    controls, sequential execution gate, and future commands without
+    authorizing execution;
+  - `TRAINING_LOG.md` contains the preserved replication-stage declaration and
+    separate implementation pending/completed records. No other tracked file
+    changed.
+- Implemented identities: baseline scope/source are `student_reference` /
+  `predeclared_baby_id_only_bpr_reference_seed2024`; candidate scope/source are
+  `student_candidate` /
+  `predeclared_baby_asymmetric_no_projection_directional_v1_seed2024`. Both
+  exact identity tuples are present in
+  `BABY_PAPER_READY_STUDENT_PROFILE_IDENTITIES`; unknown identities remain
+  rejected by the parser and eligibility gate.
+- Frozen defaults audit: both new maps contain the same `26` keys as their
+  seed-2022 and seed-2023 counterparts. For each arm, comparison with either
+  prior seed changes only `seed`, resolved as `2024`. The canonical parser
+  resolves `hard_token_seed=2022`, `val_test_once_v1`, random 64-dimensional
+  no-projection initialization, AdamW `student_lr=0.00006`, weight decay
+  `0.01`, batch size `1024`, maximum epoch `1000`, patience `7`, no smoke cap,
+  the frozen teacher path, final Test enabled, and efficiency disabled.
+- Matched semantic audit: baseline resolves `td_distill_alpha=0.0` and all four
+  component rates `0.0`; candidate resolves alpha `0.3`, item-image `1.0`,
+  item-text `0.3`, and both user rates `0.0`. The computed cross-arm changed
+  field set is exactly `td_distill_alpha`, `td_item_image_rate`, and
+  `td_item_text_rate`; `seed=2024` and every other value are identical.
+- Defaults-map fingerprints: canonical sorted compact-JSON SHA256 is
+  `0865aed6197bb2781d8625cf3cf828d981228a1b969c921b83ce9a3f6f43f27f`
+  for the seed-2024 baseline and
+  `f7ed2a940a5547afdfd3d242c6dc1832dd7e447b2824aaf633b5dd94c3bead6e`
+  for the seed-2024 candidate. The four pre-existing 26-key map hashes before
+  and after implementation are unchanged: seed-2022 baseline
+  `98f16504442942d0209ead388611b8adf50b64c1dfd9b2b6764bcfa98fbdc3cb`,
+  seed-2022 candidate
+  `018534ec9cedfe4c1d4f5fc1d23552173d3f8a33843c3e71be38f69ea8c46113`,
+  seed-2023 baseline
+  `29d21d20c5437be41e9af076135a1e977b3c7dcb27a706496656a203f7452650`,
+  and seed-2023 candidate
+  `1c4c89f253d3adcd167211481dd599591012b8881c9c590c68a6e55d797fe61c`.
+- Canonical parser verification: static imports of the real `utility.parser`
+  using each documented future argument list returned
+  `dataset_config_overrides={}`, `student_config_overrides={}`, and combined
+  paper-ready blockers `[]`. Both returned `seed=2024` and
+  `hard_token_seed=2022`; baseline returned alpha/rates
+  `0.0 / [0.0,0.0,0.0,0.0]`, and candidate returned
+  `0.3 / [1.0,0.3,0.0,0.0]`.
+- Negative gate verification: a baseline `--seed 2025` override was recorded in
+  both dataset and student override maps and blocked; candidate
+  `--td_item_text_rate 0.5` was recorded and blocked; baseline
+  `--hard_token_seed 2024` was recorded only in the dataset override map and
+  activated the existing `Baby reference profile has resolved overrides`
+  blocker; and `baby_unknown_student_v1` was rejected by canonical argparse as
+  an invalid choice. These checks only parsed arguments.
+- Automated verification:
+  - focused
+    `D:\miniconda\envs\run_5060\python.exe -m unittest codes.tests.test_dataset_profiles -v`
+    passed `26/26`;
+  - complete
+    `D:\miniconda\envs\run_5060\python.exe -m unittest discover -s codes\tests -p "test_*.py" -v`
+    passed `46/46` using only static parsing and temporary synthetic fixtures;
+  - `D:\miniconda\envs\run_5060\python.exe -m py_compile` passed for
+    `dataset_profiles.py`, `parser.py`, `test_dataset_profiles.py`, and
+    `main_mmlight.py` without executing them;
+  - focused document-contract checks, defaults/identity audits, and
+    `git diff --check` passed. The first attempt to run the full suite and
+    `py_compile` concurrently hit Windows `WinError 5` while both commands
+    replaced the same ignored `__pycache__` file; no assertion or project-code
+    failure occurred, no process remained, and sequential reruns of both
+    commands passed.
+- Data, teacher, protocol, and artifact audit: no Baby data file or split was
+  loaded or accessed; no validation or Test ranking occurred. No dataset,
+  split, modality feature, PCA/cache, sampler, protocol, optimizer, checkpoint,
+  manifest, convergence record, or raw log changed or was generated. The
+  read-only teacher remains `141098540` bytes with SHA256
+  `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`,
+  and no `main_mmlight.py` process exists. Metrics and run-specific artifact
+  paths are not applicable to this implementation-only task.
+- Acceptance decision and unresolved risks: all declared implementation and
+  verification criteria passed, so the pair is ready for a separately declared
+  sequential baseline stage. This static implementation does not itself prove
+  future runtime completion or metric quality; the official cold-item warning,
+  consumable one-time final Test access, three-seed evidence limit, and lack of
+  stable backup for ignored future artifacts remain. No run is authorized by
+  this outcome.
+- Unique next action: only with new explicit user authorization, append and
+  commit one baseline-only uncapped formal-run pending declaration for
+  `baby_student_reference_seed2024_v1`, citing this implementation commit and
+  freezing its exact canonical command, clean-source/environment/data/teacher
+  gates, foreground timeout requirement, acceptance criteria, and planned
+  artifacts. Stop after that declaration without training, validation ranking,
+  Test, candidate declaration, tag, bundle, backup, or merge.
