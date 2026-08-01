@@ -4140,3 +4140,198 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   candidate command exactly once in one continuously attached foreground
   session with shell/tool timeout at least `10800000` ms; after it exits, audit
   the single run and append/commit one completed or failed outcome.
+
+### 2026-08-02 | baby_td_asymmetric_no_projection_seed2024_v1 formal uncapped candidate (completed)
+
+- Status and decision: completed valid formal seed-2024 candidate evidence.
+  The single authorized process exited naturally with code `0`; every declared
+  source, execution-flow, numerical, artifact, protocol, and deployment hard
+  gate passed. Metric magnitude was not an acceptance threshold, and no retry,
+  second launch, parameter change, reset, revert, deletion, rollback, tag,
+  bundle, backup, merge, or later experiment occurred.
+- Source and launch gates: branch `codex/experiment/baby-teacher-baseline` at
+  exact clean declaration commit
+  `e2a730748a7527fe284358e0c19cccd5744b5906`; completed matched seed-2024
+  baseline outcome commit
+  `1a8104b75aab9bf8ba95d6de5beb5ca18d24c0b1`; simultaneous matched-profile
+  implementation commit `cb22e9dac1f67c8f4ae713de0da3183505f78ba6`.
+  Before launch, the exact HEAD/branch, clean worktree, zero pre-existing
+  `main_mmlight.py` processes, empty `codes`/`docs` implementation diff,
+  environment/GPU/disk, canonical resolution, empty override maps, zero
+  blockers, data/cache identities, frozen teacher fingerprint, and absence of
+  conflicting seed-2024 candidate artifacts all passed. Post-run
+  `git diff cb22e9d... e2a7307... -- codes docs` is also empty.
+- Command and execution count: the frozen command was executed exactly once,
+  with no added, removed, reordered, or overridden argument and no automatic
+  or manual retry:
+  `D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_td_asymmetric_no_projection_seed2024_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --run_final_test true`.
+  It remained in one continuously attached foreground shell/tool session with
+  explicit timeout `10800000` ms until natural exit. Foreground wall time was
+  approximately `884.1` seconds (`14:44.1`); manifest time from
+  `2026-08-02T00:42:54.031643+08:00` through
+  `2026-08-02T00:57:33.513708+08:00` was `879.482065` seconds
+  (`14:39.482065`).
+- Run and environment identity: run
+  `2026-08-02 00_42_54.029141_baby_light_init_pid29752`, main PID `29752`;
+  `D:\miniconda\envs\run_5060\python.exe`; Python `3.10.20`; PyTorch
+  `2.11.0+cu128`; CUDA runtime `12.8`; NVIDIA driver `595.97`; NVIDIA GeForce
+  RTX 5060 with `8151` MiB reported memory; GPU selector `0`. PID `29752`
+  exited and the final process check found no remaining `main_mmlight.py`
+  process.
+- Canonical profile and frozen controls: profile/scope/source are exactly
+  `baby_td_asymmetric_no_projection_seed2024_v1` / `student_candidate` /
+  `predeclared_baby_asymmetric_no_projection_directional_v1_seed2024`;
+  `dataset_config_overrides={}`, `student_config_overrides={}`, and
+  `paper_ready_blockers=[]`. Student initialization, training, and pairwise
+  sampling used `seed=2024`, while frozen PCA preprocessing retained
+  `hard_token_seed=2022`. The student was a randomly initialized
+  64-dimensional `td_distill_no_projection` model with no checkpoint load or
+  teacher warm start; `td_init_from_teacher=false`.
+- Frozen optimization and semantic contract: AdamW `student_lr=0.00006`,
+  student weight decay `0.01`, batch size `1024`, maximum `epoch=1000`,
+  patience `7`, `smoke_train_batches=0`, and no efficiency benchmark.
+  `td_distill_alpha=0.3`; item-image, item-text, user-image, and user-text rates
+  were exactly `1.0 / 0.3 / 0.0 / 0.0`; active heads were exactly item-image
+  and item-text. Resolved arguments, raw log, convergence record, manifest, and
+  full-checkpoint metadata agree.
+- Dataset and preprocessing audit: conversion manifest, train, validation,
+  Test, image, and text SHA256 values all matched the pending declaration.
+  Preflight confirmed shapes/dtypes, finite non-duplicate modalities, split
+  overlaps `0 / 0 / 0`, and duplicate policy `error`. Its only warning was the
+  frozen retained-official condition: item IDs `240`, `1212`, and `6115` are
+  absent from train and cover `11` validation and `7` Test interactions, with
+  no cold users. Image/text PCA caches were hits with random state `2022`; no
+  fallback, regeneration, or data/cache identity change occurred.
+- Frozen teacher audit: teacher training was skipped and read-only
+  `Model/baby/teacher_model_val_test_once_v1.pt` remained exactly `141098540`
+  bytes with pre/post SHA256
+  `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`.
+  Its last-write time remained `2026-07-30 11:57:18`; no teacher optimizer
+  step, run-local teacher checkpoint, alias publication/overwrite, or new
+  teacher Test ranking occurred. Printed teacher metrics were reused from
+  frozen checkpoint metadata.
+- Training and numerical audit: epochs `0-67` completed contiguously, each
+  reaching all `116/116` batches, for `7888` optimization batches. All `68`
+  entries in all `15` convergence loss/metric series were finite and aligned.
+  Epoch `0 -> 67` endpoints were total loss
+  `81.4356541633606 -> 64.64407312870026`, BPR
+  `80.3982520699501 -> 64.20018488168716`, normalized directional loss
+  `3.458005305379629 -> 1.4796270811930299`, item-image
+  `3.4248215835541487 -> 1.1291100652888417`, and item-text
+  `3.5686173364520073 -> 2.648016979917884`; both inactive user-side series
+  remained exactly zero. Recomputed objective residuals were at most
+  `5.44e-7` for total versus BPR plus scaled directional loss and `9.02e-8`
+  for the declared normalized item objective; no NaN or infinity occurred.
+- Validation selection: validation Recall@20 alone selected best epoch `60`.
+  Exact stored metrics there were Recall@20 `0.0671997942915925`, Recall@50
+  `0.1195895627471833`, NDCG@20 `0.029492535104592942`, and NDCG@50
+  `0.040256057809183156`. The raw-log K=`[10,20,40,50]` rounded vectors were
+  Recall `[0.04224, 0.06720, 0.10361, 0.11959]`, Precision
+  `[0.00442, 0.00352, 0.00272, 0.00251]`, Hit Ratio
+  `[0.04407, 0.07010, 0.10810, 0.12466]`, and NDCG
+  `[0.02298, 0.02949, 0.03724, 0.04026]`. Epochs `61-67` were seven
+  consecutive non-improvements followed by one natural patience `7/7` stop.
+- Test chronology and exact final result: dataset preflight accessed Test
+  structure/identity before training, without ranking. After early stopping,
+  the run restored validation-best epoch `60` and performed exactly one new,
+  report-only student Test ranking; the log contains one final student Test
+  event after the one early-stop event and no new teacher Test event. Exact
+  vectors ordered by K=`[10,20,40,50]` are Precision
+  `[0.004787863203908524, 0.0036950372846490643, 0.0028413473900744646, 0.002626896374389465]`,
+  Recall
+  `[0.043436936338710826, 0.06682881901961434, 0.10255924898506319, 0.11873135835336573]`,
+  NDCG
+  `[0.025207338729919423, 0.031615081004297794, 0.039582682792750394, 0.04274962109657593]`,
+  and Hit Ratio
+  `[0.04762149652867107, 0.07328362046798695, 0.11175109282591636, 0.1289791720236532]`;
+  AUC `0.0` as expected under `test_flag=part`. Test did not influence
+  selection, acceptance, parameters, retry, or rollback; execution complied
+  with `val_test_once_v1` and candidate exclusion `train_only`.
+- Manifest acceptance: `status=completed`, model stage `td_distill`, protocol
+  `val_test_once_v1`, selection split `validation`, primary metric
+  `Recall@20`, candidate exclusion `train_only`, `run_final_test=true`,
+  `final_test_performed=true`, `paper_ready_eligible=true`, and blockers `[]`.
+  Its run/profile/arguments, best epoch/Recall, final Test vectors, teacher/data
+  identities, cache hits, and checkpoint paths agree with the other evidence.
+- Same-run artifacts and fingerprints, all outside Git and all keyed only by
+  the exact run identity:
+  - raw log
+    `logs/2026-08-02 00_42_54.029141_baby_light_init_pid29752`, `33827` bytes,
+    SHA256 `4fc9661bf13decf360894ba28171e2ac754be395099ee1a93f4ca1e5306f13db`;
+  - preflight
+    `exp/runs/baby/dataset_preflight__2026-08-02 00_42_54.029141_baby_light_init_pid29752.json`,
+    `3399` bytes, SHA256
+    `6ebd2223e855f0a25df5fc9ca92a1b8e479ca87c076bd401f2ed1397b7c5ae0c`;
+  - manifest
+    `exp/runs/baby/run_manifest__2026-08-02 00_42_54.029141_baby_light_init_pid29752.json`,
+    `25447` bytes, SHA256
+    `96ad86aaae2ba745bb5ec78ad9091a691d9aa26b64eb77a909af2df294823212`;
+  - convergence record
+    `exp/converge/baby/auto__2026-08-02 00_42_54.029141_baby_light_init_pid29752.pkl`,
+    `10960` bytes, SHA256
+    `88e9cd2292e9a81e9feb003aa58b5a214a0e3a577d28d111232a07c289a8ba93`;
+  - full checkpoint
+    `Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-08-02 00_42_54.029141_baby_light_init_pid29752.pth`,
+    `20354975` bytes, SHA256
+    `5a1a10c63af169cbb9d211aa82a8fd8e6ca109190e81ab44a8a43949ad072f24`;
+  - inference-only checkpoint
+    `Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-08-02 00_42_54.029141_baby_light_init_pid29752.pth`,
+    `6785997` bytes, SHA256
+    `4e9300358221f33beb1acb51c950bf73d774717172a44869ab3aeb28fe538fde`.
+  Exactly these six files contain the run identity; no generic/shared student
+  checkpoint or other file was written in the run window.
+- Checkpoint/deployment audit: the format-v2 full checkpoint contains only
+  finite `user_id_embedding.weight` shape `[19445,64]` and
+  `item_id_embedding.weight` shape `[7050,64]` in model state, two optimizer
+  state entries with all six optimizer tensors finite, and the declared
+  run/profile/protocol/epoch/optimizer/semantic metadata. The inference export
+  contains exactly the two finite embeddings plus `embedding_dim=64`,
+  `n_users=19445`, `n_items=7050`, and variant
+  `td_distill_no_projection`; it contains no teacher, modality, prompt,
+  semantic cache, graph, projection, or optimizer state. User and item tensors
+  have matching dtype/shape and are bit-for-bit equal between checkpoints.
+- Matched seed-2024 result: versus its committed same-seed baseline, candidate
+  Validation Recall@20 improved from `0.04086654667009528` to
+  `0.0671997942915925`, delta `+0.026333247621497212`; final Test Recall@20
+  improved from `0.042307913651446934` to `0.06682881901961434`, delta
+  `+0.024520905368167402` (`+57.9582%` relative). This positive magnitude is
+  descriptive evidence only and did not affect technical acceptance.
+- Outcome-local three-seed calculation from already recorded manifests, with
+  no new split access: seed `2022` baseline/candidate/delta Recall@20 were
+  Validation `0.04291303921928788 / 0.06842596333982363 /
+  +0.025512924120535754` and Test
+  `0.044279857310199594 / 0.06659234097521655 / +0.022312483665016952`;
+  seed `2023` were Validation
+  `0.04098274743170617 / 0.06479423036892924 / +0.023811482937223072`
+  and Test
+  `0.03680654207653432 / 0.06531066330886427 / +0.028504121232329954`;
+  seed `2024` were Validation
+  `0.04086654667009528 / 0.0671997942915925 / +0.026333247621497212`
+  and Test
+  `0.042307913651446934 / 0.06682881901961434 / +0.024520905368167402`.
+  All three paired deltas are positive.
+- Descriptive `n=3`, `ddof=1` calculation from those recorded values:
+  Validation baseline mean/sample SD `0.04158744444036311 /
+  0.0011494680477004105`, candidate `0.06680666266678179 /
+  0.0018475079022266937`, and paired delta `0.02521921822641868 /
+  0.0012862821015983998`; Test baseline `0.04113143767939362 /
+  0.0038730713819974285`, candidate `0.06624394110123172 /
+  0.0008168451779041365`, and paired delta `0.025112503421838104 /
+  0.0031379268847553854`. This is not a significance claim and does not prove
+  rate optimality; the separately predeclared canonical three-seed summary
+  remains the next experiment-record stage after this outcome commit.
+- Experimental meaning, unresolved risks, and scope: the predeclared
+  asymmetric no-projection transfer improved Recall@20 over its matched BPR
+  baseline for all three recorded seeds under frozen non-semantic controls.
+  Evidence remains limited to three seeds; all one-time final student Test
+  accesses are consumed; retained official cold items remain; and ignored
+  artifacts lack Git/off-device protection. Only this append-only
+  `TRAINING_LOG.md` outcome changes tracked state; no code, profile, parameter,
+  data, teacher, protocol, historical entry, or top-of-log summary changed.
+- Unique next action: only with new explicit user authorization, start from the
+  clean commit containing this outcome and append/commit one standalone
+  canonical descriptive matched summary across seeds `2022/2023/2024`, using
+  only the already recorded outcome/manifests and reporting the predeclared
+  per-arm and paired mean/sample-SD statistics. Do not load a split, rerun
+  training/Validation/Test, alter parameters, launch another experiment,
+  create a tag/bundle/backup, or merge `main` in that summary task.
