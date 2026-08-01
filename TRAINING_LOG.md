@@ -2909,3 +2909,180 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   preserving the baseline-before-candidate firewall; then stop without
   training, validation, or Test. The expected artifacts for that next task are
   only the append-only candidate declaration and its clean Git commit.
+
+### 2026-08-01 | baby_td_asymmetric_no_projection_seed2023_v1 formal uncapped candidate (pending)
+
+- Append-only identity correction: the preceding baseline outcome's unique
+  next action used `baby_td_candidate_seed2023_v1` as an erroneous shorthand.
+  No profile, alias, registry entry, or executable identity with that name
+  exists. The canonical, implemented, and already frozen profile ID is
+  `baby_td_asymmetric_no_projection_seed2023_v1`. This entry corrects the
+  handoff prospectively without editing or deleting the old record; all future
+  declarations, commands, manifests, and outcomes must use only the canonical
+  ID.
+- Purpose and hypothesis: predeclare the candidate arm of the matched Baby
+  seed-2023 replication as one uncapped formal asymmetric no-projection
+  directional-distillation run. The hypothesis, frozen before either seed-2023
+  arm produced evidence, is that the fixed item-dominant semantic transfer can
+  improve the deployable student over the matched ID-only BPR baseline while
+  preserving the same initialization seed, sampler, optimizer budget,
+  deployment state, data, teacher, and evaluation protocol. This declaration
+  makes no quality claim and does not tune the candidate from the completed
+  baseline result.
+- Baseline-outcome prerequisite and parameter-selection firewall: the matched
+  baseline `baby_student_reference_seed2023_v1` completed from declaration
+  commit `eaaa68d851af2256b7b5c9957eab4cc426fecc8b`; its audited outcome is
+  committed at `1749d46bf46087f84208a39bc3caefe92654aa50`. It selected
+  validation epoch `72`, with validation Recall@20
+  `0.04098274743170617` and final Test Recall@20
+  `0.03680654207653432`. Those results satisfy the required
+  baseline-outcome-before-candidate gate but did not select, cancel, reorder,
+  or alter any candidate parameter. The candidate was implemented and frozen
+  together with the baseline before this evidence existed.
+- Status and authorization boundary: pending; formal, uncapped, single run at
+  training/sampling seed `2023`. This task authorizes only this append-only
+  correction and candidate declaration, focused Markdown/Git verification,
+  and one local commit. It does not authorize profile resolution by project
+  code, dataset access, training, validation ranking, Test evaluation,
+  run-artifact creation, candidate launch, retry, tag, bundle, baseline or
+  teacher overwrite, merge to `main`, or any later experiment stage. The run
+  may execute exactly once only after this declaration is committed in a clean
+  tree and the user gives new explicit launch authorization.
+- Branch and exact source identity: branch
+  `codex/experiment/baby-teacher-baseline`; clean declaration predecessor and
+  completed baseline outcome commit
+  `1749d46bf46087f84208a39bc3caefe92654aa50`; frozen matched-profile
+  implementation commit `03260ee2db0e9e90332588031eacf3152d260dbf`.
+  Implementation commit `03260ee2...` added and verified both seed-2023
+  profiles together before either run. The commit containing this pending
+  declaration must be the later clean launch HEAD, and
+  `git diff 03260ee2db0e9e90332588031eacf3152d260dbf <launch-commit> -- codes docs`
+  must be empty. No source, profile, test, or documentation change is permitted
+  between the frozen implementation and launch.
+- Full override-free formal command, frozen exactly and containing no
+  `--seed`:
+  `D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_td_asymmetric_no_projection_seed2023_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --run_final_test true`
+- Canonical profile and override contract, statically verified before
+  seed-2023 evidence by implementation commit `03260ee2...`: profile
+  `baby_td_asymmetric_no_projection_seed2023_v1`, scope
+  `student_candidate`, source
+  `predeclared_baby_asymmetric_no_projection_directional_v1_seed2023`;
+  `dataset_config_overrides={}` and `student_config_overrides={}`; student
+  initialization and sampling `seed=2023`; frozen teacher preprocessing/cache
+  `hard_token_seed=2022`. The command may not add a CLI seed, semantic,
+  optimizer, epoch, patience, batch, sampler, protocol, teacher, or final-Test
+  override, and the nonexistent shorthand must never be passed as a profile.
+- Dataset and preprocessing identity: audited MMRec Baby under `data/baby/`;
+  conversion manifest SHA256
+  `cf2d0d8c8aff9b321aad0b11d48d078794d12a4920afaa4c8efedfe3beda9df2`;
+  train/validation/Test matrix SHA256 values respectively
+  `3cead4c601ccef4c2424cd692951935840ccc8f22df15577ced4e5f3fec37fac`,
+  `f1458ff1dc28c5371699780270e3a3e270c8f9ce19def3d5e67d4ba9644ce9d2`,
+  and `773de4f57f2c1bcb6695ea57995280e7cbe114b2b579263a599bb097bb6555ac`;
+  image/text feature SHA256 values respectively
+  `36c3be592b98506189a7d5de71b21577cf626f0293b539d861534673b3e9fd70`
+  and `6667f2ad655c9ecc97cb3383f58988864ef51ec0b39c158b15986c66769f2dc4`.
+  Preserve official split assignments, cold-item policy `retain_official`,
+  duplicate-modalities policy `error`, dataset preflight, `pca` hard-token
+  type, `hard_token_seed=2022`, and existing cache provenance. No dataset,
+  split, feature, preprocessing, or cache change is allowed.
+- Frozen teacher identity and controls: reuse read-only
+  `Model/baby/teacher_model_val_test_once_v1.pt`, expected size `141098540`
+  bytes and SHA256
+  `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`;
+  `if_train_teacher=false`, `teacher_only=false`, and
+  `allow_teacher_alias_overwrite=false`. No teacher optimizer step, run-local
+  teacher checkpoint, shared-alias publication, overwrite, or new teacher Test
+  evaluation is allowed.
+- Frozen shared student controls: no student checkpoint is loaded; random
+  initialization at seed `2023`; `td_init_from_teacher=false`;
+  `td_distill_no_projection`; user/item ID embedding dimension `64`; batch size
+  `1024`; maximum `epoch=1000`; validation every epoch; early-stopping patience
+  `7`; `smoke_train_batches=0`; all `116` independently sampled batches per
+  completed epoch; unchanged `data_generator.sample()` pairwise BPR sampling;
+  AdamW `student_lr=6e-5`; student weight decay `0.01`; and no efficiency
+  benchmark, projection, or teacher warm start.
+- Frozen candidate-only semantic controls: `td_distill_alpha=0.3`; item-image
+  rate `1.0`; item-text rate `0.3`; user-image rate `0.0`; user-text rate
+  `0.0`. Active supervision is therefore item-image and item-text only, with
+  the no-projection 64-dimensional student optimizing
+  `L_BPR + 0.3 * ((1.0 * L_item_image + 0.3 * L_item_text) / 1.3)`.
+  Relative to the matched baseline, the only actual changed-value set is
+  `td_distill_alpha`, `td_item_image_rate`, and `td_item_text_rate`; all other
+  controls remain value-identical.
+- Student deployment identity: the full validation-selected checkpoint may
+  contain the two user/item ID embeddings, optimizer state, and declared
+  metadata. The inference export must contain only finite user/item ID
+  embeddings plus `embedding_dim`, user/item counts, and the no-projection
+  variant identity; it must contain no teacher, modality, prompt, semantic
+  cache, graph, projection, or optimizer state. Full and inference user/item
+  embeddings must be bit-for-bit equal.
+- Evaluation and Test contract: unchanged `val_test_once_v1`; train only on
+  `train_mat`; select and early-stop only by validation Recall@20; candidate
+  exclusion `train_only`; `Ks=[10,20,40,50]`; `test_flag=part`; save and
+  restore the validation-best student checkpoint, then perform exactly one
+  final student Test evaluation. Test metrics are report-only and cannot
+  influence selection, technical acceptance, profile values, retry, rollback,
+  or interpretation of the already completed baseline.
+- Intended environment: `D:\miniconda\envs\run_5060\python.exe`; Python
+  `3.10.20`; PyTorch `2.11.0+cu128`; CUDA runtime `12.8`; NVIDIA driver
+  `595.97`; NVIDIA GeForce RTX 5060 8 GB; GPU selector `0`. Clean source HEAD,
+  source-diff gate, environment, GPU, free space, exact canonical profile,
+  empty override maps, dataset identities, teacher fingerprint, and pre-run
+  artifact inventory must be checked immediately before a separately
+  authorized launch.
+- Execution transport requirement: a separately authorized launch must keep
+  the single command in one continuously attached foreground shell/tool
+  session for the entire process, with the shell/tool timeout explicitly set
+  to at least three hours (`10800000` ms). Default or short timeouts, detached
+  launch, output-channel closure while active, and automatic retry are
+  forbidden. If the process or transport ends for any reason, preserve the
+  state and artifacts, record one outcome, and stop.
+- Planned run-specific artifacts, all keyed by one new timestamp/PID run name:
+  raw log `logs/<run_name>`; preflight
+  `exp/runs/baby/dataset_preflight__<run_name>.json`; manifest
+  `exp/runs/baby/run_manifest__<run_name>.json`; convergence record
+  `exp/converge/baby/auto__<run_name>.pkl`; full checkpoint
+  `Model/baby/td_distill/td_distill_full__val_test_once_v1__<run_name>.pth`;
+  and inference-only checkpoint
+  `Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__<run_name>.pth`.
+  No shared student alias is allowed; all six artifacts must share the same run
+  identity and remain outside Git.
+- Hard acceptance criteria for the later run: launch once from the exact clean
+  declaration commit through the required foreground session and timeout;
+  pass source-diff, canonical-profile, empty-override, environment, dataset,
+  preprocessing, seed/cache, and frozen-teacher gates; use exactly the frozen
+  semantic controls; keep all training loss and validation metric series
+  finite; use all `116` batches per completed epoch; select and early-stop only
+  by validation Recall@20; restore the validation-best checkpoint before
+  exactly one final student Test; finish with manifest status `completed`,
+  `paper_ready_eligible=true`, no blockers, and
+  `final_test_performed=true`; preserve teacher hash and aliases; produce and
+  fingerprint all six same-run artifacts; and pass checkpoint structure,
+  finiteness, deployment-state, and full-to-inference equality audits.
+- Quality acceptance, failure boundary, and preservation: there is no minimum
+  metric or improvement threshold. Any finite result produced by the exact
+  declared code and protocol is valid completed candidate evidence even if
+  lower than the matched baseline or seed-2022 candidate. Mark a later run
+  `failed` only for process/code failure, non-finite values, identity or
+  override drift, data/teacher mismatch, chronology violation, teacher
+  mutation, missing or cross-run artifacts, or another hard acceptance
+  failure. Preserve all completed or partial files; do not automatically
+  retry, reset, revert, delete, or roll back based on metric quality.
+- Risks, rollback point, and evidence limits: the uncapped GPU run may fail or
+  exceed three hours; final Test access is consumable once; the fixed official
+  cold-item warning remains; the seed-2023 direction may differ from seed
+  `2022`; and two paired seeds remain insufficient for a strong variance or
+  significance claim. Ignored artifacts require explicit physical or
+  off-device backup at a stable milestone. The traceable rollback/preservation
+  point is this clean declaration commit plus implementation commit
+  `03260ee2...`, completed baseline outcome `1749d46...`, and all immutable
+  prior evidence; no destructive rollback is authorized.
+- Declaration-only verification and unique next action: this task must change
+  only `TRAINING_LOG.md`, verify the append-only correction, canonical command,
+  frozen identities and parameters, run unstaged and staged diff checks,
+  create one declaration commit, and stop. It accesses no dataset split and
+  produces no metric or run artifact. After that commit, wait for new explicit
+  user authorization to execute the exact canonical candidate command once
+  through the required long-lived foreground session, audit the existing run
+  after it exits, append and commit one completed or failed outcome, and stop.
