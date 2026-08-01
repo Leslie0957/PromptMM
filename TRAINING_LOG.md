@@ -2648,3 +2648,129 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   execution transport; then stop before rerunning. Do not declare or execute
   the candidate. Expected artifacts for that next step are the append-only
   recovery declaration and its clean Git commit only.
+
+### 2026-08-01 | baby_student_reference_seed2023_v1 recovery formal run (pending)
+
+- Purpose and rationale: predeclare one recovery execution of the unresolved
+  seed-2023 ID-only BPR baseline after the first formal attempt failed solely
+  because its short-lived outer command transport timed out and closed the
+  output channel before any optimization batch completed. This recovery keeps
+  the original formal command, method, parameters, data, preprocessing,
+  `val_test_once_v1` protocol, and frozen teacher identity unchanged. It makes
+  no quality claim and does not reinterpret or replace the preserved failed
+  attempt.
+- Status, scope, and authorization boundary: pending; formal, uncapped, single
+  recovery run at seed `2023`. This task authorizes only this append-only
+  declaration, focused Markdown/Git verification, and one local commit. It
+  does not authorize project-code execution, profile resolution, dataset
+  access, training, validation ranking, Test evaluation, run-artifact
+  creation, recovery launch, automatic retry, candidate declaration or
+  execution, tag, bundle, baseline overwrite, or merge to `main`. The recovery
+  may run exactly once only after this declaration is committed in a clean
+  tree and the user gives new explicit launch authorization.
+- Branch and exact source identity: branch
+  `codex/experiment/baby-teacher-baseline`; clean declaration predecessor
+  `d2d91ee73cbd2000b1ad207e7c113fbcb1c60fd6`; frozen profile implementation
+  `03260ee2db0e9e90332588031eacf3152d260dbf`. The commit containing this
+  pending declaration must be the later clean recovery launch HEAD, and
+  `git diff 03260ee2db0e9e90332588031eacf3152d260dbf <launch-commit> -- codes docs`
+  must be empty. No source, profile, test, or documentation change is
+  permitted between the frozen implementation and recovery launch.
+- Full override-free formal command, frozen exactly and containing no
+  `--seed`:
+  `D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_student_reference_seed2023_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --run_final_test true`
+- Dataset and preprocessing identity: audited MMRec Baby under `data/baby/`;
+  conversion manifest SHA256
+  `cf2d0d8c8aff9b321aad0b11d48d078794d12a4920afaa4c8efedfe3beda9df2`;
+  train/validation/Test matrix SHA256 values respectively
+  `3cead4c601ccef4c2424cd692951935840ccc8f22df15577ced4e5f3fec37fac`,
+  `f1458ff1dc28c5371699780270e3a3e270c8f9ce19def3d5e67d4ba9644ce9d2`,
+  and `773de4f57f2c1bcb6695ea57995280e7cbe114b2b579263a599bb097bb6555ac`;
+  image/text feature SHA256 values respectively
+  `36c3be592b98506189a7d5de71b21577cf626f0293b539d861534673b3e9fd70`
+  and `6667f2ad655c9ecc97cb3383f58988864ef51ec0b39c158b15986c66769f2dc4`.
+  Preserve official split assignments, cold-item policy `retain_official`,
+  duplicate-modalities policy `error`, dataset preflight, `pca` hard-token
+  type, `hard_token_seed=2022`, and existing cache provenance. No dataset,
+  split, feature, preprocessing, or cache change is allowed.
+- Frozen teacher identity and controls: reuse read-only
+  `Model/baby/teacher_model_val_test_once_v1.pt`, expected size `141098540`
+  bytes and SHA256
+  `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`;
+  `if_train_teacher=false`, `teacher_only=false`, and
+  `allow_teacher_alias_overwrite=false`. No teacher optimizer step, run-local
+  teacher checkpoint, shared-alias publication, overwrite, or new teacher Test
+  evaluation is allowed.
+- Frozen student and parameter contract: profile
+  `baby_student_reference_seed2023_v1`, scope `student_reference`, source
+  `predeclared_baby_id_only_bpr_reference_seed2023`, with
+  `dataset_config_overrides={}` and `student_config_overrides={}`; random
+  initialization at training/sampling seed `2023`; no loaded student
+  checkpoint; `td_init_from_teacher=false`; no-projection user/item ID
+  embeddings of dimension `64`; batch size `1024`; maximum `epoch=1000`;
+  validation every epoch; early-stopping patience `7`; all `116` independently
+  sampled BPR batches per completed epoch; `smoke_train_batches=0`; unchanged
+  `data_generator.sample()` sampling; AdamW `student_lr=6e-5`; student weight
+  decay `0.01`; `td_distill_alpha=0.0`; all four semantic rates `0.0`; and no
+  efficiency benchmark, semantic head, projection, or teacher warm start. No
+  CLI seed, semantic, optimizer, epoch, patience, batch, sampler, protocol,
+  teacher, or final-Test override may be added.
+- Evaluation and Test contract: unchanged `val_test_once_v1`; train only on
+  `train_mat`; select and early-stop only by validation Recall@20; candidate
+  exclusion `train_only`; `Ks=[10,20,40,50]`; `test_flag=part`; save and
+  restore the validation-best student checkpoint, then perform exactly one
+  final student Test evaluation. Test metrics are report-only and cannot
+  influence selection, acceptance, profile values, or the frozen later arm.
+- Intended environment: `D:\miniconda\envs\run_5060\python.exe`; Python
+  `3.10.20`; PyTorch `2.11.0+cu128`; CUDA runtime `12.8`; NVIDIA driver
+  `595.97`; NVIDIA GeForce RTX 5060 8 GB; GPU selector `0`. Environment, GPU,
+  free space, clean source HEAD, empty override maps, dataset identity, and
+  teacher fingerprint must be checked immediately before a separately
+  authorized launch.
+- Sole new operational launch requirement: execute the frozen command in a
+  continuously attached foreground execution session for the entire process,
+  with the invoking shell/tool timeout explicitly set to at least three hours
+  (`10800000` ms). A default or otherwise short timeout is forbidden. Detached
+  launch, output-channel closure while the process is active, and automatic
+  retry are forbidden. If the foreground session or process ends for any
+  reason, preserve its state and artifacts, record one outcome, and stop.
+- Planned run-specific artifacts: one new timestamp/PID identity shared by raw
+  log `logs/<run_name>`, preflight
+  `exp/runs/baby/dataset_preflight__<run_name>.json`, manifest
+  `exp/runs/baby/run_manifest__<run_name>.json`, convergence record
+  `exp/converge/baby/auto__<run_name>.pkl`, full checkpoint
+  `Model/baby/td_distill/td_distill_full__val_test_once_v1__<run_name>.pth`,
+  and inference-only checkpoint
+  `Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__<run_name>.pth`.
+  No shared student alias is allowed; these artifacts remain outside Git.
+- Hard acceptance criteria for the later recovery run: launch from the exact
+  clean declaration commit through the required foreground session and
+  timeout; pass the source-diff, empty-override, environment, dataset,
+  preprocessing, profile, seed, and frozen-teacher gates; keep every loss and
+  validation value finite; use all `116` batches for each completed epoch;
+  select and early-stop only by validation Recall@20; restore the
+  validation-best checkpoint before exactly one final student Test; finish
+  with manifest status `completed`, `paper_ready_eligible=true`, no blockers,
+  and `final_test_performed=true`; preserve the teacher hash and aliases;
+  produce and fingerprint all six same-run artifacts; and verify finite,
+  bit-for-bit equal full/inference embeddings with the inference export limited
+  to the declared deployment state. There is no minimum metric threshold; any
+  finite protocol-compliant result is valid evidence even when low or worse
+  than seed `2022`.
+- Risks, failure boundary, and rollback point: the uncapped foreground GPU run
+  may exceed three hours or fail independently; final Test access is consumable
+  once; one additional seed may reverse the seed-2022 direction; and ignored
+  artifacts remain outside Git protection. Mark the later recovery `failed`
+  only for process/code failure or another hard acceptance violation, preserve
+  all partial artifacts, and do not retry, reset, delete, or roll back based on
+  runtime or metric quality. The traceable recovery point is this clean
+  declaration commit plus the unchanged frozen implementation and preserved
+  failed-attempt artifacts.
+- Planned verification and unique next action: for this declaration-only task,
+  verify that only `TRAINING_LOG.md` changed, run unstaged and staged diff
+  checks, commit this pending declaration, and stop. Afterward, wait for new
+  explicit user authorization to execute the frozen baseline command once
+  using the required continuous foreground session and at-least-three-hour
+  timeout, then audit and commit one completed or failed outcome. Candidate
+  declaration and execution remain blocked until that recovery outcome commit
+  exists.
