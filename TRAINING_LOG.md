@@ -5193,3 +5193,159 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   `10800000` ms; after exit, audit the single run and append and commit one
   completed or failed outcome. Stop without declaring seed-2023/2024 or
   starting another experiment.
+
+### 2026-08-02 | baby_td_item_image_only_no_projection_seed2022_v1 formal uncapped ablation (failed)
+
+- Status and acceptance decision: failed the declared hard protocol acceptance
+  rule because the frozen-teacher reuse path performed one new teacher Test
+  ranking before student training. The single student run itself exited
+  naturally with code `0`, completed all optimization and Validation work,
+  restored its Validation-best checkpoint, performed exactly one later student
+  final Test, and produced internally consistent finite artifacts. Its metrics
+  and all six artifacts remain valid diagnostic evidence and are preserved,
+  but the run is not accepted as paper-ready image-only comparison evidence.
+  No retry, second launch, reset, revert, deletion, or rollback occurred.
+- Source and execution identity: branch
+  `codex/experiment/baby-teacher-baseline`; exact clean declaration and launch
+  HEAD `7108e3ec39bc66ec481faf7059cadecf8975a213`; frozen implementation
+  `9394ac0d75649e0e58a4dd4f0dbecdcabad2e306`. The pre-launch source diff
+  `git diff 9394ac0d... 7108e3ec... -- codes docs` was empty, the tracked tree
+  was clean, and no source or profile file changed during execution or audit.
+- Executed command, exactly once with no added, removed, or overwritten
+  argument:
+  `D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_td_item_image_only_no_projection_seed2022_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --run_final_test true`
+- Transport, PID, run identity, and duration: one continuously attached
+  foreground shell/tool session was used with timeout explicitly set to
+  `10800000` ms. The command was not detached or relaunched. Main PID `37484`
+  and run identity
+  `2026-08-02 02_15_00.996496_baby_light_init_pid37484` remained unchanged.
+  The tool returned exit code `0` after approximately `1058.1` seconds;
+  manifest start/completion were `2026-08-02T02:15:00.999008+08:00` and
+  `2026-08-02T02:32:30.194256+08:00`, an internal elapsed time of about
+  `1049.2` seconds.
+- Pre-launch gates and environment: HEAD/branch/clean-tree and source-diff
+  gates passed; no Python training process existed; Python was `3.10.20`,
+  PyTorch `2.11.0+cu128`, CUDA runtime `12.8`, NVIDIA driver `595.97`, and GPU
+  `0` was an NVIDIA GeForce RTX 5060 with `8151 MiB` total and `6076 MiB` free
+  at inspection. Drive D had `405907824640` bytes (`378.031 GiB`) free. The
+  command resolved without importing the training entry point during the
+  static gate, and all required files and caches were present.
+- Resolved profile and semantic controls: profile/scope/source were exactly
+  `baby_td_item_image_only_no_projection_seed2022_v1` / `student_ablation` /
+  `predeclared_baby_item_image_only_no_projection_ablation_v1_seed2022`;
+  `seed=2022`; `hard_token_seed=2022`; `dataset_config_overrides={}`;
+  `student_config_overrides={}`; and static plus runtime
+  `paper_ready_blockers=[]`. Alpha and item-image/item-text/user-image/user-text
+  rates were `0.3 / 1.0 / 0.0 / 0.0 / 0.0`. The no-projection model created
+  only the item-image semantic head, with no user or item-text active head and
+  no teacher warm start.
+- Data, preprocessing, and PCA-cache audit: preflight reproduced the declared
+  conversion, train, Validation, Test, image, and text SHA256 identities;
+  shapes/interactions were unchanged; split overlaps were `0 / 0 / 0`; both
+  modalities were finite, distinct, and non-duplicate. The only preflight
+  warning was the frozen `retain_official` condition for three cold items with
+  `11` Validation and `7` Test interactions and no cold users. Image/text PCA
+  caches were hits at random state `2022`: image identity
+  `7634bb6e8dcfdbdd45eee436cc3b8e3f3f8e1e54c85c2f4b9f4a17719cc77c90`,
+  `3610252` bytes, SHA256
+  `187852dca1f62554e2d29714ca363e4a92036e948dddfb6c090a5577b6175c8c`;
+  text identity
+  `6e7c8161aaeb01f5e4bb8744be3bf9d16df71cd7cc74ea841bc5c20ad60926ee`,
+  `1805450` bytes, SHA256
+  `5e9df184aca47a3c5d96d4db72977878981eca1cf67abba85b06e43528e1e562`.
+  No cache fallback, regeneration, or identity change occurred.
+- Student training and Validation selection: epochs `0-74` completed, each
+  using the uncapped `116/116` batches shown by the attached foreground
+  progress stream. The convergence record contains `75` entries for every
+  total/BPR/distillation/component-loss and Validation metric series; all are
+  finite, and inactive component losses remain exactly zero. Validation
+  Recall@20 alone selected and early-stopped the run at patience `7/7`.
+  Manifest, convergence record, and full checkpoint all agree on best epoch
+  `67` and exact Validation Recall@20 `0.06542176345982047`.
+- Student final Test chronology and exact result: after the epoch-74 natural
+  early stop, the raw log has exactly one event stating restoration of
+  Validation-best epoch `67` followed by the student final Test. Ordered by K
+  `[10,20,40,50]`, Precision is
+  `[0.004607868346618729, 0.003674466443815945, 0.002802777063512372, 0.0025857546927232234]`;
+  Recall is
+  `[0.0416851781971352, 0.06670462348143064, 0.10119136969998162, 0.11673884385378007]`;
+  NDCG is
+  `[0.023442955935571032, 0.03022013402080786, 0.03792645906484195, 0.0409738110351617]`;
+  Hit Ratio is
+  `[0.04592440215993866, 0.07307791205965578, 0.11072255078426049, 0.12717922345075494]`;
+  and AUC is `0.0` as expected for `test_flag=part`. All values are finite.
+- Manifest and checkpoint audit: the runner manifest records
+  `status=completed`, `paper_ready_eligible=true`, `paper_ready_blockers=[]`,
+  and `final_test_performed=true`, and its profile, protocol, cache, teacher,
+  and artifact paths agree with the other evidence. Those fields do not detect
+  the teacher Test chronology violation and therefore do not override this
+  failed hard-acceptance decision. The format-v2 full checkpoint contains
+  finite user `(19445,64)` and item `(7050,64)` ID embeddings plus two
+  optimizer-state entries and declared metadata. The inference-only checkpoint
+  has exactly the two finite embeddings plus `embedding_dim`, user/item counts,
+  and the no-projection variant; it contains no optimizer, teacher, modality,
+  prompt, semantic-cache, graph, projection, loss, or epoch state. Both
+  embeddings are bit-for-bit equal between full and inference checkpoints.
+- Frozen teacher identity and root cause: the teacher remained exactly
+  `141098540` bytes with pre/post SHA256
+  `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`;
+  teacher training was skipped, alias overwrite was disabled, and no run-local
+  teacher checkpoint or teacher optimizer step occurred. However, in the
+  frozen-teacher branch, `codes/main_mmlight.py` lines `1572-1578` observed
+  `teacher_test_ret is None` with `run_final_test=true` and explicitly called
+  `restore_checkpoint_then_evaluate(... self.test(..., is_val=False,
+  is_teacher=True))`. The resulting `Teacher reuse summary` and metric vector
+  in the raw log are one newly computed teacher Test ranking, not merely
+  checkpoint-metadata reuse. This is the sole hard failure and contradicts the
+  declaration's prohibition on a new teacher Test ranking.
+- Test-split access and protocol compliance: preflight structurally read and
+  fingerprinted the Test matrix as declared. The process then performed one
+  prohibited new frozen-teacher Test ranking before student training and one
+  authorized student final Test ranking only after restoring the student
+  Validation-best checkpoint. Student selection and early stopping did not use
+  Test, but the teacher reranking means the overall declared protocol did not
+  comply and the run cannot be paper-ready accepted.
+- Six preserved same-run artifacts, absolute paths, bytes, and SHA256:
+  - raw log: `D:\Download\PromptMM\logs\2026-08-02 02_15_00.996496_baby_light_init_pid37484`,
+    `36787` bytes,
+    `724d5b85b189d8e158e7caed027134c94035bca3fab90ee69de19eed708f7a28`;
+  - preflight: `D:\Download\PromptMM\exp\runs\baby\dataset_preflight__2026-08-02 02_15_00.996496_baby_light_init_pid37484.json`,
+    `3399` bytes,
+    `a5924b509830ee7e19266a93be9db1e8c464ee1f18e8813aba9d2af6aa26ce9e`;
+  - manifest: `D:\Download\PromptMM\exp\runs\baby\run_manifest__2026-08-02 02_15_00.996496_baby_light_init_pid37484.json`,
+    `25460` bytes,
+    `9f79cdee9c0f83a8dffaed77dd5f2238c1b3b1326ce4300b233cbbea380404a7`;
+  - convergence: `D:\Download\PromptMM\exp\converge\baby\auto__2026-08-02 02_15_00.996496_baby_light_init_pid37484.pkl`,
+    `11936` bytes,
+    `e88ed22466efb3e6726f09186709e138ad74424a7ba731c89b5003e00160d505`;
+  - full checkpoint: `D:\Download\PromptMM\Model\baby\td_distill\td_distill_full__val_test_once_v1__2026-08-02 02_15_00.996496_baby_light_init_pid37484.pth`,
+    `20354975` bytes,
+    `8734934df4d72725e54d764e4d6fe1d7301bac61818f59fbf415a2984a94f032`;
+  - inference-only checkpoint: `D:\Download\PromptMM\Model\baby\td_distill\td_distill_infer_only__val_test_once_v1__2026-08-02 02_15_00.996496_baby_light_init_pid37484.pth`,
+    `6785997` bytes,
+    `48bc297017b24392861c85075e934fee353484e37657dc5e63e9fc8f9fbf1280`.
+- Same-seed paired diagnostic differences, defined as full candidate minus
+  image-only: the full candidate is run
+  `2026-07-31 18_35_00.450484_baby_light_init_pid22864`. Validation Recall@20
+  difference is `+0.0030041998800031666`. At Test K=20, Precision difference
+  is `-0.000012856775520699634`, Recall difference is
+  `-0.00011228250621408975`, NDCG difference is
+  `+0.0005919636463151898`, and Hit Ratio difference is
+  `-0.0003599897145795533`. The Recall@20 direction therefore reverses by a
+  small amount, but quality direction did not cause this failure and does not
+  authorize a rerun or artifact deletion.
+- Interpretation boundary and unresolved risks: image-only optimizes
+  `L_BPR + 0.3 * L_item_image`; the full candidate optimizes
+  `L_BPR + 0.3 * (L_item_image + 0.3 * L_item_text) / 1.3`. Alpha is matched,
+  but the effective image coefficient is `0.3` versus `0.3 / 1.3`; paired
+  differences compare normalized supervision mixtures and cannot identify the
+  pure marginal causal contribution of text at fixed image weight. In
+  addition to the frozen cold-item and three-seed limitations, the newly
+  confirmed teacher-reranking behavior remains an unresolved protocol risk for
+  future formal launches. Ignored run artifacts remain outside Git protection.
+- Unique next action: in a separate task, append and commit only the seed-2023
+  image-only formal-run pending declaration for exact profile
+  `baby_td_item_image_only_no_projection_seed2023_v1`, explicitly preserving
+  this failed run and its teacher-reranking blocker, then stop without starting
+  training. Do not declare seed-2024, change source, rerun seed-2022, create a
+  tag/bundle/backup, merge `main`, or launch any experiment in that task.
