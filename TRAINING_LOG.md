@@ -4964,3 +4964,232 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   starting the run. That declaration must cite the clean implementation
   commit produced by this task and re-pin its command, environment, identities,
   override-free parser result, acceptance rule, and planned isolated artifacts.
+
+### 2026-08-02 | baby_td_item_image_only_no_projection_seed2022_v1 formal uncapped ablation (pending)
+
+- Purpose and comparison target: declare the first run of the frozen matched
+  three-seed item-image-only ablation as one uncapped formal seed-2022 run. It
+  compares item-image-only supervision with the same-seed item-image plus
+  item-text full candidate while keeping total distillation coefficient
+  `td_distill_alpha=0.3`. This declaration makes no metric claim and does not
+  tune any value from existing full-candidate evidence.
+- Status and authorization boundary: pending; exactly one formal execution may
+  occur only after this declaration and its declaration-record outcome are in
+  a clean local commit and the user separately authorizes launch. The current
+  task authorizes only append-only changes to `TRAINING_LOG.md`, static parser
+  resolution, frozen-teacher fingerprinting, Markdown/Git checks, and one
+  documentation-only commit. It does not authorize execution of
+  `codes/main_mmlight.py`, Baby data loading, training, Validation or Test
+  ranking, efficiency evaluation, run-artifact generation, automatic retry,
+  seed-2023/2024 declaration or execution, tag, bundle, backup, or merge.
+- Immutable provenance anchors: the three-seed ablation was predeclared by
+  commit `5ee560dcd06d73e3f9a7cb3844144b4e92d6a516`; all three independent
+  profiles were implemented and statically verified together by clean commit
+  `9394ac0d75649e0e58a4dd4f0dbecdcabad2e306`; and the same-seed full
+  asymmetric candidate's completed formal outcome is committed at
+  `92b64136e3ca75fa0f41a11e29f907a9403d54b3`. The present branch is
+  `codex/experiment/baby-teacher-baseline`, and the implementation commit is
+  the exact clean parent and preservation point for this declaration.
+- Clean-source launch gate: the commit containing this pending declaration and
+  its separate declaration outcome must be the future launch HEAD. Its tracked
+  delta from implementation commit `9394ac0d...` must be only this append to
+  `TRAINING_LOG.md`; `git diff 9394ac0d... <launch-commit> -- codes docs` must
+  be empty. No source, profile, test, or experiment documentation change is
+  allowed between the frozen implementation and launch.
+- Exact override-free formal command, frozen verbatim and containing no CLI
+  seed or profile-value override:
+  `D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_td_item_image_only_no_projection_seed2022_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --run_final_test true`
+- Static canonical-resolution evidence: importing only the real
+  `utility.parser` with the exact argument list above, without importing the
+  training entry point, resolved name/scope/source as
+  `baby_td_item_image_only_no_projection_seed2022_v1` / `student_ablation` /
+  `predeclared_baby_item_image_only_no_projection_ablation_v1_seed2022`;
+  student initialization/training/sampling `seed=2022`;
+  dataset/teacher preprocessing `hard_token_seed=2022`;
+  `dataset_config_overrides={}`; `student_config_overrides={}`; and static
+  `paper_ready_blockers=[]`. The dataset profile also resolved exactly as
+  `baby_teacher_reference_v1` / `teacher_only` /
+  `historical_baby_core_plus_matching_promptmm_prompt_defaults`.
+- Frozen semantic controls: `td_distill_alpha=0.3`, item-image rate `1.0`,
+  item-text rate `0.0`, user-image rate `0.0`, and user-text rate `0.0`. No CLI
+  override may change a semantic rate, alpha, seed, optimizer, budget,
+  protocol, teacher, preprocessing, or other profile-owned value; any resolved
+  override or profile identity mismatch is a hard blocker.
+- Frozen student and optimizer controls: random user/item ID embedding
+  initialization at seed `2022`; no student checkpoint load;
+  `td_init_from_teacher=false`; `td_distill_no_projection`; dimension `64`;
+  no projection and no teacher warm start; AdamW `student_lr=0.00006` and
+  student weight decay `0.01`; batch size `1024`; maximum epoch `1000`;
+  Validation every epoch; early-stopping patience `7`;
+  `smoke_train_batches=0`; unchanged `data_generator.sample()` pairwise BPR
+  sampling; and all `ceil(118551/1024)=116` independently sampled batches per
+  completed epoch. No efficiency benchmark is allowed.
+- Frozen dataset and preprocessing identity: audited MMRec Baby under
+  `data/baby/`; conversion manifest SHA256
+  `cf2d0d8c8aff9b321aad0b11d48d078794d12a4920afaa4c8efedfe3beda9df2`;
+  train/Validation/Test matrix SHA256 values respectively
+  `3cead4c601ccef4c2424cd692951935840ccc8f22df15577ced4e5f3fec37fac`,
+  `f1458ff1dc28c5371699780270e3a3e270c8f9ce19def3d5e67d4ba9644ce9d2`,
+  and `773de4f57f2c1bcb6695ea57995280e7cbe114b2b579263a599bb097bb6555ac`;
+  image/text feature SHA256 values respectively
+  `36c3be592b98506189a7d5de71b21577cf626f0293b539d861534673b3e9fd70`
+  and `6667f2ad655c9ecc97cb3383f58988864ef51ec0b39c158b15986c66769f2dc4`.
+  Preserve official splits, `retain_official` cold-item policy,
+  duplicate-modalities policy `error`, dataset preflight, `pca` hard-token
+  type, `hard_token_seed=2022`, and the existing image/text PCA cache
+  identities and provenance. No fallback, regeneration, or data/cache change
+  is allowed.
+- Frozen teacher identity and controls: reuse read-only
+  `Model/baby/teacher_model_val_test_once_v1.pt`, statically rechecked at
+  exactly `141098540` bytes with SHA256
+  `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`;
+  `if_train_teacher=false`, `teacher_only=false`, and
+  `allow_teacher_alias_overwrite=false`. No teacher optimizer step, run-local
+  teacher checkpoint, shared-alias publication or overwrite, or new teacher
+  Test ranking is allowed.
+- Frozen evaluation contract: unchanged `val_test_once_v1`; train only on
+  `train_mat`; candidate exclusion `train_only`; `Ks=[10,20,40,50]` and
+  `test_flag=part`; select checkpoints and early-stop only by Validation
+  Recall@20; save and restore the Validation-best student checkpoint; and only
+  then perform exactly one final student Test ranking. Test is report-only and
+  cannot influence selection, acceptance, retry, rollback, or any later
+  profile.
+- Frozen deployment contract: the full checkpoint may contain the finite
+  user/item ID embeddings, optimizer state, and declared metadata. The
+  inference-only checkpoint must contain only finite user/item ID embeddings
+  plus `embedding_dim`, user/item counts, and no-projection variant identity;
+  it must contain no teacher, modality, prompt, semantic cache, graph,
+  projection, or optimizer state. Full and inference user/item embeddings
+  must be bit-for-bit equal.
+- Interpretation boundary: active-rate normalization makes the image-only
+  objective `L_BPR + 0.3 * L_item_image`, while the same-seed full candidate
+  objective is
+  `L_BPR + 0.3 * (L_item_image + 0.3 * L_item_text) / 1.3`. Alpha is held at
+  `0.3`, but the image term's effective coefficient is not held fixed: it is
+  `0.3` for image-only and `0.3 / 1.3` for the full candidate. A later paired
+  difference therefore compares two normalized supervision mixtures and must
+  not be described as the pure marginal causal contribution of text at fixed
+  image weight.
+- Intended launch environment: `D:\miniconda\envs\run_5060\python.exe`;
+  Python `3.10.20`; PyTorch `2.11.0+cu128`; CUDA runtime `12.8`; NVIDIA driver
+  `595.97`; NVIDIA GeForce RTX 5060 8 GB; GPU selector `0`. Exact clean source,
+  canonical resolution, empty overrides/blockers, environment/GPU/free-space,
+  frozen dataset/cache/teacher identities, and absence of another training
+  process must be rechecked immediately before a separately authorized launch.
+- Execution transport and retry contract: execute the frozen command once in
+  one continuously attached foreground shell/tool session for the entire
+  process, with timeout explicitly at least `10800000` ms. A short/default
+  timeout, detached process, closed output channel while active, second launch,
+  or automatic retry is forbidden. If execution or transport ends for any
+  reason, preserve the resulting state and artifacts, audit it once, append
+  one completed or failed outcome, and stop.
+- Six planned run-specific artifacts, all isolated under one new timestamp/PID
+  run identity: raw log `logs/<run_name>`; preflight
+  `exp/runs/baby/dataset_preflight__<run_name>.json`; manifest
+  `exp/runs/baby/run_manifest__<run_name>.json`; convergence record
+  `exp/converge/baby/auto__<run_name>.pkl`; full checkpoint
+  `Model/baby/td_distill/td_distill_full__val_test_once_v1__<run_name>.pth`;
+  and inference-only checkpoint
+  `Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__<run_name>.pth`.
+  All six must share the same run identity, be fingerprinted after exit, remain
+  outside Git, and never use or overwrite a shared student alias.
+- Hard acceptance for the later run: launch exactly once from the exact clean
+  declaration commit through the required foreground transport; pass source,
+  profile, override/blocker, environment, data/preprocessing/cache, and frozen
+  teacher gates; keep all loss and Validation metric series finite; use all
+  `116` batches per completed epoch; select and early-stop only by Validation
+  Recall@20; restore the Validation-best checkpoint before exactly one final
+  Test; finish with manifest `status=completed`,
+  `paper_ready_eligible=true`, `paper_ready_blockers=[]`, and
+  `final_test_performed=true`; preserve the teacher hash; and pass all six
+  artifact, checkpoint-structure, finiteness, deployment-state, and
+  full-to-inference equality audits.
+- Quality rule, risks, and preservation: there is no minimum metric or
+  improvement threshold. A finite, protocol-compliant low result or a paired
+  direction reversal relative to full candidate commit `92b64136...` remains
+  valid completed evidence and may not trigger reset, revert, deletion,
+  profile change, or rerun. Mark a later run failed only for a process/code or
+  hard-acceptance failure. The uncapped run may fail or exceed three hours;
+  one-time Test access is consumable; the retained official cold-item warning,
+  limited three-seed evidence, normalized-mixture interpretation, and ignored
+  artifact protection remain unresolved risks. Preserve every partial or
+  completed artifact without destructive recovery.
+- Declaration metrics, data/Test access, and artifacts: none. This declaration
+  used only Git/file inspection, static canonical parser resolution, and the
+  frozen-teacher fingerprint check. It did not import the training entry point,
+  load Baby data or any split, perform training/Validation/Test/efficiency
+  evaluation, or create a run artifact.
+- Declaration acceptance and unique next action: append a separate declaration
+  outcome below, verify pure append and one-file scope, pass unstaged and staged
+  whitespace/scope checks, create one documentation-only local commit, confirm
+  a clean tree and no training process, and stop. With separate explicit user
+  authorization, the only next action is to use that clean declaration commit
+  to execute the exact frozen seed-2022 image-only command once in the required
+  continuously attached foreground session with timeout at least `10800000`
+  ms, then audit and commit one completed or failed outcome.
+
+### 2026-08-02 | baby_td_item_image_only_no_projection_seed2022_v1 formal declaration (completed; run pending)
+
+- Status and outcome: completed the declaration-recording task successfully.
+  The independent uncapped seed-2022 image-only formal run above remains
+  `pending`; it was not started, attempted, detached, or retried. No seed-2023
+  or seed-2024 run was declared, and no later ablation stage was advanced.
+- Source and provenance outcome: branch
+  `codex/experiment/baby-teacher-baseline` began clean at exact implementation
+  commit `9394ac0d75649e0e58a4dd4f0dbecdcabad2e306`, whose parent and ablation
+  declaration commit is `5ee560dcd06d73e3f9a7cb3844144b4e92d6a516`.
+  The same-seed full candidate outcome remains anchored at
+  `92b64136e3ca75fa0f41a11e29f907a9403d54b3`. The commit containing this
+  outcome is the documentation-only declaration commit and must be the exact
+  clean source for the separately authorized future launch.
+- Canonical static-resolution outcome: the exact frozen command resolved to
+  profile/scope/source
+  `baby_td_item_image_only_no_projection_seed2022_v1` / `student_ablation` /
+  `predeclared_baby_item_image_only_no_projection_ablation_v1_seed2022`;
+  student/sampling `seed=2022`; `hard_token_seed=2022`;
+  `dataset_config_overrides={}`; `student_config_overrides={}`; and static
+  `paper_ready_blockers=[]`. It also resolved alpha/rates as
+  `0.3 / 1.0 / 0.0 / 0.0 / 0.0`, random 64-dimensional no-projection
+  initialization without teacher warm start, AdamW `student_lr=0.00006`,
+  weight decay `0.01`, batch `1024`, epoch `1000`, patience `7`, no smoke cap,
+  frozen teacher reuse, `val_test_once_v1`, final Test enabled, and efficiency
+  disabled. `main_mmlight.py` was not imported by this check.
+- Teacher and process verification: the frozen teacher path exists at exactly
+  `141098540` bytes and SHA256
+  `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`.
+  Startup and pre-edit process inspection found no matching
+  `main_mmlight.py` training process. The exact implementation-to-current
+  source diff under `codes/` and `docs/` was empty before this append.
+- Declaration content acceptance: the pending record freezes the exact command,
+  complete semantic/student/optimizer/budget/data/PCA-cache/teacher/protocol
+  and inference-only contracts, all six isolated artifact classes, continuous
+  foreground execution with timeout at least `10800000` ms, one execution and
+  no automatic retry, hard acceptance, and preservation of low or reversed
+  valid evidence. It also locks image-only as
+  `L_BPR + 0.3 * L_item_image` versus full candidate as
+  `L_BPR + 0.3 * (L_item_image + 0.3 * L_item_text) / 1.3`, so neither fixed
+  effective image coefficient nor pure marginal text causality may be claimed.
+- Repository verification: before this outcome append, the declaration diff
+  was one EOF-only hunk in `TRAINING_LOG.md`, with `163` added lines and zero
+  deleted lines; required-content checks and `git diff --check` passed. Final
+  pure-append, exact staged-file, cached-whitespace, commit-parent, clean-tree,
+  and no-training-process checks remain mandatory before handoff.
+- Commands, metrics, data/Test access, and generated artifacts: no project
+  command, smoke, training, Validation, Test, or efficiency evaluation ran.
+  No Baby data or split was loaded or accessed, and there are no quality or
+  efficiency metrics. No checkpoint, preflight, manifest, convergence record,
+  raw log, tag, bundle, backup, or merge was created or changed. This appended
+  declaration and its local Git commit are the only task artifacts.
+- Experimental meaning and unresolved risks: the run contract is now frozen
+  before image-only seed-2022 evidence, but runtime completion and metrics are
+  still unknown. The official cold-item warning, consumable one-time final
+  Test, normalized-mixture interpretation boundary, limited three-seed
+  uncertainty, long foreground runtime, and ignored-artifact protection remain
+  unresolved. None authorizes changing, cancelling, reordering, or rerunning a
+  profile in response to result direction.
+- Unique next action: only with new explicit user authorization, from the exact
+  clean declaration commit execute the frozen seed-2022 image-only command
+  once in one continuously attached foreground session with timeout at least
+  `10800000` ms; after exit, audit the single run and append and commit one
+  completed or failed outcome. Stop without declaring seed-2023/2024 or
+  starting another experiment.
