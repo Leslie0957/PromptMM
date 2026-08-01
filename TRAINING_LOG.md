@@ -2774,3 +2774,138 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   timeout, then audit and commit one completed or failed outcome. Candidate
   declaration and execution remain blocked until that recovery outcome commit
   exists.
+
+### 2026-08-01 | baby_student_reference_seed2023_v1 recovery formal run (completed)
+
+- Status and outcome: completed successfully and accepted as valid formal
+  seed-2023 ID-only BPR baseline evidence. The one authorized recovery process
+  exited naturally with code `0`; no second launch, retry, rollback, reset,
+  deletion, candidate declaration, or candidate execution occurred. Its lower
+  metric relative to seed `2022` is retained under the predeclared
+  quality-preservation rule and is not a failure.
+- Source and execution identity: branch
+  `codex/experiment/baby-teacher-baseline`; exact clean launch/declaration
+  commit `eaaa68d851af2256b7b5c9957eab4cc426fecc8b`; frozen profile
+  implementation `03260ee2db0e9e90332588031eacf3152d260dbf`; pre-launch and
+  post-run `git diff 03260ee2db0e9e90332588031eacf3152d260dbf HEAD -- codes docs`
+  were empty. The tracked tree was clean before launch and after run audit.
+- Executed command, exactly once and without `--seed`:
+  `D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_student_reference_seed2023_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --run_final_test true`
+- Long-lived transport compliance: the command ran continuously in one
+  attached foreground shell/tool session with its timeout explicitly set to
+  `10800000` ms. Main PID `29128` and run identity
+  `2026-08-01 20_20_35.101504_baby_light_init_pid29128` remained unchanged;
+  the process was not detached or relaunched. The foreground tool reported
+  exit code `0` after approximately `1457.1` seconds. Manifest start and
+  completion were `2026-08-01T20:20:35.110046+08:00` and
+  `2026-08-01T20:44:36.841092+08:00`, approximately `24:01.7` apart.
+- Environment: `D:\miniconda\envs\run_5060\python.exe`; Python `3.10.20`;
+  PyTorch `2.11.0+cu128`; CUDA runtime `12.8`; NVIDIA driver `595.97`;
+  NVIDIA GeForce RTX 5060 8 GB; GPU selector `0`. The launch preflight found
+  approximately `406.1 GB` free on drive D and no existing training process;
+  the post-run audit found no remaining `main_mmlight.py` process.
+- Resolved profile and parameter contract: profile/scope/source
+  `baby_student_reference_seed2023_v1` / `student_reference` /
+  `predeclared_baby_id_only_bpr_reference_seed2023`; both dataset and student
+  override maps were `{}`; training/sampling seed `2023` and
+  `hard_token_seed=2022`; `td_distill_no_projection`; 64-dimensional random
+  user/item ID embeddings; `td_init_from_teacher=false`; batch size `1024`;
+  maximum `epoch=1000`; early-stopping patience `7`;
+  `smoke_train_batches=0`; AdamW `student_lr=6e-5`; student weight decay
+  `0.01`; `td_distill_alpha=0.0`; all four semantic rates `0.0`; and no
+  efficiency benchmark. Raw startup and checkpoint metadata agree with the
+  declaration; no semantic head was active and every semantic loss series is
+  identically zero.
+- Dataset and preprocessing audit: all six pre-launch asset hashes matched the
+  pending declaration. The generated preflight passed split overlap,
+  non-duplicate modality, shape, dtype, finiteness, conversion-manifest, and
+  fingerprint gates. Its only warning was the declared retained-official
+  cold-item condition: item IDs `240`, `1212`, and `6115`, covering `11`
+  validation and `7` Test interactions with no cold users. Image and text PCA
+  caches were hits with random state `2022`; no dataset, split, feature,
+  preprocessing, or cache identity changed.
+- Frozen teacher audit: teacher training was skipped and the read-only alias
+  `Model/baby/teacher_model_val_test_once_v1.pt` remained `141098540` bytes
+  with SHA256
+  `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`
+  before and after the run. No teacher optimizer step, run-local teacher
+  checkpoint, shared-alias publication, or alias overwrite occurred. The
+  existing teacher Test metrics were read from checkpoint metadata; no new
+  teacher Test ranking ran.
+- Training and validation chronology: epochs `0-79` completed contiguously.
+  The uncapped training path used `train_batch_count=116` and the foreground
+  progress for every completed epoch reached `116/116`; the code executed
+  `data_generator.sample()` once per batch. All 80 BPR/total loss and
+  validation metric series values were finite. Validation Recall@20 alone
+  selected checkpoints. The best was epoch `72`; epochs `73-79` produced the
+  declared seven consecutive non-improvements and natural early stopping at
+  patience `7/7`.
+- Exact validation-best metrics at epoch `72`: Recall@20
+  `0.04098274743170617`; Recall@50 `0.07119470055957632`; NDCG@20
+  `0.017848015977795412`; NDCG@50 `0.02408387902271345`. The full checkpoint,
+  convergence record, and manifest agree on epoch `72`, protocol
+  `val_test_once_v1`, selection split `validation`, and primary K `20`.
+- One-time final student Test result: after restoring the validation-best epoch
+  `72` checkpoint, the raw chronology contains exactly one final student Test
+  event. Exact vectors ordered by K `[10,20,40,50]` are Precision
+  `[0.0024993571612239892, 0.002057084083311931, 0.0016469529442016179, 0.0015407559784006715]`,
+  Recall
+  `[0.02253427453093155, 0.03680654207653432, 0.05880417887874913, 0.06895894996692173]`,
+  NDCG
+  `[0.013025226314658288, 0.017025150092128044, 0.02203587686177423, 0.024038280300640525]`,
+  and Hit Ratio
+  `[0.024839290305990986, 0.040678837747493035, 0.06500385703265722, 0.076009256878375]`.
+  AUC is `0.0` because `test_flag=part` omits AUC. Test was accessed by the
+  declared dataset preflight and exactly one final student ranking only after
+  validation selection; it did not affect selection, acceptance, or any
+  profile value.
+- Manifest and checkpoint acceptance: manifest status is `completed`,
+  `paper_ready_eligible=true`, blockers are `[]`, and
+  `final_test_performed=true`. The full model state contains only
+  `user_id_embedding.weight` and `item_id_embedding.weight` plus optimizer and
+  declared metadata. The inference export contains exactly those two
+  embeddings plus `embedding_dim`, `n_users`, `n_items`, and `variant`; it has
+  no teacher, modality, prompt, cache, graph, projection, or optimizer state.
+  User `(19445, 64)` and item `(7050, 64)` embeddings are finite and
+  bit-for-bit equal between the full and inference checkpoints.
+- Run-specific artifacts and SHA256:
+  - raw log `logs/2026-08-01 20_20_35.101504_baby_light_init_pid29128`,
+    `39035` bytes,
+    `e8f3ebaafe0e420e4816df80869393fb746de17979c3eb7faf9656a190e01596`;
+  - preflight
+    `exp/runs/baby/dataset_preflight__2026-08-01 20_20_35.101504_baby_light_init_pid29128.json`,
+    `3399` bytes,
+    `badd4f0e1da36bf9cef6067e84e779568327252c0f7a1a69265006937811b437`;
+  - manifest
+    `exp/runs/baby/run_manifest__2026-08-01 20_20_35.101504_baby_light_init_pid29128.json`,
+    `25383` bytes,
+    `edcc1b4d858eecbad5724ac0c46608abb572bb9412f78a1555156cff278a7d33`;
+  - convergence
+    `exp/converge/baby/auto__2026-08-01 20_20_35.101504_baby_light_init_pid29128.pkl`,
+    `12631` bytes,
+    `07a45c071cebbc0b7591d36064f73d27c3af286156c4e418e68c1bab26b8e2b1`;
+  - full checkpoint
+    `Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-08-01 20_20_35.101504_baby_light_init_pid29128.pth`,
+    `20354975` bytes,
+    `8101a7b522d382fdee1934b18590060651d58064b3d74fe40bf4accaa69fa80b`;
+  - inference-only checkpoint
+    `Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-08-01 20_20_35.101504_baby_light_init_pid29128.pth`,
+    `6785997` bytes,
+    `664ff1474d5108876c700d5161c5d29ac314fcad70ea2a9fcc941f0049b6d1b6`.
+  All six files exist, share the same run identity, and remain outside Git.
+- Experimental meaning and unresolved risks: seed `2023` produced validation
+  Recall@20 `0.04098274743170617` and Test Recall@20
+  `0.03680654207653432`, below the seed-2022 reference values
+  `0.04291303921928788` and `0.044279857310199594`. This is valid evidence of
+  seed sensitivity, not authorization to alter the frozen matched candidate or
+  retry the baseline. Two paired seeds remain insufficient for a strong
+  variance or significance claim; the retained cold items remain a fixed
+  protocol limitation; and ignored artifacts require explicit physical or
+  off-device backup at a stable milestone.
+- Unique next action: after committing this outcome and only with new explicit
+  user authorization, append and commit a standalone formal pending
+  declaration for the already frozen matched profile
+  `baby_td_candidate_seed2023_v1`, citing this baseline outcome commit and
+  preserving the baseline-before-candidate firewall; then stop without
+  training, validation, or Test. The expected artifacts for that next task are
+  only the append-only candidate declaration and its clean Git commit.
