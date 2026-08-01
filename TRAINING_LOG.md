@@ -4522,3 +4522,234 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   records and one `TRAINING_LOG.md` commit; it must not implement a profile,
   load data, run training/Validation/Test/efficiency, create artifacts, tag,
   bundle, backup, or merge `main`.
+
+### 2026-08-02 | matched three-seed item-image-only ablation stage (pending; declaration only)
+
+- Purpose and hypothesis: predeclare a matched three-seed modality ablation of
+  the completed asymmetric no-projection candidate before any image-only
+  profile is implemented or any image-only result exists. At fixed total
+  distillation coefficient `td_distill_alpha=0.3`, compare item-image-only
+  supervision with the completed item-image plus lower-rate item-text mixture
+  to determine whether their validation-selected outcomes differ consistently
+  across the already frozen student seeds `2022`, `2023`, and `2024`. This is
+  an ablation comparison, not a declaration that either direction will win.
+- Status and authorization boundary: pending declaration only. This task may
+  append this pending record and the separate declaration-completed outcome,
+  perform content/diff/index checks, and create one local commit containing
+  only `TRAINING_LOG.md`. It must not implement or resolve a profile, import or
+  execute project code, load any data split, train, rank Validation or Test,
+  run an efficiency benchmark, or create a checkpoint, preflight, manifest,
+  convergence record, raw run log, tag, bundle, backup, or merge to `main`.
+- Branch, exact source, and preservation point: branch
+  `codex/experiment/baby-teacher-baseline` at exact clean parent and canonical
+  three-seed summary commit
+  `6b1c87a70dd1578d7512eada599111b980829327`. Preserve that commit, all
+  existing profile definitions, all completed baseline/full-candidate
+  outcomes, and all ignored artifacts verbatim. This task is a pure EOF append
+  and authorizes no rollback, deletion, replacement, or historical edit.
+- Three future override-free profiles are frozen simultaneously by this
+  declaration, before any member can produce evidence. Their exact canonical
+  profile / scope / source identities are:
+  - seed `2022`: `baby_td_item_image_only_no_projection_seed2022_v1` /
+    `student_ablation` /
+    `predeclared_baby_item_image_only_no_projection_ablation_v1_seed2022`;
+  - seed `2023`: `baby_td_item_image_only_no_projection_seed2023_v1` /
+    `student_ablation` /
+    `predeclared_baby_item_image_only_no_projection_ablation_v1_seed2023`;
+  - seed `2024`: `baby_td_item_image_only_no_projection_seed2024_v1` /
+    `student_ablation` /
+    `predeclared_baby_item_image_only_no_projection_ablation_v1_seed2024`.
+  The IDs are independent registry identities, not aliases or CLI override
+  recipes, and none is implemented by this declaration.
+- Exact per-seed source-profile identity and sole defaults delta:
+  - seed `2022` must copy the complete defaults mapping of
+    `baby_td_asymmetric_no_projection_v1`, whose canonical sorted compact-JSON
+    defaults SHA256 is
+    `018534ec9cedfe4c1d4f5fc1d23552173d3f8a33843c3e71be38f69ea8c46113`;
+  - seed `2023` must copy the complete defaults mapping of
+    `baby_td_asymmetric_no_projection_seed2023_v1`, defaults SHA256
+    `1c4c89f253d3adcd167211481dd599591012b8881c9c590c68a6e55d797fe61c`;
+  - seed `2024` must copy the complete defaults mapping of
+    `baby_td_asymmetric_no_projection_seed2024_v1`, defaults SHA256
+    `f7ed2a940a5547afdfd3d242c6dc1832dd7e447b2824aaf633b5dd94c3bead6e`.
+  For each copy, the sole allowed defaults-value change is
+  `td_item_text_rate: 0.3 -> 0.0`. Profile name/scope/source metadata changes
+  only to the independent identity declared above; the key set and every other
+  default value must remain identical to the corresponding full candidate.
+- Frozen seeds and semantic controls: each profile keeps its own student
+  initialization, training, and maintained pairwise-sampling seed exactly
+  `2022`, `2023`, or `2024`, respectively. All three keep dataset/teacher PCA
+  cache identity `hard_token_seed=2022`, `td_distill_alpha=0.3`,
+  `td_item_image_rate=1.0`, `td_item_text_rate=0.0`,
+  `td_user_image_rate=0.0`, and `td_user_text_rate=0.0`. No result from one
+  seed may change either seed value, hard-token seed, alpha, or component rate
+  for another profile.
+- Frozen architecture, initialization, optimizer, sampling, and budget: all
+  three profiles retain `td_distill_no_projection`, 64-dimensional user/item
+  ID embeddings, random initialization, no loaded student checkpoint,
+  `td_init_from_teacher=false`, and no teacher warm start. Retain AdamW
+  `student_lr=6e-5`, student weight decay `0.01`, batch size `1024`, maximum
+  `epoch=1000`, validation every epoch, early-stopping patience `7`,
+  `smoke_train_batches=0`, the unchanged `data_generator.sample()` pairwise
+  BPR sampler, all `116` batches per completed formal epoch, and
+  `run_efficiency_benchmark=false`.
+- Frozen dataset and preprocessing identity: audited MMRec Baby under
+  `data/baby/`; conversion manifest SHA256
+  `cf2d0d8c8aff9b321aad0b11d48d078794d12a4920afaa4c8efedfe3beda9df2`;
+  `train_mat`, `val_mat`, and `test_mat` SHA256 values respectively
+  `3cead4c601ccef4c2424cd692951935840ccc8f22df15577ced4e5f3fec37fac`,
+  `f1458ff1dc28c5371699780270e3a3e270c8f9ce19def3d5e67d4ba9644ce9d2`,
+  and `773de4f57f2c1bcb6695ea57995280e7cbe114b2b579263a599bb097bb6555ac`;
+  image/text feature SHA256 values respectively
+  `36c3be592b98506189a7d5de71b21577cf626f0293b539d861534673b3e9fd70`
+  and `6667f2ad655c9ecc97cb3383f58988864ef51ec0b39c158b15986c66769f2dc4`.
+  Preserve the official splits, `retain_official` cold-item policy,
+  duplicate-modality policy `error`, preflight, `pca` hard-token type,
+  existing image/text PCA cache identities, and all preprocessing provenance;
+  no fallback or cache regeneration is allowed.
+- Frozen teacher identity and controls: reuse read-only
+  `Model/baby/teacher_model_val_test_once_v1.pt`, exactly `141098540` bytes and
+  SHA256
+  `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`;
+  retain `if_train_teacher=false`, `teacher_only=false`, and
+  `allow_teacher_alias_overwrite=false`. No teacher training, optimizer step,
+  warm start, run-local teacher checkpoint, alias publication/overwrite,
+  checkpoint mutation, or new teacher Test ranking is allowed.
+- Frozen evaluation and deployment contract: retain `val_test_once_v1`; train
+  only on `train_mat`; select and early-stop only by Validation Recall@20;
+  `Ks=[10,20,40,50]`; `test_flag=part`; candidate exclusion `train_only`;
+  restore the Validation-best checkpoint and only then perform exactly one
+  final student Test ranking in each separately declared formal run. Each
+  inference-only export must contain only finite user/item ID embeddings plus
+  dimension/count/no-projection deployment metadata, with embeddings
+  bit-for-bit equal to the corresponding full checkpoint and no teacher,
+  modality, prompt, semantic cache, graph, projection, or optimizer state.
+- Exact objective and interpretation boundary: because the maintained semantic
+  loss normalizes by the sum of active rates, each image-only profile optimizes
+  `L_BPR + 0.3 * L_item_image`, whereas its corresponding completed full
+  candidate optimizes
+  `L_BPR + 0.3 * (L_item_image + 0.3 * L_item_text) / 1.3`.
+  Therefore this ablation holds the total coefficient alpha at `0.3` but does
+  not hold the effective coefficient on `L_item_image` fixed: it changes from
+  `0.3 / 1.3` in the full mixture to `0.3` in image-only. Any outcome may be
+  described only as the matched effect of switching between these two
+  normalized supervision mixtures. It must not be claimed as a pure marginal
+  causal contribution of text under fixed image weight, nor as preserving the
+  image term's effective coefficient.
+- Frozen comparison and later summary rule: compare each future image-only run
+  only with the already completed same-seed full candidate listed above. After
+  all three image-only outcomes are committed, report each arm by seed and
+  compute arithmetic mean and sample standard deviation with `n=3`, `ddof=1`.
+  Define the paired delta prospectively as `full candidate - image-only`
+  within the same seed, and report its mean and `ddof=1` sample SD for both
+  Validation Recall@20 and the one-time final Test Recall@20 using stored
+  outcomes/manifests only. This direction is descriptive and does not relax
+  the interpretation boundary above or establish statistical significance.
+- Mandatory future order and firewall:
+  1. implement and verify all three independent image-only profiles together
+     in one coherent change, prove their canonical formal resolutions are
+     override-free, commit the implementation outcome, and stop without any
+     profile execution;
+  2. in later separate stages, declare, run exactly once, audit, and commit the
+     image-only outcome for seed `2022`, then repeat for seed `2023`, then seed
+     `2024`; each seed requires its own formal pending declaration and its own
+     completed or failed outcome before advancing;
+  3. only after all three outcomes are committed, create the declared
+     full-candidate versus image-only per-seed and mean/sample-SD summary;
+  4. no Validation or Test direction, magnitude, low metric, or reversal from
+     an earlier seed may modify, cancel, retry, or reorder either later
+     profile/run. Low or direction-reversed protocol-valid results remain
+     preserved completed evidence rather than failure.
+- Future implementation acceptance criteria: add all three profiles and exact
+  paper-ready identities simultaneously; each defaults map has the same key
+  set as its corresponding full candidate and differs only at
+  `td_item_text_rate`; prior profiles remain value-identical; canonical formal
+  parsing yields the declared profile/scope/source, its own student seed,
+  `hard_token_seed=2022`, `dataset_config_overrides={}`,
+  `student_config_overrides={}`, and no paper-ready blocker. Focused tests must
+  lock all fixed controls, exact objective rates, unknown/override rejection,
+  frozen teacher reuse, no projection/warm start, and inference-only contract.
+- Risks, hard failure boundary, and rollback point: risks include copying the
+  wrong seed profile, profile/default drift beyond item-text rate, confusing
+  student seed with `hard_token_seed`, hidden CLI overrides, using population
+  SD, consuming Test before Validation-best restoration, or overstating the
+  normalized-loss comparison. Metric magnitude or reversal is not failure.
+  Preserve clean parent `6b1c87a70dd1578d7512eada599111b980829327`, this
+  declaration, all future partial/completed artifacts, and all low results; no
+  destructive rollback is authorized.
+- Declaration acceptance and verification plan: require all three identities,
+  source profiles/fingerprints, the sole defaults delta, every frozen control,
+  exact loss formulas, interpretation boundary, paired-delta direction, and
+  mandatory sequence to be present consistently. Then verify pure EOF append,
+  run `git diff --check`, stage only `TRAINING_LOG.md`, run
+  `git diff --cached --check`, create one local commit, and confirm a clean
+  tree. No metric or experiment artifact is expected from this task.
+- Unique next action after this declaration commit: only with new explicit
+  user authorization, implement and verify all three image-only profiles
+  simultaneously, append their implementation pending/completed trace, and
+  create one coherent source/test/documentation commit. Stop after the clean
+  implementation commit without profile execution, training, Validation,
+  Test, efficiency evaluation, tag, bundle, backup, or merge.
+
+### 2026-08-02 | matched three-seed item-image-only ablation declaration (completed; no profiles or runs)
+
+- Status and outcome: completed successfully as a declaration-recording task
+  only. The matched item-image-only ablation stage above remains pending for
+  future implementation and sequential execution. All three future profiles
+  were frozen simultaneously before any image-only evidence exists.
+- Source and scope: branch `codex/experiment/baby-teacher-baseline`; exact
+  clean declaration parent
+  `6b1c87a70dd1578d7512eada599111b980829327`. The only tracked change is a
+  pure EOF append to `TRAINING_LOG.md` containing the pending declaration and
+  this independent declaration-completed outcome. No historical entry,
+  intentionally stale top-of-log summary, source, test, profile, parameter,
+  protocol implementation, data, teacher, cache, or generated artifact was
+  changed.
+- Frozen identity outcome: the canonical future IDs are
+  `baby_td_item_image_only_no_projection_seed2022_v1`,
+  `baby_td_item_image_only_no_projection_seed2023_v1`, and
+  `baby_td_item_image_only_no_projection_seed2024_v1`, each with exact scope
+  `student_ablation` and the seed-matched source identity declared above. Each
+  must copy its complete corresponding full-candidate defaults mapping and
+  change only `td_item_text_rate` from `0.3` to `0.0`; no profile is currently
+  implemented, aliased, resolved, or executable by this record.
+- Contract outcome: student/sampling seeds `2022/2023/2024`,
+  `hard_token_seed=2022`, alpha `0.3`, item-image rate `1.0`, both user rates
+  `0.0`, random 64-dimensional no-projection initialization without teacher
+  warm start, frozen data/splits/PCA caches/teacher, AdamW `6e-5` and `0.01`,
+  batch `1024`, epoch `1000`, patience `7`, `116` batches, protocol
+  `val_test_once_v1`, Validation Recall@20 selection, one final Test after
+  best-checkpoint restoration, and the ID-only inference contract are all
+  frozen. Future formal commands must use only the independent profile ID and
+  resolve both override maps to `{}`.
+- Interpretation outcome: the record explicitly fixes image-only semantic
+  loss as `0.3 * L_item_image` and full-candidate semantic loss as
+  `0.3 * (L_item_image + 0.3 * L_item_text) / 1.3`. It therefore forbids both
+  an effective-image-coefficient invariance claim and a pure fixed-image-weight
+  marginal causal interpretation of text. The later paired delta is frozen as
+  `full candidate - image-only` within seed and remains descriptive.
+- Sequence and preservation outcome: future work must first implement and
+  verify all three profiles together, then advance through independent formal
+  seed stages in order `2022`, `2023`, `2024`, and only afterward summarize
+  per-arm and paired mean/sample SD with `ddof=1`. An earlier result cannot
+  change, cancel, retry, or reorder a later profile, and low or reversed valid
+  metrics must be retained as completed evidence.
+- Test access, metrics, commands, and artifacts: no project command was run;
+  no data or train/Validation/Test split was loaded or accessed; no training,
+  ranking, efficiency test, or profile resolution occurred. Validation/Test
+  metrics and run artifact paths are not applicable. No checkpoint, preflight,
+  manifest, convergence record, raw log, tag, bundle, backup, or merge was
+  created or modified; this log record and its local Git commit are the only
+  outputs.
+- Acceptance and unresolved risks: declaration content is complete and
+  internally consistent with the canonical three-seed summary and source
+  profile fingerprints. Runtime behavior and image-only metrics remain
+  unknown; future implementation drift, one-time Test consumption, retained
+  official cold items, limited three-seed uncertainty, and lack of Git/off-
+  device protection for ignored future artifacts remain unresolved. Final
+  one-file append, whitespace, staged-scope, cached-diff, commit, and clean-tree
+  gates must pass before handoff.
+- Unique next action: only with new explicit user authorization, implement and
+  verify the three frozen image-only profiles simultaneously in one coherent
+  source/test/documentation change, append and commit its pending/completed
+  trace, and stop. Do not declare or launch any formal run in that task.
