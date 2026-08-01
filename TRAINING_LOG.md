@@ -4753,3 +4753,214 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   verify the three frozen image-only profiles simultaneously in one coherent
   source/test/documentation change, append and commit its pending/completed
   trace, and stop. Do not declare or launch any formal run in that task.
+
+### 2026-08-02 | matched three-seed item-image-only profile implementation (pending)
+
+- Purpose and rationale: implement simultaneously the three override-free
+  item-image-only ablation identities frozen by declaration commit
+  `5ee560dcd06d73e3f9a7cb3844144b4e92d6a516`, before any image-only profile
+  execution or result. Atomic implementation preserves the parameter-selection
+  firewall across seeds and makes `td_item_text_rate=0.0` an independently
+  pinned profile value rather than a CLI override.
+- Status and authorization boundary: pending implementation and static/unit
+  verification only on branch `codex/experiment/baby-teacher-baseline` from
+  exact clean parent `5ee560dcd06d73e3f9a7cb3844144b4e92d6a516`.
+  `codes/main_mmlight.py`, smoke, training, Validation ranking, Test ranking,
+  efficiency evaluation, formal-run declaration, dataset loading, and run-
+  artifact generation are prohibited. No tag, bundle, backup, baseline/teacher
+  overwrite, merge to `main`, or stale top-of-log summary update is authorized.
+- Canonical profiles to implement together, with exact scope/source identity:
+  - `baby_td_item_image_only_no_projection_seed2022_v1` /
+    `student_ablation` /
+    `predeclared_baby_item_image_only_no_projection_ablation_v1_seed2022`;
+  - `baby_td_item_image_only_no_projection_seed2023_v1` /
+    `student_ablation` /
+    `predeclared_baby_item_image_only_no_projection_ablation_v1_seed2023`;
+  - `baby_td_item_image_only_no_projection_seed2024_v1` /
+    `student_ablation` /
+    `predeclared_baby_item_image_only_no_projection_ablation_v1_seed2024`.
+- Declared file scope: extend only the profile constants/default copies,
+  registry entries, and exact paper-ready identities in
+  `codes/utility/dataset_profiles.py`; add focused static/synthetic assertions
+  to `codes/tests/test_dataset_profiles.py`; create one unified
+  `docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md`; and preserve this
+  pending plus a separate completed/failed outcome in append-only
+  `TRAINING_LOG.md`. Existing registry-derived parser choices and runtime
+  eligibility should consume the new profiles without edits. If inspection
+  proves another tracked file is materially required, append a scope amendment
+  before changing it; do not perform unrelated refactoring.
+- Exact defaults-copy contract: seed `2022`, `2023`, and `2024` image-only
+  maps must independently copy the complete mappings of
+  `baby_td_asymmetric_no_projection_v1`,
+  `baby_td_asymmetric_no_projection_seed2023_v1`, and
+  `baby_td_asymmetric_no_projection_seed2024_v1`, respectively. Each new map
+  must have exactly the same keys as its source and the sole changed value
+  must be `td_item_text_rate: 0.3 -> 0.0`. Source mappings must retain their
+  declaration-time sorted compact-JSON SHA256 values
+  `018534ec9cedfe4c1d4f5fc1d23552173d3f8a33843c3e71be38f69ea8c46113`,
+  `1c4c89f253d3adcd167211481dd599591012b8881c9c590c68a6e55d797fe61c`,
+  and `f7ed2a940a5547afdfd3d242c6dc1832dd7e447b2824aaf633b5dd94c3bead6e`.
+- Frozen semantic, seed, and preprocessing contract: student initialization,
+  training, and sampling seeds remain `2022`, `2023`, and `2024` in their
+  corresponding profiles; dataset-owned `hard_token_seed=2022` remains fixed
+  for every canonical resolution. Retain `td_distill_alpha=0.3`,
+  `td_item_image_rate=1.0`, `td_item_text_rate=0.0`, and both user-side rates
+  `0.0`. No existing baseline or full-candidate mapping may change.
+- Frozen shared controls: retain random initialization, no loaded student
+  checkpoint, `td_init_from_teacher=false`, `td_distill_no_projection`,
+  dimension `64`, no teacher warm start, AdamW `student_lr=6e-5`, student
+  weight decay `0.01`, batch size `1024`, maximum epoch `1000`, patience `7`,
+  `smoke_train_batches=0`, unchanged pairwise sampling and all `116` formal
+  batches, frozen audited data/splits/PCA caches/teacher,
+  `val_test_once_v1`, Validation Recall@20 selection, `train_only` exclusion,
+  and the maintained inference-only user/item ID embedding export contract.
+- Identity and override gate: add all three exact name/scope/source tuples to
+  the central profile registry and paper-ready identity set together. The
+  registry-derived parser choices must accept the three canonical IDs while
+  continuing to reject unknown names. Each canonical invocation must resolve
+  its own student seed, `hard_token_seed=2022`,
+  `dataset_config_overrides={}`, `student_config_overrides={}`, and combined
+  paper-ready blockers `[]`. Any CLI seed, semantic, optimizer, dataset-owned
+  preprocessing, or other pinned-value override must remain recorded and
+  blocked; mismatched scope/source metadata must remain blocked.
+- Interpretation boundary to document and test: under active-rate
+  normalization, image-only optimizes `L_BPR + 0.3 * L_item_image`, whereas
+  the full candidate optimizes
+  `L_BPR + 0.3 * (L_item_image + 0.3 * L_item_text) / 1.3`.
+  The implementation and documentation must not claim the image term's
+  effective coefficient remains fixed and must not interpret a later
+  difference as the pure marginal causal contribution of text under fixed
+  image weight.
+- Regression and defaults-fingerprint acceptance: focused tests must prove all
+  pre-existing seed-2022/2023/2024 baseline and full-candidate mappings retain
+  their exact keys/values and declaration-time fingerprints; each new map has
+  the exact one-field delta and receives a reproducible sorted compact-JSON
+  fingerprint. Tests must also lock all canonical identities, frozen controls,
+  canonical resolutions, negative override/unknown-profile gates, and the
+  maintained inference-only deployment structure without loading Baby data.
+- Planned verification: inspect the current registry/test patterns; run the
+  focused dataset-profile test module; run the full existing unit suite using
+  only static parsing and temporary synthetic fixtures; run `py_compile` for
+  relevant Python files; statically parse all three canonical invocations
+  without importing or executing the training runner; exercise negative seed,
+  item-text, hard-token, mismatched-identity, and unknown-profile cases; audit
+  exact defaults fingerprints/deltas and documentation interpretation; confirm
+  excluded runner/sampler/model/protocol files are unchanged; run
+  `git diff --check`; stage only the necessary profile code, tests, unified
+  document, and `TRAINING_LOG.md`; run `git diff --cached --check`; commit once;
+  and confirm a clean tree.
+- Risks, failure boundary, and preservation point: risks are wrong source-map
+  copying, shared-mapping mutation, seed/cache confusion, registry identity
+  drift, weakened override rejection, incomplete regression fingerprints, or
+  an overstated loss interpretation. Mark this implementation failed only if
+  code or a hard verification criterion cannot be satisfied; preserve this
+  pending record and all evidence. The rollback/preservation point is clean
+  declaration commit `5ee560dcd06d73e3f9a7cb3844144b4e92d6a516`; no destructive
+  rollback is authorized.
+- Completion and next-stage gate: after successful verification, append an
+  independent completed outcome and create one coherent implementation commit
+  containing only the declared necessary files. The unique later action is a
+  separately authorized seed-2022 image-only formal-run pending declaration;
+  this task must stop before declaring or launching that run.
+
+### 2026-08-02 | matched three-seed item-image-only profile implementation (completed; no runs)
+
+- Status and objective outcome: completed successfully. All three image-only
+  profiles frozen by declaration commit
+  `5ee560dcd06d73e3f9a7cb3844144b4e92d6a516` were implemented and verified
+  simultaneously before any one of them was executed. This outcome closes
+  only the implementation stage; no smoke or formal-run stage was declared or
+  started.
+- Branch, parent, and exact tracked scope: branch
+  `codex/experiment/baby-teacher-baseline` from exact clean parent
+  `5ee560dcd06d73e3f9a7cb3844144b4e92d6a516`. The coherent implementation
+  commit contains only `codes/utility/dataset_profiles.py`,
+  `codes/tests/test_dataset_profiles.py`,
+  `docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md`, and this append-only
+  `TRAINING_LOG.md` trace. No stale top-of-log summary, runner, parser,
+  sampler, model, protocol, data, or artifact file was changed.
+- Implemented canonical identities: the central registry now contains
+  `baby_td_item_image_only_no_projection_seed2022_v1` /
+  `student_ablation` /
+  `predeclared_baby_item_image_only_no_projection_ablation_v1_seed2022`,
+  plus the corresponding seed-`2023` and seed-`2024` names and source suffixes.
+  Registry-derived parser choices and the exact paper-ready identity set
+  consume all three entries; no unknown-profile or override gate was relaxed.
+- Exact defaults outcome: each new 26-key mapping is an independent `dict`
+  copy of its same-seed full asymmetric candidate. The computed changed field
+  set for every pair is exactly `{'td_item_text_rate'}`, with value delta
+  `0.3 -> 0.0`. The source full-candidate fingerprints remain unchanged at
+  `018534ec9cedfe4c1d4f5fc1d23552173d3f8a33843c3e71be38f69ea8c46113`
+  for seed `2022`,
+  `1c4c89f253d3adcd167211481dd599591012b8881c9c590c68a6e55d797fe61c`
+  for seed `2023`, and
+  `f7ed2a940a5547afdfd3d242c6dc1832dd7e447b2824aaf633b5dd94c3bead6e`
+  for seed `2024`.
+- New defaults fingerprints: canonical sorted compact-JSON SHA256 is
+  `0669b57e57a400b2eb1eda1ff47970eb6929894b2affab12003e465e8f3418f6`
+  for image-only seed `2022`,
+  `2ab921262cc34c4b35c817a200267ab1047200c184f7f8ee766d93f80b5ecf64`
+  for image-only seed `2023`, and
+  `67b274963044d9ca7e05bad0a87f7c4fe594a69008493844beea9d9b284ca861`
+  for image-only seed `2024`. Existing baseline fingerprints also remain
+  unchanged at `98f16504442942d0209ead388611b8adf50b64c1dfd9b2b6764bcfa98fbdc3cb`,
+  `29d21d20c5437be41e9af076135a1e977b3c7dcb27a706496656a203f7452650`,
+  and `0865aed6197bb2781d8625cf3cf828d981228a1b969c921b83ce9a3f6f43f27f`
+  for seeds `2022`, `2023`, and `2024` respectively.
+- Frozen-controls outcome: canonical defaults preserve matching student and
+  sampling seeds `2022/2023/2024`, dataset-owned `hard_token_seed=2022`,
+  alpha `0.3`, item-image rate `1.0`, both user rates `0.0`, random
+  64-dimensional no-projection initialization without teacher warm start,
+  AdamW `student_lr=0.00006` and student weight decay `0.01`, batch `1024`,
+  epoch `1000`, patience `7`, `smoke_train_batches=0`, unchanged sampler and
+  `116`-batch formal epochs, frozen data/split/PCA/cache/teacher identities,
+  `val_test_once_v1`, Validation Recall@20 selection, one later final Test,
+  and the inference-only ID-embedding deployment contract.
+- Canonical parser evidence: three independent static imports of the real
+  `utility.parser`, without importing `main_mmlight.py`, resolved the three
+  documented canonical invocations to their exact name/scope/source identity,
+  student seed `2022`, `2023`, or `2024`, `hard_token_seed=2022`,
+  `dataset_config_overrides={}`, `student_config_overrides={}`, and combined
+  profile identity blockers `[]`.
+- Negative-gate evidence: real parser checks recorded and blocked a seed CLI
+  override, an item-text CLI override, and a dataset-owned hard-token seed
+  override; the hard-token override remained absent from the student override
+  map. An unknown profile was rejected by argparse choices with exit code `2`.
+  Focused tests also rejected mismatched image-only scope/source identities and
+  covered these cases across the three profiles.
+- Verification commands and results: `python -m unittest
+  codes.tests.test_dataset_profiles -v` passed `34/34`; `python -m unittest
+  discover -s codes/tests -p "test_*.py" -v` passed `54/54` using only static
+  and temporary synthetic fixtures; `python -m py_compile` passed for
+  `codes/utility/dataset_profiles.py`, `codes/utility/parser.py`,
+  `codes/tests/test_dataset_profiles.py`, and
+  `codes/td_distill_model_no_projection.py`. Independent nine-map SHA256 and
+  three-pair delta audits passed; documentation formula/order/content checks
+  passed; excluded tracked runner/parser/model/protocol changes were empty;
+  and `git diff --check` passed. Staged-scope and cached-diff checks remain the
+  final pre-commit gates below.
+- Interpretation outcome: the focused regression and unified document lock
+  image-only as `L_BPR + 0.3 * L_item_image` and the full candidate as
+  `L_BPR + 0.3 * (L_item_image + 0.3 * L_item_text) / 1.3`. Thus alpha is
+  fixed but the effective image coefficient is not: it is `0.3` versus
+  `0.3 / 1.3`. Future results may describe only the matched switch between
+  normalized supervision mixtures, not a pure marginal causal text effect at
+  fixed image weight.
+- Commands not executed, data/Test access, metrics, and artifacts: did not
+  execute or import `codes/main_mmlight.py`; did not run smoke, training,
+  Validation, Test, efficiency, or any formal experiment. No Baby data or
+  train/Validation/Test split was loaded or accessed. No quality or efficiency
+  metric exists for this task. No checkpoint, preflight, manifest, convergence
+  record, raw run log, tag, bundle, backup, or merge was created.
+- Remaining risks and sequence gate: runtime behavior and all image-only
+  metrics remain unknown by design. Retained official cold items, only three
+  future seeds, one-time Test discipline, ignored-artifact protection, and the
+  normalized-mixture interpretation boundary remain future operational risks.
+  Runs must remain separate and ordered `2022`, `2023`, `2024`; a low or
+  reversed earlier outcome cannot modify, cancel, or reorder a later profile.
+- Unique next action: in a separate task, append and commit only the seed-2022
+  image-only formal-run pending declaration for exact profile
+  `baby_td_item_image_only_no_projection_seed2022_v1`, then stop without
+  starting the run. That declaration must cite the clean implementation
+  commit produced by this task and re-pin its command, environment, identities,
+  override-free parser result, acceptance rule, and planned isolated artifacts.

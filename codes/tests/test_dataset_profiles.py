@@ -1,4 +1,8 @@
 import argparse
+import contextlib
+import hashlib
+import io
+import json
 import sys
 import unittest
 from pathlib import Path
@@ -32,6 +36,18 @@ from utility.dataset_profiles import (  # noqa: E402
     BABY_TD_ASYMMETRIC_NO_PROJECTION_PROFILE_NAME,
     BABY_TD_ASYMMETRIC_NO_PROJECTION_PROFILE_SCOPE,
     BABY_TD_ASYMMETRIC_NO_PROJECTION_PROFILE_SOURCE,
+    BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2022_PROFILE_DEFAULTS,
+    BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2022_PROFILE_NAME,
+    BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2022_PROFILE_SCOPE,
+    BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2022_PROFILE_SOURCE,
+    BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2023_PROFILE_DEFAULTS,
+    BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2023_PROFILE_NAME,
+    BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2023_PROFILE_SCOPE,
+    BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2023_PROFILE_SOURCE,
+    BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2024_PROFILE_DEFAULTS,
+    BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2024_PROFILE_NAME,
+    BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2024_PROFILE_SCOPE,
+    BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2024_PROFILE_SOURCE,
     BABY_TEACHER_PROFILE_DEFAULTS,
     BABY_TEACHER_PROFILE_NAME,
     apply_dataset_profile_defaults,
@@ -83,6 +99,44 @@ DECLARED_CANDIDATE_SEMANTIC_DEFAULTS = {
     'td_user_text_rate': 0.0,
 }
 
+DECLARED_IMAGE_ONLY_SEMANTIC_DEFAULTS = {
+    'td_distill_alpha': 0.3,
+    'td_item_image_rate': 1.0,
+    'td_item_text_rate': 0.0,
+    'td_user_image_rate': 0.0,
+    'td_user_text_rate': 0.0,
+}
+
+EXPECTED_DEFAULTS_SHA256 = {
+    'baseline_seed2022': (
+        '98f16504442942d0209ead388611b8adf50b64c1dfd9b2b6764bcfa98fbdc3cb'
+    ),
+    'full_candidate_seed2022': (
+        '018534ec9cedfe4c1d4f5fc1d23552173d3f8a33843c3e71be38f69ea8c46113'
+    ),
+    'baseline_seed2023': (
+        '29d21d20c5437be41e9af076135a1e977b3c7dcb27a706496656a203f7452650'
+    ),
+    'full_candidate_seed2023': (
+        '1c4c89f253d3adcd167211481dd599591012b8881c9c590c68a6e55d797fe61c'
+    ),
+    'baseline_seed2024': (
+        '0865aed6197bb2781d8625cf3cf828d981228a1b969c921b83ce9a3f6f43f27f'
+    ),
+    'full_candidate_seed2024': (
+        'f7ed2a940a5547afdfd3d242c6dc1832dd7e447b2824aaf633b5dd94c3bead6e'
+    ),
+    'image_only_seed2022': (
+        '0669b57e57a400b2eb1eda1ff47970eb6929894b2affab12003e465e8f3418f6'
+    ),
+    'image_only_seed2023': (
+        '2ab921262cc34c4b35c817a200267ab1047200c184f7f8ee766d93f80b5ecf64'
+    ),
+    'image_only_seed2024': (
+        '67b274963044d9ca7e05bad0a87f7c4fe594a69008493844beea9d9b284ca861'
+    ),
+}
+
 
 class DatasetProfilesTest(unittest.TestCase):
     @staticmethod
@@ -104,7 +158,11 @@ class DatasetProfilesTest(unittest.TestCase):
 
     def _student_parser(self):
         parser = self._parser()
-        parser.add_argument('--student_profile', default='')
+        parser.add_argument(
+            '--student_profile',
+            default='',
+            choices=[''] + list(BABY_STUDENT_PROFILE_NAMES),
+        )
         for field_name, default in BABY_STUDENT_PROFILE_DEFAULTS.items():
             option = '--' + field_name
             if option in parser._option_string_actions:
@@ -115,6 +173,11 @@ class DatasetProfilesTest(unittest.TestCase):
                 type=self._argument_type(default),
             )
         return parser
+
+    @staticmethod
+    def _defaults_sha256(defaults):
+        payload = json.dumps(defaults, sort_keys=True, separators=(',', ':'))
+        return hashlib.sha256(payload.encode('utf-8')).hexdigest()
 
     def test_baby_profile_defaults_are_applied_and_pinned(self):
         parser = self._parser()
@@ -718,6 +781,319 @@ class DatasetProfilesTest(unittest.TestCase):
         self.assertNotIn('hard_token_seed', student_metadata['overrides'])
         self.assertTrue(dataset_metadata['overrides'])
 
+    def test_image_only_profiles_copy_full_candidates_with_one_value_delta(self):
+        counterparts = (
+            (
+                2022,
+                BABY_TD_ASYMMETRIC_NO_PROJECTION_PROFILE_DEFAULTS,
+                BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2022_PROFILE_DEFAULTS,
+            ),
+            (
+                2023,
+                BABY_TD_ASYMMETRIC_NO_PROJECTION_SEED2023_PROFILE_DEFAULTS,
+                BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2023_PROFILE_DEFAULTS,
+            ),
+            (
+                2024,
+                BABY_TD_ASYMMETRIC_NO_PROJECTION_SEED2024_PROFILE_DEFAULTS,
+                BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2024_PROFILE_DEFAULTS,
+            ),
+        )
+
+        for seed, full_candidate, image_only in counterparts:
+            with self.subTest(seed=seed):
+                self.assertIsNot(full_candidate, image_only)
+                self.assertEqual(set(full_candidate), set(image_only))
+                self.assertEqual(
+                    {
+                        field_name
+                        for field_name in full_candidate
+                        if full_candidate[field_name] != image_only[field_name]
+                    },
+                    {'td_item_text_rate'},
+                )
+                self.assertEqual(full_candidate['td_item_text_rate'], 0.3)
+                self.assertEqual(image_only['td_item_text_rate'], 0.0)
+                self.assertEqual(image_only['seed'], seed)
+                for field_name, expected in (
+                    DECLARED_IMAGE_ONLY_SEMANTIC_DEFAULTS.items()
+                ):
+                    self.assertEqual(image_only[field_name], expected)
+
+    def test_image_only_ablation_does_not_fix_the_effective_image_weight(self):
+        alpha = DECLARED_IMAGE_ONLY_SEMANTIC_DEFAULTS['td_distill_alpha']
+        image_only_image_weight = alpha * (
+            DECLARED_IMAGE_ONLY_SEMANTIC_DEFAULTS['td_item_image_rate']
+            / sum(
+                DECLARED_IMAGE_ONLY_SEMANTIC_DEFAULTS[field_name]
+                for field_name in (
+                    'td_item_image_rate',
+                    'td_item_text_rate',
+                    'td_user_image_rate',
+                    'td_user_text_rate',
+                )
+            )
+        )
+        full_candidate_image_weight = alpha * (
+            DECLARED_CANDIDATE_SEMANTIC_DEFAULTS['td_item_image_rate']
+            / sum(
+                DECLARED_CANDIDATE_SEMANTIC_DEFAULTS[field_name]
+                for field_name in (
+                    'td_item_image_rate',
+                    'td_item_text_rate',
+                    'td_user_image_rate',
+                    'td_user_text_rate',
+                )
+            )
+        )
+
+        self.assertAlmostEqual(image_only_image_weight, 0.3)
+        self.assertAlmostEqual(full_candidate_image_weight, 0.3 / 1.3)
+        self.assertNotEqual(
+            image_only_image_weight, full_candidate_image_weight
+        )
+
+    def test_all_existing_and_image_only_defaults_fingerprints_are_pinned(self):
+        defaults_by_identity = {
+            'baseline_seed2022': BABY_STUDENT_PROFILE_DEFAULTS,
+            'full_candidate_seed2022': (
+                BABY_TD_ASYMMETRIC_NO_PROJECTION_PROFILE_DEFAULTS
+            ),
+            'baseline_seed2023': (
+                BABY_STUDENT_REFERENCE_SEED2023_PROFILE_DEFAULTS
+            ),
+            'full_candidate_seed2023': (
+                BABY_TD_ASYMMETRIC_NO_PROJECTION_SEED2023_PROFILE_DEFAULTS
+            ),
+            'baseline_seed2024': (
+                BABY_STUDENT_REFERENCE_SEED2024_PROFILE_DEFAULTS
+            ),
+            'full_candidate_seed2024': (
+                BABY_TD_ASYMMETRIC_NO_PROJECTION_SEED2024_PROFILE_DEFAULTS
+            ),
+            'image_only_seed2022': (
+                BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2022_PROFILE_DEFAULTS
+            ),
+            'image_only_seed2023': (
+                BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2023_PROFILE_DEFAULTS
+            ),
+            'image_only_seed2024': (
+                BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2024_PROFILE_DEFAULTS
+            ),
+        }
+
+        self.assertEqual(set(defaults_by_identity), set(EXPECTED_DEFAULTS_SHA256))
+        for identity, defaults in defaults_by_identity.items():
+            with self.subTest(identity=identity):
+                self.assertEqual(len(defaults), 26)
+                self.assertEqual(
+                    self._defaults_sha256(defaults),
+                    EXPECTED_DEFAULTS_SHA256[identity],
+                )
+
+    def test_image_only_profiles_resolve_canonically_without_overrides(self):
+        identities = (
+            (
+                2022,
+                BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2022_PROFILE_NAME,
+                BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2022_PROFILE_SCOPE,
+                BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2022_PROFILE_SOURCE,
+            ),
+            (
+                2023,
+                BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2023_PROFILE_NAME,
+                BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2023_PROFILE_SCOPE,
+                BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2023_PROFILE_SOURCE,
+            ),
+            (
+                2024,
+                BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2024_PROFILE_NAME,
+                BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2024_PROFILE_SCOPE,
+                BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2024_PROFILE_SOURCE,
+            ),
+        )
+
+        for seed, name, scope, source in identities:
+            with self.subTest(profile=name):
+                parser = self._student_parser()
+                apply_dataset_profile_defaults(parser, 'baby')
+                apply_student_profile_defaults(parser, 'baby', name)
+                args = parser.parse_args(
+                    ['--dataset', 'baby', '--student_profile', name]
+                )
+                dataset_metadata = resolved_profile_metadata('baby', args)
+                student_metadata = resolved_student_profile_metadata(
+                    'baby', args.student_profile, args
+                )
+
+                self.assertEqual(dataset_metadata['overrides'], {})
+                self.assertEqual(student_metadata['overrides'], {})
+                self.assertEqual(
+                    (
+                        student_metadata['name'],
+                        student_metadata['scope'],
+                        student_metadata['source'],
+                    ),
+                    (name, scope, source),
+                )
+                self.assertEqual(
+                    baby_student_paper_ready_blockers(
+                        name, scope, source, student_metadata['overrides']
+                    ),
+                    [],
+                )
+                self.assertEqual(args.seed, seed)
+                self.assertEqual(args.hard_token_seed, 2022)
+                self.assertEqual(args.eval_protocol, 'val_test_once_v1')
+                self.assertEqual(args.Ks, '[10, 20, 40, 50]')
+                self.assertEqual(args.test_flag, 'part')
+                self.assertTrue(args.dataset_preflight)
+                self.assertEqual(args.duplicate_modalities_policy, 'error')
+                self.assertEqual(
+                    args.student_model_type, 'td_distill_no_projection'
+                )
+                self.assertEqual(args.student_embed_size, 64)
+                self.assertAlmostEqual(args.student_lr, 0.00006)
+                self.assertAlmostEqual(args.student_weight_decay, 0.01)
+                self.assertEqual(args.batch_size, 1024)
+                self.assertEqual(args.epoch, 1000)
+                self.assertEqual(args.smoke_train_batches, 0)
+                self.assertEqual(args.early_stopping_patience, 7)
+                self.assertFalse(args.td_init_from_teacher)
+                self.assertFalse(args.if_train_teacher)
+                self.assertFalse(args.teacher_only)
+                self.assertFalse(args.allow_teacher_alias_overwrite)
+                self.assertTrue(args.run_final_test)
+                self.assertFalse(args.run_efficiency_benchmark)
+                self.assertEqual(
+                    args.teacher_checkpoint,
+                    'Model/baby/teacher_model_val_test_once_v1.pt',
+                )
+                for field_name, expected in (
+                    DECLARED_IMAGE_ONLY_SEMANTIC_DEFAULTS.items()
+                ):
+                    self.assertEqual(getattr(args, field_name), expected)
+
+    def test_image_only_cli_overrides_remain_paper_ready_blockers(self):
+        profiles = (
+            (
+                2022,
+                BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2022_PROFILE_NAME,
+            ),
+            (
+                2023,
+                BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2023_PROFILE_NAME,
+            ),
+            (
+                2024,
+                BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2024_PROFILE_NAME,
+            ),
+        )
+
+        for seed, profile_name in profiles:
+            cases = (
+                (
+                    ['--seed', str(seed + 1)],
+                    'seed',
+                    {'expected': seed, 'resolved': seed + 1},
+                ),
+                (
+                    ['--td_item_text_rate', '0.3'],
+                    'td_item_text_rate',
+                    {'expected': 0.0, 'resolved': 0.3},
+                ),
+            )
+            for override_args, field_name, expected in cases:
+                with self.subTest(profile=profile_name, field=field_name):
+                    parser = self._student_parser()
+                    apply_dataset_profile_defaults(parser, 'baby')
+                    apply_student_profile_defaults(parser, 'baby', profile_name)
+                    args = parser.parse_args(
+                        ['--dataset', 'baby', '--student_profile', profile_name]
+                        + override_args
+                    )
+                    metadata = resolved_student_profile_metadata(
+                        'baby', args.student_profile, args
+                    )
+
+                    self.assertEqual(metadata['overrides'][field_name], expected)
+                    self.assertIn(
+                        'Baby student reference profile has resolved overrides',
+                        baby_student_paper_ready_blockers(
+                            metadata['name'],
+                            metadata['scope'],
+                            metadata['source'],
+                            metadata['overrides'],
+                        ),
+                    )
+
+    def test_image_only_hard_token_override_remains_dataset_owned(self):
+        profiles = (
+            BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2022_PROFILE_NAME,
+            BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2023_PROFILE_NAME,
+            BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2024_PROFILE_NAME,
+        )
+
+        for profile_name in profiles:
+            with self.subTest(profile=profile_name):
+                parser = self._student_parser()
+                apply_dataset_profile_defaults(parser, 'baby')
+                apply_student_profile_defaults(parser, 'baby', profile_name)
+                args = parser.parse_args(
+                    [
+                        '--dataset',
+                        'baby',
+                        '--student_profile',
+                        profile_name,
+                        '--hard_token_seed',
+                        '2023',
+                    ]
+                )
+                dataset_metadata = resolved_profile_metadata('baby', args)
+                student_metadata = resolved_student_profile_metadata(
+                    'baby', args.student_profile, args
+                )
+
+                self.assertEqual(
+                    dataset_metadata['overrides']['hard_token_seed'],
+                    {'expected': 2022, 'resolved': 2023},
+                )
+                self.assertNotIn(
+                    'hard_token_seed', student_metadata['overrides']
+                )
+
+    def test_image_only_identity_metadata_mismatch_remains_blocked(self):
+        name = BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2022_PROFILE_NAME
+        scope = BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2022_PROFILE_SCOPE
+        source = BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2022_PROFILE_SOURCE
+
+        for mismatched_scope, mismatched_source in (
+            ('student_candidate', source),
+            (scope, source + '_mismatch'),
+        ):
+            with self.subTest(
+                scope=mismatched_scope, source=mismatched_source
+            ):
+                self.assertEqual(
+                    baby_student_paper_ready_blockers(
+                        name, mismatched_scope, mismatched_source, {}
+                    ),
+                    ['Baby student profile metadata is missing or mismatched'],
+                )
+
+    def test_unknown_student_profile_is_rejected_by_argparse_choices(self):
+        parser = self._student_parser()
+        with contextlib.redirect_stderr(io.StringIO()):
+            with self.assertRaises(SystemExit):
+                parser.parse_args(
+                    [
+                        '--dataset',
+                        'baby',
+                        '--student_profile',
+                        'baby_unknown_student_v1',
+                    ]
+                )
+
     def test_candidate_cli_override_remains_a_paper_ready_blocker(self):
         parser = self._student_parser()
         apply_dataset_profile_defaults(parser, 'baby')
@@ -857,6 +1233,9 @@ class DatasetProfilesTest(unittest.TestCase):
                 BABY_TD_ASYMMETRIC_NO_PROJECTION_SEED2023_PROFILE_NAME,
                 BABY_STUDENT_REFERENCE_SEED2024_PROFILE_NAME,
                 BABY_TD_ASYMMETRIC_NO_PROJECTION_SEED2024_PROFILE_NAME,
+                BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2022_PROFILE_NAME,
+                BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2023_PROFILE_NAME,
+                BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2024_PROFILE_NAME,
             ),
         )
 
