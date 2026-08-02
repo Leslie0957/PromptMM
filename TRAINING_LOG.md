@@ -5992,3 +5992,119 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   declaration, then launch that candidate once using the same source,
   foreground timeout, identity, Test-isolation, and audit requirements. Do not
   run image-only or any other seed/stage.
+
+## 2026-08-02 baby_td_asymmetric_no_projection_v1 matched recovery formal run (pending)
+
+- Purpose and hypothesis: execute one replacement formal seed-2022 asymmetric
+  no-projection candidate under the corrected frozen-teacher Test-isolation
+  implementation. This recovery exists solely because the old run performed a
+  prohibited frozen-teacher Test ranking. The already frozen hypothesis remains
+  that item-dominant image/text semantic transfer improves the matched ID-only
+  student; neither the old candidate metrics nor the newly recovered baseline
+  metrics selected or changed any candidate value.
+- Baseline prerequisite and authorization: the corrected-source matched
+  `baby_student_reference_v1` baseline completed all hard gates from launch
+  commit `6cac3434b41c46741151e452de9b62067969953f`; its completed outcome is
+  committed at `3bf22b6a6a1460fc99ca69b5b497706a22e6ee64`. It selected epoch
+  `163`, with Validation Recall@20 `0.04291303921928788` and final Test
+  Recall@20 `0.044279857310199594`. Those values satisfy only the serial
+  baseline-outcome gate and did not tune, cancel, reorder, or alter the
+  candidate.
+- Status and execution boundary: pending formal uncapped candidate, authorized
+  for exactly one launch after this declaration is committed and the tree is
+  clean. A process failure, connection interruption, or hard-gate violation
+  requires preservation plus one committed failed outcome and immediate stop;
+  no retry or second process is allowed. No image-only, seed-2023/2024,
+  efficiency, smoke, tag, bundle, backup, or merge is authorized.
+- Exact command, frozen verbatim and containing no CLI seed, semantic,
+  optimizer, budget, or protocol override:
+  `D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_td_asymmetric_no_projection_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --run_final_test true`
+- Source and clean-launch gate: branch
+  `codex/experiment/baby-teacher-baseline`; exact clean declaration parent and
+  completed baseline outcome `3bf22b6a6a1460fc99ca69b5b497706a22e6ee64`;
+  frozen Test-isolation implementation
+  `ee7b3621765b63886c341d63fdc49a20d1a21bc8`. The commit containing this
+  pending declaration must be the exact launch HEAD, and
+  `git diff --exit-code ee7b362... <launch-commit> -- codes` must remain empty.
+- Canonical profile and override contract: exact name/scope/source
+  `baby_td_asymmetric_no_projection_v1` / `student_candidate` /
+  `predeclared_baby_asymmetric_no_projection_directional_v1`;
+  `dataset_config_overrides={}`; `student_config_overrides={}`; profile
+  blockers `[]`; student/sampling seed `2022`; PCA/cache
+  `hard_token_seed=2022`; `td_distill_no_projection`; dimension `64`; random
+  initialization; `td_init_from_teacher=false`; no loaded student checkpoint,
+  projection head, or teacher warm start.
+- Frozen optimizer, sampling, and budget: AdamW `student_lr=6e-5`; student
+  weight decay `0.01`; batch size `1024`; maximum epoch `1000`; Validation
+  every epoch; early-stopping patience `7`; `smoke_train_batches=0`; unchanged
+  pairwise BPR sampler; all `116` batches per completed epoch;
+  `run_efficiency_benchmark=false`. No parameter or command differs from the
+  original candidate profile.
+- Frozen semantic controls and objective: `td_distill_alpha=0.3`;
+  item-image `1.0`; item-text `0.3`; user-image `0.0`; user-text `0.0`.
+  Active heads must be exactly item-image and item-text, optimizing
+  `L_BPR + 0.3 * (L_item_image + 0.3 * L_item_text) / 1.3`. The only behavioral
+  delta from the recovered baseline remains alpha, item-image, and item-text;
+  every non-semantic control is matched.
+- Frozen data/preprocessing identity: audited MMRec Baby conversion manifest
+  SHA256
+  `cf2d0d8c8aff9b321aad0b11d48d078794d12a4920afaa4c8efedfe3beda9df2`;
+  train/Validation/Test hashes
+  `3cead4c601ccef4c2424cd692951935840ccc8f22df15577ced4e5f3fec37fac`,
+  `f1458ff1dc28c5371699780270e3a3e270c8f9ce19def3d5e67d4ba9644ce9d2`,
+  and `773de4f57f2c1bcb6695ea57995280e7cbe114b2b579263a599bb097bb6555ac`;
+  image/text hashes
+  `36c3be592b98506189a7d5de71b21577cf626f0293b539d861534673b3e9fd70`
+  and `6667f2ad655c9ecc97cb3383f58988864ef51ec0b39c158b15986c66769f2dc4`;
+  frozen image/text PCA cache SHA256
+  `187852dca1f62554e2d29714ca363e4a92036e948dddfb6c090a5577b6175c8c`
+  and `5e9df184aca47a3c5d96d4db72977878981eca1cf67abba85b06e43528e1e562`.
+  No split, feature, cache, sampler, or preprocessing change is allowed.
+- Frozen teacher and Test-isolation contract: reuse read-only
+  `Model/baby/teacher_model_val_test_once_v1.pt`, `141098540` bytes, SHA256
+  `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`;
+  `if_train_teacher=false`, no alias overwrite, no teacher mutation, and zero
+  frozen-teacher Test rankings. Manifest must record
+  `teacher_final_test_performed=false`, policy
+  `frozen_checkpoint_reuse_no_test_ranking`, no current-run
+  `teacher_final_test_result`, and historical field `null` for this checkpoint
+  or, if checkpoint-carried metadata exists, only
+  `performed_by_current_run=false`.
+- Evaluation and ranking chronology: unchanged `val_test_once_v1`; train only
+  on `train_mat`; Validation Recall@20 alone selects and early-stops;
+  candidate exclusion `train_only`; `Ks=[10,20,40,50]`; `test_flag=part`.
+  Preflight may access Test structure/identity. The Validation-best full
+  checkpoint must be restored after natural stop, followed by exactly one
+  student final Test ranking. Test must not affect selection, acceptance,
+  parameter interpretation, retry, or rollback.
+- Execution transport: launch the command once in one continuously attached
+  foreground shell/tool session with timeout explicitly at least `10800000`
+  ms. Detached/background launch, output-channel closure while active,
+  parallel execution, a second launch, and automatic retry are forbidden.
+- Planned six same-run artifacts: raw log `logs/<run_name>`; preflight
+  `exp/runs/baby/dataset_preflight__<run_name>.json`; manifest
+  `exp/runs/baby/run_manifest__<run_name>.json`; convergence record
+  `exp/converge/baby/auto__<run_name>.pkl`; full checkpoint
+  `Model/baby/td_distill/td_distill_full__val_test_once_v1__<run_name>.pth`;
+  and inference-only checkpoint
+  `Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__<run_name>.pth`.
+  All must share one run identity, remain outside Git, and be fingerprinted.
+- Hard acceptance: exact clean source/profile/empty-overrides/identity gates;
+  matching environment/data/cache/teacher; finite total/BPR/directional/
+  component and Validation series; all `116` batches per completed epoch;
+  active semantic heads exactly item-image/text; Validation Recall@20-only
+  selection; best-checkpoint restore; frozen teacher Test count `0`; student
+  final Test count `1`; manifest `status=completed`, paper-ready true, blockers
+  `[]`, final Test performed; unchanged teacher hash; all six artifacts; finite
+  full/inference checkpoints; ID-only inference structure; and bit-for-bit
+  embedding equality.
+- Quality and preservation rule: there is no minimum metric, improvement, or
+  direction threshold. A low or reversed protocol-compliant result is
+  `completed` evidence and cannot trigger parameter changes, retry, rollback,
+  reset, deletion, or suppression. Preserve the prior diagnostic candidate and
+  all new files on every outcome.
+- Next action: commit this declaration only, repeat the clean launch/profile/
+  process/environment/data/cache/teacher gates, execute the exact command once
+  through the required foreground session, audit all six artifacts and Test
+  chronology after natural exit, append and commit one completed or failed
+  outcome, and stop.
