@@ -74,12 +74,16 @@ from utility.dataset_profiles import (
     baby_student_paper_ready_blockers,
 )
 from utility.experiment_protocol import (
+    FROZEN_TEACHER_TEST_POLICY,
     LEGACY_PROTOCOL,
     PAPER_READY_PROTOCOL,
     candidate_exclusion_policy,
     dataset_identity_from_preflight,
     early_stopping_non_improvement_limit,
     file_fingerprint,
+    frozen_teacher_reuse_manifest_updates,
+    guard_frozen_teacher_test_access,
+    materialize_evaluation_users,
     namespace_to_dict,
     publish_file_atomically,
     protocol_uses_validation,
@@ -356,6 +360,13 @@ class Trainer(object):
             'candidate_exclusion_policy': self.candidate_exclusion_policy,
             'primary_selection_metric': 'Recall@%d' % self.primary_k,
             'run_final_test': self.run_final_test,
+            'teacher_final_test_performed': False,
+            'teacher_test_policy': (
+                'train_then_optional_final_test'
+                if args.if_train_teacher
+                else FROZEN_TEACHER_TEST_POLICY
+            ),
+            'teacher_checkpoint_historical_final_test_metadata': None,
             'paper_ready_eligible': self.paper_ready_eligible,
             'paper_ready_blockers': self.paper_ready_blockers,
             'resolved_arguments': namespace_to_dict(args),
@@ -523,10 +534,39 @@ class Trainer(object):
         self.run_manifest.update(updates)
         write_json(self.run_manifest_path, self.run_manifest)
 
-    def _selection_target(self):
+    def _record_protocol_blocker(self, blocker):
+        if blocker not in self.paper_ready_blockers:
+            self.paper_ready_blockers.append(blocker)
+        self.paper_ready_eligible = False
+        self._update_run_manifest(
+            paper_ready_eligible=False,
+            paper_ready_blockers=list(self.paper_ready_blockers),
+            teacher_final_test_performed=False,
+        )
+
+    def _guard_evaluation_request(self, is_val, is_teacher):
+        guard_frozen_teacher_test_access(
+            args.if_train_teacher,
+            is_teacher,
+            is_val,
+            self._record_protocol_blocker,
+        )
+
+    def _evaluation_users(self, is_val, is_teacher):
+        return materialize_evaluation_users(
+            lambda: (
+                data_generator.val_set if is_val else data_generator.test_set
+            ).keys(),
+            args.if_train_teacher,
+            is_teacher,
+            is_val,
+            self._record_protocol_blocker,
+        )
+
+    def _selection_target(self, is_teacher):
         if self.uses_validation_selection:
-            return list(data_generator.val_set.keys()), True, 'Validation'
-        return list(data_generator.test_set.keys()), False, 'Legacy-Test'
+            return self._evaluation_users(True, is_teacher), True, 'Validation'
+        return self._evaluation_users(False, is_teacher), False, 'Legacy-Test'
 
     def _primary_recall(self, result):
         return float(result['recall'][self.primary_k_index])
@@ -935,6 +975,7 @@ class Trainer(object):
 
 
     def test(self, users_to_test, is_val, is_teacher=True):
+        self._guard_evaluation_request(is_val, is_teacher)
         self.teacher_model.eval()
         self.prompt_module.eval()
         with torch.no_grad():
@@ -1027,7 +1068,9 @@ class Trainer(object):
         td_item_image_loss_list, td_item_text_loss_list = [], []
         td_user_image_loss_list, td_user_text_loss_list = [], []
         recall20_list, recall50_list, ndcg20_list, ndcg50_list = [], [], [], []
-        selection_users, selection_is_val, selection_label = self._selection_target()
+        selection_users, selection_is_val, selection_label = self._selection_target(
+            is_teacher=False
+        )
 
         with torch.no_grad():
             _, _, t_i_image_embed, t_i_text_embed, t_u_image_embed, t_u_text_embed \
@@ -1250,7 +1293,7 @@ class Trainer(object):
             )
             return
 
-        users_to_test = list(data_generator.test_set.keys())
+        users_to_test = self._evaluation_users(False, is_teacher=False)
         _, td_final_test_ret = restore_checkpoint_then_evaluate(
             self.td_distill_full_path,
             self.load_td_distill_checkpoint,
@@ -1324,7 +1367,9 @@ class Trainer(object):
                 print(args.point)
                 print("###########################################")
             n_batch = self.train_batch_count
-            teacher_selection_users, teacher_selection_is_val, teacher_selection_label = self._selection_target()
+            teacher_selection_users, teacher_selection_is_val, teacher_selection_label = self._selection_target(
+                is_teacher=True
+            )
             for epoch in range(args.epoch):
                 t1 = time()
                 loss, mf_loss, emb_loss, reg_loss = 0., 0., 0., 0.
@@ -1471,7 +1516,7 @@ class Trainer(object):
             if teacher_best_epoch is None or not os.path.exists(self.teacher_model_archive_path):
                 raise RuntimeError('Teacher training did not produce a selectable checkpoint.')
             if self.run_final_test:
-                users_to_test = list(data_generator.test_set.keys())
+                users_to_test = self._evaluation_users(False, is_teacher=True)
                 _, teacher_test_ret = restore_checkpoint_then_evaluate(
                     self.teacher_model_archive_path,
                     self._load_teacher_checkpoint,
@@ -1566,42 +1611,38 @@ class Trainer(object):
         if not os.path.exists(teacher_checkpoint_for_student):
             raise FileNotFoundError('Teacher checkpoint not found at %s. Run once with --if_train_teacher true before reusing the teacher.' % teacher_checkpoint_for_student)
         self.logger.logging('Loading teacher checkpoint for student distillation from %s' % teacher_checkpoint_for_student)
-        self._load_teacher_checkpoint(teacher_checkpoint_for_student)
+        teacher_checkpoint = self._load_teacher_checkpoint(
+            teacher_checkpoint_for_student
+        )
         self.teacher_model.eval()
         self.prompt_module.eval()
-        if teacher_test_ret is None and self.run_final_test:
-            users_to_test = list(data_generator.test_set.keys())
-            _, teacher_test_ret = restore_checkpoint_then_evaluate(
-                teacher_checkpoint_for_student,
-                self._load_teacher_checkpoint,
-                lambda: self.test(users_to_test, is_val=False, is_teacher=True),
+        if not args.if_train_teacher:
+            self.teacher_model.requires_grad_(False)
+            self.prompt_module.requires_grad_(False)
+            self.logger.logging(
+                'Frozen teacher checkpoint loaded for student distillation; '
+                'teacher Test ranking is prohibited for this run regardless '
+                'of run_final_test.'
             )
-            self.logger.logging("Teacher reuse summary: Recall@%d=%.5f, precision=[%.5f], ndcg=[%.5f]" % (
-                self.primary_k,
-                teacher_test_ret['recall'][self.primary_k_index],
-                teacher_test_ret['precision'][self.primary_k_index],
-                teacher_test_ret['ndcg'][self.primary_k_index],
-            ))
-            self.logger.logging(str(teacher_test_ret))
-            self._update_run_manifest(
-                status='teacher_reused',
-                teacher_final_test_result=result_to_dict(teacher_test_ret),
-                teacher_checkpoint=teacher_checkpoint_for_student,
-                teacher_checkpoint_fingerprint=file_fingerprint(teacher_checkpoint_for_student),
-                teacher_checkpoint_metadata=self.active_teacher_checkpoint_metadata,
-                active_teacher_hard_token_cache=getattr(
+            frozen_reuse_updates = frozen_teacher_reuse_manifest_updates(
+                teacher_checkpoint,
+                self.run_final_test,
+            )
+            frozen_reuse_updates.update({
+                'teacher_checkpoint': teacher_checkpoint_for_student,
+                'teacher_checkpoint_fingerprint': file_fingerprint(
+                    teacher_checkpoint_for_student
+                ),
+                'teacher_checkpoint_metadata': self.active_teacher_checkpoint_metadata,
+                'active_teacher_hard_token_cache': getattr(
                     self.prompt_module, 'hard_token_cache_records', {}
                 ),
-            )
+            })
+            self._update_run_manifest(**frozen_reuse_updates)
         elif teacher_test_ret is None:
-            self.logger.logging(
-                'Teacher checkpoint reused without test evaluation; test_mat '
-                'remains untouched for this run.'
-            )
             self._update_run_manifest(
-                status='teacher_reused_without_test',
                 teacher_final_test_performed=False,
-                teacher_checkpoint=teacher_checkpoint_for_student,
+                teacher_checkpoint_used_for_student=teacher_checkpoint_for_student,
                 teacher_checkpoint_fingerprint=file_fingerprint(teacher_checkpoint_for_student),
                 teacher_checkpoint_metadata=self.active_teacher_checkpoint_metadata,
                 active_teacher_hard_token_cache=getattr(
@@ -1759,7 +1800,9 @@ class Trainer(object):
             run_efficiency_benchmark(self, args, data_generator)
             return
 
-        student_selection_users, student_selection_is_val, student_selection_label = self._selection_target()
+        student_selection_users, student_selection_is_val, student_selection_label = self._selection_target(
+            is_teacher=False
+        )
         student_selection_recall20_list = []
         student_selection_recall50_list = []
         student_selection_ndcg20_list = []
@@ -2069,7 +2112,7 @@ class Trainer(object):
                 student_checkpoint=self.student_checkpoint_path,
             )
             return
-        users_to_test = list(data_generator.test_set.keys())
+        users_to_test = self._evaluation_users(False, is_teacher=False)
         _, student_test_ret = restore_checkpoint_then_evaluate(
             self.student_checkpoint_path,
             self._load_student_checkpoint,

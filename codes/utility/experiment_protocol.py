@@ -27,6 +27,10 @@ TEACHER_INFERENCE_CONFIG_FIELDS = (
     'hard_token_type',
     'hard_token_seed',
 )
+FROZEN_TEACHER_TEST_BLOCKER = (
+    'frozen-teacher reuse attempted a new teacher Test ranking'
+)
+FROZEN_TEACHER_TEST_POLICY = 'frozen_checkpoint_reuse_no_test_ranking'
 
 
 def protocol_uses_validation(eval_protocol):
@@ -87,6 +91,56 @@ def restore_checkpoint_then_evaluate(checkpoint_path, load_checkpoint, evaluate)
     checkpoint = load_checkpoint(checkpoint_path)
     result = evaluate()
     return checkpoint, result
+
+
+def guard_frozen_teacher_test_access(
+    if_train_teacher,
+    is_teacher,
+    is_val,
+    record_blocker=None,
+):
+    if is_teacher and not is_val and not if_train_teacher:
+        if record_blocker is not None:
+            record_blocker(FROZEN_TEACHER_TEST_BLOCKER)
+        raise RuntimeError(FROZEN_TEACHER_TEST_BLOCKER)
+
+
+def materialize_evaluation_users(
+    users_supplier,
+    if_train_teacher,
+    is_teacher,
+    is_val,
+    record_blocker=None,
+):
+    guard_frozen_teacher_test_access(
+        if_train_teacher,
+        is_teacher,
+        is_val,
+        record_blocker,
+    )
+    return list(users_supplier())
+
+
+def frozen_teacher_reuse_manifest_updates(checkpoint, run_final_test):
+    if not isinstance(run_final_test, bool):
+        raise TypeError('run_final_test must be a boolean.')
+    historical_metadata = None
+    if isinstance(checkpoint, dict):
+        for result_field in ('teacher_final_test_result', 'final_test_result'):
+            if checkpoint.get(result_field) is not None:
+                historical_metadata = {
+                    'source': 'teacher_checkpoint_metadata',
+                    'checkpoint_field': result_field,
+                    'performed_by_current_run': False,
+                    'result': _jsonable(checkpoint[result_field]),
+                }
+                break
+    return {
+        'status': 'teacher_reused_without_test',
+        'teacher_final_test_performed': False,
+        'teacher_test_policy': FROZEN_TEACHER_TEST_POLICY,
+        'teacher_checkpoint_historical_final_test_metadata': historical_metadata,
+    }
 
 
 def teacher_inference_config_from_namespace(namespace):

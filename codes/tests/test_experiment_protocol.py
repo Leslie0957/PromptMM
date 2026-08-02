@@ -1,3 +1,4 @@
+import ast
 import contextlib
 import io
 import os
@@ -18,12 +19,17 @@ if str(CODES_DIR) not in sys.path:
     sys.path.insert(0, str(CODES_DIR))
 
 from utility.experiment_protocol import (  # noqa: E402
+    FROZEN_TEACHER_TEST_BLOCKER,
+    FROZEN_TEACHER_TEST_POLICY,
     LEGACY_PROTOCOL,
     PAPER_READY_PROTOCOL,
     TRAIN_ONLY_CANDIDATE_EXCLUSION,
     candidate_exclusion_policy,
     dataset_identity_from_preflight,
     early_stopping_non_improvement_limit,
+    frozen_teacher_reuse_manifest_updates,
+    guard_frozen_teacher_test_access,
+    materialize_evaluation_users,
     protocol_uses_validation,
     publish_file_atomically,
     resolve_primary_k_index,
@@ -123,6 +129,147 @@ class ExperimentProtocolTest(unittest.TestCase):
         self.assertEqual(events, [('restore', 'best.pt'), ('test', None)])
         self.assertEqual(checkpoint['best_epoch'], 3)
         self.assertAlmostEqual(float(result['recall'][0]), 0.25)
+
+    def test_frozen_teacher_test_gate_blocks_before_user_access(self):
+        events = []
+
+        def record_blocker(blocker):
+            events.append(('blocker', blocker))
+
+        def users_supplier():
+            events.append(('users', None))
+            return [1, 2]
+
+        with self.assertRaisesRegex(RuntimeError, FROZEN_TEACHER_TEST_BLOCKER):
+            materialize_evaluation_users(
+                users_supplier,
+                if_train_teacher=False,
+                is_teacher=True,
+                is_val=False,
+                record_blocker=record_blocker,
+            )
+
+        self.assertEqual(events, [('blocker', FROZEN_TEACHER_TEST_BLOCKER)])
+
+    def test_teacher_test_gate_preserves_authorized_evaluations(self):
+        for if_train_teacher, is_teacher, is_val in (
+            (False, True, True),
+            (False, False, False),
+            (True, True, False),
+        ):
+            with self.subTest(
+                if_train_teacher=if_train_teacher,
+                is_teacher=is_teacher,
+                is_val=is_val,
+            ):
+                events = []
+                users = materialize_evaluation_users(
+                    lambda: events.append('users') or [7],
+                    if_train_teacher=if_train_teacher,
+                    is_teacher=is_teacher,
+                    is_val=is_val,
+                    record_blocker=lambda blocker: events.append(blocker),
+                )
+                self.assertEqual(users, [7])
+                self.assertEqual(events, ['users'])
+                guard_frozen_teacher_test_access(
+                    if_train_teacher,
+                    is_teacher,
+                    is_val,
+                )
+
+    def test_frozen_teacher_manifest_never_claims_current_test(self):
+        checkpoint = {
+            'final_test_result': {
+                'recall': np.array([0.1, 0.2]),
+                'ndcg': np.array([0.05, 0.08]),
+            }
+        }
+
+        for run_final_test in (False, True):
+            with self.subTest(run_final_test=run_final_test):
+                updates = frozen_teacher_reuse_manifest_updates(
+                    checkpoint,
+                    run_final_test,
+                )
+                self.assertEqual(updates['status'], 'teacher_reused_without_test')
+                self.assertFalse(updates['teacher_final_test_performed'])
+                self.assertEqual(
+                    updates['teacher_test_policy'],
+                    FROZEN_TEACHER_TEST_POLICY,
+                )
+                self.assertNotIn('teacher_final_test_result', updates)
+                historical = updates[
+                    'teacher_checkpoint_historical_final_test_metadata'
+                ]
+                self.assertEqual(
+                    historical['source'], 'teacher_checkpoint_metadata'
+                )
+                self.assertFalse(historical['performed_by_current_run'])
+                self.assertEqual(historical['checkpoint_field'], 'final_test_result')
+                self.assertEqual(historical['result']['recall'], [0.1, 0.2])
+
+    def test_runner_statically_enforces_frozen_teacher_test_isolation(self):
+        source = (CODES_DIR / 'main_mmlight.py').read_text(encoding='utf-8')
+        tree = ast.parse(source)
+        trainer = next(
+            node
+            for node in tree.body
+            if isinstance(node, ast.ClassDef) and node.name == 'Trainer'
+        )
+        methods = {
+            node.name: node
+            for node in trainer.body
+            if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+        }
+
+        test_method = methods['test']
+        self.assertEqual(
+            ast.unparse(test_method.body[0]),
+            'self._guard_evaluation_request(is_val, is_teacher)',
+        )
+        blocker_source = ast.get_source_segment(
+            source, methods['_record_protocol_blocker']
+        )
+        self.assertIn('paper_ready_eligible=False', blocker_source)
+        self.assertIn(
+            'paper_ready_blockers=list(self.paper_ready_blockers)',
+            blocker_source,
+        )
+        self.assertIn('teacher_final_test_performed=False', blocker_source)
+        guard_source = ast.get_source_segment(
+            source, methods['_guard_evaluation_request']
+        )
+        self.assertIn('self._record_protocol_blocker', guard_source)
+        evaluation_users_source = ast.get_source_segment(
+            source, methods['_evaluation_users']
+        )
+        self.assertIn('materialize_evaluation_users', evaluation_users_source)
+        self.assertIn('data_generator.test_set', evaluation_users_source)
+        self.assertIn('self._record_protocol_blocker', evaluation_users_source)
+        self.assertEqual(source.count('data_generator.test_set'), 1)
+
+        train_method = methods['train']
+        frozen_reuse_branches = [
+            node
+            for node in ast.walk(train_method)
+            if isinstance(node, ast.If)
+            and ast.unparse(node.test) == 'not args.if_train_teacher'
+        ]
+        self.assertEqual(len(frozen_reuse_branches), 1)
+        frozen_source = ast.get_source_segment(source, frozen_reuse_branches[0])
+        self.assertIn('requires_grad_(False)', frozen_source)
+        self.assertIn('frozen_teacher_reuse_manifest_updates', frozen_source)
+        self.assertNotIn('restore_checkpoint_then_evaluate', frozen_source)
+        self.assertNotIn('data_generator.test_set', frozen_source)
+        self.assertNotIn('teacher_final_test_result=', frozen_source)
+        self.assertFalse(
+            any(
+                isinstance(node, ast.If)
+                and 'run_final_test' in ast.unparse(node.test)
+                for node in ast.walk(frozen_reuse_branches[0])
+            )
+        )
 
     def test_capped_smoke_requires_final_test_to_be_disabled(self):
         self.assertFalse(validate_final_test_policy(1, False))

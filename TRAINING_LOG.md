@@ -5349,3 +5349,157 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   this failed run and its teacher-reranking blocker, then stop without starting
   training. Do not declare seed-2024, change source, rerun seed-2022, create a
   tag/bundle/backup, merge `main`, or launch any experiment in that task.
+
+### 2026-08-02 | Frozen-teacher Test-isolation protocol fix (pending)
+
+- Purpose and rationale: repair the frozen-teacher reuse defect confirmed by
+  failed seed-2022 image-only run
+  `2026-08-02 02_15_00.996496_baby_light_init_pid37484`. When
+  `if_train_teacher=false`, the runner must load and freeze the declared
+  teacher checkpoint for student distillation without performing any new
+  teacher Test ranking, independently of `run_final_test`. Historical teacher
+  quality stored in the checkpoint may remain provenance metadata but must not
+  be represented as an evaluation performed by the current run.
+- Status and authorization boundary: pending implementation and static/unit
+  verification only. This task authorizes the scoped source, focused tests,
+  this append-only trace, and one coherent local commit. It does not authorize
+  loading any Baby split, importing or executing the training entry point,
+  training, Validation ranking, Test ranking, smoke/formal execution,
+  seed-2022 retry, seed-2023/2024 declaration or execution, tag, bundle,
+  backup, baseline overwrite, or merge to `main`.
+- Branch, source, and preservation point: branch
+  `codex/experiment/baby-teacher-baseline` at exact clean commit
+  `3934561e53aa108ea670412ee1db1a439e128ab0`. Preserve the failed seed-2022
+  run and every ignored artifact recorded there; no reset, revert, deletion,
+  or reinterpretation of that evidence is permitted.
+- Declared implementation scope: update the frozen-teacher reuse and manifest
+  logic in `codes/main_mmlight.py`; add a narrow reusable protocol guard in
+  the existing protocol utility only if needed for testability; and add or
+  extend focused synthetic/static tests under `codes/tests/`. The guard must
+  be independent of Baby data and callable before the Test evaluator receives
+  users or accesses Test ranking state. No parser/profile/model/sampler/data,
+  preprocessing/cache, optimizer, loss, checkpoint-format, student selection,
+  student final-Test, or efficiency behavior may change.
+- Required runtime behavior and manifest contract: with
+  `if_train_teacher=false`, load the frozen checkpoint, set teacher/prompt
+  modules to evaluation/frozen use, set
+  `teacher_final_test_performed=false`, and never call an
+  `is_teacher=true, is_val=false` ranking path even when
+  `run_final_test=true`. Any historical final-Test result already embedded in
+  checkpoint metadata must be stored under an explicitly historical/existing
+  metadata field, not `teacher_final_test_result` for the current run. A
+  frozen-teacher attempt to evaluate Test must add a deterministic
+  paper-ready blocker to the run manifest and raise before the evaluator or
+  Test-user materialization is invoked.
+- Risks: a guard placed after `data_generator.test_set` access would be too
+  late; changing the shared test method without preserving the teacher-training
+  and student-finalization paths could block authorized evaluation; leaving
+  stale manifest fields could falsely claim current teacher Test access; and
+  tests that import `main_mmlight.py` could accidentally load Baby data. The
+  implementation must therefore isolate policy from data access and use only
+  static or temporary synthetic fixtures.
+- Acceptance criteria: focused tests prove that frozen-teacher reuse with both
+  `run_final_test=true` and `false` performs no teacher Test evaluation,
+  records `teacher_final_test_performed=false`, labels checkpoint-carried
+  metrics only as historical metadata, and rejects a direct frozen-teacher
+  Test attempt before a sentinel evaluator or Test-user supplier is touched
+  while recording the blocker. Tests must also preserve authorized trained-
+  teacher Test and student final-Test behavior. Relevant unit tests, Python
+  compilation, static source/protocol checks, pure-append log verification,
+  `git diff --check`, staged scope, and `git diff --cached --check` must pass.
+- Planned verification and outcome: inspect existing protocol/manifest/test
+  seams; implement only the declared scope; run focused unit tests plus the
+  relevant existing protocol suite without importing the training entry point;
+  run `py_compile` and static AST/text checks; confirm no Baby data/Test access
+  and no training process; append a separate completed or failed outcome; then
+  create one commit containing only the scoped source/tests and
+  `TRAINING_LOG.md` and stop.
+
+### 2026-08-02 | Frozen-teacher Test-isolation protocol fix (completed)
+
+- Status and outcome: completed successfully. Frozen-teacher reuse now loads
+  and freezes the declared checkpoint for student distillation without any
+  teacher Test ranking, regardless of the student run's `run_final_test`
+  value. The failed seed-2022 image-only run and its six artifacts remain
+  preserved and failed; this code change does not retroactively accept,
+  reinterpret, rerun, or replace that evidence.
+- Source and scope: work began clean on branch
+  `codex/experiment/baby-teacher-baseline` at exact commit
+  `3934561e53aa108ea670412ee1db1a439e128ab0`. The completed scope changes only
+  `codes/main_mmlight.py`, `codes/utility/experiment_protocol.py`,
+  `codes/tests/test_experiment_protocol.py`, and this append-only log. No
+  parser, dataset/student profile, model, loss, sampler, optimizer, data,
+  preprocessing/cache, checkpoint format, efficiency path, or experiment
+  parameter changed.
+- Runtime behavior: the frozen branch captures the loaded checkpoint, sets the
+  teacher and prompt modules to evaluation mode with all parameters
+  `requires_grad=false`, and unconditionally records frozen reuse without
+  teacher Test. The previous `run_final_test`-conditioned frozen-teacher
+  `restore_checkpoint_then_evaluate(... is_teacher=true, is_val=false)` block
+  and its `Teacher reuse summary` were removed. Authorized trained-teacher
+  final Test and student final Test still restore their selected checkpoints
+  and pass through the unchanged evaluator after the new access gate permits
+  them.
+- Manifest contract: every run initializes
+  `teacher_final_test_performed=false`. Frozen reuse retains that value and
+  records `teacher_test_policy=frozen_checkpoint_reuse_no_test_ranking` plus
+  `status=teacher_reused_without_test`. A checkpoint-carried
+  `teacher_final_test_result` or `final_test_result`, when present, is copied
+  only to `teacher_checkpoint_historical_final_test_metadata` with
+  `source=teacher_checkpoint_metadata`, its original field name, and
+  `performed_by_current_run=false`; no current-run
+  `teacher_final_test_result` is emitted by frozen reuse.
+- Test-access hard gate: all runner evaluation-user materialization now uses a
+  lazy supplier. Before that supplier can read Validation/Test user keys, the
+  pure protocol guard rejects exactly
+  `if_train_teacher=false, is_teacher=true, is_val=false`. It first appends the
+  deterministic blocker
+  `frozen-teacher reuse attempted a new teacher Test ranking`, sets
+  `paper_ready_eligible=false`, preserves
+  `teacher_final_test_performed=false`, writes the manifest, and then raises.
+  `Trainer.test` repeats the same guard before model forward/ranking so direct
+  evaluator calls are also blocked. Static regression requires the sole
+  `data_generator.test_set` reference to remain inside the guarded lazy
+  supplier.
+- Focused and full verification: the first focused protocol run passed `19/20`
+  and failed only because a new static assertion incorrectly prohibited
+  passing `run_final_test` into the manifest builder; the implementation had
+  not violated the protocol. The assertion was narrowed to prohibit
+  `run_final_test` control flow, and the focused suite then passed `20/20`.
+  Final `D:\miniconda\envs\run_5060\python.exe -m unittest discover -s
+  codes/tests -p "test_*.py" -v` passed `58/58`. The tests prove pre-access
+  blocker ordering, manifest behavior for both `run_final_test=true/false`,
+  historical-only metric labeling, direct evaluator protection, preserved
+  frozen-teacher Validation, authorized trained-teacher Test, and authorized
+  student Test behavior using only static or temporary synthetic fixtures.
+- Compilation and independent static verification:
+  `D:\miniconda\envs\run_5060\python.exe -m py_compile
+  codes/utility/experiment_protocol.py codes/main_mmlight.py
+  codes/tests/test_experiment_protocol.py` passed. An independent AST/pure-
+  function command, without importing `main_mmlight.py`, returned
+  `STATIC_PROTOCOL_OK`: one guarded lazy Test-set reference, no frozen
+  `Teacher reuse summary`, identical false teacher-Test manifest semantics for
+  both student final-Test settings, and blocker execution before a sentinel
+  user supplier. `git diff --check` passed before this outcome append.
+- Commands, data/Test access, metrics, and artifacts: no Baby dataset or split
+  was loaded or accessed. No training entry point was imported or executed;
+  no training, Validation, Test, smoke, formal run, or efficiency benchmark
+  occurred. Therefore there is no new quality/efficiency metric, run identity,
+  raw log, preflight, manifest, convergence record, checkpoint, dataset/cache
+  artifact, tag, bundle, backup, or merge. Verification created only ignored
+  Python bytecode caches plus temporary synthetic test fixtures; no experiment
+  artifact or frozen teacher file changed.
+- Acceptance and residual risk: all declared static/unit/compile acceptance
+  conditions pass. The live GPU/data runner path remains intentionally
+  unexecuted, so a separately declared later formal run must still verify the
+  manifest and Test chronology at runtime. The prior failed seed-2022 result,
+  cold-item condition, normalized-mixture interpretation boundary, limited
+  seed evidence, and ignored-artifact protection remain unresolved and
+  unchanged.
+- Unique next action: in a separate task, append and commit only the seed-2023
+  image-only formal-run pending declaration for exact profile
+  `baby_td_item_image_only_no_projection_seed2023_v1`, citing the clean commit
+  that contains this fix and explicitly gating future launch on the new
+  frozen-teacher manifest/Test-isolation contract; then stop without loading
+  data or starting any run. Do not declare seed-2024 or rerun seed-2022 in that
+  task.
