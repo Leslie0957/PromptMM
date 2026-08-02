@@ -6766,3 +6766,182 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   ignored artifact protection. No further stage is authorized in this task.
 - Next action: stop and wait for explicit user authorization before any other
   seed, ablation, efficiency test, tag, bundle, backup, or merge.
+
+## 2026-08-02 matched seed-2024 baseline/candidate recovery execution amendment (pending)
+
+- Purpose and recovery rationale: replace only the protocol-noncompliant
+  seed-2024 main-experiment baseline/candidate pair after the retrospective
+  audit proved that both historical frozen-teacher reuse paths performed a
+  prohibited new teacher Test ranking before student training. This recovery
+  is authorized solely by that confirmed Test-isolation implementation defect.
+  It is not motivated by either old run's Validation/Test values, candidate
+  direction, or any quality threshold, and it does not tune, reinterpret,
+  delete, overwrite, or replace the preserved old declarations, metrics, raw
+  logs, manifests, convergence records, or checkpoints.
+- Preserved diagnostic evidence: the old baseline run
+  `2026-08-01 23_31_40.280800_baby_light_init_pid15908` selected epoch `163`
+  with Validation Recall@20 `0.04086654667009528` and final Test Recall@20
+  `0.042307913651446934`; the old candidate run
+  `2026-08-02 00_42_54.029141_baby_light_init_pid29752` selected epoch `60`
+  with Validation Recall@20 `0.0671997942915925` and final Test Recall@20
+  `0.06682881901961434`. Both runs, their metrics, and all six artifacts per
+  run remain protocol-noncompliant diagnostic evidence because each performed
+  one frozen-teacher Test ranking. None of those values changes this recovery's
+  profiles, commands, parameters, acceptance, or execution order.
+- Status and amended authorization: pending serial recovery execution. The
+  user explicitly authorizes both matched seed-2024 main-experiment arms in
+  this one task, strictly baseline first. Append and commit this amendment and
+  the baseline pending declaration, launch and audit the baseline once, then
+  commit one completed or failed outcome. Only if that outcome is `completed`,
+  all hard gates pass, and the outcome commit exists may the candidate pending
+  record be appended and committed and the candidate launched. A baseline
+  failure, connection interruption, or hard-gate violation requires a
+  committed failed outcome and immediate stop without candidate declaration,
+  launch, retry, or second process.
+- Exact branch and source identity: branch
+  `codex/experiment/baby-teacher-baseline` began clean at exact commit
+  `e1cd465623452c41d95582e252112575be0a3f8d`, the completed seed-2023
+  recovery candidate outcome. Frozen-teacher Test-isolation implementation
+  commit is `ee7b3621765b63886c341d63fdc49a20d1a21bc8`; startup
+  `git diff --exit-code ee7b362... e1cd465... -- codes` was empty, proving no
+  post-fix behavior drift. The commit containing this amendment and baseline
+  declaration must be the exact clean baseline launch HEAD.
+- Recovery scope: recover only `baby_student_reference_seed2024_v1` and, if
+  the serial gate opens, `baby_td_asymmetric_no_projection_seed2024_v1`. Do
+  not declare or run image-only ablation, another seed, efficiency, smoke,
+  broad tuning, or any other experiment. Do not modify code, parser/profile
+  defaults, parameters, data, splits, preprocessing, PCA caches, teacher,
+  checkpoint format, sampler, optimizer, evaluation policy, or frozen commands.
+  Do not create a tag, bundle, backup, or merge to `main`.
+- Frozen common controls: audited MMRec Baby; `val_test_once_v1`; train only
+  on `train_mat`; Validation Recall@20 alone selects and early-stops;
+  candidate exclusion `train_only`; `Ks=[10,20,40,50]`; `test_flag=part`;
+  random 64-dimensional `td_distill_no_projection` initialization;
+  `td_init_from_teacher=false`; AdamW `student_lr=6e-5`; student weight decay
+  `0.01`; batch size `1024`; maximum epoch `1000`; Validation every epoch;
+  patience `7`; all `116` batches per completed epoch;
+  `smoke_train_batches=0`; `run_efficiency_benchmark=false`; student and
+  sampling `seed=2024`; frozen preprocessing/cache `hard_token_seed=2022`;
+  no loaded student checkpoint; and canonical override-free profiles.
+- Frozen data and preprocessing identity: conversion manifest SHA256
+  `cf2d0d8c8aff9b321aad0b11d48d078794d12a4920afaa4c8efedfe3beda9df2`;
+  train/Validation/Test SHA256 values
+  `3cead4c601ccef4c2424cd692951935840ccc8f22df15577ced4e5f3fec37fac`,
+  `f1458ff1dc28c5371699780270e3a3e270c8f9ce19def3d5e67d4ba9644ce9d2`,
+  and `773de4f57f2c1bcb6695ea57995280e7cbe114b2b579263a599bb097bb6555ac`;
+  image/text SHA256 values
+  `36c3be592b98506189a7d5de71b21577cf626f0293b539d861534673b3e9fd70`
+  and `6667f2ad655c9ecc97cb3383f58988864ef51ec0b39c158b15986c66769f2dc4`.
+  Frozen image/text PCA caches remain random state `2022`, identities
+  `7634bb6e8dcfdbdd45eee436cc3b8e3f3f8e1e54c85c2f4b9f4a17719cc77c90`
+  and `6e7c8161aaeb01f5e4bb8744be3bf9d16df71cd7cc74ea841bc5c20ad60926ee`,
+  with SHA256 `187852dca1f62554e2d29714ca363e4a92036e948dddfb6c090a5577b6175c8c`
+  and `5e9df184aca47a3c5d96d4db72977878981eca1cf67abba85b06e43528e1e562`.
+- Frozen teacher and environment: reuse only read-only
+  `Model/baby/teacher_model_val_test_once_v1.pt`, exactly `141098540` bytes,
+  SHA256 `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`;
+  `if_train_teacher=false`, `teacher_only=false`, and
+  `allow_teacher_alias_overwrite=false`. Teacher training, optimizer steps,
+  mutation, publication, alias overwrite, run-local teacher checkpoints, and
+  frozen-teacher Test ranking are prohibited. Verified launch environment is
+  `D:\miniconda\envs\run_5060\python.exe`, Python `3.10.20`, PyTorch
+  `2.11.0+cu128`, CUDA runtime `12.8`, driver `595.97`, NVIDIA GeForce RTX
+  5060 with `8151` MiB, GPU `0`; startup training-process count was `0` and
+  drive D free space was `405601091584` bytes.
+- Test-isolation and execution contract: preflight may read Test structure and
+  identity, but frozen-teacher reuse must rank Test zero times and record
+  `teacher_final_test_performed=false` plus
+  `teacher_test_policy=frozen_checkpoint_reuse_no_test_ranking`. Historical
+  checkpoint-carried final-Test metadata, if any, may appear only under
+  `teacher_checkpoint_historical_final_test_metadata` with
+  `performed_by_current_run=false`; a current-run
+  `teacher_final_test_result` is forbidden. Each student must select and
+  restore only its Validation-best checkpoint, then rank final Test exactly
+  once. Every formal command must execute once in one continuously attached
+  foreground shell/tool session with timeout at least `10800000` ms. Parallel
+  or background launch, output closure while active, automatic retry, and a
+  second process are forbidden.
+- Acceptance, quality, and preservation: hard gates cover exact clean source,
+  canonical profile, empty overrides/blockers, environment/data/cache/teacher
+  identity, finite loss and Validation series, all `116` batches, Validation
+  Recall@20-only selection, natural stop, best-checkpoint restore, teacher Test
+  count `0`, student final Test count `1`, completed/paper-ready manifest
+  fields, six same-run artifacts, finite checkpoint structure, ID-only
+  inference export, and bit-for-bit full/inference embedding equality. There
+  is no minimum metric or improvement threshold. Low or reversed compliant
+  results remain completed evidence and cannot trigger parameter changes,
+  retry, rollback, reset, deletion, or suppression. Preserve all old and new
+  artifacts.
+
+## 2026-08-02 baby_student_reference_seed2024_v1 matched recovery formal run (pending)
+
+- Purpose and hypothesis: execute one replacement formal seed-2024 ID-only
+  BPR baseline under the corrected frozen-teacher Test-isolation source. The
+  goal is protocol recovery, not metric improvement; every method and runtime
+  parameter remains the previously frozen
+  `baby_student_reference_seed2024_v1` contract.
+- Status and authorization: pending formal uncapped baseline, authorized for
+  exactly one launch after this amendment/declaration commit is clean. The
+  candidate is not yet declared and remains blocked until this run naturally
+  exits, passes the full protocol/artifact audit, and its `completed` outcome
+  commit exists. A failure requires a committed failed outcome and immediate
+  stop without retry.
+- Exact command, frozen verbatim with no CLI seed, semantic, optimizer,
+  budget, or protocol override:
+  `D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_student_reference_seed2024_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --run_final_test true`
+- Source launch gate: branch
+  `codex/experiment/baby-teacher-baseline`; pre-declaration clean HEAD
+  `e1cd465623452c41d95582e252112575be0a3f8d`; fixed implementation
+  `ee7b3621765b63886c341d63fdc49a20d1a21bc8`; no `codes/` drift between
+  them. The commit containing this amendment and pending declaration must be
+  the exact clean launch HEAD, with no intervening tracked edit.
+- Canonical profile and override contract: exact profile/scope/source
+  `baby_student_reference_seed2024_v1` / `student_reference` /
+  `predeclared_baby_id_only_bpr_reference_seed2024`;
+  `dataset_config_overrides={}`; `student_config_overrides={}`; profile
+  blockers `[]`; training/sampling seed `2024`; `hard_token_seed=2022`;
+  `td_distill_no_projection`; dimension `64`; random initialization;
+  `td_init_from_teacher=false`; AdamW `student_lr=6e-5`; weight decay `0.01`;
+  batch `1024`; epoch `1000`; patience `7`; no smoke cap; final Test enabled;
+  and efficiency disabled.
+- Baseline objective: BPR only. `td_distill_alpha=0.0` and item-image,
+  item-text, user-image, and user-text rates are all `0.0`; no semantic head,
+  projection head, loaded student checkpoint, or teacher warm start may affect
+  the student.
+- Evaluation chronology and hard acceptance: dataset preflight and frozen-
+  teacher validation must pass; every loss/Validation series value must be
+  finite; every completed epoch must use all `116` batches; Validation
+  Recall@20 alone must save/select and naturally early-stop; restore the
+  Validation-best full checkpoint; frozen teacher Test ranking count must be
+  `0`; student final Test ranking count must be exactly `1` and occur only
+  after restore. Manifest must report `status=completed`, protocol
+  `val_test_once_v1`, selection `validation` / `Recall@20`, exclusion
+  `train_only`, both override maps `{}`, `paper_ready_eligible=true`, blockers
+  `[]`, `teacher_final_test_performed=false`, policy
+  `frozen_checkpoint_reuse_no_test_ranking`, and
+  `final_test_performed=true`, with no current-run teacher final-Test result.
+- Planned six isolated artifacts, all sharing one new timestamp/PID identity:
+  raw log `logs/<run_name>`; preflight
+  `exp/runs/baby/dataset_preflight__<run_name>.json`; manifest
+  `exp/runs/baby/run_manifest__<run_name>.json`; convergence record
+  `exp/converge/baby/auto__<run_name>.pkl`; full checkpoint
+  `Model/baby/td_distill/td_distill_full__val_test_once_v1__<run_name>.pth`;
+  and inference-only checkpoint
+  `Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__<run_name>.pth`.
+  All six must exist, share the run identity, and receive byte counts and
+  SHA256 fingerprints; the teacher hash must remain unchanged.
+- Checkpoint/deployment acceptance: the full checkpoint must contain finite
+  user/item ID embeddings plus declared optimizer/metadata state. The
+  inference-only checkpoint must contain exactly finite user/item ID embeddings
+  plus dimension/count/no-projection deployment metadata and no optimizer,
+  teacher, modality, prompt, semantic cache, graph, projection, or other
+  training state. Full and inference embeddings must have identical
+  shape/dtype and be bit-for-bit equal.
+- Next gate: commit this amendment and declaration only; repeat the exact clean
+  HEAD, process, source, canonical-profile, environment, data/cache, and
+  teacher gates; then launch the frozen baseline command exactly once through
+  the required continuously attached foreground session. After natural exit,
+  audit raw log, preflight, manifest, convergence, both checkpoints, teacher,
+  Test chronology, process state, and source/worktree status; append and commit
+  one completed or failed baseline outcome. Only a committed completed outcome
+  opens the amendment's candidate gate.
