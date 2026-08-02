@@ -6516,3 +6516,119 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   and commit the separate canonical `baby_td_asymmetric_no_projection_seed2023_v1`
   candidate pending declaration. Only then launch that candidate once under
   the same foreground timeout and Test-isolation audit rules.
+
+## 2026-08-02 baby_td_asymmetric_no_projection_seed2023_v1 matched recovery formal run (pending)
+
+- Purpose and hypothesis: execute one replacement formal seed-2023 asymmetric
+  no-projection candidate under the corrected frozen-teacher Test-isolation
+  implementation, matched to the completed recovered seed-2023 BPR baseline.
+  This recovery is required solely by the confirmed historical
+  frozen-teacher Test-ranking defect. The candidate's semantic settings were
+  frozen before this baseline evidence and are not selected, tuned, cancelled,
+  reordered, or changed by the baseline metric.
+- Baseline prerequisite and authorization: recovered baseline
+  `baby_student_reference_seed2023_v1` completed all hard gates; its outcome is
+  committed at `9111fcf`. It selected epoch `72`, Validation Recall@20
+  `0.04098274743170617`, and final Test Recall@20 `0.03680654207653432`.
+  These values satisfy only the required baseline-before-candidate sequence
+  gate and did not alter any candidate value. The old protocol-noncompliant
+  candidate and its artifacts remain preserved diagnostic evidence.
+- Status and execution boundary: pending formal uncapped candidate, authorized
+  for exactly one launch after this declaration commit is clean. A process
+  failure, connection interruption, or hard-gate violation requires preserving
+  all state, appending and committing one failed outcome, and stopping. No
+  retry or second process is allowed. No image-only, seed-2024, efficiency,
+  smoke, tag, bundle, backup, merge, or other experiment is authorized.
+- Exact command, frozen verbatim with no CLI seed, semantic, optimizer,
+  budget, or protocol override:
+  `D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_td_asymmetric_no_projection_seed2023_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --run_final_test true`
+- Source and clean-launch gate: branch
+  `codex/experiment/baby-teacher-baseline`; completed baseline outcome
+  `9111fcf`; fixed Test-isolation implementation
+  `ee7b3621765b63886c341d63fdc49a20d1a21bc8`; and no `codes/` behavior drift
+  relative to that fix. The commit containing this pending declaration must be
+  the exact clean launch HEAD; no tracked edit may intervene.
+- Canonical profile and override contract: profile/scope/source exactly
+  `baby_td_asymmetric_no_projection_seed2023_v1` / `student_candidate` /
+  `predeclared_baby_asymmetric_no_projection_directional_v1_seed2023`;
+  `dataset_config_overrides={}`; `student_config_overrides={}`; profile
+  blockers `[]`; student/training/sampling seed `2023`; frozen PCA/cache
+  `hard_token_seed=2022`; `td_distill_no_projection`; dimension `64`; random
+  initialization; `td_init_from_teacher=false`; no loaded student checkpoint,
+  projection, or teacher warm start.
+- Frozen optimizer, sampling, and budget: AdamW `student_lr=6e-5`; student
+  weight decay `0.01`; batch size `1024`; maximum epoch `1000`; Validation
+  every epoch; patience `7`; `smoke_train_batches=0`; unchanged pairwise BPR
+  sampler; all `116` batches per completed epoch; and
+  `run_efficiency_benchmark=false`. No parameter or command differs from the
+  independently frozen seed-2022 candidate method except the profile-owned
+  student/sampling seed `2023`.
+- Frozen semantic objective: `td_distill_alpha=0.3`; item-image rate `1.0`;
+  item-text rate `0.3`; user-image and user-text rates `0.0`. Active heads must
+  be exactly item-image and item-text, optimizing
+  `L_BPR + 0.3 * ((1.0 * L_item_image + 0.3 * L_item_text) / 1.3)`. The only
+  actual behavioral delta from the matched recovered baseline is the declared
+  semantic set `td_distill_alpha`, `td_item_image_rate`, and
+  `td_item_text_rate`; all non-semantic controls remain equal.
+- Frozen data/preprocessing identity: audited MMRec Baby conversion manifest
+  SHA256 `cf2d0d8c8aff9b321aad0b11d48d078794d12a4920afaa4c8efedfe3beda9df2`;
+  train/Validation/Test hashes
+  `3cead4c601ccef4c2424cd692951935840ccc8f22df15577ced4e5f3fec37fac`,
+  `f1458ff1dc28c5371699780270e3a3e270c8f9ce19def3d5e67d4ba9644ce9d2`,
+  and `773de4f57f2c1bcb6695ea57995280e7cbe114b2b579263a599bb097bb6555ac`;
+  image/text hashes
+  `36c3be592b98506189a7d5de71b21577cf626f0293b539d861534673b3e9fd70`,
+  `6667f2ad655c9ecc97cb3383f58988864ef51ec0b39c158b15986c66769f2dc4`;
+  image/text PCA cache SHA256
+  `187852dca1f62554e2d29714ca363e4a92036e948dddfb6c090a5577b6175c8c`,
+  `5e9df184aca47a3c5d96d4db72977878981eca1cf67abba85b06e43528e1e562`.
+  No split, feature, preprocessing, cache, sampler, or data identity change
+  is allowed.
+- Frozen teacher and Test-isolation contract: reuse read-only
+  `Model/baby/teacher_model_val_test_once_v1.pt`, exactly `141098540` bytes,
+  SHA256 `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`;
+  `if_train_teacher=false`, no alias overwrite or mutation, and zero
+  frozen-teacher Test rankings. Manifest must record
+  `teacher_final_test_performed=false`, policy
+  `frozen_checkpoint_reuse_no_test_ranking`, no current-run
+  `teacher_final_test_result`, and historical metadata only under
+  `teacher_checkpoint_historical_final_test_metadata` with
+  `performed_by_current_run=false` if present. The current checkpoint carries
+  no top-level final-Test vector, so `null` is expected.
+- Evaluation chronology and acceptance: unchanged `val_test_once_v1`; train
+  only on `train_mat`; select and early-stop only with Validation Recall@20;
+  candidate exclusion `train_only`; `Ks=[10,20,40,50]`; `test_flag=part`.
+  Preflight may access Test structure/identity. After natural stop, restore
+  the Validation-best full checkpoint and perform exactly one student final
+  Test ranking. Test must not affect selection, acceptance, parameter
+  interpretation, retry, rollback, or profile values. All losses and metric
+  series must be finite, each completed epoch must reach `116/116`, and the
+  manifest must finish `status=completed`, `paper_ready_eligible=true`,
+  blockers `[]`, and `final_test_performed=true`.
+- Planned six same-run artifacts: raw log `logs/<run_name>`; preflight
+  `exp/runs/baby/dataset_preflight__<run_name>.json`; manifest
+  `exp/runs/baby/run_manifest__<run_name>.json`; convergence
+  `exp/converge/baby/auto__<run_name>.pkl`; full checkpoint
+  `Model/baby/td_distill/td_distill_full__val_test_once_v1__<run_name>.pth`;
+  and inference-only checkpoint
+  `Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__<run_name>.pth`.
+  All must share one new timestamp/PID identity, remain outside Git, and be
+  fingerprinted with byte counts and SHA256.
+- Checkpoint/deployment acceptance: full checkpoint must contain finite
+  user/item ID embeddings plus declared optimizer/metadata state; inference
+  export must contain exactly finite user/item ID embeddings plus
+  dimension/count/no-projection metadata and no optimizer, teacher, modality,
+  prompt, semantic cache, graph, projection, or other training state. Full and
+  inference embedding tensors must have identical shape/dtype and be bit-for-
+  bit equal.
+- Quality and preservation rule: there is no minimum metric or improvement
+  threshold. A low or direction-reversed protocol-compliant result is valid
+  completed evidence and cannot trigger parameter changes, retry, rollback,
+  reset, deletion, or suppression. Mark failed only for process/code failure
+  or a hard acceptance violation; preserve every old and new artifact.
+- Next action: commit this declaration only, confirm clean HEAD, process count,
+  source diff, environment, data/cache identity, and teacher hash, then execute
+  this exact command once in the required continuously attached foreground
+  session with timeout at least `10800000 ms`. After natural exit, audit the
+  six artifacts and Test chronology, append and commit one completed or failed
+  candidate outcome, and stop.
