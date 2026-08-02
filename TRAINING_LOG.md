@@ -5503,3 +5503,180 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   frozen-teacher manifest/Test-isolation contract; then stop without loading
   data or starting any run. Do not declare seed-2024 or rerun seed-2022 in that
   task.
+
+## 2026-08-02 frozen-teacher Test chronology correction audit pending
+
+- Status: `pending`; this is a read-only retrospective protocol audit begun from
+  clean commit `ee7b3621765b63886c341d63fdc49a20d1a21bc8` on branch
+  `codex/experiment/baby-teacher-baseline`.
+- Purpose and rationale: audit the frozen-teacher Test chronology of the six
+  existing seed-2022/2023/2024 baseline/candidate formal student runs and
+  correct the prior conclusion that frozen-teacher reuse only copied checkpoint
+  metadata and performed no new teacher Test ranking. The audit hypothesis is
+  that the old `Teacher reuse summary` records came from the pre-fix
+  `restore_checkpoint_then_evaluate(... is_teacher=true, is_val=false)` path and
+  therefore represent a teacher Test ranking recomputed by each run.
+- Declared scope and sources: read only the six existing raw logs, their
+  manifests/preflight records as needed for identity and chronology,
+  `TRAINING_LOG.md`, and Git/source history. The affected run identities are
+  `2026-07-31 12_33_07.292506_baby_light_init_pid7872` (seed-2022 baseline),
+  `2026-07-31 18_35_00.450484_baby_light_init_pid22864` (seed-2022 candidate),
+  `2026-08-01 20_20_35.101504_baby_light_init_pid29128` (seed-2023 baseline),
+  `2026-08-01 21_09_59.190542_baby_light_init_pid33928` (seed-2023 candidate),
+  `2026-08-01 23_31_40.280800_baby_light_init_pid15908` (seed-2024 baseline),
+  and `2026-08-02 00_42_54.029141_baby_light_init_pid29752` (seed-2024
+  candidate). The associated three-seed summaries are in scope for evidence
+  classification only.
+- Explicit exclusions: do not modify code or historical log entries; do not
+  load Baby data or any split; do not import or execute the training entry
+  point; do not train, Validation, or Test; do not declare or run any seed; do
+  not create tags, bundles, backups, or merge `main`.
+- Risks and acceptance criteria: preserve every original raw log, manifest,
+  metric, checkpoint, and other artifact unchanged; identify each run and
+  prove whether its `Teacher reuse summary` is a current-run teacher Test
+  ranking by ordering it against student training/final Test and matching the
+  historical source path. Acceptance requires a per-run chronology finding,
+  explicit correction of the prior metadata-only/no-ranking conclusion, and
+  temporary classification of all six runs plus the three-seed summary as
+  protocol-noncompliant descriptive/diagnostic evidence.
+- Rollback point and verification plan: rollback point is the unchanged
+  `ee7b3621765b63886c341d63fdc49a20d1a21bc8` source tree and preserved log
+  history. After read-only evidence collection, append a separate
+  `completed`/`failed` correction outcome, run append-only and staged diff
+  checks, and create one commit containing only `TRAINING_LOG.md`. No new run
+  or artifact is authorized by this declaration.
+
+## 2026-08-02 frozen-teacher Test chronology correction audit completed
+
+- Status and correction: `completed`. The retrospective audit confirms that
+  all six seed-2022/2023/2024 baseline/candidate formal student runs executed
+  one new frozen-teacher Test ranking before student training. Prior statements
+  that their `Teacher reuse summary` values came only from checkpoint metadata,
+  or that no new teacher Test ranking occurred, are incorrect. Historical
+  entries remain verbatim; this append-only outcome supersedes only that
+  chronology and paper-readiness interpretation.
+- Audit source and scope: branch `codex/experiment/baby-teacher-baseline`, clean
+  audit parent `ee7b3621765b63886c341d63fdc49a20d1a21bc8`. Evidence was limited
+  to the six existing raw logs and manifests, the active `TRAINING_LOG.md`, and
+  Git/source history. No code, profile, parameter, dataset, split, cache,
+  checkpoint, convergence record, raw log, manifest, metric, or artifact was
+  changed.
+- Historical source proof: the exact launch commits
+  `8d8858547a475fd970ae9753496b2a7c06eb472c`,
+  `6948baca05008a8adcb65fe0e83d65c0878e74d4`,
+  `eaaa68d851af2256b7b5c9957eab4cc426fecc8b`,
+  `6c529c7446b7d95529fe24df78138451b3528e51`,
+  `b1b5835a22060dcfe4a76d240d2be1cded157257`, and
+  `e2a730748a7527fe284358e0c19cccd5744b5906` each contain the same
+  frozen-reuse control flow: with `teacher_test_ret is None` and
+  `run_final_test=true`, it reads `data_generator.test_set`, calls
+  `restore_checkpoint_then_evaluate(... self.test(..., is_val=false,
+  is_teacher=true))`, logs `Teacher reuse summary`, and writes
+  `teacher_final_test_result`. The corresponding implementation commits
+  `58fda059...`, `64739bb...`, `03260ee2...`, and `cb22e9d...`, and later
+  pre-fix commit `7108e3e...`, preserve that path; source diffs from each
+  implementation commit to its launch commit are empty for
+  `codes/main_mmlight.py`.
+- Manifest semantic proof: all six old manifests lack a
+  `teacher_final_test_performed` field, contain a top-level
+  `teacher_final_test_result`, and have neither `final_test_result` nor
+  `teacher_final_test_result` inside `teacher_checkpoint_metadata`. Thus the
+  top-level teacher vector is a current-run evaluator result, not copied
+  checkpoint metadata. Every run recomputed the same teacher Test vector at K
+  `[10,20,40,50]`; at K=20 it is Recall
+  `0.08665691369856875`, Precision `0.004836718950887038`, and NDCG
+  `0.04042213264283099`.
+- Affected seed-2022 baseline: run
+  `2026-07-31 12_33_07.292506_baby_light_init_pid7872`, profile
+  `baby_student_reference_v1`, seed `2022`, launch commit `8d885854...`.
+  Raw-log lines `8/9/10` record teacher training skipped, checkpoint loading,
+  and the newly computed teacher summary; line `17` is the first student
+  Validation and line `360` is the sole student final Test after restoring
+  validation-best epoch `163`. Raw log is `76795` bytes / SHA256
+  `2664a00666cd95920f572dca5b1fc4441fd01d8534b1a711e65a45d300f1e256`;
+  manifest is `25331` bytes / SHA256
+  `cd2c5aa1fae79af8f8161dfee4fbb2bf9f451b591607df6c646d1dbf8b67af7d`.
+- Affected seed-2022 candidate: run
+  `2026-07-31 18_35_00.450484_baby_light_init_pid22864`, profile
+  `baby_td_asymmetric_no_projection_v1`, seed `2022`, launch commit
+  `6948baca...`. The same teacher events are at raw-log lines `8/9/10`, before
+  first student Validation at line `17`; the sole student final Test is line
+  `180` after restoring epoch `73`. Raw log is `39273` bytes / SHA256
+  `1b544004190bf48f3364d6fae820fcf5f838205fd7ad4b1d667ba5bb9966ba28`;
+  manifest is `25398` bytes / SHA256
+  `967779e828f820ece44bd2a75331ee48a1a4e45ca2cefbb7b43bbe5eb3793480`.
+- Affected seed-2023 baseline: run
+  `2026-08-01 20_20_35.101504_baby_light_init_pid29128`, profile
+  `baby_student_reference_seed2023_v1`, seed `2023`, launch commit
+  `eaaa68d8...`. Teacher skip/load/recomputed-summary lines `8/9/10` precede
+  first student Validation line `17`; the sole student final Test is line
+  `178` after restoring epoch `72`. Raw log is `39035` bytes / SHA256
+  `e8f3ebaafe0e420e4816df80869393fb746de17979c3eb7faf9656a190e01596`;
+  manifest is `25383` bytes / SHA256
+  `edcc1b4d858eecbad5724ac0c46608abb572bb9412f78a1555156cff278a7d33`.
+- Affected seed-2023 candidate: run
+  `2026-08-01 21_09_59.190542_baby_light_init_pid33928`, profile
+  `baby_td_asymmetric_no_projection_seed2023_v1`, seed `2023`, launch commit
+  `6c529c74...`. Teacher skip/load/recomputed-summary lines `8/9/10` precede
+  first student Validation line `17`; the sole student final Test is line
+  `122` after restoring epoch `44`. Raw log is `27194` bytes / SHA256
+  `98770421a4668bba8bdce727e045c003be087065f6c59a2487dd0e8ed51987e2`;
+  manifest is `25443` bytes / SHA256
+  `357afe298cc1a771ddd30aaddd046a73298894e899e636c6eae0bc546608a42a`.
+- Affected seed-2024 baseline: run
+  `2026-08-01 23_31_40.280800_baby_light_init_pid15908`, profile
+  `baby_student_reference_seed2024_v1`, seed `2024`, launch commit
+  `b1b5835a...`. Teacher skip/load/recomputed-summary lines `8/9/10` precede
+  first student Validation line `17`; the sole student final Test is line
+  `360` after restoring epoch `163`. Raw log is `76963` bytes / SHA256
+  `4458c705f2eaabf604165ab06db9e56f9efb1ae8443316022d8a37dce5593e8d`;
+  manifest is `25386` bytes / SHA256
+  `d0f3e2bb49dd641a1b88d5a16e0fb73c0fa5e45c1b5e65d2d3418d1d1ae04b7c`.
+- Affected seed-2024 candidate: run
+  `2026-08-02 00_42_54.029141_baby_light_init_pid29752`, profile
+  `baby_td_asymmetric_no_projection_seed2024_v1`, seed `2024`, launch commit
+  `e2a73074...`. Teacher skip/load/recomputed-summary lines `8/9/10` precede
+  first student Validation line `17`; the sole student final Test is line
+  `154` after restoring epoch `60`. Raw log is `33827` bytes / SHA256
+  `4fc9661bf13decf360894ba28171e2ac754be395099ee1a93f4ca1e5306f13db`;
+  manifest is `25447` bytes / SHA256
+  `96ad86aaae2ba745bb5ec78ad9091a691d9aa26b64eb77a909af2df294823212`.
+- Corrected Test chronology: each affected run performed two ranking accesses
+  to Test: first, one prohibited frozen-teacher ranking immediately after
+  checkpoint load and before student training/Validation; second, one
+  authorized student final Test only after natural early stopping and
+  validation-best checkpoint restoration. Student Validation selection,
+  student final-Test metrics, teacher checkpoint identity, and all previously
+  recorded artifact paths/bytes/SHA256 remain unchanged, but they do not erase
+  the first protocol violation.
+- Evidence reclassification: the six runs retain their original process
+  completion, numerical results, manifests, raw logs, convergence records, and
+  checkpoints, but are now temporarily classified as protocol-noncompliant
+  `descriptive/diagnostic evidence`, not paper-ready formal evidence. The
+  canonical matched three-seed summary and its means, sample SDs, and paired
+  deltas are likewise retained unchanged only as protocol-noncompliant
+  descriptive/diagnostic calculations. Historical manifest values
+  `paper_ready_eligible=true`, `paper_ready_blockers=[]`, and `status=completed`
+  predate the missing teacher-Test gate and cannot establish current
+  paper-readiness for these runs.
+- Preservation, commands, and new evidence: this audit ran only read-only text,
+  JSON, hash, and Git/source-history checks. It did not load Baby or any data
+  split, import/execute project code, train, Validation, Test, rank, declare or
+  run any seed, or create/modify an experiment artifact. It generated no new
+  quality metric, run identity, raw log, manifest, preflight, convergence
+  record, checkpoint, tag, bundle, backup, or merge. All original metrics and
+  artifacts remain preserved; only this EOF log correction is tracked.
+- Acceptance and residual risk: every raw log contains exactly one
+  `Teacher reuse summary` and exactly one student final-Test summary in the
+  stated order; all six manifests and their recorded fingerprints match; and
+  all six launch sources prove the prohibited evaluator call. The corrected
+  `ee7b362...` source prevents recurrence but cannot retroactively make these
+  six executions compliant. Their quality directions remain descriptive only
+  until replacement formal evidence is produced under the fixed protocol.
+- Unique recovery next action: only with separate explicit user authorization,
+  begin a staged replacement of this protocol-noncompliant frozen-teacher run
+  line from the fixed source. The first separate task should append and commit
+  only a seed-2022 baseline recovery formal-run pending declaration citing
+  `ee7b362...` and this audit outcome, then stop without loading data or
+  starting a run; later baseline/candidate and seed stages require their own
+  authorization and outcomes.
