@@ -7390,3 +7390,198 @@ records remain under `exp/`; checkpoints remain under `Model/`.
 - Next action: commit this completed candidate outcome, then stop and wait for
   explicit user authorization before any image-only run, efficiency test,
   summary, another seed, tag, bundle, backup, merge, or other experiment stage.
+
+## 2026-08-02 canonical recovered three-seed baseline/candidate summary (pending)
+
+- Purpose and rationale: establish one canonical descriptive summary from the
+  six already completed protocol-compliant recovered Baby outcomes, covering
+  matched baseline/candidate pairs for seeds `2022`, `2023`, and `2024`. This
+  documentation stage consolidates existing evidence only; it does not select,
+  tune, rerun, reinterpret, or alter any method, parameter, checkpoint, split,
+  metric, artifact, or protocol.
+- Status and authorization: pending documentation-only canonical recovery
+  summary. The user authorizes one append-only pending/completed update to
+  `TRAINING_LOG.md`, focused read-only manifest/statistical verification, and
+  one coherent documentation commit. No code edit, project-code execution,
+  data-split load, training, Validation ranking, Test ranking, image-only run,
+  efficiency experiment, new seed, tag, bundle, backup, merge to `main`, or
+  other experiment stage is authorized.
+- Exact source boundary: use only the six recovered completed outcome records
+  in this active log and the following six run manifests:
+  - seed-2022 baseline
+    `exp/runs/baby/run_manifest__2026-08-02 11_06_37.355218_baby_light_init_pid17532.json`;
+  - seed-2022 candidate
+    `exp/runs/baby/run_manifest__2026-08-02 12_05_26.329228_baby_light_init_pid27620.json`;
+  - seed-2023 baseline
+    `exp/runs/baby/run_manifest__2026-08-02 12_48_21.776381_baby_light_init_pid36572.json`;
+  - seed-2023 candidate
+    `exp/runs/baby/run_manifest__2026-08-02 13_11_41.705929_baby_light_init_pid4516.json`;
+  - seed-2024 baseline
+    `exp/runs/baby/run_manifest__2026-08-02 15_02_09.238814_baby_light_init_pid33332.json`;
+  - seed-2024 candidate
+    `exp/runs/baby/run_manifest__2026-08-02 16_36_39.774993_baby_light_init_pid5916.json`.
+  Do not inspect or substitute the six older protocol-noncompliant run
+  manifests, convergence files, raw logs, checkpoints, preflight files, data
+  splits, or any other result source.
+- Required identity and protocol gates: each selected manifest must exist and
+  uniquely match its declared run, seed, arm profile, and `val_test_once_v1` /
+  Validation Recall@20 / `train_only` identity. All six must report
+  `status=completed`, `paper_ready_eligible=true`, blockers `[]`, empty
+  dataset/student override maps, `teacher_final_test_performed=false`,
+  `teacher_test_policy=frozen_checkpoint_reuse_no_test_ranking`, no current-run
+  `teacher_final_test_result`, `run_final_test=true`, and
+  `final_test_performed=true`. This establishes frozen-teacher Test ranking
+  count `0` and student final Test ranking count `1` per recovered run from
+  already recorded manifest state; no ranking command may be executed.
+- Required descriptive statistics: extract only exact Validation-best
+  Recall@20 and final Test Recall@20 from each selected manifest. For each seed,
+  report baseline, candidate, and paired delta defined as
+  `candidate - baseline`, separately for Validation and Test. Across the three
+  seeds, independently recompute the baseline arm mean/sample SD, candidate arm
+  mean/sample SD, and paired-delta mean/sample SD, using the arithmetic mean and
+  sample standard deviation with `ddof=1` (`n-1` denominator). Preserve full
+  precision in the calculation and report enough digits to reproduce it.
+- Evidence classification: the six older pre-fix seed-2022/2023/2024
+  baseline/candidate runs and all their declarations, metrics, and artifacts
+  remain preserved as diagnostic evidence because frozen-teacher reuse ranked
+  Test once in each. They must not enter the canonical statistics. The six
+  selected recovered runs, and only those six, become the current formal
+  matched three-seed evidence after all gates and statistics pass.
+- Risks and acceptance: principal risks are selecting an old manifest,
+  transcribing a metric from prose instead of the selected manifest, swapping
+  arm/seed identity, using population SD, rounding before aggregation, or
+  implying significance from three descriptive pairs. Acceptance requires an
+  exact six-manifest allowlist, all protocol/eligibility/Test-isolation gates,
+  exact outcome-to-manifest metric agreement, paired arithmetic recomputed from
+  full-precision values, and a clear descriptive-only interpretation. No
+  statistical significance claim, cross-dataset claim, or parameter conclusion
+  is authorized.
+- Rollback/preservation point: clean branch
+  `codex/experiment/baby-teacher-baseline` at exact completed recovered
+  candidate outcome commit `39cc90c0b607759e83c47898c2d60d17cf784c1b`.
+  Preserve all old and recovered records and ignored artifacts; no rollback,
+  reset, deletion, tag, bundle, backup, or merge is authorized.
+- Planned verification and next action: parse the exact six allowlisted JSON
+  manifests with a standard structured JSON reader; assert identity, status,
+  protocol, eligibility, blockers, overrides, teacher Test isolation, and
+  student final-Test fields; compare manifest Recall@20 values to the six
+  recovered outcome records; recompute per-seed deltas and all means/sample SDs
+  from full precision; append a separate completed or failed record; run
+  focused content checks plus `git diff --check`; create one documentation
+  commit containing only `TRAINING_LOG.md`; then stop.
+
+## 2026-08-02 canonical recovered three-seed baseline/candidate summary (completed)
+
+- Status and scope: completed the documentation-only canonical summary from
+  exactly six allowlisted recovered run manifests and their six completed
+  outcome records. No data split, preflight file, convergence record, raw log,
+  checkpoint, old run manifest, or other result source was loaded. No training,
+  Validation/Test ranking, code/parameter edit, image-only run, efficiency
+  experiment, new seed, tag, bundle, backup, or merge occurred.
+- Source and Git identity: branch
+  `codex/experiment/baby-teacher-baseline`; clean summary predecessor and
+  rollback/preservation point
+  `39cc90c0b607759e83c47898c2d60d17cf784c1b`, the completed recovered
+  seed-2024 candidate outcome. This summary changes only append-only experiment
+  documentation in `TRAINING_LOG.md`; all source code, profiles, parameters,
+  protocols, datasets, checkpoints, and generated run artifacts remain
+  unchanged.
+- Six canonical recovered manifest identities, bytes, and SHA256:
+  - seed-2022 baseline
+    `exp/runs/baby/run_manifest__2026-08-02 11_06_37.355218_baby_light_init_pid17532.json`,
+    `24904` bytes,
+    `56ab1754b5785280ae3f1c837b7828ff5d659e7d315be2e8b37eeb71fe98a911`;
+  - seed-2022 candidate
+    `exp/runs/baby/run_manifest__2026-08-02 12_05_26.329228_baby_light_init_pid27620.json`,
+    `24963` bytes,
+    `15bbc9b33594e6b428f2d91dd8a443790d20e9b849bec199dc44e082b946b356`;
+  - seed-2023 baseline
+    `exp/runs/baby/run_manifest__2026-08-02 12_48_21.776381_baby_light_init_pid36572.json`,
+    `24947` bytes,
+    `e5fbc3f0136825d4687af12add16f465ae6f6bbad3fe5935be9654e5ffcfdadb`;
+  - seed-2023 candidate
+    `exp/runs/baby/run_manifest__2026-08-02 13_11_41.705929_baby_light_init_pid4516.json`,
+    `24999` bytes,
+    `de0baf59683546168535d9a365a901838842b2b7153f16d82cdcbd02fc87e5e3`;
+  - seed-2024 baseline
+    `exp/runs/baby/run_manifest__2026-08-02 15_02_09.238814_baby_light_init_pid33332.json`,
+    `24950` bytes,
+    `ef6ec5a22a7c1839cfc673148ca56f4712c27890e79a67809d7806fdc4b516b9`;
+  - seed-2024 candidate
+    `exp/runs/baby/run_manifest__2026-08-02 16_36_39.774993_baby_light_init_pid5916.json`,
+    `25003` bytes,
+    `cd108133710cd682f4a7d82dbc945ae5fb4eec4588e68cc762394cc8902735fd`.
+- Manifest and outcome gates: all six manifests uniquely matched the allowlisted
+  seed/run/profile/arm identities and their completed outcome records. Every
+  manifest reported `status=completed`, protocol `val_test_once_v1`, selection
+  `validation` / `Recall@20`, exclusion `train_only`,
+  `paper_ready_eligible=true`, blockers `[]`, and empty dataset/student
+  override maps. All six reported
+  `teacher_final_test_performed=false`, policy
+  `frozen_checkpoint_reuse_no_test_ranking`, no current-run
+  `teacher_final_test_result`, `run_final_test=true`, and
+  `final_test_performed=true`; corresponding outcomes independently recorded
+  frozen teacher Test ranking `0` and exactly one student final Test ranking.
+  Aggregate ranking counts across the six recovered runs are frozen teacher
+  `0` and student final Test `6`.
+- Exact matched per-seed Recall@20 values and paired deltas
+  (`candidate - baseline`):
+
+  | Seed | Validation baseline | Validation candidate | Validation delta | Test baseline | Test candidate | Test delta |
+  | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+  | 2022 | 0.04291303921928788 | 0.06842596333982363 | +0.025512924120535754 | 0.044279857310199594 | 0.06659234097521655 | +0.022312483665016952 |
+  | 2023 | 0.04098274743170617 | 0.06479423036892924 | +0.023811482937223072 | 0.03680654207653432 | 0.06531066330886427 | +0.028504121232329954 |
+  | 2024 | 0.04086654667009528 | 0.0671997942915925 | +0.026333247621497212 | 0.042307913651446934 | 0.06682881901961434 | +0.024520905368167402 |
+
+- Three-seed descriptive statistics, calculated from the exact values above.
+  SD is the sample standard deviation with `ddof=1` and denominator `n-1=2`;
+  no value was rounded before aggregation:
+
+  | Split | Arm/statistic | Mean | Sample SD (`ddof=1`) |
+  | --- | --- | ---: | ---: |
+  | Validation | baseline | 0.04158744444036311 | 0.0011494680477004105 |
+  | Validation | candidate | 0.0668066626667818 | 0.0018475079022266937 |
+  | Validation | paired delta | +0.025219218226418677 | 0.0012862821015983998 |
+  | Test | baseline | 0.04113143767939362 | 0.0038730713819974285 |
+  | Test | candidate | 0.06624394110123172 | 0.0008168451779041365 |
+  | Test | paired delta | +0.0251125034218381 | 0.0031379268847553854 |
+
+- Statistical verification: `CANONICAL_RECOVERY_SUMMARY_AUDIT_OK` passed the
+  exact six-path allowlist, run/seed/profile/arm mapping, manifest protocol and
+  eligibility gates, outcome-to-manifest metric equality, teacher/student Test
+  count evidence, per-seed subtraction, and all aggregate computations. Each
+  mean used `sum(x)/3`; every sample SD was computed independently both with
+  `statistics.stdev` and the explicit
+  `sqrt(sum((x - mean)^2)/(3 - 1))` formula, agreeing within `1e-18` absolute.
+  A preliminary text-marker check incorrectly treated Markdown line wrapping
+  as missing student-count prose; whitespace normalization removed that parser
+  false positive, and the unchanged evidence then passed every final gate.
+- Canonical evidence boundary: the six older pre-fix seed-2022/2023/2024
+  baseline/candidate runs remain preserved verbatim as diagnostic evidence,
+  including their declarations, metrics, manifests, logs, convergence records,
+  and checkpoints. They remain excluded because each frozen-teacher reuse path
+  performed one prohibited teacher Test ranking. The six allowlisted recovered
+  runs above now constitute the current formal matched three-seed evidence for
+  the ID-only BPR baseline versus asymmetric no-projection directional
+  distillation under `val_test_once_v1`.
+- Experimental interpretation: candidate Recall@20 exceeded its matched
+  baseline for all three seeds on both Validation and final Test, and both
+  paired-delta means are positive. These are descriptive three-seed results,
+  not a significance test. They do not establish a population effect,
+  cross-dataset generalization, semantic-rate optimality, or the contribution
+  of either individual modality component.
+- Test access and artifacts: this summary task did not load or access any data
+  split and executed no ranking. It read only the six existing JSON manifests
+  and six recovered outcome sections, whose already-authorized final Test
+  metrics are summarized above. No new generated experiment artifact or metric
+  was created; the only requested artifact is this canonical documentation and
+  its Git commit.
+- Unresolved risks: `n=3` provides limited uncertainty evidence; all formal
+  results remain on one dataset; the fixed official cold-item condition remains
+  part of the six run identities; component-level causality is untested by this
+  main-method summary; and ignored manifests/logs/checkpoints are not protected
+  by Git or the repository bundle.
+- Next action: commit this pending/completed canonical summary as one
+  documentation commit, then stop and wait for explicit user authorization
+  before any stable-milestone preservation, ablation, efficiency, tag, bundle,
+  backup, merge, or other experiment stage.
