@@ -8563,3 +8563,50 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   exception acceptance before using seed-2023 in a formal summary. No new
   training is needed for that decision. Copy-ready approval instruction:
   `同意按审计例外接受现有 seed-2023 结果；只记录接受决定并提交，保留原 manifest 与失败记录，不启动训练。`
+
+## 2026-09-14 seed-2023 audited-exception acceptance decision (pending)
+
+- Authorization/purpose: the user explicitly approved accepting the existing
+  seed-2023 result under the preceding audited-exception proposal. Scope: append
+  only this acceptance decision and verification to `TRAINING_LOG.md`, commit,
+  and stop. No new experiment, summary table, policy change or training.
+- Acceptance/risk: distinguish retrospective approval from automated eligibility;
+  preserve the manifest, failed outcome and supplement verbatim. Limit acceptance
+  to run `2026-09-14 17_09_49.294989_baby_light_init_pid2004` and its already
+  audited immutable metrics; no general waiver, retry selection or protocol
+  relaxation. Verification: original manifest hash/status and append-only diff.
+- Rollback/source point: clean parent
+  `2624d9d8d6a3b1f08d04f8569ae7607408ecc77e`, branch
+  `codex/experiment/baby-teacher-baseline`. No split loading or Test ranking.
+
+## 2026-09-14 seed-2023 audited-exception acceptance decision (completed)
+
+- Decision: explicitly approved by the user. Accept existing run
+  `2026-09-14 17_09_49.294989_baby_light_init_pid2004` once as an audited
+  exception for matched-seed ablation reporting, subject to the preceding
+  supplement and its limitations. Retrospective evidence acceptance is now
+  `accepted_by_user_audited_exception`; automated eligibility remains false.
+  This does not claim that the original formal hard gate passed.
+- Basis: separator-only false override, equal resolved teacher path and hash,
+  preserved source/artifact evidence, and previously verified numerical,
+  Validation-selection, Test-isolation and checkpoint consistency. Acceptance
+  does not depend on metric direction and authorizes no retry or next seed.
+- Reporting: use original metrics without rerun or replacement; identify this
+  exception in any future formal table and link the original manifest, failed
+  outcome, audit supplement and this decision. Preserve conflicting historical
+  automated status rather than silently rewriting it. No table was generated
+  in this task. Normalized-mixture confounding, retained official cold items,
+  incomplete three-seed set and uncaptured manual exit code remain disclosed.
+- Verification: original manifest SHA256 remains
+  `3dda1be595ad4dd2fddf19931bada243e8a1281c20d71278c7815423a3b37bff`,
+  status `completed`, eligibility false and original blocker unchanged.
+  Focused diff checks verify an EOF-only append to this log. Commands were
+  guidance/log reads, Git inspection, manifest hash/status checks and commit;
+  no split loading, Test ranking, training or experimental artifact generation.
+  No new metric exists; all prior artifacts and failed records are untouched.
+- Handoff: commit this log-only decision on
+  `codex/experiment/baby-teacher-baseline` and stop. Exactly one recommended
+  next step is a combined no-training interpretation of accepted seed-2022 and
+  seed-2023 image-only results, without further acceptance micro-steps. Expected
+  output is one paired comparison and recommendation, not a new run.
+  Copy-ready instruction: `继续：一次性汇总 seed-2022 和已接受的 seed-2023 item-image-only 消融，解释对第一创新点的意义并建议下一实验；不要启动训练。`
