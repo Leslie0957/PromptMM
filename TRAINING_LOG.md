@@ -8247,3 +8247,92 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   and then report only that it finished or failed. Expected outputs are the six
   new same-run artifacts declared above. The later audit task will inspect and
   commit the outcome but will not rerun or advance to seed-2024.
+
+## 2026-09-14 repository experiment-record simplification (pending)
+
+- Purpose and rationale: reduce the time and duplicated prose required for
+  routine formal-run declarations while preserving the controls that determine
+  whether an experiment is reproducible and auditable. The present seed-2023
+  item-image-only declaration remains pending and unchanged.
+- Declared scope: update only `AGENTS.md` plus append-only records in this log.
+  Do not change project code, profiles, parameters, data, checkpoints,
+  environment, commands, protocol, artifact names, or experiment results. Do
+  not start training or access Validation/Test data.
+- Planned policy changes:
+  1. Startup reading may use the active log header/current-state material and
+     the newest entries relevant to the task; the entire historical log is
+     required only when an older dependency is unresolved or an anchor cannot
+     otherwise be verified.
+  2. Stable dataset, teacher, protocol, and common-parameter identities may be
+     frozen once as a named shared anchor. Later declarations must cite that
+     anchor and record only their changed fields instead of repeating it.
+  3. A declaration-only task needs one pending run record and one coherent Git
+     commit, not a second duplicate declaration-completed record. The actual
+     run must still receive a separate completed or failed outcome afterward.
+  4. Prelaunch checks may focus on changed fields and referenced anchors.
+     Rehashing all common assets is required only when identity changed, the
+     evidence is stale or untrusted, or no valid anchor exists.
+  5. Post-run auditing remains strict: record execution status, resolved
+     parameters, Validation/Test chronology, zero teacher Test and exactly one
+     student Test under `val_test_once_v1`, finite objective/metric series,
+     selected-versus-tested checkpoint equality, artifact fingerprints, and
+     clean committed source.
+  6. Completion handoffs become proportional. Declaration-only handoffs are
+     brief; completed/failed formal-run handoffs retain the full experimental
+     evidence and one next step.
+  7. Pending/completed trace remains mandatory for changes to implementation,
+     profiles, parameters, protocol, data, preprocessing, environment, or
+     repository policy.
+- Minimal declaration acceptance rule: every formal declaration must still
+  identify its run/profile and seed, exact shared anchor, delta from that
+  anchor, exact command, branch and launch-source rule, one-launch/no-retry/no-
+  next-stage guard, Test policy, expected artifact family, and comparison
+  anchor. The declaration commit may become the launch HEAD without embedding
+  its own not-yet-known hash in the same commit.
+- Preservation and launch-pointer rule: because this task changes only policy
+  prose and this append-only log, its resulting clean commit is permitted to
+  become the launch HEAD for the already-declared seed-2023 command. The
+  profile, source code, command, teacher, data, protocol, output family, and
+  no-retry boundary remain those recorded at parent `3bf55350e5ed692db8cb36f7b0364294476c9880`.
+  This is not a new run declaration and does not authorize agent-side launch.
+- Risks: an overly terse future record could cite the wrong anchor or conceal a
+  changed field. Mitigation is mandatory exact anchor identification, explicit
+  deltas, an exact command, proportional verification, and the unchanged full
+  outcome audit.
+- Verification and rollback point: inspect the focused policy diff, confirm
+  the minimal declaration fields and post-run safeguards remain explicit,
+  confirm only `AGENTS.md` and this append-only log change, and create one local
+  commit. Rollback point is clean parent
+  `3bf55350e5ed692db8cb36f7b0364294476c9880`; no rollback will be performed
+  automatically.
+
+## 2026-09-14 repository experiment-record simplification (completed)
+
+- Status: completed successfully. `AGENTS.md` now permits targeted reading of
+  the active log, shared experiment anchors, changed-field prelaunch checks,
+  proportional handoffs, and a single pending record plus commit for a pure
+  declaration-only task. It still requires before/after records for material
+  experiment or policy changes and a separate completed/failed outcome after
+  every actual run.
+- Preserved safeguards: clean committed launch source, exact command, explicit
+  profile/seed/delta/anchor, Test policy, expected artifact family,
+  one-launch/no-retry/no-next-stage boundaries, failure preservation, and full
+  post-run chronology/metric/checkpoint/artifact/source audit remain mandatory.
+- Verification evidence: `git diff --check` passed; focused diff and `rg`
+  checks confirmed the old full-log-every-task requirement was removed and the
+  declaration-only exception, shared-anchor fields, launch guards, and strict
+  post-run Test audit are explicit. Only `AGENTS.md` and append-only
+  `TRAINING_LOG.md` records are in scope.
+- Experiment impact: none. No project code, profile, parameter, command, data,
+  teacher checkpoint, protocol, or artifact identity changed. No project code
+  or training process ran; no split was loaded; Validation/Test were not
+  accessed; no metrics, checkpoints, manifests, or run artifacts were created.
+- Seed-2023 preservation: the item-image-only command declared at parent
+  `3bf55350e5ed692db8cb36f7b0364294476c9880` remains the sole pending formal
+  run. Under the new launch-pointer rule, the clean commit containing this
+  policy-only update becomes its valid launch HEAD without requiring another
+  duplicated declaration. It does not authorize an agent-side launch or retry.
+- Exactly one next step: the user may manually execute the already-declared
+  seed-2023 item-image-only command once from the clean policy commit, then
+  report whether it finished or failed so the next task can audit that outcome
+  without rerunning or advancing to another seed.

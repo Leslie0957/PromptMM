@@ -6,9 +6,11 @@ Before making experiment recommendations, editing repository files, or running
 project code in this workspace:
 
 - Read this `AGENTS.md` completely.
-- Read the complete active `TRAINING_LOG.md` at the repository root. Follow its
-  archive links only when historical detail is needed; never substitute an old
-  snapshot for the active log.
+- Read the active `TRAINING_LOG.md` header/current-state material and the newest
+  entries relevant to the task. Use targeted search and bounded sections first;
+  read the full historical log only when an older dependency is unresolved or
+  a cited experiment anchor cannot otherwise be verified. Never substitute an
+  old snapshot for the active log.
 - Inspect `git status --short --branch` before editing. Preserve and work around
   unrelated user changes; never reset, discard, overwrite, stage, or commit them.
 - Identify whether the task can affect model behavior, experiment protocol,
@@ -44,6 +46,13 @@ reproducibility:
    Report the resulting commit hash at task completion and record it in the next
    formal-run declaration when the change will be used for training.
 
+A declaration-only task that changes no implementation, profile, parameter,
+data, environment, or protocol is the exception to the duplicate outcome rule:
+one `pending` formal-run record plus its coherent Git commit completes the
+declaration task. Do not append a second declaration-completed record that merely
+repeats it. The later execution must still receive a separate `completed` or
+`failed` run outcome.
+
 Ordinary prose, spelling, or formatting changes that cannot affect experiments
 do not require pending/completed entries in `TRAINING_LOG.md`; their Git commit
 is the trace. Repository-policy changes and training-log reorganizations are
@@ -51,32 +60,27 @@ material and must record their own preservation and verification evidence.
 
 ## Mandatory Completion Handoff
 
-1. At the start of every task, read this complete `AGENTS.md`, read the complete
-   active `TRAINING_LOG.md`, and inspect `git status --short --branch` before
-   recommending experiments, editing files, or running project code.
+1. At the start of every task, read this complete `AGENTS.md`, the active log
+   sections required by the startup rule above, and inspect
+   `git status --short --branch` before recommending experiments, editing files,
+   or running project code.
 2. Use the active log to identify the current experiment stage, completed work,
    unresolved risks, and the single recommended next step. Repository records,
    not chat memory, are the source of continuity.
-3. For every experiment-related change, append a `pending` entry before the
+3. For every experiment-affecting change, append a `pending` entry before the
    change and a separate `completed` or `failed` entry afterward. Preserve old
-   entries verbatim; never rewrite a declaration into its outcome.
+   entries verbatim; never rewrite a declaration into its outcome. Apply the
+   declaration-only exception above when no experiment-affecting field changes.
 4. After a change, run verification proportional to its risk and automatically
    create one coherent local Git commit for the completed scope. Never stage or
    commit unrelated files.
-5. End every task with a proactive handoff that reports all of the following:
-   - the task objective and whether it succeeded, failed, or partially
-     completed;
-   - the commands actually executed and their key parameters;
-   - verification results, metrics, and artifact paths, explicitly stating
-     when a category has no result;
-   - whether the test split was accessed and whether execution complied with
-     the declared protocol;
-   - the branch, every new commit hash, and whether the working tree is clean;
-   - the experimental meaning of the result and all unresolved risks;
-   - exactly one recommended next step, with its rationale, prerequisites, and
-     expected artifacts;
-   - one copy-ready instruction that the user can send to authorize and perform
-     that next step.
+5. Make the completion handoff proportional to the task. A declaration-only
+   handoff needs only status, branch/commit/cleanliness, exact launch command,
+   confirmation that no run or Test access occurred, and one next step. A
+   completed or failed formal run still reports commands and parameters,
+   verification and metrics, artifact paths/fingerprints, Test chronology and
+   protocol compliance, branch/commits/cleanliness, experimental meaning,
+   unresolved risks, and exactly one copy-ready next step.
 6. If a task fails, report the root cause, valid artifacts that remain, and a
    concrete recovery plan before recommending the next action. Never describe a
    failed or partial result as completed.
@@ -111,10 +115,22 @@ material and must record their own preservation and verification evidence.
 ## Formal Run Gate
 
 - Never start a formal or long training run from dirty or uncommitted source.
-- Before launch, ensure the exact source is committed and record the commit
-  hash, branch, full command, environment, dataset and preprocessing identity,
-  teacher/student checkpoint identity, protocol, parameters, seeds, acceptance
-  rule, and planned artifact paths in `TRAINING_LOG.md` or the run manifest.
+- Freeze stable dataset, preprocessing, teacher, protocol, environment, and
+  common-parameter identities once as a named shared anchor in
+  `TRAINING_LOG.md` or a committed/run manifest. A later run may cite that exact
+  anchor instead of repeating its hashes and parameters. Repeat or rehash a
+  common identity only when it changed, is stale or untrusted, or no valid
+  anchor exists.
+- Before launch, ensure the exact source is committed. A minimal declaration
+  must record the run/profile and seed, exact shared anchor, explicit delta from
+  it, full command, branch and launch-source rule, comparison anchor, Test
+  policy, expected artifact family, and one-launch/no-retry/no-next-stage guard.
+  The commit containing the declaration may be the launch HEAD; it need not
+  embed its own not-yet-known hash in that same commit.
+- Keep prelaunch verification proportional: verify the changed fields and the
+  referenced anchor, and let the runtime preflight/manifest capture resolved
+  common identities. Do not repeatedly inventory or hash unchanged assets just
+  to restate an already verified anchor.
 - A run-specific authorization remains valid while the agent records and
   commits that exact run declaration. If the declaration, command, parameters,
   identities, acceptance rule, artifact paths, or intended Test access changes
@@ -130,7 +146,10 @@ material and must record their own preservation and verification evidence.
   labeled non-formal, capped, isolated in run-specific artifacts, and recorded.
 - After every completed or failed run, append status, resolved parameters,
   validation selection metrics, one-time final test metrics when applicable,
-  and artifact paths/hashes before starting the next formal run.
+  artifact paths/hashes, Test chronology (zero teacher Test and exactly one
+  student Test under `val_test_once_v1`), finite objective/metric evidence,
+  selected-versus-tested checkpoint equality, and clean-source evidence before
+  starting the next formal run.
 
 ## Version Control and Traceability
 
