@@ -8610,3 +8610,93 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   seed-2023 image-only results, without further acceptance micro-steps. Expected
   output is one paired comparison and recommendation, not a new run.
   Copy-ready instruction: `继续：一次性汇总 seed-2022 和已接受的 seed-2023 item-image-only 消融，解释对第一创新点的意义并建议下一实验；不要启动训练。`
+
+## 2026-09-14 independent Innovation 1 formula and experiment-plan record (pending)
+
+- Authorization/purpose: the user requests preserving the independent review,
+  especially source-faithful formulas suitable for later thesis writing, and
+  an actionable evidence plan before selecting Innovation 2. Documentation
+  only; the user will execute any later authorized training commands manually.
+- Scope: add docs/research/INNOVATION1_REVIEW_AND_EXPERIMENT_PLAN_2026-09-14.md;
+  update docs/README.md, the current-stage introduction of
+  docs/research/SECOND_INNOVATION_ROUTE.md, and the root thesis-route note;
+  append this pending entry and a separate verified outcome to TRAINING_LOG.md.
+  No code, defaults, profiles, execution protocol, data, existing manifest,
+  checkpoint, previous outcome or historical log bytes may be changed.
+- Rationale: distinguish implemented equations, algebraic consequences,
+  descriptive results, unproven mechanisms and future experiment proposals.
+  Record normalized-MSE/cosine equivalence, mixture coefficients, shared
+  multimodal prompt confounding, and cached-teacher deployment comparisons.
+- Risks: overstating novelty, omitting MSE dimension averaging or normalization
+  epsilon, mislabeling image-only as text-free, silently upgrading seed-2023
+  automated eligibility, or presenting proposed controls as declared runs.
+- Acceptance: formulas match active source at 6120ed26cbf87ce8efc31d90751cb992d0cacac0;
+  existing metrics match the eight selected student manifests; preserve
+  accepted_by_user_audited_exception and original paper_ready_eligible=false;
+  retain Innovation 2 as undecided; identify seed-2024 image-only as the single
+  next experiment, with no launch in this task. Distinguish fixed plan from
+  optional diagnostics and prohibit Test-driven tuning or retry selection.
+- Preservation/rollback point: clean codex/experiment/baby-teacher-baseline at
+  6120ed26cbf87ce8efc31d90751cb992d0cacac0. This is a source reference only;
+  no reset, rollback, artifact deletion, tag, bundle or merge is authorized.
+- Verification: focused source/formula checks, JSON metric/statistic checks,
+  documentation links and diff checks, original log-prefix preservation and
+  original seed-2023 manifest hash/status; commit only the five scoped files.
+  No project import, training, split loading, Validation/Test ranking or new
+  experiment artifact. One documentation commit completes this record task.
+
+## 2026-09-14 independent Innovation 1 formula and experiment-plan record (completed; no run)
+
+- Status: completed the requested documentation scope. Added the Chinese
+  source-faithful thesis-writing note at
+  docs/research/INNOVATION1_REVIEW_AND_EXPERIMENT_PLAN_2026-09-14.md; linked it
+  from docs/README.md, synchronized the root thesis-route note and the current
+  stage introduction of SECOND_INNOVATION_ROUTE.md. Innovation 2 remains
+  undecided; candidate designs and older plans are not completed contributions.
+- Preserved formula record: 17 numbered equations cover teacher target origin,
+  graph normalization, ID scoring/BPR, positive-item sampling, per-dimension
+  normalized MSE, active-rate normalization, and train/selection/inference flow.
+  Full objective is BPR + (0.3/1.3)*L_item_image + (0.09/1.3)*L_item_text.
+  Normalized MSE equals (2/d)*(1-cos) only outside the normalization epsilon
+  regime. The two losses share one student vector and algebraically align it
+  with an un-renormalized fixed weighted target; this is an interpretation,
+  not a new implemented module or new loss novelty claim.
+- Evidence and limits: recorded recovered matched three-seed BPR/full results,
+  two accepted image-only seeds and paired deltas, normalized-mixture and
+  shared-prompt confounds, missing direct/structural comparisons, and the
+  cached-teacher deployment alternative. Test R@20 means remain
+  0.04113143767939362 (BPR) and 0.06624394110123172 (full); no new run or
+  experimental metric exists. These results do not establish significance,
+  multimodal complementarity, weight optimality or cross-dataset superiority.
+- Seed-2023 exception remains accepted_by_user_audited_exception. Original
+  manifest status completed, paper_ready_eligible=false, blocker and SHA256
+  3dda1be595ad4dd2fddf19931bada243e8a1281c20d71278c7815423a3b37bff are unchanged.
+  The new note links the original manifest, failed outcome, audit and decision;
+  it discloses the uncaptured manual exit code and does not authorize a retry.
+- Plan: complete seed-2024 image-only first; then prioritize cached/uncached
+  teacher and independent-student efficiency plus direct method comparisons;
+  separately design shared-shuffle, fixed-image-coefficient and text-only
+  controls; verify retained structural claims and a second audited dataset;
+  choose Innovation 2 from supported mechanisms. These are future proposals,
+  not changes to current profiles, parameters, formal protocols or run gates.
+- Verification passed: REVIEW_DOCUMENT_CHECK_OK checked original log-prefix
+  bytes, all eight selected manifest hashes/status/metrics/teacher identities,
+  raw-log teacher/student Test events, means/sample SDs and paired differences;
+  independent standard-library arithmetic checked cosine and weighted-target
+  identities, source/profile reads checked resolved constants, and 14 local
+  Markdown paths/fragments plus 17 equation tags passed. git diff --check
+  passed; codes/ has no diff. No project modules were imported or executed.
+- Preservation: original log prefix is still exactly 568901 bytes, SHA256
+  583d21b092b0fd4f535972822a2409e1c267c5b2bc264c7128ce5f85d7c39c1f.
+  New review note is 31019 bytes, SHA256
+  5675867edcebd4b256aa0dba730ea3bb6789367196f0d2a7c5e2db178124f2dc.
+  No dataset, split, checkpoint, manifest, raw log, historical record or source
+  was edited. No training, split loading, Validation/Test ranking, efficiency
+  execution, artifact generation, tag, bundle or merge occurred.
+- Source/handoff: parent 6120ed26cbf87ce8efc31d90751cb992d0cacac0, branch
+  codex/experiment/baby-teacher-baseline. Commit only these five documentation
+  files; report the resulting commit and clean-tree state to the user.
+- Exactly one next step: prepare the separately committed seed-2024 image-only
+  formal declaration, then have the user manually launch its unchanged command
+  once from clean committed source. The command is in section 8 of the new
+  note. This task does not create that formal declaration or authorize launch.

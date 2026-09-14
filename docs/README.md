@@ -5,9 +5,14 @@ part of the executable training line.
 
 ## Research Routes
 
-- `research/SECOND_INNOVATION_ROUTE.md`: selected route for the second thesis
-  contribution. The route is a research decision only; it has not been
-  implemented or experimentally confirmed.
+- [Innovation 1 review, formulas and experiment plan](research/INNOVATION1_REVIEW_AND_EXPERIMENT_PLAN_2026-09-14.md):
+  source-faithful thesis-writing draft, accepted evidence (including the
+  seed-2023 audited exception), interpretation limits, and the experiment plan
+  before selecting Innovation 2. This is not a formal-run declaration.
+- [Innovation 2 candidate route](research/SECOND_INNOVATION_ROUTE.md):
+  conditional research proposal, not a finalized second contribution. It has
+  not been implemented or experimentally confirmed; the Innovation 1 evidence
+  gate and latest review above take precedence over older planning details.
 - `../论文路线.txt`: short compatibility entry kept at the repository root
   because it is an established collaboration path.
 
