@@ -8480,3 +8480,86 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   the preserved seed-2023 result should be treated after this provenance fix,
   before authorizing any recovery execution. Copy-ready instruction:
   `继续：只复核路径修复后 seed-2023 现有证据的有效性与处理方案，不改原产物，不启动训练。`
+
+## 2026-09-14 seed-2023 separator-error audit supplement (pending)
+
+- Purpose/scope: append an evidence audit and acceptance proposal for run
+  `2026-09-14 17_09_49.294989_baby_light_init_pid2004`; change only this log.
+  Preserve original manifest, failed hard-gate record, code, metrics and all six
+  artifacts. This is not a rerun or an automatic paper-ready reclassification.
+- Rationale/risk: Windows separator spelling triggered a false override;
+  retrospective acceptance must be based on identity and execution evidence,
+  not metric direction, and must remain distinguishable from original automated
+  acceptance. Acceptance requires equivalent paths, identical teacher hash,
+  preserved artifact hashes and launch-source identity, no other overrides,
+  and the already audited Validation/Test isolation and checkpoint consistency.
+- Verification: read-only manifest/profile/source comparison and six artifact
+  hashes; focused append-only diff checks. No split loading or Test ranking.
+  Rollback point is clean parent
+  `2762375c77b013f6f9fbea492852d318b1518e5e`. Commit the supplement then stop.
+
+## 2026-09-14 seed-2023 separator-error audit supplement (completed; acceptance proposal)
+
+- Audit outcome: scientific evidence is supported; original automated formal
+  acceptance remains failed. Run ID is
+  `2026-09-14 17_09_49.294989_baby_light_init_pid2004`, launch commit
+  `910462b6f0a5b1479862c60346c040029495bd7a`, normalization fix
+  `2762375c77b013f6f9fbea492852d318b1518e5e`. This supplement adds a distinct
+  retrospective evidence assessment; it does not overwrite either original
+  manifest or the failed-hard-gate outcome committed at `946c94e`.
+- Identity evidence: on Windows the raw teacher path and profile path resolve
+  to the same absolute path. The teacher SHA256 matches the frozen declaration.
+  Recomputing student profile metadata from the original resolved arguments
+  under the separator-only fix yields overrides `{}` and blockers `[]`.
+  Original `dataset_config_overrides` is also `{}`. The false student override
+  was solely path spelling, not a changed teacher, seed, optimizer or loss.
+- Source evidence: original `dataset_profiles.py` bytes retrieved from launch
+  Git match its manifest SHA256. All ten other fingerprinted current sources
+  match their original runtime byte hashes; their text matches launch Git when
+  CRLF/LF line endings are normalized. Direct Git-blob byte hashes for four of
+  those files differ due to checkout line endings, not source changes. The only
+  subsequent tracked code changes are the documented comparison fix and test.
+- Execution evidence: retain the prior detailed audit, which establishes 108
+  contiguous Validation epochs, Validation Recall@20-only selection at epoch
+  100, natural seven-non-improvement stopping, best checkpoint restoration,
+  zero frozen-teacher Test rankings and one student final Test, finite series,
+  objective residual `4.628207506129911e-07`, and equal full/inference ID
+  embeddings. Manual process exit code was not captured by the agent; completion
+  is supported by user report, finalized manifest, log and artifact consistency,
+  not a newly asserted captured exit code or captured per-batch terminal stream.
+- Preservation verification: all six artifact SHA256 values still match the
+  preceding outcome record, including manifest
+  `3dda1be595ad4dd2fddf19931bada243e8a1281c20d71278c7815423a3b37bff`.
+  Manifest remains `status=completed`, `paper_ready_eligible=false`, with its
+  original blocker. No artifact, metric, source, failed record, or profile
+  default was rewritten in this task.
+- Acceptance proposal: retain this run without a separator-only rerun. If the
+  user explicitly approves retrospective acceptance, include its existing
+  metrics as an audited exception in the matched-seed ablation table, link both
+  original manifest and this supplement, and disclose the automated false
+  override. Keep automated eligibility and audited acceptance as separate
+  statuses; scripts filtering `paper_ready_eligible` must not silently count it
+  as an automated pass. This task records the proposal, not an unrequested
+  approval to publish or a general waiver of formal hard gates.
+- Metric-independent rule: this proposal applies because identity, execution
+  and artifact evidence support a separator-only false positive; it would be
+  identical if metrics were lower. Accept the original run once, do not choose
+  between it and a favorable retry, and do not inspect Test to tune or decide
+  acceptance. If new contradictory identity/protocol evidence appears, keep it
+  excluded and investigate rather than editing history.
+- Experimental scope: existing Validation Recall@20 `0.06566555241278914`,
+  Test Recall@20 `0.06763088273116628`, Test NDCG@20
+  `0.031418323265977356` remain unchanged. Image-only outperforms the same-seed
+  full candidate here, so this seed does not establish a text-supervision
+  benefit. Two available seeds are not the complete predeclared three-seed set;
+  normalized-mixture confounding and official cold-item limitations remain.
+- Task verification and boundary: commands were read-only guidance/log/source
+  inspection, Python metadata/path/hash/Git-blob checks, and focused Git diff
+  checks, followed by this append and local commit. No train/Validation/Test
+  split was loaded, no ranking or training ran, and no experimental artifact or
+  metric was generated. Only `TRAINING_LOG.md` changes; branch
+  `codex/experiment/baby-teacher-baseline`. Commit hash is reported in handoff.
+- Exactly one next step: explicitly approve or decline the above audited-
+  exception acceptance before using seed-2023 in a formal summary. No new
+  training is needed for that decision. Copy-ready approval instruction:
+  `同意按审计例外接受现有 seed-2023 结果；只记录接受决定并提交，保留原 manifest 与失败记录，不启动训练。`
