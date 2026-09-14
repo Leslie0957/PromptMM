@@ -80,16 +80,24 @@ material and must record their own preservation and verification evidence.
 6. If a task fails, report the root cause, valid artifacts that remain, and a
    concrete recovery plan before recommending the next action. Never describe a
    failed or partial result as completed.
-7. A clear next step is not authorization to start it. After completing the
-   current task, report and wait for explicit user approval such as `continue`
-   before starting any formal or long training, broad tuning, test-split
-   evaluation, merge to `main`, tag creation, or baseline-asset overwrite.
+7. A clear next step is not authorization to start it. Formal or long training,
+   broad tuning, test-split evaluation, merge to `main`, tag creation, and
+   baseline-asset overwrite still require explicit user authorization. When the
+   user explicitly authorizes one specific run, or unambiguously approves the
+   sole recorded next run, that authorization may cover the run's pending
+   declaration, necessary in-scope preparation, verification, clean Git commit,
+   immediate launch from that exact commit, post-run audit, and outcome commit
+   in one continuous task. Do not request a redundant second `continue` after
+   the declaration commit. The authorization does not extend to another seed,
+   arm, retry, tuning sweep, Test access beyond the declared protocol, or any
+   later experiment.
 8. Complete in-scope checks, fixes, verification, logging, and Git commits
    autonomously when they require no user choice. Do not repeatedly return
    discoverable or self-verifiable questions to the user.
-9. Advance only one explicit experiment stage per task. Do not launch parallel
-   experiment stages that could contaminate comparisons or make provenance
-   difficult to trace.
+9. Advance only one explicit experiment stage per task. For an explicitly
+   authorized specific run, its declaration, clean launch commit, one launch,
+   audit, and outcome commit together count as one stage. Do not launch parallel
+   experiment stages or advance to another seed/arm/run in the same task.
 10. Never automatically roll back, reset, revert, or delete an experiment
     result solely because its metrics are low, worse than expected, or degraded
     relative to another method. Preserve and record low metrics as valid
@@ -107,6 +115,17 @@ material and must record their own preservation and verification evidence.
   hash, branch, full command, environment, dataset and preprocessing identity,
   teacher/student checkpoint identity, protocol, parameters, seeds, acceptance
   rule, and planned artifact paths in `TRAINING_LOG.md` or the run manifest.
+- A run-specific authorization remains valid while the agent records and
+  commits that exact run declaration. If the declaration, command, parameters,
+  identities, acceptance rule, artifact paths, or intended Test access changes
+  materially, append an amendment and obtain new authorization before launch.
+  Otherwise, after the tree is clean and every declared preflight gate passes,
+  launch the exact run immediately without asking for the same approval again.
+- Launch an authorized formal command at most once. A crash, timeout, transport
+  loss, hard-acceptance failure, or partial artifact is not permission to retry,
+  resume, roll back, or start the next run. Preserve and audit the state, append
+  a failed or partial outcome as appropriate, commit the record, and request
+  new authority for any recovery execution.
 - A smoke run may be used before the final commit only when it is explicitly
   labeled non-formal, capped, isolated in run-specific artifacts, and recorded.
 - After every completed or failed run, append status, resolved parameters,
@@ -134,6 +153,11 @@ For any repository modification in this workspace:
 - Git-ignored datasets, checkpoints, manifests, caches, and raw logs are not
   protected by commits or bundles. Fingerprint them when they define a run, and
   make an explicit physical/off-device backup at stable milestones.
+- A clean Git commit identifies and makes tracked launch source recoverable; it
+  does not preserve ignored run artifacts or guarantee that interrupted
+  training can resume. Never describe source rollback as automatic experiment
+  recovery. Preserve failure artifacts and treat any source reset, revert, or
+  rerun as a separate authorized action.
 - Never slim, replace, or reorganize a canonical log until a verbatim immutable
   snapshot has been created and its byte length and SHA256 have been verified
   and recorded in the new log and archive index.
