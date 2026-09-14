@@ -5,6 +5,7 @@ import io
 import json
 import sys
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 
@@ -232,6 +233,45 @@ class DatasetProfilesTest(unittest.TestCase):
         args = parser.parse_args(['--dataset', 'baby', '--Ks', '[10,20,40,50]'])
         metadata = resolved_profile_metadata('baby', args)
         self.assertNotIn('Ks', metadata['overrides'])
+
+    def test_teacher_checkpoint_separator_comparison_is_platform_specific(self):
+        profile_name = BABY_TD_ITEM_IMAGE_ONLY_NO_PROJECTION_SEED2023_PROFILE_NAME
+        canonical = 'Model/baby/teacher_model_val_test_once_v1.pt'
+        cases = (
+            ('nt', canonical, False),
+            ('nt', canonical.replace('/', '\\'), False),
+            ('nt', 'Model\\baby/teacher_model_val_test_once_v1.pt', False),
+            ('posix', canonical.replace('/', '\\'), True),
+            ('nt', 'Model/baby/other.pt', True),
+            ('nt', 'Model/other/teacher_model_val_test_once_v1.pt', True),
+            ('nt', '', True),
+            ('nt', 'C:/Model/baby/teacher_model_val_test_once_v1.pt', True),
+            ('nt', canonical.upper(), True),
+        )
+        for platform, path, is_override in cases:
+            with self.subTest(platform=platform, path=path):
+                parser = self._student_parser()
+                apply_dataset_profile_defaults(parser, 'baby')
+                apply_student_profile_defaults(parser, 'baby', profile_name)
+                args = parser.parse_args([
+                    '--dataset', 'baby', '--student_profile', profile_name,
+                    '--teacher_checkpoint', path,
+                ])
+                with patch('utility.dataset_profiles.os.name', platform):
+                    metadata = resolved_student_profile_metadata(
+                        'baby', profile_name, args
+                    )
+                self.assertEqual(args.teacher_checkpoint, path)
+                self.assertEqual(
+                    'teacher_checkpoint' in metadata['overrides'], is_override
+                )
+                if is_override:
+                    self.assertEqual(metadata['overrides']['teacher_checkpoint'],
+                                     {'expected': canonical, 'resolved': path})
+                self.assertEqual(bool(baby_student_paper_ready_blockers(
+                    metadata['name'], metadata['scope'], metadata['source'],
+                    metadata['overrides'],
+                )), is_override)
 
     def test_baby_student_reference_profile_is_bpr_only_and_pinned(self):
         parser = self._student_parser()

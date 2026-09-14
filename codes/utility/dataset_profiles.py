@@ -1,4 +1,5 @@
 import ast
+import os
 
 
 BABY_TEACHER_PROFILE_NAME = 'baby_teacher_reference_v1'
@@ -313,6 +314,10 @@ def apply_student_profile_defaults(parser, dataset, profile_name):
 
 
 def _normalized(field_name, value):
+    # Compare Windows separator spellings only; keep raw arguments and all
+    # other path distinctions (case, roots, symlinks, etc.) unchanged.
+    if field_name == 'teacher_checkpoint' and isinstance(value, str):
+        return value.replace('\\', '/') if os.name == 'nt' else value
     if field_name in _LITERAL_FIELDS and isinstance(value, str):
         return ast.literal_eval(value)
     return value
