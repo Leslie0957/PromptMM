@@ -8336,3 +8336,99 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   seed-2023 item-image-only command once from the clean policy commit, then
   report whether it finished or failed so the next task can audit that outcome
   without rerunning or advancing to another seed.
+
+## 2026-09-14 seed-2023 item-image-only formal run outcome (failed hard gate; artifacts preserved)
+
+- Formal status: failed the declared paper-ready hard gate, although the
+  training process completed and all behavioral, numerical, checkpoint, and
+  Test-isolation checks passed. The sole blocker is manifest
+  `paper_ready_eligible=false` with
+  `Baby student reference profile has resolved overrides`. No retry, next seed,
+  artifact edit, rollback, deletion, or additional training was performed.
+- Root cause: the assistant's corrected PowerShell command used the Windows
+  spelling `Model\baby\teacher_model_val_test_once_v1.pt`, while the profile
+  freezes the equivalent spelling
+  `Model/baby/teacher_model_val_test_once_v1.pt`. The current override detector
+  compares these strings without path canonicalization, so the manifest records
+  one `student_config_overrides.teacher_checkpoint` entry. The loaded teacher
+  is nevertheless the declared file: 141098540 bytes, SHA256
+  `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`.
+  This is a provenance/acceptance failure, not evidence of a different teacher
+  or different optimization behavior.
+- Source and execution: clean branch
+  `codex/experiment/baby-teacher-baseline` at launch commit
+  `910462b6f0a5b1479862c60346c040029495bd7a`. The user ran one foreground
+  process from repository root with profile
+  `baby_td_item_image_only_no_projection_seed2023_v1`, seed `2023`, frozen
+  teacher, GPU `0`, and final Test enabled. The first earlier shell attempt from
+  `C:\Windows\system32` never opened the entry point and was not a training
+  launch. The valid run identity is
+  `2026-09-14 17_09_49.294989_baby_light_init_pid2004`, from
+  `17:09:49.297986+08:00` to `17:32:06.894097+08:00` (`1337.596111` seconds).
+  The user reported completion, the manifest finalized as `completed`, and no
+  Python process was visible during audit.
+- Resolved experiment identity: student/hard-token seeds `2023/2022`;
+  `val_test_once_v1`; batch `1024`; epoch cap `1000`; patience `7`; all-batch
+  mode (`smoke_train_batches=0`); AdamW learning rate `6e-5`, weight decay
+  `0.01`; random no-projection dimension `64`; alpha `0.3`; item-image/text and
+  user-image/text rates `1.0/0.0/0.0/0.0`; objective
+  `L_BPR + 0.3 * L_item_image`. Dataset, split, feature, PCA-cache, teacher,
+  code, candidate-exclusion, and cold-item identities match the declared shared
+  anchor; the only resolved override is the equivalent teacher path spelling.
+- Training and numerical audit: epochs `0-107` are contiguous, with 108
+  Validation summaries. Normal completion of each epoch summary under
+  `smoke_train_batches=0` follows the full training-loop path. All loss and
+  metric series have length 108 and contain only finite values. Total loss
+  changed `81.4150288105011 -> 49.18895`; BPR changed
+  `80.39840579032898 -> 48.87663`; item-image loss changed
+  `3.3887433987110853 -> 1.04109`; inactive losses remained exactly zero.
+  Maximum recomputed objective residual was
+  `4.628207506129911e-07`.
+- Selection and Test chronology: Validation Recall@20 alone selected epoch
+  `100` at `0.06566555241278914`; epochs `101-107` were seven consecutive
+  non-improvements and triggered one natural patience `7/7` stop. The run then
+  restored epoch 100 and performed exactly one student Test ranking. Test
+  Precision was
+  `[0.004834147595783042, 0.0037516070969401427, 0.002861918230907581, 0.0026464386731809304]`;
+  Recall was
+  `[0.04370162579342347, 0.06763088273116628, 0.10328122835708103, 0.1192558331642894]`;
+  NDCG was
+  `[0.02487743307158167, 0.031418323265977356, 0.03934176385791999, 0.042515944650331115]`;
+  Hit Ratio was
+  `[0.048135767549499074, 0.07431216250964282, 0.11283106196965502, 0.12995628696322653]`;
+  AUC was `0.0` as expected for `test_flag=part`.
+- Test isolation and checkpoints: raw log counts are zero teacher reuse/Test
+  summaries, one explicit frozen-teacher/no-Test message, one student final-Test
+  summary, one early-stop event, and one patience `7/7` event. Manifest records
+  `teacher_final_test_performed=false`, `final_test_performed=true`, and policy
+  `frozen_checkpoint_reuse_no_test_ranking`. The full checkpoint records epoch
+  100 and the exact selected metric, contains only the two float32 ID embedding
+  tensors plus two optimizer states and metadata, and is finite. The inference
+  export contains only ID embeddings and six minimal fields; user `[19445,64]`
+  and item `[7050,64]` tensors are bit-for-bit equal to the full checkpoint.
+- Six preserved same-run artifacts (bytes, SHA256): raw log `50402`,
+  `9da7b7d3e4ef4e04fd4f2c2b129d6fd27c73cfd1cbd0c321afe9301563600c16`;
+  preflight `3399`,
+  `cd751f76fe13b19d35b7454f9ca85aca34d98a4e2695abb67451c0525121d5d2`;
+  manifest `25454`,
+  `3dda1be595ad4dd2fddf19931bada243e8a1281c20d71278c7815423a3b37bff`;
+  convergence `16521`,
+  `05a6bc33851aa5d5056b13329c0b9dfbca09e988278f0d085b4f4cf5ac2c08bc`;
+  full checkpoint `20354897`,
+  `a6361f636e8d03a841be583bfe85852c693d74246d9538fbe126fd2d3e089e1a`;
+  inference checkpoint `6785989`,
+  `b91f45057ec643bcc9e5d4ad4aa4c8bc87b949eba1ff3151c7dafd094dfd5353`.
+  Family counts changed exactly `86/22/22/16/16/16 -> 87/23/23/17/17/17`.
+- Provisional experimental meaning: relative to the compliant same-seed full
+  image-plus-text candidate, image-only is higher by `0.0008713220438598956`
+  on Validation Recall@20 and by `0.002320219422302011` on Test Recall@20; it
+  is also higher by `0.0008979176544950049` on Test NDCG@20 and
+  `0.00013885317562355604` on Test Precision@20. Thus seed-2023 does not support
+  a benefit from adding item-text supervision. This direction is provisional,
+  not paper-ready evidence, because the formal gate failed; the normalized-loss
+  comparison also changes effective image weight and remains confounded.
+- Exactly one recommended next step: in a separate no-training task, canonicalize
+  path-valued profile comparison so `/` and `\` resolve as the same Windows
+  path, add a focused regression check, and commit the fix. Do not edit these
+  artifacts or rerun seed-2023 until that fix is reviewed and a recovery run is
+  explicitly authorized. Copy-ready instruction: `继续：只修复 Windows 路径分隔符导致的 profile override 误判并加回归检查，提交后停止；不要启动训练。`
