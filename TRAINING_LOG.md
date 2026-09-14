@@ -7585,3 +7585,120 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   documentation commit, then stop and wait for explicit user authorization
   before any stable-milestone preservation, ablation, efficiency, tag, bundle,
   backup, merge, or other experiment stage.
+
+## 2026-09-14 thesis-stage ordering decision (pending; documentation-only)
+
+- Purpose and rationale: record the user's confirmed research-order decision
+  that Innovation 1 must complete its decisive ablation and deployment-evidence
+  closure before implementation or experimentation for Innovation 2, regardless
+  of whether Innovation 2 ultimately uses reliability/gradient-compatible
+  transfer, staged or adaptive distillation, student semantic adaptation,
+  mechanism analysis, robustness, long-tail recommendation, CoT, or another
+  separately justified route. The rationale is that Innovation 2 must respond
+  to evidence exposed by Innovation 1 rather than compensate for an unverified
+  first-stage claim or inflate apparent workload.
+- Status and authorization boundary: pending documentation-only research-route
+  clarification. This task may update `论文路线.txt` and
+  `docs/research/SECOND_INNOVATION_ROUTE.md`, append a separate completed or
+  failed outcome here, perform focused text/diff checks, and create one coherent
+  local Git commit. It does not authorize code/profile/parameter/protocol/data
+  changes, project-code execution, training, Validation/Test ranking,
+  efficiency benchmarking, metadata download, artifact generation, tag,
+  bundle, backup, merge, or implementation of either innovation.
+- Exact decision to record: Innovation 1 remains the train-inference decoupled,
+  asymmetric, no-projection multimodal semantic-distillation line. Its main
+  matched three-seed result is complete, but its evidence closure precedes
+  Innovation 2 and must determine whether gains arise from identity-matched
+  multimodal semantics and whether modality/structure choices are necessary.
+  The minimum decision sequence is: finish the already predeclared compliant
+  item-image-only line; then separately predeclare the remaining decisive
+  modality/semantic controls, prioritizing text-only and shuffled-semantic
+  evidence; complete the necessary structural controls for any claimed
+  `asymmetric` and `no-projection` contributions; and record a reproducible
+  teacher-versus-ID-student deployment-efficiency comparison. Each future
+  experiment remains an independent stage requiring its own declaration and
+  explicit authorization.
+- Innovation 2 gate: discussion and diagnostic planning may continue, but no
+  Innovation 2 implementation, tuning, formal run, or Test access may begin
+  before Innovation 1 evidence identifies the actual unresolved mechanism.
+  Image/text complementarity supports semantic-selection research; consistent
+  conflict supports negative-transfer or gradient-compatibility research;
+  stage-dependent behavior supports staged/adaptive training; and a failure of
+  correct semantics to outperform shuffled semantics requires re-evaluating
+  Innovation 1 rather than proceeding to Innovation 2. CoT/long-tail remains an
+  auxiliary scenario unless separately supported by raw metadata coverage and
+  a coherent mechanism link.
+- Risks and interpretation boundary: this record must not claim that every
+  listed future control is already implemented, declared, run, or guaranteed
+  necessary; must not treat the old protocol-noncompliant image-only run as
+  paper-ready; and must not select future parameters from final Test metrics.
+  The documents must distinguish completed canonical evidence from planned
+  evidence and leave the exact Innovation 2 method explicitly undecided until
+  the first-stage diagnostic evidence exists.
+- Acceptance criteria and verification: both route documents state the same
+  stage gate, distinguish the completed three-seed main result from incomplete
+  ablation/efficiency evidence, prohibit using Innovation 2 to bypass the first
+  innovation's evidence closure, and identify one next stage without declaring
+  or launching it. Verify only the declared three-file documentation scope,
+  preservation of prior log text, `git diff --check`, staged scope, cached diff,
+  commit parent, and final clean tree.
+- Rollback/preservation point: clean branch
+  `codex/experiment/baby-teacher-baseline` at commit
+  `81aa5098942a080b9e143cd55daf7aa4d2e19280`. Preserve all existing source,
+  logs, manifests, checkpoints, datasets, metrics, and historical declarations;
+  no destructive rollback or artifact change is authorized.
+- Planned next action after this documentation commit: stop and wait for
+  explicit user authorization to predeclare the post-fix, protocol-compliant
+  seed-2022 item-image-only recovery run as the next single experiment stage.
+
+## 2026-09-14 thesis-stage ordering decision (completed; documentation-only)
+
+- Status and objective outcome: completed successfully. The repository now
+  records one unambiguous thesis-stage gate: finish Innovation 1's decisive
+  ablation, structural support, and deployment-efficiency evidence before any
+  Innovation 2 implementation, tuning, formal run, or new Test access. The
+  decision does not finalize RGCS-Distill or any other Innovation 2 method.
+- Branch, parent, and scope: branch
+  `codex/experiment/baby-teacher-baseline`; clean parent and preservation point
+  `81aa5098942a080b9e143cd55daf7aa4d2e19280`. The change is limited to
+  `论文路线.txt`, `docs/research/SECOND_INNOVATION_ROUTE.md`, and the pending
+  plus completed append-only records in `TRAINING_LOG.md`. No code, profile,
+  parser, model, loss, parameter, protocol, dataset, checkpoint, manifest, raw
+  log, convergence file, or historical experiment record changed.
+- Recorded research order: the route now distinguishes the completed compliant
+  three-seed BPR/main-method comparison from the unfinished Innovation 1
+  evidence closure. The ordered evidence plan is item-image-only first, then
+  separately declared text-only and shuffled-semantic controls, necessary
+  asymmetric/no-projection structural controls, and a reproducible deployment
+  comparison before the Innovation 1 conclusion is frozen. These are planned
+  independent stages, not declarations or authorizations to execute them.
+- Innovation 2 outcome: RGCS-Distill remains a conditional candidate rather
+  than a finalized or implemented method. The route explicitly requires the
+  first innovation's evidence to select the actual research problem: modality
+  complementarity, persistent gradient conflict, or stage-dependent behavior.
+  CoT/long-tail is recorded only as an auxiliary scenario unless raw metadata
+  coverage and a coherent mechanism link are later verified. A failure of
+  correct semantics to outperform shuffled semantics now requires re-evaluation
+  of Innovation 1 instead of adding a second module to bypass the result.
+- Focused verification: `git diff --name-only` showed exactly the three
+  declared documentation files; required stage-gate, shuffled-semantic,
+  conditional-route, and no-implementation markers were present in both route
+  documents and this trace; `git diff --check` passed. The line-ending warning
+  for `论文路线.txt` reports Git's future LF-to-CRLF normalization policy and
+  is not a content or whitespace error. Final staged-scope and cached-diff
+  checks remain required immediately before the documentation commit.
+- Commands, metrics, Test access, and artifacts: commands were limited to
+  `Get-Content`, `git status`, `git rev-parse`, `git diff`, `git diff --check`,
+  and `rg` content checks plus scoped patch application. No project entry point,
+  test suite, training, Validation/Test ranking, efficiency benchmark, data
+  split, or generated experiment artifact was accessed or executed. No new
+  quality or efficiency metric, checkpoint, manifest, raw run log, convergence
+  record, tag, bundle, backup, or merge exists for this documentation task.
+- Acceptance, residual risks, and next action: content and unstaged-scope gates
+  passed. Innovation 1 still lacks paper-ready component/structure ablations
+  and measured deployment efficiency; only Baby has canonical formal evidence;
+  the old seed-2022 image-only run remains diagnostic and protocol-ineligible;
+  and Innovation 2 remains undecided. After the final one-commit repository
+  checks, stop and wait for explicit authorization to predeclare the post-fix,
+  protocol-compliant seed-2022 item-image-only recovery run as the next single
+  experiment stage.
