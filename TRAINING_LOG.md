@@ -7919,3 +7919,156 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   checks. If they pass, execute the sole already declared command exactly once.
   All no-retry, no-seed-2023, preservation, audit, and stop conditions in the
   pending declaration remain unchanged.
+
+## 2026-09-14 seed-2022 item-image-only compliant recovery (completed)
+
+- Status and outcome: completed successfully. The single authorized formal
+  process exited naturally with code `0`; all declared execution-flow,
+  identity, numerical, objective, artifact, checkpoint, and Test-isolation
+  hard gates passed. No retry, second process, parameter change, rollback,
+  deletion, seed-2023, another arm, efficiency run, merge, tag, bundle, backup,
+  or baseline overwrite occurred. Metric direction was not used as an
+  acceptance condition.
+- Source and declaration history: branch
+  `codex/experiment/baby-teacher-baseline`; initial declaration commit
+  `d65cb8789804b182366a4522df1f4681a7be38ab`; exact clean corrected
+  declaration and launch commit
+  `4421dc72d302b13cff327c9d6056e31ea09f12b7`; fixed frozen-teacher
+  Test-isolation implementation was already present in the launch source.
+  Pre-launch and post-run `codes/` diffs were empty, tracked source remained
+  unchanged, and the working tree contained only this append-only outcome when
+  the result was recorded.
+- Executed command exactly once, with no added seed, semantic, optimizer,
+  sampler, budget, or protocol override:
+  `D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_td_item_image_only_no_projection_seed2022_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --run_final_test true`.
+- Transport, PID, run identity, and duration: one attached foreground tool
+  session; main PID `30688`; run identity
+  `2026-09-14 15_39_12.331441_baby_light_init_pid30688`; manifest start
+  `2026-09-14T15:39:12.334606+08:00`; completion
+  `2026-09-14T15:54:46.657367+08:00`; manifest elapsed `934.322761`
+  seconds. The session stayed attached through natural exit and returned code
+  `0`; there was no detach, transport failure, relaunch, or second process.
+- Environment and launch capacity: interpreter
+  `D:\miniconda\envs\run_5060\python.exe`; Python `3.10.20`; PyTorch
+  `2.11.0+cu128`; CUDA runtime `12.8`; NVIDIA driver `595.97`; NVIDIA
+  GeForce RTX 5060 with `8151` MiB total and `6826` MiB free before launch;
+  GPU `0`; D-drive free space `399903289344` bytes. Pre-launch Python training
+  process count was zero.
+- Resolved profile and objective: profile/scope/source exactly
+  `baby_td_item_image_only_no_projection_seed2022_v1` / `student_ablation` /
+  `predeclared_baby_item_image_only_no_projection_ablation_v1_seed2022`;
+  dataset/student overrides `{}` / `{}`; seed and hard-token seed `2022`;
+  random 64-dimensional `td_distill_no_projection`; no warm start or
+  projection; AdamW `student_lr=6e-5`, weight decay `0.01`; batch `1024`;
+  epoch cap `1000`; patience `7`; `smoke_train_batches=0`; final Test enabled;
+  efficiency disabled. Alpha was `0.3`; item-image rate `1.0`; item-text and
+  both user-side rates `0.0`; the sole active head was item-image, optimizing
+  `L_BPR + 0.3 * L_item_image`.
+- Data and preprocessing audit: the corrected amendment hashes matched the
+  actual conversion manifest, train/Validation/Test matrices, and image/text
+  features. All split overlaps were zero; both modalities were finite and
+  non-duplicate. Image/text PCA caches were hits at random state `2022`, with
+  identities
+  `7634bb6e8dcfdbdd45eee436cc3b8e3f3f8e1e54c85c2f4b9f4a17719cc77c90`
+  and `6e7c8161aaeb01f5e4bb8744be3bf9d16df71cd7cc74ea841bc5c20ad60926ee`,
+  and cache SHA256 values
+  `187852dca1f62554e2d29714ca363e4a92036e948dddfb6c090a5577b6175c8c`
+  and `5e9df184aca47a3c5d96d4db72977878981eca1cf67abba85b06e43528e1e562`.
+  The only preflight warning was the frozen official cold-item condition:
+  items `240`, `1212`, and `6115`, covering 11 Validation and 7 Test
+  interactions, with no cold users.
+- Frozen-teacher isolation: teacher training was skipped; the read-only teacher
+  remained exactly 141098540 bytes with SHA256
+  `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`.
+  The raw log contains zero `Teacher reuse summary`, zero `Teacher final Test
+  after restoring best`, and exactly one frozen-checkpoint/no-ranking message.
+  The manifest records `teacher_final_test_performed=false`, policy
+  `frozen_checkpoint_reuse_no_test_ranking`, no current-run teacher final-Test
+  result, and null historical final-Test metadata. Frozen-teacher Test ranking
+  count is exactly `0`; no run-local teacher or generic student checkpoint was
+  created.
+- Training and numerical audit: epochs `0-74` completed contiguously; the
+  attached progress stream reached all `116/116` batches before each of the 75
+  Validation summaries. Every total, BPR, semantic-component, and selection
+  series had length 75 and all values were finite. Total loss changed
+  `81.41568386554718 -> 61.72033417224884`; BPR
+  `80.39779460430145 -> 61.438172698020935`; item-image loss
+  `3.392962619662285 -> 0.9405394126661122`; all inactive component losses
+  stayed exactly zero. The maximum recomputed total-objective residual was
+  `5.389098077790422e-07`; semantic normalization residual was exactly zero.
+- Validation selection and Test chronology: Validation Recall@20 alone selected
+  epoch `67` at exact `0.06542176345982047`. Epochs `68-74` formed exactly
+  seven consecutive non-improvements, then one natural patience `7/7` stop.
+  The run restored epoch `67` and performed exactly one student final Test
+  ranking. Ordered by K `[10,20,40,50]`, Precision was
+  `[0.004607868346618729, 0.003674466443815945, 0.002802777063512372, 0.0025857546927232234]`;
+  Recall was
+  `[0.0416851781971352, 0.06670462348143064, 0.10119136969998162, 0.11673884385378007]`;
+  NDCG was
+  `[0.023442955935571032, 0.03022013402080786, 0.03792645906484195, 0.0409738110351617]`;
+  Hit Ratio was
+  `[0.04592440215993866, 0.07307791205965578, 0.11072255078426049, 0.12717922345075494]`;
+  AUC was `0.0` as expected for `test_flag=part`.
+- Manifest and checkpoint acceptance: manifest status is `completed`, protocol
+  `val_test_once_v1`, selection `validation` / `Recall@20`, exclusion
+  `train_only`, `paper_ready_eligible=true`, blockers `[]`, and student final
+  Test performed. The format-v2 full checkpoint contains finite float32 user
+  and item ID embeddings `[19445,64]` and `[7050,64]`, exactly two optimizer
+  state entries, and declared metadata. The inference export contains exactly
+  the two finite embeddings plus dimension/count/no-projection metadata and no
+  optimizer, teacher, modality, prompt, cache, graph, projection, semantic, or
+  other training state. Full and inference tensors have identical shape/dtype
+  and are bit-for-bit equal.
+- Six same-run artifacts, bytes, and SHA256:
+  - raw log `logs/2026-09-14 15_39_12.331441_baby_light_init_pid30688`,
+    `36541` bytes,
+    `61948901bcef2945c3c0a6e172ba89e3db2b88438d27173043a39ada05b753de`;
+  - preflight
+    `exp/runs/baby/dataset_preflight__2026-09-14 15_39_12.331441_baby_light_init_pid30688.json`,
+    `3399` bytes,
+    `9f9bb992ff3e6621fc010f516478364dd8711efafc624e869970faf4a0b0a436`;
+  - manifest
+    `exp/runs/baby/run_manifest__2026-09-14 15_39_12.331441_baby_light_init_pid30688.json`,
+    `25024` bytes,
+    `13702b7ea4191bdad027c3e7733a9804fda77a9c0230e028b7dfbb93eba103d2`;
+  - convergence
+    `exp/converge/baby/auto__2026-09-14 15_39_12.331441_baby_light_init_pid30688.pkl`,
+    `11936` bytes,
+    `70b75129880c9a727bd03a44cc8a5e3bdbf70b764f5c7886b4e02febd12a4b5f`;
+  - full checkpoint
+    `Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-09-14 15_39_12.331441_baby_light_init_pid30688.pth`,
+    `20354975` bytes,
+    `2bdce8d194281074a9b3dd9290bcefb0fb532205361f1a81b9809cd05f88b1ff`;
+  - inference-only checkpoint
+    `Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-14 15_39_12.331441_baby_light_init_pid30688.pth`,
+    `6785997` bytes,
+    `4a2300e915db7493ae1d0ecd990dcb497f72a5616eef93b044238643f7a71665`.
+  Artifact-family counts changed exactly `85->86`, `21->22`, `21->22`,
+  `15->16`, `15->16`, and `15->16` for log, preflight, manifest,
+  convergence, full, and inference-only families respectively: one new run and
+  one artifact of each declared type.
+- Same-seed experimental meaning: against the compliant full item-image-plus-
+  item-text reference run
+  `2026-08-02 12_05_26.329228_baby_light_init_pid27620`, image-only Validation
+  Recall@20 is lower by `0.0030041998800031666`, supporting a text contribution
+  on the selection metric. Final Test Recall@20 is instead higher by the very
+  small `0.00011228250621408975`, while Test NDCG@20 is lower by
+  `0.0005919636463151898`; the Test signal is therefore mixed rather than a
+  clean win for either arm. The recovered final metrics match the preserved
+  invalid pre-fix image-only attempt, while the current run removes its sole
+  prohibited teacher-Test chronology event.
+- Test access, compliance, and unresolved risks: launch-gate and run preflight
+  read Test structure/identity as declared; the formal process performed no
+  frozen-teacher Test ranking and exactly one student Test ranking only after
+  restoring the Validation-best checkpoint. Test did not affect model
+  selection, early stopping, parameters, acceptance, retry, rollback, or
+  interpretation. Remaining risks are the fixed official cold items,
+  single-seed image-only evidence, ignored-artifact protection, and the fact
+  that normalized full-vs-image-only supervision changes the effective image
+  coefficient as well as removing text, so it is not a pure fixed-image-weight
+  causal contrast.
+- Exactly one recommended next step: stop computation and conduct a no-run
+  interpretation review of this seed-2022 ablation, focusing on the mixed
+  Validation/Test direction and the normalized-loss confound before deciding
+  whether another seed is scientifically warranted. This requires no new
+  artifact and authorizes no training. Copy-ready instruction: `继续：只分析刚完成的 seed-2022 item-image-only 消融结果，说明它对第一创新点能证明什么、不能证明什么，以及是否值得再做 seed-2023；先不要启动任何训练。`
