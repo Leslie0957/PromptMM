@@ -7885,3 +7885,37 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   environment, chronology, metrics, hashes, comparison, Test-access statement,
   and unresolved risks; commit that outcome record and stop. In either case,
   the only later action requires fresh user authorization.
+
+## 2026-09-14 seed-2022 item-image-only declaration identity correction (pending amendment)
+
+- Scope and reason: the launch-gate fingerprint calculation found that five
+  split/feature SHA256 strings in the immediately preceding pending entry were
+  transcription errors. This amendment corrects only those expected strings;
+  it does not replace, rewrite, preprocess, or otherwise change any underlying
+  dataset, split, feature, cache, profile, parameter, teacher, protocol, command,
+  acceptance rule, or artifact path. The user's authorization of the current
+  fixed Baby profile/data state therefore remains the authorization for the
+  same intended run; no different experimental identity is being introduced.
+- Correct measured identity: conversion manifest SHA256 remains
+  `cf2d0d8c8aff9b321aad0b11d48d078794d12a4920afaa4c8efedfe3beda9df2`.
+  The correct train/Validation/Test hashes are respectively
+  `3cead4c601ccef4c2424cd692951935840ccc8f22df15577ced4e5f3fec37fac`,
+  `f1458ff1dc28c5371699780270e3a3e270c8f9ce19def3d5e67d4ba9644ce9d2`,
+  and `773de4f57f2c1bcb6695ea57995280e7cbe114b2b579263a599bb097bb6555ac`.
+  The correct image/text feature hashes are respectively
+  `36c3be592b98506189a7d5de71b21577cf626f0293b539d861534673b3e9fd70`
+  and `6667f2ad655c9ecc97cb3383f58988864ef51ec0b39c158b15986c66769f2dc4`.
+- Verification evidence: `run_dataset_preflight('data', 'baby', 'error')`
+  measured the above hashes directly, found shapes `[19445,7050]` for all
+  splits, feature shapes `[7050,4096]` image and `[7050,384]` text, zero split
+  overlaps, finite non-duplicate modalities, and only the already documented
+  retained-official cold-item warning (items `240`, `1212`, `6115`; 11
+  Validation and 7 Test interactions; no cold users). This gate accessed Test
+  file structure and identity only; it performed no ranking and produced no
+  Test metric. It also measured the frozen teacher as 141098540 bytes with the
+  declared SHA256 and resolved the exact declared profile values.
+- Launch boundary: commit this append-only amendment, then repeat clean-HEAD,
+  process, environment, capacity, parser-resolution, and artifact-inventory
+  checks. If they pass, execute the sole already declared command exactly once.
+  All no-retry, no-seed-2023, preservation, audit, and stop conditions in the
+  pending declaration remain unchanged.
