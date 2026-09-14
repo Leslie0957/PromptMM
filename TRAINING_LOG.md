@@ -7702,3 +7702,98 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   checks, stop and wait for explicit authorization to predeclare the post-fix,
   protocol-compliant seed-2022 item-image-only recovery run as the next single
   experiment stage.
+
+## 2026-09-14 single-authorization committed-run policy (pending)
+
+- Purpose and rationale: revise repository governance so one explicit user
+  authorization for a specific experiment can cover its declaration, required
+  implementation or documentation changes, verification, clean Git commit,
+  immediate launch from that exact commit, post-run audit, outcome record, and
+  outcome commit in one continuous task. The current rule unnecessarily
+  requires a second `continue` after the declaration commit even when the user
+  already authorized the exact run. The revised flow should preserve clean
+  source provenance without adding redundant approval round trips.
+- Status and authorization boundary: pending repository-policy change only.
+  This task may edit `AGENTS.md`, append a separate completed or failed outcome
+  here, run focused policy/diff checks, and create one coherent policy commit.
+  It does not authorize any profile/code/parameter/protocol/data change,
+  project-code execution, training, Validation/Test ranking, efficiency run,
+  checkpoint or experiment-artifact creation, tag, bundle, backup, merge, or
+  the pending seed-2022 item-image-only recovery experiment.
+- Intended policy: an explicit run-specific authorization, including an
+  unambiguous approval of the sole recorded next run, remains valid across the
+  pre-run declaration and commit. After all formal-run gates pass, the agent
+  may launch that exact declared command immediately in the same task without
+  asking again. Declaration, launch, audit, and outcome are one experiment
+  stage. Generic discussion, a recommendation, a request to edit policy, or an
+  ambiguous `continue` does not authorize a run, broad tuning, multiple seeds,
+  or the next experiment after the authorized one.
+- Git and failure boundary: a clean committed launch protects and identifies
+  tracked source, but Git does not protect ignored datasets, checkpoints,
+  manifests, caches, convergence files, or raw logs and does not make a failed
+  run automatically resumable. On crash or hard failure, preserve the source
+  commit and every valid partial artifact, audit and record the failure, and do
+  not reset, revert, delete, retry, or launch the next run without authority.
+  Source rollback remains a separate destructive decision, not the default
+  response to a failed process or low metric.
+- Acceptance criteria: `AGENTS.md` must state the single-authorization flow in
+  the completion handoff and formal-run gates; retain explicit authorization,
+  clean committed source, exact command/identity, one-stage, Test-isolation,
+  no-automatic-retry, unrelated-change protection, and failure-preservation
+  requirements; and explicitly distinguish tracked-source recovery from
+  ignored-artifact protection. No historical log entry may be rewritten.
+- Verification and preservation point: inspect the focused policy diff, verify
+  required and prohibited meanings with text searches, run `git diff --check`,
+  stage only `AGENTS.md` and `TRAINING_LOG.md`, run cached diff/scope checks,
+  commit once, and confirm a clean tree. Preservation point is clean branch
+  `codex/experiment/baby-teacher-baseline` at
+  `f3b2a3bb874d2584a19b8835985410b92d0cea00`.
+- Planned next action after this policy commit: stop. A later message must
+  explicitly authorize the exact seed-2022 item-image-only recovery run before
+  the new combined declaration-to-launch flow is used.
+
+## 2026-09-14 single-authorization committed-run policy (completed)
+
+- Status and outcome: completed successfully. Repository governance now allows
+  one explicit authorization for a specific run to cover its pending
+  declaration, necessary in-scope preparation, verification, clean launch
+  commit, one immediate launch, post-run audit, and outcome commit in a single
+  continuous task. The agent must not request a redundant second `continue`
+  after committing an unchanged, already authorized run declaration.
+- Exact policy boundary: a recommendation remains non-authorizing. The combined
+  flow applies only when the user names a specific run or unambiguously approves
+  the sole recorded next run. It never extends to another seed, arm, retry,
+  tuning sweep, undeclared Test access, merge, tag, asset overwrite, or later
+  experiment. A material change to the declared command, parameters, identity,
+  acceptance rule, artifact paths, or Test access requires an amendment and new
+  authorization before launch.
+- Stage and failure handling: declaration, launch commit, one launch, audit, and
+  outcome commit are now explicitly one experiment stage. A crash, timeout,
+  transport loss, partial artifact, or hard failure authorizes neither automatic
+  retry nor automatic rollback. The agent must preserve the committed source and
+  all valid partial artifacts, record the outcome, and wait for new authority
+  before recovery execution or another stage.
+- Git meaning: the policy now states that a clean commit identifies and makes
+  tracked source recoverable, but cannot protect ignored datasets, checkpoints,
+  manifests, caches, convergence files, or raw logs and cannot guarantee resume
+  support. Source reset/revert and experiment rerun remain separately authorized
+  actions rather than automatic responses to failure or low metrics.
+- Scope and verification: only `AGENTS.md` and the append-only pending/completed
+  records in `TRAINING_LOG.md` changed from clean parent
+  `f3b2a3bb874d2584a19b8835985410b92d0cea00`. Focused searches confirmed the
+  required single-authorization, no-second-confirmation, one-launch, one-stage,
+  no-retry, ignored-artifact, and another-seed boundaries. `git diff --check`
+  passed and the working diff named exactly the two declared files. Final
+  staged-scope and cached-diff checks remain required before the policy commit.
+- Commands, metrics, Test access, and artifacts: commands were limited to
+  `Get-Content`, `rg`, `git status`, `git rev-parse`, `git diff`, and
+  `git diff --check` plus scoped patch application. No project code, training,
+  Validation/Test ranking, efficiency benchmark, dataset split, model, profile,
+  parameter, checkpoint, manifest, raw log, convergence record, tag, bundle,
+  backup, or merge was executed, accessed, created, or modified. No experimental
+  metric or run artifact exists for this policy task.
+- Acceptance and next action: the policy change meets the declared safety and
+  usability requirements. After one coherent policy commit and a clean-tree
+  check, stop. The sole next experiment remains the post-fix, protocol-compliant
+  seed-2022 item-image-only recovery run, which may use the combined flow only
+  after the user explicitly authorizes that exact run.
