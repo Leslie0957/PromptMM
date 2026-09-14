@@ -8432,3 +8432,51 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   path, add a focused regression check, and commit the fix. Do not edit these
   artifacts or rerun seed-2023 until that fix is reviewed and a recovery run is
   explicitly authorized. Copy-ready instruction: `继续：只修复 Windows 路径分隔符导致的 profile override 误判并加回归检查，提交后停止；不要启动训练。`
+
+## 2026-09-14 teacher checkpoint separator comparison fix (pending)
+
+- Purpose: prevent equivalent Windows teacher-checkpoint path separators from
+  producing a false profile override. Scope: comparison normalization in
+  `codes/utility/dataset_profiles.py`, focused profile regression tests, and
+  append-only log. No defaults, training parameters, loading paths, or saved
+  run artifacts will change.
+- Acceptance: on Windows, slash/backslash spellings of the same relative path
+  produce no override; different filenames/directories and empty paths remain
+  overrides; non-path values retain strict existing comparison. Preserve raw
+  argument strings. On non-Windows systems, backslash remains literal.
+- Risk: broad path normalization could conceal actual changes. Limit the fix
+  to `teacher_checkpoint` and separator spelling, without resolving symlinks,
+  changing case, or equating relative and absolute paths.
+- Verification: focused unittest profile suite plus protocol suite and diff
+  checks; no training, data split loading, or Test evaluation. Rollback point:
+  clean parent `946c94ef14aee832c4e23349c06e57f80ce9e268`. Existing seed-2023
+  manifest/status and six artifacts remain untouched. Commit then stop.
+
+## 2026-09-14 teacher checkpoint separator comparison fix (completed)
+
+- Status: succeeded. `_normalized` now compares slash/backslash spellings only
+  for string-valued `teacher_checkpoint` on Windows. It preserves raw arguments
+  and does not canonicalize case, roots, relative/absolute paths, or symlinks.
+  No profile defaults, optimizer, training behavior, file-loading code, or
+  evaluation protocol changed.
+- Verification: `D:\miniconda\envs\run_5060\python.exe -m unittest discover
+  -s codes/tests -p test_dataset_profiles.py` passed 35 tests; the same command
+  with `test_experiment_protocol.py` passed 20 tests. Regression cases cover
+  forward/back/mixed separators, POSIX literal backslashes, different filename
+  and directory, empty path, absolute path, case differences, raw-value
+  preservation, and paper-ready blocker propagation. Existing pinned defaults
+  and non-path override tests passed. `git diff --check` passed.
+- Preservation: prior seed-2023 manifest SHA256 remains
+  `3dda1be595ad4dd2fddf19931bada243e8a1281c20d71278c7815423a3b37bff`.
+  No prior artifact or recorded outcome was modified. No training, split
+  loading, Validation/Test ranking, or new run artifact occurred; no new
+  experimental metrics exist. The old formal hard-gate failure remains recorded.
+- Source: branch `codex/experiment/baby-teacher-baseline`, parent
+  `946c94ef14aee832c4e23349c06e57f80ce9e268`; commit only this log, comparison
+  helper, and regression test. Resulting commit hash is reported in handoff.
+- Remaining boundary: this separator-only fix is not an asset-identity check
+  and does not retroactively upgrade the previous manifest or authorize retry.
+- Exactly one next step: conduct a no-training evidence review to decide how
+  the preserved seed-2023 result should be treated after this provenance fix,
+  before authorizing any recovery execution. Copy-ready instruction:
+  `继续：只复核路径修复后 seed-2023 现有证据的有效性与处理方案，不改原产物，不启动训练。`
