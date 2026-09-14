@@ -7797,3 +7797,91 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   check, stop. The sole next experiment remains the post-fix, protocol-compliant
   seed-2022 item-image-only recovery run, which may use the combined flow only
   after the user explicitly authorizes that exact run.
+
+## 2026-09-14 seed-2022 item-image-only compliant recovery (pending)
+
+- Status and authorization: pending. The user explicitly authorized this exact
+  seed-2022 item-image-only recovery experiment, including declaration and
+  declaration commit, one immediate formal launch, post-run audit, and outcome
+  commit. This authorization does not permit an automatic retry, seed-2023,
+  another ablation arm, tuning, merge, tag, or baseline-asset overwrite.
+- Purpose and hypothesis: recover the previously attempted image-only student
+  ablation after the frozen-teacher Test-leakage fix, so that innovation-point-1
+  evidence can isolate the contribution of item text under the same seed and
+  fixed training profile. The descriptive hypothesis is that retaining item
+  image distillation while setting item-text distillation to zero will underperform
+  the compliant full item-image-plus-item-text candidate at seed 2022. Metric
+  direction is scientific evidence, not a hard execution acceptance condition.
+- Source and rollback point: declaration starts from clean branch
+  `codex/experiment/baby-teacher-baseline` at
+  `14553bc103c7016a66ee89ab28cc9590a079d999`. The exact launch source will be
+  the declaration commit created from this entry and recorded by its commit
+  hash before process start. No source edit, rollback, reset, or restore is
+  planned. The earlier invalid image-only artifacts remain preserved and must
+  not be overwritten or treated as formal evidence.
+- Dataset and feature identity: dataset `baby`; conversion manifest SHA256
+  `cf2d0d8c8aff9b321aad0b11d48d078794d12a4920afaa4c8efedfe3beda9df2`;
+  train/validation/test split SHA256 values respectively
+  `3cead4cdb3668014eef835524b69b905f271a3e4bffb4aa5caab96597ac3cfac`,
+  `f1458fa5c014e7729e74979fcd6d7cd6a64273fcbe058a89bcf1c4b81dc2b9d2`,
+  and `773de407a74fc207c67fde338e64177015660ca866826cc107810398d37b55ac`;
+  image/text feature SHA256 values respectively
+  `36c3be1cf67b84fcc9af29f3723158e3746514579d0a7969b2fb249b945afd70`
+  and `6667f2f674a4db0f16e8459b468b42fe74a37986bcf160ab3b0d71533ca86dc4`.
+- Frozen teacher and protocol: reuse
+  `Model/baby/teacher_model_val_test_once_v1.pt`, expected size 141098540 bytes
+  and SHA256
+  `b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4`.
+  Apply `val_test_once_v1`: student optimization uses `train_mat`; model
+  selection and early stopping use Validation Recall@20; restore the selected
+  best student; then perform exactly one final student Test ranking using
+  train-only candidate exclusion. A frozen-teacher Test ranking is forbidden
+  and must have count zero.
+- Fixed profile and resolved parameters: profile
+  `baby_td_item_image_only_no_projection_seed2022_v1`, scope
+  `student_ablation`, source
+  `predeclared_baby_item_image_only_no_projection_ablation_v1_seed2022`;
+  `seed=2022`, `hard_token_seed=2022`, `alpha=0.3`,
+  `td_item_image_rate=1.0`, `td_item_text_rate=0.0`, both user-side semantic
+  rates `0.0`, no semantic projection, random student initialization, no warm
+  start, embedding dimension 64, AdamW, `student_lr=6e-5`, weight decay 0.01,
+  batch size 1024, maximum 1000 epochs, patience 7, no smoke-batch cap, and
+  `run_final_test=true`. CLI values below override parser defaults where
+  applicable; no parameter may change after this declaration without a logged
+  amendment and new authorization.
+- Environment and sole launch command: expected interpreter
+  `D:\miniconda\envs\run_5060\python.exe` (historically Python 3.10.20,
+  PyTorch 2.11.0+cu128, CUDA 12.8) on GPU 0 / RTX 5060 8 GB. Before launch,
+  verify the interpreter, CUDA device, free disk, teacher identity, static
+  profile resolution, absence of a conflicting Python training process, clean
+  working tree, and exact committed HEAD. Then launch exactly once, attached
+  in the foreground, from repository root:
+  `D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_td_item_image_only_no_projection_seed2022_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --run_final_test true`.
+- Hard acceptance and audit: the process must execute the declared profile and
+  exit normally; each full epoch must contain all 116 expected training batches;
+  stopping must be the declared Validation Recall@20/patience-7 flow; the best
+  student must be restored before exactly one final student Test ranking;
+  frozen-teacher Test ranking count must be zero; recorded parameters, seeds,
+  source commit, data/feature/teacher identities, and artifact identities must
+  match this declaration; tracked source must remain unchanged; and recorded
+  metrics/loss arrays must be finite with internally consistent objective
+  components. Low or contrary metrics do not constitute execution failure.
+- Planned run-specific artifacts: exactly one new run identity should produce
+  one raw log in `logs/`, one dataset preflight JSON and one run manifest JSON
+  under `exp/runs/baby/`, one convergence pickle under `exp/converge/baby/`,
+  and full plus inference-only student checkpoints under
+  `Model/baby/td_distill/`. These ignored artifacts will be size/SHA256 audited
+  and preserved but not added to Git. The same-seed compliant full candidate
+  reference is manifest
+  `exp/runs/baby/run_manifest__2026-08-02 12_05_26.329228_baby_light_init_pid27620.json`
+  with Validation Recall@20 `0.06842596333982363` and final Test Recall@20
+  `0.06659234097521655`; this comparison is post-run analysis only and cannot
+  select or tune the current model.
+- Failure boundary and next action: on any preflight failure, process failure,
+  hard audit violation, timeout, or partial artifact state, do not relaunch,
+  delete, roll back, or proceed to seed-2023. Preserve all valid evidence,
+  append a separate failed outcome, commit the outcome record, and stop. On
+  success, append a separate completed outcome with exact command, commit,
+  environment, chronology, metrics, hashes, comparison, Test-access statement,
+  and unresolved risks; commit that outcome record and stop. In either case,
+  the only later action requires fresh user authorization.
