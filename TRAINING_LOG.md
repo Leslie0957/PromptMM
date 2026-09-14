@@ -8700,3 +8700,98 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   formal declaration, then have the user manually launch its unchanged command
   once from clean committed source. The command is in section 8 of the new
   note. This task does not create that formal declaration or authorize launch.
+
+## 2026-09-14 seed-2024 item-image-only formal run (pending; user-executed handoff)
+
+- Authorization/scope: the user corrected the preceding seed-2023 request to
+  seed-2024 and will execute the command manually, then report the outcome.
+  Prepare and commit this declaration only; do not launch training. The earlier
+  seed-2023 request produced read-only checks only: no declaration, edit, run,
+  retry or new Test access. Existing seed-2023 remains accepted by the audited
+  exception, with its original manifest false and all artifacts preserved.
+- Purpose: complete the third predeclared item-image-only seed without changing
+  its frozen configuration. Compare full candidate minus image-only at seed
+  2024; retain low/mixed/reversed metrics as valid evidence. This is a comparison
+  of normalized supervision mixtures, not a fixed-image-coefficient text effect.
+- Profile/seed: baby_td_item_image_only_no_projection_seed2024_v1, scope
+  student_ablation, source
+  predeclared_baby_item_image_only_no_projection_ablation_v1_seed2024.
+  Sorted compact-JSON defaults SHA256:
+  67b274963044d9ca7e05bad0a87f7c4fe594a69008493844beea9d9b284ca861.
+  Student initialization/sampling seed 2024; hard_token_seed remains 2022.
+- Named shared anchor: baby_image_only_shared_anchor_20260914_v1 is the existing
+  compliant seed-2022 image-only outcome in this log (2026-09-14 seed-2022
+  item-image-only compliant recovery, completed), with resolved identities in
+  exp/runs/baby/run_manifest__2026-09-14 15_39_12.331441_baby_light_init_pid30688.json,
+  SHA256 13702b7ea4191bdad027c3e7733a9804fda77a9c0230e028b7dfbb93eba103d2.
+  Reuse its audited Baby data/splits/features, PCA caches, retained official cold
+  items, teacher, preprocessing, common optimization and evaluation settings.
+  Environment anchor: environment/run_5060-runtime.md, interpreter
+  D:\miniconda\envs\run_5060\python.exe, Python 3.10.20, PyTorch 2.11.0+cu128,
+  CUDA 12.8, RTX 5060, GPU 0. No environment change is declared.
+- Explicit delta: relative to that seed-2022 profile, only seed becomes 2024
+  (plus profile/scope/source metadata and fresh run identity). Relative to the
+  same-seed full candidate, only td_item_text_rate changes 0.3 to 0.0. Source
+  since anchor launch 4421dc72d302b13cff327c9d6056e31ea09f12b7 includes the
+  separator-only Windows teacher-path comparison fix at
+  2762375c77b013f6f9fbea492852d318b1518e5e and its regression tests; no training
+  loss, optimizer or protocol behavior changed. Current codes/ diff from that
+  launch is confined to dataset_profiles.py and test_dataset_profiles.py.
+- Resolved key controls: random 64-dimensional td_distill_no_projection, no
+  teacher warm start or student checkpoint load; AdamW lr 6e-5, decay 0.01;
+  batch 1024, 116 batches/epoch, epoch cap 1000, patience 7, smoke cap 0,
+  efficiency false; alpha 0.3, item-image/text/user-image/user-text rates
+  1/0/0/0, objective L_BPR + 0.3 * L_item_image. All remaining settings cite
+  the exact shared anchor; no undeclared CLI override is allowed.
+- Teacher: read-only Model/baby/teacher_model_val_test_once_v1.pt, 141098540
+  bytes, SHA256 b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4.
+  if_train_teacher=false, teacher_only=false, alias overwrite false. Preserve
+  the shared checkpoint and every existing artifact.
+- Protocol/Test policy: val_test_once_v1, train-only optimization, Validation
+  Recall@20 selection and natural patience-7 stopping, train_only candidate
+  exclusion, Ks=[10,20,40,50], test_flag=part. Restore the selected student
+  before exactly one final student Test; zero frozen-teacher Test rankings.
+  No Test-based tuning, selection, acceptance or retry decision is permitted.
+- Branch/source rule: codex/experiment/baby-teacher-baseline; pre-declaration
+  parent 88d2158ace91c13edcf7bd411045fb48847d1c99. The commit containing this
+  single pending declaration is the exact clean launch HEAD and will be
+  reported in the handoff. Do not run from changed/dirty source or a different
+  HEAD without rechecking the declaration. No implementation or profile edit.
+- Sole manual command, once from D:\Download\PromptMM:
+  `D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_td_item_image_only_no_projection_seed2024_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --run_final_test true`.
+- Comparison anchor: compliant same-seed full candidate
+  exp/runs/baby/run_manifest__2026-08-02 16_36_39.774993_baby_light_init_pid5916.json,
+  SHA256 cd108133710cd682f4a7d82dbc945ae5fb4eec4588e68cc762394cc8902735fd;
+  Validation Recall@20 0.0671997942915925, Test Recall@20 0.06682881901961434.
+  Full uses L_BPR + 0.3*(L_item_image + 0.3*L_item_text)/1.3. Shared multimodal
+  prompt and changed effective image coefficient remain interpretation limits.
+- Expected new timestamp/PID artifact family: logs/<run>;
+  exp/runs/baby/dataset_preflight__<run>.json;
+  exp/runs/baby/run_manifest__<run>.json;
+  exp/converge/baby/auto__<run>.pkl;
+  Model/baby/td_distill/td_distill_full__val_test_once_v1__<run>.pth;
+  Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__<run>.pth.
+  No point-name alias or existing output replacement; generated outputs stay
+  ignored. Final audit must check source/identity, finite objective/metrics,
+  complete batches, selected/tested checkpoint equality, ID-only export, Test
+  chronology, status/eligibility, and fingerprint the six same-run artifacts.
+- Verification before declaration: SEED2024_HANDOFF_PRECHECK_OK passed static
+  profile/metadata checks (both override maps {}), exact seed-only and text-rate
+  deltas, shared/comparison manifest hashes and eligibility, Python version,
+  and unchanged seed-2023 manifest hash/false status. Teacher hash was verified
+  in the immediately preceding read-only check, and size is unchanged. Runtime
+  preflight must resolve and validate common asset identities before training;
+  unchanged data/splits were not loaded or rehashed in this handoff task.
+- Preservation/acceptance: original log prefix is 575395 bytes, SHA256
+  79b4548b3dd5ef2e3e14427b764d81fe7e393e52ed7dbd1d992a483659d232c6.
+  Apply the declaration-only exception: retain this pending entry and create
+  one log-only commit; no duplicate declaration-completed entry. A future
+  completed/failed execution requires its own audited outcome record.
+- One-launch/no-retry/no-next-stage guard: the user may launch this command once
+  and report completion, failure or interruption. Do not automatically retry,
+  resume, rerun seed-2023, launch another seed/arm, tune, benchmark, merge, tag,
+  overwrite assets, or proceed to Innovation 2. After the user reports back,
+  inspect the existing run and record its outcome before any later stage.
+  Sole next action after this clean declaration commit: user manually runs
+  the exact seed-2024 command once. No training or Validation/Test ranking
+  occurred while preparing this declaration.
