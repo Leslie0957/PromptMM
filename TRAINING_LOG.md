@@ -9741,3 +9741,58 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   cross-dataset evidence without launching them. Avoid continuing automatic
   weight tuning or budget extension. Copy-ready request:
   更新第一创新点复核文档和论文可用表述，纳入三种子固定图像权重对照与早停诊断，区分已证明和未证明，整理下一阶段优先级，不启动训练或Test。
+
+## 2026-09-15 thesis evidence consolidation (pending)
+
+- User authorizes systematic material organization only; no training or new evaluation.
+- Scope: new dated thesis evidence Markdown and stored-curve PNG, docs index update;
+  retain historical reports verbatim, append canonical log only. No source/profile edits.
+- Purpose: consolidate source-faithful formulas, formal Test and diagnostic Validation
+  tables separately, evidence boundaries and remaining experiments before Innovation2.
+- Risks: mixing protocols, duplicate seed counts, overclaiming causality/convergence.
+  Preserve seed2023 audited exception/original false and seed2024 low formal result.
+- Acceptance: recompute tables from explicit manifest/curve allowlist, retain run/hash
+  provenance, verify formulas against active source identity, inspect chart and diff.
+- Recovery point f364cc9, clean codex/experiment/baby-teacher-baseline. No rollback.
+- Original log prefix 656876 bytes SHA256 dbd3def0abd6c4707429a77c2a796b11850a80f6701bd28ef3fe887f7e440f3f.
+- Next: complete documents and append outcome, scoped commit; no experiment launch.
+
+## 2026-09-15 thesis evidence consolidation (completed)
+
+- Completed prior pending document-only scope. Added
+  docs/research/INNOVATION1_THESIS_EVIDENCE_2026-09-15.md and
+  INNOVATION1_FIXED120_CURVES_2026-09-15.png; docs/README.md now identifies the
+  new current entry and labels earlier summary historical. Old reports unchanged.
+- Consolidated18 numbered equations, actual teacher/student structure and
+  formal versus diagnostic training/selection/Test branches. Preserved normalized
+  MSE dimension/epsilon, positive-item sampling, fixed coefficient definitions,
+  composite-target equivalence and pure-ID inference limits. No novel-loss claim.
+- Re-read16 explicitly listed student manifests/curves:9 formal and7 diagnostic;
+  verified selected epoch/metric consistency, finite Recall curves and Test flags.
+  Computed formal three-arm tables and diagnostic paired mean/sample SD from
+  saved values. New document includes all16 manifest/curve SHA256 pairs.
+  Current11 source fingerprints match latest audited source; no data/model load
+  or training/Validation/Test ranking. Prior full per-run audits remain canonical.
+- Three-seed fixed-image-weight Validation delta mean0.003550918953, sample
+  SD0.000173959868, relative mean gain5.3874%; formal BPR/full Test means
+  0.041131438/0.066243941. Tables not mixed. Endpoint maxima explicitly limit
+  convergence claims. Original2024 low result and seed2023 exception/false kept.
+- Added thesis-ready method/results/early-stop prose, evidence-status matrix,
+  contribution/completion limits and prioritized remaining experiments.
+  Second dataset audit is the sole next recommended action before running new
+  cross-dataset experiments. Plan includes9 core student runs on a qualified
+  second dataset, excluding teacher/pilot/direct-baseline costs. No commands
+  or run authorization issued; no Innovation2 selection.
+- Distinguished text-only target permutation from jointly permuted graph/text
+  targets; fair cached-teacher efficiency and direct method baselines remain
+  required for corresponding claims. Conditional structural ablations are not
+  treated as universally mandatory. Old planning snapshots remain historical.
+- Verification THESIS_EVIDENCE_16_RUN_TABLES_AND_SOURCE_OK;18 equation tags,
+  16 provenance entries, local document links and table continuity checked;
+  generated chart visually inspected. Historical reports byte-equivalent to
+  Git source after newline normalization. Original log656876-byte prefix SHA256
+  dbd3def0abd6c4707429a77c2a796b11850a80f6701bd28ef3fe887f7e440f3f intact.
+  Commit only these documents/chart/index/log on existing task branch; no raw
+  artifacts or executable changes. This is not paper-result freeze or backup.
+- Sole next step: audit a second dataset candidate and prepare minimal experiment
+  matrix/budget/protocol draft, without training or Test evaluation.
