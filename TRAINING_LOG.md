@@ -8945,3 +8945,68 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   interaction before proposing another experiment. Do not change patience,
   resume/rerun this seed, access Test anew or start Innovation 2.
   Copy-ready instruction: `汇总三种子 image-only 与完整方法，并结合已有验证曲线诊断 seed-2024 提前停止的影响；保留低指标和 seed-2023 审计例外，不启动训练、不新增 Test 评估。`
+
+
+## 2026-09-15 three-seed image-only/full summary and stored-curve diagnosis (pending)
+
+- Authorization: summarize six existing runs and diagnose stored Validation curves;
+  no training, new Validation/Test ranking, retry or parameter/profile change.
+- Purpose: distinguish observed recipe performance under patience=7 from unobserved
+  longer-training performance and pure text effects. Retain seed-2024 low metrics
+  and seed-2023 accepted_by_user_audited_exception with original eligibility false.
+- Scope: append this log, add a dated research summary and stored-curve figure,
+  and link the summary in docs/README.md. No executable source or assets change.
+- Risks: n=3; normalized image coefficient differs; image targets share multimodal
+  prompt; seed-2024 trajectory ends at epoch 7. No causal recovery claim permitted.
+- Acceptance: match six manifests to stored convergence results; replay strict
+  improvement/patience=7; recompute paired metrics and sample SD; label exceptions;
+  inspect figure and diff; preserve original log prefix byte-for-byte.
+- Recovery point: bafb459cbdb50daea838ccdc8299ba79951a9d04 on
+  codex/experiment/baby-teacher-baseline, initially clean; no automatic rollback.
+- Original log prefix: 593623 bytes, SHA256 04bb3ff1330f107c0845b4f0192c4dc0b9a19ba06406165577a5760e58148de4.
+- Next: complete this analysis and scoped documentation commit only. Any later
+  experiment is a proposal requiring its own declaration and user-run handoff.
+
+## 2026-09-15 three-seed image-only/full summary and stored-curve diagnosis (completed)
+
+- Completed the preceding analysis-only pending scope. Added
+  docs/research/BABY_IMAGE_ONLY_THREE_SEED_SUMMARY_2026-09-15.md and
+  BABY_IMAGE_ONLY_CURVES_2026-09-15.png; linked the report in docs/README.md.
+  No source, profiles, parameters, checkpoints or raw outputs were changed.
+- SIX_RUN_STORED_CURVE_SUMMARY_OK: six finalized manifests agree with stored
+  convergence Recall/NDCG/Precision vectors; all Validation Recall values finite;
+  strict-improvement/patience=7 replay reproduces each best and stop epoch.
+  Full best/length: 2022 73/81, 2023 44/52, 2024 60/68.
+  Image best/length: 2022 67/75, 2023 100/108, 2024 0/8.
+  The first read-only helper used dictionary equality on NumPy arrays and raised
+  ambiguous truth value; explicit vector-list comparisons passed. This was an
+  analysis helper issue, not a run failure or any artifact modification.
+- Three-seed Test Recall@20 mean +/- sample SD: full
+  0.066243941 +/- 0.000816845; image 0.045503910 +/- 0.037525735.
+  NDCG@20: full 0.030982528 +/- 0.000566889; image
+  0.020883877 +/- 0.017218958. Paired full-minus-image Recall:
+  -0.000112283, -0.002320219, +0.064652595. Do not omit the third seed.
+- Seed-2024 image first dipped then recovered to 0.002797267 at epoch 7,
+  still below epoch-0 Val 0.002828491. Full first exceeded its epoch-0 value
+  at epoch 5. Correct stopping is observed; recovery beyond epoch 7 is unknown.
+  Full mean advantage is concentrated in this seed, not consistent across seeds.
+  Pure text causality remains confounded by image coefficient 0.230769 vs 0.3
+  and a shared multimodal prompt. n=3 supports no significance/general claim.
+- Original seed-2023 manifest remains paper_ready_eligible=false, SHA256
+  3dda1be595ad4dd2fddf19931bada243e8a1281c20d71278c7815423a3b37bff;
+  retain accepted_by_user_audited_exception. Seed-2024 remains valid completed
+  low evidence. No training, new Validation/Test evaluation or checkpoint loading
+  occurred. Six existing manifests retain teacher Test false/student Test true;
+  existing Test metrics were read only, not recomputed.
+- Verification: inspected generated figure; checked source stopping and normalized
+  weighting; recomputed mean/sample SD and per-seed differences; report includes
+  all six manifest/convergence SHA256 values. Original 593623-byte log prefix
+  hash 04bb3ff1330f107c0845b4f0192c4dc0b9a19ba06406165577a5760e58148de4
+  remains byte-identical. Focused diff check precedes scoped local commit on
+  codex/experiment/baby-teacher-baseline; report its hash in handoff.
+- Exactly one recommended next stage: prepare an isolated seed-2024 image-only
+  120-epoch Validation-only diagnostic command, first arm of a predeclared common
+  fixed-budget full/image comparison; no early stop within window and no final
+  Test. Budget is a diagnostic proposal based on existing Validation trajectories,
+  not a changed formal result or an implemented/authorized run. User runs each
+  separately after its own declaration. No Innovation 2 decision is made.

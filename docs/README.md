@@ -5,6 +5,10 @@ part of the executable training line.
 
 ## Research Routes
 
+- [Three-seed image-only/full results and early-stop diagnosis](research/BABY_IMAGE_ONLY_THREE_SEED_SUMMARY_2026-09-15.md):
+  current paired summary, stored Validation curves, seed-2023 exception and
+  seed-2024 low result; proposes a Validation-only diagnostic next, without
+  launching training or declaring a new formal run.
 - [Innovation 1 review, formulas and experiment plan](research/INNOVATION1_REVIEW_AND_EXPERIMENT_PLAN_2026-09-14.md):
   source-faithful thesis-writing draft, accepted evidence (including the
   seed-2023 audited exception), interpretation limits, and the experiment plan
@@ -26,4 +30,3 @@ part of the executable training line.
 
 - `CLEANUP_CANDIDATES.md`: files that may be removable after explicit review.
   Nothing in that list has been deleted.
-
