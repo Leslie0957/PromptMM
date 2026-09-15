@@ -9837,3 +9837,43 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   conversion/profile/teacher preparation. No download or training authorized
   or performed in this screening. Preserve seed2023 audited exception/false,
   all old outcomes; second innovation undecided.
+
+## 2026-09-16 official Sports acquisition (pending)
+
+- User authorizes finding/downloading Sports or providing instructions. Scope:
+  isolated data/_incoming/mmrec_sports download and provenance manifest; log only
+  tracked change. No conversion, training, PCA fitting or Test ranking.
+- Official FREEDOM README links public root13cBy1EA_saTUuXxVllKgtfci2A09jyaG;
+  public root page identifies sports folder1iJtyDmgeYdZsvO5297dNafyPDya21e8D.
+- Acceptance: official folder inventory, successful file downloads, local sizes
+  and SHA256; basic numeric feature checks if available. Full dataset identity/
+  mapping/split onboarding remains separate. No existing assets overwritten.
+- Recovery reference6b2d315, clean codex/experiment/baby-teacher-baseline.
+- Original prefix 663572 bytes SHA256 4cb9b7ac516d64a36acc504f07873808dc5dd6c3839d2991e2b0a94530fcccd9.
+- Preserve partial downloads on failure and give concrete manual source/steps.
+
+## 2026-09-16 official Sports acquisition (completed)
+
+- Downloaded five official files to data/_incoming/mmrec_sports, total 639025598 bytes.
+- Source https://github.com/enoche/FREEDOM -> public root -> sports folder
+  https://drive.google.com/drive/folders/1iJtyDmgeYdZsvO5297dNafyPDya21e8D.
+- gdown6.1.0 folder download initially failed accessing external cookies cache;
+  no dataset content was downloaded in that attempt. Reissued with --no-cookies,
+  no environment install or escalation; completed with process exit0. This is
+  download recovery, not a training retry. No existing dataset overwritten.
+- Local download_manifest.json records official file IDs, SHA256, bytes and
+  headers/shapes. Its SHA256 af3265a8e450f9e0efca6f279a6176d3899c831b02d502b1c7b17f8ecaa088ac.
+- Image shape18357x4096 float64; text18357x384 float32; both readable, finite,
+  same item row count, different hashes. Five files include sports.inter and
+  user/item mappings. Basic checks passed; not yet full dataset acceptance.
+  - i_id_mapping.csv; 300971 bytes; SHA256 ac28223c94dbd08106253000c751b1835c479f291eb5b1d6c532457464669e70.
+  - image_feat.npy; 601522304 bytes; SHA256 222f924a0694b6c7e2bc26ea4bc2ef4ec89f7045aa5105ef463af8455c7a7695.
+  - sports.inter; 8278383 bytes; SHA256 b8a43979c7984a01a8ab9713ea29a3cf13a65b1784dbadc2162fa932daf1c6a0.
+  - text_feat.npy; 28196480 bytes; SHA256 27d6087f0d8644b8245c60052425530c6446dffe61024b8126db0009ad94de84.
+  - u_id_mapping.csv; 727460 bytes; SHA256 8ebe5cc874353bf96ad819fe30cb9684f3b15920a497c20a8f06bf2cea172ba0.
+- No split overlap/mapping alignment audit, data conversion, preprocessing fit,
+  teacher/student training or Test ranking. Raw downloads and manifest ignored
+  by Git; log preserves identities, not physical files. No result-freeze claim.
+- Sole next step: audit source mappings, official x_label splits and cold items
+  for Sports before onboarding into active loader or declaring any training.
+  Preserve old results and seed2023 exception/false; Innovation2 undecided.
