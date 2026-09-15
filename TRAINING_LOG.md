@@ -9418,3 +9418,88 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   completion or error. No automatic resume/retry, Test, other seed/arm, tuning,
   rollback, merge/tag, artifact overwrite or Innovation2. Sole next action is
   that one manual run; later audit records outcome before any further proposal.
+
+## 2026-09-15 baby_image_matched_weight_seed2024_fixed120_val_diag_v1 (completed)
+
+- User reported completion. Existing-artifact audit only; no training, retry,
+  new Validation/Test ranking or source changes. Pending declaration9412128
+  remains verbatim; branch codex/experiment/baby-teacher-baseline, HEAD9412128,
+  initially clean. All11 source fingerprints match disk and launch Git source
+  after newline normalization. Manual live argv/Git status/exit code were not
+  captured; completion rests on user report and finalized consistent artifacts.
+- Run 2026-09-15 15_55_29.823816_baby_light_init_pid6540; started 2026-09-15T15:55:29.824823+08:00, completed
+  2026-09-15T16:18:56.660596+08:00. Status validation_completed, eligibilityfalse with
+  exactly three expected diagnostic blockers: dataset overrides, student
+  overrides and final Test disabled. Not execution failure.
+- Exact command: D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py
+  --dataset baby --student_profile baby_td_item_image_only_no_projection_seed2024_v1
+  --gpu_id 0 --if_train_teacher false
+  --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt
+  --epoch 120 --early_stopping_patience 120 --run_final_test false
+  --td_distill_alpha 0.23076923076923075.
+- Resolved parameters match prior image fixed120 except alpha and its override
+  metadata. Alpha equals0.3/1.3; seed2024, random ID64, lr6e-5, AdamW decay0.01,
+  batch1024, epoch120/patience120, image rate1/text-user rates0, no warmstart,
+  no smoke/benchmark, empty point alias. Four student overrides and two dataset
+  overrides match declaration. Objective BPR+(0.3/1.3)*L_image.
+- Paired image/full manifest hashes verified against their declarations.
+  Runtime dataset identity, teacher fingerprint/inference config and active PCA
+  caches match shared image anchor; environment/source unchanged. No dataset
+  or common teacher loading/rehashing for this audit.
+- 120 contiguous Validation summaries epochs0-119; all15 series length120 and
+  finite. No early-stop event. Max objective residual 4.7289694732333132e-07;
+  semantic equals image loss and inactive losses zero. Uncapped loop implies
+  13920 batches; selected epoch111 optimizer states record12992 steps.
+  No full per-batch terminal capture claimed.
+- Best Val Recall@20 0.065790324358080493 at epoch111;
+  corresponding selected-checkpoint NDCG@20 0.029346525392376442.
+  Epoch119 Recall@20 0.065660532148062015; first exceeds own epoch0 at epoch7.
+  First strict argmax matches manifest/convergence/full checkpoint; inference
+  and full tensors bit-equal and finite, users19445x64/items7050x64,
+  optimizer states finite. Selected checkpoint was restored; no Test occurred.
+- Test chronology: frozen teacher Test prohibited; both Test-performed flags
+  false; one final Test skipped log, no final Test vectors. Selected-versus-tested
+  equality inapplicable. No audit reranking or new evaluation.
+- Three-arm seed2024 fixed120 Validation comparison:
+  full: best R0.06943736301411857 at116, selected N0.030732405736543313,
+  final-epoch R0.0691802275037046;
+  image alpha0.3: best R0.06646193782218553 at114,
+  selected N0.0296203955811246, final R0.06630765651593715;
+  matched image alpha0.3/1.3: best R0.065790324358080493 at111,
+  selected N0.029346525392376442, final R0.065660532148062015.
+  All checkpoints selected by Recall; N is not independently maximized.
+- Full minus matched best Recall=0.0036470386560380763, relative
+  +5.543427%; matched minus original image best
+  Recall=-0.00067161346410503364. Full exceeds matched on107/120 epochs;
+  correlated epochs are not independent statistical replications.
+- Interpretation: lowering image coefficient alone did not reproduce the full
+  advantage; it lowered best Validation Recall slightly at this seed/budget.
+  With image coefficient held fixed, addition of the explicit text loss retains
+  a positive observed contrast, supporting its contribution in this setting.
+  Do not call this universal causal proof: one seed, no new Test, shared
+  multimodal prompt, altered total supervision strength, and no semantic-shuffle
+  control. Matched-weight contrast removes the image-coefficient confound, not
+  all possible explanations such as text-target specificity versus regularization.
+  No additive causal decomposition of best-checkpoint differences is claimed.
+- Original formal three-seed table and seed2024 low Test result unchanged.
+  Seed2023 accepted_by_user_audited_exception and original eligibilityfalse
+  preserved. Second innovation remains undecided.
+- Six artifacts (relative path; bytes; SHA256):
+  - exp/runs/baby/run_manifest__2026-09-15 15_55_29.823816_baby_light_init_pid6540.json; 25672; d5dc4022a34e4d5d4c6723e6ca0e953e302b9557fb6873298d1f3298a90767dc.
+  - exp/converge/baby/auto__2026-09-15 15_55_29.823816_baby_light_init_pid6540.pkl; 17804; 53fb325151e8a69958e95c856e0295198b5977b4ba34fafd6e1e21ee77317074.
+  - logs/2026-09-15 15_55_29.823816_baby_light_init_pid6540; 55365; 239e76be48be67adf580c0394145bc1264a9a1a3174d4e3c35b2725d4753e45d.
+  - exp/runs/baby/dataset_preflight__2026-09-15 15_55_29.823816_baby_light_init_pid6540.json; 3399; 69eed835f99ac0f2bca535f0e7115b76f827e56af0b045d24a6e51d9ad5eefa4.
+  - Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-09-15 15_55_29.823816_baby_light_init_pid6540.pth; 20354897; e9b6ac429a271d4303e497277c99363a050374a90ebf0f9df6de11e65a3e9580.
+  - Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-15 15_55_29.823816_baby_light_init_pid6540.pth; 6785989; 79b393f635d4de406424d20c67bf65886ee5fd06ad115b02f962e6c12c2f005d.
+- MATCHED_WEIGHT_OUTCOME_AUDIT_OK passed parameter/source/shared identity,
+  finite objective, selection/export and Test-policy checks. Original log prefix
+  629723 bytes SHA256 04eb70cb0c8f3672e32b816effa865f432d1fdf3b915b21d8bc0d46c70ae3daa
+  preserved verbatim. Append outcome only; commit log only.
+- Exactly one recommended next stage: prepare the seed2022 full fixed120
+  Validation-only arm as the first step of replicating the full versus
+  matched-image-weight contrast at additional seeds (then seed2022 matched arm,
+  and later seed2023 pair, each separately declared/audited). Freeze the same
+  120-epoch/no-Test budget and coefficients; do not tune seed2024 or overwrite
+  old results. Existing patience7 curves are not substitutes for equal-budget
+  arms. No launch is authorized by this recommendation. Copy-ready request:
+  准备 seed-2022 完整方法120轮、仅Validation的复核命令，保持已有配方与预算，记录后交给我手动运行，不启动训练。
