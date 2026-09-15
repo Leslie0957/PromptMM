@@ -8795,3 +8795,153 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   Sole next action after this clean declaration commit: user manually runs
   the exact seed-2024 command once. No training or Validation/Test ranking
   occurred while preparing this declaration.
+
+## 2026-09-15 seed-2024 item-image-only formal run (completed; low-metric evidence preserved)
+
+- Status and authorization: the user reported the manual run completed. Audited
+  the existing run only and accepted it as completed with low metrics under the
+  predeclared protocol. No training, retry, resume, parameter/early-stop change,
+  extra seed/arm, efficiency run, Validation/Test ranking or artifact replacement
+  occurred during this audit. The pending declaration in commit
+  72912d652bd060f660a37f43abdd37c07fed0a1f remains verbatim.
+- Run/source: 2026-09-14 21_32_16.560580_baby_light_init_pid8316; manual
+  launch from declared branch codex/experiment/baby-teacher-baseline and launch
+  commit 72912d652bd060f660a37f43abdd37c07fed0a1f. Before this outcome append, HEAD
+  still equaled that commit and the tree was clean. All 11 fingerprinted source
+  files match runtime byte hashes and declared Git source after CRLF/LF
+  normalization. This supports consistency with the declared launch source;
+  the audit did not capture the original manual process argv, live Git status,
+  exit code or per-batch terminal stream, and does not claim that it did.
+- Exact declared command (resolved namespace matches its effective settings):
+  `D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_td_item_image_only_no_projection_seed2024_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --run_final_test true`.
+  Manifest started_at 2026-09-14T21:32:16.56058+08:00, completed_at
+  2026-09-14T21:34:04.844113+08:00, elapsed 108.283533 seconds.
+  Completion is supported by the user report, finalized manifest, orderly
+  early-stop/final-Test log, and consistent artifacts, not an invented exit code.
+- Profile/parameters: baby_td_item_image_only_no_projection_seed2024_v1 /
+  student_ablation /
+  predeclared_baby_item_image_only_no_projection_ablation_v1_seed2024.
+  Defaults SHA256 67b274963044d9ca7e05bad0a87f7c4fe594a69008493844beea9d9b284ca861;
+  every pinned resolved value matched and both override maps were {}.
+  Student/sampling seed 2024; hard_token_seed 2022; random 64-dimensional
+  td_distill_no_projection; td_init_from_teacher=false; no loaded student
+  checkpoint; AdamW lr 6e-5, weight decay 0.01; batch 1024, epoch cap 1000,
+  patience 7, smoke cap 0; efficiency disabled. Alpha 0.3 and rates 1/0/0/0,
+  objective L_BPR + 0.3 * L_item_image. Only item-image was active.
+- Shared identity: runtime dataset_identity, teacher inference config and active
+  PCA cache records exactly match baby_image_only_shared_anchor_20260914_v1.
+  The preflight file matches the manifest; split overlaps are zero; modalities
+  are finite/non-duplicate. The sole warning retains official cold items
+  240/1212/6115, with 11 Validation and 7 Test interactions and no cold users.
+  Teacher remains 141098540 bytes with verified SHA256
+  b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4.
+  Runtime preflight identities were read; this audit did not load data splits.
+  Environment remains the declared run_5060 shared anchor; checkpoint inspection
+  used CPU loading, not model evaluation.
+- Execution and numerical evidence: eight contiguous Validation summaries cover
+  epochs 0-7. The uncapped unchanged training loop completes 116 batches before
+  each summary, implying 928 batches across these eight epochs. The selected
+  epoch-0 checkpoint independently records optimizer step 116 for each of its
+  two parameter states. Full terminal batch progress was not captured, so the
+  later-epoch batch count is supported by control flow, not a claimed terminal
+  capture. All 15 saved numeric series contain exactly 8 finite entries.
+  Total loss 81.41943114995956 ->
+  80.63176238536835; BPR
+  80.39841085672379 ->
+  80.2888685464859; item-image/semantic loss
+  3.403400808572769 ->
+  1.1429791068658233. Inactive losses are zero,
+  semantic equals image loss, and max total-objective residual is
+  4.4871121651635093e-7.
+- Selection/early stopping: exact Validation Recall@20 sequence for epochs 0-7:
+  [0.0028284906145538712,0.002511356818376619,0.002357075512128226,0.002164223879317735,0.002094429955062509,0.0024115637512397616,0.0025658450574881546,0.002797267016860744].
+  Epoch 0 was the only best-checkpoint event, at 0.0028284906145538712;
+  epochs 1-7 all remained below it, recording patience 1/7 through 7/7 followed
+  by one natural stop. Epoch 7 was 0.002797267016860744, only
+  0.000031223597693127124 below the initial best,
+  but the declared rule still correctly stopped. A hypothetical later recovery
+  is unobserved; these data do not justify retroactively changing patience.
+- Test chronology: val_test_once_v1, selection validation/Recall@20, train_only
+  candidate exclusion, Ks=[10,20,40,50], test_flag=part. The log contains one
+  frozen-teacher/no-ranking message, zero teacher reuse/final-Test summaries,
+  one early-stop event and one student final Test after restoring epoch 0.
+  Manifest teacher_final_test_performed=false,
+  teacher_test_policy=frozen_checkpoint_reuse_no_test_ranking,
+  final_test_performed=true; no current-run teacher final-Test vector exists.
+  Historical dataset/preflight Test identity inspection is distinct from ranking.
+- Exact final Test vectors ordered by K=[10,20,40,50]:
+  Precision [0.00015428130624839292,0.0001234250449987144,0.00016199537156081224,0.00016250964258164027];
+  Recall [0.0013533899031456249,0.0021762235364703873,0.00594240164566727,0.007485214708151197];
+  NDCG [0.0007810598144064626,0.0010131747081550215,0.0018288554917684145,0.002125429697511332];
+  Hit Ratio [0.0015428130624839296,0.0024685008999742876,0.006479814862432505,0.008125482129082024];
+  AUC 0.0 is the expected uncomputed placeholder for test_flag=part.
+  Convergence and manifest final metrics agree exactly. Test R@20 is
+  0.0021762235364703873, NDCG@20 0.0010131747081550215,
+  Precision@20 0.0001234250449987144.
+- Checkpoint evidence: format-v2 full checkpoint records the same run, epoch 0,
+  selected metric, protocol and selection split. It contains exactly two
+  finite float32 ID tensors (users [19445,64], items [7050,64]) and two finite
+  optimizer states, with lr/weight decay matching the profile. Inference has
+  only those two tensors and four dimension/count/variant metadata fields;
+  tensors are bit-for-bit equal to full checkpoint tensors. Source restoration
+  flow and final-Test log identify that selected checkpoint as the tested model;
+  no independent reranking was performed. No run-local teacher or generic
+  student checkpoint was created.
+- Six preserved same-run artifacts (relative paths; bytes; SHA256):
+  - log: `logs/2026-09-14 21_32_16.560580_baby_light_init_pid8316`; 8400;
+    567b19d513704aa3e660de25f0b46a58e1589ad3dede2f91089896ea460344ca.
+  - preflight: `exp/runs/baby/dataset_preflight__2026-09-14 21_32_16.560580_baby_light_init_pid8316.json`; 3399;
+    888967d5eb1434fdd78819e8b957cf08c68cb93c358cc2231ffb73a9d9d66cc3.
+  - manifest: `exp/runs/baby/run_manifest__2026-09-14 21_32_16.560580_baby_light_init_pid8316.json`; 25042;
+    c48c2ad5d3f324782486be926b819cc2400121f0f1908aa7a604622af1bd7478.
+  - convergence: `exp/converge/baby/auto__2026-09-14 21_32_16.560580_baby_light_init_pid8316.pkl`; 2585;
+    e46afb45aa894393800fa9e905dd1d620045bfa9d67beed87264063d1502085e.
+  - full: `Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-09-14 21_32_16.560580_baby_light_init_pid8316.pth`; 20354897;
+    01d1bbb1953c8e441fc5b4b84f24b671397a3d20741d66ef1f564d05e22ac973.
+  - inference: `Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-14 21_32_16.560580_baby_light_init_pid8316.pth`; 6785989;
+    d60b42c5076fcaba5b32ddf46888ac8635306bd5e6976db4840ba395567524c6.
+  Exactly one manifest exists for the seed-2024 image-only profile. No assertion
+  of live one-process capture is made; the artifact set supports one completed
+  recorded execution. All generated artifacts remain ignored and outside Git.
+- Same-seed comparison: compliant full candidate
+  2026-08-02 16_36_39.774993_baby_light_init_pid5916 had Validation R@20
+  0.0671997942915925 and Test R@20 0.06682881901961434. Full minus image-only
+  is 0.06437130367703862 on Validation R@20,
+  0.06465259548314395 on Test R@20,
+  0.03060190629614277 on Test NDCG@20, and
+  0.00357161223965035 on Test Precision@20. The same-seed
+  BPR reference Test R@20 is 0.042307913651446934; image-only is also
+  substantially below that reference. Low metrics are evidence, not hard-gate
+  failure: manifest remains completed, paper_ready_eligible=true, blockers=[].
+- Interpretation: under this fixed seed/configuration/selection policy,
+  image-only remained near its initial recommendation quality and stopped
+  early. Loss improvement did not produce a new Validation R@20 best.
+  In the stored full-candidate curve, epoch 0 R@20 was
+  0.0027770635124710736 and epoch 5 was
+  0.0029356304105596994, already a new best; its first eight
+  values were [0.0027770635124710736,0.002571355104139883,0.0023656466958086922,0.0022156509814005325,0.0026270677980629134,0.0029356304105596994,0.0037156081254821308,0.003921316533813321].
+  This observes a different early trajectory and interaction with the stopping
+  rule, not a proved causal diagnosis. It does not establish that extending
+  training would recover image-only, or that text alone caused the difference:
+  effective image coefficient and shared multimodal prompt remain confounds.
+- Preservation and audit correction: seed-2023 remains
+  accepted_by_user_audited_exception, with original manifest SHA256
+  3dda1be595ad4dd2fddf19931bada243e8a1281c20d71278c7815423a3b37bff and
+  paper_ready_eligible=false unchanged. The first audit helper mistakenly
+  expected 16 numeric series; the saved schema contains 7 loss plus 8 metric
+  series, totaling 15. Correcting the read-only helper to check the exact key
+  set passed; no training code, original data or artifact was changed, and the
+  helper assertion was not a training failure.
+- Final verification: SEED2024_IMAGE_ONLY_OUTCOME_AUDIT_OK passed source,
+  profile, anchor, numeric, selection, checkpoint/export, Test chronology and
+  six-artifact checks. Original TRAINING_LOG.md prefix is 582406
+  bytes with SHA256 040634e4ab2e9860dd1fac6882a5680761e5659258218e7927ffd0b81a844510;
+  preserve it verbatim and append only this outcome. Commit only TRAINING_LOG.md
+  on the declared branch; report resulting commit and cleanliness in handoff.
+  This is the outcome of the existing pending run, not another experiment stage.
+- Exactly one next step: perform a single no-training three-seed paired summary
+  plus stored-Validation-curve diagnosis, retaining this low result and the
+  seed-2023 exception. Separate the normalized-mixture effect from early-stop
+  interaction before proposing another experiment. Do not change patience,
+  resume/rerun this seed, access Test anew or start Innovation 2.
+  Copy-ready instruction: `汇总三种子 image-only 与完整方法，并结合已有验证曲线诊断 seed-2024 提前停止的影响；保留低指标和 seed-2023 审计例外，不启动训练、不新增 Test 评估。`
