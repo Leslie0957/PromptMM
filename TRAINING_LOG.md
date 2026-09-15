@@ -9796,3 +9796,44 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   artifacts or executable changes. This is not paper-result freeze or backup.
 - Sole next step: audit a second dataset candidate and prepare minimal experiment
   matrix/budget/protocol draft, without training or Test evaluation.
+
+## 2026-09-16 local second-dataset screening record (pending)
+
+- User asks which next dataset and whether local data are usable. Scope: log-only
+  record of read-only directory/feature screening and candidate recommendation;
+  no dataset mutation/download, preprocessing, training or ranking.
+- Rationale: a new multimodal comparison requires distinct modality features.
+- Acceptance: inventory local candidates, verify feature shapes/finiteness/hashes,
+  distinguish screening from full split/item-mapping audit; preserve old results.
+- Recovery point5949f98, clean codex/experiment/baby-teacher-baseline.
+- Original log prefix 660870 bytes SHA256 8c380b3edcf7fb9a141351ff38042490a02fe698d457125e5544ca5095a989c6; append only.
+
+## 2026-09-16 local second-dataset screening (completed)
+
+- Local directories: baby, amazon, yelp, _incoming. Incoming contains only
+  mmrec_baby source assets, not a new second dataset.
+- data/amazon image_feat.npy and text_feat.npy both shape(9332,1536),float64,
+  finite,114671744 bytes each, identical SHA256
+  ab54d59f908dbf07de95bdadfbfcc4b8484680ff417e12e40d3dd83937c140ae.
+  Canonical log identifies this historical folder as Amazon-Book rather than
+  intended Electronics. Existing train_mat/val_mat/test_mat do not resolve
+  its modality-identity failure. Do not use as valid two-modality evidence.
+- data/yelp image_feat.npy and text_feat.npy both shape(11010,1536),float64,
+  finite,135291008 bytes each, identical SHA256
+  c38f16114199f3c509c840ecf92644a06379426e1c2f4bad1ce2f76c0a0e407a.
+  Existing three split matrices present. Exact source/item-row alignment not
+  audited here; duplication alone blocks direct multimodal use.
+- Feature arrays were read via mmap and hashed; no interaction splits, model
+  checkpoints or Test ranking loaded. This is a screening result, not full
+  dataset acceptance. No assets changed, no training profile added.
+- Recommended next candidate: MMRec-family Sports, not locally present.
+  Primary author documentation https://github.com/enoche/FREEDOM states
+  Baby/Sports/Clothing downloads include Sentence-Transformers text features
+  and CNN image features; https://github.com/enoche/BM3 also lists Sports.
+  Recommendation favors continuity with current Baby source family and a new
+  product category; not a claim of proven best results or verified local assets.
+- Sole next step: acquire official Sports to an isolated incoming directory
+  and audit provenance, item mapping, splits and distinct modalities before
+  conversion/profile/teacher preparation. No download or training authorized
+  or performed in this screening. Preserve seed2023 audited exception/false,
+  all old outcomes; second innovation undecided.
