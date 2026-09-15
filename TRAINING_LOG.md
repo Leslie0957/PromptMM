@@ -9116,3 +9116,74 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   merge/tag or Innovation 2 work. If interrupted, preserve artifacts and audit;
   do not retry without new authorization. Sole next step: user manually runs the
   exact image-only command once and reports completion or error.
+
+## 2026-09-15 baby_image_seed2024_fixed120_val_diag_v1 (completed)
+
+- User reported the manual run completed; audit only, no training or new
+  Validation/Test evaluation. Pending declaration in launch commit 9976e94
+  remains verbatim. Current branch codex/experiment/baby-teacher-baseline,
+  HEAD still 9976e94, initially clean. All 11 source fingerprints match disk
+  and launch Git source after newline normalization. Manual process exit code
+  and live launch Git/argv were not captured; finalized artifacts and user
+  report support completion, not an invented exit code.
+- Run: 2026-09-15 13_20_01.591632_baby_light_init_pid2984; started 2026-09-15T13:20:01.593632+08:00, completed
+  2026-09-15T13:43:17.792331+08:00. Status validation_completed, eligibility false with exactly
+  the three predeclared blockers (dataset overrides, student overrides, Test
+  disabled). These expected diagnostic limitations are not execution failure.
+- Exact command: D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py
+  --dataset baby --student_profile baby_td_item_image_only_no_projection_seed2024_v1
+  --gpu_id 0 --if_train_teacher false
+  --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt
+  --epoch 120 --early_stopping_patience 120 --run_final_test false.
+- Resolved controls verified: seed2024, hard-token shared identity, random ID64,
+  lr6e-5, AdamW decay0.01, batch1024, alpha0.3, rates1/0/0/0, no warm start,
+  no smoke cap, empty point alias, no benchmark. Only expected three student
+  and two dataset override fields. Runtime dataset/teacher inference/PCA and
+  teacher fingerprint match original audited seed2024 and shared anchor
+  baby_image_only_shared_anchor_20260914_v1. No new full asset rehash/data loading.
+- 120 contiguous Validation summaries epochs0-119; all 15 stored series finite
+  with length120. No early-stop event. Objective maximum residual
+  4.7599896788041995e-07; semantic equals image loss and inactive losses zero.
+  Uncapped loop implies 13920 training batches; selected epoch114 optimizer
+  states independently record 13340 steps. No per-batch terminal capture claimed.
+- Best Validation Recall@20 0.066461937822185527 at epoch114;
+  corresponding Validation NDCG@20 0.029620395581124601.
+  Epoch119 Recall@20 0.066307656515937147. Strict argmax, manifest, convergence and
+  selected full checkpoint agree. Export contains equal finite ID tensors,
+  shapes users19445x64/items7050x64; optimizer states finite.
+- Zero teacher and zero student Test: manifest flags both false, frozen reuse
+  policy prohibits teacher Test; log ends with best-checkpoint restoration and
+  final Test skipped, no student final-Test result. No new Test vector exists.
+  Selected-versus-tested equality is not applicable because no model was tested.
+- Recovery evidence: all eight saved Validation metric prefixes exactly match
+  the original eight-epoch run. Loss prefixes differ by at most 5.960464477539063e-8,
+  so do not claim bit-identical complete training state. First helper asserted
+  all-series exact equality and failed on this tiny loss difference; measured
+  differences and exact metric equality replace that overstrict diagnostic,
+  without changing any run artifact or training acceptance criterion.
+  Epoch8 Recall=0.0037915243237948322 exceeds original epoch0
+  0.0028284906145538712. Thus the observed continuation-like rerun recovers
+  immediately after the original stopping boundary and reaches 0.06646.
+  This strongly supports premature stopping as the cause of the observed
+  short-trajectory low Validation result, not permanent inability to learn.
+  It does not establish Test recovery, equal-budget full superiority or a pure
+  text causal contribution. Original formal low Test result is preserved.
+- Original seed2023 accepted_by_user_audited_exception remains accepted with
+  paper_ready_eligible=false; no manifest rewriting or new Test.
+- Six run artifacts (relative path; bytes; SHA256):
+  - exp/runs/baby/run_manifest__2026-09-15 13_20_01.591632_baby_light_init_pid2984.json; 25453; 90efc8480ede1c7e820f1a390d4155a6c9ff31b95daddc2bce863df56f68b71f.
+  - exp/converge/baby/auto__2026-09-15 13_20_01.591632_baby_light_init_pid2984.pkl; 17804; 26fbe5f666aee92ee19b94566e1cb9c32a75930cca29621a49f225b58845b0ac.
+  - logs/2026-09-15 13_20_01.591632_baby_light_init_pid2984; 55315; 20afcba923c6d1ca85769db2d4872559dc26a757bf515154a89ebb80e4b2fb78.
+  - exp/runs/baby/dataset_preflight__2026-09-15 13_20_01.591632_baby_light_init_pid2984.json; 3399; 6f683d432493e0973278e24c46322cc944c7853521d2fff03f137d6abde2fd62.
+  - Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-09-15 13_20_01.591632_baby_light_init_pid2984.pth; 20354897; e092f7cf605d9925af731f3e9c0be164e6aaa518120f631da56c1c6675ad4040.
+  - Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-15 13_20_01.591632_baby_light_init_pid2984.pth; 6785989; a4bbf4714396c2956e066a5ec1887524fa807f2a10002b59872bb194c055dc85.
+- FIXED120_IMAGE_OUTCOME_AUDIT_OK: parameters, source, identities, curves,
+  objective, checkpoint/export, Test policy and fingerprints passed.
+  Preserve original log prefix 606031 bytes, SHA256
+  eedc10377fa268a918f9543dfd1206762650855eee3e9940c9afd9a16feb2790; append only. Commit log only; no code changes.
+- Exactly one next step: prepare the full seed2024 fixed120 Validation-only
+  paired arm using the same epoch120/patience120/no-Test controls, preserving
+  the full loss coefficients. Do not launch automatically. This task completes
+  the image-only outcome stage; the next arm needs its own recorded declaration
+  and clean manual-launch handoff. Copy-ready request:
+  准备完整方法 seed-2024 的 120 轮 Validation-only 配对诊断，记录后给我手动命令，不启动训练。
