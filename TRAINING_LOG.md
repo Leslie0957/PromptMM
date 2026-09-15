@@ -9187,3 +9187,80 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   the image-only outcome stage; the next arm needs its own recorded declaration
   and clean manual-launch handoff. Copy-ready request:
   准备完整方法 seed-2024 的 120 轮 Validation-only 配对诊断，记录后给我手动命令，不启动训练。
+
+## 2026-09-15 baby_full_seed2024_fixed120_val_diag_v1 manual run (pending)
+
+- User requests the full seed2024 fixed120 Validation-only paired command;
+  preparation only, no agent launch. Declaration-only scope: append this log,
+  commit; no implementation, profile, asset or environment edits. This instantiates
+  the already agreed second arm, not new tuning or a changed paired protocol.
+- Purpose: compare full and image-only under the same 120-epoch budget, separating
+  the previously observed image early-stop recovery from recipe differences.
+  Pure text causality remains confounded by normalized image coefficient.
+- Profile: baby_td_asymmetric_no_projection_seed2024_v1, student_candidate,
+  predeclared_baby_asymmetric_no_projection_directional_v1_seed2024.
+  Relative to its formal defaults: epoch1000->120, patience7->120,
+  run_final_test true->false. These are the only three student overrides;
+  dataset overrides are epoch and patience only.
+- Paired anchor: completed baby_image_seed2024_fixed120_val_diag_v1,
+  run 2026-09-15 13_20_01.591632_baby_light_init_pid2984, manifest
+  exp/runs/baby/run_manifest__2026-09-15 13_20_01.591632_baby_light_init_pid2984.json,
+  SHA256 90efc8480ede1c7e820f1a390d4155a6c9ff31b95daddc2bce863df56f68b71f;
+  curve SHA256 26fbe5f666aee92ee19b94566e1cb9c32a75930cca29621a49f225b58845b0ac.
+  This run inherits baby_image_only_shared_anchor_20260914_v1 for audited Baby
+  data/splits/PCA/teacher/environment. The existing image outcome and identities
+  remain canonical. Runtime preflight must verify these unchanged identities.
+- Delta from paired image arm: td_item_text_rate 0->0.3 plus full profile metadata
+  and fresh run identity. All other resolved arguments match, after resolving
+  relative data_path against repo root. Alpha remains0.3, rates1/0.3/0/0;
+  full objective L_BPR + 0.3*(L_image+0.3*L_text)/1.3. Effective coefficients
+  0.2307692308 image and 0.0692307692 text; do not hold image at0.3 here.
+- Common controls: seed2024, hard_token_seed2022, random ID64, no warmstart or
+  student resume, AdamW lr6e-5/decay0.01, batch1024, smoke0, point empty,
+  efficiency=false, teacher_only=false, if_train_teacher=false.
+  Environment environment/run_5060-runtime.md: Python3.10.20,
+  torch2.11.0+cu128, CUDA12.8, RTX5060 GPU0, interpreter below.
+  Frozen teacher Model/baby/teacher_model_val_test_once_v1.pt, 141098540 bytes,
+  SHA256 b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4;
+  alias overwrite remains false. Do not rewrite old artifacts.
+- Protocol: val_test_once_v1, train_only candidate exclusion, Validation
+  Recall@20 selection, Ks=[10,20,40,50], test_flag=part. Run epochs0-119,
+  patience120 prevents stopping within this window for finite metrics;
+  zero teacher and zero student Test ranking. Preflight split identity reads
+  are distinct from ranking. Save best Validation checkpoint, not necessarily119.
+- Expected outcome validation_completed, final_test_performed=false,
+  teacher_final_test_performed=false, paper_ready_eligible=false; expected blockers
+  'Baby reference profile has resolved overrides',
+  'Baby student reference profile has resolved overrides',
+  'final test evaluation is disabled'. These diagnostic flags are not failure;
+  unexpected blockers need audit. No final Test metric is expected or requested.
+- Source/rollback reference: parent a2dd1f6 on clean branch
+  codex/experiment/baby-teacher-baseline. The log-only commit containing this
+  declaration is the exact clean launch HEAD, reported in handoff. No source
+  change from paired image launch9976e94. Do not launch from changed/dirty source.
+- Exact manual command, once from D:\Download\PromptMM:
+  `D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_td_asymmetric_no_projection_seed2024_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --epoch 120 --early_stopping_patience 120 --run_final_test false`.
+- Fresh artifact family: logs/<run>; exp/runs/baby/
+  {run_manifest,dataset_preflight}__<run>.json; exp/converge/baby/auto__<run>.pkl;
+  Model/baby/td_distill/td_distill_{full,infer_only}__val_test_once_v1__<run>.pth.
+  Timestamp/PID identity and empty point isolate outputs; no generic alias update.
+- Acceptance: 120 contiguous finite loss/Validation entries, exact settings and
+  asset identities, no early-stop event or Test ranking, first strict Val argmax
+  equals selected checkpoint and manifest, finite equal full/inference tensors.
+  Low metrics are completed evidence, not permission to retry. Compare best Val,
+  epoch119 Val and trajectories with paired image; do not tune or select on Test.
+- Verification: FULL_FIXED120_PAIR_PREFLIGHT_OK, parser-only and source reads;
+  anchor manifest SHA verified and all11 source fingerprints match paired run.
+  Initial comparison exposed runtime absolute vs parser relative data_path;
+  resolving both to repo data directory proved identity (no path/code change).
+  Existing loop and no-Test return were checked; no main import, checkpoint/data
+  load, smoke, training, Validation or Test ranking occurred in preparation.
+- Original log prefix: 611799 bytes, SHA256 ce45b90324acc7695366a9c52e479dd2c40aebeb7093cb9b1b873997539bd8cf; preserve verbatim.
+  Apply declaration-only exception: no duplicate declaration-completed entry.
+  Later execution still needs its own audited completed/failed outcome.
+- Guard: user launches once; no automatic retry/resume/next seed/arm, Test,
+  broad tuning, merge/tag, artifact replacement or Innovation2. Preserve original
+  seed2024 formal low result and seed2023 accepted_by_user_audited_exception
+  with its original paper_ready_eligible=false. No automatic rollback.
+- Sole next step: user manually runs this command once and reports completion
+  or interruption, then audit the result before considering any later experiment.
