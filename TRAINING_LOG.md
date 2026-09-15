@@ -9597,3 +9597,147 @@ records remain under `exp/`; checkpoints remain under `Model/`.
 
 - Sole next action: user executes the four commands sequentially once and
   reports completion; on error/interruption stop and report without retry.
+
+## 2026-09-15 four-run replication audit (completed batch)
+
+- User reported batch ended. Audited four declared runs; all passed. No training,
+  retry, new Validation/Test ranking or source edits. Batch pending declaration
+  and four individual pending entries in e926f9a preserved. Branch
+  codex/experiment/baby-teacher-baseline, HEAD e926f9a initially clean.
+  All11 fingerprints for each new run match disk and launch Git source after
+  newline normalization. Manifest start/completion times support declared
+  sequential order without overlap. Manual process exit codes/live launch
+  argv/Git state not captured; do not invent them.
+- Common evidence for EACH of four completed outcomes below: exact resolved
+  seed/arm settings match corresponding audited seed2024 anchor except declared
+  seed/profile identity; dataset/teacher inference/fingerprint/PCA identities
+  match. Full alpha0.3/rates1,0.3,0,0; matched alpha0.3/1.3/rates1,0,0,0.
+  All use random ID64, no warmstart/resume, AdamW lr6e-5/decay0.01, batch1024,
+  hard_token_seed2022, epoch120/patience120, smoke0, point empty, no benchmark.
+- Each manifest validation_completed, eligibilityfalse with exactly expected
+  dataset/student override/final-Test-disabled blockers. Each has120 contiguous
+  Validation log epochs0-119 and15 finite120-entry numeric series, no early stop,
+  objective/mix consistency, first strict Val argmax matching manifest,
+  convergence and selected checkpoint. Finite full/inference tensors equal,
+  users19445x64/items7050x64; optimizer states finite and step=(best_epoch+1)*116.
+  Uncapped loop implies13920 batches/run; no per-batch terminal capture claimed.
+- Each log ends with final Test skipped after restoring selected checkpoint;
+  teacher frozen-reuse no-ranking policy active, both Test flags false, no Test
+  result vectors. No new Test metric; selected-versus-tested not applicable.
+  Existing seed2024 manifest/curve identities verified and metrics re-read;
+  its previously audited checkpoint was not reloaded in this batch audit.
+- No common large-asset/data reload. New artifacts hashed individually below.
+  Expected diagnostic ineligibility is not failure; no outcome excluded.
+
+### baby_full_seed2022_fixed120_replication_v1 (completed)
+
+- Run 2026-09-15 17_14_09.096736_baby_light_init_pid37680; started 2026-09-15T17:14:09.098244+08:00,
+  completed 2026-09-15T17:38:28.146960+08:00; all common batch checks above passed.
+- Exact declared command (runtime parameters consistent): D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_td_asymmetric_no_projection_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --epoch 120 --early_stopping_patience 120 --run_final_test false
+- Best Val Recall@20 0.070224687457909898 at epoch119;
+  corresponding NDCG@20 0.031049971227715134; epoch119 Recall 0.070224687457909898.
+  Objective max residual 5.4482370615005493e-07; mixture residual 1.0015299700683045e-07.
+  Selected optimizer step 13920. No final Test.
+- Six artifact identities (relative path; bytes; SHA256):
+  - exp/runs/baby/run_manifest__2026-09-15 17_14_09.096736_baby_light_init_pid37680.json; 25398; 6396b9dbcf869f554d935ba46477950b5445fba9b63e2de56445a85062711795.
+  - exp/converge/baby/auto__2026-09-15 17_14_09.096736_baby_light_init_pid37680.pkl; 17806; 6a947ef36509c475259f4c63c308c7941efcf62746b8fb8ae53f9f78a4cd9317.
+  - logs/2026-09-15 17_14_09.096736_baby_light_init_pid37680; 55508; 3762cf02d6eb2f09d4007d958651323396857124b308cc5139a406db29896a0b.
+  - exp/runs/baby/dataset_preflight__2026-09-15 17_14_09.096736_baby_light_init_pid37680.json; 3399; 205ac51685bb36272cf79ca7bec605e4ed786703a9f9c94e4225c3158f591c6a.
+  - Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-09-15 17_14_09.096736_baby_light_init_pid37680.pth; 20354975; cfb7c8f5c560f4a560cccda35af9b9cb9b04566b6614bbf83fd57f266a541308.
+  - Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-15 17_14_09.096736_baby_light_init_pid37680.pth; 6785997; 6faf00f69378e51093c2251da58d43248042789591c13700450526ab475aeb2f.
+
+### baby_matched_seed2022_fixed120_replication_v1 (completed)
+
+- Run 2026-09-15 17_38_32.051894_baby_light_init_pid40068; started 2026-09-15T17:38:32.053901+08:00,
+  completed 2026-09-15T18:03:20.072901+08:00; all common batch checks above passed.
+- Exact declared command (runtime parameters consistent): D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_td_item_image_only_no_projection_seed2022_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --epoch 120 --early_stopping_patience 120 --run_final_test false --td_distill_alpha 0.23076923076923075
+- Best Val Recall@20 0.066874579093659375 at epoch119;
+  corresponding NDCG@20 0.029762471307409121; epoch119 Recall 0.066874579093659375.
+  Objective max residual 4.2217568707592079e-07; mixture residual 0.
+  Selected optimizer step 13920. No final Test.
+- Six artifact identities (relative path; bytes; SHA256):
+  - exp/runs/baby/run_manifest__2026-09-15 17_38_32.051894_baby_light_init_pid40068.json; 25681; 88bd5ec3d16cf481a1db2704fd337d955fc429b7306934fdd692964caa00a11b.
+  - exp/converge/baby/auto__2026-09-15 17_38_32.051894_baby_light_init_pid40068.pkl; 17806; 79cbf29528a482a97438fcff5dacc6f66437470ee966877103f4e9e09f83528f.
+  - logs/2026-09-15 17_38_32.051894_baby_light_init_pid40068; 55547; 89b9fb842911fa9589a65d05a0f1aa200f3ee8a3ea0a7a3e07fc1c6838ff9e0f.
+  - exp/runs/baby/dataset_preflight__2026-09-15 17_38_32.051894_baby_light_init_pid40068.json; 3399; e477d47cd0e2332905f199b5d5bdc5aebc20eba9fce67da4ed1d6747a1b938d3.
+  - Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-09-15 17_38_32.051894_baby_light_init_pid40068.pth; 20354975; 0c9610bfdd0873967b6404d6c2c295a665035ee05627cbecc1cac23ebab54b40.
+  - Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-15 17_38_32.051894_baby_light_init_pid40068.pth; 6785997; 3a37f9a2294600dcdd1545c0e5803f88e0aa0bfb42eb06dde2f0f7c09223b686.
+
+### baby_full_seed2023_fixed120_replication_v1 (completed)
+
+- Run 2026-09-15 18_03_23.947862_baby_light_init_pid33860; started 2026-09-15T18:03:23.949199+08:00,
+  completed 2026-09-15T18:28:23.592124+08:00; all common batch checks above passed.
+- Exact declared command (runtime parameters consistent): D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_td_asymmetric_no_projection_seed2023_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --epoch 120 --early_stopping_patience 120 --run_final_test false
+- Best Val Recall@20 0.068724730313828433 at epoch118;
+  corresponding NDCG@20 0.031007462020916237; epoch119 Recall 0.068699016762787043.
+  Objective max residual 4.4126063586391595e-07; mixture residual 9.0983051759252476e-08.
+  Selected optimizer step 13804. No final Test.
+- Six artifact identities (relative path; bytes; SHA256):
+  - exp/runs/baby/run_manifest__2026-09-15 18_03_23.947862_baby_light_init_pid33860.json; 25444; bbfc961b67df04459cb80307d10c015ad29b0b52f5c5def29d0c3250c55d1b8c.
+  - exp/converge/baby/auto__2026-09-15 18_03_23.947862_baby_light_init_pid33860.pkl; 17806; ba7f11dd10b92a35cb9f3b5a51c98c561c2fdf380cb3b7ebfacadb3f402c631e.
+  - logs/2026-09-15 18_03_23.947862_baby_light_init_pid33860; 55427; 09b5219ad606afe4652074eb95cb6473c26afbd27587f724b7e33da3cb69166d.
+  - exp/runs/baby/dataset_preflight__2026-09-15 18_03_23.947862_baby_light_init_pid33860.json; 3399; de1704c674c7ab971ee7a3a4eb918b419b82dbb205928661e77cf5c5cade2597.
+  - Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-09-15 18_03_23.947862_baby_light_init_pid33860.pth; 20354975; f380c7300e88148124c7ebeadc14ba49c054780bfe34ca1816441c575e468ab6.
+  - Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-15 18_03_23.947862_baby_light_init_pid33860.pth; 6785997; 464af72502256c4e2e6181913b93ed4f9acdf43bb020f56d6d6a536ba3c2711f.
+
+### baby_matched_seed2023_fixed120_replication_v1 (completed)
+
+- Run 2026-09-15 18_28_27.361428_baby_light_init_pid40908; started 2026-09-15T18:28:27.369697+08:00,
+  completed 2026-09-15T18:53:11.949204+08:00; all common batch checks above passed.
+- Exact declared command (runtime parameters consistent): D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_td_item_image_only_no_projection_seed2023_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --epoch 120 --early_stopping_patience 120 --run_final_test false --td_distill_alpha 0.23076923076923075
+- Best Val Recall@20 0.065069120474109884 at epoch119;
+  corresponding NDCG@20 0.029563617963972277; epoch119 Recall 0.065069120474109884.
+  Objective max residual 4.056268013696851e-07; mixture residual 0.
+  Selected optimizer step 13920. No final Test.
+- Six artifact identities (relative path; bytes; SHA256):
+  - exp/runs/baby/run_manifest__2026-09-15 18_28_27.361428_baby_light_init_pid40908.json; 25681; 0213e3ca159540f6d3a46df172d7dcf952ec38c6a8adaf7d7032aeef2e15a380.
+  - exp/converge/baby/auto__2026-09-15 18_28_27.361428_baby_light_init_pid40908.pkl; 17806; c29ec3e18821f383f6b3d1d911ab5e26ada48aa4a76d1245de408dceaae26f8d.
+  - logs/2026-09-15 18_28_27.361428_baby_light_init_pid40908; 55312; c1c187a91442d331a89516a3927d3928e1034d918d0df4c879aa7222dfb5b77c.
+  - exp/runs/baby/dataset_preflight__2026-09-15 18_28_27.361428_baby_light_init_pid40908.json; 3399; 2d02c39ced4f4d09074ea2cdb24adac4d1e09f21ca159305da132293b6737068.
+  - Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-09-15 18_28_27.361428_baby_light_init_pid40908.pth; 20354975; 9c07c9d1b332d3c0400a97b68860224357223347a68f0316c649e5c93bc2aac1.
+  - Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-15 18_28_27.361428_baby_light_init_pid40908.pth; 6785997; 245c36373741c1ba1e15ec0b0b7172a65d34386557214193b1e919758b43306d.
+
+### Three-seed fixed-image-weight diagnostic summary (completed)
+
+- Metrics are Validation only at Recall-selected checkpoints; sample SD ddof=1,
+  n=3 seeds2022/2023/2024. These are not Test results and do not replace original
+  formal three-seed tables. Matched means image coefficient0.3/1.3, not the
+  earlier original-alpha0.3 image-only arm.
+- Seed | full R@20 | matched R@20 | paired difference | full N@20 | matched N@20
+- 2022 | 0.070224687 | 0.066874579 | +0.003350108 | 0.031049971 | 0.029762471
+- 2023 | 0.068724730 | 0.065069120 | +0.003655610 | 0.031007462 | 0.029563618
+- 2024 | 0.069437363 | 0.065790324 | +0.003647039 | 0.030732406 | 0.029346525
+- full: mean R 0.069462260262, sample SD 0.000750288453; mean N 0.030929946328, sample SD 0.000172390464.
+- matched: mean R 0.065911341309, sample SD 0.000908792624; mean N 0.029557538221, sample SD 0.000208039596.
+- Paired Recall mean difference 0.003550918953, sample SD
+  0.000173959868; relative difference of means 5.387417%.
+  Both R and corresponding N favor full in all three seeds, also at epoch119
+  for Recall. This strengthens the earlier seed2024-only observation.
+- Interpretation: with fixed image coefficient and fixed120 budget, addition
+  of the explicit text loss has a consistent positive observed Validation
+  contrast across three specified seeds. The effect is not explained solely
+  by original image-coefficient reweighting or patience7 stopping.
+  This is component-efficacy evidence, not proof of a novel loss formulation.
+- Limits: n=3, same dataset/teacher, no new Test, selected on Validation.
+  Correlated epochs are not independent replications. Three new runs
+  (full2022, matched2022, matched2023) peak at final epoch119; full2023 at118.
+  Report budget-limited performance, not globally converged optimality.
+  Do not automatically extend budget based on these outcomes.
+  Shared multimodal teacher prompt remains, and adding text also adds
+  supervision strength; semantic specificity versus generic regularization
+  is not yet established without a corresponding controlled target test.
+  No statistical-significance/generalization claim made here.
+- Preserve seed2023 accepted_by_user_audited_exception and original manifest
+  paper_ready_eligible=false, original formal seed2024 low Test and all historical
+  outcomes. These new diagnostics do not repair/replace them. Innovation2 undecided.
+- FOUR_RUN_OUTCOME_AUDIT_OK; checked all four source/parameter/identity/curve/
+  checkpoint/export/Test-policy requirements and computed paired summary.
+  Original log prefix 643418 bytes SHA256 a8fd2f75242bc8e49539abd9c2b469b538d483d40cfdaa5e33162eac8fdfdb88
+  remains byte-identical; append only and commit this log-only outcome batch.
+- Exactly one recommended next stage: consolidate the first-innovation evidence
+  and thesis-ready formulas/tables into an updated review document before further
+  training, incorporating early-stop recovery and this three-seed controlled
+  comparison; rank unresolved semantic-shuffle, cached-teacher efficiency and
+  cross-dataset evidence without launching them. Avoid continuing automatic
+  weight tuning or budget extension. Copy-ready request:
+  更新第一创新点复核文档和论文可用表述，纳入三种子固定图像权重对照与早停诊断，区分已证明和未证明，整理下一阶段优先级，不启动训练或Test。
