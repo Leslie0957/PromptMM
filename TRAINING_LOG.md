@@ -9347,3 +9347,74 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   not a changed profile, launch command or training authorization; preserve
   all existing outcomes. Copy-ready next request:
   准备 seed-2024 固定图像实际权重的去文本对照方案，保持120轮且仅Validation，记录并核验后给我手动命令，不启动训练。
+
+## 2026-09-15 baby_image_matched_weight_seed2024_fixed120_val_diag_v1 (pending)
+
+- User requested manual command for the sole proposed matched-image-weight
+  no-explicit-text control. Preparation only; no agent launch. Log-only
+  declaration, no implementation/profile/data/environment edits. No duplicate
+  declaration-completed entry; execution needs a separate audited outcome.
+- Purpose: compare against full at the same effective image coefficient while
+  removing its explicit text loss. Hypothesis is unconfirmed; shared multimodal
+  prompt still means this is not elimination of all text-derived information.
+- Base profile baby_td_item_image_only_no_projection_seed2024_v1, seed2024;
+  CLI alpha=0.23076923076923075 (Python double 0.3/1.3), epoch120,
+  patience120, run_final_test=false. These are exactly four student overrides;
+  dataset overrides remain epoch/patience. Image rate1, text/user rates0.
+  Objective L_BPR+(0.3/1.3)*L_image. The full comparator remains
+  L_BPR+(0.3/1.3)*L_image+(0.09/1.3)*L_text; no full-result change.
+- Shared identity anchor baby_image_only_shared_anchor_20260914_v1 inherited
+  through completed image fixed120 run2026-09-15 13_20_01.591632_baby_light_init_pid2984.
+  Manifest exp/runs/baby/run_manifest__2026-09-15 13_20_01.591632_baby_light_init_pid2984.json,
+  SHA256 90efc8480ede1c7e820f1a390d4155a6c9ff31b95daddc2bce863df56f68b71f.
+  Compared to that run only alpha0.3->0.23076923076923075 and associated
+  override metadata change, plus fresh run identity. All other resolved args
+  match after resolving relative data_path against repo root.
+- Primary comparison: full fixed120 run2026-09-15 15_14_52.846849_baby_light_init_pid39820,
+  manifest exp/runs/baby/run_manifest__2026-09-15 15_14_52.846849_baby_light_init_pid39820.json,
+  SHA256 18378622b557b9317f8d85a8d54187ac81a7cb415bb613de0836e82caab10f5a.
+  Secondary comparator: image fixed120 above, isolating image coefficient change.
+  Compare best Val R@20, its corresponding NDCG, epoch119 and whole trajectories;
+  no Test evaluation, hyperparameter selection or claims of n>1 replication.
+- Common parameters: student seed2024/hard_token_seed2022, random ID64,
+  no teacher initialization/student resume, AdamW lr6e-5, decay0.01, batch1024,
+  smoke0, empty point alias, benchmarkfalse, frozen teacher reuse.
+  Environment environment/run_5060-runtime.md: Python3.10.20,
+  torch2.11.0+cu128, CUDA12.8, RTX5060 GPU0, interpreter below.
+  Teacher Model/baby/teacher_model_val_test_once_v1.pt remains read-only,
+  141098540 bytes, SHA256 b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4.
+  Runtime preflight verifies shared data/splits/PCA/teacher identities; no repeated
+  large-asset hash or dataset/checkpoint load during command preparation.
+- Protocol val_test_once_v1, train_only candidate exclusion, Validation R@20
+  selection, Ks=[10,20,40,50], test_flag=part. Run epochs0-119 uncapped;
+  patience120 cannot trigger inside window for finite Recall. Restore/save best
+  Val checkpoint; zero teacher and zero student Test ranking. Preflight split
+  identity inspection is not ranking. Expected status validation_completed,
+  both Test-performed flags false, no final Test vector, eligibilityfalse with
+  only 'Baby reference profile has resolved overrides',
+  'Baby student reference profile has resolved overrides',
+  'final test evaluation is disabled'. These are expected diagnostic limits.
+- Exact command, once from D:\Download\PromptMM:
+  `D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_td_item_image_only_no_projection_seed2024_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --epoch 120 --early_stopping_patience 120 --run_final_test false --td_distill_alpha 0.23076923076923075`.
+- Branch codex/experiment/baby-teacher-baseline, predeclaration HEAD f86d7a8,
+  initially clean. The log-only declaration commit is exact clean launch HEAD,
+  reported in handoff. No code delta from paired runs. No dirty-source launch.
+- Expected fresh timestamp/PID artifacts: logs/<run>, exp/runs/baby/
+  {run_manifest,dataset_preflight}__<run>.json, exp/converge/baby/auto__<run>.pkl,
+  Model/baby/td_distill/td_distill_{full,infer_only}__val_test_once_v1__<run>.pth.
+  Empty point prevents common convergence alias overwrite. Identify this diagnostic
+  by resolved alpha/overrides/run identity, not reused profile name alone.
+- Acceptance: exact declared args/identities,120 contiguous finite series,
+  no early-stop/Test event, normalized objective consistency, strict Val argmax
+  agrees with selected metadata, finite matching full/inference tensors.
+  Low metrics remain completed evidence. Preserve interruptions for audit.
+- MATCHED_IMAGE_WEIGHT_PREFLIGHT_OK: exact command parser-only checks, both
+  comparator manifest hashes, all11 source fingerprints against paired image,
+  and static normalized-mixture source verified. No training/smoke/ranking.
+- Original log prefix 624116 bytes SHA256 216edc99df8bbb6fdd41121e363e1129ec11fe211c7f2f78a911b5cb2a3d2427 preserved verbatim. Commit log
+  only. Preserve original formal results, seed2023 accepted_by_user_audited_exception
+  and original eligibilityfalse. Second innovation remains undecided.
+- One-launch/no-retry/no-next-stage guard: user manually launches once and reports
+  completion or error. No automatic resume/retry, Test, other seed/arm, tuning,
+  rollback, merge/tag, artifact overwrite or Innovation2. Sole next action is
+  that one manual run; later audit records outcome before any further proposal.
