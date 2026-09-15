@@ -9010,3 +9010,109 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   Test. Budget is a diagnostic proposal based on existing Validation trajectories,
   not a changed formal result or an implemented/authorized run. User runs each
   separately after its own declaration. No Innovation 2 decision is made.
+
+## 2026-09-15 seed-2024 fixed-120 Validation-only diagnostic preparation (pending)
+
+- User requests preparation and manual command, not agent training. Scope: log-only
+  predeclaration of image-only first arm; later full arm uses the same fixed budget.
+- Rationale: existing epoch/patience/final-Test flags suffice; no new profile or
+  code is necessary. Supersedes the prior proposal's assumption that an isolated
+  code/profile addition was required. Isolation is by fresh timestamp/PID artifacts
+  and this named diagnostic declaration, with explicit intentional overrides.
+- Changes to declared execution: epoch 1000->120, patience 7->120,
+  run_final_test true->false. All loss, optimization and asset identities frozen.
+- Risk: this is diagnostic evidence, not replacement formal Test evidence;
+  paper_ready_eligible=false is expected. Recovery and performance are unknown.
+- Acceptance: parser-only check confirms exact overrides; static loop/policy check
+  proves no patience stop within 120 finite epochs and zero Test rankings;
+  verify shared manifest anchor and source identity, preserve original log bytes.
+- Recovery point: e981d83daa1e51e67382797567170882b7968a90, branch
+  codex/experiment/baby-teacher-baseline, initially clean. No rollback planned.
+- Original log prefix: 598200 bytes; SHA256 60dede4b20b0cb6af956b07ae2eff1a9e9208113b297fa8d5f0be51249a934a5.
+- Next: finish checks and append preparation outcome plus exact manual-run pending
+  declaration; commit log only. Do not execute either arm, smoke or evaluation.
+
+## 2026-09-15 seed-2024 fixed-120 diagnostic preparation (completed)
+
+- No executable source or profile change required. Parser-only execution of the
+  exact command and experiment_protocol helpers passed FIXED120_PARSER_POLICY_ANCHOR_OK.
+  No main import, data load, checkpoint load, training or ranking occurred.
+- Verified epoch=120 and effective patience=120: for finite Recall>=0, epoch 0
+  beats initial best=-1; at most 119 non-improvements remain, hence no patience
+  stop in epochs 0-119. Existing run_final_test=false branch restores best,
+  saves curves/exports and returns validation_completed without student Test.
+  Frozen teacher reuse independently prohibits teacher Test.
+- Exact intended dataset overrides: epoch 1000->120, patience 7->120.
+  Student overrides: those two plus run_final_test true->false. No other profile
+  override; seed=2024, lr=6e-5, weight decay=0.01, alpha=0.3, rates=1/0/0/0,
+  random ID64, batch=1024, smoke=0, point empty, efficiency=false unchanged.
+- Shared anchor manifest hash verified; unchanged common controls match it.
+  Source inspection confirms diagnostic ineligibility is recorded, not a launch
+  rejection, and frozen-teacher eligibility is checked separately. Original log
+  prefix remains identical. Source is unchanged from e981d83; diff check and
+  log-only commit complete preparation. No metrics are claimed for the new run.
+
+## 2026-09-15 baby_image_seed2024_fixed120_val_diag_v1 manual run (pending)
+
+- User authorizes manual-run preparation; agent must not launch. This is the first
+  image-only arm of a fixed-budget Validation-only diagnostic, not a formal Test
+  replacement. Second arm will use full loss at the same seed and budget after
+  first-arm audit; no second-arm command or launch is included in this handoff.
+- Profile: baby_td_item_image_only_no_projection_seed2024_v1 with precisely the
+  declared three CLI overrides above. Student seed 2024, hard_token_seed 2022.
+  Objective L_BPR + 0.3*L_item_image; no teacher warm start/student resume.
+- Shared anchor: baby_image_only_shared_anchor_20260914_v1, manifest
+  exp/runs/baby/run_manifest__2026-09-14 15_39_12.331441_baby_light_init_pid30688.json,
+  SHA256 13702b7ea4191bdad027c3e7733a9804fda77a9c0230e028b7dfbb93eba103d2.
+  Relative to anchor: seed 2022->2024, epoch 1000->120, patience 7->120,
+  final Test true->false and fresh run/profile identity; loss/common settings
+  unchanged. Relative to original seed-2024 image run only the three CLI
+  overrides change execution settings. No source delta from its audited launch.
+- Environment: environment/run_5060-runtime.md; D:\miniconda\envs\run_5060\python.exe,
+  Python 3.10.20, torch 2.11.0+cu128, CUDA 12.8, RTX 5060, GPU 0.
+  Teacher Model/baby/teacher_model_val_test_once_v1.pt remains read-only,
+  141098540 bytes, SHA256
+  b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4.
+  Runtime preflight must verify unchanged data/splits/PCA/teacher identities;
+  this preparation did not rehash unchanged large assets.
+- Protocol: val_test_once_v1 selection rules, Validation Recall@20, train_only
+  candidate exclusion, Ks=[10,20,40,50]; 120 complete uncapped epochs (0-119),
+  116 batches/epoch, patience=120, zero teacher and zero student Test rankings.
+  Standard preflight may read split identities; this is not Test evaluation.
+  Final saved model is best Validation checkpoint, not necessarily epoch 119.
+- Expected manifest status validation_completed, final_test_performed=false,
+  teacher_final_test_performed=false, paper_ready_eligible=false with exactly
+  the intended blockers: 'Baby reference profile has resolved overrides',
+  'Baby student reference profile has resolved overrides',
+  'final test evaluation is disabled'. These are predeclared diagnostic limits,
+  not failed execution. Additional blockers require audit; never silently waive.
+- Source/branch: codex/experiment/baby-teacher-baseline; parent
+  e981d83daa1e51e67382797567170882b7968a90. The log-only commit containing this
+  declaration is the clean launch HEAD, reported in handoff. Do not launch after
+  source changes without rechecking. No dirty-source training.
+- Exact command, once from D:\Download\PromptMM:
+  `D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_td_item_image_only_no_projection_seed2024_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --epoch 120 --early_stopping_patience 120 --run_final_test false`.
+- Artifacts: fresh timestamp/PID run under logs/<run>,
+  exp/runs/baby/{run_manifest,dataset_preflight}__<run>.json,
+  exp/converge/baby/auto__<run>.pkl, and Model/baby/td_distill/
+  td_distill_{full,infer_only}__val_test_once_v1__<run>.pth.
+  point is empty, so no common convergence alias overwrite. Preserve every old
+  run; do not infer diagnostic identity from profile name alone: use these
+  resolved overrides, the declaration and fresh run name.
+- Acceptance: 120 contiguous finite Validation/loss entries; exact resolved
+  settings and identities; no early-stop event or Test ranking; selected epoch
+  equals first strict argmax of Val Recall@20; valid full/inference exports;
+  manifest finalized as above. Low metrics still count as completed. Audit
+  available source/artifact fingerprints and manual completion evidence afterward.
+- Comparisons: original image2024 run 2026-09-14 21_32_16.560580_baby_light_init_pid8316
+  (manifest c48c2ad5d3f324782486be926b819cc2400121f0f1908aa7a604622af1bd7478)
+  for initial-curve agreement/recovery; original full2024 run
+  2026-08-02 16_36_39.774993_baby_light_init_pid5916 as historical context only.
+  Future full fixed120 arm is needed for matched-budget comparison. Record first
+  crossing of original epoch-0 Val and best/epoch-119 Val without any Test tuning.
+- Preserve seed-2023 accepted_by_user_audited_exception and original false
+  manifest; preserve original seed-2024 low result. No retrospective replacement.
+- One launch only; no automatic retry/resume/second arm, Test, broad tuning,
+  merge/tag or Innovation 2 work. If interrupted, preserve artifacts and audit;
+  do not retry without new authorization. Sole next step: user manually runs the
+  exact image-only command once and reports completion or error.
