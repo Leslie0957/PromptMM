@@ -9503,3 +9503,97 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   old results. Existing patience7 curves are not substitutes for equal-budget
   arms. No launch is authorized by this recommendation. Copy-ready request:
   准备 seed-2022 完整方法120轮、仅Validation的复核命令，保持已有配方与预算，记录后交给我手动运行，不启动训练。
+
+## 2026-09-15 seed2022/2023 full versus matched-weight batch (pending)
+
+- User explicitly requests preparing multiple commands together and reporting
+  after all finish. This batch-specific authorization supersedes prior single-arm
+  handoff and between-arm audit sequencing for these four runs only. Prepare
+  four separate pending declarations together; no agent launch or parallel GPU
+  training. No retry, Test evaluation or additional experiment authorized.
+- Log-only declaration; no source/profile/environment edits. Branch
+  codex/experiment/baby-teacher-baseline, initially clean HEAD75f39a4.
+  All four launch from the same clean log-declaration commit reported in handoff.
+  Do not edit source between runs. No rollback planned.
+- Purpose: replicate full versus fixed-image-coefficient no-text contrast at
+  seeds2022/2023, then combine with existing seed2024 for a three-seed paired
+  Validation summary. No need to rerun original-alpha image for this contrast.
+- Shared identity baby_image_only_shared_anchor_20260914_v1 inherited via:
+  full run2026-09-15 15_14_52.846849_baby_light_init_pid39820, manifest SHA256
+  18378622b557b9317f8d85a8d54187ac81a7cb415bb613de0836e82caab10f5a;
+  matched run2026-09-15 15_55_29.823816_baby_light_init_pid6540, manifest SHA256
+  d5dc4022a34e4d5d4c6723e6ca0e953e302b9557fb6873298d1f3298a90767dc.
+  Manifests reside at exp/runs/baby/run_manifest__<run>.json.
+  Relative to each corresponding arm only seed and seed-profile identity change.
+- Common controls: random ID64, no warmstart/resume, AdamW lr6e-5/decay0.01,
+  batch1024, hard_token_seed2022, epoch120/patience120, smoke0, point empty,
+  benchmarkfalse. Full alpha0.3/rates1,0.3,0,0 gives
+  BPR+(0.3/1.3)*image+(0.09/1.3)*text. Matched alpha0.23076923076923075,
+  rates1,0,0,0 gives BPR+(0.3/1.3)*image. No tuning/interim metric selection.
+- Environment environment/run_5060-runtime.md: Python3.10.20, torch2.11.0+cu128,
+  CUDA12.8, RTX5060 GPU0. Interpreter in commands. Frozen read-only teacher
+  Model/baby/teacher_model_val_test_once_v1.pt,141098540 bytes,SHA256
+  b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4.
+  Runtime preflight verifies unchanged shared data/splits/PCA/teacher identity.
+- Protocol val_test_once_v1, train_only exclusion, Validation Recall@20 selection,
+  Ks=[10,20,40,50],test_flag=part. Epochs0-119; patience120 prevents window stop
+  for finite metrics. Zero teacher and zero student Test ranking, no final Test
+  vector. Preflight split identity reads are not ranking. Save best Val model.
+- Expected each: validation_completed, eligibilityfalse with exactly dataset
+  overrides/student overrides/final Test disabled blockers. Full has three student
+  overrides(epoch,patience,run_final_test); matched adds alpha; dataset has two.
+  These diagnostic flags are expected, not failure.
+- Per-run artifacts unique timestamp/PID: logs/<run>, exp/runs/baby/
+  {run_manifest,dataset_preflight}__<run>.json, exp/converge/baby/auto__<run>.pkl,
+  Model/baby/td_distill/td_distill_{full,infer_only}__val_test_once_v1__<run>.pth.
+  Empty point avoids shared convergence overwrite. Preserve all old artifacts.
+- Acceptance each:120 contiguous finite series, exact args/identities, no stop
+  or Test event, consistent objective, strict Val argmax selection and finite
+  matching full/inference tensors. Low results are completed evidence.
+  Shell nonzero exit aborts remaining batch without retry. Process success is
+  not a substitute for later per-run artifact audit; no concurrent training.
+- FOUR_RUN_PARSER_ANCHOR_PREFLIGHT_OK: all four exact argument lists parsed,
+  seed/arm deltas checked, both anchor hashes and all11 source fingerprints
+  verified. No main import, data/checkpoint load, training/smoke or ranking.
+- Preserve original formal table, seed2024 low Test, and seed2023
+  accepted_by_user_audited_exception with original eligibilityfalse. New seed2023
+  diagnostics are not replacements. Second innovation remains undecided.
+- Declaration-only exception: no duplicate completed declaration. Four execution
+  outcomes and one paired summary are due after user reports back. No merge/tag,
+  rollback, additional seeds/arms or Test. Commit log only.
+- Original log prefix 636329 bytes SHA256 3db9577148836c58cc79f63936cf7482973728f4525b1c730074b4e6a07a9ca4; preserve verbatim.
+
+### baby_full_seed2022_fixed120_replication_v1 (pending)
+
+- Profile baby_td_asymmetric_no_projection_v1; seed 2022, full arm.
+- Exact once-only command from D:/Download/PromptMM:
+  D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_td_asymmetric_no_projection_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --epoch 120 --early_stopping_patience 120 --run_final_test false
+- All common/source/identity/Test/acceptance rules above apply. Compare
+  with other arm at same seed, then existing seed2024 pair.
+
+### baby_matched_seed2022_fixed120_replication_v1 (pending)
+
+- Profile baby_td_item_image_only_no_projection_seed2022_v1; seed 2022, matched arm.
+- Exact once-only command from D:/Download/PromptMM:
+  D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_td_item_image_only_no_projection_seed2022_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --epoch 120 --early_stopping_patience 120 --run_final_test false --td_distill_alpha 0.23076923076923075
+- All common/source/identity/Test/acceptance rules above apply. Compare
+  with other arm at same seed, then existing seed2024 pair.
+
+### baby_full_seed2023_fixed120_replication_v1 (pending)
+
+- Profile baby_td_asymmetric_no_projection_seed2023_v1; seed 2023, full arm.
+- Exact once-only command from D:/Download/PromptMM:
+  D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_td_asymmetric_no_projection_seed2023_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --epoch 120 --early_stopping_patience 120 --run_final_test false
+- All common/source/identity/Test/acceptance rules above apply. Compare
+  with other arm at same seed, then existing seed2024 pair.
+
+### baby_matched_seed2023_fixed120_replication_v1 (pending)
+
+- Profile baby_td_item_image_only_no_projection_seed2023_v1; seed 2023, matched arm.
+- Exact once-only command from D:/Download/PromptMM:
+  D:\miniconda\envs\run_5060\python.exe codes\main_mmlight.py --dataset baby --student_profile baby_td_item_image_only_no_projection_seed2023_v1 --gpu_id 0 --if_train_teacher false --teacher_checkpoint Model/baby/teacher_model_val_test_once_v1.pt --epoch 120 --early_stopping_patience 120 --run_final_test false --td_distill_alpha 0.23076923076923075
+- All common/source/identity/Test/acceptance rules above apply. Compare
+  with other arm at same seed, then existing seed2024 pair.
+
+- Sole next action: user executes the four commands sequentially once and
+  reports completion; on error/interruption stop and report without retry.
