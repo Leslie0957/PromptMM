@@ -5,8 +5,11 @@ part of the executable training line.
 
 ## Research Routes
 
+- [Current thesis evidence, formulas, result tables and remaining experiments](research/INNOVATION1_THESIS_EVIDENCE_2026-09-15.md):
+  current reading entry after the fixed-budget three-seed replication; separates
+  formal Test results from Validation diagnostics and preserves audit exceptions.
 - [Three-seed image-only/full results and early-stop diagnosis](research/BABY_IMAGE_ONLY_THREE_SEED_SUMMARY_2026-09-15.md):
-  current paired summary, stored Validation curves, seed-2023 exception and
+  earlier paired summary, stored Validation curves, seed-2023 exception and
   seed-2024 low result; proposes a Validation-only diagnostic next, without
   launching training or declaring a new formal run.
 - [Innovation 1 review, formulas and experiment plan](research/INNOVATION1_REVIEW_AND_EXPERIMENT_PLAN_2026-09-14.md):
