@@ -28,7 +28,9 @@ class SportsStudentTest(unittest.TestCase):
             self.assertEqual(a.dataset_config_overrides, {})
             self.assertEqual(a.student_config_overrides, {})
             self.assertFalse(a.if_train_teacher or a.teacher_only or a.run_final_test or a.td_init_from_teacher)
-            self.assertEqual((a.seed, a.epoch, a.early_stopping_patience), (2022,120,120))
+            expected_seed = int(a.student_profile.split('_seed')[1].split('_')[0])
+            self.assertEqual((a.seed, a.epoch, a.early_stopping_patience), (expected_seed,120,120))
+            self.assertEqual(a.hard_token_seed, 2022)
             self.assertEqual(a.student_embed_size, 64)
             self.assertEqual(a.student_lr, 0.00006)
             self.assertEqual(a.student_model_type, 'td_distill_no_projection')
@@ -36,17 +38,25 @@ class SportsStudentTest(unittest.TestCase):
             with patch('utility.sports_validation_reuse.file_fingerprint', return_value={'sha256':SPORTS_TEACHER_SHA256}):
                 self.assertTrue(is_pinned_sports_validation_reuse(a, 'teacher.pt'))
                 for field,value in [('run_final_test',True),('if_train_teacher',True),
-                                    ('student_lr',0.001),('seed',2023),('epoch',121),
+                                    ('student_lr',0.001),('seed',a.seed+1),('epoch',121),
+                                    ('hard_token_seed',2023),
                                     ('eval_protocol','legacy_test_selected'),('teacher_only',True)]:
                     bad=copy.copy(a); setattr(bad,field,value)
                     with self.assertRaises(ValueError):is_pinned_sports_validation_reuse(bad,'teacher.pt')
             with patch('utility.sports_validation_reuse.file_fingerprint', return_value={'sha256':'wrong'}):
                 with self.assertRaises(ValueError):is_pinned_sports_validation_reuse(a,'teacher.pt')
-        bpr, full, image = args
-        self.assertEqual(bpr.td_distill_alpha, 0)
-        self.assertAlmostEqual(full.td_distill_alpha / (1 + full.td_item_text_rate), image.td_distill_alpha)
-        self.assertEqual(image.td_item_text_rate, 0)
-        self.assertEqual(full.td_item_text_rate, 0.3)
+        self.assertEqual(len(args), 9)
+        for offset in (0, 3, 6):
+            bpr, full, image = args[offset:offset+3]
+            self.assertEqual(bpr.td_distill_alpha, 0)
+            self.assertAlmostEqual(full.td_distill_alpha / (1 + full.td_item_text_rate), image.td_distill_alpha)
+            self.assertEqual(image.td_item_text_rate, 0)
+            self.assertEqual(full.td_item_text_rate, 0.3)
+        allowed = {'seed', 'student_profile', 'student_config_profile', 'student_config_source'}
+        for index in range(3,9):
+            baseline = vars(args[index % 3])
+            actual = vars(args[index])
+            self.assertEqual({k for k in actual if actual[k] != baseline[k]}, allowed)
 
     def test_relaxation_preserves_identity_and_blocker_checks(self):
         c = dict(evaluation_protocol='val_test_once_v1', selection_split='validation',

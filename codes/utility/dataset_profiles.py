@@ -304,6 +304,16 @@ for _arm, _alpha, _image, _text in (
         'name': _name, 'scope': 'student_validation_diagnostic',
         'source': 'sports_paired_seed2022_fixed120_v1', 'defaults': _defaults,
     }
+for _seed in (2023, 2024):
+    for _arm in ('bpr', 'full', 'image_matched'):
+        _base = SPORTS_STUDENT_PROFILES['sports_student_{}_seed2022_val120_v1'.format(_arm)]
+        _name = 'sports_student_{}_seed{}_val120_v1'.format(_arm, _seed)
+        _defaults = dict(_base['defaults'], seed=_seed)
+        SPORTS_STUDENT_PROFILES[_name] = {
+            'name': _name, 'scope': _base['scope'],
+            'source': 'sports_paired_seed{}_fixed120_v1'.format(_seed),
+            'defaults': _defaults,
+        }
 SPORTS_STUDENT_PROFILE_NAMES = tuple(SPORTS_STUDENT_PROFILES)
 BABY_PAPER_READY_STUDENT_PROFILE_IDENTITIES = frozenset(
     (profile['name'], profile['scope'], profile['source'])
