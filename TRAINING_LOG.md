@@ -10162,3 +10162,25 @@ records remain under `exp/`; checkpoints remain under `Model/`.
 - Compare BPR/full/matched-image under same anchor, budget and seed. Validation Recall@20 selection; zero teacher/student Test and teacher training; matrix structural access allowed. Final Test disabled, original teacher false preserved.
 - Expected exp/runs/sports/run_manifest__<run>.json, logs/<run>, Model/sports TD complete/inference checkpoints, exp/converge/sports curves; isolated run names, no baseline overwrite.
 - Acceptance:120 epochs finite losses/metrics, zero profile overrides, selected checkpoint restore, exact anchor identities, zero Test; low scores valid. Each manual command once only; no auto retry/resume/next arm/seed. Log execution outcome separately; this record is not a completed run.
+
+
+## 2026-09-16 Sports BPR seed2022 Validation120 (completed)
+
+- Run 2026-09-16 17_18_56.750542_sports_light_init_pid25008; manifest status validation_completed (success).
+- User command: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_bpr_seed2022_val120_v1 --gpu_id 0
+-120 epochs0..119; seed2022/randomID64/no projection/AdamW lr6e-5 decay0.01/batch1024/patience120, alpha/rates0, no teacher init. No profile overrides.
+- Best epoch118 Recall@20 0.04052419949026864; same-epoch NDCG@20 0.019734699161345955; final epoch Recall@20 0.040425879359924234.
+- All curve arrays120 finite values; distillation/components identically zero. Best checkpoint metadata agrees with curve/manifest; checkpoint tensors finite; inference ID tables equal complete checkpoint. Log confirms best restore; no tested checkpoint.
+- Zero teacher retraining, zero teacher/student Test. Pinned reuse policy sports_pinned_validation_only_v1 and original teacher SHA57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea verified in run; dataset identity equals teacher anchor. Original false preserved.
+- Source fingerprints match current clean b500215 implementation. Launch Git/dirty snapshot unavailable as previously documented; not retroactively asserted. Environment remains declared run_5060; no audit environment changes.
+- Artifact exp\runs\sports\run_manifest__2026-09-16 17_18_56.750542_sports_light_init_pid25008.json SHA256 d8f4e9e29b6f61a4ef47a35c5a58a3598955a2eeea473319ec6eeeb05b0a51f3.
+- Artifact logs\2026-09-16 17_18_56.750542_sports_light_init_pid25008 SHA256 6c9edaeb7900457b09b1ff108815a260c2bf41addae47d0f289efc7b1c9ee8ec.
+- Artifact D:\Download\PromptMM\exp\converge\sports\auto__2026-09-16 17_18_56.750542_sports_light_init_pid25008.pkl SHA256 3bffed2588fc3bbb8d410613e234b6763ae1968fff5c7fdc6598072cfe906f4b.
+- Artifact D:\Download\PromptMM\Model\sports\td_distill\td_distill_full__val_test_once_v1__2026-09-16 17_18_56.750542_sports_light_init_pid25008.pth SHA256 72b6a56ca12e106bd748fdcaf8645b621bd72e83690b18345ab108b380ececf7.
+- Artifact D:\Download\PromptMM\Model\sports\td_distill\td_distill_infer_only__val_test_once_v1__2026-09-16 17_18_56.750542_sports_light_init_pid25008.pth SHA256 71677150e2ec06851b5183a93c6ab361fb772637a7c48044336a5973473eec85.
+- Interpretation: boundary peak and rising windows; fixed-budget baseline, not proven converged. No full-method comparison yet. Foreground/background timing uncontrolled, not efficiency evidence.
+- Read-only audit except this log/result report; no new forward/evaluation/training. Original prefix 691154 bytes SHA256 5401549b221d8545ab5abfef341ef87d6bc44c9fdd338df2cb64a15a08e45581 retained verbatim.
+- Report docs/research/SPORTS_BPR_RESULT_2026-09-16.md. No artifact backup milestone claimed; raw artifacts ignored by Git.
+- Sole next step: existing declared full seed2022 Validation120 command, from clean outcome commit (documentation-only delta from b500215). Same SPORTS_CONVERTED_20260916/teacher/cache anchor; no parameter/protocol change. Run once manually, no retry or next-arm auto-launch.
+- Next command: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_full_seed2022_val120_v1 --gpu_id 0
+- Preserve seed2023 audited exception/original false; Innovation2 undecided.
