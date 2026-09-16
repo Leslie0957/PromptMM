@@ -10056,3 +10056,33 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   next seed/arm or Test. Preserve artifacts on any failure and audit first.
 - Sole next step: manually execute the exact command once and return completion
   for outcome/curve/checkpoint audit before any later experiment.
+
+
+## 2026-09-16 Sports teacher outcome audit (pending)
+
+- Scope: read completed run/curve/checkpoint, record outcome only; no training,
+  evaluation or manifest rewrite. Verify120 epochs, finite values, selected
+  checkpoint/hash, no Test/student and source identities; report missing evidence.
+- Recovery reference0b3b673, clean tree. Original prefix 679285 bytes
+  SHA256 bfb3a942826657c09875585d95898fd2ad75fa95e0c3c0f873761c259cf475a3.
+- Acceptance: accurate outcome and curve diagnosis, preserve original manifests
+  and seed2023 exception/false. No protocol change or teacher promotion.
+
+
+## 2026-09-16 Sports teacher validation120 seed2022 manual run and outcome audit (completed)
+
+- Run 2026-09-16 12_38_48.480698_sports_light_init_pid30708; status completed/teacher_only.
+- Declared command executed by user: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --gpu_id 0 --if_train_teacher true --teacher_only true --run_final_test false
+-120 epochs0..119; no profile overrides. Best epoch37 Recall@20 0.09418449519085098; NDCG@20 0.04332 (rounded log). Final epoch Recall@20 0.08436/NDCG@20 0.04009 rounded.
+- Best checkpoint metadata/hash verified; all checkpoint tensors and120 logged objective/metric records finite. Restored-best confirmed by log; no tested checkpoint (zero Test).
+- Zero student training/Test, zero teacher Test, no alias publication; original paper_ready_eligible=false preserved, sole blocker final Test disabled.
+- Curve:82 subsequent epochs without improvement, later windows decline; do not extend current teacher budget. Not a student-method comparison or global convergence proof.
+- Source audit:11 code fingerprints equal clean current HEAD0b3b673 files. CORRECTION: runtime manifest does NOT record Git HEAD/dirty state or full environment snapshot, contrary to preparation declaration. Launch cleanliness cannot be independently proved from manifest; no retroactive metadata rewrite. Preparation environment remains historical evidence only.
+- manifest exp\runs\sports\run_manifest__2026-09-16 12_38_48.480698_sports_light_init_pid30708.json SHA256 11636306eac6c8144c753bb091966f75660070d259412edf9a87be562b36235a.
+- log logs\2026-09-16 12_38_48.480698_sports_light_init_pid30708 SHA256 b187d7dfd458bd8855190ee1b16b2f7b4ae9635ab2abc786da9910d25f724ef1.
+- checkpoint D:\Download\PromptMM\Model\sports\runs\teacher_model_val_test_once_v1__2026-09-16 12_38_48.480698_sports_light_init_pid30708.pt SHA256 57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea.
+- image cache D:\Download\PromptMM\data\sports\hard_token_image_pca_v2_1544b94d9df2b5f1.pkl SHA256 b18fd8b32baeb894c84f6af28db8b383a6ed6dd325c69d7a811f4b2ebe26b37e.
+- text cache D:\Download\PromptMM\data\sports\hard_token_text_pca_v2_801e7998ca2e5b46.pkl SHA256 9574b8342bb24236620e87e9a997c34ac6e522ea47e32cb8d39fc08728d7ad3d.
+- Full audit: docs/research/SPORTS_TEACHER_RESULT_2026-09-16.md. Original679285-byte log prefix preserved. Audit read-only apart from report/log; no new model evaluations or training.
+- Sole next step: prepare Sports seed2022 paired Validation student profiles (BPR/full/matched image-only), explicitly audit Validation-only teacher reuse gates first; no automatic launches or Test.
+- No teacher promotion/tag or artifact backup milestone claimed; ignored assets remain local and are not protected by this Git commit. Preserve seed2023 exception/original false; Innovation2 undecided.
