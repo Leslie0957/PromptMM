@@ -67,6 +67,7 @@ if not torch.cuda.is_available():
 import copy
 
 from utility.parser import args, select_dataset
+from utility.sports_validation_reuse import is_pinned_sports_validation_reuse
 from utility.dataset_profiles import (
     BABY_TEACHER_PROFILE_NAME,
     BABY_TEACHER_PROFILE_SCOPE,
@@ -375,6 +376,7 @@ class Trainer(object):
             'dataset_identity': self.dataset_identity,
             'teacher_inference_config': self.teacher_inference_config,
             'code_fingerprints': {
+                'sports_validation_reuse': file_fingerprint(os.path.join(self.repo_root, 'codes', 'utility', 'sports_validation_reuse.py')),
                 'main_mmlight': file_fingerprint(os.path.join(self.repo_root, 'codes', 'main_mmlight.py')),
                 'models_mmlight': file_fingerprint(os.path.join(self.repo_root, 'codes', 'Models_mmlight.py')),
                 'parser': file_fingerprint(os.path.join(self.repo_root, 'codes', 'utility', 'parser.py')),
@@ -621,6 +623,14 @@ class Trainer(object):
     def _load_teacher_checkpoint(
         self, checkpoint_path, require_paper_ready_reuse=True
     ):
+        if require_paper_ready_reuse and is_pinned_sports_validation_reuse(args, checkpoint_path):
+            # Preserve identity/protocol/cache and exact blocker equality checks.
+            # The original teacher checkpoint stays Validation-only and unchanged.
+            require_paper_ready_reuse = False
+            self._update_run_manifest(
+                teacher_reuse_policy='sports_pinned_validation_only_v1',
+                teacher_reuse_authorized_sha256=file_fingerprint(checkpoint_path)['sha256'],
+            )
         checkpoint = torch.load(checkpoint_path, map_location=self.device)
         if isinstance(checkpoint, dict) and 'teacher_model' in checkpoint:
             validate_teacher_checkpoint_metadata(

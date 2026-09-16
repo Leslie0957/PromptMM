@@ -3,6 +3,7 @@ import os
 
 from utility.dataset_profiles import (
     BABY_STUDENT_PROFILE_NAMES,
+    SPORTS_STUDENT_PROFILE_NAMES,
     apply_dataset_profile_defaults,
     apply_student_profile_defaults,
     resolved_profile_metadata,
@@ -636,7 +637,7 @@ parser.add_argument('--td_user_text_rate', type=float, default=1.0, help='Relati
 
 parser.add_argument('--dataset', type=str, default='netflix', help='netflix, tiktok, amazon')
 parser.add_argument('--student_profile', type=str, default='',
-                    choices=[''] + list(BABY_STUDENT_PROFILE_NAMES),
+                    choices=[''] + list(BABY_STUDENT_PROFILE_NAMES) + list(SPORTS_STUDENT_PROFILE_NAMES),
                     help='Optional pinned student experiment profile.')
 
 parser.add_argument('--data_path', nargs='?', default='/home/weiw/Code/MM/KDMM/data/', help='Input data path.')  # /home/weiw/Code/MM/MICRO2Ours/data/     /home/weiw/Datasets/MM/LATTICE/    /home/weiw/Code/MM/KDMM/data/
@@ -762,7 +763,7 @@ parser.add_argument('--td_user_text_rate', type=float, default=1.0, help='Relati
 
 parser.add_argument('--dataset', type=str, default='tiktok', help='netflix, tiktok, amazon')
 parser.add_argument('--student_profile', type=str, default='',
-                    choices=[''] + list(BABY_STUDENT_PROFILE_NAMES),
+                    choices=[''] + list(BABY_STUDENT_PROFILE_NAMES) + list(SPORTS_STUDENT_PROFILE_NAMES),
                     help='Optional pinned student experiment profile.')
 
 parser.add_argument('--data_path', nargs='?', default='/home/weiw/Code/MM/KDMM/data/', help='Input data path.')  # /home/weiw/Code/MM/MICRO2Ours/data/     /home/weiw/Datasets/MM/LATTICE/    /home/weiw/Code/MM/KDMM/data/
@@ -882,7 +883,7 @@ args = parser.parse_args()
 parser = argparse.ArgumentParser(description='Deep Learning')
 parser.add_argument('--dataset', type=str, default='amazon', help='netflix, tiktok, amazon')
 parser.add_argument('--student_profile', type=str, default='',
-                    choices=[''] + list(BABY_STUDENT_PROFILE_NAMES),
+                    choices=[''] + list(BABY_STUDENT_PROFILE_NAMES) + list(SPORTS_STUDENT_PROFILE_NAMES),
                     help='Optional pinned student experiment profile.')
 
 parser.add_argument('--data_path', nargs='?', default='/home/weiw/Code/MM/KDMM/data/', help='Input data path.')  # /home/weiw/Code/MM/MICRO2Ours/data/     /home/weiw/Datasets/MM/LATTICE/    /home/weiw/Code/MM/KDMM/data/

@@ -10086,3 +10086,79 @@ records remain under `exp/`; checkpoints remain under `Model/`.
 - Full audit: docs/research/SPORTS_TEACHER_RESULT_2026-09-16.md. Original679285-byte log prefix preserved. Audit read-only apart from report/log; no new model evaluations or training.
 - Sole next step: prepare Sports seed2022 paired Validation student profiles (BPR/full/matched image-only), explicitly audit Validation-only teacher reuse gates first; no automatic launches or Test.
 - No teacher promotion/tag or artifact backup milestone claimed; ignored assets remain local and are not protected by this Git commit. Preserve seed2023 exception/original false; Innovation2 undecided.
+
+
+## 2026-09-16 Sports paired student preparation (pending)
+
+- User authorizes next preparation stage, no training/evaluation launches.
+- Scope: three seed2022 Validation120 profiles, parser registration, narrow
+  hash-pinned Sports Validation-teacher reuse gate, runner wiring, focused tests,
+  manual commands/docs. All share random-ID64, lr6e-5, weight decay0.01,120 epochs
+  patience120; BPR alpha0, full alpha0.3/image1/text0.3, matched-image alpha0.3/1.3
+  image1/text0. No user distillation, no teacher warm start.
+- Reuse must preserve existing dataset/protocol/inference/cache checks; permit
+  only audited checkpoint SHA57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea
+  and only declared Sports profiles with zero overrides, Test disabled, no teacher
+  training. Never edit teacher original false or bypass other blockers.
+- Risks: enabling broader checkpoint reuse or mixing teacher defaults; negative
+  tests must reject Test, hash drift, profile overrides and frozen metadata mismatch.
+- Acceptance: real parser profiles, gate positive/negative tests, Baby/protocol
+  regression checks; read-only actual teacher validation; no forward/PCA fit.
+- Recovery reference30d878b on clean codex/experiment/baby-teacher-baseline.
+- Original prefix 682736 bytes SHA256 eb079d541ae4de1c5aefcac0ad59ff870d2c2949ae32324cd7963ff04a5d6626.
+- Planned next action: manual BPR first after preparation; paired remaining
+  commands prepared, no automatic next-arm/retry/Test.
+
+
+## 2026-09-16 Sports paired student preparation (completed)
+
+- Added three Sports seed2022 student profiles and parser registration. Reused
+  Baby ID-only random64 student optimizer settings;120 epochs/patience120, no
+  Test; alpha/rates are the only arm-specific optimization differences.
+- Narrow audited Sports teacher reuse: SHA256 pinned, matching zero-override
+  profiles required, no Test/teacher training/efficiency/smoke; existing frozen
+  identity/inference/cache/blocker validation remains mandatory. Original teacher
+  and manifest false unchanged. Manifest records reuse policy and authorized hash;
+  helper source fingerprint added. No global eligibility bypass.
+-59 tests passed: Sports profiles/gate positive-negative, actual parser, prior
+  teacher/Baby profiles and experiment protocol. Read-only actual-data preflight
+  plus actual teacher hash/metadata checks passed for all3 profiles. No forward,
+  training, PCA fitting or ranking; preflight only structurally reads Test.
+- Docs: docs/SPORTS_STUDENT_VALIDATION120_V1.md includes formulas, commands and
+  interpretation limits. Preserve original682736-byte log prefix, verified SHA.
+- Existing runtime Git/dirty snapshot gap remains explicit; manual Git outputs
+  plus this preparation commit identify intended launch source, not proof of
+  runtime captured cleanliness. GPU execution untested; no retries authorized.
+- Sole next step: manually run Sports BPR seed2022 Validation120 once, then audit
+  outcome; full/image-matched commands prepared for paired continuation.
+- Preserve seed2023 exception/original false; Innovation2 remains undecided.
+
+## 2026-09-16 sports_student_bpr_seed2022_val120_v1 manual declaration (pending)
+
+- Preparation declaration only; assistant launches0. Anchor SPORTS_CONVERTED_20260916 plus audited Sports teacher epoch37 from run2026-09-16 12_38_48.480698_sports_light_init_pid30708; checkpoint SHA25657673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea.
+- Delta: student random-ID64/no projection, seed2022, AdamW lr6e-5/decay0.01, batch1024,120 epochs/patience120, no teacher initialization/user distillation. Rates {"td_distill_alpha": 0.0, "td_item_image_rate": 0.0, "td_item_text_rate": 0.0}.
+- Exact command from repository root: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_bpr_seed2022_val120_v1 --gpu_id 0
+- Source: clean codex/experiment/baby-teacher-baseline commit containing these declarations; preserve manual git status/rev-parse output. Environment run_5060 as teacher preparation (Python3.10.20/torch2.11.0+cu128/sklearn1.7.2), GPU0; no environment modification.
+- Compare BPR/full/matched-image under same anchor, budget and seed. Validation Recall@20 selection; zero teacher/student Test and teacher training; matrix structural access allowed. Final Test disabled, original teacher false preserved.
+- Expected exp/runs/sports/run_manifest__<run>.json, logs/<run>, Model/sports TD complete/inference checkpoints, exp/converge/sports curves; isolated run names, no baseline overwrite.
+- Acceptance:120 epochs finite losses/metrics, zero profile overrides, selected checkpoint restore, exact anchor identities, zero Test; low scores valid. Each manual command once only; no auto retry/resume/next arm/seed. Log execution outcome separately; this record is not a completed run.
+
+## 2026-09-16 sports_student_full_seed2022_val120_v1 manual declaration (pending)
+
+- Preparation declaration only; assistant launches0. Anchor SPORTS_CONVERTED_20260916 plus audited Sports teacher epoch37 from run2026-09-16 12_38_48.480698_sports_light_init_pid30708; checkpoint SHA25657673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea.
+- Delta: student random-ID64/no projection, seed2022, AdamW lr6e-5/decay0.01, batch1024,120 epochs/patience120, no teacher initialization/user distillation. Rates {"td_distill_alpha": 0.3, "td_item_image_rate": 1.0, "td_item_text_rate": 0.3}.
+- Exact command from repository root: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_full_seed2022_val120_v1 --gpu_id 0
+- Source: clean codex/experiment/baby-teacher-baseline commit containing these declarations; preserve manual git status/rev-parse output. Environment run_5060 as teacher preparation (Python3.10.20/torch2.11.0+cu128/sklearn1.7.2), GPU0; no environment modification.
+- Compare BPR/full/matched-image under same anchor, budget and seed. Validation Recall@20 selection; zero teacher/student Test and teacher training; matrix structural access allowed. Final Test disabled, original teacher false preserved.
+- Expected exp/runs/sports/run_manifest__<run>.json, logs/<run>, Model/sports TD complete/inference checkpoints, exp/converge/sports curves; isolated run names, no baseline overwrite.
+- Acceptance:120 epochs finite losses/metrics, zero profile overrides, selected checkpoint restore, exact anchor identities, zero Test; low scores valid. Each manual command once only; no auto retry/resume/next arm/seed. Log execution outcome separately; this record is not a completed run.
+
+## 2026-09-16 sports_student_image_matched_seed2022_val120_v1 manual declaration (pending)
+
+- Preparation declaration only; assistant launches0. Anchor SPORTS_CONVERTED_20260916 plus audited Sports teacher epoch37 from run2026-09-16 12_38_48.480698_sports_light_init_pid30708; checkpoint SHA25657673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea.
+- Delta: student random-ID64/no projection, seed2022, AdamW lr6e-5/decay0.01, batch1024,120 epochs/patience120, no teacher initialization/user distillation. Rates {"td_distill_alpha": 0.23076923076923075, "td_item_image_rate": 1.0, "td_item_text_rate": 0.0}.
+- Exact command from repository root: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_image_matched_seed2022_val120_v1 --gpu_id 0
+- Source: clean codex/experiment/baby-teacher-baseline commit containing these declarations; preserve manual git status/rev-parse output. Environment run_5060 as teacher preparation (Python3.10.20/torch2.11.0+cu128/sklearn1.7.2), GPU0; no environment modification.
+- Compare BPR/full/matched-image under same anchor, budget and seed. Validation Recall@20 selection; zero teacher/student Test and teacher training; matrix structural access allowed. Final Test disabled, original teacher false preserved.
+- Expected exp/runs/sports/run_manifest__<run>.json, logs/<run>, Model/sports TD complete/inference checkpoints, exp/converge/sports curves; isolated run names, no baseline overwrite.
+- Acceptance:120 epochs finite losses/metrics, zero profile overrides, selected checkpoint restore, exact anchor identities, zero Test; low scores valid. Each manual command once only; no auto retry/resume/next arm/seed. Log execution outcome separately; this record is not a completed run.

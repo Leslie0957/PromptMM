@@ -281,6 +281,30 @@ BABY_STUDENT_PROFILES = {
     },
 }
 BABY_STUDENT_PROFILE_NAMES = tuple(BABY_STUDENT_PROFILES)
+SPORTS_TEACHER_CHECKPOINT = (
+    'Model/sports/runs/teacher_model_val_test_once_v1__'
+    '2026-09-16 12_38_48.480698_sports_light_init_pid30708.pt'
+)
+SPORTS_STUDENT_PROFILES = {}
+for _arm, _alpha, _image, _text in (
+    ('bpr', 0.0, 0.0, 0.0),
+    ('full', 0.3, 1.0, 0.3),
+    ('image_matched', 0.3 / 1.3, 1.0, 0.0),
+):
+    _name = 'sports_student_{}_seed2022_val120_v1'.format(_arm)
+    _defaults = dict(BABY_STUDENT_PROFILE_DEFAULTS)
+    _defaults.update({
+        'epoch': 120, 'early_stopping_patience': 120,
+        'teacher_checkpoint': SPORTS_TEACHER_CHECKPOINT,
+        'run_final_test': False,
+        'td_distill_alpha': _alpha, 'td_item_image_rate': _image,
+        'td_item_text_rate': _text,
+    })
+    SPORTS_STUDENT_PROFILES[_name] = {
+        'name': _name, 'scope': 'student_validation_diagnostic',
+        'source': 'sports_paired_seed2022_fixed120_v1', 'defaults': _defaults,
+    }
+SPORTS_STUDENT_PROFILE_NAMES = tuple(SPORTS_STUDENT_PROFILES)
 BABY_PAPER_READY_STUDENT_PROFILE_IDENTITIES = frozenset(
     (profile['name'], profile['scope'], profile['source'])
     for profile in BABY_STUDENT_PROFILES.values()
@@ -317,8 +341,9 @@ def apply_dataset_profile_defaults(parser, dataset):
 def student_profile(dataset, profile_name):
     if not profile_name:
         return None
-    profile = BABY_STUDENT_PROFILES.get(profile_name)
-    if dataset != 'baby' or profile is None:
+    profiles = {'baby': BABY_STUDENT_PROFILES, 'sports': SPORTS_STUDENT_PROFILES}
+    profile = profiles.get(dataset, {}).get(profile_name)
+    if profile is None:
         raise ValueError(
             'Student profile {} is not valid for dataset {}'.format(
                 profile_name, dataset
@@ -351,11 +376,12 @@ def _normalized(field_name, value):
 
 def _resolved_dataset_profile_defaults(dataset, profile, namespace):
     expected_defaults = dict(profile['defaults'])
-    if dataset != 'baby':
+    if dataset not in ('baby', 'sports'):
         return expected_defaults
 
     profile_name = getattr(namespace, 'student_profile', '')
-    active_student_profile = BABY_STUDENT_PROFILES.get(profile_name)
+    profiles = BABY_STUDENT_PROFILES if dataset == 'baby' else SPORTS_STUDENT_PROFILES
+    active_student_profile = profiles.get(profile_name)
     if active_student_profile is None:
         return expected_defaults
 
