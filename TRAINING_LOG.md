@@ -9877,3 +9877,52 @@ records remain under `exp/`; checkpoints remain under `Model/`.
 - Sole next step: audit source mappings, official x_label splits and cold items
   for Sports before onboarding into active loader or declaring any training.
   Preserve old results and seed2023 exception/false; Innovation2 undecided.
+
+
+## 2026-09-16 Sports raw mapping and split audit (pending)
+
+- Purpose: determine whether downloaded official Sports is suitable for a separate
+  onboarding stage; user requested the sole recorded next step.
+- Scope: read-only mapping, interaction/split and numeric feature audit using
+  existing converter validation helpers; add a tracked audit report and this log.
+  No raw mutation, conversion, filtering, preprocessing fit, training or Test ranking.
+- Acceptance: bijective contiguous mappings; valid covered IDs; nonempty official
+  labels 0/1/2; no duplicate pairs or split overlap; finite aligned feature shapes;
+  explicitly report cold items/users and remaining semantic provenance limitations.
+- Risks: official feature row semantics cannot be independently proved from NPY
+  alone; cold items may limit ID-only students. Preserve all official records.
+- Recovery reference: 058cf8a, codex/experiment/baby-teacher-baseline; clean source.
+- Planned verification: source fingerprints against download manifest, read-only
+  validator results, focused report/diff checks and old log prefix preservation.
+- Original log prefix: 666537 bytes; SHA256 be642992a1061926baf20ef8f18551f0eff59711a8c4ea4bde8805766ea90b1d.
+- Next stage remains separate; seed2023 audited exception with original manifest
+  false retained; second innovation undecided.
+
+
+## 2026-09-16 Sports raw mapping and split audit (completed)
+
+- Passed read-only validators in tools/convert_mmrec_baby.py: bijective contiguous
+  mappings, valid covered IDs, finite ratings/features, nonempty labels 0/1/2,
+  no duplicate user-item pairs. All three pairwise split overlaps are zero.
+- Users35598/items18357/interactions296337; Train218409/Validation37899/Test40029.
+  All splits contain35598 users; item counts18352/13342/13738 respectively.
+- Five raw file hashes and sizes match the acquisition manifest. Image18357x4096
+  float64 and text18357x384 float32; no nonfinite values or all-zero rows/columns.
+- Cold users0; cold items union [6500,9814,11472,13739,15279]. Validation has
+  four (excluding9814),9 interactions; Test has five,17 interactions. Retain
+  official split is the recommended conversion policy; no filtering performed.
+- Official MMRec dataset.py split() confirms label order0/1/2. Feature row-count
+  consistency is proven; item semantic alignment and raw modality completeness
+  still rely on official preprocessing provenance, not independently re-extracted.
+- Report: docs/research/SPORTS_RAW_DATA_AUDIT_2026-09-16.md; SHA256 904a2ba4df3bf5932bc2175f5a05c187f7bafec81f89107919d63500ab2865a2.
+- Verification: Python read-only audit exit0; original log prefix666537 bytes
+  SHA256 be642992a1061926baf20ef8f18551f0eff59711a8c4ea4bde8805766ea90b1d
+  preserved. Focused content/diff checks; implementation unchanged.
+- Test chronology: raw split integrity inspection only; zero ranking evaluations,
+  zero training, zero preprocessing fit, zero conversion; no checkpoint produced.
+- Outcome: suitable for onboarding with documented cold-item warning, not yet
+  training-ready. No Sports performance or generalization conclusion available.
+- Sole next step: lossless Sports conversion support and isolated data/sports
+  conversion/preflight, preserving official IDs/splits/features; no training.
+- Preserve all prior results; seed2023 audited exception/original manifest false
+  remains unchanged. Innovation2 remains undecided.
