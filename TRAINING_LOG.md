@@ -10205,3 +10205,23 @@ records remain under `exp/`; checkpoints remain under `Model/`.
 - Sole next step: existing matched-image declaration, same Sports/teacher/PCA anchor and budget, from clean outcome commit; manually once, no auto-retry/next arm/Test.
 - Next command: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_image_matched_seed2022_val120_v1 --gpu_id 0
 - Preserve seed2023 audited exception/original false; Innovation2 undecided.
+
+
+## 2026-09-16 Sports matched-image seed2022 Validation120 (completed)
+
+- Run 2026-09-16 21_40_06.514182_sports_light_init_pid42036; status validation_completed,120 epochs0..119.
+- User command: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_image_matched_seed2022_val120_v1 --gpu_id 0
+- Seed2022/randomID64/no projection/AdamW lr6e-5 decay0.01/batch1024/epoch120 patience120, no teacher init; alpha0.3/1.3 image1 text0 users0. No overrides.
+- Best epoch119 Recall@20 0.06970154523312948; same-epoch NDCG@20 0.03175250090547369.
+-120 finite curve records, positive image term and zero text/users. Checkpoint best equals curve/manifest; finite tensors and inference ID-table equality verified; selected restore confirmed. Zero teacher retraining, teacher/student Test; original false remains.
+- Three arms share data identity/teacher fingerprint and code fingerprints. Full-vs-matched changes only names,alpha,text; actual image coefficient aligned. Full relative Recall+5.843190905051943%, same-selected-epoch NDCG+4.799579343975435%; full vsBPR Recall+82.05008491923034%.
+- Interpretation: single-seed fixed-budget Validation evidence for text-loss addition; not semantic mechanism, significance, multiseed/Test or converged superiority. All3 peaks near boundary and window maxima rising; retain convergence-budget limitation.
+- Artifact exp\runs\sports\run_manifest__2026-09-16 21_40_06.514182_sports_light_init_pid42036.json SHA256 5ffc9f1c0e3c564e5548f79636c0470cac800d48b5e521397d0f8636c17d4962.
+- Artifact logs\2026-09-16 21_40_06.514182_sports_light_init_pid42036 SHA256 667682446e399e08e8e700e027c4bfab1570a413f6f0055ab1d3f8b510d68429.
+- Artifact D:\Download\PromptMM\exp\converge\sports\auto__2026-09-16 21_40_06.514182_sports_light_init_pid42036.pkl SHA256 94cb2b0d27193fcfaedb1e04ad8fdeec4d66969379f4a1ea07af452b6eab012d.
+- Artifact D:\Download\PromptMM\Model\sports\td_distill\td_distill_full__val_test_once_v1__2026-09-16 21_40_06.514182_sports_light_init_pid42036.pth SHA256 a1292eeece2b0726e0d3dea4397caa9afc7c18edf9031386126123c49cdd640c.
+- Artifact D:\Download\PromptMM\Model\sports\td_distill\td_distill_infer_only__val_test_once_v1__2026-09-16 21_40_06.514182_sports_light_init_pid42036.pth SHA256 53ded3b4adb529f0429e8eda631532fc2e62c23dc8c29446fe5104da0f3b9025.
+- Report docs/research/SPORTS_SEED2022_PAIRED_RESULTS_2026-09-16.md. Source implementationb500215, expected launchfefcd2f (docs-only delta), matching current code hashes. Runtime Git/dirty snapshot unavailable, not retroactively asserted. Declared run_5060 environment; no changes.
+- Original log prefix 697889 bytes SHA256 9a71e93a524af204629f654e879464039dc7573ebada18d5c02792f77363ba73 preserved. Audit only, no new training/forward/Test. Ignored artifacts local, no backup/freeze milestone claimed.
+- Sole next step: prepare seed2023/2024 same-teacher three-arm Validation120 paired profiles and commands; update narrow reuse whitelist with tests before handoff, do not launch. Longer-budget matched convergence diagnosis remains unresolved.
+- Preserve historical seed2023 audited exception/original manifest false; Innovation2 undecided.
