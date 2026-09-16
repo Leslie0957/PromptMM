@@ -111,6 +111,25 @@ BABY_TEACHER_PROFILE_DEFAULTS = {
     'prompt_dropout': 0.0,
 }
 
+# Initial Sports teacher reference, explicitly transferred rather than tuned.
+# Keep the full window to inspect convergence before freezing a student teacher.
+SPORTS_TEACHER_PROFILE_DEFAULTS = dict(BABY_TEACHER_PROFILE_DEFAULTS)
+SPORTS_TEACHER_PROFILE_DEFAULTS.update({
+    'epoch': 120,
+    'early_stopping_patience': 120,
+    'eval_protocol': 'val_test_once_v1',
+    'dataset_preflight': True,
+    'duplicate_modalities_policy': 'error',
+    'if_train_teacher': True,
+    'teacher_only': True,
+    'run_final_test': False,
+    'run_efficiency_benchmark': False,
+    'smoke_train_batches': 0,
+    'allow_teacher_alias_overwrite': False,
+    'teacher_checkpoint': '',
+    'teacher_reg_rate': 1.0,
+})
+
 # This profile defines the first Baby student comparison anchor. It is applied
 # after the teacher/dataset profile so the frozen teacher retains its exact
 # inference configuration while the student receives explicit safe defaults.
@@ -271,6 +290,13 @@ _LITERAL_FIELDS = {'Ks', 'mess_dropout', 'regs', 'weight_size'}
 
 
 def dataset_profile(dataset):
+    if dataset == 'sports':
+        return {
+            'name': 'sports_teacher_validation120_v1',
+            'scope': 'teacher_only',
+            'source': 'predeclared_baby_architecture_transfer_sports_validation_only',
+            'defaults': dict(SPORTS_TEACHER_PROFILE_DEFAULTS),
+        }
     if dataset == 'baby':
         return {
             'name': BABY_TEACHER_PROFILE_NAME,
