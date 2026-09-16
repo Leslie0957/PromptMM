@@ -9983,3 +9983,76 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   a manual Validation-only teacher launch declaration; do not launch automatically.
 - seed2023 audited exception retained with original manifest false; Innovation2
   remains undecided. No old results overwritten or reinterpreted.
+
+
+## 2026-09-16 Sports teacher Validation profile preparation (pending)
+
+- Scope: dataset_profiles.py Sports-specific teacher defaults, focused tests and
+  profile documentation/manual declaration. No training or Test ranking.
+- Rationale: initial cross-dataset teacher reference transfers Baby architecture
+  and optimization explicitly, not a claim of Sports optimality; seed2022,120
+  epochs with patience120 prevents early stop within window. Validate Recall@20
+  each epoch; restore best, skip Test, skip students, no shared alias publication.
+- Acceptance: real parser resolves named Sports profile with zero overrides;
+  Baby regressions pass; static teacher flow confirms Validation-only exit;
+  commands and data anchor frozen. No model/loss changes or smoke training.
+- Risks:120 epochs may not converge; memory/runtime untested on Sports. Review
+  curves before freezing teacher for students; never auto-retry a failed run.
+- Recovery reference e28025b, clean codex/experiment/baby-teacher-baseline.
+- Original log prefix 674217 bytes SHA256 3e609f65b2edc4fc4d60509c6967543e04ea74a0fce09b4d2beecb91ef4846e4.
+
+
+## 2026-09-16 Sports teacher Validation profile preparation (completed)
+
+- Added sports_teacher_validation120_v1 in dataset_profiles.py; explicit teacher
+  defaults derived from pinned Baby architecture/optimizer plus120 epochs and
+  patience120, seed2022, Validation protocol, teacher-only, no final Test,
+  preflight enabled/error on duplicate modalities, no alias overwrite/smoke.
+- Documentation: docs/SPORTS_TEACHER_VALIDATION120_V1.md includes full defaults,
+  rationale, manual command, artifact family and remaining convergence/reuse risks.
+- Verification:37 tests passed (Sports real-parser tests plus existing dataset
+  profile regressions). Exact command resolves zero dataset overrides and no
+  student profile. Source inspection confirms Validation selection each epoch,
+  best restore then teacher-only return; no final Test/alias publication.
+- Confirmed Sports conversion manifest hash against onboarding anchor; no repeated
+  full asset rehash. Runtime preflight will verify matrices/features before fit.
+- Environment checked: run_5060 Python3.10.20, torch2.11.0+cu128, numpy2.2.6,
+  scipy1.15.3, scikit-learn1.7.2. GPU0 intended, GPU workload not executed.
+- Old log prefix674217 bytes preserved verbatim. No training, PCA fit or Test
+  metrics in preparation; no model/loss/old Baby defaults changed.
+- Expected paper_ready_eligible=false because final Test disabled, not a failure.
+  No shared alias; downstream student reuse policy must be reviewed separately.
+- Preserve seed2023 audited exception/original false; Innovation2 undecided.
+
+## 2026-09-16 Sports teacher validation120 seed2022 manual run (pending)
+
+- Profile sports_teacher_validation120_v1, scope teacher_only, seed2022.
+- Shared anchor SPORTS_CONVERTED_20260916: Sports conversion onboarding completed
+  at e28025b; conversion manifest SHA256
+  3772a17c8b70fa4739653534dca8d542e67e0649f1f44ccba4194fec17bc1104;
+  includes all matrices/features/mappings hashes. Official cold items retained.
+- Source: clean codex/experiment/baby-teacher-baseline HEAD containing this
+  declaration/profile/tests. Runtime manifest records exact launch commit; no
+  launch after intervening source changes without rechecking declaration.
+- Comparison: first Sports teacher reference; Baby teacher architecture and
+  optimization transferred explicitly, no cross-dataset metric comparison.
+  Delta from Baby: new data/features/graph, fresh weights and PCA caches,120
+  epochs/patience120, no Test. No Baby checkpoint used.
+- Preprocessing: PCA64 seed2022 on full item content, dataset-bound fingerprinted
+  caches; training adjacency uses Train only. This is transductive item content.
+- Full command, run from D:/Download/PromptMM:
+  D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --gpu_id 0 --if_train_teacher true --teacher_only true --run_final_test false
+- Budget120 complete epochs (0..119), no batch cap; primary Validation Recall@20,
+  strict-improvement checkpoint selection; patience120 cannot stop within window.
+- Test policy: zero teacher/student Test ranking; matrices may be read only by
+  structural preflight/loader. No student training, shared alias or efficiency run.
+- Expected artifacts Model/sports/runs/teacher_model_val_test_once_v1__<run>.pt,
+  exp/runs/sports/run_manifest__<run>.json, dataset_preflight__<run>.json, logs.
+- Hard acceptance: completed teacher_only, finite losses/validation metrics,
+  selected checkpoint restored, zero Test/student, declared source/profile/data;
+  audit hashes and curve after execution. Low metrics alone are not failure;
+  edge-of-window peak means convergence remains unresolved.
+- User runs manually once; assistant did not launch. No automatic retry/resume,
+  next seed/arm or Test. Preserve artifacts on any failure and audit first.
+- Sole next step: manually execute the exact command once and return completion
+  for outcome/curve/checkpoint audit before any later experiment.
