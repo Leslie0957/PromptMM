@@ -49,7 +49,13 @@ def file_fingerprint(path):
     }
 
 
-def _load_and_validate_source_manifest(source_dir):
+def _source_files(dataset):
+    if dataset not in ('baby', 'sports'):
+        raise ConversionError('Unsupported MMRec dataset: {}'.format(dataset))
+    return (dataset + '.inter',) + CORE_SOURCE_FILES[1:]
+
+
+def _load_and_validate_source_manifest(source_dir, dataset='baby'):
     manifest_path = source_dir / 'download_manifest.json'
     if not manifest_path.is_file():
         raise FileNotFoundError(
@@ -65,10 +71,10 @@ def _load_and_validate_source_manifest(source_dir):
         if isinstance(item, dict)
     }
     fingerprints = {}
-    for file_name in CORE_SOURCE_FILES:
+    for file_name in _source_files(dataset):
         file_path = source_dir / file_name
         if not file_path.is_file():
-            raise FileNotFoundError('Missing Baby source file: {}'.format(file_path))
+            raise FileNotFoundError('Missing MMRec source file: {}'.format(file_path))
         recorded = recorded_files.get(file_name)
         if not recorded:
             raise ConversionError(
@@ -279,10 +285,16 @@ def _resolved_is_within(path, parent):
 
 
 def convert_baby(source_dir, output_dir, invocation=None):
+    """Compatibility entry point for existing Baby callers."""
+    return convert_mmrec(source_dir, output_dir, dataset='baby', invocation=invocation)
+
+
+def convert_mmrec(source_dir, output_dir, dataset='baby', invocation=None):
+    source_files = _source_files(dataset)
     source_dir = Path(source_dir).resolve()
     output_dir = Path(output_dir).resolve()
     if not source_dir.is_dir():
-        raise FileNotFoundError('Baby source directory does not exist: {}'.format(source_dir))
+        raise FileNotFoundError('MMRec source directory does not exist: {}'.format(source_dir))
     if output_dir.exists():
         raise FileExistsError(
             'Refusing to overwrite existing output directory: {}'.format(output_dir)
@@ -299,7 +311,7 @@ def convert_baby(source_dir, output_dir, invocation=None):
         )
 
     source_manifest_path, source_manifest, source_fingerprints = (
-        _load_and_validate_source_manifest(source_dir)
+        _load_and_validate_source_manifest(source_dir, dataset)
     )
     n_items = _read_mapping(
         source_dir / 'i_id_mapping.csv', 'asin', 'itemID'
@@ -310,7 +322,7 @@ def convert_baby(source_dir, output_dir, invocation=None):
     image_report = _validate_feature(source_dir / 'image_feat.npy', n_items)
     text_report = _validate_feature(source_dir / 'text_feat.npy', n_items)
     split_records = _read_interactions(
-        source_dir / 'baby.inter', n_users, n_items
+        source_dir / (dataset + '.inter'), n_users, n_items
     )
     cold_start = _cold_start_report(split_records)
     shape = (n_users, n_items)
@@ -334,7 +346,7 @@ def convert_baby(source_dir, output_dir, invocation=None):
 
     source_fingerprints_after = {
         file_name: file_fingerprint(source_dir / file_name)
-        for file_name in CORE_SOURCE_FILES
+        for file_name in source_files
     }
     if source_fingerprints_after != source_fingerprints:
         raise ConversionError('Raw source fingerprints changed during conversion')
@@ -384,6 +396,7 @@ def convert_baby(source_dir, output_dir, invocation=None):
             'cold_item_policy': 'retain_official',
         },
         'dataset': {
+            'name': dataset,
             'users': n_users,
             'items': n_items,
             'matrix_shape': [n_users, n_items],
@@ -408,17 +421,23 @@ def convert_baby(source_dir, output_dir, invocation=None):
 
 def parse_args(argv=None):
     parser = argparse.ArgumentParser(
-        description='Convert the audited MMRec Baby dataset into PromptMM matrix format.'
+        description='Convert audited MMRec Baby or Sports into PromptMM matrix format.'
     )
-    parser.add_argument('--source', type=Path, default=DEFAULT_SOURCE)
-    parser.add_argument('--output', type=Path, default=DEFAULT_OUTPUT)
-    return parser.parse_args(argv)
+    parser.add_argument('--dataset', choices=('baby', 'sports'), default='baby')
+    parser.add_argument('--source', type=Path)
+    parser.add_argument('--output', type=Path)
+    args = parser.parse_args(argv)
+    if args.source is None:
+        args.source = REPO_ROOT / 'data' / '_incoming' / ('mmrec_' + args.dataset)
+    if args.output is None:
+        args.output = REPO_ROOT / 'data' / args.dataset
+    return args
 
 
 def main(argv=None):
     args = parse_args(argv)
     invocation = ' '.join([str(Path(sys.executable).resolve()), str(Path(__file__).resolve())] + (argv if argv is not None else sys.argv[1:]))
-    manifest = convert_baby(args.source, args.output, invocation=invocation)
+    manifest = convert_mmrec(args.source, args.output, dataset=args.dataset, invocation=invocation)
     summary = {
         'status': manifest['status'],
         'output': manifest['output']['directory'],
