@@ -9926,3 +9926,60 @@ records remain under `exp/`; checkpoints remain under `Model/`.
   conversion/preflight, preserving official IDs/splits/features; no training.
 - Preserve all prior results; seed2023 audited exception/original manifest false
   remains unchanged. Innovation2 remains undecided.
+
+
+## 2026-09-16 Sports conversion onboarding (pending)
+
+- User authorizes converter extension and isolated Sports conversion/preflight.
+- Scope: tools/convert_mmrec_baby.py, focused converter tests, onboarding record.
+  Add explicit baby/sports selection with Baby-compatible defaults and API.
+  Preserve official IDs/splits, implicit positive weights and retain_official cold
+  policy; copy features verbatim into new data/sports, never overwrite assets.
+- Acceptance: Baby regression and Sports conversion tests, source hashes unchanged,
+  exact raw-to-matrix pair equality, feature hashes equal, runtime data preflight.
+- Risks: wrong dataset defaults or manifest identity; targeted tests cover both.
+  No model/profile edits, training, PCA fitting, Test ranking or automatic retry.
+- Recovery reference e8b602b on codex/experiment/baby-teacher-baseline, clean.
+  Preserve partial artifacts on failure; source recovery does not recover data.
+- Original prefix 669954 bytes SHA256 8d488bdb200f560b9f52b68e110966a19128ad9114e75d899a34614a96db1675.
+- Next action: implement, test, convert once, verify and commit this stage.
+
+
+## 2026-09-16 Sports conversion onboarding (completed)
+
+- Extended tools/convert_mmrec_baby.py with convert_mmrec and --dataset baby/sports;
+  default CLI and convert_baby API remain Baby-compatible. Dataset-specific raw
+  filenames/default directories and explicit manifest dataset.name; unsupported
+  dataset rejected. Existing overwrite/staging guards retained.
+- Six converter tests passed: Baby regression, bad hashes/duplicates/labels/shapes,
+  overwrite guard, Sports routing/exact pairs/copied files/preflight, CLI defaults.
+- Executed once from repository root (non-training data preparation):
+  D:\miniconda\envs\run_5060\python.exe -B tools/convert_mmrec_baby.py --dataset sports
+- Generated data/sports; matrices35598x18357, float32 implicit positives1.0;
+  Train218409/Validation37899/Test40029. Independently compared every matrix pair
+  against official sports.inter labels: exact equality. Source hashes verified
+  unchanged by converter; all feature/mapping copies are byte-identical.
+- Runtime run_dataset_preflight(data, sports, error) passed with warning only for
+  retained official cold items: Validation9/Test17 interactions; no cold users,
+  no split overlaps, no duplicate modalities. Official split/IDs preserved.
+- Artifact identities:
+  - i_id_mapping.csv: 300971 bytes; SHA256 ac28223c94dbd08106253000c751b1835c479f291eb5b1d6c532457464669e70.
+  - image_feat.npy: 601522304 bytes; SHA256 222f924a0694b6c7e2bc26ea4bc2ef4ec89f7045aa5105ef463af8455c7a7695.
+  - test_mat: 463016 bytes; SHA256 0bcc2fbdbc989edf9af37b7bfa73a53895d9e78ee5aed9abb7a36a721b4374ae.
+  - text_feat.npy: 28196480 bytes; SHA256 27d6087f0d8644b8245c60052425530c6446dffe61024b8126db0009ad94de84.
+  - train_mat: 1890060 bytes; SHA256 5361c5486dddbf50084d011278a11d2f18a37e258f87be218b070ff02f4ab0f8.
+  - u_id_mapping.csv: 727460 bytes; SHA256 8ebe5cc874353bf96ad819fe30cb9684f3b15920a497c20a8f06bf2cea172ba0.
+  - val_mat: 445976 bytes; SHA256 1b4224c3fb091ad23a59e0f8a7b58c7b0c959863a7189cfc8b89eeb90a467e03.
+- conversion_manifest.json SHA256 3772a17c8b70fa4739653534dca8d542e67e0649f1f44ccba4194fec17bc1104.
+- onboarding_verification.json SHA256 2fc84faee11e6b072e68c2f576b786278d22546543ec9edbec91d768c4339342.
+- Converter source SHA256 084fb9aec45c1c0fccaf7e1beab5bb3ceeb4ee2f8ea455d49b0b3cd213cd4aec; exact implementation preserved by this task commit.
+- Ignored data/manifests remain local artifacts, not backed up by Git. Raw source
+  and Baby assets unchanged; old log prefix669954 bytes verified verbatim.
+- No model/profile/parser changes, PCA fit, training or ranking/Test metrics.
+  Test data read only for conversion and integrity validation; no checkpoint.
+- Data format onboarding complete; Sports teacher/profile/budget not yet frozen.
+  Official feature semantic provenance limitations remain as documented in audit.
+- Sole next step: prepare and verify Sports-specific teacher configuration and
+  a manual Validation-only teacher launch declaration; do not launch automatically.
+- seed2023 audited exception retained with original manifest false; Innovation2
+  remains undecided. No old results overwritten or reinterpreted.
