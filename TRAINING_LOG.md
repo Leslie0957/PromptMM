@@ -10422,3 +10422,137 @@ records remain under `exp/`; checkpoints remain under `Model/`.
 - Original log prefix 713980 bytes SHA256 f891efabb11ac146dbe82eec5e85ed028e82c0071551192194bb82ab11d8ee81 retained verbatim. All prior manifests unchanged; ignored assets not backed up by commit. No final-result freeze or tag milestone claimed.
 - Sole next step: prepare seed2022 three-arm matched240-epoch Validation convergence diagnostic, fresh initialization, unchanged120 artifacts, no automatic training/Test. Not yet declared executable; verify prefix-comparability plan during preparation.
 - Preserve historical seed2023 audit exception/original false; Innovation2 undecided.
+
+
+## 2026-09-17 Sports all-seed Validation300 preparation (pending)
+
+- User explicitly replaces proposed240 single-seed plan with300 epochs for all
+  three seeds/all three arms and requests one serial manual command. Prepare9
+  profiles plus guarded serial launcher/tests/docs; assistant launches0.
+- Copy existing120 profiles, change only epoch/patience300 and name/source. Fresh
+  initialization, not checkpoint resume; fixed teacher/PCA seed2022, same data,
+  optimizer/semantic weights. Preserve120 results, teacher original false.
+- Acceptance: old profiles unchanged, parsed budget deltas only, gate rejects
+  overrides/Test, actual pinned teacher identity, serial launcher syntax/dry-run
+  without training. Stop on nonzero exit or incomplete manifest; no auto retries.
+- Risks:300 still not converged;120 prefix numerical equality not guaranteed on
+  GPU, audit full-prefix curves afterward before attributing differences to budget.
+- Scope dataset_profiles.py, tests, tools serial launcher, docs/log. Recovery
+ 59b56a3 clean codex/experiment/baby-teacher-baseline. Original prefix 728369 bytes SHA256 177b481b72ac633f98549f10b2e51a2f6ea26be0b305c447ad97906a7e23ba4b.
+
+
+## 2026-09-17 Sports all-seed Validation300 preparation (completed)
+
+- Nine new300 profiles, existing nine120 profiles unchanged against59b56a3.
+  Only budget/patience/name/source delta; no model/loss/gate-logic changes.
+-60 tests passed, including incomplete-success-exit gate; actual nine teacher
+  hash/frozen metadata validations passed. Launcher dry-run printed9 commands
+  only; no batch record, training, forward, PCA fit or Test access occurred.
+- Added tools/run_sports_validation300.py: one-shot serial command, clean-source
+  checks each run, exclusive batch sidecar records commit/environment command,
+  refuses existing target run, stops on exit failure/incomplete manifest. No retry.
+- Doc docs/SPORTS_STUDENT_VALIDATION300.md; retains GPU prefix-comparability and
+  finite-window convergence caveats. This is a preparation task, not execution.
+- Original728369-byte log prefix verified preserved. No prior artifacts changed.
+- Sole next step: user runs D:/miniconda/envs/run_5060/python.exe -B tools/run_sports_validation300.py once from root, then returns for nine-run audit.
+
+## 2026-09-17 sports_student_bpr_seed2022_val300_v1 (pending manual run)
+
+- User explicitly requests all-seed300 serial batch; each exact run once, no assistant launch. Profile sports_student_bpr_seed2022_val300_v1 with seed encoded in name.
+- Anchor SPORTS_CONVERTED_20260916 conversion SHA3772a17c8b70fa4739653534dca8d542e67e0649f1f44ccba4194fec17bc1104; teacher epoch37 SHA57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea and PCA seed2022 unchanged.
+- Delta from corresponding120 profile: epoch300/patience300/name/source only, fresh randomID64 not resume; lr6e-5 decay0.01 batch1024, no teacher init/users. Same arm weights; full and matched actual image coefficient0.3/1.3.
+- Command: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_bpr_seed2022_val300_v1 --gpu_id 0
+- Launch via recorded serial wrapper from clean codex/experiment/baby-teacher-baseline preparation commit; wrapper records actual HEAD/Python and refuses dirty/changed source. Environment run_5060 Python3.10.20 torch2.11.0+cu128 sklearn1.7.2 GPU0 as prior anchor; no installs.
+- Compare same-seed three arms and prior120 curves; Validation Recall@20 select best; teacher/student Test0, teacher training0; structural preflight allowed. Original false remains.
+- Artifacts unique exp/runs/sports manifest/preflight, logs/<run>, Model/sports/td_distill full/infer weights, exp/converge/sports curves plus batch sidecar. Acceptance300 finite epochs0..299, zero overrides, matching identities, selected restore, noTest; low scores valid.
+- No retry/resume or extra seed/arm/Test; stop batch on failure, preserve artifacts. Each outcome logged later; not completed. User authorized serial progression within these9 only.
+
+## 2026-09-17 sports_student_full_seed2022_val300_v1 (pending manual run)
+
+- User explicitly requests all-seed300 serial batch; each exact run once, no assistant launch. Profile sports_student_full_seed2022_val300_v1 with seed encoded in name.
+- Anchor SPORTS_CONVERTED_20260916 conversion SHA3772a17c8b70fa4739653534dca8d542e67e0649f1f44ccba4194fec17bc1104; teacher epoch37 SHA57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea and PCA seed2022 unchanged.
+- Delta from corresponding120 profile: epoch300/patience300/name/source only, fresh randomID64 not resume; lr6e-5 decay0.01 batch1024, no teacher init/users. Same arm weights; full and matched actual image coefficient0.3/1.3.
+- Command: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_full_seed2022_val300_v1 --gpu_id 0
+- Launch via recorded serial wrapper from clean codex/experiment/baby-teacher-baseline preparation commit; wrapper records actual HEAD/Python and refuses dirty/changed source. Environment run_5060 Python3.10.20 torch2.11.0+cu128 sklearn1.7.2 GPU0 as prior anchor; no installs.
+- Compare same-seed three arms and prior120 curves; Validation Recall@20 select best; teacher/student Test0, teacher training0; structural preflight allowed. Original false remains.
+- Artifacts unique exp/runs/sports manifest/preflight, logs/<run>, Model/sports/td_distill full/infer weights, exp/converge/sports curves plus batch sidecar. Acceptance300 finite epochs0..299, zero overrides, matching identities, selected restore, noTest; low scores valid.
+- No retry/resume or extra seed/arm/Test; stop batch on failure, preserve artifacts. Each outcome logged later; not completed. User authorized serial progression within these9 only.
+
+## 2026-09-17 sports_student_image_matched_seed2022_val300_v1 (pending manual run)
+
+- User explicitly requests all-seed300 serial batch; each exact run once, no assistant launch. Profile sports_student_image_matched_seed2022_val300_v1 with seed encoded in name.
+- Anchor SPORTS_CONVERTED_20260916 conversion SHA3772a17c8b70fa4739653534dca8d542e67e0649f1f44ccba4194fec17bc1104; teacher epoch37 SHA57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea and PCA seed2022 unchanged.
+- Delta from corresponding120 profile: epoch300/patience300/name/source only, fresh randomID64 not resume; lr6e-5 decay0.01 batch1024, no teacher init/users. Same arm weights; full and matched actual image coefficient0.3/1.3.
+- Command: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_image_matched_seed2022_val300_v1 --gpu_id 0
+- Launch via recorded serial wrapper from clean codex/experiment/baby-teacher-baseline preparation commit; wrapper records actual HEAD/Python and refuses dirty/changed source. Environment run_5060 Python3.10.20 torch2.11.0+cu128 sklearn1.7.2 GPU0 as prior anchor; no installs.
+- Compare same-seed three arms and prior120 curves; Validation Recall@20 select best; teacher/student Test0, teacher training0; structural preflight allowed. Original false remains.
+- Artifacts unique exp/runs/sports manifest/preflight, logs/<run>, Model/sports/td_distill full/infer weights, exp/converge/sports curves plus batch sidecar. Acceptance300 finite epochs0..299, zero overrides, matching identities, selected restore, noTest; low scores valid.
+- No retry/resume or extra seed/arm/Test; stop batch on failure, preserve artifacts. Each outcome logged later; not completed. User authorized serial progression within these9 only.
+
+## 2026-09-17 sports_student_bpr_seed2023_val300_v1 (pending manual run)
+
+- User explicitly requests all-seed300 serial batch; each exact run once, no assistant launch. Profile sports_student_bpr_seed2023_val300_v1 with seed encoded in name.
+- Anchor SPORTS_CONVERTED_20260916 conversion SHA3772a17c8b70fa4739653534dca8d542e67e0649f1f44ccba4194fec17bc1104; teacher epoch37 SHA57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea and PCA seed2022 unchanged.
+- Delta from corresponding120 profile: epoch300/patience300/name/source only, fresh randomID64 not resume; lr6e-5 decay0.01 batch1024, no teacher init/users. Same arm weights; full and matched actual image coefficient0.3/1.3.
+- Command: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_bpr_seed2023_val300_v1 --gpu_id 0
+- Launch via recorded serial wrapper from clean codex/experiment/baby-teacher-baseline preparation commit; wrapper records actual HEAD/Python and refuses dirty/changed source. Environment run_5060 Python3.10.20 torch2.11.0+cu128 sklearn1.7.2 GPU0 as prior anchor; no installs.
+- Compare same-seed three arms and prior120 curves; Validation Recall@20 select best; teacher/student Test0, teacher training0; structural preflight allowed. Original false remains.
+- Artifacts unique exp/runs/sports manifest/preflight, logs/<run>, Model/sports/td_distill full/infer weights, exp/converge/sports curves plus batch sidecar. Acceptance300 finite epochs0..299, zero overrides, matching identities, selected restore, noTest; low scores valid.
+- No retry/resume or extra seed/arm/Test; stop batch on failure, preserve artifacts. Each outcome logged later; not completed. User authorized serial progression within these9 only.
+
+## 2026-09-17 sports_student_full_seed2023_val300_v1 (pending manual run)
+
+- User explicitly requests all-seed300 serial batch; each exact run once, no assistant launch. Profile sports_student_full_seed2023_val300_v1 with seed encoded in name.
+- Anchor SPORTS_CONVERTED_20260916 conversion SHA3772a17c8b70fa4739653534dca8d542e67e0649f1f44ccba4194fec17bc1104; teacher epoch37 SHA57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea and PCA seed2022 unchanged.
+- Delta from corresponding120 profile: epoch300/patience300/name/source only, fresh randomID64 not resume; lr6e-5 decay0.01 batch1024, no teacher init/users. Same arm weights; full and matched actual image coefficient0.3/1.3.
+- Command: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_full_seed2023_val300_v1 --gpu_id 0
+- Launch via recorded serial wrapper from clean codex/experiment/baby-teacher-baseline preparation commit; wrapper records actual HEAD/Python and refuses dirty/changed source. Environment run_5060 Python3.10.20 torch2.11.0+cu128 sklearn1.7.2 GPU0 as prior anchor; no installs.
+- Compare same-seed three arms and prior120 curves; Validation Recall@20 select best; teacher/student Test0, teacher training0; structural preflight allowed. Original false remains.
+- Artifacts unique exp/runs/sports manifest/preflight, logs/<run>, Model/sports/td_distill full/infer weights, exp/converge/sports curves plus batch sidecar. Acceptance300 finite epochs0..299, zero overrides, matching identities, selected restore, noTest; low scores valid.
+- No retry/resume or extra seed/arm/Test; stop batch on failure, preserve artifacts. Each outcome logged later; not completed. User authorized serial progression within these9 only.
+
+## 2026-09-17 sports_student_image_matched_seed2023_val300_v1 (pending manual run)
+
+- User explicitly requests all-seed300 serial batch; each exact run once, no assistant launch. Profile sports_student_image_matched_seed2023_val300_v1 with seed encoded in name.
+- Anchor SPORTS_CONVERTED_20260916 conversion SHA3772a17c8b70fa4739653534dca8d542e67e0649f1f44ccba4194fec17bc1104; teacher epoch37 SHA57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea and PCA seed2022 unchanged.
+- Delta from corresponding120 profile: epoch300/patience300/name/source only, fresh randomID64 not resume; lr6e-5 decay0.01 batch1024, no teacher init/users. Same arm weights; full and matched actual image coefficient0.3/1.3.
+- Command: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_image_matched_seed2023_val300_v1 --gpu_id 0
+- Launch via recorded serial wrapper from clean codex/experiment/baby-teacher-baseline preparation commit; wrapper records actual HEAD/Python and refuses dirty/changed source. Environment run_5060 Python3.10.20 torch2.11.0+cu128 sklearn1.7.2 GPU0 as prior anchor; no installs.
+- Compare same-seed three arms and prior120 curves; Validation Recall@20 select best; teacher/student Test0, teacher training0; structural preflight allowed. Original false remains.
+- Artifacts unique exp/runs/sports manifest/preflight, logs/<run>, Model/sports/td_distill full/infer weights, exp/converge/sports curves plus batch sidecar. Acceptance300 finite epochs0..299, zero overrides, matching identities, selected restore, noTest; low scores valid.
+- No retry/resume or extra seed/arm/Test; stop batch on failure, preserve artifacts. Each outcome logged later; not completed. User authorized serial progression within these9 only.
+
+## 2026-09-17 sports_student_bpr_seed2024_val300_v1 (pending manual run)
+
+- User explicitly requests all-seed300 serial batch; each exact run once, no assistant launch. Profile sports_student_bpr_seed2024_val300_v1 with seed encoded in name.
+- Anchor SPORTS_CONVERTED_20260916 conversion SHA3772a17c8b70fa4739653534dca8d542e67e0649f1f44ccba4194fec17bc1104; teacher epoch37 SHA57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea and PCA seed2022 unchanged.
+- Delta from corresponding120 profile: epoch300/patience300/name/source only, fresh randomID64 not resume; lr6e-5 decay0.01 batch1024, no teacher init/users. Same arm weights; full and matched actual image coefficient0.3/1.3.
+- Command: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_bpr_seed2024_val300_v1 --gpu_id 0
+- Launch via recorded serial wrapper from clean codex/experiment/baby-teacher-baseline preparation commit; wrapper records actual HEAD/Python and refuses dirty/changed source. Environment run_5060 Python3.10.20 torch2.11.0+cu128 sklearn1.7.2 GPU0 as prior anchor; no installs.
+- Compare same-seed three arms and prior120 curves; Validation Recall@20 select best; teacher/student Test0, teacher training0; structural preflight allowed. Original false remains.
+- Artifacts unique exp/runs/sports manifest/preflight, logs/<run>, Model/sports/td_distill full/infer weights, exp/converge/sports curves plus batch sidecar. Acceptance300 finite epochs0..299, zero overrides, matching identities, selected restore, noTest; low scores valid.
+- No retry/resume or extra seed/arm/Test; stop batch on failure, preserve artifacts. Each outcome logged later; not completed. User authorized serial progression within these9 only.
+
+## 2026-09-17 sports_student_full_seed2024_val300_v1 (pending manual run)
+
+- User explicitly requests all-seed300 serial batch; each exact run once, no assistant launch. Profile sports_student_full_seed2024_val300_v1 with seed encoded in name.
+- Anchor SPORTS_CONVERTED_20260916 conversion SHA3772a17c8b70fa4739653534dca8d542e67e0649f1f44ccba4194fec17bc1104; teacher epoch37 SHA57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea and PCA seed2022 unchanged.
+- Delta from corresponding120 profile: epoch300/patience300/name/source only, fresh randomID64 not resume; lr6e-5 decay0.01 batch1024, no teacher init/users. Same arm weights; full and matched actual image coefficient0.3/1.3.
+- Command: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_full_seed2024_val300_v1 --gpu_id 0
+- Launch via recorded serial wrapper from clean codex/experiment/baby-teacher-baseline preparation commit; wrapper records actual HEAD/Python and refuses dirty/changed source. Environment run_5060 Python3.10.20 torch2.11.0+cu128 sklearn1.7.2 GPU0 as prior anchor; no installs.
+- Compare same-seed three arms and prior120 curves; Validation Recall@20 select best; teacher/student Test0, teacher training0; structural preflight allowed. Original false remains.
+- Artifacts unique exp/runs/sports manifest/preflight, logs/<run>, Model/sports/td_distill full/infer weights, exp/converge/sports curves plus batch sidecar. Acceptance300 finite epochs0..299, zero overrides, matching identities, selected restore, noTest; low scores valid.
+- No retry/resume or extra seed/arm/Test; stop batch on failure, preserve artifacts. Each outcome logged later; not completed. User authorized serial progression within these9 only.
+
+## 2026-09-17 sports_student_image_matched_seed2024_val300_v1 (pending manual run)
+
+- User explicitly requests all-seed300 serial batch; each exact run once, no assistant launch. Profile sports_student_image_matched_seed2024_val300_v1 with seed encoded in name.
+- Anchor SPORTS_CONVERTED_20260916 conversion SHA3772a17c8b70fa4739653534dca8d542e67e0649f1f44ccba4194fec17bc1104; teacher epoch37 SHA57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea and PCA seed2022 unchanged.
+- Delta from corresponding120 profile: epoch300/patience300/name/source only, fresh randomID64 not resume; lr6e-5 decay0.01 batch1024, no teacher init/users. Same arm weights; full and matched actual image coefficient0.3/1.3.
+- Command: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_image_matched_seed2024_val300_v1 --gpu_id 0
+- Launch via recorded serial wrapper from clean codex/experiment/baby-teacher-baseline preparation commit; wrapper records actual HEAD/Python and refuses dirty/changed source. Environment run_5060 Python3.10.20 torch2.11.0+cu128 sklearn1.7.2 GPU0 as prior anchor; no installs.
+- Compare same-seed three arms and prior120 curves; Validation Recall@20 select best; teacher/student Test0, teacher training0; structural preflight allowed. Original false remains.
+- Artifacts unique exp/runs/sports manifest/preflight, logs/<run>, Model/sports/td_distill full/infer weights, exp/converge/sports curves plus batch sidecar. Acceptance300 finite epochs0..299, zero overrides, matching identities, selected restore, noTest; low scores valid.
+- No retry/resume or extra seed/arm/Test; stop batch on failure, preserve artifacts. Each outcome logged later; not completed. User authorized serial progression within these9 only.
+
+- Global preservation: historical Baby seed2023 audited exception/original manifest false retained; Innovation2 undecided. No artifact backup milestone or final-result freeze claimed.
