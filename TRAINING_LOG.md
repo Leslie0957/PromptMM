@@ -10320,3 +10320,105 @@ records remain under `exp/`; checkpoints remain under `Model/`.
 - Comparison: same-seed BPR/full/matched image plus seed2022 fixed120 results. Validation Recall@20 select/restore; teacher/student Test0, teacher training0; structural matrix preflight allowed. Original false remains.
 - Expected exp/runs/sports manifests, logs/<run>, Model/sports/td_distill full/infer weights, exp/converge/sports curves; unique runtime names. Acceptance120 finite epochs, zero overrides, fixed identities, selected checkpoint equality, zeroTest. Low metrics valid.
 - User manual once, assistant launches0; no automatic retry/resume/extra arm/seed/Test; each outcome separately logged after execution. Failures retain artifacts.
+
+
+## 2026-09-17 sports_student_bpr_seed2023_val120_v1 (completed)
+
+- Run 2026-09-16 23_27_49.601262_sports_light_init_pid40628; status validation_completed;120 epochs0..119.
+- Command: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_bpr_seed2023_val120_v1 --gpu_id 0
+- Declared student seed2023, randomID64/no projection, lr6e-5/decay0.01/batch1024,epoch120/patience120, no teacher initialization; rates match named profile, zero overrides. Same SPORTS_CONVERTED_20260916 and teacher SHA57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea, PCA seed2022.
+- Best epoch118 Recall@20 0.041037907165193274; same-selected-epoch NDCG@20 0.019690422932590133.
+- Finite120-point curves/continuous logs, finite checkpoint tensors; selected metadata equal curve/manifest, infer-export ID tables equal full checkpoint. Restore logged; zero teacher retraining and teacher/student Test. Original false retained; selected-versus-tested N/A.
+- Source fingerprints match current clean1e6f305; launch Git/dirty snapshot missing as disclosed. Declared run_5060 unchanged; no runtime full environment snapshot claim.
+- Artifact exp\runs\sports\run_manifest__2026-09-16 23_27_49.601262_sports_light_init_pid40628.json SHA256 54c87cacfcdd316d881ce12475e41639a437171f5b1c43ee95f60b7f1524f7a8.
+- Artifact logs\2026-09-16 23_27_49.601262_sports_light_init_pid40628 SHA256 d21a57e3408f27ff47c06c188ab0632326ebedd63f13dae004f697a063c51ecd.
+- Artifact D:\Download\PromptMM\exp\converge\sports\auto__2026-09-16 23_27_49.601262_sports_light_init_pid40628.pkl SHA256 4aa44cdc186ef9b9f78d10237d13095e252d3a876e8f0b80bfd288bfd707ede0.
+- Artifact D:\Download\PromptMM\Model\sports\td_distill\td_distill_full__val_test_once_v1__2026-09-16 23_27_49.601262_sports_light_init_pid40628.pth SHA256 c3f487a02e9e7da8a4c1d848f3ad9b892e37d4f1349dafa6288fa8c23f9dbeee.
+- Artifact D:\Download\PromptMM\Model\sports\td_distill\td_distill_infer_only__val_test_once_v1__2026-09-16 23_27_49.601262_sports_light_init_pid40628.pth SHA256 3cd333d390083dc412bd232b8103fd8d0dbd6dbacfd25af5aaaafe4e20c616d2.
+
+
+## 2026-09-17 sports_student_full_seed2023_val120_v1 (completed)
+
+- Run 2026-09-17 00_43_06.905567_sports_light_init_pid9324; status validation_completed;120 epochs0..119.
+- Command: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_full_seed2023_val120_v1 --gpu_id 0
+- Declared student seed2023, randomID64/no projection, lr6e-5/decay0.01/batch1024,epoch120/patience120, no teacher initialization; rates match named profile, zero overrides. Same SPORTS_CONVERTED_20260916 and teacher SHA57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea, PCA seed2022.
+- Best epoch119 Recall@20 0.07383838245188169; same-selected-epoch NDCG@20 0.03334380540859855.
+- Finite120-point curves/continuous logs, finite checkpoint tensors; selected metadata equal curve/manifest, infer-export ID tables equal full checkpoint. Restore logged; zero teacher retraining and teacher/student Test. Original false retained; selected-versus-tested N/A.
+- Source fingerprints match current clean1e6f305; launch Git/dirty snapshot missing as disclosed. Declared run_5060 unchanged; no runtime full environment snapshot claim.
+- Artifact exp\runs\sports\run_manifest__2026-09-17 00_43_06.905567_sports_light_init_pid9324.json SHA256 5fdf1e34e0bec607b5555597579a1622c2222f83f5aff51ae187b7f65a89e053.
+- Artifact logs\2026-09-17 00_43_06.905567_sports_light_init_pid9324 SHA256 17613ccf0f417c0b45960d669297b7b1bb602391e2f3712e22172d4f0debcc90.
+- Artifact D:\Download\PromptMM\exp\converge\sports\auto__2026-09-17 00_43_06.905567_sports_light_init_pid9324.pkl SHA256 9d11fe4c7000d5c8ecd7831526fe2aa65c6210183d8854b39e0aa377b102c1c0.
+- Artifact D:\Download\PromptMM\Model\sports\td_distill\td_distill_full__val_test_once_v1__2026-09-17 00_43_06.905567_sports_light_init_pid9324.pth SHA256 9ad9899d0bed02bf0fbb46234e21ac45d69ff66347d0798ae43147f73489a1b3.
+- Artifact D:\Download\PromptMM\Model\sports\td_distill\td_distill_infer_only__val_test_once_v1__2026-09-17 00_43_06.905567_sports_light_init_pid9324.pth SHA256 7a58431cb60dbf710526ab4f0bb527ba3b86c18dca17ac6c137a572ac33d8198.
+
+
+## 2026-09-17 sports_student_image_matched_seed2023_val120_v1 (completed)
+
+- Run 2026-09-17 01_59_31.370287_sports_light_init_pid45812; status validation_completed;120 epochs0..119.
+- Command: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_image_matched_seed2023_val120_v1 --gpu_id 0
+- Declared student seed2023, randomID64/no projection, lr6e-5/decay0.01/batch1024,epoch120/patience120, no teacher initialization; rates match named profile, zero overrides. Same SPORTS_CONVERTED_20260916 and teacher SHA57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea, PCA seed2022.
+- Best epoch119 Recall@20 0.07050277626358693; same-selected-epoch NDCG@20 0.032058011284312064.
+- Finite120-point curves/continuous logs, finite checkpoint tensors; selected metadata equal curve/manifest, infer-export ID tables equal full checkpoint. Restore logged; zero teacher retraining and teacher/student Test. Original false retained; selected-versus-tested N/A.
+- Source fingerprints match current clean1e6f305; launch Git/dirty snapshot missing as disclosed. Declared run_5060 unchanged; no runtime full environment snapshot claim.
+- Artifact exp\runs\sports\run_manifest__2026-09-17 01_59_31.370287_sports_light_init_pid45812.json SHA256 15f275c7041644c94301e5fcbee73dca933d9468c854bed998ce16c5d194d93e.
+- Artifact logs\2026-09-17 01_59_31.370287_sports_light_init_pid45812 SHA256 06f06ccbba5a9f3c86d67a9276d13affad1d61c4bab78d1cd3028d920c6e3e83.
+- Artifact D:\Download\PromptMM\exp\converge\sports\auto__2026-09-17 01_59_31.370287_sports_light_init_pid45812.pkl SHA256 c5264d13b244e94f27c837f5ef08e18a7bb687b6768d1d42dcb20a8298d1d88e.
+- Artifact D:\Download\PromptMM\Model\sports\td_distill\td_distill_full__val_test_once_v1__2026-09-17 01_59_31.370287_sports_light_init_pid45812.pth SHA256 330077600cce1468e0a7f6f25314e221edd42a65716d956223852e2a3e920478.
+- Artifact D:\Download\PromptMM\Model\sports\td_distill\td_distill_infer_only__val_test_once_v1__2026-09-17 01_59_31.370287_sports_light_init_pid45812.pth SHA256 7fa9dbf7b05d90e7bb504a5c0796b95799f73f2736e84bad114c1b8e12281bf4.
+
+
+## 2026-09-17 sports_student_bpr_seed2024_val120_v1 (completed)
+
+- Run 2026-09-17 03_15_48.676117_sports_light_init_pid48292; status validation_completed;120 epochs0..119.
+- Command: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_bpr_seed2024_val120_v1 --gpu_id 0
+- Declared student seed2024, randomID64/no projection, lr6e-5/decay0.01/batch1024,epoch120/patience120, no teacher initialization; rates match named profile, zero overrides. Same SPORTS_CONVERTED_20260916 and teacher SHA57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea, PCA seed2022.
+- Best epoch119 Recall@20 0.03957729802580607; same-selected-epoch NDCG@20 0.019138028212898377.
+- Finite120-point curves/continuous logs, finite checkpoint tensors; selected metadata equal curve/manifest, infer-export ID tables equal full checkpoint. Restore logged; zero teacher retraining and teacher/student Test. Original false retained; selected-versus-tested N/A.
+- Source fingerprints match current clean1e6f305; launch Git/dirty snapshot missing as disclosed. Declared run_5060 unchanged; no runtime full environment snapshot claim.
+- Artifact exp\runs\sports\run_manifest__2026-09-17 03_15_48.676117_sports_light_init_pid48292.json SHA256 446877a9edbd47c5a8a4c54aa063130eda46299dce911a70dbfcfcac30b08a72.
+- Artifact logs\2026-09-17 03_15_48.676117_sports_light_init_pid48292 SHA256 cc8b006b42c70bcaf072a561c296bbcb4d8da1719adfbb63738a1db9e9d61bbd.
+- Artifact D:\Download\PromptMM\exp\converge\sports\auto__2026-09-17 03_15_48.676117_sports_light_init_pid48292.pkl SHA256 2ffeeddd889ffaf8e552bfeaf27b754e713f9c7cd5560cd75b71927c48a6ca69.
+- Artifact D:\Download\PromptMM\Model\sports\td_distill\td_distill_full__val_test_once_v1__2026-09-17 03_15_48.676117_sports_light_init_pid48292.pth SHA256 a2ff42ae10e8e383258bd78ea3f816b75630e4fd3267a57393df28bd65bec45f.
+- Artifact D:\Download\PromptMM\Model\sports\td_distill\td_distill_infer_only__val_test_once_v1__2026-09-17 03_15_48.676117_sports_light_init_pid48292.pth SHA256 03ffa6d63ddf43c00cf9c6116a3f95ae447709e093a1fbf900d2ade99d3df3e1.
+
+
+## 2026-09-17 sports_student_full_seed2024_val120_v1 (completed)
+
+- Run 2026-09-17 04_31_26.826865_sports_light_init_pid29552; status validation_completed;120 epochs0..119.
+- Command: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_full_seed2024_val120_v1 --gpu_id 0
+- Declared student seed2024, randomID64/no projection, lr6e-5/decay0.01/batch1024,epoch120/patience120, no teacher initialization; rates match named profile, zero overrides. Same SPORTS_CONVERTED_20260916 and teacher SHA57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea, PCA seed2022.
+- Best epoch117 Recall@20 0.07359820041918322; same-selected-epoch NDCG@20 0.0333559009863236.
+- Finite120-point curves/continuous logs, finite checkpoint tensors; selected metadata equal curve/manifest, infer-export ID tables equal full checkpoint. Restore logged; zero teacher retraining and teacher/student Test. Original false retained; selected-versus-tested N/A.
+- Source fingerprints match current clean1e6f305; launch Git/dirty snapshot missing as disclosed. Declared run_5060 unchanged; no runtime full environment snapshot claim.
+- Artifact exp\runs\sports\run_manifest__2026-09-17 04_31_26.826865_sports_light_init_pid29552.json SHA256 1ab8c07b6ae2ab45c1dcd75c059444562dacc1a71f6d28b9201a61f1e7c9a3f6.
+- Artifact logs\2026-09-17 04_31_26.826865_sports_light_init_pid29552 SHA256 c16e31603affe64515edeb3734c064049334d8c17a54ca576cd2af01cea0c792.
+- Artifact D:\Download\PromptMM\exp\converge\sports\auto__2026-09-17 04_31_26.826865_sports_light_init_pid29552.pkl SHA256 1ab1efa1bf10ef2a572c1f27b62e164248c7805690d52b75eaa567e8eb7ecfe7.
+- Artifact D:\Download\PromptMM\Model\sports\td_distill\td_distill_full__val_test_once_v1__2026-09-17 04_31_26.826865_sports_light_init_pid29552.pth SHA256 ab3b762a2df0560b99c89c3cd88a09d5f8d96a1758291f571b755282956906ec.
+- Artifact D:\Download\PromptMM\Model\sports\td_distill\td_distill_infer_only__val_test_once_v1__2026-09-17 04_31_26.826865_sports_light_init_pid29552.pth SHA256 081e3fea5a8c208c9faf7e23eb34555e4a09268f7e0404c6a05dfc13cdb2ec13.
+
+
+## 2026-09-17 sports_student_image_matched_seed2024_val120_v1 (completed)
+
+- Run 2026-09-17 05_47_26.495792_sports_light_init_pid25684; status validation_completed;120 epochs0..119.
+- Command: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_image_matched_seed2024_val120_v1 --gpu_id 0
+- Declared student seed2024, randomID64/no projection, lr6e-5/decay0.01/batch1024,epoch120/patience120, no teacher initialization; rates match named profile, zero overrides. Same SPORTS_CONVERTED_20260916 and teacher SHA57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea, PCA seed2022.
+- Best epoch119 Recall@20 0.06972136532289731; same-selected-epoch NDCG@20 0.0318151016562858.
+- Finite120-point curves/continuous logs, finite checkpoint tensors; selected metadata equal curve/manifest, infer-export ID tables equal full checkpoint. Restore logged; zero teacher retraining and teacher/student Test. Original false retained; selected-versus-tested N/A.
+- Source fingerprints match current clean1e6f305; launch Git/dirty snapshot missing as disclosed. Declared run_5060 unchanged; no runtime full environment snapshot claim.
+- Artifact exp\runs\sports\run_manifest__2026-09-17 05_47_26.495792_sports_light_init_pid25684.json SHA256 1c8296bdcf0500dec4b7a73ddc2b2a5ac6987b7cceb4072c6510a348214fe932.
+- Artifact logs\2026-09-17 05_47_26.495792_sports_light_init_pid25684 SHA256 5f31f78845b0e917b5c8e7f91c987bdf160933c7029dffd8220da51c3b66cbf2.
+- Artifact D:\Download\PromptMM\exp\converge\sports\auto__2026-09-17 05_47_26.495792_sports_light_init_pid25684.pkl SHA256 1dc8e89a01312a1990b50e146c1965de763dfdfccdfa5074fe06af4cffe33e11.
+- Artifact D:\Download\PromptMM\Model\sports\td_distill\td_distill_full__val_test_once_v1__2026-09-17 05_47_26.495792_sports_light_init_pid25684.pth SHA256 1f492c188e0f2e9b320b74925d0453362d72191f5b14e9fa5e9901da806c266c.
+- Artifact D:\Download\PromptMM\Model\sports\td_distill\td_distill_infer_only__val_test_once_v1__2026-09-17 05_47_26.495792_sports_light_init_pid25684.pth SHA256 79450074e85d00ecadc530d8bae6a522e01735d912c4dca1c119b1eadb6b80dc.
+
+
+## 2026-09-17 Sports three-seed Validation120 synthesis (completed)
+
+- bpr Recall mean/SD 0.040379801560422666/0.0007409337596055475; selected-epoch NDCG mean/SD 0.019521050102278156/0.0003324446148101222 (n3,ddof1).
+- image_matched Recall mean/SD 0.06997522893987124/0.00045697685177620637; selected-epoch NDCG mean/SD 0.031875204615357186/0.0001613797452016324 (n3,ddof1).
+- full Recall mean/SD 0.07373697415197909/0.00012437436990501337; selected-epoch NDCG mean/SD 0.033325397925016854/4.278734393589266e-05 (n3,ddof1).
+- Full beats matched-image for all3 seeds; mean-ratio Recall gain5.375824086749725%. All9 peaks115..119 and final20-window maxima increasing; fixed-budget gains, not converged/Test/significance evidence.
+- Report docs/research/SPORTS_THREE_SEED_VALIDATION120_2026-09-17.md. User authorized serial six-run command; six distinct expected profiles observed, no duplicates. Each execution outcome recorded separately above. No new training/evaluation/forward/Test by audit.
+- Original log prefix 713980 bytes SHA256 f891efabb11ac146dbe82eec5e85ed028e82c0071551192194bb82ab11d8ee81 retained verbatim. All prior manifests unchanged; ignored assets not backed up by commit. No final-result freeze or tag milestone claimed.
+- Sole next step: prepare seed2022 three-arm matched240-epoch Validation convergence diagnostic, fresh initialization, unchanged120 artifacts, no automatic training/Test. Not yet declared executable; verify prefix-comparability plan during preparation.
+- Preserve historical seed2023 audit exception/original false; Innovation2 undecided.
