@@ -29,7 +29,8 @@ class SportsStudentTest(unittest.TestCase):
             self.assertEqual(a.student_config_overrides, {})
             self.assertFalse(a.if_train_teacher or a.teacher_only or a.run_final_test or a.td_init_from_teacher)
             expected_seed = int(a.student_profile.split('_seed')[1].split('_')[0])
-            self.assertEqual((a.seed, a.epoch, a.early_stopping_patience), (expected_seed,120,120))
+            budget = 300 if '_val300_' in a.student_profile else 120
+            self.assertEqual((a.seed, a.epoch, a.early_stopping_patience), (expected_seed,budget,budget))
             self.assertEqual(a.hard_token_seed, 2022)
             self.assertEqual(a.student_embed_size, 64)
             self.assertEqual(a.student_lr, 0.00006)
@@ -45,8 +46,8 @@ class SportsStudentTest(unittest.TestCase):
                     with self.assertRaises(ValueError):is_pinned_sports_validation_reuse(bad,'teacher.pt')
             with patch('utility.sports_validation_reuse.file_fingerprint', return_value={'sha256':'wrong'}):
                 with self.assertRaises(ValueError):is_pinned_sports_validation_reuse(a,'teacher.pt')
-        self.assertEqual(len(args), 9)
-        for offset in (0, 3, 6):
+        self.assertEqual(len(args), 18)
+        for offset in range(0,18,3):
             bpr, full, image = args[offset:offset+3]
             self.assertEqual(bpr.td_distill_alpha, 0)
             self.assertAlmostEqual(full.td_distill_alpha / (1 + full.td_item_text_rate), image.td_distill_alpha)
@@ -57,6 +58,12 @@ class SportsStudentTest(unittest.TestCase):
             baseline = vars(args[index % 3])
             actual = vars(args[index])
             self.assertEqual({k for k in actual if actual[k] != baseline[k]}, allowed)
+        for index in range(9,18):
+            baseline = vars(args[index-9])
+            actual = vars(args[index])
+            self.assertEqual({k for k in actual if actual[k] != baseline[k]},
+                             {'epoch', 'early_stopping_patience', 'student_profile',
+                              'student_config_profile', 'student_config_source'})
 
     def test_relaxation_preserves_identity_and_blocker_checks(self):
         c = dict(evaluation_protocol='val_test_once_v1', selection_split='validation',

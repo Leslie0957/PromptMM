@@ -314,6 +314,13 @@ for _seed in (2023, 2024):
             'source': 'sports_paired_seed{}_fixed120_v1'.format(_seed),
             'defaults': _defaults,
         }
+for _base_name, _base in list(SPORTS_STUDENT_PROFILES.items()):
+    _name = _base_name.replace('_val120_', '_val300_')
+    SPORTS_STUDENT_PROFILES[_name] = {
+        'name': _name, 'scope': _base['scope'],
+        'source': _base['source'].replace('fixed120', 'fixed300'),
+        'defaults': dict(_base['defaults'], epoch=300, early_stopping_patience=300),
+    }
 SPORTS_STUDENT_PROFILE_NAMES = tuple(SPORTS_STUDENT_PROFILES)
 BABY_PAPER_READY_STUDENT_PROFILE_IDENTITIES = frozenset(
     (profile['name'], profile['scope'], profile['source'])
