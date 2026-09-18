@@ -1,3 +1,10 @@
+# Dispatch before legacy imports: their global Data loader opens held-out splits.
+if __name__ == '__main__':
+    import sys as _dispatch_sys
+    if '--promptmm_release_resource_check' in _dispatch_sys.argv:
+        from promptmm_release_resource import main as _release_resource_main
+        raise SystemExit(_release_resource_main())
+
 from datetime import datetime
 import math
 import os
