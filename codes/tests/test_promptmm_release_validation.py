@@ -162,7 +162,7 @@ class ValidationContracts(unittest.TestCase):
                         with self.assertRaisesRegex(RuntimeError,'synthetic sampler failure'):
                             runner.main(['--promptmm_release_validation'])
                     else: self.assertEqual(runner.main(['--promptmm_release_validation']),0)
-                report=json.loads((root/'exp/promptmm_release'/runner.RUN_ID/'report.json').read_text())
+                report=json.loads((root/'exp/promptmm_release'/runner.run_identity(2022,2)/'report.json').read_text())
                 self.assertEqual(report['status'],'failed' if fail else 'completed')
                 self.assertEqual(report['test_evaluations'],0)
                 self.assertFalse(report['test_split_loaded'])
@@ -172,7 +172,17 @@ class ValidationContracts(unittest.TestCase):
                     self.assertEqual(len(report['curve']),2)
                     self.assertTrue(report['best_checkpoint_roundtrip'])
                     self.assertTrue(report['teacher_unchanged'])
-                with self.assertRaises(FileExistsError):runner.claim_run_directory(root)
+                with self.assertRaises(FileExistsError):runner.claim_run_directory(root,runner.run_identity(2022,2))
+
+    def test_three_seed120_describe_resolves_seed_and_identity(self):
+        for seed in (2022,2023,2024):
+            output=io.StringIO()
+            with contextlib.redirect_stdout(output):
+                runner.main(['--promptmm_release_validation','--seed',str(seed),'--epochs','120','--describe'])
+            spec=json.loads(output.getvalue())
+            self.assertEqual(spec['config']['seed'],seed)
+            self.assertEqual(spec['epochs'],120)
+            self.assertEqual(spec['run_id'],runner.run_identity(seed,120))
 
     def test_describe_dispatch_isolated(self):
         script = """import sys,runpy
