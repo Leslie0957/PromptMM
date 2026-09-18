@@ -26,12 +26,12 @@ def parse_args(argv=None):
     p.add_argument('--promptmm_release_validation', action='store_true', required=True)
     p.add_argument('--dataset', choices=['sports'], default='sports')
     p.add_argument('--seed', type=int, choices=[2022, 2023, 2024], default=2022)
-    p.add_argument('--epochs', type=int, choices=[EPOCHS, 120], default=EPOCHS)
+    p.add_argument('--epochs', type=int, choices=[EPOCHS, 120, 300], default=EPOCHS)
     p.add_argument('--gpu_id', type=int, choices=[0], default=0)
     p.add_argument('--describe', action='store_true')
     cli = p.parse_args(argv)
-    if cli.epochs != 120 and cli.seed != 2022:
-        p.error('Only the existing seed2022 short diagnostic or three-seed120 batch is declared.')
+    if cli.epochs not in (120, 300) and cli.seed != 2022:
+        p.error('Only the existing seed2022 short diagnostic or three-seed120/300 batches are declared.')
     return cli
 
 
