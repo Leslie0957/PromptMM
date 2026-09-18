@@ -25,15 +25,22 @@ def parse_args(argv=None):
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--promptmm_release_validation', action='store_true', required=True)
     p.add_argument('--dataset', choices=['sports'], default='sports')
-    p.add_argument('--seed', type=int, choices=[2022], default=2022)
-    p.add_argument('--epochs', type=int, choices=[EPOCHS], default=EPOCHS)
+    p.add_argument('--seed', type=int, choices=[2022, 2023, 2024], default=2022)
+    p.add_argument('--epochs', type=int, choices=[EPOCHS, 120], default=EPOCHS)
     p.add_argument('--gpu_id', type=int, choices=[0], default=0)
     p.add_argument('--describe', action='store_true')
-    return p.parse_args(argv)
+    cli = p.parse_args(argv)
+    if cli.epochs != 120 and cli.seed != 2022:
+        p.error('Only the existing seed2022 short diagnostic or three-seed120 batch is declared.')
+    return cli
 
 
-def claim_run_directory(root):
-    path = Path(root) / 'exp/promptmm_release' / RUN_ID
+def run_identity(seed, epochs):
+    return f'sports_promptmm_release_validation{epochs}_seed{seed}_v1'
+
+
+def claim_run_directory(root, run_id=RUN_ID):
+    path = Path(root) / 'exp/promptmm_release' / run_id
     path.mkdir(parents=True, exist_ok=False)
     return path
 
@@ -135,11 +142,13 @@ def restore_best(path, student):
 def main(argv=None):
     cli = parse_args(argv)
     from promptmm_release import IDENTITY, UPSTREAM, ResourceConfig
-    cfg = ResourceConfig()
+    cfg = ResourceConfig(seed=cli.seed)
+    epochs = cli.epochs
+    run_id = run_identity(cfg.seed, epochs)
     config = asdict(cfg)
     del config['steps']
-    spec = dict(identity=IDENTITY, upstream=UPSTREAM, run_id=RUN_ID, config=config,
-                epochs=EPOCHS, early_stopping=False, validation_every=1, ks=list(KS),
+    spec = dict(identity=IDENTITY, upstream=UPSTREAM, run_id=run_id, config=config,
+                epochs=epochs, early_stopping=False, validation_every=1, ks=list(KS),
                 primary_metric='Recall@20', selection='strict improvement, earliest tie',
                 validation_batch_size=256, diagnostic_only=True, paper_ready_eligible=False,
                 teacher_test_evaluations=0, test_evaluations=0, test_split_loaded=False,
@@ -151,7 +160,7 @@ def main(argv=None):
     head = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
     if subprocess.check_output(['git', 'status', '--porcelain'], cwd=ROOT, text=True).strip():
         raise RuntimeError('Clean committed launch source required.')
-    run_dir = claim_run_directory(ROOT)
+    run_dir = claim_run_directory(ROOT, run_id)
     report_path, best_path = run_dir/'report.json', run_dir/'best.pt'
     report = dict(spec, status='started', launch_commit=head, launch_dirty=False,
                   command=[sys.executable, *sys.argv], python=sys.version,
@@ -261,7 +270,7 @@ def main(argv=None):
         student_before = tensor_digest(student)
         batches = train.nnz // cfg.batch_size + 1
         report['batches_per_epoch'] = batches
-        report['optimizer_steps_limit'] = EPOCHS * batches
+        report['optimizer_steps_limit'] = epochs * batches
         report['optimizer_steps_completed'] = 0
         report['finite_updates_checked'] = True
         report['metric_definition'] = 'legacy batch_test: NDCG ideal sorts top-max(Ks) relevance'
@@ -281,7 +290,7 @@ def main(argv=None):
         save()
         print('Initial Validation Recall@20:', report['initial_validation']['recall'][1], flush=True)
         best_score = -1.
-        for epoch in range(1, EPOCHS + 1):
+        for epoch in range(1, epochs + 1):
             report['active_epoch'] = epoch
             save()
             torch.cuda.synchronize()
@@ -341,7 +350,7 @@ def main(argv=None):
                 report['best_validation'] = result
                 report['best_checkpoint_sha256'] = sha256(best_path)
             save()
-            print(f'Epoch {epoch}/{EPOCHS}: train={train_seconds:.1f}s val={validation_seconds:.1f}s '
+            print(f'Epoch {epoch}/{epochs}: train={train_seconds:.1f}s val={validation_seconds:.1f}s '
                   f'Recall@20={result["recall"][1]:.8f} best_epoch={report["best_epoch"]}', flush=True)
         if tensor_digest(teacher) != teacher_before or tensor_digest(prompt) != prompt_before:
             raise RuntimeError('Frozen teacher/prompt changed.')
@@ -349,7 +358,7 @@ def main(argv=None):
             raise RuntimeError('Student did not update.')
         if sha256(teacher_path) != SPORTS_TEACHER_SHA256:
             raise RuntimeError('Teacher file changed.')
-        if report['optimizer_steps_completed'] != EPOCHS * batches or report['validation_evaluations'] != EPOCHS + 1:
+        if report['optimizer_steps_completed'] != epochs * batches or report['validation_evaluations'] != epochs + 1:
             raise RuntimeError('Incomplete diagnostic budget.')
         if subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip() != head:
             raise RuntimeError('Launch HEAD changed during diagnostic.')
