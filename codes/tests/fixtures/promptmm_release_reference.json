@@ -1,0 +1,52 @@
+{
+  "csr_norm": "def csr_norm(self, csr_mat, mean_flag=False):\n        rowsum = np.array(csr_mat.sum(1))\n        rowsum = np.power(rowsum+1e-8, -0.5).flatten()\n        rowsum[np.isinf(rowsum)] = 0.\n        rowsum_diag = sp.diags(rowsum)\n\n        colsum = np.array(csr_mat.sum(0))\n        colsum = np.power(colsum+1e-8, -0.5).flatten()\n        colsum[np.isinf(colsum)] = 0.\n        colsum_diag = sp.diags(colsum)\n\n        if mean_flag == False:\n            return rowsum_diag*csr_mat*colsum_diag\n        else:\n            return rowsum_diag*csr_mat",
+  "sce_criterion": "def sce_criterion(self, x, y, alpha=1, tip_rate=0):\n        x = F.normalize(x, p=2, dim=-1)\n        y = F.normalize(y, p=2, dim=-1)\n\n        loss = (1-(x*y).sum(dim=-1)).pow_(alpha)\n\n\n        if tip_rate!=0:\n            loss = self.loss_function(loss, tip_rate)   \n            return loss\n\n        loss = loss.mean() \n\n        # loss = loss.mean()\n\n        return loss",
+  "distillation": "def distillation(self, y, teacher_scores, temp, alpha):\n        return nn.KLDivLoss()( y.unsqueeze(0), teacher_scores.unsqueeze(0) )",
+  "bpr_loss": "def bpr_loss(self, users, pos_items, neg_items):\n        pos_scores = torch.sum(torch.mul(users, pos_items), dim=1)\n        neg_scores = torch.sum(torch.mul(users, neg_items), dim=1)\n\n        regularizer = 1./2*(users**2).sum() + 1./2*(pos_items**2).sum() + 1./2*(neg_items**2).sum()        \n        regularizer = regularizer / self.batch_size\n\n        maxi = F.logsigmoid(pos_scores - neg_scores)\n        mf_loss = -torch.mean(maxi)\n\n        emb_loss = self.decay * regularizer\n        return mf_loss, emb_loss",
+  "bpr_loss_for_KD": "def bpr_loss_for_KD(self, users, pos_items, neg_items):\n        pos_scores = torch.sum(torch.mul(users, pos_items), dim=1)\n        neg_scores = torch.sum(torch.mul(users, neg_items), dim=1)\n\n        # regularizer = 1./2*(users**2).sum() + 1./2*(pos_items**2).sum() + 1./2*(neg_items**2).sum()\n        regularizer = 1./2*(users**2) + 1./2*(pos_items**2) + 1./2*(neg_items**2)\n        regularizer = regularizer / self.batch_size\n\n        maxi = F.logsigmoid(pos_scores - neg_scores)\n        # mf_loss = -torch.mean(maxi)\n        mf_loss = -maxi\n\n        emb_loss = self.decay * regularizer\n        reg_loss = 0.0\n        return mf_loss, emb_loss, reg_loss",
+  "student": "class Student_LightGCN(nn.Module):\n    def __init__(self, n_users, n_items, embedding_dim, gnn_layer, dropout_list, image_feats=None, text_feats=None):\n        super().__init__()\n        self.n_users = n_users\n        self.n_items = n_items\n        self.embedding_dim = embedding_dim\n        self.n_ui_layers = gnn_layer\n\n        self.user_id_embedding = nn.Embedding(n_users, embedding_dim)\n        self.item_id_embedding = nn.Embedding(n_items, embedding_dim)\n        nn.init.xavier_uniform_(self.user_id_embedding.weight)\n        nn.init.xavier_uniform_(self.item_id_embedding.weight)\n\n        # self.feat_trans = nn.Linear(args.embed_size, args.student_embed_size)\n        # # self.text_trans = nn.Linear(text_feats.shape[1], args.embed_size)\n        # nn.init.xavier_uniform_(self.feat_trans.weight)\n        # # nn.init.xavier_uniform_(self.text_trans.weight) \n\n    def init_user_item_embed(self, pre_u_embed, pre_i_embed):\n        self.user_id_embedding = nn.Embedding.from_pretrained(pre_u_embed, freeze=False)\n        self.item_id_embedding = nn.Embedding.from_pretrained(pre_i_embed, freeze=False)\n\n        self.user_id_embedding_pre = nn.Embedding.from_pretrained(pre_u_embed, freeze=False)\n        self.item_id_embedding_pre = nn.Embedding.from_pretrained(pre_i_embed, freeze=False)\n\n    def get_embedding(self):\n        return self.user_id_embedding, self.item_id_embedding\n\n    def forward(self, adj):\n\n        # # teacher_feat_dict = { 'item_image':t_i_image_embed.deteach(),'item_text':t_i_text_embed.deteach(),'user_image':t_u_image_embed.deteach(),'user_text':t_u_text_embed.deteach() }\n        # tmp_feat_dict = {}   \n        # for index,value in enumerate(teacher_feat_dict.keys()): \n        #     tmp_feat_dict[value] = self.feat_trans(teacher_feat_dict[value])\n        # u_g_embeddings = self.user_id_embedding.weight + args.model_cat_rate*F.normalize(tmp_feat_dict['user_image'], p=2, dim=1) + args.model_cat_rate*F.normalize(tmp_feat_dict['user_text'], p=2, dim=1)\n        # i_g_embeddings = self.item_id_embedding.weight + args.model_cat_rate*F.normalize(tmp_feat_dict['item_image'], p=2, dim=1) + args.model_cat_rate*F.normalize(tmp_feat_dict['item_text'], p=2, dim=1)\n        # ego_embeddings = torch.cat((u_g_embeddings, i_g_embeddings), dim=0)\n\n        # self.user_id_embedding_pre = nn.Embedding.from_pretrained(pre_u_embed, freeze=False)\n        # self.item_id_embedding_pre = nn.Embedding.from_pretrained(pre_i_embed, freeze=False)\n\n        ego_embeddings = torch.cat((self.user_id_embedding.weight+self.user_id_embedding_pre.weight, self.item_id_embedding.weight+self.item_id_embedding_pre.weight), dim=0)\n        # ego_embeddings = torch.cat((self.user_id_embedding.weight, self.item_id_embedding.weight), dim=0)\n        all_embeddings = [ego_embeddings]\n        for i in range(self.n_ui_layers):\n            side_embeddings = torch.sparse.mm(adj, ego_embeddings)\n            ego_embeddings = side_embeddings\n            all_embeddings += [ego_embeddings]\n        all_embeddings = torch.stack(all_embeddings, dim=1)\n        all_embeddings = all_embeddings.mean(dim=1, keepdim=False)\n        u_g_embeddings, i_g_embeddings = torch.split(all_embeddings, [self.n_users, self.n_items], dim=0)\n        # u_g_embeddings += teacher_feat_dict['user_image'] + teacher_feat_dict['user_text']\n        # i_g_embeddings += teacher_feat_dict['item_image'] + teacher_feat_dict['item_text']\n        # u_g_embeddings = u_g_embeddings + args.model_cat_rate*F.normalize(teacher_feat_dict['user_image'], p=2, dim=1) + args.model_cat_rate*F.normalize(teacher_feat_dict['user_text'], p=2, dim=1)\n        # i_g_embeddings = i_g_embeddings + args.model_cat_rate*F.normalize(teacher_feat_dict['item_image'], p=2, dim=1) + args.model_cat_rate*F.normalize(teacher_feat_dict['item_text'], p=2, dim=1)\n\n        return u_g_embeddings, i_g_embeddings",
+  "objective_statements": "u_embeddings = u_embed[users]\npos_i_embeddings = i_embed[pos_items]\nneg_i_embeddings = i_embed[neg_items]\nbatch_mf_loss, batch_emb_loss = self.bpr_loss(u_embeddings, pos_i_embeddings, neg_i_embeddings)\nstudent_mf_loss, student_batch_emb_loss, batch_reg_loss = self.bpr_loss_for_KD(u_embeddings, pos_i_embeddings, neg_i_embeddings) \nlist_wise_score_s = torch.mul(u_embed[users].unsqueeze(1), i_embed[item_index]).sum(-1).softmax(-1) \n# list_wise_loss_s = -(list_wise_score_s[:,0]+1e-8).log() \nlist_wise_loss_s = -(list_wise_score_s+1e-8).log() \nlist_wise_score_t_image = torch.mul(image_user_embeds[users].unsqueeze(1), image_item_embeds[item_index]).sum(-1).softmax(-1) \n# list_wise_loss_t_image = -(list_wise_score_t_image[:,0]+1e-8).log()\nlist_wise_loss_t_image = -(list_wise_score_t_image+1e-8).log()\nlist_wise_score_t_text = torch.mul(text_user_embeds[users].unsqueeze(1), text_item_embeds[item_index]).sum(-1).softmax(-1) \n# list_wise_loss_t_text = -(list_wise_score_t_text[:,0]+1e-8).log()\nlist_wise_loss_t_text = -(list_wise_score_t_text+1e-8).log()\nu_g_embed_mf = self.u_final_embed[users]\npos_i_g_embed_mf = self.i_final_embed[pos_items]\nneg_i_g_embed_mf = self.i_final_embed[neg_items]\n\nteacher_mf_loss, teacher_batch_emb_loss, G_batch_reg_loss = self.bpr_loss_for_KD(u_g_embed_mf, pos_i_g_embed_mf, neg_i_g_embed_mf)\nkd_loss = self.distillation(student_mf_loss, teacher_mf_loss, temp=args.student_tau, alpha=0.7)\nkd_loss_list_image = self.distillation(list_wise_loss_s, list_wise_loss_t_image, temp=args.student_tau, alpha=0.7)\nkd_loss_list_text = self.distillation(list_wise_loss_s, list_wise_loss_t_text, temp=args.student_tau, alpha=0.7)\nkd_loss_feat = self.sce_criterion(image_item_embeds, i_embed, alpha=args.alpha_l, tip_rate=args.tip_rate_feat) + self.sce_criterion(text_item_embeds, i_embed, alpha=args.alpha_l, tip_rate=args.tip_rate_feat)\nstudent_batch_loss = batch_mf_loss + batch_emb_loss + args.kd_loss_rate*kd_loss + args.kd_loss_list_rate*kd_loss_list_image + args.kd_loss_list_rate*kd_loss_list_text + args.kd_loss_feat_rate*kd_loss_feat",
+  "objective_line_ranges": [
+    [
+      609,
+      612
+    ],
+    [
+      629,
+      629
+    ],
+    [
+      667,
+      669
+    ],
+    [
+      675,
+      680
+    ],
+    [
+      687,
+      691
+    ],
+    [
+      703,
+      703
+    ],
+    [
+      708,
+      709
+    ],
+    [
+      727,
+      727
+    ],
+    [
+      738,
+      738
+    ]
+  ],
+  "upstream": "70da1002a35d6f2c7712c16cd0b2ca24c8813008",
+  "full_file_sha256": {
+    "main.py": "b77ecc05f8dc65622c7d5afe9ea3b8ff7d2c4744df59abb3d7acdd72aa4b0aa6",
+    "Models.py": "5ac1f70387a3d47eda2cee498f49d5b87ddcab8fbc96376f561e849ab6c7b4e4"
+  }
+}
