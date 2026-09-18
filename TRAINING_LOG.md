@@ -10674,3 +10674,18 @@ records remain under `exp/`; checkpoints remain under `Model/`.
 - No models/profiles/data/protocol changed, no training/tuning/Test evaluation. Preparation outcome is design complete; baseline implementation/resource feasibility remain unresolved, not falsely reported ready. Preserve all eligibility false statuses and Baby seed2023 audit exception. Innovation2 undecided.
 - Verification: official pinned source and local bounded code inspection, SHA256 snapshot verification, document references and append-only log checks. Scoped documentation commit on codex/experiment/baby-teacher-baseline; pre-change19fbb70.
 - Single next step: implement independently named PromptMM-paper-aligned baseline in the active training path and capped resource-only entry, verify formulas/gradient flow/protocol and TD regression, then supply the user a manual resource-check command. No run authorization inferred.
+
+## 2026-09-18 PromptMM baseline identity adjudication (pending)
+
+- Scope: user explicitly requests step1 only: adjudicate official release/paper/local identities and adaptation versus algorithm changes. Documentation and source/primitive checks only, no baseline implementation, training, Test, or asset modifications.
+- Anchor: official70da1002a35d6f2c7712c16cd0b2ca24c8813008; local e5e6cf5 clean. Read active log and preparation document. Proposed files: new identity decision document, preparation-document supersession notice, this append-only log.
+- Rationale/risks: prior recommendation privileged paper-aligned reconstruction before resolving formula ambiguity. Fix provenance first; do not invent an authoritative corrected baseline. Include release aliasing, sampling and prompt/dropout behavior, with static facts distinct from runtime hypotheses.
+- Acceptance: source line references, clear baseline name and permitted adaptations, unresolved fidelity gates and one next implementation step. Verify hashes and append-only history; focused diff then scoped commit. Preserve Baby seed2023 exception/original manifest false and Innovation2 undecided.
+
+## 2026-09-18 PromptMM baseline identity adjudication (completed step1)
+
+- Decision: PromptMM-release-Sports-sharedTeacher-v1, pinned official main.py/Models.py at70da1002a35d6f2c7712c16cd0b2ca24c8813008 with explicit shared-teacher/data/Validation adaptations. This supersedes previous paper-aligned-first recommendation; no model implementation or run performed.
+- Evidence and line references in docs/research/PROMPTMM_BASELINE_IDENTITY_2026-09-18.md: local modality addition, release no_grad prompt path, loss-value KL inputs, unused decoupled term, functional dropout, ignored neg_row and embedding storage aliasing. Paper Eq5 is mathematically ambiguous as written; no invented correction labeled authoritative reproduction.
+- One tiny CPU primitive inspection (no optimizer/project model/data) confirms two from_pretrained Parameters can share storage in current torch; not evidence about author runtime. Hashes verified against snapshot identity. Documentation/log historical prefixes preserved; focused diff check before scoped commit.
+- Clarified adaptation versus algorithm changes; release finite unusual losses are not automatically failure. Any loss/gradient/sampling correction needs separate identity; corrected result must not masquerade as original. No training/Test/assets/environment changes; Baby seed2023 exception/original false and Innovation2 undecided retained.
+- Single next step: implement release adaptation with synthetic forward/loss/gradient/update equivalence checks and prepare capped resource entry for user manual execution. Do not apply paper-aligned prompt-update gate to release. Pre-change source e5e6cf5; branch codex/experiment/baby-teacher-baseline.
