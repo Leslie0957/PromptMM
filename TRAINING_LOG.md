@@ -10823,3 +10823,41 @@ records remain under `exp/`; checkpoints remain under `Model/`.
 
 - Cite exact shared anchor PROMPTMM_RELEASE_SPORTS_VALIDATION120_BATCH_V1 above;only seed2024 differs. Command:& 'D:\miniconda\envs\run_5060\python.exe' -B codes/main_mmlight.py --promptmm_release_validation --dataset sports --seed 2024 --epochs 120 --gpu_id 0.
 - Artifacts:exp/promptmm_release/sports_promptmm_release_validation120_seed2024_v1/{report.json,best.pt};same clean launch commit,exclusive one-launch,no retries;launch only after seed2023 completion gate. Zero Test. Final run of batch:stop after summary,await joint audit,no further training automatically.
+
+## 2026-09-19 PromptMM three-seed300 budget amendment (pending)
+
+- User explicitly requests changing the prepared batch to300 epochs per seed to match existing TD300 epoch budget. Scope:extend bounded CLI to300,new clearly named run_promptmm_validation300.py and synthetic tests/manual guide;retain120 launcher/source history and append supersession notice. No assistant training/Validation/Test execution.
+- Clean reference2d77766 on codex/experiment/baby-teacher-baseline. Delta only120->300 and distinct run/batch identities;seeds2022/2023/2024,all other coefficients,teacher/data,214 steps/epoch,Validation frequency/selection unchanged.64200 updates and301 Validation calls per seed,900 epochs total,estimated38 hours. This controls epoch/update/selection opportunity,not architecture/initialization/learning-rate/tuning/compute differences between methods.
+- Acceptance:fixed300 subprocess commands,300-row/64200-update/301-evaluation gates,seed propagation,exclusive output paths,fail-stop and no retry;synthetic tests ensure old120 completion cannot pass300 gate. Preserve prior30 outputs and any other artifacts. Pending120 declarations superseded for future execution by this amendment,not rewritten or claimed completed.
+- Files:codes/promptmm_release_validation.py,codes/run_promptmm_validation300.py,codes/tests/test_promptmm_release_validation.py,codes/tests/test_promptmm_validation300_batch.py,docs/PROMPTMM_RELEASE_VALIDATION300_BATCH.md,120 guide supersession notice,TRAINING_LOG.md. Verify synthetic regressions/diff/history,commit scope,then give one manual command. No environment/data/model changes;Baby seed2023 accepted exception/original false retained;Innovation2 undecided.
+
+
+## 2026-09-19 PromptMM three-seed300 budget amendment (completed preparation; not launched)
+
+- CLI now also accepts300 for2022/2023/2024;new explicitly named codes/run_promptmm_validation300.py launches exactly those three300 commands serially. Per-run guards require300 curve rows,64200 updates,301 student Validation calls,finite values,correct seed/selection/checkpoint hash,unchanged source/teacher/prompt,zero Test. No core/objective/optimizer/data/teacher/metric changes.
+- New300 paths cannot overwrite old30/120 artifacts;old120 script retained with guide supersession notice. Pre-edit inventory showed only completed30 directory under exp/promptmm_release;no120 batch artifacts. Previous pending120 plan is superseded for future execution,not marked run/completed/failed. New guide docs/PROMPTMM_RELEASE_VALIDATION300_BATCH.md is current launch reference.
+-19 relevant synthetic tests passed:release parity/guards,Validation successful/failure CPU fixtures,all six seed-budget combinations,120 and300 serial tests. New300 test checks actual child argv and fail-stop for crash,incomplete zero exit,and old120 report masquerading as completed. Historical log prefix/diff checks passed;no real training/Validation/Test. Reference2d77766,branch codex/experiment/baby-teacher-baseline;coherent commit includes this declaration.
+- Next sole action:user executes300 batch command below once and returns when complete/failed. Preserve Baby seed2023 accepted exception/original manifest false,original teacher eligibility false,and Innovation2 undecided. No raw-artifact overwrite/tag/bundle/backup claim.
+
+## 2026-09-19 PROMPTMM_RELEASE_SPORTS_VALIDATION300_BATCH_V1 (shared pending manual batch anchor)
+
+- Explicit user-approved budget amendment to PROMPTMM_RELEASE_SPORTS_VALIDATION120_BATCH_V1:300 epochs per seed2022/2023/2024,900 total;64200 updates and301 student Validations per run,initial excluded from selection,no early stopping. No other scientific parameter changes. Same SPORTS_CONVERTED_20260916 and PromptMM-release-Sports-sharedTeacher-v1,official70da1002a35d6f2c7712c16cd0b2ca24c8813008,teacher epoch37 SHA57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea with original false. Input/environment identity from audited30 report SHA95b955de6de04b4581ad84575da633d2439a291d05c4e44bdb78ef02d97e67b6 remains common anchor.
+- Fixed parameters:batch1024,214steps/epoch,dim64,layers1,lr2e-5,AdamW decay0.01,embedding decay1e-5,pair/list1e6,feature0.1,SCE2,negative10,teacher drop0.2/prompt0,foreach=False,no scheduler. Validation every epoch,Ks10/20/40/50,block256,strict Recall@20 best/earliest tie among1..300;unchanged legacy metric/candidate definitions. Zero teacher/student Test,no Test read/hash;eligibility false. Fresh shared-teacher initialization,not resume;DGL nondeterminism precludes exact prefix guarantee.
+- Environment run_5060 Python3.10.20/torch2.11.0+cu128/CUDA12.8/DGL2.2.1/RTX5060. Clean codex/experiment/baby-teacher-baseline commit containing this amendment is launch HEAD;all runs share it and record source fingerprints. Total command from repository root:& 'D:\miniconda\envs\run_5060\python.exe' -B codes/run_promptmm_validation300.py. No assistant launch.
+- Batch artifact exp/promptmm_release/sports_promptmm_release_validation300_three_seed_v1/batch.json;separate run artifacts below. All targets absent before batch;one launch each,fail-stop on any execution/completion/identity gate,no skipping/retry/resume. Low finite metrics remain valid evidence. Approx38 hours is planning estimate,not guarantee. Do not run old120 batch as well.
+- Compare jointly against existing Sports TD seed-matched300 outcomes,also inspect30/120 prefixes,initial/best/final scores and terminal slopes. Matching epochs/updates/selection opportunities controls budget but not learning-rate/architecture/initialization/tuning/compute differences. This is untuned release adaptation,not proof of full fairness or thesis novelty. Final next stage is joint audit only;no extra training/Test automatically.
+
+## 2026-09-19 sports_promptmm_release_validation300_seed2022_v1 (pending manual run)
+
+- Exact shared anchor PROMPTMM_RELEASE_SPORTS_VALIDATION300_BATCH_V1 above;seed2022,300 fresh epochs. Command:& 'D:\miniconda\envs\run_5060\python.exe' -B codes/main_mmlight.py --promptmm_release_validation --dataset sports --seed 2022 --epochs 300 --gpu_id 0.
+- Artifacts:exp/promptmm_release/sports_promptmm_release_validation300_seed2022_v1/{report.json,best.pt}. Same clean launch commit,zero Test,exclusive one-launch/no-retry/no-resume. First run of this batch. Advance only to the next explicitly declared seed after completeness gates.
+
+## 2026-09-19 sports_promptmm_release_validation300_seed2023_v1 (pending manual run)
+
+- Exact shared anchor PROMPTMM_RELEASE_SPORTS_VALIDATION300_BATCH_V1 above;seed2023,300 fresh epochs. Command:& 'D:\miniconda\envs\run_5060\python.exe' -B codes/main_mmlight.py --promptmm_release_validation --dataset sports --seed 2023 --epochs 300 --gpu_id 0.
+- Artifacts:exp/promptmm_release/sports_promptmm_release_validation300_seed2023_v1/{report.json,best.pt}. Same clean launch commit,zero Test,exclusive one-launch/no-retry/no-resume. Launch only after seed2022 passes batch completeness checks. Advance only to the next explicitly declared seed after completeness gates.
+
+## 2026-09-19 sports_promptmm_release_validation300_seed2024_v1 (pending manual run)
+
+- Exact shared anchor PROMPTMM_RELEASE_SPORTS_VALIDATION300_BATCH_V1 above;seed2024,300 fresh epochs. Command:& 'D:\miniconda\envs\run_5060\python.exe' -B codes/main_mmlight.py --promptmm_release_validation --dataset sports --seed 2024 --epochs 300 --gpu_id 0.
+- Artifacts:exp/promptmm_release/sports_promptmm_release_validation300_seed2024_v1/{report.json,best.pt}. Same clean launch commit,zero Test,exclusive one-launch/no-retry/no-resume. Launch only after seed2023 passes batch completeness checks. Stop after batch summary;await joint audit.

@@ -96,7 +96,7 @@ class ValidationContracts(unittest.TestCase):
 
     def test_cli_budget_and_exclusive_directory(self):
         self.assertEqual(runner.parse_args(['--promptmm_release_validation']).epochs,30)
-        for extra in (['--epochs','300'],['--seed','2023'],['--run_final_test','true'],['--student_lr','.1'],['--resume']):
+        for extra in (['--epochs','301'],['--seed','2023'],['--run_final_test','true'],['--student_lr','.1'],['--resume']):
             with contextlib.redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
                 runner.parse_args(['--promptmm_release_validation']+extra)
         with tempfile.TemporaryDirectory() as d:
@@ -174,15 +174,16 @@ class ValidationContracts(unittest.TestCase):
                     self.assertTrue(report['teacher_unchanged'])
                 with self.assertRaises(FileExistsError):runner.claim_run_directory(root,runner.run_identity(2022,2))
 
-    def test_three_seed120_describe_resolves_seed_and_identity(self):
-        for seed in (2022,2023,2024):
-            output=io.StringIO()
-            with contextlib.redirect_stdout(output):
-                runner.main(['--promptmm_release_validation','--seed',str(seed),'--epochs','120','--describe'])
-            spec=json.loads(output.getvalue())
-            self.assertEqual(spec['config']['seed'],seed)
-            self.assertEqual(spec['epochs'],120)
-            self.assertEqual(spec['run_id'],runner.run_identity(seed,120))
+    def test_three_seed_budgets_resolve_seed_and_identity(self):
+        for epochs in (120,300):
+            for seed in (2022,2023,2024):
+                output=io.StringIO()
+                with contextlib.redirect_stdout(output):
+                    runner.main(['--promptmm_release_validation','--seed',str(seed),'--epochs',str(epochs),'--describe'])
+                spec=json.loads(output.getvalue())
+                self.assertEqual(spec['config']['seed'],seed)
+                self.assertEqual(spec['epochs'],epochs)
+                self.assertEqual(spec['run_id'],runner.run_identity(seed,epochs))
 
     def test_describe_dispatch_isolated(self):
         script = """import sys,runpy
