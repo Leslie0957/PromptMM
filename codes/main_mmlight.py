@@ -1,6 +1,9 @@
 # Dispatch before legacy imports: their global Data loader opens held-out splits.
 if __name__ == '__main__':
     import sys as _dispatch_sys
+    if '--promptmm_release_validation' in _dispatch_sys.argv:
+        from promptmm_release_validation import main as _release_validation_main
+        raise SystemExit(_release_validation_main())
     if '--promptmm_release_resource_check' in _dispatch_sys.argv:
         from promptmm_release_resource import main as _release_resource_main
         raise SystemExit(_release_resource_main())
