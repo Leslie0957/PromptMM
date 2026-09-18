@@ -10556,3 +10556,102 @@ records remain under `exp/`; checkpoints remain under `Model/`.
 - No retry/resume or extra seed/arm/Test; stop batch on failure, preserve artifacts. Each outcome logged later; not completed. User authorized serial progression within these9 only.
 
 - Global preservation: historical Baby seed2023 audited exception/original manifest false retained; Innovation2 undecided. No artifact backup milestone or final-result freeze claimed.
+
+## 2026-09-18 Sports nine-run Validation300 audit (pending)
+
+- Purpose: audit the user-completed nine-run batch and determine whether longer equal budgets preserve the full-versus-image advantage; archive the 2026-09-17 handoff plan.
+- Scope: append-only TRAINING_LOG.md outcomes and a research report with artifact fingerprints; isolated audit artifacts under exp/audit. No model/profile/protocol/data changes, training, retries, or Test evaluation.
+- Evidence: serial sidecar status completed, nine profiles, launch commit 4060dc0495672905361c6f3c1d66fe95e9b271c7, launch_dirty=false; initial working tree clean.
+- Risks: boundary maxima do not establish convergence; fixed teacher and only three student seeds; no efficiency claim from uncontrolled timings; preserve original manifest false and Baby seed2023 audit exception.
+- Acceptance: inspect all nine manifests/logs/curves/checkpoints, verify finite 300 epochs, selected checkpoint/export identity, no Test, parameter/data/teacher consistency, compare prior120 prefixes and paired metrics; report any gaps explicitly.
+- Rollback point: 4060dc0; preserve all historical records and artifacts, no automatic rollback. Verification: focused audit assertions and documentation diff; one scoped local commit. Next: evidence-based recommendation, provisionally original PromptMM fairness/resource preparation, not execution.
+
+## 2026-09-18 sports_student_bpr_seed2022_val300_v1 (completed; Validation-only)
+
+- User manual serial execution from clean launch 4060dc0495672905361c6f3c1d66fe95e9b271c7; shared SPORTS_CONVERTED_20260916/epoch37 teacher anchor unchanged. Original pending declaration retained.
+- Command: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_bpr_seed2022_val300_v1 --gpu_id 0
+- Resolved parameters: {"batch_size": 1024, "early_stopping_patience": 300, "epoch": 300, "seed": 2022, "student_lr": 6e-05, "student_weight_decay": 0.01, "td_distill_alpha": 0.0, "td_init_from_teacher": false, "td_item_image_rate": 0.0, "td_item_text_rate": 0.0, "td_user_image_rate": 0.0, "td_user_text_rate": 0.0}; ID64, weight_decay0.01, frozen teacher, no teacher initialization.
+- Selected Validation epoch 298; Recall@20=0.045566338918469, same-epoch NDCG@20=0.021715429514197. 300 finite epochs; checkpoint/manifest/curve agree; exported ID tensors equal full checkpoint; no early exit.
+- Teacher Test0/student Test0; best restored then Test skipped. Final Test metrics and selected-versus-tested equality: not applicable. paper_ready_eligible remains false.
+- Artifact paths/SHA256 and paired interpretation: docs/research/SPORTS_THREE_SEED_VALIDATION300_2026-09-18.md, section sports_student_bpr_seed2022_val300_v1. Manifest SHA256 78eceaa381efccdd5f157e6d78f2d5ab0041780e3f62fef861af227ede422254.
+
+## 2026-09-18 sports_student_full_seed2022_val300_v1 (completed; Validation-only)
+
+- User manual serial execution from clean launch 4060dc0495672905361c6f3c1d66fe95e9b271c7; shared SPORTS_CONVERTED_20260916/epoch37 teacher anchor unchanged. Original pending declaration retained.
+- Command: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_full_seed2022_val300_v1 --gpu_id 0
+- Resolved parameters: {"batch_size": 1024, "early_stopping_patience": 300, "epoch": 300, "seed": 2022, "student_lr": 6e-05, "student_weight_decay": 0.01, "td_distill_alpha": 0.3, "td_init_from_teacher": false, "td_item_image_rate": 1.0, "td_item_text_rate": 0.3, "td_user_image_rate": 0.0, "td_user_text_rate": 0.0}; ID64, weight_decay0.01, frozen teacher, no teacher initialization.
+- Selected Validation epoch 293; Recall@20=0.082328259836080, same-epoch NDCG@20=0.037207407800114. 300 finite epochs; checkpoint/manifest/curve agree; exported ID tensors equal full checkpoint; no early exit.
+- Teacher Test0/student Test0; best restored then Test skipped. Final Test metrics and selected-versus-tested equality: not applicable. paper_ready_eligible remains false.
+- Artifact paths/SHA256 and paired interpretation: docs/research/SPORTS_THREE_SEED_VALIDATION300_2026-09-18.md, section sports_student_full_seed2022_val300_v1. Manifest SHA256 17088e5a6e58f6f33db99a800341e4e0d038537b2e721a4ad0c283a013ccc836.
+
+## 2026-09-18 sports_student_image_matched_seed2022_val300_v1 (completed; Validation-only)
+
+- User manual serial execution from clean launch 4060dc0495672905361c6f3c1d66fe95e9b271c7; shared SPORTS_CONVERTED_20260916/epoch37 teacher anchor unchanged. Original pending declaration retained.
+- Command: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_image_matched_seed2022_val300_v1 --gpu_id 0
+- Resolved parameters: {"batch_size": 1024, "early_stopping_patience": 300, "epoch": 300, "seed": 2022, "student_lr": 6e-05, "student_weight_decay": 0.01, "td_distill_alpha": 0.23076923076923075, "td_init_from_teacher": false, "td_item_image_rate": 1.0, "td_item_text_rate": 0.0, "td_user_image_rate": 0.0, "td_user_text_rate": 0.0}; ID64, weight_decay0.01, frozen teacher, no teacher initialization.
+- Selected Validation epoch 299; Recall@20=0.078650015796719, same-epoch NDCG@20=0.035730006128667. 300 finite epochs; checkpoint/manifest/curve agree; exported ID tensors equal full checkpoint; no early exit.
+- Teacher Test0/student Test0; best restored then Test skipped. Final Test metrics and selected-versus-tested equality: not applicable. paper_ready_eligible remains false.
+- Artifact paths/SHA256 and paired interpretation: docs/research/SPORTS_THREE_SEED_VALIDATION300_2026-09-18.md, section sports_student_image_matched_seed2022_val300_v1. Manifest SHA256 447e97e12797b85e8eb676f894db84c40f641910fe42d7d7ac1c20d3ab95e24f.
+
+## 2026-09-18 sports_student_bpr_seed2023_val300_v1 (completed; Validation-only)
+
+- User manual serial execution from clean launch 4060dc0495672905361c6f3c1d66fe95e9b271c7; shared SPORTS_CONVERTED_20260916/epoch37 teacher anchor unchanged. Original pending declaration retained.
+- Command: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_bpr_seed2023_val300_v1 --gpu_id 0
+- Resolved parameters: {"batch_size": 1024, "early_stopping_patience": 300, "epoch": 300, "seed": 2023, "student_lr": 6e-05, "student_weight_decay": 0.01, "td_distill_alpha": 0.0, "td_init_from_teacher": false, "td_item_image_rate": 0.0, "td_item_text_rate": 0.0, "td_user_image_rate": 0.0, "td_user_text_rate": 0.0}; ID64, weight_decay0.01, frozen teacher, no teacher initialization.
+- Selected Validation epoch 295; Recall@20=0.045193547331284, same-epoch NDCG@20=0.021562934585669. 300 finite epochs; checkpoint/manifest/curve agree; exported ID tensors equal full checkpoint; no early exit.
+- Teacher Test0/student Test0; best restored then Test skipped. Final Test metrics and selected-versus-tested equality: not applicable. paper_ready_eligible remains false.
+- Artifact paths/SHA256 and paired interpretation: docs/research/SPORTS_THREE_SEED_VALIDATION300_2026-09-18.md, section sports_student_bpr_seed2023_val300_v1. Manifest SHA256 3a30b6481db36b0580a5364438b72fba0bbd0e2766a633add93d36acc1269be6.
+
+## 2026-09-18 sports_student_full_seed2023_val300_v1 (completed; Validation-only)
+
+- User manual serial execution from clean launch 4060dc0495672905361c6f3c1d66fe95e9b271c7; shared SPORTS_CONVERTED_20260916/epoch37 teacher anchor unchanged. Original pending declaration retained.
+- Command: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_full_seed2023_val300_v1 --gpu_id 0
+- Resolved parameters: {"batch_size": 1024, "early_stopping_patience": 300, "epoch": 300, "seed": 2023, "student_lr": 6e-05, "student_weight_decay": 0.01, "td_distill_alpha": 0.3, "td_init_from_teacher": false, "td_item_image_rate": 1.0, "td_item_text_rate": 0.3, "td_user_image_rate": 0.0, "td_user_text_rate": 0.0}; ID64, weight_decay0.01, frozen teacher, no teacher initialization.
+- Selected Validation epoch 291; Recall@20=0.082050198914162, same-epoch NDCG@20=0.037094821672392. 300 finite epochs; checkpoint/manifest/curve agree; exported ID tensors equal full checkpoint; no early exit.
+- Teacher Test0/student Test0; best restored then Test skipped. Final Test metrics and selected-versus-tested equality: not applicable. paper_ready_eligible remains false.
+- Artifact paths/SHA256 and paired interpretation: docs/research/SPORTS_THREE_SEED_VALIDATION300_2026-09-18.md, section sports_student_full_seed2023_val300_v1. Manifest SHA256 04b4258411e079add8992a38382bc7339a71bba19072926b9e0d90020fed99c2.
+
+## 2026-09-18 sports_student_image_matched_seed2023_val300_v1 (completed; Validation-only)
+
+- User manual serial execution from clean launch 4060dc0495672905361c6f3c1d66fe95e9b271c7; shared SPORTS_CONVERTED_20260916/epoch37 teacher anchor unchanged. Original pending declaration retained.
+- Command: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_image_matched_seed2023_val300_v1 --gpu_id 0
+- Resolved parameters: {"batch_size": 1024, "early_stopping_patience": 300, "epoch": 300, "seed": 2023, "student_lr": 6e-05, "student_weight_decay": 0.01, "td_distill_alpha": 0.23076923076923075, "td_init_from_teacher": false, "td_item_image_rate": 1.0, "td_item_text_rate": 0.0, "td_user_image_rate": 0.0, "td_user_text_rate": 0.0}; ID64, weight_decay0.01, frozen teacher, no teacher initialization.
+- Selected Validation epoch 287; Recall@20=0.078384773379530, same-epoch NDCG@20=0.035534242300625. 300 finite epochs; checkpoint/manifest/curve agree; exported ID tensors equal full checkpoint; no early exit.
+- Teacher Test0/student Test0; best restored then Test skipped. Final Test metrics and selected-versus-tested equality: not applicable. paper_ready_eligible remains false.
+- Artifact paths/SHA256 and paired interpretation: docs/research/SPORTS_THREE_SEED_VALIDATION300_2026-09-18.md, section sports_student_image_matched_seed2023_val300_v1. Manifest SHA256 58994307bddb67ac0b500e4d01ee208a394fc15f1ff9a1abb13db0f0fc7c79e0.
+
+## 2026-09-18 sports_student_bpr_seed2024_val300_v1 (completed; Validation-only)
+
+- User manual serial execution from clean launch 4060dc0495672905361c6f3c1d66fe95e9b271c7; shared SPORTS_CONVERTED_20260916/epoch37 teacher anchor unchanged. Original pending declaration retained.
+- Command: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_bpr_seed2024_val300_v1 --gpu_id 0
+- Resolved parameters: {"batch_size": 1024, "early_stopping_patience": 300, "epoch": 300, "seed": 2024, "student_lr": 6e-05, "student_weight_decay": 0.01, "td_distill_alpha": 0.0, "td_init_from_teacher": false, "td_item_image_rate": 0.0, "td_item_text_rate": 0.0, "td_user_image_rate": 0.0, "td_user_text_rate": 0.0}; ID64, weight_decay0.01, frozen teacher, no teacher initialization.
+- Selected Validation epoch 298; Recall@20=0.044694002459888, same-epoch NDCG@20=0.021313392740772. 300 finite epochs; checkpoint/manifest/curve agree; exported ID tensors equal full checkpoint; no early exit.
+- Teacher Test0/student Test0; best restored then Test skipped. Final Test metrics and selected-versus-tested equality: not applicable. paper_ready_eligible remains false.
+- Artifact paths/SHA256 and paired interpretation: docs/research/SPORTS_THREE_SEED_VALIDATION300_2026-09-18.md, section sports_student_bpr_seed2024_val300_v1. Manifest SHA256 844d339aade57867f32434d75939d7971b19a975903c14489598be88bff23d90.
+
+## 2026-09-18 sports_student_full_seed2024_val300_v1 (completed; Validation-only)
+
+- User manual serial execution from clean launch 4060dc0495672905361c6f3c1d66fe95e9b271c7; shared SPORTS_CONVERTED_20260916/epoch37 teacher anchor unchanged. Original pending declaration retained.
+- Command: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_full_seed2024_val300_v1 --gpu_id 0
+- Resolved parameters: {"batch_size": 1024, "early_stopping_patience": 300, "epoch": 300, "seed": 2024, "student_lr": 6e-05, "student_weight_decay": 0.01, "td_distill_alpha": 0.3, "td_init_from_teacher": false, "td_item_image_rate": 1.0, "td_item_text_rate": 0.3, "td_user_image_rate": 0.0, "td_user_text_rate": 0.0}; ID64, weight_decay0.01, frozen teacher, no teacher initialization.
+- Selected Validation epoch 292; Recall@20=0.082542735948078, same-epoch NDCG@20=0.037306458146321. 300 finite epochs; checkpoint/manifest/curve agree; exported ID tensors equal full checkpoint; no early exit.
+- Teacher Test0/student Test0; best restored then Test skipped. Final Test metrics and selected-versus-tested equality: not applicable. paper_ready_eligible remains false.
+- Artifact paths/SHA256 and paired interpretation: docs/research/SPORTS_THREE_SEED_VALIDATION300_2026-09-18.md, section sports_student_full_seed2024_val300_v1. Manifest SHA256 d5ec82574f10c058d4e4cb5b6c588e9357bda2f1feb27e3320e560e5a4d732a4.
+
+## 2026-09-18 sports_student_image_matched_seed2024_val300_v1 (completed; Validation-only)
+
+- User manual serial execution from clean launch 4060dc0495672905361c6f3c1d66fe95e9b271c7; shared SPORTS_CONVERTED_20260916/epoch37 teacher anchor unchanged. Original pending declaration retained.
+- Command: D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --dataset sports --student_profile sports_student_image_matched_seed2024_val300_v1 --gpu_id 0
+- Resolved parameters: {"batch_size": 1024, "early_stopping_patience": 300, "epoch": 300, "seed": 2024, "student_lr": 6e-05, "student_weight_decay": 0.01, "td_distill_alpha": 0.23076923076923075, "td_init_from_teacher": false, "td_item_image_rate": 1.0, "td_item_text_rate": 0.0, "td_user_image_rate": 0.0, "td_user_text_rate": 0.0}; ID64, weight_decay0.01, frozen teacher, no teacher initialization.
+- Selected Validation epoch 285; Recall@20=0.077352412010914, same-epoch NDCG@20=0.035409652479474. 300 finite epochs; checkpoint/manifest/curve agree; exported ID tensors equal full checkpoint; no early exit.
+- Teacher Test0/student Test0; best restored then Test skipped. Final Test metrics and selected-versus-tested equality: not applicable. paper_ready_eligible remains false.
+- Artifact paths/SHA256 and paired interpretation: docs/research/SPORTS_THREE_SEED_VALIDATION300_2026-09-18.md, section sports_student_image_matched_seed2024_val300_v1. Manifest SHA256 59d7b783f20eda3bfb309b7e656426883360fc69ddb740cf98d738d57388dc27.
+
+## 2026-09-18 Sports Validation300 audit and handoff archival (completed)
+
+- Nine-run audit passed: manifest/log/curve/checkpoint/preflight checks, exact Recall@20 prefixes versus120, finite tensors/objectives, matching source/data/teacher identities, exported checkpoint equality and zero Test ranking. Detailed report: docs/research/SPORTS_THREE_SEED_VALIDATION300_2026-09-18.md.
+- Full/image Recall mean ratio gain5.3476%, NDCG4.6260%, positive all3 seeds; full/BPR Recall82.2917%. Budget extension improved all arms ~11.6–11.8%; no substantial relative BPR catch-up. Best epochs285–299 and increasing tail windows mean convergence remains unproven.
+- No source/profile/data changes or training/Test execution; only audit records. This diagnostic is not final paper-result freeze, significance proof or controlled efficiency evidence. Original eligibility false, Sports data caveats and Baby seed2023 audit exception/original manifest false preserved. Innovation2 undecided.
+- Handoff from exp/handoffs/AFTER_SPORTS300_NEXT_STEPS_2026-09-17.md archived here and in report: first audit; then evidence-based next step; no automatic extra epochs, gates, retry or Test.
+- Single next step: prepare original PromptMM fair-comparison and RTX5060 bounded resource-check plan under the same Sports data/Validation protocol; verify original implementation, feature identity, tuning budget and efficiency measurement, then provide manual commands. No execution authorization inferred.
+- Verification: isolated audit script passed all9; focused diff/append-only checks before one scoped documentation commit on codex/experiment/baby-teacher-baseline. Original pending/run records preserved; raw artifacts not committed or physically backed up by Git.
