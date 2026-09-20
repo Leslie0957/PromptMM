@@ -10861,3 +10861,42 @@ records remain under `exp/`; checkpoints remain under `Model/`.
 
 - Exact shared anchor PROMPTMM_RELEASE_SPORTS_VALIDATION300_BATCH_V1 above;seed2024,300 fresh epochs. Command:& 'D:\miniconda\envs\run_5060\python.exe' -B codes/main_mmlight.py --promptmm_release_validation --dataset sports --seed 2024 --epochs 300 --gpu_id 0.
 - Artifacts:exp/promptmm_release/sports_promptmm_release_validation300_seed2024_v1/{report.json,best.pt}. Same clean launch commit,zero Test,exclusive one-launch/no-retry/no-resume. Launch only after seed2023 passes batch completeness checks. Stop after batch summary;await joint audit.
+
+## 2026-09-20 PromptMM three-seed300 joint audit (pending)
+
+- User reports batch complete. Scope:read-only existing reports/checkpoints/source audit,three-seed statistics,prefix/tail analysis and matched TD comparison;write docs/research/PROMPTMM_SPORTS300_AUDIT_2026-09-20.md and append outcomes here. No training or new Validation/Test ranking.
+- Reference42fe4af clean codex/experiment/baby-teacher-baseline. Acceptance:all3 complete64200 updates/301 Validation calls,strict selection/hash/tensor/source/input identity and zero Test;recompute means/sample SD and paired differences. Risks:untuned release,legacy metrics,shared teacher,initialization and optimization differences,uncontrolled timing. Preserve raw artifacts and all previous records;Baby seed2023 audit exception/original false and Innovation2 undecided retained.
+- Verify existing artifacts on CPU without model forwards,focused diff/historical prefix,one scoped documentation commit. Next decision based on evidence;no automatic extra epochs or tuning launch.
+
+
+## 2026-09-20 sports_promptmm_release_validation300_seed2022_v1 (completed manual run; audited)
+
+- Shared declared anchor PROMPTMM_RELEASE_SPORTS_VALIDATION300_BATCH_V1;clean launch42fe4aff67480a596a7017214fd00309b68ff5c9 on codex/experiment/baby-teacher-baseline. Actual command:D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --promptmm_release_validation --dataset sports --seed 2022 --epochs 300 --gpu_id 0. Parameters/environment/teacher/input identities match anchor and other seeds.
+- Complete300 epochs/64200 updates/301 student Validation calls;finite losses/metrics/weights,strict selection flags and CPU best checkpoint tensor digest/alias copies/config/input/source metadata verified. Runtime teacher/prompt/source unchanged,student updated;zero teacher/student Test,no Test loaded,no selected-versus-tested comparison. No new evaluation during audit.
+- Selected epoch299,Recall@20=0.076978861387,same-epochNDCG@20=0.034808348171;finalRecall=0.076922678455. InitialRecall=0.047343201010. Prefix30/120 bestRecall=0.065796406870/0.069549560472;last20 versus previous20 meanRecall gain=0.000833863950. Wall12.6019hours,train/val averages16.543/134.120s,train peakallocated1.648407GiB.
+- Artifact directory exp/promptmm_release/sports_promptmm_release_validation300_seed2022_v1/:report.json SHA256a0872a978fd0087190b1bb431897ca7d6dd73e840a12712d533c7933df657330;best.pt SHA25641d921d313e01a061b02c3c00573a620add3706e6a873f576ea1de8013a41c01. Raw artifacts preserved,not protected by Git or backed up here. Original paper_ready_eligible=false retained. No retry/new training.
+
+
+## 2026-09-20 sports_promptmm_release_validation300_seed2023_v1 (completed manual run; audited)
+
+- Shared declared anchor PROMPTMM_RELEASE_SPORTS_VALIDATION300_BATCH_V1;clean launch42fe4aff67480a596a7017214fd00309b68ff5c9 on codex/experiment/baby-teacher-baseline. Actual command:D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --promptmm_release_validation --dataset sports --seed 2023 --epochs 300 --gpu_id 0. Parameters/environment/teacher/input identities match anchor and other seeds.
+- Complete300 epochs/64200 updates/301 student Validation calls;finite losses/metrics/weights,strict selection flags and CPU best checkpoint tensor digest/alias copies/config/input/source metadata verified. Runtime teacher/prompt/source unchanged,student updated;zero teacher/student Test,no Test loaded,no selected-versus-tested comparison. No new evaluation during audit.
+- Selected epoch300,Recall@20=0.076909569104,same-epochNDCG@20=0.034778639182;finalRecall=0.076909569104. InitialRecall=0.047343201010. Prefix30/120 bestRecall=0.065576357055/0.069516787095;last20 versus previous20 meanRecall gain=0.000903000169. Wall12.6054hours,train/val averages16.525/134.133s,train peakallocated1.648407GiB.
+- Artifact directory exp/promptmm_release/sports_promptmm_release_validation300_seed2023_v1/:report.json SHA256d5d3b5ff5a712e9b5fc98efd67ac73fe91cf9277036b7e7cb0e699502f3dfc31;best.pt SHA256279c5d21a1ef312286280f3997981f0e79f26d657b9c40ddf82cc7189fb7e5ea. Raw artifacts preserved,not protected by Git or backed up here. Original paper_ready_eligible=false retained. No retry/new training.
+
+
+## 2026-09-20 sports_promptmm_release_validation300_seed2024_v1 (completed manual run; audited)
+
+- Shared declared anchor PROMPTMM_RELEASE_SPORTS_VALIDATION300_BATCH_V1;clean launch42fe4aff67480a596a7017214fd00309b68ff5c9 on codex/experiment/baby-teacher-baseline. Actual command:D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --promptmm_release_validation --dataset sports --seed 2024 --epochs 300 --gpu_id 0. Parameters/environment/teacher/input identities match anchor and other seeds.
+- Complete300 epochs/64200 updates/301 student Validation calls;finite losses/metrics/weights,strict selection flags and CPU best checkpoint tensor digest/alias copies/config/input/source metadata verified. Runtime teacher/prompt/source unchanged,student updated;zero teacher/student Test,no Test loaded,no selected-versus-tested comparison. No new evaluation during audit.
+- Selected epoch296,Recall@20=0.076909569104,same-epochNDCG@20=0.034828715396;finalRecall=0.076801885152. InitialRecall=0.047343201010. Prefix30/120 bestRecall=0.065585720877/0.069278009636;last20 versus previous20 meanRecall gain=0.000805819303. Wall14.6091hours,train/val averages17.034/157.670s,train peakallocated1.648407GiB.
+- Artifact directory exp/promptmm_release/sports_promptmm_release_validation300_seed2024_v1/:report.json SHA2565c873d5c49cb9092a3cc1130a7a3df80d7f7f22cb6df1e9708da3b6ba7f38190;best.pt SHA256d991fe012e42311234032dd6f18a0eab0aeca6ed52db8d5532fa2c77dda6b2a5. Raw artifacts preserved,not protected by Git or backed up here. Original paper_ready_eligible=false retained. No retry/new training.
+
+
+## 2026-09-20 PromptMM three-seed300 joint audit (completed)
+
+- Batch completed all3,192600 updates/903 student Validations,total39.83hours;batch.json SHAe851278736b2d3e6909b2ed046ae4be6a969d94d3562462b2be9007867b4897c. Batch outcomes equal independently recomputed report gates/hashes;all current source fingerprints match launch. Independent CPU checkpoint content verification passed;no model forward,Test read or ranking.
+- Published docs/research/PROMPTMM_SPORTS300_AUDIT_2026-09-20.md:release meanRecall0.076932666532 SD0.000040005918;NDCG0.034805234250 SD0.000025182914 (sampleSD). Existing full meanRecall0.0823070649,NDCG0.0372028959:relative+6.98585%/+6.88880%;both positive every seed. image_matched also exceeds release every seed;do not attribute all difference to text term.
+- Initial scores identical from fixed teacher;bestepochs299/300/296 and positive tail gains do not prove convergence. Current result supports fixed-configuration/300-epoch Validation superiority only. Release unselected coefficients,lr2e-5 versusTD6e-5,initialization/architecture/optimization/tuning differences remain;no significant/Test/efficiency/novelty claim. Negative objective and rising BPR remain valid recorded evidence,not failure.
+- Single next recommended preparation:seed2022 release lr6e-5 versus existing2e-5,300epochs,same other parameters/data/teacher/selection,Validation-only fresh initialization and new exclusive directory. Tests the direct optimization-rate confound before broader tuning or extra epochs;not yet implemented/declared/launched. User continues manual execution after commands are prepared. No automatic gate addition or secondinnovation decision.
+- Preserved all historical log entries,Baby seed2023 accepted audit exception/original manifestfalse and teacher/studenteligibilityfalse. Secondinnovation undecided. Focused diff/historical-prefix checks before scoped documentation commit;no source/parameter/environment modifications. Full commands/metrics/fingerprints and evidence boundaries are in linked report and individual outcomes above.
