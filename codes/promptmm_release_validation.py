@@ -27,15 +27,22 @@ def parse_args(argv=None):
     p.add_argument('--dataset', choices=['sports'], default='sports')
     p.add_argument('--seed', type=int, choices=[2022, 2023, 2024], default=2022)
     p.add_argument('--epochs', type=int, choices=[EPOCHS, 120, 300], default=EPOCHS)
+    p.add_argument('--student_lr', type=float, choices=[2e-5, 6e-5], default=2e-5)
     p.add_argument('--gpu_id', type=int, choices=[0], default=0)
     p.add_argument('--describe', action='store_true')
     cli = p.parse_args(argv)
     if cli.epochs not in (120, 300) and cli.seed != 2022:
         p.error('Only the existing seed2022 short diagnostic or three-seed120/300 batches are declared.')
+    if cli.student_lr != 2e-5 and (cli.seed != 2022 or cli.epochs != 300):
+        p.error('lr6e-5 is declared only for seed2022 with300 epochs.')
     return cli
 
 
-def run_identity(seed, epochs):
+def run_identity(seed, epochs, learning_rate=2e-5):
+    if learning_rate == 6e-5:
+        return f'sports_promptmm_release_validation{epochs}_seed{seed}_lr6e5_v1'
+    if learning_rate != 2e-5:
+        raise ValueError('Undeclared learning rate.')
     return f'sports_promptmm_release_validation{epochs}_seed{seed}_v1'
 
 
@@ -142,9 +149,9 @@ def restore_best(path, student):
 def main(argv=None):
     cli = parse_args(argv)
     from promptmm_release import IDENTITY, UPSTREAM, ResourceConfig
-    cfg = ResourceConfig(seed=cli.seed)
+    cfg = ResourceConfig(seed=cli.seed, learning_rate=cli.student_lr)
     epochs = cli.epochs
-    run_id = run_identity(cfg.seed, epochs)
+    run_id = run_identity(cfg.seed, epochs, cfg.learning_rate)
     config = asdict(cfg)
     del config['steps']
     spec = dict(identity=IDENTITY, upstream=UPSTREAM, run_id=run_id, config=config,

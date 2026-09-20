@@ -185,6 +185,27 @@ class ValidationContracts(unittest.TestCase):
                 self.assertEqual(spec['epochs'],epochs)
                 self.assertEqual(spec['run_id'],runner.run_identity(seed,epochs))
 
+    def test_learning_rate_contrast_only_changes_rate_and_artifact_identity(self):
+        specs=[]
+        for lr in ('2e-5','6e-5'):
+            out=io.StringIO()
+            with contextlib.redirect_stdout(out):
+                runner.main(['--promptmm_release_validation','--seed','2022','--epochs','300','--student_lr',lr,'--describe'])
+            specs.append(json.loads(out.getvalue()))
+        a,b=specs
+        self.assertEqual([k for k in a['config'] if a['config'][k]!=b['config'][k]],['learning_rate'])
+        self.assertEqual(b['config']['learning_rate'],6e-5)
+        self.assertEqual(b['run_id'],'sports_promptmm_release_validation300_seed2022_lr6e5_v1')
+        self.assertEqual({k:v for k,v in a.items() if k not in ('config','run_id')},
+                         {k:v for k,v in b.items() if k not in ('config','run_id')})
+        for seed,epochs in ((2023,300),(2024,300),(2022,120),(2022,30)):
+            with contextlib.redirect_stderr(io.StringIO()),self.assertRaises(SystemExit):
+                runner.parse_args(['--promptmm_release_validation','--seed',str(seed),'--epochs',str(epochs),'--student_lr','6e-5'])
+        with tempfile.TemporaryDirectory() as d:
+            runner.claim_run_directory(d,a['run_id'])
+            runner.claim_run_directory(d,b['run_id'])
+            with self.assertRaises(FileExistsError):runner.claim_run_directory(d,b['run_id'])
+
     def test_describe_dispatch_isolated(self):
         script = """import sys,runpy
 sys.path.insert(0,'codes')
