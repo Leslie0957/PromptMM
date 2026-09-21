@@ -198,13 +198,26 @@ class ValidationContracts(unittest.TestCase):
         self.assertEqual(b['run_id'],'sports_promptmm_release_validation300_seed2022_lr6e5_v1')
         self.assertEqual({k:v for k,v in a.items() if k not in ('config','run_id')},
                          {k:v for k,v in b.items() if k not in ('config','run_id')})
-        for seed,epochs in ((2023,300),(2024,300),(2022,120),(2022,30)):
+        for seed,epochs in ((2023,120),(2024,30),(2022,120),(2022,30)):
             with contextlib.redirect_stderr(io.StringIO()),self.assertRaises(SystemExit):
                 runner.parse_args(['--promptmm_release_validation','--seed',str(seed),'--epochs',str(epochs),'--student_lr','6e-5'])
         with tempfile.TemporaryDirectory() as d:
             runner.claim_run_directory(d,a['run_id'])
             runner.claim_run_directory(d,b['run_id'])
             with self.assertRaises(FileExistsError):runner.claim_run_directory(d,b['run_id'])
+
+    def test_remaining_lr_seeds_resolve_only_seed_delta(self):
+        specs=[]
+        for seed in (2022,2023,2024):
+            out=io.StringIO()
+            with contextlib.redirect_stdout(out):
+                runner.main(['--promptmm_release_validation','--seed',str(seed),'--epochs','300','--student_lr','6e-5','--describe'])
+            spec=json.loads(out.getvalue());specs.append(spec)
+            self.assertEqual(spec['config']['seed'],seed)
+            self.assertEqual(spec['config']['learning_rate'],6e-5)
+            self.assertEqual(spec['run_id'],runner.run_identity(seed,300,6e-5))
+        for spec in specs[1:]:
+            self.assertEqual([k for k in spec['config'] if spec['config'][k]!=specs[0]['config'][k]],['seed'])
 
     def test_describe_dispatch_isolated(self):
         script = """import sys,runpy
