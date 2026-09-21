@@ -33,8 +33,8 @@ def parse_args(argv=None):
     cli = p.parse_args(argv)
     if cli.epochs not in (120, 300) and cli.seed != 2022:
         p.error('Only the existing seed2022 short diagnostic or three-seed120/300 batches are declared.')
-    if cli.student_lr != 2e-5 and (cli.seed != 2022 or cli.epochs != 300):
-        p.error('lr6e-5 is declared only for seed2022 with300 epochs.')
+    if cli.student_lr != 2e-5 and cli.epochs != 300:
+        p.error('lr6e-5 is declared only for seeds2022/2023/2024 with300 epochs.')
     return cli
 
 
