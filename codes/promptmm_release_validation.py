@@ -19,6 +19,13 @@ from promptmm_release_resource import (ROOT, sha256, load_training_inputs, load_
 RUN_ID = 'sports_promptmm_release_validation30_seed2022_v1'
 EPOCHS = 30
 KS = (10, 20, 40, 50)
+VALIDATION_IMPLEMENTATION = 'numpy_partition_stable_topk_v1'
+
+
+def evaluate_training_validation(student, adj, train, val, batch_size=256, ks=KS):
+    # Lazy import preserves the lightweight --describe path.
+    from promptmm_validation_fast import evaluate_fast
+    return evaluate_fast(student, adj, train, val, batch_size=batch_size, ks=ks)
 
 
 def parse_args(argv=None):
@@ -160,7 +167,8 @@ def main(argv=None):
                 validation_batch_size=256, diagnostic_only=True, paper_ready_eligible=False,
                 teacher_test_evaluations=0, test_evaluations=0, test_split_loaded=False,
                 validation_evaluations=0, evaluation_protocol='validation_only_release_v1',
-                shared_anchor='SPORTS_CONVERTED_20260916')
+                shared_anchor='SPORTS_CONVERTED_20260916',
+                validation_implementation=VALIDATION_IMPLEMENTATION)
     if cli.describe:
         print(json.dumps(spec, indent=2))
         return 0
@@ -175,6 +183,7 @@ def main(argv=None):
                   source={str(p.relative_to(ROOT)): sha256(p) for p in (
                       ROOT/'codes/main_mmlight.py', Path(__file__),
                       ROOT/'codes/promptmm_release.py', ROOT/'codes/promptmm_release_resource.py',
+                      ROOT/'codes/promptmm_validation_fast.py',
                       ROOT/'codes/Models_mmlight.py', ROOT/'codes/utility/metrics.py',
                       ROOT/'codes/utility/dataset_profiles.py', ROOT/'codes/utility/sports_validation_reuse.py')})
     def save():
@@ -285,11 +294,13 @@ def main(argv=None):
                         launch_commit=head, input_sha256=report['input_sha256'],
                         shared_teacher=report['shared_teacher'],
                         evaluation_protocol=report['evaluation_protocol'],
+                        validation_implementation=VALIDATION_IMPLEMENTATION,
+                        validation_implementation_sha256=sha256(ROOT/'codes/promptmm_validation_fast.py'),
                         graph_semantics='release column order', layers=cfg.layers)
         torch.cuda.synchronize()
         torch.cuda.reset_peak_memory_stats()
         t = time.perf_counter()
-        report['initial_validation'] = evaluate_validation(student, adj, train, validation)
+        report['initial_validation'] = evaluate_training_validation(student, adj, train, validation)
         report['initial_validation_seconds'] = time.perf_counter() - t
         report['initial_validation_peak_allocated_bytes'] = torch.cuda.max_memory_allocated()
         report['validation_evaluations'] += 1
@@ -340,7 +351,7 @@ def main(argv=None):
             train_reserved = torch.cuda.max_memory_reserved()
             torch.cuda.reset_peak_memory_stats()
             start = time.perf_counter()
-            result = evaluate_validation(student, adj, train, validation)
+            result = evaluate_training_validation(student, adj, train, validation)
             torch.cuda.synchronize()
             validation_seconds = time.perf_counter() - start
             report['validation_evaluations'] += 1
