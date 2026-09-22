@@ -16,3 +16,9 @@ Set-Location 'D:\Download\PromptMM'
 报告：exp/validation_checks/sports_promptmm_validation_parity_seed2022_lr6e5_v1/report.json。排他创建，失败保留；不删除结果绕过保护，不自动重试。源码需已提交且干净；运行期间保持不变。预计数分钟至十余分钟，实际提速与耗时须以报告为准。
 
 无论通过或失败，都把结果发回。通过后再审计是否可以用于后续训练；未通过则定位差异，不改变已有实验结果。原eligibilityfalse、Babyseed2023审计例外/原manifestfalse不变，第二创新点未定。
+
+## 2026-09-22 接入状态
+
+真实检查已通过：35598位用户的前50名及所有指标完全一致，历史指标差异为0；单次完整验证133.25秒降至40.17秒。现已将 PromptMM release 训练的初始及逐轮验证接入新版，旧 evaluate_validation 函数保留供回归及独立一致性脚本使用。报告和新checkpoint记录 numpy_partition_stable_topk_v1 及源码身份。上文旧默认状态是检查准备时的历史状态。
+
+本次接入不需要重跑历史300轮结果，也不授权复用旧命令启动新实验。已完成的一次性检查输出仍保留，请勿重复运行上述命令；未来实验需新声明及独立输出。下一步准备受控的方法开销与机制对照方案，不自动训练或访问Test。
