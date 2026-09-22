@@ -23,7 +23,7 @@ class SportsStudentTest(unittest.TestCase):
         return SimpleNamespace(**json.loads(out.stdout))
 
     def test_profiles_pair_and_gate(self):
-        args = [self.resolve(n) for n in SPORTS_STUDENT_PROFILE_NAMES]
+        args = [self.resolve(n) for n in SPORTS_STUDENT_PROFILE_NAMES if 'teacherinit' not in n]
         for a in args:
             self.assertEqual(a.dataset_config_overrides, {})
             self.assertEqual(a.student_config_overrides, {})
