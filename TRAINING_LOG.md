@@ -10971,3 +10971,34 @@ records remain under `exp/`; checkpoints remain under `Model/`.
 
 - Cite exact PROMPTMM_LR6E5_REMAINING_BATCH_V1 above;seed2024,lr6e-5,300epochs. Command:& 'D:\miniconda\envs\run_5060\python.exe' -B codes/main_mmlight.py --promptmm_release_validation --dataset sports --seed 2024 --epochs 300 --student_lr 6e-5 --gpu_id 0.
 - Artifacts:exp/promptmm_release/sports_promptmm_release_validation300_seed2024_lr6e5_v1/{report.json,best.pt};same clean launch commit,exclusive one-launch,no retry/resume. Launch only after2023 succeeds;stop after completion and batchsummary. Hard acceptance:300complete curve/64200finiteupdates/301Validation,correct config/identity,teacher/prompt/sourceunchanged,studentupdated/alias/selectedweight roundtrip and checkpoint hash;zeroTest. Compare with existing same-seed2e-5 and completed2022 lr6e-5;preserve outcomes regardless of metric level.
+
+## 2026-09-22 PromptMM lr6e5 three-seed joint audit (pending)
+
+- User reports remaining batch complete. Scope:read-only reports/checkpoints/source comparison,three-seed statistics/curves/timing and interpretation,next-step documentation. No training,new Validation/Test or optimization edits. Clean reference09dce8b on codex/experiment/baby-teacher-baseline.
+- Acceptance:two new300epoch/64200update/301Validation outcomes,correct6e-5 config/source/input/selectedcheckpoint,zeroTest;combine separately committedseed2022 only after checking scientific source equivalence and common identity. Risks:sharedteacher,lr selection history,legacy metrics,CPU evaluation bottleneck and convergence assumptions. Preserve artifacts/Babyseed2023 exception/originalfalse/Innovation2undecided.
+- Files:TRAINING_LOG.md,docs/research/PROMPTMM_LR6E5_THREE_SEED_2026-09-22.md. CPU checkpoint checks,no forward;focused diff/history then scoped commit. Next stage recommended only,not launched.
+
+
+## 2026-09-22 sports_promptmm_release_validation300_seed2023_lr6e5_v1 (completed manual run; audited)
+
+- Shared anchor PROMPTMM_LR6E5_REMAINING_BATCH_V1;clean launch09dce8b5654e88e0b6ff510c1c28215c2b25e521,branchcodex/experiment/baby-teacher-baseline. Command:D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --promptmm_release_validation --dataset sports --seed 2023 --epochs 300 --student_lr 6e-5 --gpu_id 0. All common parameters/environment/input/teacher match anchor.
+-300epochs/64200updates/301Validations complete;zero teacher/studentTest,noTestread. Finite curve/weights,strict selectedepoch/metrics,checkpoint config/input/source/digest/alias independently checked CPU-only;runtime teacher/prompt/source unchanged,studentupdated and roundtrip verified. No new ranking;selected-versus-tested N/A.
+- Bestepoch299,Recall0.087612083157,sameepochNDCG0.040069791231;finalRecall0.087612083157,tailmean gain0.000358807165. Start2026-09-21T12:15:15.867093+08:00,end2026-09-22T04:06:32.772584+08:00;train/valmean17.278/171.749s.
+- Directoryexp/promptmm_release/sports_promptmm_release_validation300_seed2023_lr6e5_v1/:reportSHA8ec8b80d9be20c6b6f6e4b3e77e2d8ce5267870490616c1981df65fad17747b4;best.ptSHA9b85a76b655b5107211b59baba5e1325289b38a6cf0c191d25a26cad8166e9da. Preserved ignored artifacts,no backup claim. Originaleligibilityfalse retained.
+
+
+## 2026-09-22 sports_promptmm_release_validation300_seed2024_lr6e5_v1 (completed manual run; audited)
+
+- Shared anchor PROMPTMM_LR6E5_REMAINING_BATCH_V1;clean launch09dce8b5654e88e0b6ff510c1c28215c2b25e521,branchcodex/experiment/baby-teacher-baseline. Command:D:/miniconda/envs/run_5060/python.exe -B codes/main_mmlight.py --promptmm_release_validation --dataset sports --seed 2024 --epochs 300 --student_lr 6e-5 --gpu_id 0. All common parameters/environment/input/teacher match anchor.
+-300epochs/64200updates/301Validations complete;zero teacher/studentTest,noTestread. Finite curve/weights,strict selectedepoch/metrics,checkpoint config/input/source/digest/alias independently checked CPU-only;runtime teacher/prompt/source unchanged,studentupdated and roundtrip verified. No new ranking;selected-versus-tested N/A.
+- Bestepoch300,Recall0.087472361557,sameepochNDCG0.039844413436;finalRecall0.087472361557,tailmean gain0.000085975492. Start2026-09-22T04:06:50.628629+08:00,end2026-09-22T19:41:37.277420+08:00;train/valmean17.209/169.162s.
+- Directoryexp/promptmm_release/sports_promptmm_release_validation300_seed2024_lr6e5_v1/:reportSHA4e51e8ea14f0b1c948f1616ca0664e90f3e30f039dc010a61c167497d2bb8721;best.ptSHAd8589d349cc388a5a1e73ed2517744640571ec59aeae1349eacdafcbd5da27a9. Preserved ignored artifacts,no backup claim. Originaleligibilityfalse retained.
+
+
+## 2026-09-22 PromptMM lr6e5 three-seed joint audit (completed)
+
+- Published docs/research/PROMPTMM_LR6E5_THREE_SEED_2026-09-22.md with paired results,curves,timings,full commands/artifact fingerprints. Batchcompleted,summarySHA448823af7eaf5d2e734c6ea267623fb7affb94826f93767def0c6218cea5ab4c. Source equivalence:2022 b6c801e versus2023/2024 09dce8b differs onlyCLI allowedseeds;recorded scientific dependencies match. Common config/input/initial Validation identical exceptseed.
+- New meanRecall0.087573000348,sampleSD0.000087877105;meanNDCG0.040013218868,SD0.000148815268. Versus currentfull meanRecall0.082307064867/NDCG0.037202895867:newbaseline+6.3979%/+7.5540%,both positive allseeds. Prior claimed advantage limited tolr2e-5;no current accuracy-superiority claim. Text/BPR ablations remainvalid;efficiency/novelty/Test claims unproven.
+- Bestepochs294/299/300;alllast20mean gains positive,not convergence proof. Remainingbatch31.44h,Validation~91% epochtime;Python per-userheapq CPU bottleneck confirmed in source,system reason for timing fluctuations unresolved. No formal efficiency comparison from logs.
+- Single next preparation:optimize Validation implementation with preserved candidates/ties/legacymetrics/frequency/selection;synthetic equivalence tests then prepare manual fixed-existingcheckpoint Validation-only parity/timing check,noTest/no training. Not implemented/launched here. Infrastructure improvement is not thesis innovation;later controlled mechanism/cost diagnosis still needed.
+- Audit assertions/diff/historical preservation passed before scoped documentation commit;no source/config changes,no new training/evaluation. Babyseed2023 accepted audit exception/originalmanifestfalse and eligibilityfalse remain;Innovation2undecided. Raw artifacts preserved,not physical backup/final freeze.
