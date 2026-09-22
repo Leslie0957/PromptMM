@@ -133,7 +133,7 @@ class ValidationContracts(unittest.TestCase):
                     teacher_inference_config={'weight_size':[64,64]},teacher_model=Teacher().state_dict(),prompt_module=prompt)
                 path=root/'teacher.pt'; torch.save(checkpoint,path)
                 # Source hash allowlist is exercised against isolated fixture files.
-                for name in ('main_mmlight.py','promptmm_release.py','promptmm_release_resource.py','promptmm_validation_fast.py','Models_mmlight.py',
+                for name in ('main_mmlight.py','promptmm_release.py','promptmm_release_resource.py','promptmm_validation_fast.py','initialization_audit.py','Models_mmlight.py',
                              'utility/metrics.py','utility/dataset_profiles.py','utility/sports_validation_reuse.py'):
                     f=root/'codes'/name; f.parent.mkdir(parents=True,exist_ok=True); f.write_text('# synthetic source')
                 source=root/'codes/promptmm_release_validation.py'; source.write_text('# synthetic runner identity')

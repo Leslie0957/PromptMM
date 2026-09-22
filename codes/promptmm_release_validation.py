@@ -37,15 +37,24 @@ def parse_args(argv=None):
     p.add_argument('--student_lr', type=float, choices=[2e-5, 6e-5], default=2e-5)
     p.add_argument('--gpu_id', type=int, choices=[0], default=0)
     p.add_argument('--describe', action='store_true')
+    p.add_argument('--student_initialization', choices=['teacher', 'random'], default='teacher')
     cli = p.parse_args(argv)
     if cli.epochs not in (120, 300) and cli.seed != 2022:
         p.error('Only the existing seed2022 short diagnostic or three-seed120/300 batches are declared.')
     if cli.student_lr != 2e-5 and cli.epochs != 300:
         p.error('lr6e-5 is declared only for seeds2022/2023/2024 with300 epochs.')
+    if cli.student_initialization == 'random' and (cli.seed, cli.epochs, cli.student_lr) != (2022, 300, 6e-5):
+        p.error('Random initialization is declared only for seed2022,300 epochs,lr6e-5.')
     return cli
 
 
-def run_identity(seed, epochs, learning_rate=2e-5):
+def run_identity(seed, epochs, learning_rate=2e-5, initialization='teacher'):
+    if initialization == 'random':
+        if (seed, epochs, learning_rate) != (2022, 300, 6e-5):
+            raise ValueError('Undeclared random initialization run.')
+        return 'sports_promptmm_release_validation300_seed2022_lr6e5_randominit_v1'
+    if initialization != 'teacher':
+        raise ValueError('Unknown initialization.')
     if learning_rate == 6e-5:
         return f'sports_promptmm_release_validation{epochs}_seed{seed}_lr6e5_v1'
     if learning_rate != 2e-5:
@@ -158,10 +167,12 @@ def main(argv=None):
     from promptmm_release import IDENTITY, UPSTREAM, ResourceConfig
     cfg = ResourceConfig(seed=cli.seed, learning_rate=cli.student_lr)
     epochs = cli.epochs
-    run_id = run_identity(cfg.seed, epochs, cfg.learning_rate)
+    run_id = run_identity(cfg.seed, epochs, cfg.learning_rate, cli.student_initialization)
     config = asdict(cfg)
     del config['steps']
-    spec = dict(identity=IDENTITY, upstream=UPSTREAM, run_id=run_id, config=config,
+    spec = dict(identity=IDENTITY if cli.student_initialization == 'teacher' else IDENTITY+'-randomInit-control',
+                student_initialization=cli.student_initialization,
+                upstream=UPSTREAM, run_id=run_id, config=config,
                 epochs=epochs, early_stopping=False, validation_every=1, ks=list(KS),
                 primary_metric='Recall@20', selection='strict improvement, earliest tie',
                 validation_batch_size=256, diagnostic_only=True, paper_ready_eligible=False,
@@ -184,6 +195,7 @@ def main(argv=None):
                       ROOT/'codes/main_mmlight.py', Path(__file__),
                       ROOT/'codes/promptmm_release.py', ROOT/'codes/promptmm_release_resource.py',
                       ROOT/'codes/promptmm_validation_fast.py',
+                      ROOT/'codes/initialization_audit.py',
                       ROOT/'codes/Models_mmlight.py', ROOT/'codes/utility/metrics.py',
                       ROOT/'codes/utility/dataset_profiles.py', ROOT/'codes/utility/sports_validation_reuse.py')})
     def save():
@@ -268,7 +280,8 @@ def main(argv=None):
             initial = teacher(ui, iu, prompt)
         student = ReleaseStudent(nu, ni, 64, cfg.layers).to(device)
         # Initialize after placement: .to after alias creation may break storage sharing.
-        student.init_user_item_embed(initial[0], initial[1])
+        from initialization_audit import initialize_release
+        report['initialization'] = initialize_release(student, initial[0], initial[1], cli.student_initialization)
         student.assert_aliases()
         del initial
         optimizer = torch.optim.AdamW([{'params': student.parameters()}, {'params': prompt.parameters()}],
@@ -290,7 +303,9 @@ def main(argv=None):
         report['optimizer_steps_completed'] = 0
         report['finite_updates_checked'] = True
         report['metric_definition'] = 'legacy batch_test: NDCG ideal sorts top-max(Ks) relevance'
-        metadata = dict(identity=IDENTITY, upstream=UPSTREAM, config=config,
+        metadata = dict(identity=spec['identity'], upstream=UPSTREAM, config=config,
+                        student_initialization=cli.student_initialization,
+                        initialization=report['initialization'],
                         launch_commit=head, input_sha256=report['input_sha256'],
                         shared_teacher=report['shared_teacher'],
                         evaluation_protocol=report['evaluation_protocol'],

@@ -321,6 +321,14 @@ for _base_name, _base in list(SPORTS_STUDENT_PROFILES.items()):
         'source': _base['source'].replace('fixed120', 'fixed300'),
         'defaults': dict(_base['defaults'], epoch=300, early_stopping_patience=300),
     }
+SPORTS_TD_TEACHER_INIT_PROFILE = 'sports_student_full_teacherinit_seed2022_val300_v1'
+SPORTS_STUDENT_PROFILES[SPORTS_TD_TEACHER_INIT_PROFILE] = {
+    'name': SPORTS_TD_TEACHER_INIT_PROFILE,
+    'scope': 'student_validation_diagnostic',
+    'source': 'sports_initialization_pair_seed2022_fixed300_v1',
+    'defaults': dict(SPORTS_STUDENT_PROFILES['sports_student_full_seed2022_val300_v1']['defaults'],
+                     td_init_from_teacher=True),
+}
 SPORTS_STUDENT_PROFILE_NAMES = tuple(SPORTS_STUDENT_PROFILES)
 BABY_PAPER_READY_STUDENT_PROFILE_IDENTITIES = frozenset(
     (profile['name'], profile['scope'], profile['source'])

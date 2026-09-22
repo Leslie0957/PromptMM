@@ -397,6 +397,7 @@ class Trainer(object):
                 'hard_token_cache': file_fingerprint(os.path.join(self.repo_root, 'codes', 'utility', 'hard_token_cache.py')),
                 'td_distill_model': file_fingerprint(os.path.join(self.repo_root, 'codes', 'td_distill_model.py')),
                 'td_distill_model_no_projection': file_fingerprint(os.path.join(self.repo_root, 'codes', 'td_distill_model_no_projection.py')),
+                'initialization_audit': file_fingerprint(os.path.join(self.repo_root, 'codes', 'initialization_audit.py')),
                 'efficiency_benchmark': file_fingerprint(os.path.join(self.repo_root, 'codes', 'efficiency_benchmark.py')),
             },
             'artifacts': {
@@ -1054,6 +1055,7 @@ class Trainer(object):
                 'user_text': getattr(args, 'td_user_text_rate', 1.0),
             },
             'td_init_from_teacher': getattr(args, 'td_init_from_teacher', True),
+            'initialization': self.run_manifest.get('initialization'),
             'student_model_type': args.student_model_type,
         }, self.td_distill_full_path)
 
@@ -1123,6 +1125,13 @@ class Trainer(object):
             self.logger.logging(
                 'TD-Distill active semantic heads: %s' % ', '.join(active_components)
             )
+
+        from utility.dataset_profiles import SPORTS_TD_TEACHER_INIT_PROFILE
+        if getattr(args, 'student_profile', '') == SPORTS_TD_TEACHER_INIT_PROFILE:
+            initial_ret = self.test(selection_users, is_val=True, is_teacher=False)
+            self._update_run_manifest(
+                initial_validation={k: v.tolist() if hasattr(v, 'tolist') else v for k, v in initial_ret.items()},
+                initial_validation_selected=False)
 
         for epoch in range(args.epoch):
             t1 = time()
@@ -1766,6 +1775,12 @@ class Trainer(object):
                 self.logger.logging('TD-Distill warm start enabled from teacher embeddings.')
             else:
                 self.logger.logging('TD-Distill warm start disabled.')
+
+            from utility.dataset_profiles import SPORTS_TD_TEACHER_INIT_PROFILE
+            if getattr(args, 'student_profile', '') == SPORTS_TD_TEACHER_INIT_PROFILE:
+                from initialization_audit import verify_td_teacher_copy
+                self._update_run_manifest(initialization=verify_td_teacher_copy(
+                    self.td_distill_model, self.u_final_embed, self.i_final_embed))
 
             self.opt_TD = optim.AdamW(
                 [{'params': self.td_distill_model.parameters()}],
