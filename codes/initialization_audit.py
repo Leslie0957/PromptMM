@@ -13,7 +13,9 @@ EXPECTED_TD_TEACHER_INITIAL = {
 def require_same_td_initial(record):
     for side, expected in EXPECTED_TD_TEACHER_INITIAL.items():
         if record.get(side) != expected:
-            raise RuntimeError('Initial vectors differ from completed TD teacher-init full: '+side)
+            raise RuntimeError(
+                'Initial vectors differ from completed TD teacher-init full: '
+                + side + '; expected=' + repr(expected) + '; actual=' + repr(record.get(side)))
 
 
 def describe_tensor(value):
