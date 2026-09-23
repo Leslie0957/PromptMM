@@ -398,6 +398,7 @@ class Trainer(object):
                 'td_distill_model': file_fingerprint(os.path.join(self.repo_root, 'codes', 'td_distill_model.py')),
                 'td_distill_model_no_projection': file_fingerprint(os.path.join(self.repo_root, 'codes', 'td_distill_model_no_projection.py')),
                 'initialization_audit': file_fingerprint(os.path.join(self.repo_root, 'codes', 'initialization_audit.py')),
+                'shared_initialization': file_fingerprint(os.path.join(self.repo_root, 'codes', 'shared_initialization.py')),
                 'efficiency_benchmark': file_fingerprint(os.path.join(self.repo_root, 'codes', 'efficiency_benchmark.py')),
             },
             'artifacts': {
@@ -1105,6 +1106,10 @@ class Trainer(object):
                 'user_text': t_u_text_embed.detach(),
             }
 
+        if hasattr(self, 'shared_td_tensors'):
+            from shared_initialization import semantic_targets
+            td_teacher_semantics = semantic_targets(self.shared_td_tensors)
+
         self.logger.logging(
             'TD-Distill teacher image/text semantics for both items and users cached once from the frozen teacher checkpoint.'
         )
@@ -1703,6 +1708,15 @@ class Trainer(object):
                 self.u_final_embed, self.i_final_embed, image_item_embeds,
                 text_item_embeds, image_user_embeds, text_user_embeds))
 
+        from utility.dataset_profiles import SPORTS_SHARED_INIT_PROFILES
+        if getattr(args, 'student_profile', '') in SPORTS_SHARED_INIT_PROFILES:
+            from shared_initialization import load_shared
+            self.shared_td_tensors, shared_identity = load_shared(
+                self.repo_root, self.device, self.n_users, self.n_items, self.student_emb_dim)
+            self.u_final_embed = self.shared_td_tensors['users']
+            self.i_final_embed = self.shared_td_tensors['items']
+            self._update_run_manifest(shared_initialization_asset=shared_identity)
+
         # ===== TD-Distill =====
         # ===== TD-Distill =====
         if args.student_model_type in ('td_distill', 'td_distill_no_projection'):
@@ -1786,6 +1800,8 @@ class Trainer(object):
                 from initialization_audit import verify_td_teacher_copy
                 initialization = verify_td_teacher_copy(
                     self.td_distill_model, self.u_final_embed, self.i_final_embed)
+                if hasattr(self, 'shared_td_tensors'):
+                    initialization['shared_asset_sha256'] = self.run_manifest['shared_initialization_asset']['sha256']
                 # Preserve observed identity even if the following hard gate fails.
                 self._update_run_manifest(initialization=initialization)
                 if args.student_profile == SPORTS_BPR_TEACHER_INIT_PROFILE:
