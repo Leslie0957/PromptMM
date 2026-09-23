@@ -329,6 +329,15 @@ SPORTS_STUDENT_PROFILES[SPORTS_TD_TEACHER_INIT_PROFILE] = {
     'defaults': dict(SPORTS_STUDENT_PROFILES['sports_student_full_seed2022_val300_v1']['defaults'],
                      td_init_from_teacher=True),
 }
+SPORTS_BPR_TEACHER_INIT_PROFILE = 'sports_student_bpr_teacherinit_seed2022_val300_v1'
+SPORTS_STUDENT_PROFILES[SPORTS_BPR_TEACHER_INIT_PROFILE] = {
+    'name': SPORTS_BPR_TEACHER_INIT_PROFILE,
+    'scope': 'student_validation_diagnostic',
+    'source': 'sports_teacherinit_bpr_control_seed2022_fixed300_v1',
+    'defaults': dict(SPORTS_STUDENT_PROFILES[SPORTS_TD_TEACHER_INIT_PROFILE]['defaults'],
+                     td_distill_alpha=0.0),
+}
+SPORTS_TEACHER_INIT_PROFILES = (SPORTS_TD_TEACHER_INIT_PROFILE, SPORTS_BPR_TEACHER_INIT_PROFILE)
 SPORTS_STUDENT_PROFILE_NAMES = tuple(SPORTS_STUDENT_PROFILES)
 BABY_PAPER_READY_STUDENT_PROFILE_IDENTITIES = frozenset(
     (profile['name'], profile['scope'], profile['source'])

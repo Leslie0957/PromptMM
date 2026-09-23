@@ -37,13 +37,13 @@ def check_source(root, head):
         raise RuntimeError('Clean unchanged source required.')
 
 
-def verify_td(root, path):
+def verify_td(root, path, profile=PROFILE):
     import torch
     from run_sports_validation300 import verify_outcome
     from utility.dataset_profiles import SPORTS_STUDENT_PROFILES
     m=json.loads(path.read_text(encoding='utf-8'))
-    verify_outcome(m, PROFILE)
-    for k,v in SPORTS_STUDENT_PROFILES[PROFILE]['defaults'].items():
+    verify_outcome(m, profile)
+    for k,v in SPORTS_STUDENT_PROFILES[profile]['defaults'].items():
         if m['resolved_arguments'].get(k)!=v:raise RuntimeError('TD argument mismatch: '+k)
     if not m['initialization']['independent_storage'] or m['initialization']['mode']!='teacher':
         raise RuntimeError('TD initialization mismatch.')
