@@ -2,6 +2,19 @@
 import hashlib
 import torch
 
+EXPECTED_TD_TEACHER_INITIAL = {
+    'users': {'shape': [35598, 64], 'dtype': 'torch.float32',
+              'sha256': '81dfece426261cd6920ff64d79e8fe4b0579286185f6e7e7bb2c29ff28b76791'},
+    'items': {'shape': [18357, 64], 'dtype': 'torch.float32',
+              'sha256': 'e61376f4a0ed29e9c96a7d62083732ae0c991fdfcc023c51efc478b373fdd9c2'},
+}
+
+
+def require_same_td_initial(record):
+    for side, expected in EXPECTED_TD_TEACHER_INITIAL.items():
+        if record.get(side) != expected:
+            raise RuntimeError('Initial vectors differ from completed TD teacher-init full: '+side)
+
 
 def describe_tensor(value):
     value = value.detach().cpu().contiguous()
