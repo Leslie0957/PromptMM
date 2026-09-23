@@ -1781,10 +1781,11 @@ class Trainer(object):
                 from initialization_audit import verify_td_teacher_copy
                 initialization = verify_td_teacher_copy(
                     self.td_distill_model, self.u_final_embed, self.i_final_embed)
+                # Preserve observed identity even if the following hard gate fails.
+                self._update_run_manifest(initialization=initialization)
                 if args.student_profile == SPORTS_BPR_TEACHER_INIT_PROFILE:
                     from initialization_audit import require_same_td_initial
                     require_same_td_initial(initialization)
-                self._update_run_manifest(initialization=initialization)
 
             self.opt_TD = optim.AdamW(
                 [{'params': self.td_distill_model.parameters()}],
