@@ -338,6 +338,17 @@ SPORTS_STUDENT_PROFILES[SPORTS_BPR_TEACHER_INIT_PROFILE] = {
                      td_distill_alpha=0.0),
 }
 SPORTS_TEACHER_INIT_PROFILES = (SPORTS_TD_TEACHER_INIT_PROFILE, SPORTS_BPR_TEACHER_INIT_PROFILE)
+SPORTS_SHARED_INIT_PROFILES = tuple(
+    'sports_student_{}_sharedteacherinit_seed2022_val300_v1'.format(arm)
+    for arm in ('full', 'bpr'))
+for _name, _alpha in zip(SPORTS_SHARED_INIT_PROFILES, (0.3, 0.0)):
+    SPORTS_STUDENT_PROFILES[_name] = {
+        'name': _name, 'scope': 'student_validation_diagnostic',
+        'source': 'sports_shared_tensor_pair_seed2022_fixed300_v1',
+        'defaults': dict(SPORTS_STUDENT_PROFILES[SPORTS_TD_TEACHER_INIT_PROFILE]['defaults'],
+                         td_distill_alpha=_alpha),
+    }
+SPORTS_TEACHER_INIT_PROFILES += SPORTS_SHARED_INIT_PROFILES
 SPORTS_STUDENT_PROFILE_NAMES = tuple(SPORTS_STUDENT_PROFILES)
 BABY_PAPER_READY_STUDENT_PROFILE_IDENTITIES = frozenset(
     (profile['name'], profile['scope'], profile['source'])
