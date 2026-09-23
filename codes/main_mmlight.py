@@ -1708,8 +1708,8 @@ class Trainer(object):
                 self.u_final_embed, self.i_final_embed, image_item_embeds,
                 text_item_embeds, image_user_embeds, text_user_embeds))
 
-        from utility.dataset_profiles import SPORTS_SHARED_INIT_PROFILES
-        if getattr(args, 'student_profile', '') in SPORTS_SHARED_INIT_PROFILES:
+        from utility.dataset_profiles import SPORTS_SHARED_TENSOR_PROFILES
+        if getattr(args, 'student_profile', '') in SPORTS_SHARED_TENSOR_PROFILES:
             from shared_initialization import load_shared
             self.shared_td_tensors, shared_identity = load_shared(
                 self.repo_root, self.device, self.n_users, self.n_items, self.student_emb_dim)
