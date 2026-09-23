@@ -1367,7 +1367,7 @@ class Trainer(object):
         )
 
 
-    def train(self):
+    def train(self, initialization_diagnostic=None):
 
         now_time = datetime.now()
         run_time = datetime.strftime(now_time,'%Y_%m_%d__%H_%M_%S')
@@ -1697,6 +1697,11 @@ class Trainer(object):
             self.u_final_embed, self.i_final_embed, image_item_embeds, text_item_embeds, image_user_embeds, text_user_embeds \
             , G_user_emb, G_item_emb, prompt_user, prompt_item \
             = self.teacher_model(self.ui_graph, self.iu_graph, self.prompt_module)
+
+        if initialization_diagnostic is not None:
+            return initialization_diagnostic(self, (
+                self.u_final_embed, self.i_final_embed, image_item_embeds,
+                text_item_embeds, image_user_embeds, text_user_embeds))
 
         # ===== TD-Distill =====
         # ===== TD-Distill =====
