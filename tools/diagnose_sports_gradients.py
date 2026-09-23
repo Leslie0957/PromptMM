@@ -10,8 +10,12 @@ import sys
 import traceback
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'codes'))
-OUT=ROOT/'exp/gradient_checks/sports_sharedinit_seed2022_v1'
+OUT=ROOT/'exp/gradient_checks/sports_sharedinit_seed2022_v2'
 TRAIN_SHA='5361c5486dddbf50084d011278a11d2f18a37e258f87be218b070ff02f4ab0f8'
+
+def native_batch_ids(batch):
+    """Preserve sampled IDs/order while removing NumPy scalar wrappers."""
+    return [[int(value) for value in side] for side in batch]
 
 def source():
     if subprocess.check_output(['git','status','--porcelain'],cwd=ROOT,text=True).strip():
@@ -64,7 +68,7 @@ def main():
                       sampling='Data.sample; seed reset after construction; diagnostic batches, not historical training replay',
                       limitation='Initial-state raw gradients only; not actual AdamW steps or whole-trajectory causal evidence.')
         random.seed(2022);np.random.seed(2022);torch.manual_seed(2022)
-        batches=[data.sample() for _ in range(8)]
+        batches=[native_batch_ids(data.sample()) for _ in range(8)]
         atomic_json(OUT/'batches.json',batches);report['batches_sha256']=sha256(OUT/'batches.json');save()
         for index,batch in enumerate(batches):
             row=inspect_batch(model,tensors,tuple(torch.tensor(v,device='cuda:0',dtype=torch.long) for v in batch))
