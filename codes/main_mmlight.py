@@ -399,6 +399,7 @@ class Trainer(object):
                 'td_distill_model_no_projection': file_fingerprint(os.path.join(self.repo_root, 'codes', 'td_distill_model_no_projection.py')),
                 'initialization_audit': file_fingerprint(os.path.join(self.repo_root, 'codes', 'initialization_audit.py')),
                 'shared_initialization': file_fingerprint(os.path.join(self.repo_root, 'codes', 'shared_initialization.py')),
+                'sports_paired_cold': file_fingerprint(os.path.join(self.repo_root, 'codes', 'sports_paired_cold.py')),
                 'efficiency_benchmark': file_fingerprint(os.path.join(self.repo_root, 'codes', 'efficiency_benchmark.py')),
             },
             'artifacts': {
@@ -1152,7 +1153,10 @@ class Trainer(object):
                 self.teacher_model.eval()
                 self.prompt_module.eval()
                 self.td_distill_model.train()
-                users, pos_items, neg_items = data_generator.sample()
+                if hasattr(self, 'paired_cold'):
+                    users, pos_items, neg_items = self.paired_cold.sample(epoch, idx, data_generator.sample)
+                else:
+                    users, pos_items, neg_items = data_generator.sample()
 
                 users = torch.as_tensor(users, dtype=torch.long, device=self.device)
                 pos_items = torch.as_tensor(pos_items, dtype=torch.long, device=self.device)
@@ -1296,6 +1300,9 @@ class Trainer(object):
                 if td_stopping_step >= self.early_stopping_limit:
                     self.logger.logging('#####TD-Distill early stop! #####')
                     break
+
+        if hasattr(self, 'paired_cold'):
+            self._update_run_manifest(paired_cold_triplets=self.paired_cold.finish())
 
         if td_best_epoch is None or not os.path.exists(self.td_distill_full_path):
             raise RuntimeError('TD-Distill did not produce a selectable checkpoint.')
@@ -1794,6 +1801,19 @@ class Trainer(object):
                 self.logger.logging('TD-Distill warm start enabled from teacher embeddings.')
             else:
                 self.logger.logging('TD-Distill warm start disabled.')
+
+            from utility.dataset_profiles import SPORTS_PAIRED_COLD_PROFILES
+            paired_spec = SPORTS_PAIRED_COLD_PROFILES.get(getattr(args, 'student_profile', ''))
+            if paired_spec is not None:
+                if td_init_from_teacher or args.student_model_type != 'td_distill_no_projection' or self.run_final_test or self.smoke_mode or args.epoch != 300:
+                    raise ValueError('Paired cold-init requires random no-projection, 300-epoch Validation-only training')
+                from sports_paired_cold import PairedColdSession
+                self.paired_cold = PairedColdSession(
+                    self.repo_root, paired_spec[0], paired_spec[1],
+                    args.epoch, self.train_batch_count, args.batch_size)
+                initial_identity = self.paired_cold.apply_initial(self.td_distill_model)
+                self._update_run_manifest(paired_cold_initial=initial_identity,
+                                          paired_cold_seed=paired_spec[0], paired_cold_arm=paired_spec[1])
 
             from utility.dataset_profiles import SPORTS_TEACHER_INIT_PROFILES, SPORTS_BPR_TEACHER_INIT_PROFILE
             if getattr(args, 'student_profile', '') in SPORTS_TEACHER_INIT_PROFILES:

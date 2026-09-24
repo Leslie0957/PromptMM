@@ -364,6 +364,18 @@ SPORTS_STUDENT_PROFILES[SPORTS_EQUAL_MATCHED_PROFILE] = {
 }
 SPORTS_SHARED_TENSOR_PROFILES = SPORTS_SHARED_INIT_PROFILES + (SPORTS_ALPHA3_PROFILE, SPORTS_EQUAL_MATCHED_PROFILE)
 SPORTS_TEACHER_INIT_PROFILES += SPORTS_SHARED_TENSOR_PROFILES
+SPORTS_PAIRED_COLD_PROFILES = {}
+for _seed in (2022, 2023, 2024):
+    for _arm in ('full', 'image_matched'):
+        _name = 'sports_student_{}_pairedcold_seed{}_val300_v1'.format(_arm, _seed)
+        _base = SPORTS_STUDENT_PROFILES[
+            'sports_student_{}_seed{}_val300_v1'.format(_arm, _seed)]
+        SPORTS_STUDENT_PROFILES[_name] = {
+            'name': _name, 'scope': 'student_validation_diagnostic',
+            'source': 'sports_paired_coldinit_three_seed_fixed300_v1',
+            'defaults': dict(_base['defaults']),
+        }
+        SPORTS_PAIRED_COLD_PROFILES[_name] = (_seed, _arm)
 SPORTS_STUDENT_PROFILE_NAMES = tuple(SPORTS_STUDENT_PROFILES)
 BABY_PAPER_READY_STUDENT_PROFILE_IDENTITIES = frozenset(
     (profile['name'], profile['scope'], profile['source'])
