@@ -400,6 +400,7 @@ class Trainer(object):
                 'initialization_audit': file_fingerprint(os.path.join(self.repo_root, 'codes', 'initialization_audit.py')),
                 'shared_initialization': file_fingerprint(os.path.join(self.repo_root, 'codes', 'shared_initialization.py')),
                 'sports_paired_cold': file_fingerprint(os.path.join(self.repo_root, 'codes', 'sports_paired_cold.py')),
+                'sports_sham_residual': file_fingerprint(os.path.join(self.repo_root, 'codes', 'sports_sham_residual.py')),
                 'efficiency_benchmark': file_fingerprint(os.path.join(self.repo_root, 'codes', 'efficiency_benchmark.py')),
             },
             'artifacts': {
@@ -1111,6 +1112,13 @@ class Trainer(object):
             from shared_initialization import semantic_targets
             td_teacher_semantics = semantic_targets(self.shared_td_tensors)
 
+        if hasattr(self, 'sham_residual_spec'):
+            from sports_sham_residual import load_semantics
+            td_teacher_semantics, semantic_identity = load_semantics(
+                self.repo_root, self.sham_residual_spec[0],
+                self.sham_residual_spec[1], self.device)
+            self._update_run_manifest(sham_residual_semantics=semantic_identity)
+
         self.logger.logging(
             'TD-Distill teacher image/text semantics for both items and users cached once from the frozen teacher checkpoint.'
         )
@@ -1814,6 +1822,23 @@ class Trainer(object):
                 initial_identity = self.paired_cold.apply_initial(self.td_distill_model)
                 self._update_run_manifest(paired_cold_initial=initial_identity,
                                           paired_cold_seed=paired_spec[0], paired_cold_arm=paired_spec[1])
+
+            from utility.dataset_profiles import SPORTS_SHAM_RESIDUAL_PROFILES
+            sham_spec = SPORTS_SHAM_RESIDUAL_PROFILES.get(getattr(args, 'student_profile', ''))
+            if sham_spec is not None:
+                if td_init_from_teacher or args.student_model_type != 'td_distill_no_projection' or self.run_final_test or self.smoke_mode or args.epoch != 300:
+                    raise ValueError('Sports sham residual requires random no-projection, 300-epoch Validation-only training')
+                from sports_sham_residual import replay_session, PAIR_SHA
+                self.paired_cold = replay_session(
+                    self.repo_root, sham_spec[0], args.epoch, self.train_batch_count,
+                    args.batch_size)
+                initial_identity = self.paired_cold.apply_initial(self.td_distill_model)
+                if initial_identity['sha256'] != PAIR_SHA[sham_spec[0]][0]:
+                    raise RuntimeError('Sham cohort initial tensor mismatch')
+                self.sham_residual_spec = sham_spec
+                self._update_run_manifest(sham_residual_seed=sham_spec[0],
+                                          sham_residual_arm=sham_spec[1],
+                                          paired_cold_initial=initial_identity)
 
             from utility.dataset_profiles import SPORTS_TEACHER_INIT_PROFILES, SPORTS_BPR_TEACHER_INIT_PROFILE
             if getattr(args, 'student_profile', '') in SPORTS_TEACHER_INIT_PROFILES:

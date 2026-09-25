@@ -376,6 +376,17 @@ for _seed in (2022, 2023, 2024):
             'defaults': dict(_base['defaults']),
         }
         SPORTS_PAIRED_COLD_PROFILES[_name] = (_seed, _arm)
+SPORTS_SHAM_RESIDUAL_PROFILES = {}
+for _seed in (2022, 2023, 2024):
+    for _arm in ('real', 'sham'):
+        _name = 'sports_student_{}_textresidual_seed{}_val300_v1'.format(_arm, _seed)
+        _base = SPORTS_STUDENT_PROFILES['sports_student_full_seed{}_val300_v1'.format(_seed)]
+        SPORTS_STUDENT_PROFILES[_name] = {
+            'name': _name, 'scope': 'student_validation_diagnostic',
+            'source': 'sports_real_vs_geometry_matched_sham_residual_v1',
+            'defaults': dict(_base['defaults']),
+        }
+        SPORTS_SHAM_RESIDUAL_PROFILES[_name] = (_seed, _arm)
 SPORTS_STUDENT_PROFILE_NAMES = tuple(SPORTS_STUDENT_PROFILES)
 BABY_PAPER_READY_STUDENT_PROFILE_IDENTITIES = frozenset(
     (profile['name'], profile['scope'], profile['source'])
