@@ -13,7 +13,7 @@
 | Baby固定120与图像系数匹配 | 七次Validation诊断，不能替换既有Test | [总册§4–5](../research/INNOVATION1_THESIS_EVIDENCE_2026-09-15.md) |
 | Sports数据与教师 | 转换身份、固定epoch37教师、Validation-only | [数据](../research/SPORTS_RAW_DATA_AUDIT_2026-09-16.md) / [教师](../research/SPORTS_TEACHER_RESULT_2026-09-16.md) |
 | Sports随机初值120/300 | BPR/image/Full各三seed；两个预算不是独立重复样本 | [120](../research/SPORTS_THREE_SEED_VALIDATION120_2026-09-17.md) / [300](../research/SPORTS_THREE_SEED_VALIDATION300_2026-09-18.md) |
-| 第一创新点固定主比较/PromptMM发布版适配 | v2 Baby三次训练有效；恢复批次12项新预检、12项一次性Test完成。Sports Full高于BPR、低于发布版；Baby发布版均值略低于既有Full | [正式恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md) / [v2来源](../research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V2_AUDIT.md) / [Sports既有Val](../research/PROMPTMM_LR6E5_THREE_SEED_2026-09-22.md) / [v1失败](../research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V1_AUDIT.md) |
+| 第一创新点固定主比较/PromptMM发布版适配 | v2 Baby三次训练有效；恢复批次12项新预检、12项一次性Test完成。18格论文表已整理、结果资产冻结待执行。Sports Full高于BPR、低于发布版；Baby发布版均值略低于既有Full | [论文主表](../paper/INNOVATION1_FIXED_MAIN_TABLE_2026-09-26.md) / [冻结清单](../research/INNOVATION1_RESULT_FREEZE_CHECKLIST_2026-09-26.md) / [正式恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md) / [v2来源](../research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V2_AUDIT.md) / [v1失败](../research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V1_AUDIT.md) |
 | 评价器工程一致性 | legacy/fast原有parity证据，不是模型效率优势 | [协议](../PROMPTMM_VALIDATION_FAST_PARITY.md)，详查历史章节/运行记录 |
 | Sports初始化控制/重复性 | 历史首个暖启动、随机release、失败BPR尝试及共享张量前置诊断 | [初始化审计](../research/SPORTS_INITIALIZATION_AUDIT_2026-09-23.md) / [旧总览§6](../research/EXPERIMENT_OVERVIEW_ZH_2026-09-24.md) |
 | Sports共享暖启动 Full/BPR | 相同初值；单seed未证增量蒸馏收益 | [配对审计](../research/SPORTS_SHAREDINIT_PAIR_AUDIT_2026-09-23.md) |
@@ -27,7 +27,7 @@
 
 ## 稿件与最小阅读范围
 
-- 第一创新点收尾：先读[正式矩阵](../paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md)、[恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md)及[执行前协议](../research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md)；v1/v2失败审计和原声明仍保留。第二点门控设计当前暂缓。
+- 第一创新点收尾：先读[论文主表](../paper/INNOVATION1_FIXED_MAIN_TABLE_2026-09-26.md)与[结果冻结清单](../research/INNOVATION1_RESULT_FREEZE_CHECKLIST_2026-09-26.md)；主张边界见[正式矩阵](../paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md)，原始结果见[恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md)。v1/v2失败审计和原声明仍保留。第二点门控设计当前暂缓。
 - 查第二创新点：先读[最新候选决策](../research/INNOVATION2_CANDIDATE_DECISION_2026-09-26.md)，旧RGCS仍为条件性候选。
 - 查整篇论文完成度：先读[完成条件与缺口表](../paper/THESIS_COMPLETION_GAPS_2026-09-26.md)，区分已有证据和未关闭条件。
 - 写论文：先读[正文表述（已审阅）](../paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md)，只按段落链接展开对应审计。

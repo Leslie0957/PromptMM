@@ -8,6 +8,8 @@
 
 > v1、v2串行失败与有效中间产物均保留；[v2审计](../research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V2_AUDIT.md)保留 Baby 训练，[恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md)记录 12 项全新预检和 12 项最终 Test。历史来源记录不重写，后续不得依 Test 重选配置。
 
+> 跨来源核查后的[18格论文主表与表注](INNOVATION1_FIXED_MAIN_TABLE_2026-09-26.md)已单独整理；[结果冻结清单](../research/INNOVATION1_RESULT_FREEZE_CHECKLIST_2026-09-26.md)仍为待执行。下方较早的“待复核/下一步”语句保留决策过程，当前交接以短日志和新表为准。
+
 ## 1. 状态和范围
 
 - **已有可用（A）**：在标注的数据集、split、协议及主张范围内已有已审计证据。不能自动跨协议拼表。
