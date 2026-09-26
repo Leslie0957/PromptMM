@@ -66,11 +66,44 @@ def slot_source(slot, ledger, cohort_id=None):
                 infer_path=ROOT/infer_asset['path'] if infer_asset else None, original=selected)
 
 
+def resolve_data_identity(source, ledger):
+    """Bind the release schema to the agreeing pinned Sports split identities."""
+    if source['dataset'] != 'sports':
+        return ledger['baby_existing_formal'][0]['data_identity']
+    original = source['original']
+    if source['method'] != 'promptmm_release':
+        return original['data_identity']
+    anchors = [x['data_identity'] for x in ledger['sports']
+               if x.get('dataset') == 'sports' and x.get('method') in ('bpr', 'full')
+               and 'data_identity' in x]
+    if not anchors or any(x != anchors[0] for x in anchors[1:]):
+        raise RuntimeError('Missing or inconsistent Sports data identity anchors.')
+    identity = anchors[0]
+    if identity.get('dataset') != 'sports':
+        raise RuntimeError('Sports identity dataset mismatch.')
+    verify_release_input_identity(original['input_sha256'], original['teacher'], identity)
+    return identity
+
+
+def verify_release_input_identity(inputs, teacher, identity):
+    expected = {
+        'train_mat': identity['matrices']['train']['sha256'],
+        'val_mat': identity['matrices']['validation']['sha256'],
+        'image_feat.npy': identity['features']['image']['sha256'],
+        'text_feat.npy': identity['features']['text']['sha256'],
+        'teacher': identity_teacher_sha('sports'),
+    }
+    if any(inputs.get(key) != value for key, value in expected.items()):
+        raise RuntimeError('Sports release input identity mismatch.')
+    if (teacher.get('sha256') != expected['teacher'] or
+            teacher.get('conversion_identity') != identity['conversion_manifest']):
+        raise RuntimeError('Sports release teacher/conversion identity mismatch.')
+
+
 def load_inputs(source, ledger):
     """Train and Validation only. Never refer to test_mat here."""
     dataset = source['dataset']
-    identity = (source['original']['data_identity'] if dataset == 'sports'
-                else ledger['baby_existing_formal'][0]['data_identity'])
+    identity = resolve_data_identity(source, ledger)
     data_dir = ROOT / 'data' / dataset
     matrices = identity['matrices']
     for filename, key in (('train_mat', 'train'), ('val_mat', 'validation')):
@@ -107,6 +140,7 @@ def check_source(source, identity):
         if report['shared_teacher']['sha256'] != identity_teacher_sha('baby'):
             raise RuntimeError('Baby source teacher mismatch.')
     elif source['method'] == 'promptmm_release':
+        verify_release_input_identity(report['input_sha256'], report['shared_teacher'], identity)
         if (report.get('status') != 'completed' or report.get('test_evaluations') != 0
                 or report.get('test_split_loaded') is not False
                 or report.get('best_checkpoint_sha256') != checkpoint_hash

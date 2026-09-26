@@ -100,3 +100,7 @@
 - [P：发布版PromptMM lr6e-5对照](../research/PROMPTMM_LR6E5_THREE_SEED_2026-09-22.md)。
 - [R：第二创新点旧候选路线及前置门](../research/SECOND_INNOVATION_ROUTE.md)，未定稿、未授权启动。
 - [已审阅的Sports正文表述](SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md)；[实验族总导航](../experiments/README.md)；[当前日志](../../TRAINING_LOG.md)。
+
+## 2026-09-26 v2进度更新
+
+[v2审计](../research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V2_AUDIT.md)：Baby发布版三个seed训练及所选状态验证已完成；批次在Sports发布版身份读取失败，所有新Test仍为零。G2/G7/G8最终比较未闭合，但所需新增训练由3次降为0；下一阶段准备复用已有检查点的评价恢复，不能再把三次Baby列作待训练。历史计划按其制定时间理解，其他主张和学位完成条件不变。
