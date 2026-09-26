@@ -6,6 +6,11 @@ Before making experiment recommendations, editing repository files, or running
 project code in this workspace:
 
 - Read this `AGENTS.md` completely.
+- Read the root `README.md` overview, then the short active `TRAINING_LOG.md`.
+  These are the default core context for a new task. Use
+  `docs/experiments/README.md` to select only the relevant evidence family.
+  Do not read full archived logs or every research note at startup. Historical
+  plans and pending declarations are not current task queues or launch authority.
 - Read the active `TRAINING_LOG.md` header/current-state material and the newest
   entries relevant to the task. Use targeted search and bounded sections first;
   read the full historical log only when an older dependency is unresolved or
@@ -21,6 +26,13 @@ project code in this workspace:
 For any training, tuning, or result-comparison task in this repository:
 
 - Treat `TRAINING_LOG.md` as the canonical experiment memory for this repo.
+- The active log carries current state and new append-only entries; verified
+  immutable snapshots under `archive/training/` carry prior detailed records.
+  Search `archive/training/ENTRY_INDEX_2026-09-26.md` by topic/profile first,
+  then read only the indicated source section when historical detail is needed.
+  `docs/experiments/FILES.md` indexes source/documents; `docs/experiments/RUN_RECORDS.md` indexes
+  saved JSON records; `archive/catalog/` contains on-demand raw file inventories.
+  Catalogs are navigation snapshots, not replacements for audited outcomes.
 - Append every completed run and every confirmed parameter change to `TRAINING_LOG.md`.
 - The active experiment path is `codes/main_mmlight.py`.
 - The default argument source for that path is `codes/utility/parser.py`.
@@ -180,4 +192,10 @@ For any repository modification in this workspace:
 - Never slim, replace, or reorganize a canonical log until a verbatim immutable
   snapshot has been created and its byte length and SHA256 have been verified
   and recorded in the new log and archive index.
+- Keep current-state summaries short. Archive only at an explicitly authorized
+  organization task, preserve snapshot bytes and SHA256 (including Git EOL
+  handling), and keep new entries in the active log. Update experiment indexes
+  after completed stages; never move/delete referenced runtime assets merely
+  to make the directory look cleaner. The metadata-only catalog builder is
+  `tools/build_experiment_navigation.py`; it never launches experiments.
 - At task completion, report the branch, commit hash, verification performed, and whether the working tree is clean. If a safe commit is impossible because unrelated user changes overlap the task, preserve those changes and explain the blocker instead of forcing a commit.
