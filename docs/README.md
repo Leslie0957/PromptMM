@@ -5,7 +5,7 @@
 - [正式收尾协议](research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md)：固定配置、Baby预算和新评价入口验收；[资产复用核查](research/INNOVATION1_PROTOCOL_REUSE_AUDIT_2026-09-26.md)；[实验结束更新规范](experiments/RUN_CLOSEOUT.md)。
 - [v1失败审计](research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V1_AUDIT.md)：原串行命令空跑三次Baby入口，在首次预检停止；零新Test。旧[启动页](research/INNOVATION1_FORMAL_CLOSEOUT_LAUNCH_2026-09-26.md)仅供追溯，不能再执行。
 - [v2失败及有效产物审计](research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V2_AUDIT.md)：Baby三次训练有效、v2零Test；[仅评价恢复结果](research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md)完成12项新预检及12项一次性Test。
-- [第一创新点最终主张—正式实验矩阵](paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md)：18格固定主比较Test来源已填；下一步跨来源资格与论文表述复核。
+- [第一创新点最终主张—正式实验矩阵](paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md)：18格固定主比较Test来源已填；[论文主表与表注](paper/INNOVATION1_FIXED_MAIN_TABLE_2026-09-26.md)已整理，[结果冻结清单](research/INNOVATION1_RESULT_FREEZE_CHECKLIST_2026-09-26.md)待执行。
 - [第二创新点候选决策](research/INNOVATION2_CANDIDATE_DECISION_2026-09-26.md)：找回RGCS、复核前置条件及门控假设。
 - [论文完成条件与缺口表](paper/THESIS_COMPLETION_GAPS_2026-09-26.md)：两项创新点、数据集、正式评价及待确认要求。
 - [实验族导航](experiments/README.md)：每类实验的审计入口、失败记录及结论范围。
