@@ -20,7 +20,7 @@ import scipy.sparse as sp
 import torch
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'exp/efficiency/sports_cached_deployment_seed2022_v1'
+OUT = ROOT / 'exp/efficiency/sports_cached_deployment_seed2022_v2'
 PYTHON = Path('D:/miniconda/envs/run_5060/python.exe')
 TRAIN = ROOT / 'data/sports/train_mat'
 TRAIN_SHA = '5361c5486dddbf50084d011278a11d2f18a37e258f87be218b070ff02f4ab0f8'
@@ -461,10 +461,15 @@ def measure_offline(arm, tables, report, path, folder):
 def install_io_guard(output):
     """Fail closed on split reads or writes outside this exclusive result family."""
     output = Path(output).resolve()
+    null_device = Path(os.devnull).resolve()
     def audit(event, args):
         if event != 'open' or not isinstance(args[0], (str, bytes, os.PathLike)):
             return
         path = Path(os.fsdecode(args[0])).resolve()
+        # subprocess/platform metadata legitimately opens the OS null sink
+        # read-write. Permit only this exact device, never a basename/prefix.
+        if path == null_device:
+            return
         if path.name.lower() in ('test_mat', 'val_mat', 'validation_mat', 'test.txt', 'val.txt'):
             raise RuntimeError('Held-out split access forbidden: ' + str(path))
         mode, flags = args[1:3]
