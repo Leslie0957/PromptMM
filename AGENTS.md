@@ -70,6 +70,22 @@ do not require pending/completed entries in `TRAINING_LOG.md`; their Git commit
 is the trace. Repository-policy changes and training-log reorganizations are
 material and must record their own preservation and verification evidence.
 
+## Deterministic Run Record Routing
+
+- When declaring a run/cohort or auditing its outcome, read
+  `docs/experiments/RUN_CLOSEOUT.md`. It defines mandatory versus conditional
+  file updates, the active result-matrix pointers, generated catalogs and the
+  closeout checklist. Do not infer update targets from chat memory.
+- Each new run declaration must include explicit record-update targets:
+  outcome audit path, experiment-family row, active matrix cells/seeds and
+  conditional paper/gap consumers. An old declaration without targets must
+  have them identified in its audit before closeout; this does not authorize
+  any additional execution.
+- Preserve historical records. Update current consumers only when triggered;
+  record unchanged/not-applicable targets with reasons instead of rewriting
+  every past report. Refresh generated navigation after manual edits, then
+  verify and commit the coherent scope as required below.
+
 ## Mandatory Completion Handoff
 
 1. At the start of every task, read this complete `AGENTS.md`, the active log
