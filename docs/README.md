@@ -2,7 +2,7 @@
 
 先读[仓库总览](../README.md)和[当前短日志](../TRAINING_LOG.md)，再按任务展开。
 
-- [协议兼容性与资产复用核查](research/INNOVATION1_PROTOCOL_REUSE_AUDIT_2026-09-26.md)；[实验结束更新规范](experiments/RUN_CLOSEOUT.md)。
+- [正式收尾协议](research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md)：固定配置、Baby预算和新评价入口验收；[资产复用核查](research/INNOVATION1_PROTOCOL_REUSE_AUDIT_2026-09-26.md)；[实验结束更新规范](experiments/RUN_CLOSEOUT.md)。
 - [第一创新点最终主张—正式实验矩阵](paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md)：当前优先级；逐格区分可用、核查、新训练与最终评价。
 - [第二创新点候选决策](research/INNOVATION2_CANDIDATE_DECISION_2026-09-26.md)：找回RGCS、复核前置条件及门控假设。
 - [论文完成条件与缺口表](paper/THESIS_COMPLETION_GAPS_2026-09-26.md)：两项创新点、数据集、正式评价及待确认要求。
