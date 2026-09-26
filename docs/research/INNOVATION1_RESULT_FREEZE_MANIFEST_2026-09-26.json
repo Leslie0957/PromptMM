@@ -1,0 +1,855 @@
+{
+  "identity": "innovation1_fixed_results_18_cells_2026-09-26",
+  "source_root": "D:\\Download\\PromptMM",
+  "paper_table": "docs/paper/INNOVATION1_FIXED_MAIN_TABLE_2026-09-26.md",
+  "shared_asset_ledger_sha256": "b34ee802a104fdfc926479e5123da7aaa064e3f615940fa48c6fd6983bfb717c",
+  "recovery_batch_sha256": "fd4d1bf7eb57678db25e3ba32a818d17ab512c5eaebc6c48ac57d20547f79e0f",
+  "test_cells": {
+    "old_baby": 6,
+    "recovery": 12,
+    "total": 18
+  },
+  "files": [
+    {
+      "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-08-02 11_06_37.355218_baby_light_init_pid17532.pth",
+      "bytes": 20354975,
+      "sha256": "a92fa9d1b070e7e69ade2b80d328b417ea0c0e0b085d8bd324b0936ba380df9d"
+    },
+    {
+      "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-08-02 12_05_26.329228_baby_light_init_pid27620.pth",
+      "bytes": 20354975,
+      "sha256": "5b3c0da2524a3d38a823f750d62e14245056cb05247d07f56e8dbc9224cab370"
+    },
+    {
+      "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-08-02 12_48_21.776381_baby_light_init_pid36572.pth",
+      "bytes": 20354975,
+      "sha256": "b22b4f18c3893818cac17d70161c01a9702ad8f4c03c64c785b6958e75ae7166"
+    },
+    {
+      "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-08-02 13_11_41.705929_baby_light_init_pid4516.pth",
+      "bytes": 20354897,
+      "sha256": "65166779894ea4634026d760f56c09d140e75c7067c7253d66a2b59f9478e36b"
+    },
+    {
+      "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-08-02 15_02_09.238814_baby_light_init_pid33332.pth",
+      "bytes": 20354975,
+      "sha256": "3e550f3bb4c2f6236d90fe65c33c95511db1f62ab12a8c70fa744c39f5b7be23"
+    },
+    {
+      "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-08-02 16_36_39.774993_baby_light_init_pid5916.pth",
+      "bytes": 20354897,
+      "sha256": "b994f6dae7f899b27e8d5a19baccf9225bf8636e31791f98fdae4a217049995f"
+    },
+    {
+      "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-08-02 11_06_37.355218_baby_light_init_pid17532.pth",
+      "bytes": 6785997,
+      "sha256": "7a44b83ddb2aba3da6a91f05477febd06acc237f48ee5e886a2df875b4e311ec"
+    },
+    {
+      "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-08-02 12_05_26.329228_baby_light_init_pid27620.pth",
+      "bytes": 6785997,
+      "sha256": "e7aa155b44526cd172e4c25e5550cc70d356bbee4971a15b3fcaa8cd3371db18"
+    },
+    {
+      "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-08-02 12_48_21.776381_baby_light_init_pid36572.pth",
+      "bytes": 6785997,
+      "sha256": "51bac1a42132a4823fdad78f0868032b4d95012c9b7e2ce71b8e0dc16ec4559b"
+    },
+    {
+      "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-08-02 13_11_41.705929_baby_light_init_pid4516.pth",
+      "bytes": 6785989,
+      "sha256": "af29acbc4ad09f07b734fc020aaf34dd4d96a92b7b66d01ad23fc52eb7cdb6ba"
+    },
+    {
+      "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-08-02 15_02_09.238814_baby_light_init_pid33332.pth",
+      "bytes": 6785997,
+      "sha256": "467ca5d14c8429689783a8bcb11dc1f0f700700969b52cf0260e0927ddbf7a98"
+    },
+    {
+      "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-08-02 16_36_39.774993_baby_light_init_pid5916.pth",
+      "bytes": 6785989,
+      "sha256": "067d203467534d27472364303488df79cad312ee160d146e5766670819899642"
+    },
+    {
+      "path": "Model/baby/teacher_model_val_test_once_v1.pt",
+      "bytes": 141098540,
+      "sha256": "b1c7eb9bb2af741924868a61b758bc4d1e2a7a92c9cf2906bf60a32db9b69bd4"
+    },
+    {
+      "path": "Model/sports/runs/teacher_model_val_test_once_v1__2026-09-16 12_38_48.480698_sports_light_init_pid30708.pt",
+      "bytes": 357779639,
+      "sha256": "57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea"
+    },
+    {
+      "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-17 11_50_42.452019_sports_light_init_pid21216.pth",
+      "bytes": 41444283,
+      "sha256": "6ca67b9c6d2b00e939fafcc0c5296c6710a43c8ccdcc80d6c8d53c3c0472ad0d"
+    },
+    {
+      "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-17 23_49_20.915423_sports_light_init_pid48412.pth",
+      "bytes": 41444283,
+      "sha256": "6278b05d08120b0400cb1ea5efff23311ee390921fb9458bcb809530aa404d49"
+    },
+    {
+      "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-18 09_13_44.833581_sports_light_init_pid40228.pth",
+      "bytes": 41444283,
+      "sha256": "d1a8073af9ef1933704086882125b6e956282bee448993de04e4d8f1a7b57daa"
+    },
+    {
+      "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-24 18_22_52.151219_sports_light_init_pid5012.pth",
+      "bytes": 41444269,
+      "sha256": "d2648d9f1f6c593b8720b27ad226e81152373537f7cb4d3fa18de07acf20b4a2"
+    },
+    {
+      "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-25 00_24_21.134528_sports_light_init_pid35648.pth",
+      "bytes": 41444283,
+      "sha256": "d52756660a06c61c012ea9354ced9d3ae6175f55358df72d6ee68156951d6f9b"
+    },
+    {
+      "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-25 06_25_38.618521_sports_light_init_pid50812.pth",
+      "bytes": 41444283,
+      "sha256": "a9565b2de2cef1de46a28194f8b49d49c018f609727d6f8b843c76acc399ace3"
+    },
+    {
+      "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-17 11_50_42.452019_sports_light_init_pid21216.pth",
+      "bytes": 13815773,
+      "sha256": "9902e8dfc6ec9c39680004ea3fa31839ff27874cea4cf71bdc3dd59e5be8c16a"
+    },
+    {
+      "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-17 23_49_20.915423_sports_light_init_pid48412.pth",
+      "bytes": 13815773,
+      "sha256": "859e94dac1b33a8084b2fc8822ea751f7da73c2ddcefc4ac11778b080072f18f"
+    },
+    {
+      "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-18 09_13_44.833581_sports_light_init_pid40228.pth",
+      "bytes": 13815773,
+      "sha256": "46097fd5e34d5cb12fed4bc84e40e04d12a729025d38f37ffc195262badfa9f5"
+    },
+    {
+      "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-24 18_22_52.151219_sports_light_init_pid5012.pth",
+      "bytes": 13815765,
+      "sha256": "a9d76fd2d9b108097fa1f89e0cbd7c3b5d69eb5539320ffcc74c5b7881a606ef"
+    },
+    {
+      "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-25 00_24_21.134528_sports_light_init_pid35648.pth",
+      "bytes": 13815773,
+      "sha256": "62afda7871f0a5c71c2537f80fc9caf763dc0bdcff9f4453ee0c04763492031b"
+    },
+    {
+      "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-25 06_25_38.618521_sports_light_init_pid50812.pth",
+      "bytes": 13815773,
+      "sha256": "401387dba69a6bab22fe60f029f92891aa6d66e53f2661e9a390974ddf1e1824"
+    },
+    {
+      "path": "data/baby/conversion_manifest.json",
+      "bytes": 4133,
+      "sha256": "cf2d0d8c8aff9b321aad0b11d48d078794d12a4920afaa4c8efedfe3beda9df2"
+    },
+    {
+      "path": "data/baby/hard_token_image_pca_v2_7634bb6e8dcfdbdd.pkl",
+      "bytes": 3610252,
+      "sha256": "187852dca1f62554e2d29714ca363e4a92036e948dddfb6c090a5577b6175c8c"
+    },
+    {
+      "path": "data/baby/hard_token_image_pca_v2_d5fc0cacfae6ae42.pkl",
+      "bytes": 1805452,
+      "sha256": "a5283a467e2621a4b0f65fed23b24a52e16056ae64269a8b35dfe72435f5d9b8"
+    },
+    {
+      "path": "data/baby/hard_token_text_pca_v2_37836fd704363ff6.pkl",
+      "bytes": 903050,
+      "sha256": "27263e5580c6c4980cf53ab2ce62e08ffc6ec3f118c1ed4b1d30723df5ae5fdb"
+    },
+    {
+      "path": "data/baby/hard_token_text_pca_v2_6e7c8161aaeb01f5.pkl",
+      "bytes": 1805450,
+      "sha256": "5e9df184aca47a3c5d96d4db72977878981eca1cf67abba85b06e43528e1e562"
+    },
+    {
+      "path": "data/baby/i_id_mapping.csv",
+      "bytes": 111702,
+      "sha256": "c56ff96cd1f703b6dc8ac4469856a856019ec1577ac243508e3d253f80878bb6"
+    },
+    {
+      "path": "data/baby/image_feat.npy",
+      "bytes": 231014528,
+      "sha256": "36c3be592b98506189a7d5de71b21577cf626f0293b539d861534673b3e9fd70"
+    },
+    {
+      "path": "data/baby/test_mat",
+      "bytes": 251628,
+      "sha256": "773de4f57f2c1bcb6695ea57995280e7cbe114b2b579263a599bb097bb6555ac"
+    },
+    {
+      "path": "data/baby/text_feat.npy",
+      "bytes": 10828928,
+      "sha256": "6667f2ad655c9ecc97cb3383f58988864ef51ec0b39c158b15986c66769f2dc4"
+    },
+    {
+      "path": "data/baby/train_mat",
+      "bytes": 1026584,
+      "sha256": "3cead4c601ccef4c2424cd692951935840ccc8f22df15577ced4e5f3fec37fac"
+    },
+    {
+      "path": "data/baby/u_id_mapping.csv",
+      "bytes": 392164,
+      "sha256": "a80850b8b46008e3bceabdc7ab72ab6e3620616394709daed7d12dc499626b60"
+    },
+    {
+      "path": "data/baby/val_mat",
+      "bytes": 242644,
+      "sha256": "f1458ff1dc28c5371699780270e3a3e270c8f9ce19def3d5e67d4ba9644ce9d2"
+    },
+    {
+      "path": "data/sports/conversion_manifest.json",
+      "bytes": 4158,
+      "sha256": "3772a17c8b70fa4739653534dca8d542e67e0649f1f44ccba4194fec17bc1104"
+    },
+    {
+      "path": "data/sports/hard_token_image_pca_v2_1544b94d9df2b5f1.pkl",
+      "bytes": 9399438,
+      "sha256": "b18fd8b32baeb894c84f6af28db8b383a6ed6dd325c69d7a811f4b2ebe26b37e"
+    },
+    {
+      "path": "data/sports/hard_token_text_pca_v2_801e7998ca2e5b46.pkl",
+      "bytes": 4700044,
+      "sha256": "9574b8342bb24236620e87e9a997c34ac6e522ea47e32cb8d39fc08728d7ad3d"
+    },
+    {
+      "path": "data/sports/i_id_mapping.csv",
+      "bytes": 300971,
+      "sha256": "ac28223c94dbd08106253000c751b1835c479f291eb5b1d6c532457464669e70"
+    },
+    {
+      "path": "data/sports/image_feat.npy",
+      "bytes": 601522304,
+      "sha256": "222f924a0694b6c7e2bc26ea4bc2ef4ec89f7045aa5105ef463af8455c7a7695"
+    },
+    {
+      "path": "data/sports/onboarding_verification.json",
+      "bytes": 3949,
+      "sha256": "2fc84faee11e6b072e68c2f576b786278d22546543ec9edbec91d768c4339342"
+    },
+    {
+      "path": "data/sports/test_mat",
+      "bytes": 463016,
+      "sha256": "0bcc2fbdbc989edf9af37b7bfa73a53895d9e78ee5aed9abb7a36a721b4374ae"
+    },
+    {
+      "path": "data/sports/text_feat.npy",
+      "bytes": 28196480,
+      "sha256": "27d6087f0d8644b8245c60052425530c6446dffe61024b8126db0009ad94de84"
+    },
+    {
+      "path": "data/sports/train_mat",
+      "bytes": 1890060,
+      "sha256": "5361c5486dddbf50084d011278a11d2f18a37e258f87be218b070ff02f4ab0f8"
+    },
+    {
+      "path": "data/sports/u_id_mapping.csv",
+      "bytes": 727460,
+      "sha256": "8ebe5cc874353bf96ad819fe30cb9684f3b15920a497c20a8f06bf2cea172ba0"
+    },
+    {
+      "path": "data/sports/val_mat",
+      "bytes": 445976,
+      "sha256": "1b4224c3fb091ad23a59e0f8a7b58c7b0c959863a7189cfc8b89eeb90a467e03"
+    },
+    {
+      "path": "docs/research/INNOVATION1_REUSE_ASSETS_2026-09-26.json",
+      "bytes": 52810,
+      "sha256": "b34ee802a104fdfc926479e5123da7aaa064e3f615940fa48c6fd6983bfb717c"
+    },
+    {
+      "path": "environment/run_5060-conda-explicit.txt",
+      "bytes": 1691,
+      "sha256": "0c3eedead1aeee9ad1b276dd9c8cb49c4e9076edd030b15e48731b54e2fe708e"
+    },
+    {
+      "path": "environment/run_5060-pip-freeze.txt",
+      "bytes": 892,
+      "sha256": "cd531c7971d4ad0c8c09f6ba5d139b4fc2bd456b4dd90b51b6f6ade9d4a61edd"
+    },
+    {
+      "path": "environment/run_5060-runtime.md",
+      "bytes": 1064,
+      "sha256": "0b7bab25393e2876b183f1c1fb9b6cc3d4270849e212fbc47bbc34afe2af3233"
+    },
+    {
+      "path": "exp/converge/baby/auto__2026-08-02 11_06_37.355218_baby_light_init_pid17532.pkl",
+      "bytes": 25280,
+      "sha256": "3a7a4a4e933e3b7a33fd1a251ab28b81b98ccda5c878b80c8fee61d20dc86a6c"
+    },
+    {
+      "path": "exp/converge/baby/auto__2026-08-02 12_05_26.329228_baby_light_init_pid27620.pkl",
+      "bytes": 12770,
+      "sha256": "bf0c521c9118256b133ec9cfe813af9632ef705b1da32e9801bd2df143e587e0"
+    },
+    {
+      "path": "exp/converge/baby/auto__2026-08-02 12_48_21.776381_baby_light_init_pid36572.pkl",
+      "bytes": 12631,
+      "sha256": "6fab1e8d293eff9be9fe04705fd5238f56fdc4f6d3366e875174f2496423fab4"
+    },
+    {
+      "path": "exp/converge/baby/auto__2026-08-02 13_11_41.705929_baby_light_init_pid4516.pkl",
+      "bytes": 8734,
+      "sha256": "10fd9cf553bb1796ec7738ea79cb6b53e33b1765ac25a96a8ec46a0914dcb712"
+    },
+    {
+      "path": "exp/converge/baby/auto__2026-08-02 15_02_09.238814_baby_light_init_pid33332.pkl",
+      "bytes": 25280,
+      "sha256": "73d771e47e0d22978cd964acfc312158e83478e955abe9dace63408d7207df80"
+    },
+    {
+      "path": "exp/converge/baby/auto__2026-08-02 16_36_39.774993_baby_light_init_pid5916.pkl",
+      "bytes": 10958,
+      "sha256": "a4520cc9d98078515ea253df09a7d15b6524a68b5635c27fbd30a7b83f17cf28"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_eval_recovery_v1/batch.json",
+      "bytes": 20782,
+      "sha256": "fd4d1bf7eb57678db25e3ba32a818d17ab512c5eaebc6c48ac57d20547f79e0f"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_eval_recovery_v1/final_test_b3_2022.log",
+      "bytes": 679,
+      "sha256": "84209e6ab8657847fc22baddc607a966d2e50dafab1f7648e5919aea103c580c"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_eval_recovery_v1/final_test_b3_2023.log",
+      "bytes": 679,
+      "sha256": "25f17b8c6f16b25aadb5e62caeda1bb6f35ef11ffcc0e57c3928bff089000131"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_eval_recovery_v1/final_test_b3_2024.log",
+      "bytes": 679,
+      "sha256": "943c917f5438832d6c10cc9502be142224903396a2115c5584ebda8e3997f34a"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_eval_recovery_v1/final_test_s1_2022.log",
+      "bytes": 120,
+      "sha256": "721c168b04a12d197f7cf1e81ac6b1fd8e061bfe26b49eb6460066bbb0e7e23b"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_eval_recovery_v1/final_test_s1_2023.log",
+      "bytes": 120,
+      "sha256": "e0fe836bab1e3b7fe405d0e28da543f092cd01011db273bee847a55f648af9de"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_eval_recovery_v1/final_test_s1_2024.log",
+      "bytes": 120,
+      "sha256": "078dff5b84934285b564cdf746e0f3e54c951a559c78cd13ab0ad34272b2a8e9"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_eval_recovery_v1/final_test_s2_2022.log",
+      "bytes": 120,
+      "sha256": "81f4ebc317f85ba7127ba3166a1b705d8b75f04fb09107fbcef7df4ea24ac4f4"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_eval_recovery_v1/final_test_s2_2023.log",
+      "bytes": 120,
+      "sha256": "6ca732c45b531d70de3f9d572aa7927c2b4fa59eb9e88af06137c902d90f98ba"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_eval_recovery_v1/final_test_s2_2024.log",
+      "bytes": 120,
+      "sha256": "3397fc8601ecc0bdc28965da3cbe7dff213c82e8d95727aa3428569a1e7c1b9c"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_eval_recovery_v1/final_test_s3_2022.log",
+      "bytes": 679,
+      "sha256": "9d76b76a1e701d0477e095eb09d3cdcee8a92c4742229d2f3bcb7478f4d8189f"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_eval_recovery_v1/final_test_s3_2023.log",
+      "bytes": 679,
+      "sha256": "33819b43226ead5dd4f0254a7ff51b2efde6f6ec9b5dd6a709ffde8b51c8b415"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_eval_recovery_v1/final_test_s3_2024.log",
+      "bytes": 679,
+      "sha256": "d3011b7abbd7d10811c1a29a2409757f22e3c570bc07622c725ff403b04560a4"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_eval_recovery_v1/preflight_b3_2022.log",
+      "bytes": 678,
+      "sha256": "3e961066417963d950ce075f2d7aee7dd6763e52160516f03a50d92ba0787b26"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_eval_recovery_v1/preflight_b3_2023.log",
+      "bytes": 678,
+      "sha256": "7bcde17c4b33fb0aa4271ec4bc79478e54d44c8523991482dcfdb31a984abdec"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_eval_recovery_v1/preflight_b3_2024.log",
+      "bytes": 678,
+      "sha256": "3325e9e6f6ed10eacb2da91b2401cc6155f3bdafdd801753d12f1657c76a358a"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_eval_recovery_v1/preflight_s1_2022.log",
+      "bytes": 119,
+      "sha256": "6fecadb29f8d86227f0ac45166d93d27fc803395212fefa94346052fd6c7dbbe"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_eval_recovery_v1/preflight_s1_2023.log",
+      "bytes": 119,
+      "sha256": "caf63c8843b8c0af064b085354d69b024aacf385d7294a2fae16406eb7c702f7"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_eval_recovery_v1/preflight_s1_2024.log",
+      "bytes": 119,
+      "sha256": "9ba8b9e00835316288dece446a5203486da0c373288206a50fe0c840316a63be"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_eval_recovery_v1/preflight_s2_2022.log",
+      "bytes": 119,
+      "sha256": "dbc3d07ba36c6c72e98ce83fcab91d8d42a6dffe41c21ca97ecbc997f34ff835"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_eval_recovery_v1/preflight_s2_2023.log",
+      "bytes": 119,
+      "sha256": "2e0a1d1b83327b21ee604ef4f7c2c3dc769cfb629063b02fce9bc0415c6a0f33"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_eval_recovery_v1/preflight_s2_2024.log",
+      "bytes": 119,
+      "sha256": "9c0fa2b22fb1f1d695819baabf105a6a16c1d51a3943aac7ff2c73f1a22f5cdf"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_eval_recovery_v1/preflight_s3_2022.log",
+      "bytes": 678,
+      "sha256": "1edb07c6ade97f81b12a82a79ce1d81b8fb5e6e5403e3f4982bfff035f43fc65"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_eval_recovery_v1/preflight_s3_2023.log",
+      "bytes": 678,
+      "sha256": "6c8f22ec7895ed4731cb618cb26a77f6a84893b28b9bb1a1625c50604633c9f0"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_eval_recovery_v1/preflight_s3_2024.log",
+      "bytes": 678,
+      "sha256": "3993cfa7230a6309e2d97a934324f78b19f3dad2eb6498a4d632dbbe5b9ed43d"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_fixed_v1/batch.json",
+      "bytes": 3479,
+      "sha256": "0ce638d4a963de18e521730ee67766da8e8e5643ec7d71b8a140de7886a6fbef"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_fixed_v1/preflight_b3_2022.log",
+      "bytes": 1199,
+      "sha256": "3749e36a3cacfaa8de0927ba24f8791fc7ead17253630eb3824f1250579cb3e8"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_fixed_v1/train_b3_2022.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_fixed_v1/train_b3_2023.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_fixed_v1/train_b3_2024.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_fixed_v2/batch.json",
+      "bytes": 11556,
+      "sha256": "e7febbd5ba054996a53c1dcce96eac5b6f1ab97238bfdee5a61faf5dc167b82f"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_fixed_v2/preflight_b3_2022.log",
+      "bytes": 670,
+      "sha256": "65ace9e6fe356cea3ba3da7746e884c0b36146bb3820a5bbc689b080e6fc60d6"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_fixed_v2/preflight_b3_2023.log",
+      "bytes": 670,
+      "sha256": "7ce12ab24bbf6e0b78693fd0e9043eb33a514e2421ba8e8884c58b23ea30c6e5"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_fixed_v2/preflight_b3_2024.log",
+      "bytes": 670,
+      "sha256": "95bd1f10c24ddbb614145ded3c88e5752e86d46dedc834c76af97893d28a0add"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_fixed_v2/preflight_s1_2022.log",
+      "bytes": 111,
+      "sha256": "58fdb2b3acc166c8962a5a9726d46f16c03662c88480bf0bf9f28c0a035a4367"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_fixed_v2/preflight_s1_2023.log",
+      "bytes": 111,
+      "sha256": "6e5742772575e7819a50a41506687bc9868d05f057b224007a18cb31fa3925fe"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_fixed_v2/preflight_s1_2024.log",
+      "bytes": 111,
+      "sha256": "a9370c340f9d07bc95f043e9f3081220ea5583abc2c8dfc9c5e15ca9f2e27574"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_fixed_v2/preflight_s2_2022.log",
+      "bytes": 111,
+      "sha256": "b02dce29fc1d5742a9fb731f37ba1255fb4533c9c7d35da7345d91274fb271ad"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_fixed_v2/preflight_s2_2023.log",
+      "bytes": 111,
+      "sha256": "6ee6a1f873dc906a0b83b8c499a100de66e8edb35082cef9d368f233206330ef"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_fixed_v2/preflight_s2_2024.log",
+      "bytes": 111,
+      "sha256": "9a405f2f250cbfad2f1581fe5c816c10dacaa53371ebb6c5bac4d990834c1db4"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_fixed_v2/preflight_s3_2022.log",
+      "bytes": 746,
+      "sha256": "24a415c64823dcccfb0fca6404b4a79a886c8374f0899940ea844befdfcc29ab"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_fixed_v2/train_b3_2022.log",
+      "bytes": 1831,
+      "sha256": "f55b23beff83ee44176224b88301e5f34f32efd1bbd3440d54fe3b82c159fb2a"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_fixed_v2/train_b3_2023.log",
+      "bytes": 1832,
+      "sha256": "708e22cfc55126574d10efea1a1e7fe059c9bb98fb9a3b59d13b842631867f38"
+    },
+    {
+      "path": "exp/formal_closeout_cohort/innovation1_fixed_v2/train_b3_2024.log",
+      "bytes": 1905,
+      "sha256": "98bcb8882c360d96bc8201c3996913ee66ea91f659d4702e1c89f35d3e92604d"
+    },
+    {
+      "path": "exp/formal_closeout_eval/innovation1_eval_recovery_v1/b3_2022/report.json",
+      "bytes": 4720,
+      "sha256": "670497bfbe8092b8fb8f57e53b1292fe4b5ae1b8e70a82e4c5a866f8592347bb"
+    },
+    {
+      "path": "exp/formal_closeout_eval/innovation1_eval_recovery_v1/b3_2023/report.json",
+      "bytes": 4729,
+      "sha256": "5bb57a7c196f5af3ccc5ab45ec61d8475c82524e659352a87d876367bd98523b"
+    },
+    {
+      "path": "exp/formal_closeout_eval/innovation1_eval_recovery_v1/b3_2024/report.json",
+      "bytes": 4725,
+      "sha256": "0759cf6a078122d733b830d56d649ec06b4cbfd366f0f8e160e9a0892c025d17"
+    },
+    {
+      "path": "exp/formal_closeout_eval/innovation1_eval_recovery_v1/s1_2022/report.json",
+      "bytes": 4667,
+      "sha256": "d98b132ef76e10eaca216c397abb4b7cab09a34b2c10e84c9f58dcc00de0e417"
+    },
+    {
+      "path": "exp/formal_closeout_eval/innovation1_eval_recovery_v1/s1_2023/report.json",
+      "bytes": 4667,
+      "sha256": "47bfc688f502f73d6ac5f8abc131787a5cac9256459480de37f5f00a934ed874"
+    },
+    {
+      "path": "exp/formal_closeout_eval/innovation1_eval_recovery_v1/s1_2024/report.json",
+      "bytes": 4663,
+      "sha256": "2f6ea3c5045616cbcc5fe4bdd53ce5deb9b514375c3125e367551b8b4df36c51"
+    },
+    {
+      "path": "exp/formal_closeout_eval/innovation1_eval_recovery_v1/s2_2022/report.json",
+      "bytes": 4650,
+      "sha256": "d97dd40f2a461f1223988a2d0ff2e919e0a8d86e46e65961a844570035e6d59f"
+    },
+    {
+      "path": "exp/formal_closeout_eval/innovation1_eval_recovery_v1/s2_2023/report.json",
+      "bytes": 4658,
+      "sha256": "7ee7a875f6ae9b6ba9fa793be071d5d797ca891408a04acfe621a6b14b0a5f7a"
+    },
+    {
+      "path": "exp/formal_closeout_eval/innovation1_eval_recovery_v1/s2_2024/report.json",
+      "bytes": 4665,
+      "sha256": "3c3c8ddcafbc7aeae45f34f45cb17e7c44579a2ebe05c12a9fceaa86ba0d23c2"
+    },
+    {
+      "path": "exp/formal_closeout_eval/innovation1_eval_recovery_v1/s3_2022/report.json",
+      "bytes": 4668,
+      "sha256": "67c72111ba2fa9cf2742a74e8e9cc77f01c99f691d7b75d885ad05098f590762"
+    },
+    {
+      "path": "exp/formal_closeout_eval/innovation1_eval_recovery_v1/s3_2023/report.json",
+      "bytes": 4670,
+      "sha256": "e868e07d96092f4373056b493ae1e0f73e41899b2d634338c0d894ff0780b648"
+    },
+    {
+      "path": "exp/formal_closeout_eval/innovation1_eval_recovery_v1/s3_2024/report.json",
+      "bytes": 4664,
+      "sha256": "5881820c488c2073eeec10883b2ba570df4c9b5c1c086d457fc4717203c8f60d"
+    },
+    {
+      "path": "exp/formal_closeout_preflight/b3_2022/report.json",
+      "bytes": 2427,
+      "sha256": "6bf4cc712f7185b1edd99c58127f3f5763493a0bd7dfba071cb3c45c392a6fed"
+    },
+    {
+      "path": "exp/formal_closeout_preflight/innovation1_eval_recovery_v1/b3_2022/report.json",
+      "bytes": 3818,
+      "sha256": "5435b15dc422170a326a0dee32fc212be712657f56e51d47b9e3186a8b450d95"
+    },
+    {
+      "path": "exp/formal_closeout_preflight/innovation1_eval_recovery_v1/b3_2023/report.json",
+      "bytes": 3826,
+      "sha256": "32d31862bb563333e48f29c102c62783a06a87d5581b6e24a24ebd67ea32817b"
+    },
+    {
+      "path": "exp/formal_closeout_preflight/innovation1_eval_recovery_v1/b3_2024/report.json",
+      "bytes": 3824,
+      "sha256": "05700dfef6d8a901c1bfd6b88e7c00f8cdd6ce4f3502462db6c42c51ab20516a"
+    },
+    {
+      "path": "exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s1_2022/report.json",
+      "bytes": 3764,
+      "sha256": "3b9a79f4597d081a0ea6b56cc528132c16eae777973454337b91fa2f5487c9d3"
+    },
+    {
+      "path": "exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s1_2023/report.json",
+      "bytes": 3766,
+      "sha256": "6e01eeb7af514b49dd3bb0a8031b8ae9b7f1f25875b0d44914df315f60d658b1"
+    },
+    {
+      "path": "exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s1_2024/report.json",
+      "bytes": 3760,
+      "sha256": "83fcf913f285814bef77c17480bd4ead6c6913045f24a8a0312466b59180607f"
+    },
+    {
+      "path": "exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s2_2022/report.json",
+      "bytes": 3752,
+      "sha256": "559b1c6c8a4198813e687be598ad01f7b1470c579b32ec39bb89d52665a2a578"
+    },
+    {
+      "path": "exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s2_2023/report.json",
+      "bytes": 3762,
+      "sha256": "06f9896428f61dc0f447624a63c96d49c203704f2a9fa37d0f383461fb0ce129"
+    },
+    {
+      "path": "exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s2_2024/report.json",
+      "bytes": 3763,
+      "sha256": "478a3fe67b6816f4b48554fe3d5e179203963389ab25512d0a9a9c2b6b6f7f07"
+    },
+    {
+      "path": "exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s3_2022/report.json",
+      "bytes": 3770,
+      "sha256": "a023dae957f9a4399ae1144d48b334ba1e10be7ba18414224d2c4601ca86c040"
+    },
+    {
+      "path": "exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s3_2023/report.json",
+      "bytes": 3771,
+      "sha256": "65aca8ecb3ab36e7e4092c9ea3542a0f75055070ff3cc398fda65255c5d483c0"
+    },
+    {
+      "path": "exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s3_2024/report.json",
+      "bytes": 3769,
+      "sha256": "6f982db35edda6a0ecb4545825500cc4d2c40d58c78d603731a8e12c94ab67e3"
+    },
+    {
+      "path": "exp/formal_closeout_preflight/innovation1_fixed_v2/b3_2022/report.json",
+      "bytes": 3802,
+      "sha256": "ca44fd95e69137af74aa82a71fe0943600d89e88de2b236b4c7fa3bd1eddd58a"
+    },
+    {
+      "path": "exp/formal_closeout_preflight/innovation1_fixed_v2/b3_2023/report.json",
+      "bytes": 3810,
+      "sha256": "85889a9172d966027b11094a50c58413b38aca1256d5bcd96bb447a8b73c70e7"
+    },
+    {
+      "path": "exp/formal_closeout_preflight/innovation1_fixed_v2/b3_2024/report.json",
+      "bytes": 3808,
+      "sha256": "50d831170075294b4ff0d4be477a8760551a72abbddc70004ef5e7eddaa830cf"
+    },
+    {
+      "path": "exp/formal_closeout_preflight/innovation1_fixed_v2/s1_2022/report.json",
+      "bytes": 3748,
+      "sha256": "63596e2d7c6a83085eecee48b6eff589c88d9353478c47efd61b9da49dbab792"
+    },
+    {
+      "path": "exp/formal_closeout_preflight/innovation1_fixed_v2/s1_2023/report.json",
+      "bytes": 3750,
+      "sha256": "3d201c145a61fe3fe6c351bea505ca3b0861dc4ef49dfc070ee46723a0b3f42d"
+    },
+    {
+      "path": "exp/formal_closeout_preflight/innovation1_fixed_v2/s1_2024/report.json",
+      "bytes": 3744,
+      "sha256": "7bc844f97beed3c9b6a5cce7489c775aa1f7a14a9da50d966a3faaaa07d49a8a"
+    },
+    {
+      "path": "exp/formal_closeout_preflight/innovation1_fixed_v2/s2_2022/report.json",
+      "bytes": 3736,
+      "sha256": "642a6f460765ff552140d6c4b8acccf627bdaf4b7ad170dc548c85eef2e23987"
+    },
+    {
+      "path": "exp/formal_closeout_preflight/innovation1_fixed_v2/s2_2023/report.json",
+      "bytes": 3746,
+      "sha256": "36de54fd6c359b316fd19d9561e616ad5ab591df431ba030fa2673807b8a08df"
+    },
+    {
+      "path": "exp/formal_closeout_preflight/innovation1_fixed_v2/s2_2024/report.json",
+      "bytes": 3747,
+      "sha256": "0862a4a124f62208a9e13026234e35efa9d687ff2494bea5bcd9c4e3a7ab5634"
+    },
+    {
+      "path": "exp/formal_closeout_preflight/innovation1_fixed_v2/s3_2022/report.json",
+      "bytes": 2005,
+      "sha256": "5589100c9de6593adcb494a199e18116f9d3343b4af74776c38d18962084df40"
+    },
+    {
+      "path": "exp/promptmm_release/sports_promptmm_release_validation300_seed2022_lr6e5_v1/best.pt",
+      "bytes": 27629405,
+      "sha256": "e32f9907d68874f09f4327a6ccfba8b4c86e1b7c73c7d0a06713f990b6e94e27"
+    },
+    {
+      "path": "exp/promptmm_release/sports_promptmm_release_validation300_seed2022_lr6e5_v1/report.json",
+      "bytes": 411456,
+      "sha256": "84b6a90f2f5510ff22df24dfa2e267d634a4fbb6a260f0500f3062bf48b9ad03"
+    },
+    {
+      "path": "exp/promptmm_release/sports_promptmm_release_validation300_seed2023_lr6e5_v1/best.pt",
+      "bytes": 27629405,
+      "sha256": "9b85a76b655b5107211b59baba5e1325289b38a6cf0c191d25a26cad8166e9da"
+    },
+    {
+      "path": "exp/promptmm_release/sports_promptmm_release_validation300_seed2023_lr6e5_v1/report.json",
+      "bytes": 411406,
+      "sha256": "8ec8b80d9be20c6b6f6e4b3e77e2d8ce5267870490616c1981df65fad17747b4"
+    },
+    {
+      "path": "exp/promptmm_release/sports_promptmm_release_validation300_seed2024_lr6e5_v1/best.pt",
+      "bytes": 27629405,
+      "sha256": "d8589d349cc388a5a1e73ed2517744640571ec59aeae1349eacdafcbd5da27a9"
+    },
+    {
+      "path": "exp/promptmm_release/sports_promptmm_release_validation300_seed2024_lr6e5_v1/report.json",
+      "bytes": 411368,
+      "sha256": "4e51e8ea14f0b1c948f1616ca0664e90f3e30f039dc010a61c167497d2bb8721"
+    },
+    {
+      "path": "exp/promptmm_release_baby/innovation1_fixed_v2/baby_promptmm_release_cap1000_patience7_seed2022_lr6e5_v1/best.pt",
+      "bytes": 13570397,
+      "sha256": "de1cbc51d5150d4b6d42a9a747d9fe14afd58998379eb409a3d030c2934bf3ac"
+    },
+    {
+      "path": "exp/promptmm_release_baby/innovation1_fixed_v2/baby_promptmm_release_cap1000_patience7_seed2022_lr6e5_v1/report.json",
+      "bytes": 19934,
+      "sha256": "53ea4868f6a6109f31a86a590e9d0adb506a4c515085d7067b20868771a73384"
+    },
+    {
+      "path": "exp/promptmm_release_baby/innovation1_fixed_v2/baby_promptmm_release_cap1000_patience7_seed2023_lr6e5_v1/best.pt",
+      "bytes": 13570397,
+      "sha256": "2526c852b2bd3459e11b71a3542dc6407342c8b8c913f4e81a74bb3593323c9f"
+    },
+    {
+      "path": "exp/promptmm_release_baby/innovation1_fixed_v2/baby_promptmm_release_cap1000_patience7_seed2023_lr6e5_v1/report.json",
+      "bytes": 19955,
+      "sha256": "d5edac3a1719c874872735f55ffea87e6eb46831cf054308b77962a350e7189d"
+    },
+    {
+      "path": "exp/promptmm_release_baby/innovation1_fixed_v2/baby_promptmm_release_cap1000_patience7_seed2024_lr6e5_v1/best.pt",
+      "bytes": 13570397,
+      "sha256": "27f8546df27f2a9de4781398595782de7d55a94edefde6571cfb9ecb83b6548d"
+    },
+    {
+      "path": "exp/promptmm_release_baby/innovation1_fixed_v2/baby_promptmm_release_cap1000_patience7_seed2024_lr6e5_v1/report.json",
+      "bytes": 21289,
+      "sha256": "e4140d87c587cfa47801de7c54e6d7d8bd1f9e9f94f5ec858602d9abbebb266e"
+    },
+    {
+      "path": "exp/runs/baby/dataset_preflight__2026-08-02 11_06_37.355218_baby_light_init_pid17532.json",
+      "bytes": 3399,
+      "sha256": "68a02e979391298dcab0b4da73c07879f7085798b00887ef15ee643142d0bbf6"
+    },
+    {
+      "path": "exp/runs/baby/dataset_preflight__2026-08-02 12_05_26.329228_baby_light_init_pid27620.json",
+      "bytes": 3399,
+      "sha256": "8be646a7b71dc787c3146e8077b6163a446da6f833f2e3b0ec1c41d0285f073c"
+    },
+    {
+      "path": "exp/runs/baby/dataset_preflight__2026-08-02 12_48_21.776381_baby_light_init_pid36572.json",
+      "bytes": 3399,
+      "sha256": "b6bd00847ef253a92af07ea162afb9a56903803fe68299be6f65934d38b7b28b"
+    },
+    {
+      "path": "exp/runs/baby/dataset_preflight__2026-08-02 13_11_41.705929_baby_light_init_pid4516.json",
+      "bytes": 3399,
+      "sha256": "12e7ee5f4f20e5335228b2134d86fccca2b618a1e0bd510a1e5f2acbcd98d6db"
+    },
+    {
+      "path": "exp/runs/baby/dataset_preflight__2026-08-02 15_02_09.238814_baby_light_init_pid33332.json",
+      "bytes": 3399,
+      "sha256": "3daac672525f94b5eb3c1bf3143e160aedf5c4943220520002688ed69bed5355"
+    },
+    {
+      "path": "exp/runs/baby/dataset_preflight__2026-08-02 16_36_39.774993_baby_light_init_pid5916.json",
+      "bytes": 3399,
+      "sha256": "0372ab88f7e819f61675125d26646bc879897d65dd932270a8ab321b688a7d0a"
+    },
+    {
+      "path": "exp/runs/baby/run_manifest__2026-08-02 11_06_37.355218_baby_light_init_pid17532.json",
+      "bytes": 24904,
+      "sha256": "56ab1754b5785280ae3f1c837b7828ff5d659e7d315be2e8b37eeb71fe98a911"
+    },
+    {
+      "path": "exp/runs/baby/run_manifest__2026-08-02 12_05_26.329228_baby_light_init_pid27620.json",
+      "bytes": 24963,
+      "sha256": "15bbc9b33594e6b428f2d91dd8a443790d20e9b849bec199dc44e082b946b356"
+    },
+    {
+      "path": "exp/runs/baby/run_manifest__2026-08-02 12_48_21.776381_baby_light_init_pid36572.json",
+      "bytes": 24947,
+      "sha256": "e5fbc3f0136825d4687af12add16f465ae6f6bbad3fe5935be9654e5ffcfdadb"
+    },
+    {
+      "path": "exp/runs/baby/run_manifest__2026-08-02 13_11_41.705929_baby_light_init_pid4516.json",
+      "bytes": 24999,
+      "sha256": "de0baf59683546168535d9a365a901838842b2b7153f16d82cdcbd02fc87e5e3"
+    },
+    {
+      "path": "exp/runs/baby/run_manifest__2026-08-02 15_02_09.238814_baby_light_init_pid33332.json",
+      "bytes": 24950,
+      "sha256": "ef6ec5a22a7c1839cfc673148ca56f4712c27890e79a67809d7806fdc4b516b9"
+    },
+    {
+      "path": "exp/runs/baby/run_manifest__2026-08-02 16_36_39.774993_baby_light_init_pid5916.json",
+      "bytes": 25003,
+      "sha256": "cd108133710cd682f4a7d82dbc945ae5fb4eec4588e68cc762394cc8902735fd"
+    },
+    {
+      "path": "exp/runs/sports/run_manifest__2026-09-17 11_50_42.452019_sports_light_init_pid21216.json",
+      "bytes": 25485,
+      "sha256": "78eceaa381efccdd5f157e6d78f2d5ab0041780e3f62fef861af227ede422254"
+    },
+    {
+      "path": "exp/runs/sports/run_manifest__2026-09-17 23_49_20.915423_sports_light_init_pid48412.json",
+      "bytes": 25486,
+      "sha256": "3a30b6481db36b0580a5364438b72fba0bbd0e2766a633add93d36acc1269be6"
+    },
+    {
+      "path": "exp/runs/sports/run_manifest__2026-09-18 09_13_44.833581_sports_light_init_pid40228.json",
+      "bytes": 25485,
+      "sha256": "844d339aade57867f32434d75939d7971b19a975903c14489598be88bff23d90"
+    },
+    {
+      "path": "exp/runs/sports/run_manifest__2026-09-24 18_22_52.151219_sports_light_init_pid5012.json",
+      "bytes": 26801,
+      "sha256": "d31cf835fd68b575b7312e1328f8e439ad0d459302e65c9587b524ce760d6ddf"
+    },
+    {
+      "path": "exp/runs/sports/run_manifest__2026-09-25 00_24_21.134528_sports_light_init_pid35648.json",
+      "bytes": 26809,
+      "sha256": "d9785ae45b916c5b99ec1501342b8175c74631474e8b4fad216a2386593479a3"
+    },
+    {
+      "path": "exp/runs/sports/run_manifest__2026-09-25 06_25_38.618521_sports_light_init_pid50812.json",
+      "bytes": 26809,
+      "sha256": "81d88af57ca1224ad634170c5cbf702ce27bc509a9a54c44d2f1eb2737e9230d"
+    }
+  ],
+  "total_bytes": 2018503879
+}

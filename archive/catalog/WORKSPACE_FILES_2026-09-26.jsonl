@@ -236,8 +236,8 @@
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 05_34_16.930265_sports_light_init_pid42156.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 08_30_07.418852_sports_light_init_pid30132.pth", "source_catalog": false}
 {"bytes": 432550, "category": "root", "path": "PromptMM.png", "source_catalog": true}
-{"bytes": 5038, "category": "root", "path": "README.md", "source_catalog": true}
-{"bytes": 79559, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
+{"bytes": 5091, "category": "root", "path": "README.md", "source_catalog": true}
+{"bytes": 84318, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
 {"bytes": 739, "category": "archive", "path": "archive/README.md", "source_catalog": true}
 {"bytes": 409, "category": "archive", "path": "archive/run_patent_results/README.md", "source_catalog": true}
 {"bytes": 110276, "category": "archive", "path": "archive/run_patent_results/Result_0409_1319_Photo_a0.1_lr0.001/Result_0409_1319_Photo_a0.1_lr0.001_curve.png", "source_catalog": false}
@@ -259,6 +259,176 @@
 {"bytes": 122, "category": "backups", "path": "backups/PromptMM_baby_teacher_baseline_seed2022_20260730.bundle.sha256", "source_catalog": false}
 {"bytes": 912055, "category": "backups", "path": "backups/PromptMM_baseline_protocol_smoke_20260729.bundle", "source_catalog": false}
 {"bytes": 115, "category": "backups", "path": "backups/PromptMM_baseline_protocol_smoke_20260729.bundle.sha256", "source_catalog": false}
+{"bytes": 1079, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/README.md", "source_catalog": false}
+{"bytes": 20354975, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-08-02 11_06_37.355218_baby_light_init_pid17532.pth", "source_catalog": false}
+{"bytes": 20354975, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-08-02 12_05_26.329228_baby_light_init_pid27620.pth", "source_catalog": false}
+{"bytes": 20354975, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-08-02 12_48_21.776381_baby_light_init_pid36572.pth", "source_catalog": false}
+{"bytes": 20354897, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-08-02 13_11_41.705929_baby_light_init_pid4516.pth", "source_catalog": false}
+{"bytes": 20354975, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-08-02 15_02_09.238814_baby_light_init_pid33332.pth", "source_catalog": false}
+{"bytes": 20354897, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-08-02 16_36_39.774993_baby_light_init_pid5916.pth", "source_catalog": false}
+{"bytes": 6785997, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-08-02 11_06_37.355218_baby_light_init_pid17532.pth", "source_catalog": false}
+{"bytes": 6785997, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-08-02 12_05_26.329228_baby_light_init_pid27620.pth", "source_catalog": false}
+{"bytes": 6785997, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-08-02 12_48_21.776381_baby_light_init_pid36572.pth", "source_catalog": false}
+{"bytes": 6785989, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-08-02 13_11_41.705929_baby_light_init_pid4516.pth", "source_catalog": false}
+{"bytes": 6785997, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-08-02 15_02_09.238814_baby_light_init_pid33332.pth", "source_catalog": false}
+{"bytes": 6785989, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-08-02 16_36_39.774993_baby_light_init_pid5916.pth", "source_catalog": false}
+{"bytes": 141098540, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/Model/baby/teacher_model_val_test_once_v1.pt", "source_catalog": false}
+{"bytes": 357779639, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/Model/sports/runs/teacher_model_val_test_once_v1__2026-09-16 12_38_48.480698_sports_light_init_pid30708.pt", "source_catalog": false}
+{"bytes": 41444283, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-17 11_50_42.452019_sports_light_init_pid21216.pth", "source_catalog": false}
+{"bytes": 41444283, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-17 23_49_20.915423_sports_light_init_pid48412.pth", "source_catalog": false}
+{"bytes": 41444283, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-18 09_13_44.833581_sports_light_init_pid40228.pth", "source_catalog": false}
+{"bytes": 41444269, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-24 18_22_52.151219_sports_light_init_pid5012.pth", "source_catalog": false}
+{"bytes": 41444283, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-25 00_24_21.134528_sports_light_init_pid35648.pth", "source_catalog": false}
+{"bytes": 41444283, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-25 06_25_38.618521_sports_light_init_pid50812.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-17 11_50_42.452019_sports_light_init_pid21216.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-17 23_49_20.915423_sports_light_init_pid48412.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-18 09_13_44.833581_sports_light_init_pid40228.pth", "source_catalog": false}
+{"bytes": 13815765, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-24 18_22_52.151219_sports_light_init_pid5012.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-25 00_24_21.134528_sports_light_init_pid35648.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-25 06_25_38.618521_sports_light_init_pid50812.pth", "source_catalog": false}
+{"bytes": 4133, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/data/baby/conversion_manifest.json", "source_catalog": false}
+{"bytes": 3610252, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/data/baby/hard_token_image_pca_v2_7634bb6e8dcfdbdd.pkl", "source_catalog": false}
+{"bytes": 1805452, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/data/baby/hard_token_image_pca_v2_d5fc0cacfae6ae42.pkl", "source_catalog": false}
+{"bytes": 903050, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/data/baby/hard_token_text_pca_v2_37836fd704363ff6.pkl", "source_catalog": false}
+{"bytes": 1805450, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/data/baby/hard_token_text_pca_v2_6e7c8161aaeb01f5.pkl", "source_catalog": false}
+{"bytes": 111702, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/data/baby/i_id_mapping.csv", "source_catalog": false}
+{"bytes": 231014528, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/data/baby/image_feat.npy", "source_catalog": false}
+{"bytes": 251628, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/data/baby/test_mat", "source_catalog": false}
+{"bytes": 10828928, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/data/baby/text_feat.npy", "source_catalog": false}
+{"bytes": 1026584, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/data/baby/train_mat", "source_catalog": false}
+{"bytes": 392164, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/data/baby/u_id_mapping.csv", "source_catalog": false}
+{"bytes": 242644, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/data/baby/val_mat", "source_catalog": false}
+{"bytes": 4158, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/data/sports/conversion_manifest.json", "source_catalog": false}
+{"bytes": 9399438, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/data/sports/hard_token_image_pca_v2_1544b94d9df2b5f1.pkl", "source_catalog": false}
+{"bytes": 4700044, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/data/sports/hard_token_text_pca_v2_801e7998ca2e5b46.pkl", "source_catalog": false}
+{"bytes": 300971, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/data/sports/i_id_mapping.csv", "source_catalog": false}
+{"bytes": 601522304, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/data/sports/image_feat.npy", "source_catalog": false}
+{"bytes": 3949, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/data/sports/onboarding_verification.json", "source_catalog": false}
+{"bytes": 463016, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/data/sports/test_mat", "source_catalog": false}
+{"bytes": 28196480, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/data/sports/text_feat.npy", "source_catalog": false}
+{"bytes": 1890060, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/data/sports/train_mat", "source_catalog": false}
+{"bytes": 727460, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/data/sports/u_id_mapping.csv", "source_catalog": false}
+{"bytes": 445976, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/data/sports/val_mat", "source_catalog": false}
+{"bytes": 52810, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/docs/research/INNOVATION1_REUSE_ASSETS_2026-09-26.json", "source_catalog": false}
+{"bytes": 1691, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/environment/run_5060-conda-explicit.txt", "source_catalog": false}
+{"bytes": 892, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/environment/run_5060-pip-freeze.txt", "source_catalog": false}
+{"bytes": 1064, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/environment/run_5060-runtime.md", "source_catalog": false}
+{"bytes": 25280, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/converge/baby/auto__2026-08-02 11_06_37.355218_baby_light_init_pid17532.pkl", "source_catalog": false}
+{"bytes": 12770, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/converge/baby/auto__2026-08-02 12_05_26.329228_baby_light_init_pid27620.pkl", "source_catalog": false}
+{"bytes": 12631, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/converge/baby/auto__2026-08-02 12_48_21.776381_baby_light_init_pid36572.pkl", "source_catalog": false}
+{"bytes": 8734, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/converge/baby/auto__2026-08-02 13_11_41.705929_baby_light_init_pid4516.pkl", "source_catalog": false}
+{"bytes": 25280, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/converge/baby/auto__2026-08-02 15_02_09.238814_baby_light_init_pid33332.pkl", "source_catalog": false}
+{"bytes": 10958, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/converge/baby/auto__2026-08-02 16_36_39.774993_baby_light_init_pid5916.pkl", "source_catalog": false}
+{"bytes": 20782, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_eval_recovery_v1/batch.json", "source_catalog": false}
+{"bytes": 679, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_eval_recovery_v1/final_test_b3_2022.log", "source_catalog": false}
+{"bytes": 679, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_eval_recovery_v1/final_test_b3_2023.log", "source_catalog": false}
+{"bytes": 679, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_eval_recovery_v1/final_test_b3_2024.log", "source_catalog": false}
+{"bytes": 120, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_eval_recovery_v1/final_test_s1_2022.log", "source_catalog": false}
+{"bytes": 120, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_eval_recovery_v1/final_test_s1_2023.log", "source_catalog": false}
+{"bytes": 120, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_eval_recovery_v1/final_test_s1_2024.log", "source_catalog": false}
+{"bytes": 120, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_eval_recovery_v1/final_test_s2_2022.log", "source_catalog": false}
+{"bytes": 120, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_eval_recovery_v1/final_test_s2_2023.log", "source_catalog": false}
+{"bytes": 120, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_eval_recovery_v1/final_test_s2_2024.log", "source_catalog": false}
+{"bytes": 679, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_eval_recovery_v1/final_test_s3_2022.log", "source_catalog": false}
+{"bytes": 679, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_eval_recovery_v1/final_test_s3_2023.log", "source_catalog": false}
+{"bytes": 679, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_eval_recovery_v1/final_test_s3_2024.log", "source_catalog": false}
+{"bytes": 678, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_eval_recovery_v1/preflight_b3_2022.log", "source_catalog": false}
+{"bytes": 678, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_eval_recovery_v1/preflight_b3_2023.log", "source_catalog": false}
+{"bytes": 678, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_eval_recovery_v1/preflight_b3_2024.log", "source_catalog": false}
+{"bytes": 119, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_eval_recovery_v1/preflight_s1_2022.log", "source_catalog": false}
+{"bytes": 119, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_eval_recovery_v1/preflight_s1_2023.log", "source_catalog": false}
+{"bytes": 119, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_eval_recovery_v1/preflight_s1_2024.log", "source_catalog": false}
+{"bytes": 119, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_eval_recovery_v1/preflight_s2_2022.log", "source_catalog": false}
+{"bytes": 119, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_eval_recovery_v1/preflight_s2_2023.log", "source_catalog": false}
+{"bytes": 119, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_eval_recovery_v1/preflight_s2_2024.log", "source_catalog": false}
+{"bytes": 678, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_eval_recovery_v1/preflight_s3_2022.log", "source_catalog": false}
+{"bytes": 678, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_eval_recovery_v1/preflight_s3_2023.log", "source_catalog": false}
+{"bytes": 678, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_eval_recovery_v1/preflight_s3_2024.log", "source_catalog": false}
+{"bytes": 3479, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_fixed_v1/batch.json", "source_catalog": false}
+{"bytes": 1199, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_fixed_v1/preflight_b3_2022.log", "source_catalog": false}
+{"bytes": 0, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_fixed_v1/train_b3_2022.log", "source_catalog": false}
+{"bytes": 0, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_fixed_v1/train_b3_2023.log", "source_catalog": false}
+{"bytes": 0, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_fixed_v1/train_b3_2024.log", "source_catalog": false}
+{"bytes": 11556, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_fixed_v2/batch.json", "source_catalog": false}
+{"bytes": 670, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_fixed_v2/preflight_b3_2022.log", "source_catalog": false}
+{"bytes": 670, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_fixed_v2/preflight_b3_2023.log", "source_catalog": false}
+{"bytes": 670, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_fixed_v2/preflight_b3_2024.log", "source_catalog": false}
+{"bytes": 111, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_fixed_v2/preflight_s1_2022.log", "source_catalog": false}
+{"bytes": 111, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_fixed_v2/preflight_s1_2023.log", "source_catalog": false}
+{"bytes": 111, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_fixed_v2/preflight_s1_2024.log", "source_catalog": false}
+{"bytes": 111, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_fixed_v2/preflight_s2_2022.log", "source_catalog": false}
+{"bytes": 111, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_fixed_v2/preflight_s2_2023.log", "source_catalog": false}
+{"bytes": 111, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_fixed_v2/preflight_s2_2024.log", "source_catalog": false}
+{"bytes": 746, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_fixed_v2/preflight_s3_2022.log", "source_catalog": false}
+{"bytes": 1831, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_fixed_v2/train_b3_2022.log", "source_catalog": false}
+{"bytes": 1832, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_fixed_v2/train_b3_2023.log", "source_catalog": false}
+{"bytes": 1905, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_cohort/innovation1_fixed_v2/train_b3_2024.log", "source_catalog": false}
+{"bytes": 4720, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_eval/innovation1_eval_recovery_v1/b3_2022/report.json", "source_catalog": false}
+{"bytes": 4729, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_eval/innovation1_eval_recovery_v1/b3_2023/report.json", "source_catalog": false}
+{"bytes": 4725, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_eval/innovation1_eval_recovery_v1/b3_2024/report.json", "source_catalog": false}
+{"bytes": 4667, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_eval/innovation1_eval_recovery_v1/s1_2022/report.json", "source_catalog": false}
+{"bytes": 4667, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_eval/innovation1_eval_recovery_v1/s1_2023/report.json", "source_catalog": false}
+{"bytes": 4663, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_eval/innovation1_eval_recovery_v1/s1_2024/report.json", "source_catalog": false}
+{"bytes": 4650, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_eval/innovation1_eval_recovery_v1/s2_2022/report.json", "source_catalog": false}
+{"bytes": 4658, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_eval/innovation1_eval_recovery_v1/s2_2023/report.json", "source_catalog": false}
+{"bytes": 4665, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_eval/innovation1_eval_recovery_v1/s2_2024/report.json", "source_catalog": false}
+{"bytes": 4668, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_eval/innovation1_eval_recovery_v1/s3_2022/report.json", "source_catalog": false}
+{"bytes": 4670, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_eval/innovation1_eval_recovery_v1/s3_2023/report.json", "source_catalog": false}
+{"bytes": 4664, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_eval/innovation1_eval_recovery_v1/s3_2024/report.json", "source_catalog": false}
+{"bytes": 2427, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_preflight/b3_2022/report.json", "source_catalog": false}
+{"bytes": 3818, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_preflight/innovation1_eval_recovery_v1/b3_2022/report.json", "source_catalog": false}
+{"bytes": 3826, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_preflight/innovation1_eval_recovery_v1/b3_2023/report.json", "source_catalog": false}
+{"bytes": 3824, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_preflight/innovation1_eval_recovery_v1/b3_2024/report.json", "source_catalog": false}
+{"bytes": 3764, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s1_2022/report.json", "source_catalog": false}
+{"bytes": 3766, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s1_2023/report.json", "source_catalog": false}
+{"bytes": 3760, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s1_2024/report.json", "source_catalog": false}
+{"bytes": 3752, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s2_2022/report.json", "source_catalog": false}
+{"bytes": 3762, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s2_2023/report.json", "source_catalog": false}
+{"bytes": 3763, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s2_2024/report.json", "source_catalog": false}
+{"bytes": 3770, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s3_2022/report.json", "source_catalog": false}
+{"bytes": 3771, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s3_2023/report.json", "source_catalog": false}
+{"bytes": 3769, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s3_2024/report.json", "source_catalog": false}
+{"bytes": 3802, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_preflight/innovation1_fixed_v2/b3_2022/report.json", "source_catalog": false}
+{"bytes": 3810, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_preflight/innovation1_fixed_v2/b3_2023/report.json", "source_catalog": false}
+{"bytes": 3808, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_preflight/innovation1_fixed_v2/b3_2024/report.json", "source_catalog": false}
+{"bytes": 3748, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_preflight/innovation1_fixed_v2/s1_2022/report.json", "source_catalog": false}
+{"bytes": 3750, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_preflight/innovation1_fixed_v2/s1_2023/report.json", "source_catalog": false}
+{"bytes": 3744, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_preflight/innovation1_fixed_v2/s1_2024/report.json", "source_catalog": false}
+{"bytes": 3736, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_preflight/innovation1_fixed_v2/s2_2022/report.json", "source_catalog": false}
+{"bytes": 3746, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_preflight/innovation1_fixed_v2/s2_2023/report.json", "source_catalog": false}
+{"bytes": 3747, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_preflight/innovation1_fixed_v2/s2_2024/report.json", "source_catalog": false}
+{"bytes": 2005, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/formal_closeout_preflight/innovation1_fixed_v2/s3_2022/report.json", "source_catalog": false}
+{"bytes": 27629405, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/promptmm_release/sports_promptmm_release_validation300_seed2022_lr6e5_v1/best.pt", "source_catalog": false}
+{"bytes": 411456, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/promptmm_release/sports_promptmm_release_validation300_seed2022_lr6e5_v1/report.json", "source_catalog": false}
+{"bytes": 27629405, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/promptmm_release/sports_promptmm_release_validation300_seed2023_lr6e5_v1/best.pt", "source_catalog": false}
+{"bytes": 411406, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/promptmm_release/sports_promptmm_release_validation300_seed2023_lr6e5_v1/report.json", "source_catalog": false}
+{"bytes": 27629405, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/promptmm_release/sports_promptmm_release_validation300_seed2024_lr6e5_v1/best.pt", "source_catalog": false}
+{"bytes": 411368, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/promptmm_release/sports_promptmm_release_validation300_seed2024_lr6e5_v1/report.json", "source_catalog": false}
+{"bytes": 13570397, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/promptmm_release_baby/innovation1_fixed_v2/baby_promptmm_release_cap1000_patience7_seed2022_lr6e5_v1/best.pt", "source_catalog": false}
+{"bytes": 19934, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/promptmm_release_baby/innovation1_fixed_v2/baby_promptmm_release_cap1000_patience7_seed2022_lr6e5_v1/report.json", "source_catalog": false}
+{"bytes": 13570397, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/promptmm_release_baby/innovation1_fixed_v2/baby_promptmm_release_cap1000_patience7_seed2023_lr6e5_v1/best.pt", "source_catalog": false}
+{"bytes": 19955, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/promptmm_release_baby/innovation1_fixed_v2/baby_promptmm_release_cap1000_patience7_seed2023_lr6e5_v1/report.json", "source_catalog": false}
+{"bytes": 13570397, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/promptmm_release_baby/innovation1_fixed_v2/baby_promptmm_release_cap1000_patience7_seed2024_lr6e5_v1/best.pt", "source_catalog": false}
+{"bytes": 21289, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/promptmm_release_baby/innovation1_fixed_v2/baby_promptmm_release_cap1000_patience7_seed2024_lr6e5_v1/report.json", "source_catalog": false}
+{"bytes": 3399, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/runs/baby/dataset_preflight__2026-08-02 11_06_37.355218_baby_light_init_pid17532.json", "source_catalog": false}
+{"bytes": 3399, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/runs/baby/dataset_preflight__2026-08-02 12_05_26.329228_baby_light_init_pid27620.json", "source_catalog": false}
+{"bytes": 3399, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/runs/baby/dataset_preflight__2026-08-02 12_48_21.776381_baby_light_init_pid36572.json", "source_catalog": false}
+{"bytes": 3399, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/runs/baby/dataset_preflight__2026-08-02 13_11_41.705929_baby_light_init_pid4516.json", "source_catalog": false}
+{"bytes": 3399, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/runs/baby/dataset_preflight__2026-08-02 15_02_09.238814_baby_light_init_pid33332.json", "source_catalog": false}
+{"bytes": 3399, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/runs/baby/dataset_preflight__2026-08-02 16_36_39.774993_baby_light_init_pid5916.json", "source_catalog": false}
+{"bytes": 24904, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/runs/baby/run_manifest__2026-08-02 11_06_37.355218_baby_light_init_pid17532.json", "source_catalog": false}
+{"bytes": 24963, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/runs/baby/run_manifest__2026-08-02 12_05_26.329228_baby_light_init_pid27620.json", "source_catalog": false}
+{"bytes": 24947, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/runs/baby/run_manifest__2026-08-02 12_48_21.776381_baby_light_init_pid36572.json", "source_catalog": false}
+{"bytes": 24999, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/runs/baby/run_manifest__2026-08-02 13_11_41.705929_baby_light_init_pid4516.json", "source_catalog": false}
+{"bytes": 24950, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/runs/baby/run_manifest__2026-08-02 15_02_09.238814_baby_light_init_pid33332.json", "source_catalog": false}
+{"bytes": 25003, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/runs/baby/run_manifest__2026-08-02 16_36_39.774993_baby_light_init_pid5916.json", "source_catalog": false}
+{"bytes": 25485, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/runs/sports/run_manifest__2026-09-17 11_50_42.452019_sports_light_init_pid21216.json", "source_catalog": false}
+{"bytes": 25486, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/runs/sports/run_manifest__2026-09-17 23_49_20.915423_sports_light_init_pid48412.json", "source_catalog": false}
+{"bytes": 25485, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/runs/sports/run_manifest__2026-09-18 09_13_44.833581_sports_light_init_pid40228.json", "source_catalog": false}
+{"bytes": 26801, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/runs/sports/run_manifest__2026-09-24 18_22_52.151219_sports_light_init_pid5012.json", "source_catalog": false}
+{"bytes": 26809, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/runs/sports/run_manifest__2026-09-25 00_24_21.134528_sports_light_init_pid35648.json", "source_catalog": false}
+{"bytes": 26809, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/runs/sports/run_manifest__2026-09-25 06_25_38.618521_sports_light_init_pid50812.json", "source_catalog": false}
+{"bytes": 36199, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/manifest.json", "source_catalog": false}
 {"bytes": 26887, "category": "codes", "path": "codes/Models.py", "source_catalog": true}
 {"bytes": 26901, "category": "codes", "path": "codes/Models_empower.py", "source_catalog": true}
 {"bytes": 31527, "category": "codes", "path": "codes/Models_mmlight.py", "source_catalog": true}
@@ -383,7 +553,7 @@
 {"bytes": 3177, "category": "docs", "path": "docs/PROMPTMM_RELEASE_VALIDATION300_BATCH.md", "source_catalog": true}
 {"bytes": 4183, "category": "docs", "path": "docs/PROMPTMM_RELEASE_VALIDATION_DIAGNOSTIC.md", "source_catalog": true}
 {"bytes": 2666, "category": "docs", "path": "docs/PROMPTMM_VALIDATION_FAST_PARITY.md", "source_catalog": true}
-{"bytes": 2599, "category": "docs", "path": "docs/README.md", "source_catalog": true}
+{"bytes": 2577, "category": "docs", "path": "docs/README.md", "source_catalog": true}
 {"bytes": 1827, "category": "docs", "path": "docs/SPORTS_GRADIENT_DIAGNOSTIC.md", "source_catalog": true}
 {"bytes": 2087, "category": "docs", "path": "docs/SPORTS_INITIALIZATION_DIAGNOSTIC.md", "source_catalog": true}
 {"bytes": 2554, "category": "docs", "path": "docs/SPORTS_INITIALIZATION_PAIR_SEED2022.md", "source_catalog": true}
@@ -397,10 +567,11 @@
 {"bytes": 3849, "category": "docs", "path": "docs/SPORTS_TEACHER_VALIDATION120_V1.md", "source_catalog": true}
 {"bytes": 100432, "category": "docs", "path": "docs/baselines/ASSET_MANIFEST_2026-07-29.csv", "source_catalog": true}
 {"bytes": 2893, "category": "docs", "path": "docs/baselines/README.md", "source_catalog": true}
-{"bytes": 7230, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
+{"bytes": 7122, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
 {"bytes": 7207, "category": "docs", "path": "docs/experiments/RUN_CLOSEOUT.md", "source_catalog": true}
 {"bytes": 13351, "category": "docs", "path": "docs/paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md", "source_catalog": true}
-{"bytes": 5131, "category": "docs", "path": "docs/paper/INNOVATION1_FIXED_MAIN_TABLE_2026-09-26.md", "source_catalog": true}
+{"bytes": 5335, "category": "docs", "path": "docs/paper/INNOVATION1_FIXED_MAIN_TABLE_2026-09-26.md", "source_catalog": true}
+{"bytes": 1928, "category": "docs", "path": "docs/paper/README.md", "source_catalog": true}
 {"bytes": 14769, "category": "docs", "path": "docs/paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md", "source_catalog": true}
 {"bytes": 15401, "category": "docs", "path": "docs/paper/THESIS_COMPLETION_GAPS_2026-09-26.md", "source_catalog": true}
 {"bytes": 239530, "category": "docs", "path": "docs/research/BABY_IMAGE_ONLY_CURVES_2026-09-15.png", "source_catalog": true}
@@ -416,7 +587,9 @@
 {"bytes": 11113, "category": "docs", "path": "docs/research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md", "source_catalog": true}
 {"bytes": 2959, "category": "docs", "path": "docs/research/INNOVATION1_FORMAL_CLOSEOUT_V2_LAUNCH_2026-09-26.md", "source_catalog": true}
 {"bytes": 9199, "category": "docs", "path": "docs/research/INNOVATION1_PROTOCOL_REUSE_AUDIT_2026-09-26.md", "source_catalog": true}
-{"bytes": 4999, "category": "docs", "path": "docs/research/INNOVATION1_RESULT_FREEZE_CHECKLIST_2026-09-26.md", "source_catalog": true}
+{"bytes": 5104, "category": "docs", "path": "docs/research/INNOVATION1_RESULT_FREEZE_AUDIT_2026-09-26.md", "source_catalog": true}
+{"bytes": 5376, "category": "docs", "path": "docs/research/INNOVATION1_RESULT_FREEZE_CHECKLIST_2026-09-26.md", "source_catalog": true}
+{"bytes": 36199, "category": "docs", "path": "docs/research/INNOVATION1_RESULT_FREEZE_MANIFEST_2026-09-26.json", "source_catalog": true}
 {"bytes": 52810, "category": "docs", "path": "docs/research/INNOVATION1_REUSE_ASSETS_2026-09-26.json", "source_catalog": true}
 {"bytes": 31019, "category": "docs", "path": "docs/research/INNOVATION1_REVIEW_AND_EXPERIMENT_PLAN_2026-09-14.md", "source_catalog": true}
 {"bytes": 32872, "category": "docs", "path": "docs/research/INNOVATION1_THESIS_EVIDENCE_2026-09-15.md", "source_catalog": true}
@@ -1096,6 +1269,7 @@
 {"bytes": 8612, "category": "tools", "path": "tools/diagnose_sports_initialization.py", "source_catalog": true}
 {"bytes": 11920, "category": "tools", "path": "tools/diagnose_sports_matched_target_direction.py", "source_catalog": true}
 {"bytes": 12293, "category": "tools", "path": "tools/diagnose_sports_weighted_directions.py", "source_catalog": true}
+{"bytes": 10763, "category": "tools", "path": "tools/freeze_innovation1_results.py", "source_catalog": true}
 {"bytes": 8919, "category": "tools", "path": "tools/run_innovation1_eval_recovery.py", "source_catalog": true}
 {"bytes": 11267, "category": "tools", "path": "tools/run_innovation1_formal_closeout.py", "source_catalog": true}
 {"bytes": 15714, "category": "tools", "path": "tools/run_sports_cached_deployment.py", "source_catalog": true}

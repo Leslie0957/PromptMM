@@ -25,3 +25,5 @@
 - Baby 发布版适配三格来自 v2 训练的所选 `best.pt` 和[仅评价恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md)的 B3 最终报告；Sports 九格来自同一审计的 S1/S2/S3 最终报告。恢复批次 `exp/formal_closeout_cohort/innovation1_eval_recovery_v1/batch.json` SHA256 为 `fd4d1bf7eb57678db25e3ba32a818d17ab512c5eaebc6c48ac57d20547f79e0f`；该审计列出 12 份最终报告及 12 份预检报告的逐文件 SHA256、Test 时间顺序和选中/被测检查点一致性。
 - 共同 Train/Validation/Test 与教师身份、九个 Sports 来源见[共享资产账本](../research/INNOVATION1_REUSE_ASSETS_2026-09-26.json)，账本 SHA256 为 `b34ee802a104fdfc926479e5123da7aaa064e3f615940fa48c6fd6983bfb717c`。协议兼容范围见[复用核查](../research/INNOVATION1_PROTOCOL_REUSE_AUDIT_2026-09-26.md)及[正式矩阵](INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md)。机制证据和部署边界见[正文草稿](SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md)。
 - 18 格是 Test **结果格**，并非 18 次新训练；原 Baby 6 格没有因本表再次访问 Test。此页是论文可用表稿，不代表标签、standalone bundle 或忽略资产的物理冻结已经完成；执行清单见[结果冻结清单](../research/INNOVATION1_RESULT_FREEZE_CHECKLIST_2026-09-26.md)。
+
+后续本机文件保存与逐项校验见[结果快照审计](../research/INNOVATION1_RESULT_FREEZE_AUDIT_2026-09-26.md)。上一条保留表稿形成时的状态；本机快照不等于异机备份。
