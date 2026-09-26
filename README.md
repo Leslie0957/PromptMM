@@ -7,7 +7,7 @@
 
 当前阶段：Sports文本方向机制对照及缓存部署效率审计已完成，正在整理论文材料。
 Baby既有三种子正式结果及审计例外继续保留。没有待自动执行的实验；旧文档的“下一步”不是当前授权。
-实际实验运行继续由用户手动执行。第一点原串行批次已在首次预检失败：[失败审计](docs/research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V1_AUDIT.md)确认三次Baby训练均未真正启动、没有新Test。入口已修复并通过无Test检查，原命令不可重跑；后续需新的恢复声明和授权。
+实际实验运行继续由用户手动执行。第一点原串行批次已在首次预检失败：[失败审计](docs/research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V1_AUDIT.md)确认三次Baby训练均未真正启动、没有新Test。原命令不可重跑；[v2恢复批次](docs/research/INNOVATION1_FORMAL_CLOSEOUT_V2_LAUNCH_2026-09-26.md)已隔离路径并完成无Test准备，尚待单独运行授权。
 
 **写作状态：可以开始第一创新点的阶段性写作，整篇论文证据尚未闭合。** 第二创新点尚未确定并完成实验；Baby正式Test与Sports相关Validation结果不能视为两套同等完整的正式验证。[论文完成条件与缺口表](docs/paper/THESIS_COMPLETION_GAPS_2026-09-26.md)已整理；[门控候选决策单](docs/research/INNOVATION2_CANDIDATE_DECISION_2026-09-26.md)已完成，找回RGCS旧方案但未选定或实现。用户现决定优先收尾第一创新点，第二点及门控诊断设计暂缓。先读[第一创新点正式矩阵](docs/paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md)、[正式收尾协议](docs/research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md)和[失败审计](docs/research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V1_AUDIT.md)；固定配置收尾缺口仍为3次Baby训练和12次最终Test。
 

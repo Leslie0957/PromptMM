@@ -33,6 +33,14 @@ class PreparationContracts(unittest.TestCase):
         self.assertEqual(spec['run_id'], baby.run_identity(2022))
         self.assertEqual(spec['config']['seed'], 2022)
         self.assertEqual(spec['test_evaluations'], 0)
+        recovery = subprocess.run(
+            [sys.executable, '-B', str(ROOT/'codes/promptmm_release_baby_formal.py'),
+             '--baby_release_formal', '--seed', '2022', '--cohort-id',
+             'innovation1_fixed_v2', '--describe'],
+            cwd=ROOT, text=True, capture_output=True, check=True)
+        recovery_spec = json.loads(recovery.stdout)
+        self.assertEqual(recovery_spec['cohort_id'], 'innovation1_fixed_v2')
+        self.assertEqual(recovery_spec['config'], spec['config'])
 
     def test_selected_td_and_release_states_without_test(self):
         from promptmm_release import ReleaseStudent
@@ -201,6 +209,47 @@ class PreparationContracts(unittest.TestCase):
                          ['final_test_once'] * 12)
         self.assertEqual(len({s['name'] for s in steps}), 27)
         self.assertEqual(set(evaluator.SLOTS), set(cohort.SLOTS))
+        recovery = cohort.plan('innovation1_fixed_v2')
+        self.assertEqual(len(recovery), 27)
+        self.assertTrue(all(step['command'][-2:] ==
+                            ['--cohort-id', 'innovation1_fixed_v2'] for step in recovery))
+        self.assertEqual([step['phase'] for step in recovery],
+                         [step['phase'] for step in steps])
+
+    def test_v2_output_paths_do_not_collide_with_preserved_v1(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            v1 = root/'exp/formal_closeout_preflight/b3_2022'
+            v1.mkdir(parents=True)
+            with patch.object(cohort, 'ROOT', root):
+                cohort.check_expected_absent('innovation1_fixed_v2')
+                v2 = root/'exp/formal_closeout_preflight/innovation1_fixed_v2/b3_2022'
+                v2.mkdir(parents=True)
+                with self.assertRaises(FileExistsError):
+                    cohort.check_expected_absent('innovation1_fixed_v2')
+            self.assertTrue(v1.is_dir())
+
+    def test_v2_rejects_drift_or_new_v1_test_attempt(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            batch = root/'exp/formal_closeout_cohort/innovation1_fixed_v1/batch.json'
+            preflight = root/'exp/formal_closeout_preflight/b3_2022/report.json'
+            batch.parent.mkdir(parents=True)
+            preflight.parent.mkdir(parents=True)
+            batch.write_bytes(b'preserved batch fixture')
+            preflight.write_bytes(b'preserved preflight fixture')
+            with patch.object(cohort, 'ROOT', root), \
+                 patch.object(cohort, 'V1_BATCH_SHA256', cohort.sha256(batch)), \
+                 patch.object(cohort, 'V1_PREFLIGHT_SHA256', cohort.sha256(preflight)):
+                cohort.check_v1_recovery_anchor()
+                test_attempt = root/'exp/formal_closeout_eval/b3_2022'
+                test_attempt.mkdir(parents=True)
+                with self.assertRaisesRegex(RuntimeError, 'Unexpected v1 Test attempt'):
+                    cohort.check_v1_recovery_anchor()
+                test_attempt.rmdir()
+                batch.write_bytes(b'changed')
+                with self.assertRaisesRegex(RuntimeError, 'artifact drift'):
+                    cohort.check_v1_recovery_anchor()
 
     def test_serial_runner_stops_before_next_step_on_failure(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -284,7 +333,7 @@ class PreparationContracts(unittest.TestCase):
             for name in ('formal_closeout_eval.py', 'promptmm_release.py',
                          'promptmm_release_validation.py'):
                 (root/'codes'/name).write_text('# fixture evaluator source')
-            source_dir = root/'exp/promptmm_release_baby/baby_promptmm_release_cap1000_patience7_seed2022_lr6e5_v1'
+            source_dir = root/'exp/promptmm_release_baby/innovation1_fixed_v2/baby_promptmm_release_cap1000_patience7_seed2022_lr6e5_v1'
             source_dir.mkdir(parents=True)
             train = sp.csr_matrix(([1.], ([0], [0])), shape=(2, 70))
             val = sp.csr_matrix(([1.], ([0], [1])), shape=(2, 70))
@@ -296,6 +345,7 @@ class PreparationContracts(unittest.TestCase):
             ue, ie = torch.zeros(2, 64), torch.zeros(70, 64)
             expected_val, _ = evaluator.evaluate_embeddings(ue, ie, train, val)
             source = dict(status='validation_completed', dataset='baby',
+                          cohort_id='innovation1_fixed_v2',
                           identity='PromptMM-release-Baby-sharedTeacher-v1',
                           config={'learning_rate': 6e-5}, early_stopping_patience=7,
                           epochs_cap=1000, test_evaluations=0, test_split_loaded=False,
@@ -313,9 +363,10 @@ class PreparationContracts(unittest.TestCase):
             ledger = {'baby_existing_formal': [{'data_identity': identity}]}
             ledger_path = root/'docs/research/INNOVATION1_REUSE_ASSETS_2026-09-26.json'
             ledger_path.write_text(json.dumps(ledger), encoding='utf-8')
-            preflight_dir = root/'exp/formal_closeout_preflight/b3_2022'
+            preflight_dir = root/'exp/formal_closeout_preflight/innovation1_fixed_v2/b3_2022'
             preflight_dir.mkdir(parents=True)
             preflight = {'status': 'passed', 'launch_commit': 'fixture-head',
+                         'cohort_id': 'innovation1_fixed_v2',
                          'ledger_sha256': evaluator.sha256(ledger_path),
                          'source_sha256': evaluator.sha256(source_dir/'report.json'),
                          'selected_checkpoint_sha256': source['best_checkpoint_sha256'],
@@ -330,14 +381,14 @@ class PreparationContracts(unittest.TestCase):
                  patch.object(torch.cuda, 'get_device_name', return_value='fixture'), \
                  patch.object(torch, 'device', return_value=torch.device('cpu')):
                 with contextlib.redirect_stdout(io.StringIO()), self.assertRaises(FileNotFoundError):
-                    evaluator.run('b3_2022', 'final-test-once')
-                result = json.loads((root/'exp/formal_closeout_eval/b3_2022/report.json').read_text())
+                    evaluator.run('b3_2022', 'final-test-once', cohort_id='innovation1_fixed_v2')
+                result = json.loads((root/'exp/formal_closeout_eval/innovation1_fixed_v2/b3_2022/report.json').read_text())
                 self.assertEqual(result['status'], 'failed')
                 self.assertTrue(result['test_access_started'], result['error'])
                 self.assertEqual(result['student_test_attempts'], 1)
                 self.assertFalse(result['test_split_loaded'])
                 with self.assertRaises(FileExistsError):
-                    evaluator.run('b3_2022', 'final-test-once')
+                    evaluator.run('b3_2022', 'final-test-once', cohort_id='innovation1_fixed_v2')
 
 
 if __name__ == '__main__':
