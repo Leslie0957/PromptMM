@@ -2,11 +2,11 @@
 
 日期：2026-09-26；来源基点`09b1251`。用户已决定优先收尾第一创新点，第二创新点及门控诊断设计暂缓。本表是收尾方案与证据分类；执行前边界另见正式收尾协议，逐次运行仍需独立声明。所有新训练、Test及重试仍需明确授权，由用户执行。
 
-> 后续核查已完成：[协议兼容性与资产复用](../research/INNOVATION1_PROTOCOL_REUSE_AUDIT_2026-09-26.md)。Sports9个所选checkpoint身份检查通过，支持不重训的独立评价路线。固定配置范围内Baby三次训练已完成，缺口现为Baby3＋Sports9次最终Test及修复源码下预检。v1串行尝试因Baby直接入口空跑而失败，未产生任何新训练或Test；详见[失败审计](../research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V1_AUDIT.md)。预算/配置选择边界见下方执行前协议；非充分调优保证、非执行授权。下表原R项由该审计逐项承接。
+> 后续核查已完成：[协议兼容性与资产复用](../research/INNOVATION1_PROTOCOL_REUSE_AUDIT_2026-09-26.md)。Sports9个所选checkpoint身份检查通过；v2 Baby三次训练已完成，[仅评价恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md)补齐 Baby3＋Sports9 次最终 Test。v1串行尝试因Baby直接入口空跑而失败，未产生任何新训练或Test；详见[失败审计](../research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V1_AUDIT.md)。预算/配置选择边界见下方执行前协议；固定配置表不等于充分调优保证。下表原R项由审计逐项承接。
 
 > 执行前方案已写入[正式收尾协议](../research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md)：采用固定配置比较，Baby发布版cap1000/patience7，新增隔离评价入口须先过无Test验收。它未改变下表已有格子的结果状态，也未授权训练或Test。
 
-> v1、v2串行批次均已停止；[v2审计](../research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V2_AUDIT.md)保留三次有效Baby训练和九项已通过的预检，未产生新Test。[仅评价恢复声明](../research/INNOVATION1_EVAL_RECOVERY_V1_LAUNCH_2026-09-26.md)已准备，尚无新Validation/Test结果，以下格子状态不变；执行需独立授权。
+> v1、v2串行失败与有效中间产物均保留；[v2审计](../research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V2_AUDIT.md)保留 Baby 训练，[恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md)记录 12 项全新预检和 12 项最终 Test。历史来源记录不重写，后续不得依 Test 重选配置。
 
 ## 1. 状态和范围
 
@@ -23,41 +23,41 @@
 | ID | 保留主张 | 当前证据与级别 | 正式收尾条件 |
 |---|---|---|---|
 | C1 | 训练借助教师图文方向，推理仅用ID表 | A：源码/导出审计；已有方法段 | 最终正文逐项标清继承与改动；与最接近工作核对新意，不能称新MSE损失 |
-| C2 | 在所测配置下对固定BPR有质量收益 | A：Baby三seed正式Test；Sports三seedVal；不是强基线全面胜出 | 完成下表公平主比较与Sports正式结果，按实际正负结果写，不能事前承诺两数据集都赢 |
+| C2 | 在所测配置下对固定BPR有质量收益 | A：Baby与Sports各三seed正式Test；不是强基线全面胜出 | 跨来源资格和论文表述尚须复核；结果限固定配置，不扩展为统计显著或全部基线优势 |
 | C3 | 随机ID、固定图像系数和预算下，文本项有验证收益 | A：Baby固定120三对Val、Sports严格300三对Val | 保留为Validation组件证据，当前不要求把该主张升级为Test收益 |
 | C4 | 真实文本残差优于所测几何匹配随机残差 | A：Sports三对Val、同初值/批次/语义与近似初始梯度尺度 | 限定Sports/300轮及所测随机残差；不声称唯一自然语言语义因果机制 |
 | C5 | 暖启动的增量蒸馏收益有边界 | A：Sports seed2022 Full/BPR及初始指标 | 作为单seed适用范围分析，不外推普遍无效，不强制扩展种子 |
 | C6 | ID表结构简化及所测离线生成成本降低 | A：Sports缓存教师/Full/BPR公平效率 | 保留离线阶段结论及在线无一致优势；不写无损压缩/普遍在线加速 |
-| C7 | 方法相对直接已有方案的得失 | A：Sports发布版lr6e-5高于Full；R：Baby缺直接对照、正式表未齐 | 保留负结果，建立公平比较；贡献成立不以所有指标必须第一为条件 |
+| C7 | 方法相对直接已有方案的得失 | A：两数据集固定主比较有Test；Sports发布版高于Full，Baby发布版均值略低于Full | 保留双向结果及初始化、结构和配置选择差异；不将其解释为单因素效应 |
 
 不保留为结论：SOTA、全面超过PromptMM、非对称/无投影最优、用户监督必然有害、所有初始化都受益、统计显著、充分收敛、教师缓存下独有在线优势。因此不默认补投影/四头/text-only全扫描或第三数据集。主张改变时才重新评估所需实验。
 
 ## 3. 正式主比较矩阵：逐种子格子
 
-目标是最终形成2数据集×3方法×3学生seed的18个**结果格子**，不是授权18次训练。评价拟沿用Validation Recall@20选模，并报告同一检查点的Test Recall/NDCG@20及逐seed、均值/样本SD；具体预算、配置选择和Test程序尚待下一阶段冻结。
+固定主比较现有2数据集×3方法×3学生seed的18个**Test结果格子**，不是18次新训练。本次新补的12格均由原 Validation Recall@20 所选同一检查点评价；逐seed和均值/样本SD见[恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md)，B1/B2 的原正式 Test 仍以 Baby 总册为准。两数据集预算不同，正式表跨来源资格与文稿表述待只读复核。
 
 | 格子组 | 方法 | seed2022 | seed2023 | seed2024 | 复用边界与缺失工作 |
 |---|---|---|---|---|---|
 | B1 | Baby BPR | **A**：原正式Test | **A**：原正式Test | **A**：原正式Test | 采用Baby总册白名单的08-02三运行；固定配置证据可用。进入最终公平表须过R1/R2 |
 | B2 | Baby Full | **A**：原正式Test | **A**：原正式Test | **A**：原正式Test | 同上；不得用09-15 Val诊断或更早重复运行择优替换。改预算时不能冒充原协议 |
-| B3 | Baby PromptMM-release共享教师适配 | **M-评价**：Val0.065426293943，最佳epoch2 | **M-评价**：Val0.065529148147，最佳epoch2 | **M-评价**：Val0.065297726187，最佳epoch3 | [v2审计](../research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V2_AUDIT.md)：三次训练有效、Baby预检全过；批次后续S3身份读取失败，零Test。复用既有best.pt，不重训 |
-| S1 | Sports BPR | **M-评价**：有Val，无最终Test | **M-评价**：有Val，无最终Test | **M-评价**：有Val，无最终Test | 历史300轮三seed；checkpoint复用与公平配置资格为R1–R3。若不通过，才新增训练 |
-| S2 | Sports Full | **M-评价**：有Val，无最终Test | **M-评价**：有Val，无最终Test | **M-评价**：有Val，无最终Test | 有历史300、严格配对与real重复组。优先核查严格Full/image组的Full作为固定来源，不能逐seed择优拼接 |
-| S3 | Sports PromptMM-release共享教师适配 | **M-评价**：有Val，无最终Test | **M-评价**：有Val，无最终Test | **M-评价**：有Val，无最终Test | lr2e-5与6e-5三seed已审计；建议以验证较优的6e-5为待冻结候选，同时保留另一配置。不再用较弱配置代表唯一PromptMM结论；资格需R1–R3 |
+| B3 | Baby PromptMM-release共享教师适配 | **A**：Test R/N@20 0.065212928/0.028833987 | **A**：0.064985792/0.028764021 | **A**：0.064917222/0.028767068 | [恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md)：复用 v2 三个 best.pt，Test 各一次；均值 R0.065038648，略低于既有 Full 均值 |
+| S1 | Sports BPR | **A**：0.044253801/0.022405469 | **A**：0.045681350/0.023116953 | **A**：0.042925465/0.022272670 | 历史300轮三seed所选状态；[恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md)，均值 R0.044286872 |
+| S2 | Sports Full | **A**：0.082653464/0.039671728 | **A**：0.082831767/0.039488463 | **A**：0.083239127/0.039600124 | 固定严格Full/image组的Full来源；[恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md)，均值 R0.082908119 |
+| S3 | Sports PromptMM-release共享教师适配 | **A**：0.089861155/0.043010790 | **A**：0.089998937/0.042965309 | **A**：0.089945429/0.042897203 | 预先固定 lr6e-5 来源；[恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md)，均值 R0.089935173，高于 Full；保留另一个 LR 的既有 Val 记录 |
 
-**上述建议范围内：6个格子有原正式Test；3个Baby发布版格子已完成训练、缺最终评价；9个Sports格子仍缺最终评价。** 当前固定配置下没有已确定的新增训练需求。所有M均表示缺口，不是已授权命令。
+**上述固定范围内18格已有 Test 来源：Baby B1/B2 共6格沿用原正式记录，新 B3/S1/S2/S3 共12格来自恢复批次。** 技术评价缺格已关闭；跨来源论证、相关工作定位和论文充分性仍待核查。低值及对照优势均保留，不因排序追加训练。
 
 ### 正式表之前必须通过的核查
 
 | ID | 状态 | 核查对象 | 通过标准 / 不通过处理 |
 |---|---|---|---|
-| R1 | **方案已定，待执行核验** | 两数据集的预算、停止规则、初始化、教师/数据身份和候选排除 | 保留Baby历史cap1000/patience7与Sports300原组；Baby新增release按执行前协议cap1000/patience7，数据集间预算差异披露。实际入口须通过源语义/身份核验 |
+| R1 | **执行身份已核验，跨来源表述待复核** | 两数据集的预算、停止规则、初始化、教师/数据身份和候选排除 | Baby历史cap1000/patience7与Sports300原组并列并披露预算差异；恢复批次12格来源/哈希/重放已通过，不改变原六格资格 |
 | R2 | **固定配置边界已定** | BPR/Full/发布版各自配置选择及调参机会 | 固定配置表、不称充分调优；Sports发布版lr6e-5取已见Val，Baby发布版只迁移此配置，不根据Baby Test调参；扩展调参须新协议与工作量 |
-| R3 | **6/9 Sports预检已通过** | Sports所选checkpoint可否独立最终评价 | S1/S2各三项Val重放误差为0；S3首项因身份字段读取失败，尚未排名，修复后仍需12项同源码新预检。原Validation-only manifest不改成正式完成 |
-| R4 | **Baby三次训练已完成** | Baby发布版适配能力和身份 | v2训练及Baby预检通过；三个best.pt哈希核对，尚缺最终Test |
+| R3 | **9/9 Sports新预检与Test已通过** | Sports所选checkpoint可否独立最终评价 | S1/S2/S3各三项Val重放误差0、同检查点一次 Test；原 Validation-only manifest 不改写 |
+| R4 | **Baby三次训练与Test已完成** | Baby发布版适配能力和身份 | v2 三个 best.pt 哈希核对，恢复批次各一次 Test；不重训或改选模 |
 | R5 | **需要核查** | 创新定位与主表基线充分性 | 核对原方法及相关工作，确认“监督配方/训练机制与部署边界”的贡献能否成立；是否需额外相关基线取决于最终主张及导师要求。本次不认证新颖性，不擅自把三方法表当学位充分条件 |
 
-v2已对Baby三项和Sports S1/S2六项真实重放Validation；修复后的源码尚未重新预检，S3三项及全部Test仍未完成。
+v2 原预检保留为历史证据；修复源码下12项预检及最终Test均由独立恢复批次完成，详见审计。后续只读复核完整18格的跨来源表格资格。
 
 ## 4. 辅助证据矩阵：不再自动补跑
 
@@ -87,7 +87,7 @@ Baby原Image-0.3的2022/2023 Test Recall略高于Full，2024明显低；均值�
 ## 6. 完成顺序与停止条件
 
 1. 已完成[协议兼容性与复用核查](../research/INNOVATION1_PROTOCOL_REUSE_AUDIT_2026-09-26.md)及[正式收尾协议](../research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md)。R5作为文献定位待办保留，不让它被矩阵存在掩盖。
-2. Baby三项训练已完成；v2批次在S3身份读取处失败且不可重跑。评价入口已修复并通过无Test工程检查；恢复需新声明、独立路径和用户授权，修复源码下12项真实Val预检仍须全部先于Test。
+2. Baby三项训练由 v2 完成，v2 失败原记录保留；独立恢复批次已完成12项新Val预检和12项一次性Test。跨来源资格和论文措辞须在结果冻结前复核。
 3. 结果完成后按原标准验收，低结果仍保留；收缩结论可作为收尾结果，不用连续加seed/延长训练直到胜出。最终汇总追溯、必要备份及论文段落，再重新讨论第二创新点。
 
-**当前唯一下一步：另行授权并由用户手动执行[仅评价恢复批次](../research/INNOVATION1_EVAL_RECOVERY_V1_LAUNCH_2026-09-26.md)一次，复用v2三个Baby检查点，在修复源码下新路径预检后做12次Test。禁止重跑v2，不重训Baby。** 第二点暂缓。
+**当前唯一下一步：只读复核18格正式主表的跨来源资格及论文表述，再决定是否进入结果冻结。** 第二点暂缓；不根据 Test 结果重选配置、重跑或补种子。
