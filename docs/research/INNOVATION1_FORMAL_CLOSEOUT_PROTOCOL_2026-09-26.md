@@ -2,6 +2,8 @@
 
 日期：2026-09-26；制定基点 `263499b`。本协议规定固定配置比较的解释边界、Baby 新增发布版对照预算，以及隔离评价入口的验收要求。它不是某次运行的 `pending` 声明或执行许可；入口尚未实现，没有新训练、Validation 排名或 Test 访问。实际实验由用户执行，逐阶段按 [AGENTS.md](../../AGENTS.md) 声明和授权。
 
+> 后续状态：[Baby与隔离评价入口](INNOVATION1_FORMAL_CLOSEOUT_LAUNCH_2026-09-26.md)已实现并通过合成无Test检查；当前短日志另有用户手动执行的完整批次声明。上述制定时状态保留作历史语境；真实训练/Validation/Test仍未执行。
+
 依据：[正式主张矩阵](../paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md)、[协议和资产核查](INNOVATION1_PROTOCOL_REUSE_AUDIT_2026-09-26.md)、[15 项来源清单](INNOVATION1_REUSE_ASSETS_2026-09-26.json)、[Baby 总册](INNOVATION1_THESIS_EVIDENCE_2026-09-15.md)、[发布版身份](PROMPTMM_BASELINE_IDENTITY_2026-09-18.md)。来源清单固定记录路径/哈希，正式执行前仍须按声明核对。文内“决定”只固定后续准备所依据的方案；如果修改预算、配置、来源或 Test 规则，先追加协议修订和对应日志记录，再重新明确授权。
 
 ## 1. 配置选择边界与可写主张

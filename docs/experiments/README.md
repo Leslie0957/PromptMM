@@ -2,7 +2,7 @@
 
 更新：2026-09-26。新窗口只需先读根目录[总览](../../README.md)、[AGENTS](../../AGENTS.md)和[短日志](../../TRAINING_LOG.md)，然后按本表选相关资料。日期较早文档中的“当前”“下一步”均只描述当时状态，不能自动执行旧命令。
 
-运行声明与结束审计先读[固定更新规范](RUN_CLOSEOUT.md)。第一点当前复用结论见[协议核查](../research/INNOVATION1_PROTOCOL_REUSE_AUDIT_2026-09-26.md)，执行前边界见[正式收尾协议](../research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md)。
+运行声明与结束审计先读[固定更新规范](RUN_CLOSEOUT.md)。第一点当前复用结论见[协议核查](../research/INNOVATION1_PROTOCOL_REUSE_AUDIT_2026-09-26.md)，执行前边界见[正式收尾协议](../research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md)；用户执行命令见[串行启动页](../research/INNOVATION1_FORMAL_CLOSEOUT_LAUNCH_2026-09-26.md)。
 
 ## 已完成的实验与诊断族
 
@@ -27,7 +27,7 @@
 
 ## 稿件与最小阅读范围
 
-- 第一创新点收尾：先读[正式矩阵](../paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md)及[执行前协议](../research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md)；第二点门控设计当前暂缓。
+- 第一创新点收尾：先读[正式矩阵](../paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md)、[执行前协议](../research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md)及[启动页](../research/INNOVATION1_FORMAL_CLOSEOUT_LAUNCH_2026-09-26.md)；第二点门控设计当前暂缓。
 - 查第二创新点：先读[最新候选决策](../research/INNOVATION2_CANDIDATE_DECISION_2026-09-26.md)，旧RGCS仍为条件性候选。
 - 查整篇论文完成度：先读[完成条件与缺口表](../paper/THESIS_COMPLETION_GAPS_2026-09-26.md)，区分已有证据和未关闭条件。
 - 写论文：先读[正文表述（已审阅）](../paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md)，只按段落链接展开对应审计。
