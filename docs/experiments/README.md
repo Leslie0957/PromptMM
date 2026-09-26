@@ -25,6 +25,7 @@
 
 ## 稿件与最小阅读范围
 
+- 查整篇论文完成度：先读[完成条件与缺口表](../paper/THESIS_COMPLETION_GAPS_2026-09-26.md)，区分已有证据和未关闭条件。
 - 写论文：先读[正文表述（已审阅）](../paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md)，只按段落链接展开对应审计。
 - 查某次运行：从[运行记录清单](RUN_RECORDS.md)定位profile/status/manifest，再读对应历史声明；失败记录与通过记录都保留。
 - 查老命令/参数/哈希：搜索[历史章节索引](../../archive/training/ENTRY_INDEX_2026-09-26.md)的标题，按文件与行号读取一段。旧pending不是尚待运行清单。

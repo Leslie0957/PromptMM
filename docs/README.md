@@ -2,6 +2,7 @@
 
 先读[仓库总览](../README.md)和[当前短日志](../TRAINING_LOG.md)，再按任务展开。
 
+- [论文完成条件与缺口表](paper/THESIS_COMPLETION_GAPS_2026-09-26.md)：两项创新点、数据集、正式评价及待确认要求。
 - [实验族导航](experiments/README.md)：每类实验的审计入口、失败记录及结论范围。
 - [论文正文表述（已审阅）](paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md)：已区分正文、讨论和附录内容。
 - [全部源文件/文档](experiments/FILES.md)：按目录查找，不需要逐篇读取。

@@ -23,6 +23,7 @@ Updated: 2026-09-26. Latest audited source: f9d0eb504cb0fb17eddcb58cba8aef2517e8
 | Need | Entry |
 |---|---|
 | All experiment families and latest audited result | [Experiment map](docs/experiments/README.md) |
+| Thesis completion conditions and gaps | [Gap table](docs/paper/THESIS_COMPLETION_GAPS_2026-09-26.md) |
 | Paper results and limitations | [Reviewed paper wording](docs/paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md) |
 | Baby formal/Validation evidence and exceptions | [Baby evidence](docs/research/INNOVATION1_THESIS_EVIDENCE_2026-09-15.md) |
 | Latest Sports mechanism | [Mechanism conclusion](docs/research/SPORTS_INTEGRATED_MECHANISM_CONCLUSION_2026-09-26.md) |
@@ -53,7 +54,7 @@ The complete previous active log, including this reorganization's pending entry,
 
 ## Current authorized task / handoff
 
-Paper wording review is complete for existing Sports evidence only. The latest user clarification supersedes the earlier integration-first handoff: next prepare a thesis completion/gap table covering both contributions, their questions, existing/missing evidence, formal evaluation and dataset coverage, before selecting Innovation2. Partial writing may proceed alongside research; whole-thesis readiness is not established. This task only records that recommendation; the gap table is not yet prepared and no new experiment is authorized.
+The thesis completion/gap table is now prepared at docs/paper/THESIS_COMPLETION_GAPS_2026-09-26.md. Existing Baby/Sports evidence is separated from missing formal coverage, novelty and Innovation2 evidence; degree-specific requirements remain unconfirmed. Partial writing may proceed; whole-thesis readiness is not established. Single next step: a read-only Innovation1 prerequisite review and Innovation2 candidate decision memo, without selecting RGCS by default or declaring the implementation gate passed. No new experiment is authorized.
 
 ## 2026-09-26 Paper results prose and experiment navigation reorganization (pending)
 
@@ -97,3 +98,16 @@ Paper wording review is complete for existing Sports evidence only. The latest u
 - Recorded the latest correction in the root overview, current log header/handoff and paper editorial note: partial writing is supported; whole-thesis sufficiency is not established. Innovation2 is unfinished; Baby formal Test and Sports mechanism Validation are not equally complete dataset validation. Existing controlled findings have bounded value, without a guarantee of meeting unknown degree requirements.
 - The current recommendation is a thesis completion/gap table before selecting Innovation2; the table itself has not been prepared. Earlier outcome entries remain historical and unchanged. No experiment was authorized or executed, and no data/model/Test access occurred.
 - Verified focused content/diff and local links; refreshed only the three changed documents' byte counts in the existing navigation catalog. Base `650bb42`, branch `codex/experiment/baby-teacher-baseline`; one local documentation commit. Metrics, protocols, original audits and immutable archives unchanged. Next step: prepare the completion/gap table when requested.
+
+## 2026-09-26 Thesis completion conditions and gap table (pending)
+
+- User authorizes a documentation-only completion/gap map for the whole thesis. Base `e3129ab`, clean branch `codex/experiment/baby-teacher-baseline`. Scope: new paper planning document, current navigation/handoff links and generated metadata catalogs; no experiment preparation, implementation, formal declaration or execution.
+- Rationale: distinguish audited Baby/Sports evidence, contribution novelty, second-point prerequisites, formal evaluation, dataset breadth, writing and milestone preservation. Historical 09-14/09-15 plans must be reconciled with completed Sports controls/efficiency rather than copied as outstanding runs. Degree-specific contribution/dataset/baseline requirements are unknown; request them optionally and label any working targets as provisional.
+- Risks/acceptance: do not turn Validation into Test, exception into clean automatic acceptance, negative evidence into failure, or old RGCS hypothesis into verified contribution. Each gap needs evidence/status, closure criteria, priority and whether new execution would require separate authorization. One recommended next stage only; preserve historical entries and all artifacts. Verify source links, focused diff and catalog coverage. Source rollback point is base commit, not asset recovery; no rollback planned. No data/checkpoint loading, training, gradient/forward computation or Test access.
+
+## 2026-09-26 Thesis completion conditions and gap table (completed)
+
+- Added `docs/paper/THESIS_COMPLETION_GAPS_2026-09-26.md`: 11 evidence/closure gaps, dataset/split coverage, updated Innovation1 prerequisite status, conditional Innovation2 milestones, formal-evaluation boundaries and one next planning step. Linked it from the root/docs/family/paper/current-log entry points; refreshed navigation metadata.
+- Reconciled historical plans with completed Sports controls and efficiency: do not repeat completed stages by default. Baby formal Test/2023 exception/2024 low result retained; Sports Validation not promoted to Test; old Amazon not counted as qualified coverage. No blanket baseline superiority, global novelty, significance, completed second point or graduation guarantee asserted. Dataset/degree requirements requested optionally and remain unconfirmed; no fixed third-dataset or run-count mandate invented.
+- Verification: source-checked Baby evidence book, Sports three-seed audit, current mechanism/efficiency/baseline evidence and the historical second-point prerequisites; local links and focused whitespace checks passed. Catalog covers the new document. Base `e3129ab`, existing `codex/experiment/baby-teacher-baseline`; one documentation commit preserves this stage. Original audit/log archive files and runtime assets unchanged. No training, implementation, formal declaration, checkpoint/data loading, new metrics or Validation/Test access.
+- Single recommended next stage: read-only Innovation1 prerequisite review and Innovation2 candidate decision memo, resolving retained claims and unmet gates before preparing any diagnostics. This table does not pass the historical implementation gate or authorize an experiment. All actual experiment execution remains user-manual.
