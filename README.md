@@ -7,16 +7,16 @@
 
 当前阶段：Sports文本方向机制对照及缓存部署效率审计已完成，正在整理论文材料。
 Baby既有三种子正式结果及审计例外继续保留。没有待自动执行的实验；旧文档的“下一步”不是当前授权。
-实际实验运行继续由用户手动执行。v2在Sports发布版身份读取处失败；[v2审计](docs/research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V2_AUDIT.md)确认三次Baby训练有效完成、九项预检通过、零新Test。修复及[仅评价恢复批次](docs/research/INNOVATION1_EVAL_RECOVERY_V1_LAUNCH_2026-09-26.md)已准备，真实预检与Test仍待另行授权；不要重跑v1/v2或重训Baby。
+实际实验运行继续由用户手动执行。v2在Sports发布版身份读取处失败，三次Baby训练有效保留；随后的[仅评价恢复审计](docs/research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md)确认12项新预检与12项一次性学生Test全部通过。第一创新点18格固定主比较已有Test来源，下一步只读复核跨来源资格与论文表述；不要重跑v1/v2或重训Baby。
 
-**写作状态：可以开始第一创新点的阶段性写作，整篇论文证据尚未闭合。** 第二创新点尚未确定并完成实验；Baby正式Test与Sports相关Validation结果不能视为两套同等完整的正式验证。[论文完成条件与缺口表](docs/paper/THESIS_COMPLETION_GAPS_2026-09-26.md)已整理；[门控候选决策单](docs/research/INNOVATION2_CANDIDATE_DECISION_2026-09-26.md)已完成，找回RGCS旧方案但未选定或实现。用户现决定优先收尾第一创新点，第二点及门控诊断设计暂缓。先读[第一创新点正式矩阵](docs/paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md)、[正式收尾协议](docs/research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md)和[失败审计](docs/research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V1_AUDIT.md)；固定配置收尾缺口现为12次最终Test及修复源码下的预检，三次Baby训练已完成。
+**写作状态：第一创新点固定配置主比较可以写正式结果，整篇论文证据尚未闭合。** 第二创新点尚未确定并完成实验；Baby与Sports现均有主比较Test，但原机制对照仍多为Validation。[论文完成条件与缺口表](docs/paper/THESIS_COMPLETION_GAPS_2026-09-26.md)已更新；[门控候选决策单](docs/research/INNOVATION2_CANDIDATE_DECISION_2026-09-26.md)找回RGCS旧方案但未选定或实现。用户优先收尾第一创新点，第二点及门控诊断设计暂缓。先读[第一创新点正式矩阵](docs/paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md)、[恢复审计](docs/research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md)和[正式收尾协议](docs/research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md)；技术评价缺格已补，创新性、基线充分性及外部学位要求仍待核对。
 
 ## 核心结论与稿件
 
 - [论文正文表述（已审阅）](docs/paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md)：分别陈述文本方向收益、暖启动边界、阶段性效率。
 - Sports随机初值严格配对支持当前设置下的文本方向收益；暖启动未证明额外蒸馏优于BPR微调。
 - 学生离线表征生成成本更低；同维缓存教师对照下未证明一致在线加速或向量表压缩。
-- Sports质量证据为Validation；Baby正式Test证据单独陈述。发布版PromptMM较优结果和负结果均保留。
+- Sports主比较现有Test；Full/image、real/sham及暖启动机制仍按Validation证据单独陈述。发布版PromptMM在Sports Test较优、Baby Test均值略低于Full，两方向均保留。
 
 实验结束后的固定更新规则见[RUN_CLOSEOUT.md](docs/experiments/RUN_CLOSEOUT.md)：声明时列明记录目标，结束后按触发条件更新，避免依赖聊天记忆。
 

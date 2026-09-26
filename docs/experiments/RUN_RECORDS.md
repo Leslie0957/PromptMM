@@ -1,6 +1,6 @@
 # 运行与诊断记录导航
 
-目录版本：2026-09-26。共233个现存exp JSON记录；数量不是独立实验数。
+目录版本：2026-09-26。共258个现存exp JSON记录；数量不是独立实验数。
 保存状态按JSON原文摘录；—表示该字段未记录/未在约定层级找到，不表示成功或失败。
 批报告、子任务、资源检查与正式运行混列供定位，不能相加作为样本数。
 历史已做但本机没有JSON的实验，请查[完整历史章节](../../archive/training/ENTRY_INDEX_2026-09-26.md)。
@@ -52,9 +52,34 @@
 | [exp/efficiency/sports_cached_deployment_seed2022_v2/round2_online_T_b1/report.json](../../exp/efficiency/sports_cached_deployment_seed2022_v2/round2_online_T_b1/report.json) | completed | — | — | parsed |
 | [exp/efficiency/sports_cached_deployment_seed2022_v2/round2_online_T_b1024/report.json](../../exp/efficiency/sports_cached_deployment_seed2022_v2/round2_online_T_b1024/report.json) | completed | — | — | parsed |
 | [exp/efficiency/sports_cached_deployment_seed2022_v2/round2_online_T_b128/report.json](../../exp/efficiency/sports_cached_deployment_seed2022_v2/round2_online_T_b128/report.json) | completed | — | — | parsed |
+| [exp/formal_closeout_cohort/innovation1_eval_recovery_v1/batch.json](../../exp/formal_closeout_cohort/innovation1_eval_recovery_v1/batch.json) | completed | — | — | parsed |
 | [exp/formal_closeout_cohort/innovation1_fixed_v1/batch.json](../../exp/formal_closeout_cohort/innovation1_fixed_v1/batch.json) | failed | — | — | parsed |
 | [exp/formal_closeout_cohort/innovation1_fixed_v2/batch.json](../../exp/formal_closeout_cohort/innovation1_fixed_v2/batch.json) | failed | — | — | parsed |
+| [exp/formal_closeout_eval/innovation1_eval_recovery_v1/b3_2022/report.json](../../exp/formal_closeout_eval/innovation1_eval_recovery_v1/b3_2022/report.json) | completed | — | 2022 | parsed |
+| [exp/formal_closeout_eval/innovation1_eval_recovery_v1/b3_2023/report.json](../../exp/formal_closeout_eval/innovation1_eval_recovery_v1/b3_2023/report.json) | completed | — | 2023 | parsed |
+| [exp/formal_closeout_eval/innovation1_eval_recovery_v1/b3_2024/report.json](../../exp/formal_closeout_eval/innovation1_eval_recovery_v1/b3_2024/report.json) | completed | — | 2024 | parsed |
+| [exp/formal_closeout_eval/innovation1_eval_recovery_v1/s1_2022/report.json](../../exp/formal_closeout_eval/innovation1_eval_recovery_v1/s1_2022/report.json) | completed | — | 2022 | parsed |
+| [exp/formal_closeout_eval/innovation1_eval_recovery_v1/s1_2023/report.json](../../exp/formal_closeout_eval/innovation1_eval_recovery_v1/s1_2023/report.json) | completed | — | 2023 | parsed |
+| [exp/formal_closeout_eval/innovation1_eval_recovery_v1/s1_2024/report.json](../../exp/formal_closeout_eval/innovation1_eval_recovery_v1/s1_2024/report.json) | completed | — | 2024 | parsed |
+| [exp/formal_closeout_eval/innovation1_eval_recovery_v1/s2_2022/report.json](../../exp/formal_closeout_eval/innovation1_eval_recovery_v1/s2_2022/report.json) | completed | — | 2022 | parsed |
+| [exp/formal_closeout_eval/innovation1_eval_recovery_v1/s2_2023/report.json](../../exp/formal_closeout_eval/innovation1_eval_recovery_v1/s2_2023/report.json) | completed | — | 2023 | parsed |
+| [exp/formal_closeout_eval/innovation1_eval_recovery_v1/s2_2024/report.json](../../exp/formal_closeout_eval/innovation1_eval_recovery_v1/s2_2024/report.json) | completed | — | 2024 | parsed |
+| [exp/formal_closeout_eval/innovation1_eval_recovery_v1/s3_2022/report.json](../../exp/formal_closeout_eval/innovation1_eval_recovery_v1/s3_2022/report.json) | completed | — | 2022 | parsed |
+| [exp/formal_closeout_eval/innovation1_eval_recovery_v1/s3_2023/report.json](../../exp/formal_closeout_eval/innovation1_eval_recovery_v1/s3_2023/report.json) | completed | — | 2023 | parsed |
+| [exp/formal_closeout_eval/innovation1_eval_recovery_v1/s3_2024/report.json](../../exp/formal_closeout_eval/innovation1_eval_recovery_v1/s3_2024/report.json) | completed | — | 2024 | parsed |
 | [exp/formal_closeout_preflight/b3_2022/report.json](../../exp/formal_closeout_preflight/b3_2022/report.json) | failed | — | — | parsed |
+| [exp/formal_closeout_preflight/innovation1_eval_recovery_v1/b3_2022/report.json](../../exp/formal_closeout_preflight/innovation1_eval_recovery_v1/b3_2022/report.json) | passed | — | 2022 | parsed |
+| [exp/formal_closeout_preflight/innovation1_eval_recovery_v1/b3_2023/report.json](../../exp/formal_closeout_preflight/innovation1_eval_recovery_v1/b3_2023/report.json) | passed | — | 2023 | parsed |
+| [exp/formal_closeout_preflight/innovation1_eval_recovery_v1/b3_2024/report.json](../../exp/formal_closeout_preflight/innovation1_eval_recovery_v1/b3_2024/report.json) | passed | — | 2024 | parsed |
+| [exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s1_2022/report.json](../../exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s1_2022/report.json) | passed | — | 2022 | parsed |
+| [exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s1_2023/report.json](../../exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s1_2023/report.json) | passed | — | 2023 | parsed |
+| [exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s1_2024/report.json](../../exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s1_2024/report.json) | passed | — | 2024 | parsed |
+| [exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s2_2022/report.json](../../exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s2_2022/report.json) | passed | — | 2022 | parsed |
+| [exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s2_2023/report.json](../../exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s2_2023/report.json) | passed | — | 2023 | parsed |
+| [exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s2_2024/report.json](../../exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s2_2024/report.json) | passed | — | 2024 | parsed |
+| [exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s3_2022/report.json](../../exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s3_2022/report.json) | passed | — | 2022 | parsed |
+| [exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s3_2023/report.json](../../exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s3_2023/report.json) | passed | — | 2023 | parsed |
+| [exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s3_2024/report.json](../../exp/formal_closeout_preflight/innovation1_eval_recovery_v1/s3_2024/report.json) | passed | — | 2024 | parsed |
 | [exp/formal_closeout_preflight/innovation1_fixed_v2/b3_2022/report.json](../../exp/formal_closeout_preflight/innovation1_fixed_v2/b3_2022/report.json) | passed | — | 2022 | parsed |
 | [exp/formal_closeout_preflight/innovation1_fixed_v2/b3_2023/report.json](../../exp/formal_closeout_preflight/innovation1_fixed_v2/b3_2023/report.json) | passed | — | 2023 | parsed |
 | [exp/formal_closeout_preflight/innovation1_fixed_v2/b3_2024/report.json](../../exp/formal_closeout_preflight/innovation1_fixed_v2/b3_2024/report.json) | passed | — | 2024 | parsed |
