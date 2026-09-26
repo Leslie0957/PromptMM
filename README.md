@@ -11,7 +11,7 @@ Baby既有三种子正式结果及审计例外继续保留。没有待自动执�
 
 ## 核心结论与稿件
 
-- [论文结果与局限草稿](docs/paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md)：分别陈述文本方向收益、暖启动边界、阶段性效率。
+- [论文正文表述（已审阅）](docs/paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md)：分别陈述文本方向收益、暖启动边界、阶段性效率。
 - Sports随机初值严格配对支持当前设置下的文本方向收益；暖启动未证明额外蒸馏优于BPR微调。
 - 学生离线表征生成成本更低；同维缓存教师对照下未证明一致在线加速或向量表压缩。
 - Sports质量证据为Validation；Baby正式Test证据单独陈述。发布版PromptMM较优结果和负结果均保留。
