@@ -1,128 +1,50 @@
-# PromptMM: Multi-Modal Knowledge Distillation for Recommendation with Prompt-Tuning
+# PromptMM 实验工作区
 
-PyTorch implementation for WWW 2023 paper [PromptMM: Multi-Modal Knowledge Distillation for Recommendation with Prompt-Tuning](https://arxiv.org/html/2402.17188v1).
+## 从这里开始
 
-[Wei Wei](#), [Jiabin Tang](https://tjb-tech.github.io/), [Yangqin Jiang](#), [Lianghao Xia](https://akaxlh.github.io/) and [Chao Huang](https://sites.google.com/view/chaoh/home)*.
-(*Correspondence)
+新窗口按顺序阅读：**本页 → [AGENTS.md](AGENTS.md) → [当前实验短日志](TRAINING_LOG.md)**。
+随后只按任务查[实验族导航](docs/experiments/README.md)中的对应审计，不必读取全部历史。
 
-<p align="center">
-<img src="./PromptMM.png" alt="" />
-</p>
+当前阶段：Sports文本方向机制对照及缓存部署效率审计已完成，正在整理论文材料。
+Baby既有三种子正式结果及审计例外继续保留。没有待自动执行的实验；旧文档的“下一步”不是当前授权。
+实际实验运行继续由用户手动执行。
 
+## 核心结论与稿件
 
-<h2>Dependencies </h2>
+- [论文结果与局限草稿](docs/paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md)：分别陈述文本方向收益、暖启动边界、阶段性效率。
+- Sports随机初值严格配对支持当前设置下的文本方向收益；暖启动未证明额外蒸馏优于BPR微调。
+- 学生离线表征生成成本更低；同维缓存教师对照下未证明一致在线加速或向量表压缩。
+- Sports质量证据为Validation；Baby正式Test证据单独陈述。发布版PromptMM较优结果和负结果均保留。
 
-* Python >= 3.9.13
-* [Pytorch](https://pytorch.org/) >= 1.13.0+cu116
-* [dgl-cuda11.6](https://www.dgl.ai/) >= 0.9.1post1
+## 按需查阅
 
+| 要找什么 | 入口 |
+|---|---|
+| 当前状态、约束、最近变更 | [短日志](TRAINING_LOG.md) |
+| 每类实验的结果、失败、例外与机制边界 | [实验族导航](docs/experiments/README.md) |
+| 所有源文件与文档 | [文件清单](docs/experiments/FILES.md) |
+| 现存运行/诊断JSON与manifest | [运行记录清单](docs/experiments/RUN_RECORDS.md) |
+| 旧实验命令、参数、结论、身份哈希 | [历史章节索引](archive/training/ENTRY_INDEX_2026-09-26.md) |
+| 本机大文件、缓存、原始日志路径 | [资产目录](archive/catalog/README.md) |
+| 历史快照及完整性记录 | [归档入口](archive/README.md) |
 
+## 目录分工
 
+| 目录 | 用途 |
+|---|---|
+| `codes/` | 当前训练入口 `main_mmlight.py`，默认参数 `utility/parser.py`；`run_patent.py`是独立旧线 |
+| `tools/`、`tests/` | 手动运行器、维护工具和检查 |
+| `docs/experiments/`、`docs/paper/` | 集中导航、论文段落 |
+| `docs/research/`、`docs/research_notes/` | 保持原路径的专题审计与历史讨论 |
+| `archive/training/`、`archive/catalog/` | 不可改的历史日志、可刷新的文件导航 |
+| `exp/`、`logs/`、`Model/`、`data/` | 原始实验资产，保留路径，不进入普通Git提交 |
+| `environment/`、`backups/`、其他旧代码目录 | 环境记录、既有备份、历史来源；通过文件清单查找 |
 
-<h2>Usage </h2>
+历史日志已逐字节归档，失败和低指标记录均保留。路径清单不是实验资产备份。
+本次整理不改变训练入口、参数、数据或评估协议，也不搬动被脚本和manifest引用的产物。
 
-Start training and inference as:
+## 上游来源
 
-```
-python ./main.py --dataset {DATASET}
-```
-Supported datasets:  `Amazon-Electronics`, `Netflix`, `Tiktok`
-
-
-<h2> Datasets </h2>
-
-  ```
-  ├─ MMSSL/ 
-      ├── data/
-        ├── tiktok/
-        ...
-  ```
-|   Dataset   |   |  Netflix |     |   |  Tiktok  |     |     |   | Electronics |      |
-|:-----------:|:-:|:--------:|:---:|:-:|:--------:|:---:|:---:|:-:|:-----------:|:----:|
-|   Modality  |   |     V    |  T  |   |     V    |  A  |  T  |   |      V      |   T  |
-|  Feat. Dim. |   |    512   | 768 |   |    128   | 128 | 768 |   |     4096    | 1024 |
-|     User    |   |  43,739  |     |   |  14,343  |     |     |   |    41,691   |      |
-|     Item    |   |  17,239  |     |   |   8,690  |     |     |   |    21,479   |      |
-| Interaction |   |  609,341 |     |   |  276,637 |     |     |   |   359,165   |      |
-|   Sparsity  |   | 99.919\% |     |   | 99.778\% |     |     |   |   99.960\%  |      |
-
-
-- `2024.2.27 new multi-modal datastes uploaded`: 📢📢 🌹🌹 We provide new multi-modal datasets `Netflix` and `MovieLens`  (i.e., CF training data, multi-modal data including `item text` and `posters`) of new multi-modal work [LLMRec](https://github.com/HKUDS/LLMRec) on Google Drive. 🌹We hope to contribute to our community and facilitate your research~
-
-- `2023.2.27 update(all datasets uploaded)`: We provide the processed data at [Google Drive](https://drive.google.com/drive/folders/17vnX8S6a_68xzML1tAM5m9YsQyKZ1UKb?usp=share_link). 
-
-🚀🚀 The provided dataset is compatible with multi-modal recommender models such as [MMSSL](https://github.com/HKUDS/MMSSL), [LATTICE](https://github.com/CRIPAC-DIG/LATTICE), and [MICRO](https://github.com/CRIPAC-DIG/MICRO) and requires no additional data preprocessing, including (1) basic user-item interactions and (2) multi-modal features.
-
-```
-# part of data preprocessing
-# #----json2mat--------------------------------------------------------------------------------------------------
-import json
-from scipy.sparse import csr_matrix
-import pickle
-import numpy as np
-n_user, n_item = 39387, 23033
-f = open('/home/weiw/Code/MM/MMSSL/data/clothing/train.json', 'r')  
-train = json.load(f)
-row, col = [], []
-for index, value in enumerate(train.keys()):
-    for i in range(len(train[value])):
-        row.append(int(value))
-        col.append(train[value][i])
-data = np.ones(len(row))
-train_mat = csr_matrix((data, (row, col)), shape=(n_user, n_item))
-pickle.dump(train_mat, open('./train_mat', 'wb'))  
-# # ----json2mat--------------------------------------------------------------------------------------------------
-
-
-# ----mat2json--------------------------------------------------------------------------------------------------
-# train_mat = pickle.load(open('./train_mat', 'rb'))
-test_mat = pickle.load(open('./test_mat', 'rb'))
-# val_mat = pickle.load(open('./val_mat', 'rb'))
-
-# total_mat = train_mat + test_mat + val_mat
-total_mat =test_mat
-
-# total_mat = pickle.load(open('./new_mat','rb'))
-# total_mat = pickle.load(open('./new_mat','rb'))
-total_array = total_mat.toarray()
-total_dict = {}
-
-for i in range(total_array.shape[0]):
-    total_dict[str(i)] = [index for index, value in enumerate(total_array[i]) if value!=0]
-
-new_total_dict = {}
-
-for i in range(len(total_dict)):
-    # if len(total_dict[str(i)])>1:
-    new_total_dict[str(i)]=total_dict[str(i)]
-
-# train_dict, test_dict = {}, {}
-
-# for i in range(len(new_total_dict)):
-#     train_dict[str(i)] = total_dict[str(i)][:-1]
-#     test_dict[str(i)] = [total_dict[str(i)][-1]]
-
-# train_json_str = json.dumps(train_dict)
-test_json_str = json.dumps(new_total_dict)
-
-# with open('./new_train.json', 'w') as json_file:
-# # with open('./new_train_json', 'w') as json_file:
-#     json_file.write(train_json_str)
-with open('./test.json', 'w') as test_file:
-# with open('./new_test_json', 'w') as test_file:
-    test_file.write(test_json_str)
-# ----mat2json--------------------------------------------------------------------------------------------------
-```
-
-
-<p align="center">
-<img src="./decouple.png" alt="" />
-</p>
-
-
-## Acknowledgement
-
-## Acknowledgement
-
-The structure of this code is largely based on [LATTICE](https://github.com/CRIPAC-DIG/LATTICE), [MICRO](https://github.com/CRIPAC-DIG/MICRO). Thank them for their work.
-
+本仓库基于PromptMM研究代码开展本地实验。上游论文说明、作者信息及原始使用说明保存在
+[原始README完整快照](archive/upstream/README_ORIGINAL_2026-09-26.md)。
+其中命令反映原始代码版本；当前工作区以AGENTS和当前日志中的协议为准。

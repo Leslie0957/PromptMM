@@ -15,3 +15,11 @@ at the repository root.
 Use `../../TRAINING_LOG.md` first for current state. Raw per-run output remains
 under `../../logs/`, which is also the default output directory used by the
 active logger.
+
+## 2026-09-26 verified full snapshot
+
+- `TRAINING_LOG_ARCHIVE_FULL_2026-09-26.md`: complete active log including reorganization pending trace; 1004172 bytes, SHA256 `9def8d80aeba27e4482290444a7e514c568ad7d831f75c07b43a5da0eb95409b`, 11527 lines. Copied and verified byte-for-byte before slimming; immutable historical record, not current instructions. Git -text preserves the original line endings.
+
+## Targeted historical lookup
+
+Use [the heading/line index](ENTRY_INDEX_2026-09-26.md) before opening a full snapshot. Historical declarations are not current launch authority. Current state is in [the active short log](../../TRAINING_LOG.md).

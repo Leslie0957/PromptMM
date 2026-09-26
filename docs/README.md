@@ -1,35 +1,15 @@
-# Documentation Index
+# 文档入口
 
-This directory contains research decisions and supporting notes that are not
-part of the executable training line.
+先读[仓库总览](../README.md)和[当前短日志](../TRAINING_LOG.md)，再按任务展开。
 
-## Research Routes
+- [实验族导航](experiments/README.md)：每类实验的审计入口、失败记录及结论范围。
+- [论文结果与局限](paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md)：当前Sports结果文字稿。
+- [全部源文件/文档](experiments/FILES.md)：按目录查找，不需要逐篇读取。
+- [运行记录导航](experiments/RUN_RECORDS.md)：现存exp JSON；不是独立实验计数。
+- [历史章节索引](../archive/training/ENTRY_INDEX_2026-09-26.md)：老参数、命令和声明按需查询。
+- [Baby正式结果总册](research/INNOVATION1_THESIS_EVIDENCE_2026-09-15.md)：保留正式Test证据与例外。
+- [第二创新点历史候选](research/SECOND_INNOVATION_ROUTE.md)：尚未实现/确认，不是当前运行计划。
 
-- [Current thesis evidence, formulas, result tables and remaining experiments](research/INNOVATION1_THESIS_EVIDENCE_2026-09-15.md):
-  current reading entry after the fixed-budget three-seed replication; separates
-  formal Test results from Validation diagnostics and preserves audit exceptions.
-- [Three-seed image-only/full results and early-stop diagnosis](research/BABY_IMAGE_ONLY_THREE_SEED_SUMMARY_2026-09-15.md):
-  earlier paired summary, stored Validation curves, seed-2023 exception and
-  seed-2024 low result; proposes a Validation-only diagnostic next, without
-  launching training or declaring a new formal run.
-- [Innovation 1 review, formulas and experiment plan](research/INNOVATION1_REVIEW_AND_EXPERIMENT_PLAN_2026-09-14.md):
-  source-faithful thesis-writing draft, accepted evidence (including the
-  seed-2023 audited exception), interpretation limits, and the experiment plan
-  before selecting Innovation 2. This is not a formal-run declaration.
-- [Innovation 2 candidate route](research/SECOND_INNOVATION_ROUTE.md):
-  conditional research proposal, not a finalized second contribution. It has
-  not been implemented or experimentally confirmed; the Innovation 1 evidence
-  gate and latest review above take precedence over older planning details.
-- `../论文路线.txt`: short compatibility entry kept at the repository root
-  because it is an established collaboration path.
-
-## Research Notes
-
-- `research_notes/`: legacy discussion and defense-preparation notes. These
-  notes are useful context, but `TRAINING_LOG.md` and the active code are the
-  authoritative sources for experimental claims.
-
-## Cleanup
-
-- `CLEANUP_CANDIDATES.md`: files that may be removable after explicit review.
-  Nothing in that list has been deleted.
+`research/`保留专题审计原路径；`research_notes/`保留历史讨论。
+日期较早文档中的“当前”或“下一步”仅适用于当时，不覆盖根目录当前状态。
+[CLEANUP_CANDIDATES.md](CLEANUP_CANDIDATES.md)是历史清理建议，未据此删除资产。

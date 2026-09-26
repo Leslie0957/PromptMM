@@ -14,3 +14,6 @@
 *.doc binary
 *.docx binary
 
+# Verbatim historical snapshots: preserve their recorded byte identities.
+archive/training/TRAINING_LOG_ARCHIVE_FULL_2026-09-26.md -text
+archive/upstream/README_ORIGINAL_2026-09-26.md -text

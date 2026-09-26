@@ -1,0 +1,1365 @@
+{"bytes": 393, "category": "root", "path": ".gitattributes", "source_catalog": true}
+{"bytes": 814, "category": "root", "path": ".gitignore", "source_catalog": true}
+{"bytes": 26887, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/Models.py", "source_catalog": true}
+{"bytes": 26901, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/Models_empower.py", "source_catalog": true}
+{"bytes": 30940, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/Models_mmlight.py", "source_catalog": true}
+{"bytes": 1256, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/align_data.py", "source_catalog": true}
+{"bytes": 606, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/check_data.py", "source_catalog": true}
+{"bytes": 1204, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/create_mock_data.py", "source_catalog": true}
+{"bytes": 49862, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/main.py", "source_catalog": true}
+{"bytes": 50434, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/main_empower.py", "source_catalog": true}
+{"bytes": 51204, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/main_mmlight.py", "source_catalog": true}
+{"bytes": 1927, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/patent_test.py", "source_catalog": true}
+{"bytes": 6718, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/run_patent.py", "source_catalog": true}
+{"bytes": 1941, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/student_model.py", "source_catalog": true}
+{"bytes": 173, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/test.py", "source_catalog": true}
+{"bytes": 5570, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/utility/batch_test.py", "source_catalog": true}
+{"bytes": 7071, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/utility/load_data.py", "source_catalog": true}
+{"bytes": 541, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/utility/logging.py", "source_catalog": true}
+{"bytes": 2501, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/utility/metrics.py", "source_catalog": true}
+{"bytes": 4034, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/utility/norm.py", "source_catalog": true}
+{"bytes": 109486, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/utility/parser.py", "source_catalog": true}
+{"bytes": 14832, "category": "root", "path": "AGENTS.md", "source_catalog": true}
+{"bytes": 1105, "category": "LATTICE", "path": "LATTICE/LICENSE", "source_catalog": true}
+{"bytes": 2228, "category": "LATTICE", "path": "LATTICE/README.md", "source_catalog": true}
+{"bytes": 6825, "category": "LATTICE", "path": "LATTICE/codes/Models.py", "source_catalog": true}
+{"bytes": 8188, "category": "LATTICE", "path": "LATTICE/codes/main.py", "source_catalog": true}
+{"bytes": 5454, "category": "LATTICE", "path": "LATTICE/codes/utility/batch_test.py", "source_catalog": true}
+{"bytes": 7443, "category": "LATTICE", "path": "LATTICE/codes/utility/load_data.py", "source_catalog": true}
+{"bytes": 2501, "category": "LATTICE", "path": "LATTICE/codes/utility/metrics.py", "source_catalog": true}
+{"bytes": 2968, "category": "LATTICE", "path": "LATTICE/codes/utility/parser.py", "source_catalog": true}
+{"bytes": 117675440, "category": "Model", "path": "Model/amazon/runs/teacher_model_great__2026-04-11 00_29_36_amazon_light_init_pid22964.pt", "source_catalog": false}
+{"bytes": 117675440, "category": "Model", "path": "Model/amazon/runs/teacher_model_great__2026-04-11 11_57_20_amazon_light_init_pid29808.pt", "source_catalog": false}
+{"bytes": 117675440, "category": "Model", "path": "Model/amazon/runs/teacher_model_great__2026-04-11 11_59_06_amazon_light_init_pid26300.pt", "source_catalog": false}
+{"bytes": 117675440, "category": "Model", "path": "Model/amazon/runs/teacher_model_great__2026-04-11 15_38_13_amazon_light_init_pid19316.pt", "source_catalog": false}
+{"bytes": 117675440, "category": "Model", "path": "Model/amazon/runs/teacher_model_great__2026-04-11 18_23_07_amazon_light_init_pid21740.pt", "source_catalog": false}
+{"bytes": 117685396, "category": "Model", "path": "Model/amazon/runs/teacher_model_great__2026-04-11 19_50_25_amazon_light_init_pid21780.pt", "source_catalog": false}
+{"bytes": 120293145, "category": "Model", "path": "Model/amazon/runs/teacher_model_val_test_once_v1__2026-07-29 12_23_28_amazon_light_init_pid15100.pt", "source_catalog": false}
+{"bytes": 7827907, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-12 11_14_02_amazon_light_init_pid14172.pth", "source_catalog": false}
+{"bytes": 7827907, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-12 11_57_24_amazon_light_init_pid33984.pth", "source_catalog": false}
+{"bytes": 7827907, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-12 12_16_10_amazon_light_init_pid21848.pth", "source_catalog": false}
+{"bytes": 7817605, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-12 15_16_41_amazon_light_init_pid26012.pth", "source_catalog": false}
+{"bytes": 7827907, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-12 17_00_13_amazon_light_init_pid18928.pth", "source_catalog": false}
+{"bytes": 7827885, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-12 19_03_46_amazon_light_init_pid6348.pth", "source_catalog": false}
+{"bytes": 7827907, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-12 22_05_54_amazon_light_init_pid19636.pth", "source_catalog": false}
+{"bytes": 7827907, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-13 00_02_36_amazon_light_init_pid30912.pth", "source_catalog": false}
+{"bytes": 7827907, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-13 00_58_16_amazon_light_init_pid25648.pth", "source_catalog": false}
+{"bytes": 7874811, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-13 09_58_53_amazon_light_init_pid27712.pth", "source_catalog": false}
+{"bytes": 7843755, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-13 10_50_20_amazon_light_init_pid18884.pth", "source_catalog": false}
+{"bytes": 7843755, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-13 12_43_21_amazon_light_init_pid12236.pth", "source_catalog": false}
+{"bytes": 7823151, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-13 14_02_40_amazon_light_init_pid18536.pth", "source_catalog": false}
+{"bytes": 7812943, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-13 17_25_32_amazon_light_init_pid5896.pth", "source_catalog": false}
+{"bytes": 7828419, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-13 20_38_40_amazon_light_init_pid32828.pth", "source_catalog": false}
+{"bytes": 7828419, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-13 22_40_15_amazon_light_init_pid14760.pth", "source_catalog": false}
+{"bytes": 7812957, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-13 23_55_04_amazon_light_init_pid12888.pth", "source_catalog": false}
+{"bytes": 7812957, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-14 01_07_46_amazon_light_init_pid22532.pth", "source_catalog": false}
+{"bytes": 7818117, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-14 20_26_27_amazon_light_init_pid31404.pth", "source_catalog": false}
+{"bytes": 7843819, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-14 22_44_59_amazon_light_init_pid32448.pth", "source_catalog": false}
+{"bytes": 7843819, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-15 08_07_08_amazon_light_init_pid15472.pth", "source_catalog": false}
+{"bytes": 7812943, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-15 08_28_43_amazon_light_init_pid1896.pth", "source_catalog": false}
+{"bytes": 7812957, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-15 10_52_54_amazon_light_init_pid16960.pth", "source_catalog": false}
+{"bytes": 7812957, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-15 13_04_04_amazon_light_init_pid29492.pth", "source_catalog": false}
+{"bytes": 7812957, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-15 15_14_13_amazon_light_init_pid22040.pth", "source_catalog": false}
+{"bytes": 7812957, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-15 16_44_18_amazon_light_init_pid18192.pth", "source_catalog": false}
+{"bytes": 7812957, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-15 19_43_54_amazon_light_init_pid40632.pth", "source_catalog": false}
+{"bytes": 7812957, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-15 22_13_41_amazon_light_init_pid40944.pth", "source_catalog": false}
+{"bytes": 7812943, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-15 22_36_12_amazon_light_init_pid8908.pth", "source_catalog": false}
+{"bytes": 7812957, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-16 00_50_57_amazon_light_init_pid22756.pth", "source_catalog": false}
+{"bytes": 7812957, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-16 19_41_52_amazon_light_init_pid21524.pth", "source_catalog": false}
+{"bytes": 7812957, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-16 19_56_11_amazon_light_init_pid26212.pth", "source_catalog": false}
+{"bytes": 7812957, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-16 20_27_54_amazon_light_init_pid30904.pth", "source_catalog": false}
+{"bytes": 7812957, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-16 22_42_13_amazon_light_init_pid26048.pth", "source_catalog": false}
+{"bytes": 7812957, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__2026-04-16 23_59_47_amazon_light_init_pid26184.pth", "source_catalog": false}
+{"bytes": 7813977, "category": "Model", "path": "Model/amazon/td_distill/td_distill_full__val_test_once_v1__2026-07-29 12_23_28_amazon_light_init_pid15100.pth", "source_catalog": false}
+{"bytes": 2605333, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-12 11_14_02_amazon_light_init_pid14172.pth", "source_catalog": false}
+{"bytes": 2605333, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-12 11_57_24_amazon_light_init_pid33984.pth", "source_catalog": false}
+{"bytes": 2605333, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-12 12_16_10_amazon_light_init_pid21848.pth", "source_catalog": false}
+{"bytes": 2605333, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-12 15_16_41_amazon_light_init_pid26012.pth", "source_catalog": false}
+{"bytes": 2605333, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-12 17_00_13_amazon_light_init_pid18928.pth", "source_catalog": false}
+{"bytes": 2605325, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-12 19_03_46_amazon_light_init_pid6348.pth", "source_catalog": false}
+{"bytes": 2605333, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-12 22_05_54_amazon_light_init_pid19636.pth", "source_catalog": false}
+{"bytes": 2605333, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-13 00_02_36_amazon_light_init_pid30912.pth", "source_catalog": false}
+{"bytes": 2605333, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-13 00_58_16_amazon_light_init_pid25648.pth", "source_catalog": false}
+{"bytes": 2605333, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-13 09_58_53_amazon_light_init_pid27712.pth", "source_catalog": false}
+{"bytes": 2605333, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-13 10_50_20_amazon_light_init_pid18884.pth", "source_catalog": false}
+{"bytes": 2605333, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-13 12_43_21_amazon_light_init_pid12236.pth", "source_catalog": false}
+{"bytes": 2605333, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-13 14_02_40_amazon_light_init_pid18536.pth", "source_catalog": false}
+{"bytes": 2605389, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-13 17_25_32_amazon_light_init_pid5896.pth", "source_catalog": false}
+{"bytes": 2605269, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-13 20_38_40_amazon_light_init_pid32828.pth", "source_catalog": false}
+{"bytes": 2605269, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-13 22_40_15_amazon_light_init_pid14760.pth", "source_catalog": false}
+{"bytes": 2605397, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-13 23_55_04_amazon_light_init_pid12888.pth", "source_catalog": false}
+{"bytes": 2605397, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-14 01_07_46_amazon_light_init_pid22532.pth", "source_catalog": false}
+{"bytes": 2605269, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-14 20_26_27_amazon_light_init_pid31404.pth", "source_catalog": false}
+{"bytes": 2605269, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-14 22_44_59_amazon_light_init_pid32448.pth", "source_catalog": false}
+{"bytes": 2605269, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-15 08_07_08_amazon_light_init_pid15472.pth", "source_catalog": false}
+{"bytes": 2605389, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-15 08_28_43_amazon_light_init_pid1896.pth", "source_catalog": false}
+{"bytes": 2605397, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-15 10_52_54_amazon_light_init_pid16960.pth", "source_catalog": false}
+{"bytes": 2605397, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-15 13_04_04_amazon_light_init_pid29492.pth", "source_catalog": false}
+{"bytes": 2605397, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-15 15_14_13_amazon_light_init_pid22040.pth", "source_catalog": false}
+{"bytes": 2605397, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-15 16_44_18_amazon_light_init_pid18192.pth", "source_catalog": false}
+{"bytes": 2605397, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-15 19_43_54_amazon_light_init_pid40632.pth", "source_catalog": false}
+{"bytes": 2605397, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-15 22_13_41_amazon_light_init_pid40944.pth", "source_catalog": false}
+{"bytes": 2605389, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-15 22_36_12_amazon_light_init_pid8908.pth", "source_catalog": false}
+{"bytes": 2605397, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-16 00_50_57_amazon_light_init_pid22756.pth", "source_catalog": false}
+{"bytes": 2605397, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-16 19_41_52_amazon_light_init_pid21524.pth", "source_catalog": false}
+{"bytes": 2605397, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-16 19_56_11_amazon_light_init_pid26212.pth", "source_catalog": false}
+{"bytes": 2605397, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-16 20_27_54_amazon_light_init_pid30904.pth", "source_catalog": false}
+{"bytes": 2605397, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-16 22_42_13_amazon_light_init_pid26048.pth", "source_catalog": false}
+{"bytes": 2605397, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__2026-04-16 23_59_47_amazon_light_init_pid26184.pth", "source_catalog": false}
+{"bytes": 2605733, "category": "Model", "path": "Model/amazon/td_distill/td_distill_infer_only__val_test_once_v1__2026-07-29 12_23_28_amazon_light_init_pid15100.pth", "source_catalog": false}
+{"bytes": 117683844, "category": "Model", "path": "Model/amazon/teacher_model_great.pt", "source_catalog": false}
+{"bytes": 133716199, "category": "Model", "path": "Model/baby/runs/teacher_model_val_test_once_v1__2026-07-30 10_37_45_baby_light_init_pid29248.pt", "source_catalog": false}
+{"bytes": 141098279, "category": "Model", "path": "Model/baby/runs/teacher_model_val_test_once_v1__2026-07-30 11_32_48_baby_light_init_pid24356.pt", "source_catalog": false}
+{"bytes": 141098757, "category": "Model", "path": "Model/baby/runs/teacher_model_val_test_once_v1__2026-07-30 11_38_19.732201_baby_light_init_pid13504.pt", "source_catalog": false}
+{"bytes": 141098757, "category": "Model", "path": "Model/baby/runs/teacher_model_val_test_once_v1__2026-07-30 11_45_57.443332_baby_light_init_pid24500.pt", "source_catalog": false}
+{"bytes": 141098540, "category": "Model", "path": "Model/baby/runs/teacher_model_val_test_once_v1__2026-07-30 11_50_42.544441_baby_light_init_pid2480.pt", "source_catalog": false}
+{"bytes": 20354975, "category": "Model", "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-07-31 12_08_26.244081_baby_light_init_pid24060.pth", "source_catalog": false}
+{"bytes": 20354833, "category": "Model", "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-07-31 12_33_07.292506_baby_light_init_pid7872.pth", "source_catalog": false}
+{"bytes": 20354975, "category": "Model", "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-07-31 15_56_00.884183_baby_light_init_pid15900.pth", "source_catalog": false}
+{"bytes": 20354975, "category": "Model", "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-07-31 18_35_00.450484_baby_light_init_pid22864.pth", "source_catalog": false}
+{"bytes": 20354975, "category": "Model", "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-08-01 20_20_35.101504_baby_light_init_pid29128.pth", "source_catalog": false}
+{"bytes": 20354975, "category": "Model", "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-08-01 21_09_59.190542_baby_light_init_pid33928.pth", "source_catalog": false}
+{"bytes": 20354975, "category": "Model", "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-08-01 23_31_40.280800_baby_light_init_pid15908.pth", "source_catalog": false}
+{"bytes": 20354975, "category": "Model", "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-08-02 00_42_54.029141_baby_light_init_pid29752.pth", "source_catalog": false}
+{"bytes": 20354975, "category": "Model", "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-08-02 02_15_00.996496_baby_light_init_pid37484.pth", "source_catalog": false}
+{"bytes": 20354975, "category": "Model", "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-08-02 11_06_37.355218_baby_light_init_pid17532.pth", "source_catalog": false}
+{"bytes": 20354975, "category": "Model", "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-08-02 12_05_26.329228_baby_light_init_pid27620.pth", "source_catalog": false}
+{"bytes": 20354975, "category": "Model", "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-08-02 12_48_21.776381_baby_light_init_pid36572.pth", "source_catalog": false}
+{"bytes": 20354897, "category": "Model", "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-08-02 13_11_41.705929_baby_light_init_pid4516.pth", "source_catalog": false}
+{"bytes": 20354975, "category": "Model", "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-08-02 15_02_09.238814_baby_light_init_pid33332.pth", "source_catalog": false}
+{"bytes": 20354897, "category": "Model", "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-08-02 16_36_39.774993_baby_light_init_pid5916.pth", "source_catalog": false}
+{"bytes": 20354975, "category": "Model", "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-09-14 15_39_12.331441_baby_light_init_pid30688.pth", "source_catalog": false}
+{"bytes": 20354897, "category": "Model", "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-09-14 17_09_49.294989_baby_light_init_pid2004.pth", "source_catalog": false}
+{"bytes": 20354897, "category": "Model", "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-09-14 21_32_16.560580_baby_light_init_pid8316.pth", "source_catalog": false}
+{"bytes": 20354897, "category": "Model", "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-09-15 13_20_01.591632_baby_light_init_pid2984.pth", "source_catalog": false}
+{"bytes": 20354975, "category": "Model", "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-09-15 15_14_52.846849_baby_light_init_pid39820.pth", "source_catalog": false}
+{"bytes": 20354897, "category": "Model", "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-09-15 15_55_29.823816_baby_light_init_pid6540.pth", "source_catalog": false}
+{"bytes": 20354975, "category": "Model", "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-09-15 17_14_09.096736_baby_light_init_pid37680.pth", "source_catalog": false}
+{"bytes": 20354975, "category": "Model", "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-09-15 17_38_32.051894_baby_light_init_pid40068.pth", "source_catalog": false}
+{"bytes": 20354975, "category": "Model", "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-09-15 18_03_23.947862_baby_light_init_pid33860.pth", "source_catalog": false}
+{"bytes": 20354975, "category": "Model", "path": "Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-09-15 18_28_27.361428_baby_light_init_pid40908.pth", "source_catalog": false}
+{"bytes": 6785997, "category": "Model", "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-07-31 12_08_26.244081_baby_light_init_pid24060.pth", "source_catalog": false}
+{"bytes": 6785989, "category": "Model", "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-07-31 12_33_07.292506_baby_light_init_pid7872.pth", "source_catalog": false}
+{"bytes": 6785997, "category": "Model", "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-07-31 15_56_00.884183_baby_light_init_pid15900.pth", "source_catalog": false}
+{"bytes": 6785997, "category": "Model", "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-07-31 18_35_00.450484_baby_light_init_pid22864.pth", "source_catalog": false}
+{"bytes": 6785997, "category": "Model", "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-08-01 20_20_35.101504_baby_light_init_pid29128.pth", "source_catalog": false}
+{"bytes": 6785997, "category": "Model", "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-08-01 21_09_59.190542_baby_light_init_pid33928.pth", "source_catalog": false}
+{"bytes": 6785997, "category": "Model", "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-08-01 23_31_40.280800_baby_light_init_pid15908.pth", "source_catalog": false}
+{"bytes": 6785997, "category": "Model", "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-08-02 00_42_54.029141_baby_light_init_pid29752.pth", "source_catalog": false}
+{"bytes": 6785997, "category": "Model", "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-08-02 02_15_00.996496_baby_light_init_pid37484.pth", "source_catalog": false}
+{"bytes": 6785997, "category": "Model", "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-08-02 11_06_37.355218_baby_light_init_pid17532.pth", "source_catalog": false}
+{"bytes": 6785997, "category": "Model", "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-08-02 12_05_26.329228_baby_light_init_pid27620.pth", "source_catalog": false}
+{"bytes": 6785997, "category": "Model", "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-08-02 12_48_21.776381_baby_light_init_pid36572.pth", "source_catalog": false}
+{"bytes": 6785989, "category": "Model", "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-08-02 13_11_41.705929_baby_light_init_pid4516.pth", "source_catalog": false}
+{"bytes": 6785997, "category": "Model", "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-08-02 15_02_09.238814_baby_light_init_pid33332.pth", "source_catalog": false}
+{"bytes": 6785989, "category": "Model", "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-08-02 16_36_39.774993_baby_light_init_pid5916.pth", "source_catalog": false}
+{"bytes": 6785997, "category": "Model", "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-14 15_39_12.331441_baby_light_init_pid30688.pth", "source_catalog": false}
+{"bytes": 6785989, "category": "Model", "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-14 17_09_49.294989_baby_light_init_pid2004.pth", "source_catalog": false}
+{"bytes": 6785989, "category": "Model", "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-14 21_32_16.560580_baby_light_init_pid8316.pth", "source_catalog": false}
+{"bytes": 6785989, "category": "Model", "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-15 13_20_01.591632_baby_light_init_pid2984.pth", "source_catalog": false}
+{"bytes": 6785997, "category": "Model", "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-15 15_14_52.846849_baby_light_init_pid39820.pth", "source_catalog": false}
+{"bytes": 6785989, "category": "Model", "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-15 15_55_29.823816_baby_light_init_pid6540.pth", "source_catalog": false}
+{"bytes": 6785997, "category": "Model", "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-15 17_14_09.096736_baby_light_init_pid37680.pth", "source_catalog": false}
+{"bytes": 6785997, "category": "Model", "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-15 17_38_32.051894_baby_light_init_pid40068.pth", "source_catalog": false}
+{"bytes": 6785997, "category": "Model", "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-15 18_03_23.947862_baby_light_init_pid33860.pth", "source_catalog": false}
+{"bytes": 6785997, "category": "Model", "path": "Model/baby/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-15 18_28_27.361428_baby_light_init_pid40908.pth", "source_catalog": false}
+{"bytes": 141098540, "category": "Model", "path": "Model/baby/teacher_model_val_test_once_v1.pt", "source_catalog": false}
+{"bytes": 357779639, "category": "Model", "path": "Model/sports/runs/teacher_model_val_test_once_v1__2026-09-16 12_38_48.480698_sports_light_init_pid30708.pt", "source_catalog": false}
+{"bytes": 41444283, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-16 17_18_56.750542_sports_light_init_pid25008.pth", "source_catalog": false}
+{"bytes": 41444283, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-16 18_39_26.957343_sports_light_init_pid24140.pth", "source_catalog": false}
+{"bytes": 41444283, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-16 21_40_06.514182_sports_light_init_pid42036.pth", "source_catalog": false}
+{"bytes": 41444283, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-16 23_27_49.601262_sports_light_init_pid40628.pth", "source_catalog": false}
+{"bytes": 41444269, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-17 00_43_06.905567_sports_light_init_pid9324.pth", "source_catalog": false}
+{"bytes": 41444283, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-17 01_59_31.370287_sports_light_init_pid45812.pth", "source_catalog": false}
+{"bytes": 41444283, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-17 03_15_48.676117_sports_light_init_pid48292.pth", "source_catalog": false}
+{"bytes": 41444283, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-17 04_31_26.826865_sports_light_init_pid29552.pth", "source_catalog": false}
+{"bytes": 41444283, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-17 05_47_26.495792_sports_light_init_pid25684.pth", "source_catalog": false}
+{"bytes": 41444283, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-17 11_50_42.452019_sports_light_init_pid21216.pth", "source_catalog": false}
+{"bytes": 41444283, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-17 17_08_55.469360_sports_light_init_pid47952.pth", "source_catalog": false}
+{"bytes": 41444283, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-17 20_34_43.591646_sports_light_init_pid30528.pth", "source_catalog": false}
+{"bytes": 41444283, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-17 23_49_20.915423_sports_light_init_pid48412.pth", "source_catalog": false}
+{"bytes": 41444283, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-18 02_55_57.358892_sports_light_init_pid38584.pth", "source_catalog": false}
+{"bytes": 41444283, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-18 06_05_32.090309_sports_light_init_pid43032.pth", "source_catalog": false}
+{"bytes": 41444283, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-18 09_13_44.833581_sports_light_init_pid40228.pth", "source_catalog": false}
+{"bytes": 41444283, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-18 12_21_00.822710_sports_light_init_pid47072.pth", "source_catalog": false}
+{"bytes": 41444283, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-18 15_59_59.130995_sports_light_init_pid33376.pth", "source_catalog": false}
+{"bytes": 41444653, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-22 20_57_40.716760_sports_light_init_pid8964.pth", "source_catalog": false}
+{"bytes": 41444781, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-23 11_07_51.352217_sports_light_init_pid2784.pth", "source_catalog": false}
+{"bytes": 41444795, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-23 16_11_54.129842_sports_light_init_pid36040.pth", "source_catalog": false}
+{"bytes": 41444795, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-23 23_05_29.825139_sports_light_init_pid44284.pth", "source_catalog": false}
+{"bytes": 41444795, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-24 12_37_07.329601_sports_light_init_pid39320.pth", "source_catalog": false}
+{"bytes": 41444269, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-24 18_22_52.151219_sports_light_init_pid5012.pth", "source_catalog": false}
+{"bytes": 41444283, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-24 21_30_49.206663_sports_light_init_pid17448.pth", "source_catalog": false}
+{"bytes": 41444283, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-25 00_24_21.134528_sports_light_init_pid35648.pth", "source_catalog": false}
+{"bytes": 41444283, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-25 03_32_21.613007_sports_light_init_pid56744.pth", "source_catalog": false}
+{"bytes": 41444283, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-25 06_25_38.618521_sports_light_init_pid50812.pth", "source_catalog": false}
+{"bytes": 41444283, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-25 09_32_57.783209_sports_light_init_pid56052.pth", "source_catalog": false}
+{"bytes": 41444283, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-25 17_46_36.818082_sports_light_init_pid56688.pth", "source_catalog": false}
+{"bytes": 41444269, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-25 20_41_43.842353_sports_light_init_pid9624.pth", "source_catalog": false}
+{"bytes": 41444283, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-25 23_42_04.894528_sports_light_init_pid15332.pth", "source_catalog": false}
+{"bytes": 41444255, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-26 02_38_22.563718_sports_light_init_pid596.pth", "source_catalog": false}
+{"bytes": 41444283, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-26 05_34_16.930265_sports_light_init_pid42156.pth", "source_catalog": false}
+{"bytes": 41444283, "category": "Model", "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-26 08_30_07.418852_sports_light_init_pid30132.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-16 17_18_56.750542_sports_light_init_pid25008.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-16 18_39_26.957343_sports_light_init_pid24140.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-16 21_40_06.514182_sports_light_init_pid42036.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-16 23_27_49.601262_sports_light_init_pid40628.pth", "source_catalog": false}
+{"bytes": 13815765, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-17 00_43_06.905567_sports_light_init_pid9324.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-17 01_59_31.370287_sports_light_init_pid45812.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-17 03_15_48.676117_sports_light_init_pid48292.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-17 04_31_26.826865_sports_light_init_pid29552.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-17 05_47_26.495792_sports_light_init_pid25684.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-17 11_50_42.452019_sports_light_init_pid21216.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-17 17_08_55.469360_sports_light_init_pid47952.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-17 20_34_43.591646_sports_light_init_pid30528.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-17 23_49_20.915423_sports_light_init_pid48412.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-18 02_55_57.358892_sports_light_init_pid38584.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-18 06_05_32.090309_sports_light_init_pid43032.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-18 09_13_44.833581_sports_light_init_pid40228.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-18 12_21_00.822710_sports_light_init_pid47072.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-18 15_59_59.130995_sports_light_init_pid33376.pth", "source_catalog": false}
+{"bytes": 13815765, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-22 20_57_40.716760_sports_light_init_pid8964.pth", "source_catalog": false}
+{"bytes": 13815765, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-23 11_07_51.352217_sports_light_init_pid2784.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-23 16_11_54.129842_sports_light_init_pid36040.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-23 23_05_29.825139_sports_light_init_pid44284.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-24 12_37_07.329601_sports_light_init_pid39320.pth", "source_catalog": false}
+{"bytes": 13815765, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-24 18_22_52.151219_sports_light_init_pid5012.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-24 21_30_49.206663_sports_light_init_pid17448.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-25 00_24_21.134528_sports_light_init_pid35648.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-25 03_32_21.613007_sports_light_init_pid56744.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-25 06_25_38.618521_sports_light_init_pid50812.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-25 09_32_57.783209_sports_light_init_pid56052.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-25 17_46_36.818082_sports_light_init_pid56688.pth", "source_catalog": false}
+{"bytes": 13815765, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-25 20_41_43.842353_sports_light_init_pid9624.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-25 23_42_04.894528_sports_light_init_pid15332.pth", "source_catalog": false}
+{"bytes": 13815757, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 02_38_22.563718_sports_light_init_pid596.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 05_34_16.930265_sports_light_init_pid42156.pth", "source_catalog": false}
+{"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 08_30_07.418852_sports_light_init_pid30132.pth", "source_catalog": false}
+{"bytes": 432550, "category": "root", "path": "PromptMM.png", "source_catalog": true}
+{"bytes": 3099, "category": "root", "path": "README.md", "source_catalog": true}
+{"bytes": 10553, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
+{"bytes": 739, "category": "archive", "path": "archive/README.md", "source_catalog": true}
+{"bytes": 409, "category": "archive", "path": "archive/run_patent_results/README.md", "source_catalog": true}
+{"bytes": 110276, "category": "archive", "path": "archive/run_patent_results/Result_0409_1319_Photo_a0.1_lr0.001/Result_0409_1319_Photo_a0.1_lr0.001_curve.png", "source_catalog": false}
+{"bytes": 448, "category": "archive", "path": "archive/run_patent_results/Result_0409_1319_Photo_a0.1_lr0.001/Result_0409_1319_Photo_a0.1_lr0.001_loss.npy", "source_catalog": false}
+{"bytes": 1317, "category": "archive", "path": "archive/run_patent_results/Result_0409_1319_Photo_a0.1_lr0.001/Result_0409_1319_Photo_a0.1_lr0.001_report.txt", "source_catalog": false}
+{"bytes": 26474153, "category": "archive", "path": "archive/run_patent_results/Result_0409_1320_Photo_a0.1_lr0.001/Result_0409_1320_Photo_a0.1_lr0.001_best_model.pth", "source_catalog": false}
+{"bytes": 125558, "category": "archive", "path": "archive/run_patent_results/Result_0409_1320_Photo_a0.1_lr0.001/Result_0409_1320_Photo_a0.1_lr0.001_curve.png", "source_catalog": false}
+{"bytes": 254, "category": "archive", "path": "archive/run_patent_results/Result_0409_1320_Photo_a0.1_lr0.001/Result_0409_1320_Photo_a0.1_lr0.001_report.txt", "source_catalog": false}
+{"bytes": 1453, "category": "archive", "path": "archive/training/README.md", "source_catalog": true}
+{"bytes": 231, "category": "archive", "path": "archive/training/TRAINING_HANDOFF_2026-04-10.md", "source_catalog": true}
+{"bytes": 2599, "category": "archive", "path": "archive/training/TRAINING_HANDOFF_2026-04-11.md", "source_catalog": true}
+{"bytes": 172744, "category": "archive", "path": "archive/training/TRAINING_LOG_ARCHIVE_FULL_2026-04-17.md", "source_catalog": true}
+{"bytes": 118685, "category": "archive", "path": "archive/training/TRAINING_LOG_ARCHIVE_FULL_2026-07-30.md", "source_catalog": true}
+{"bytes": 1004172, "category": "archive", "path": "archive/training/TRAINING_LOG_ARCHIVE_FULL_2026-09-26.md", "source_catalog": true}
+{"bytes": 437, "category": "archive", "path": "archive/upstream/README.md", "source_catalog": true}
+{"bytes": 5000, "category": "archive", "path": "archive/upstream/README_ORIGINAL_2026-09-26.md", "source_catalog": true}
+{"bytes": 935978, "category": "backups", "path": "backups/PromptMM_baby_adapter_smoke_20260730.bundle", "source_catalog": false}
+{"bytes": 960230, "category": "backups", "path": "backups/PromptMM_baby_teacher_baseline_seed2022_20260730.bundle", "source_catalog": false}
+{"bytes": 122, "category": "backups", "path": "backups/PromptMM_baby_teacher_baseline_seed2022_20260730.bundle.sha256", "source_catalog": false}
+{"bytes": 912055, "category": "backups", "path": "backups/PromptMM_baseline_protocol_smoke_20260729.bundle", "source_catalog": false}
+{"bytes": 115, "category": "backups", "path": "backups/PromptMM_baseline_protocol_smoke_20260729.bundle.sha256", "source_catalog": false}
+{"bytes": 26887, "category": "codes", "path": "codes/Models.py", "source_catalog": true}
+{"bytes": 26901, "category": "codes", "path": "codes/Models_empower.py", "source_catalog": true}
+{"bytes": 31527, "category": "codes", "path": "codes/Models_mmlight.py", "source_catalog": true}
+{"bytes": 21883, "category": "codes", "path": "codes/cached_deployment_benchmark.py", "source_catalog": true}
+{"bytes": 7041, "category": "codes", "path": "codes/check_promptmm_validation_parity.py", "source_catalog": true}
+{"bytes": 10429, "category": "codes", "path": "codes/efficiency_benchmark.py", "source_catalog": true}
+{"bytes": 2330, "category": "codes", "path": "codes/gradient_diagnostic.py", "source_catalog": true}
+{"bytes": 2608, "category": "codes", "path": "codes/initialization_audit.py", "source_catalog": true}
+{"bytes": 49862, "category": "codes", "path": "codes/main.py", "source_catalog": true}
+{"bytes": 50434, "category": "codes", "path": "codes/main_empower.py", "source_catalog": true}
+{"bytes": 125569, "category": "codes", "path": "codes/main_mmlight.py", "source_catalog": true}
+{"bytes": 6870, "category": "codes", "path": "codes/promptmm_release.py", "source_catalog": true}
+{"bytes": 14721, "category": "codes", "path": "codes/promptmm_release_resource.py", "source_catalog": true}
+{"bytes": 24039, "category": "codes", "path": "codes/promptmm_release_validation.py", "source_catalog": true}
+{"bytes": 2627, "category": "codes", "path": "codes/promptmm_validation_fast.py", "source_catalog": true}
+{"bytes": 6718, "category": "codes", "path": "codes/run_patent.py", "source_catalog": true}
+{"bytes": 5882, "category": "codes", "path": "codes/run_promptmm_lr6e5_remaining.py", "source_catalog": true}
+{"bytes": 5622, "category": "codes", "path": "codes/run_promptmm_validation120.py", "source_catalog": true}
+{"bytes": 5735, "category": "codes", "path": "codes/run_promptmm_validation300.py", "source_catalog": true}
+{"bytes": 1623, "category": "codes", "path": "codes/shared_initialization.py", "source_catalog": true}
+{"bytes": 4479, "category": "codes", "path": "codes/sports_paired_cold.py", "source_catalog": true}
+{"bytes": 6845, "category": "codes", "path": "codes/sports_sham_residual.py", "source_catalog": true}
+{"bytes": 1941, "category": "codes", "path": "codes/student_model.py", "source_catalog": true}
+{"bytes": 3114, "category": "codes", "path": "codes/td_distill_model.py", "source_catalog": true}
+{"bytes": 4352, "category": "codes", "path": "codes/td_distill_model_no_projection.py", "source_catalog": true}
+{"bytes": 9043, "category": "codes", "path": "codes/tests/fixtures/promptmm_release_reference.json", "source_catalog": true}
+{"bytes": 51500, "category": "codes", "path": "codes/tests/test_dataset_profiles.py", "source_catalog": true}
+{"bytes": 26359, "category": "codes", "path": "codes/tests/test_experiment_protocol.py", "source_catalog": true}
+{"bytes": 4565, "category": "codes", "path": "codes/tests/test_gradient_diagnostic.py", "source_catalog": true}
+{"bytes": 3660, "category": "codes", "path": "codes/tests/test_initialization_diagnostic.py", "source_catalog": true}
+{"bytes": 4331, "category": "codes", "path": "codes/tests/test_initialization_pair.py", "source_catalog": true}
+{"bytes": 10175, "category": "codes", "path": "codes/tests/test_mmrec_baby_converter.py", "source_catalog": true}
+{"bytes": 3677, "category": "codes", "path": "codes/tests/test_promptmm_lr6e5_remaining.py", "source_catalog": true}
+{"bytes": 9965, "category": "codes", "path": "codes/tests/test_promptmm_release.py", "source_catalog": true}
+{"bytes": 15647, "category": "codes", "path": "codes/tests/test_promptmm_release_validation.py", "source_catalog": true}
+{"bytes": 3168, "category": "codes", "path": "codes/tests/test_promptmm_validation120_batch.py", "source_catalog": true}
+{"bytes": 3457, "category": "codes", "path": "codes/tests/test_promptmm_validation300_batch.py", "source_catalog": true}
+{"bytes": 2099, "category": "codes", "path": "codes/tests/test_promptmm_validation_fast.py", "source_catalog": true}
+{"bytes": 3669, "category": "codes", "path": "codes/tests/test_shared_initialization.py", "source_catalog": true}
+{"bytes": 2625, "category": "codes", "path": "codes/tests/test_sharedinit_alpha3.py", "source_catalog": true}
+{"bytes": 3393, "category": "codes", "path": "codes/tests/test_sharedinit_equal_matched.py", "source_catalog": true}
+{"bytes": 1028, "category": "codes", "path": "codes/tests/test_sports_serial_launcher.py", "source_catalog": true}
+{"bytes": 5342, "category": "codes", "path": "codes/tests/test_sports_student_profiles.py", "source_catalog": true}
+{"bytes": 2046, "category": "codes", "path": "codes/tests/test_sports_teacher_profile.py", "source_catalog": true}
+{"bytes": 2583, "category": "codes", "path": "codes/tests/test_teacherinit_bpr.py", "source_catalog": true}
+{"bytes": 5629, "category": "codes", "path": "codes/utility/batch_test.py", "source_catalog": true}
+{"bytes": 22722, "category": "codes", "path": "codes/utility/dataset_profiles.py", "source_catalog": true}
+{"bytes": 27372, "category": "codes", "path": "codes/utility/experiment_protocol.py", "source_catalog": true}
+{"bytes": 6567, "category": "codes", "path": "codes/utility/hard_token_cache.py", "source_catalog": true}
+{"bytes": 9742, "category": "codes", "path": "codes/utility/load_data.py", "source_catalog": true}
+{"bytes": 1123, "category": "codes", "path": "codes/utility/logging.py", "source_catalog": true}
+{"bytes": 2624, "category": "codes", "path": "codes/utility/metrics.py", "source_catalog": true}
+{"bytes": 4034, "category": "codes", "path": "codes/utility/norm.py", "source_catalog": true}
+{"bytes": 126013, "category": "codes", "path": "codes/utility/parser.py", "source_catalog": true}
+{"bytes": 1397, "category": "codes", "path": "codes/utility/sports_validation_reuse.py", "source_catalog": true}
+{"bytes": 4362239, "category": "data", "path": "data/_incoming/mmrec_baby/baby.inter", "source_catalog": false}
+{"bytes": 5068, "category": "data", "path": "data/_incoming/mmrec_baby/download_manifest.json", "source_catalog": false}
+{"bytes": 111702, "category": "data", "path": "data/_incoming/mmrec_baby/i_id_mapping.csv", "source_catalog": false}
+{"bytes": 231014528, "category": "data", "path": "data/_incoming/mmrec_baby/image_feat.npy", "source_catalog": false}
+{"bytes": 10828928, "category": "data", "path": "data/_incoming/mmrec_baby/text_feat.npy", "source_catalog": false}
+{"bytes": 392164, "category": "data", "path": "data/_incoming/mmrec_baby/u_id_mapping.csv", "source_catalog": false}
+{"bytes": 38955963, "category": "data", "path": "data/_incoming/mmrec_baby/user_graph_dict.npy", "source_catalog": false}
+{"bytes": 2060, "category": "data", "path": "data/_incoming/mmrec_sports/download_manifest.json", "source_catalog": false}
+{"bytes": 300971, "category": "data", "path": "data/_incoming/mmrec_sports/i_id_mapping.csv", "source_catalog": false}
+{"bytes": 601522304, "category": "data", "path": "data/_incoming/mmrec_sports/image_feat.npy", "source_catalog": false}
+{"bytes": 8278383, "category": "data", "path": "data/_incoming/mmrec_sports/sports.inter", "source_catalog": false}
+{"bytes": 28196480, "category": "data", "path": "data/_incoming/mmrec_sports/text_feat.npy", "source_catalog": false}
+{"bytes": 727460, "category": "data", "path": "data/_incoming/mmrec_sports/u_id_mapping.csv", "source_catalog": false}
+{"bytes": 2389155, "category": "data", "path": "data/amazon/hard_token_image_pca", "source_catalog": false}
+{"bytes": 2389646, "category": "data", "path": "data/amazon/hard_token_image_pca_v2_fb21838b38331b6f.pkl", "source_catalog": false}
+{"bytes": 2389155, "category": "data", "path": "data/amazon/hard_token_text_pca", "source_catalog": false}
+{"bytes": 2389644, "category": "data", "path": "data/amazon/hard_token_text_pca_v2_16eec07d3f702d09.pkl", "source_catalog": false}
+{"bytes": 114671744, "category": "data", "path": "data/amazon/image_feat.npy", "source_catalog": false}
+{"bytes": 642092, "category": "data", "path": "data/amazon/test_mat", "source_catalog": false}
+{"bytes": 114671744, "category": "data", "path": "data/amazon/text_feat.npy", "source_catalog": false}
+{"bytes": 1927826, "category": "data", "path": "data/amazon/train_mat", "source_catalog": false}
+{"bytes": 645036, "category": "data", "path": "data/amazon/val_mat", "source_catalog": false}
+{"bytes": 4133, "category": "data", "path": "data/baby/conversion_manifest.json", "source_catalog": false}
+{"bytes": 3610252, "category": "data", "path": "data/baby/hard_token_image_pca_v2_7634bb6e8dcfdbdd.pkl", "source_catalog": false}
+{"bytes": 1805452, "category": "data", "path": "data/baby/hard_token_image_pca_v2_d5fc0cacfae6ae42.pkl", "source_catalog": false}
+{"bytes": 903050, "category": "data", "path": "data/baby/hard_token_text_pca_v2_37836fd704363ff6.pkl", "source_catalog": false}
+{"bytes": 1805450, "category": "data", "path": "data/baby/hard_token_text_pca_v2_6e7c8161aaeb01f5.pkl", "source_catalog": false}
+{"bytes": 111702, "category": "data", "path": "data/baby/i_id_mapping.csv", "source_catalog": false}
+{"bytes": 231014528, "category": "data", "path": "data/baby/image_feat.npy", "source_catalog": false}
+{"bytes": 251628, "category": "data", "path": "data/baby/test_mat", "source_catalog": false}
+{"bytes": 10828928, "category": "data", "path": "data/baby/text_feat.npy", "source_catalog": false}
+{"bytes": 1026584, "category": "data", "path": "data/baby/train_mat", "source_catalog": false}
+{"bytes": 392164, "category": "data", "path": "data/baby/u_id_mapping.csv", "source_catalog": false}
+{"bytes": 242644, "category": "data", "path": "data/baby/val_mat", "source_catalog": false}
+{"bytes": 4158, "category": "data", "path": "data/sports/conversion_manifest.json", "source_catalog": false}
+{"bytes": 9399438, "category": "data", "path": "data/sports/hard_token_image_pca_v2_1544b94d9df2b5f1.pkl", "source_catalog": false}
+{"bytes": 4700044, "category": "data", "path": "data/sports/hard_token_text_pca_v2_801e7998ca2e5b46.pkl", "source_catalog": false}
+{"bytes": 300971, "category": "data", "path": "data/sports/i_id_mapping.csv", "source_catalog": false}
+{"bytes": 601522304, "category": "data", "path": "data/sports/image_feat.npy", "source_catalog": false}
+{"bytes": 3949, "category": "data", "path": "data/sports/onboarding_verification.json", "source_catalog": false}
+{"bytes": 463016, "category": "data", "path": "data/sports/test_mat", "source_catalog": false}
+{"bytes": 28196480, "category": "data", "path": "data/sports/text_feat.npy", "source_catalog": false}
+{"bytes": 1890060, "category": "data", "path": "data/sports/train_mat", "source_catalog": false}
+{"bytes": 727460, "category": "data", "path": "data/sports/u_id_mapping.csv", "source_catalog": false}
+{"bytes": 445976, "category": "data", "path": "data/sports/val_mat", "source_catalog": false}
+{"bytes": 135291008, "category": "data", "path": "data/yelp/image_feat.npy", "source_catalog": false}
+{"bytes": 887372, "category": "data", "path": "data/yelp/test_mat", "source_catalog": false}
+{"bytes": 135291008, "category": "data", "path": "data/yelp/text_feat.npy", "source_catalog": false}
+{"bytes": 2666322, "category": "data", "path": "data/yelp/train_mat", "source_catalog": false}
+{"bytes": 888060, "category": "data", "path": "data/yelp/val_mat", "source_catalog": false}
+{"bytes": 307259, "category": "root", "path": "decouple.png", "source_catalog": true}
+{"bytes": 5779, "category": "docs", "path": "docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md", "source_catalog": true}
+{"bytes": 4271, "category": "docs", "path": "docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md", "source_catalog": true}
+{"bytes": 4755, "category": "docs", "path": "docs/BABY_SEED2024_REPLICATION_PROFILES_V1.md", "source_catalog": true}
+{"bytes": 6830, "category": "docs", "path": "docs/BABY_STUDENT_REFERENCE_V1.md", "source_catalog": true}
+{"bytes": 7468, "category": "docs", "path": "docs/BABY_TD_ASYMMETRIC_NO_PROJECTION_V1.md", "source_catalog": true}
+{"bytes": 4116, "category": "docs", "path": "docs/BABY_TEACHER_PROFILE_V1.md", "source_catalog": true}
+{"bytes": 1469, "category": "docs", "path": "docs/CLEANUP_CANDIDATES.md", "source_catalog": true}
+{"bytes": 4164, "category": "docs", "path": "docs/EVALUATION_MASK_AUDIT_2026-07-30.md", "source_catalog": true}
+{"bytes": 1919, "category": "docs", "path": "docs/PROMPTMM_LR6E5_REMAINING_BATCH.md", "source_catalog": true}
+{"bytes": 2281, "category": "docs", "path": "docs/PROMPTMM_RELEASE_LR6E5_DIAGNOSTIC.md", "source_catalog": true}
+{"bytes": 6382, "category": "docs", "path": "docs/PROMPTMM_RELEASE_RESOURCE_CHECK.md", "source_catalog": true}
+{"bytes": 3131, "category": "docs", "path": "docs/PROMPTMM_RELEASE_VALIDATION120_BATCH.md", "source_catalog": true}
+{"bytes": 3177, "category": "docs", "path": "docs/PROMPTMM_RELEASE_VALIDATION300_BATCH.md", "source_catalog": true}
+{"bytes": 4183, "category": "docs", "path": "docs/PROMPTMM_RELEASE_VALIDATION_DIAGNOSTIC.md", "source_catalog": true}
+{"bytes": 2666, "category": "docs", "path": "docs/PROMPTMM_VALIDATION_FAST_PARITY.md", "source_catalog": true}
+{"bytes": 1162, "category": "docs", "path": "docs/README.md", "source_catalog": true}
+{"bytes": 1827, "category": "docs", "path": "docs/SPORTS_GRADIENT_DIAGNOSTIC.md", "source_catalog": true}
+{"bytes": 2087, "category": "docs", "path": "docs/SPORTS_INITIALIZATION_DIAGNOSTIC.md", "source_catalog": true}
+{"bytes": 2554, "category": "docs", "path": "docs/SPORTS_INITIALIZATION_PAIR_SEED2022.md", "source_catalog": true}
+{"bytes": 1620, "category": "docs", "path": "docs/SPORTS_SHAREDINIT_ALPHA3.md", "source_catalog": true}
+{"bytes": 2117, "category": "docs", "path": "docs/SPORTS_SHAREDINIT_EQUAL_MATCHED.md", "source_catalog": true}
+{"bytes": 2749, "category": "docs", "path": "docs/SPORTS_SHAREDINIT_PAIR_SEED2022.md", "source_catalog": true}
+{"bytes": 3663, "category": "docs", "path": "docs/SPORTS_STUDENT_SEED2023_2024_VALIDATION120.md", "source_catalog": true}
+{"bytes": 4133, "category": "docs", "path": "docs/SPORTS_STUDENT_VALIDATION120_V1.md", "source_catalog": true}
+{"bytes": 3459, "category": "docs", "path": "docs/SPORTS_STUDENT_VALIDATION300.md", "source_catalog": true}
+{"bytes": 2058, "category": "docs", "path": "docs/SPORTS_TEACHERINIT_BPR_SEED2022.md", "source_catalog": true}
+{"bytes": 3849, "category": "docs", "path": "docs/SPORTS_TEACHER_VALIDATION120_V1.md", "source_catalog": true}
+{"bytes": 100432, "category": "docs", "path": "docs/baselines/ASSET_MANIFEST_2026-07-29.csv", "source_catalog": true}
+{"bytes": 2893, "category": "docs", "path": "docs/baselines/README.md", "source_catalog": true}
+{"bytes": 5453, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
+{"bytes": 7417, "category": "docs", "path": "docs/paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md", "source_catalog": true}
+{"bytes": 239530, "category": "docs", "path": "docs/research/BABY_IMAGE_ONLY_CURVES_2026-09-15.png", "source_catalog": true}
+{"bytes": 9711, "category": "docs", "path": "docs/research/BABY_IMAGE_ONLY_THREE_SEED_SUMMARY_2026-09-15.md", "source_catalog": true}
+{"bytes": 6618, "category": "docs", "path": "docs/research/CONTROLLED_COST_MECHANISM_PLAN_2026-09-22.md", "source_catalog": true}
+{"bytes": 25450, "category": "docs", "path": "docs/research/EXPERIMENT_OVERVIEW_ZH_2026-09-24.md", "source_catalog": true}
+{"bytes": 123366, "category": "docs", "path": "docs/research/INNOVATION1_FIXED120_CURVES_2026-09-15.png", "source_catalog": true}
+{"bytes": 31019, "category": "docs", "path": "docs/research/INNOVATION1_REVIEW_AND_EXPERIMENT_PLAN_2026-09-14.md", "source_catalog": true}
+{"bytes": 32872, "category": "docs", "path": "docs/research/INNOVATION1_THESIS_EVIDENCE_2026-09-15.md", "source_catalog": true}
+{"bytes": 7969, "category": "docs", "path": "docs/research/PROMPTMM_BASELINE_IDENTITY_2026-09-18.md", "source_catalog": true}
+{"bytes": 11689, "category": "docs", "path": "docs/research/PROMPTMM_FAIR_COMPARISON_PREPARATION_2026-09-18.md", "source_catalog": true}
+{"bytes": 6668, "category": "docs", "path": "docs/research/PROMPTMM_LR6E5_THREE_SEED_2026-09-22.md", "source_catalog": true}
+{"bytes": 4923, "category": "docs", "path": "docs/research/PROMPTMM_LR_CONTRAST_2026-09-21.md", "source_catalog": true}
+{"bytes": 7027, "category": "docs", "path": "docs/research/PROMPTMM_SPORTS300_AUDIT_2026-09-20.md", "source_catalog": true}
+{"bytes": 14004, "category": "docs", "path": "docs/research/SECOND_INNOVATION_ROUTE.md", "source_catalog": true}
+{"bytes": 3469, "category": "docs", "path": "docs/research/SPORTS_ALPHA3_AUDIT_2026-09-24.md", "source_catalog": true}
+{"bytes": 2589, "category": "docs", "path": "docs/research/SPORTS_BPR_RESULT_2026-09-16.md", "source_catalog": true}
+{"bytes": 12733, "category": "docs", "path": "docs/research/SPORTS_CACHED_DEPLOYMENT_AUDIT_2026-09-26.md", "source_catalog": true}
+{"bytes": 4252, "category": "docs", "path": "docs/research/SPORTS_COLDINIT_SELECTED_GEOMETRY_2026-09-24.md", "source_catalog": true}
+{"bytes": 9243, "category": "docs", "path": "docs/research/SPORTS_DEPLOYMENT_EFFICIENCY_PROTOCOL_2026-09-26.md", "source_catalog": true}
+{"bytes": 7146, "category": "docs", "path": "docs/research/SPORTS_DEPLOYMENT_EFFICIENCY_RUN_2026-09-26.md", "source_catalog": true}
+{"bytes": 4722, "category": "docs", "path": "docs/research/SPORTS_EQUAL_MATCHED_AUDIT_2026-09-24.md", "source_catalog": true}
+{"bytes": 2843, "category": "docs", "path": "docs/research/SPORTS_FULL_RESULT_2026-09-16.md", "source_catalog": true}
+{"bytes": 3420, "category": "docs", "path": "docs/research/SPORTS_GRADIENT_AUDIT_2026-09-23.md", "source_catalog": true}
+{"bytes": 5927, "category": "docs", "path": "docs/research/SPORTS_INITIALIZATION_AUDIT_2026-09-23.md", "source_catalog": true}
+{"bytes": 8663, "category": "docs", "path": "docs/research/SPORTS_INTEGRATED_MECHANISM_CONCLUSION_2026-09-26.md", "source_catalog": true}
+{"bytes": 4058, "category": "docs", "path": "docs/research/SPORTS_MATCHED_TARGET_DIRECTION_AUDIT_2026-09-24.md", "source_catalog": true}
+{"bytes": 6842, "category": "docs", "path": "docs/research/SPORTS_PAIRED_COLDINIT_THREE_SEED_AUDIT_2026-09-25.md", "source_catalog": true}
+{"bytes": 3953, "category": "docs", "path": "docs/research/SPORTS_RAW_DATA_AUDIT_2026-09-16.md", "source_catalog": true}
+{"bytes": 4250, "category": "docs", "path": "docs/research/SPORTS_SEED2022_PAIRED_RESULTS_2026-09-16.md", "source_catalog": true}
+{"bytes": 16986, "category": "docs", "path": "docs/research/SPORTS_SHAM_RESIDUAL_AUDIT_2026-09-26.md", "source_catalog": true}
+{"bytes": 5510, "category": "docs", "path": "docs/research/SPORTS_SHAM_RESIDUAL_PROTOCOL_2026-09-25.md", "source_catalog": true}
+{"bytes": 5517, "category": "docs", "path": "docs/research/SPORTS_SHAREDINIT_MECHANISM_SYNTHESIS_2026-09-24.md", "source_catalog": true}
+{"bytes": 5247, "category": "docs", "path": "docs/research/SPORTS_SHAREDINIT_PAIR_AUDIT_2026-09-23.md", "source_catalog": true}
+{"bytes": 7680, "category": "docs", "path": "docs/research/SPORTS_STRICT_PAIR_MECHANISM_SYNTHESIS_2026-09-25.md", "source_catalog": true}
+{"bytes": 3812, "category": "docs", "path": "docs/research/SPORTS_TEACHER_RESULT_2026-09-16.md", "source_catalog": true}
+{"bytes": 9798, "category": "docs", "path": "docs/research/SPORTS_THREE_SEED_VALIDATION120_2026-09-17.md", "source_catalog": true}
+{"bytes": 19036, "category": "docs", "path": "docs/research/SPORTS_THREE_SEED_VALIDATION300_2026-09-18.md", "source_catalog": true}
+{"bytes": 5285, "category": "docs", "path": "docs/research/SPORTS_WEIGHTED_DIRECTION_AUDIT_2026-09-24.md", "source_catalog": true}
+{"bytes": 2015, "category": "docs", "path": "docs/research_notes/KL散度蒸馏vs方向蒸馏对比.txt", "source_catalog": true}
+{"bytes": 756, "category": "docs", "path": "docs/research_notes/README.md", "source_catalog": true}
+{"bytes": 1712, "category": "docs", "path": "docs/research_notes/多模态融合语义鸿沟问答.txt", "source_catalog": true}
+{"bytes": 2115, "category": "docs", "path": "docs/research_notes/消融实验问答_Q7.txt", "source_catalog": true}
+{"bytes": 1691, "category": "environment", "path": "environment/run_5060-conda-explicit.txt", "source_catalog": true}
+{"bytes": 892, "category": "environment", "path": "environment/run_5060-pip-freeze.txt", "source_catalog": true}
+{"bytes": 1064, "category": "environment", "path": "environment/run_5060-runtime.md", "source_catalog": true}
+{"bytes": 4915, "category": "exp", "path": "exp/audit/audit_sports300.py", "source_catalog": false}
+{"bytes": 8987, "category": "exp", "path": "exp/audit/promptmm300_joint_audit.json", "source_catalog": false}
+{"bytes": 2020, "category": "exp", "path": "exp/audit/promptmm_lr6e5_three_seed.json", "source_catalog": false}
+{"bytes": 25081, "category": "exp", "path": "exp/audit/sports300_audit.json", "source_catalog": false}
+{"bytes": 9592, "category": "exp", "path": "exp/audit/write_sports300_report.py", "source_catalog": false}
+{"bytes": 17476, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-11 00_29_36_amazon_light_init_pid22964.pkl", "source_catalog": false}
+{"bytes": 17476, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-11 11_59_06_amazon_light_init_pid26300.pkl", "source_catalog": false}
+{"bytes": 17476, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-11 15_38_13_amazon_light_init_pid19316.pkl", "source_catalog": false}
+{"bytes": 17476, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-11 18_23_07_amazon_light_init_pid21740.pkl", "source_catalog": false}
+{"bytes": 17476, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-11 19_06_47_amazon_light_init_pid22012.pkl", "source_catalog": false}
+{"bytes": 17476, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-11 19_50_25_amazon_light_init_pid21780.pkl", "source_catalog": false}
+{"bytes": 17476, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-11 22_56_26_amazon_light_init_pid2384.pkl", "source_catalog": false}
+{"bytes": 38518, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-12 12_16_10_amazon_light_init_pid21848.pkl", "source_catalog": false}
+{"bytes": 38621, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-12 15_16_41_amazon_light_init_pid26012.pkl", "source_catalog": false}
+{"bytes": 27600, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-12 17_00_13_amazon_light_init_pid18928.pkl", "source_catalog": false}
+{"bytes": 37797, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-12 19_03_46_amazon_light_init_pid6348.pkl", "source_catalog": false}
+{"bytes": 36767, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-12 22_05_54_amazon_light_init_pid19636.pkl", "source_catalog": false}
+{"bytes": 4013, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-13 00_02_36_amazon_light_init_pid30912.pkl", "source_catalog": false}
+{"bytes": 24922, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-13 00_58_16_amazon_light_init_pid25648.pkl", "source_catalog": false}
+{"bytes": 4843, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-13 09_58_53_amazon_light_init_pid27712.pkl", "source_catalog": false}
+{"bytes": 30975, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-13 10_50_20_amazon_light_init_pid18884.pkl", "source_catalog": false}
+{"bytes": 30975, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-13 12_43_21_amazon_light_init_pid12236.pkl", "source_catalog": false}
+{"bytes": 39176, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-13 14_02_40_amazon_light_init_pid18536.pkl", "source_catalog": false}
+{"bytes": 43485, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-13 17_25_32_amazon_light_init_pid5896.pkl", "source_catalog": false}
+{"bytes": 662, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-13 20_34_17_amazon_light_init_pid33060.pkl", "source_catalog": false}
+{"bytes": 51408, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-13 20_38_40_amazon_light_init_pid32828.pkl", "source_catalog": false}
+{"bytes": 33060, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-13 22_40_15_amazon_light_init_pid14760.pkl", "source_catalog": false}
+{"bytes": 37925, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-13 23_55_04_amazon_light_init_pid12888.pkl", "source_catalog": false}
+{"bytes": 32504, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-14 01_07_46_amazon_light_init_pid22532.pkl", "source_catalog": false}
+{"bytes": 52242, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-14 20_26_27_amazon_light_init_pid31404.pkl", "source_catalog": false}
+{"bytes": 6789, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-14 22_44_59_amazon_light_init_pid32448.pkl", "source_catalog": false}
+{"bytes": 6789, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-15 08_07_08_amazon_light_init_pid15472.pkl", "source_catalog": false}
+{"bytes": 59748, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-15 08_28_43_amazon_light_init_pid1896.pkl", "source_catalog": false}
+{"bytes": 59748, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-15 10_52_54_amazon_light_init_pid16960.pkl", "source_catalog": false}
+{"bytes": 59748, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-15 13_04_04_amazon_light_init_pid29492.pkl", "source_catalog": false}
+{"bytes": 8457, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-15 15_14_13_amazon_light_init_pid22040.pkl", "source_catalog": false}
+{"bytes": 52659, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-15 16_44_18_amazon_light_init_pid18192.pkl", "source_catalog": false}
+{"bytes": 50852, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-15 19_43_54_amazon_light_init_pid40632.pkl", "source_catalog": false}
+{"bytes": 3731, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-15 22_13_41_amazon_light_init_pid40944.pkl", "source_catalog": false}
+{"bytes": 42095, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-15 22_36_12_amazon_light_init_pid8908.pkl", "source_catalog": false}
+{"bytes": 3592, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-16 00_50_57_amazon_light_init_pid22756.pkl", "source_catalog": false}
+{"bytes": 3731, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-16 19_41_52_amazon_light_init_pid21524.pkl", "source_catalog": false}
+{"bytes": 3731, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-16 19_56_11_amazon_light_init_pid26212.pkl", "source_catalog": false}
+{"bytes": 59748, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-16 20_27_54_amazon_light_init_pid30904.pkl", "source_catalog": false}
+{"bytes": 38064, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-16 22_42_13_amazon_light_init_pid26048.pkl", "source_catalog": false}
+{"bytes": 44319, "category": "exp", "path": "exp/converge/amazon/auto__2026-04-16 23_59_47_amazon_light_init_pid26184.pkl", "source_catalog": false}
+{"bytes": 1597, "category": "exp", "path": "exp/converge/amazon/protocol_smoke_20260728", "source_catalog": false}
+{"bytes": 1597, "category": "exp", "path": "exp/converge/amazon/protocol_smoke_20260728__2026-07-29 12_23_28_amazon_light_init_pid15100.pkl", "source_catalog": false}
+{"bytes": 1245, "category": "exp", "path": "exp/converge/baby/auto__2026-07-31 12_08_26.244081_baby_light_init_pid24060.pkl", "source_catalog": false}
+{"bytes": 25278, "category": "exp", "path": "exp/converge/baby/auto__2026-07-31 12_33_07.292506_baby_light_init_pid7872.pkl", "source_catalog": false}
+{"bytes": 1245, "category": "exp", "path": "exp/converge/baby/auto__2026-07-31 15_56_00.884183_baby_light_init_pid15900.pkl", "source_catalog": false}
+{"bytes": 12770, "category": "exp", "path": "exp/converge/baby/auto__2026-07-31 18_35_00.450484_baby_light_init_pid22864.pkl", "source_catalog": false}
+{"bytes": 12631, "category": "exp", "path": "exp/converge/baby/auto__2026-08-01 20_20_35.101504_baby_light_init_pid29128.pkl", "source_catalog": false}
+{"bytes": 8736, "category": "exp", "path": "exp/converge/baby/auto__2026-08-01 21_09_59.190542_baby_light_init_pid33928.pkl", "source_catalog": false}
+{"bytes": 25280, "category": "exp", "path": "exp/converge/baby/auto__2026-08-01 23_31_40.280800_baby_light_init_pid15908.pkl", "source_catalog": false}
+{"bytes": 10960, "category": "exp", "path": "exp/converge/baby/auto__2026-08-02 00_42_54.029141_baby_light_init_pid29752.pkl", "source_catalog": false}
+{"bytes": 11936, "category": "exp", "path": "exp/converge/baby/auto__2026-08-02 02_15_00.996496_baby_light_init_pid37484.pkl", "source_catalog": false}
+{"bytes": 25280, "category": "exp", "path": "exp/converge/baby/auto__2026-08-02 11_06_37.355218_baby_light_init_pid17532.pkl", "source_catalog": false}
+{"bytes": 12770, "category": "exp", "path": "exp/converge/baby/auto__2026-08-02 12_05_26.329228_baby_light_init_pid27620.pkl", "source_catalog": false}
+{"bytes": 12631, "category": "exp", "path": "exp/converge/baby/auto__2026-08-02 12_48_21.776381_baby_light_init_pid36572.pkl", "source_catalog": false}
+{"bytes": 8734, "category": "exp", "path": "exp/converge/baby/auto__2026-08-02 13_11_41.705929_baby_light_init_pid4516.pkl", "source_catalog": false}
+{"bytes": 25280, "category": "exp", "path": "exp/converge/baby/auto__2026-08-02 15_02_09.238814_baby_light_init_pid33332.pkl", "source_catalog": false}
+{"bytes": 10958, "category": "exp", "path": "exp/converge/baby/auto__2026-08-02 16_36_39.774993_baby_light_init_pid5916.pkl", "source_catalog": false}
+{"bytes": 11936, "category": "exp", "path": "exp/converge/baby/auto__2026-09-14 15_39_12.331441_baby_light_init_pid30688.pkl", "source_catalog": false}
+{"bytes": 16521, "category": "exp", "path": "exp/converge/baby/auto__2026-09-14 17_09_49.294989_baby_light_init_pid2004.pkl", "source_catalog": false}
+{"bytes": 2585, "category": "exp", "path": "exp/converge/baby/auto__2026-09-14 21_32_16.560580_baby_light_init_pid8316.pkl", "source_catalog": false}
+{"bytes": 17804, "category": "exp", "path": "exp/converge/baby/auto__2026-09-15 13_20_01.591632_baby_light_init_pid2984.pkl", "source_catalog": false}
+{"bytes": 17806, "category": "exp", "path": "exp/converge/baby/auto__2026-09-15 15_14_52.846849_baby_light_init_pid39820.pkl", "source_catalog": false}
+{"bytes": 17804, "category": "exp", "path": "exp/converge/baby/auto__2026-09-15 15_55_29.823816_baby_light_init_pid6540.pkl", "source_catalog": false}
+{"bytes": 17806, "category": "exp", "path": "exp/converge/baby/auto__2026-09-15 17_14_09.096736_baby_light_init_pid37680.pkl", "source_catalog": false}
+{"bytes": 17806, "category": "exp", "path": "exp/converge/baby/auto__2026-09-15 17_38_32.051894_baby_light_init_pid40068.pkl", "source_catalog": false}
+{"bytes": 17806, "category": "exp", "path": "exp/converge/baby/auto__2026-09-15 18_03_23.947862_baby_light_init_pid33860.pkl", "source_catalog": false}
+{"bytes": 17806, "category": "exp", "path": "exp/converge/baby/auto__2026-09-15 18_28_27.361428_baby_light_init_pid40908.pkl", "source_catalog": false}
+{"bytes": 17814, "category": "exp", "path": "exp/converge/sports/auto__2026-09-16 17_18_56.750542_sports_light_init_pid25008.pkl", "source_catalog": false}
+{"bytes": 17814, "category": "exp", "path": "exp/converge/sports/auto__2026-09-16 18_39_26.957343_sports_light_init_pid24140.pkl", "source_catalog": false}
+{"bytes": 17814, "category": "exp", "path": "exp/converge/sports/auto__2026-09-16 21_40_06.514182_sports_light_init_pid42036.pkl", "source_catalog": false}
+{"bytes": 17814, "category": "exp", "path": "exp/converge/sports/auto__2026-09-16 23_27_49.601262_sports_light_init_pid40628.pkl", "source_catalog": false}
+{"bytes": 17812, "category": "exp", "path": "exp/converge/sports/auto__2026-09-17 00_43_06.905567_sports_light_init_pid9324.pkl", "source_catalog": false}
+{"bytes": 17814, "category": "exp", "path": "exp/converge/sports/auto__2026-09-17 01_59_31.370287_sports_light_init_pid45812.pkl", "source_catalog": false}
+{"bytes": 17814, "category": "exp", "path": "exp/converge/sports/auto__2026-09-17 03_15_48.676117_sports_light_init_pid48292.pkl", "source_catalog": false}
+{"bytes": 17814, "category": "exp", "path": "exp/converge/sports/auto__2026-09-17 04_31_26.826865_sports_light_init_pid29552.pkl", "source_catalog": false}
+{"bytes": 17814, "category": "exp", "path": "exp/converge/sports/auto__2026-09-17 05_47_26.495792_sports_light_init_pid25684.pkl", "source_catalog": false}
+{"bytes": 42835, "category": "exp", "path": "exp/converge/sports/auto__2026-09-17 11_50_42.452019_sports_light_init_pid21216.pkl", "source_catalog": false}
+{"bytes": 42835, "category": "exp", "path": "exp/converge/sports/auto__2026-09-17 17_08_55.469360_sports_light_init_pid47952.pkl", "source_catalog": false}
+{"bytes": 42835, "category": "exp", "path": "exp/converge/sports/auto__2026-09-17 20_34_43.591646_sports_light_init_pid30528.pkl", "source_catalog": false}
+{"bytes": 42835, "category": "exp", "path": "exp/converge/sports/auto__2026-09-17 23_49_20.915423_sports_light_init_pid48412.pkl", "source_catalog": false}
+{"bytes": 42835, "category": "exp", "path": "exp/converge/sports/auto__2026-09-18 02_55_57.358892_sports_light_init_pid38584.pkl", "source_catalog": false}
+{"bytes": 42835, "category": "exp", "path": "exp/converge/sports/auto__2026-09-18 06_05_32.090309_sports_light_init_pid43032.pkl", "source_catalog": false}
+{"bytes": 42835, "category": "exp", "path": "exp/converge/sports/auto__2026-09-18 09_13_44.833581_sports_light_init_pid40228.pkl", "source_catalog": false}
+{"bytes": 42835, "category": "exp", "path": "exp/converge/sports/auto__2026-09-18 12_21_00.822710_sports_light_init_pid47072.pkl", "source_catalog": false}
+{"bytes": 42835, "category": "exp", "path": "exp/converge/sports/auto__2026-09-18 15_59_59.130995_sports_light_init_pid33376.pkl", "source_catalog": false}
+{"bytes": 42833, "category": "exp", "path": "exp/converge/sports/auto__2026-09-22 20_57_40.716760_sports_light_init_pid8964.pkl", "source_catalog": false}
+{"bytes": 42833, "category": "exp", "path": "exp/converge/sports/auto__2026-09-23 11_07_51.352217_sports_light_init_pid2784.pkl", "source_catalog": false}
+{"bytes": 42835, "category": "exp", "path": "exp/converge/sports/auto__2026-09-23 16_11_54.129842_sports_light_init_pid36040.pkl", "source_catalog": false}
+{"bytes": 42834, "category": "exp", "path": "exp/converge/sports/auto__2026-09-23 23_05_29.825139_sports_light_init_pid44284.pkl", "source_catalog": false}
+{"bytes": 42835, "category": "exp", "path": "exp/converge/sports/auto__2026-09-24 12_37_07.329601_sports_light_init_pid39320.pkl", "source_catalog": false}
+{"bytes": 42833, "category": "exp", "path": "exp/converge/sports/auto__2026-09-24 18_22_52.151219_sports_light_init_pid5012.pkl", "source_catalog": false}
+{"bytes": 42835, "category": "exp", "path": "exp/converge/sports/auto__2026-09-24 21_30_49.206663_sports_light_init_pid17448.pkl", "source_catalog": false}
+{"bytes": 42835, "category": "exp", "path": "exp/converge/sports/auto__2026-09-25 00_24_21.134528_sports_light_init_pid35648.pkl", "source_catalog": false}
+{"bytes": 42835, "category": "exp", "path": "exp/converge/sports/auto__2026-09-25 03_32_21.613007_sports_light_init_pid56744.pkl", "source_catalog": false}
+{"bytes": 42835, "category": "exp", "path": "exp/converge/sports/auto__2026-09-25 06_25_38.618521_sports_light_init_pid50812.pkl", "source_catalog": false}
+{"bytes": 42835, "category": "exp", "path": "exp/converge/sports/auto__2026-09-25 09_32_57.783209_sports_light_init_pid56052.pkl", "source_catalog": false}
+{"bytes": 42835, "category": "exp", "path": "exp/converge/sports/auto__2026-09-25 17_46_36.818082_sports_light_init_pid56688.pkl", "source_catalog": false}
+{"bytes": 42833, "category": "exp", "path": "exp/converge/sports/auto__2026-09-25 20_41_43.842353_sports_light_init_pid9624.pkl", "source_catalog": false}
+{"bytes": 42835, "category": "exp", "path": "exp/converge/sports/auto__2026-09-25 23_42_04.894528_sports_light_init_pid15332.pkl", "source_catalog": false}
+{"bytes": 42831, "category": "exp", "path": "exp/converge/sports/auto__2026-09-26 02_38_22.563718_sports_light_init_pid596.pkl", "source_catalog": false}
+{"bytes": 42835, "category": "exp", "path": "exp/converge/sports/auto__2026-09-26 05_34_16.930265_sports_light_init_pid42156.pkl", "source_catalog": false}
+{"bytes": 42835, "category": "exp", "path": "exp/converge/sports/auto__2026-09-26 08_30_07.418852_sports_light_init_pid30132.pkl", "source_catalog": false}
+{"bytes": 642, "category": "exp", "path": "exp/efficiency/amazon/efficiency__2026-04-17 01_50_16_amazon_light_init_pid22636.pkl", "source_catalog": false}
+{"bytes": 13814309, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v1/B_tables.pt", "source_catalog": false}
+{"bytes": 13814309, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v1/F_tables.pt", "source_catalog": false}
+{"bytes": 13814309, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v1/T_tables.pt", "source_catalog": false}
+{"bytes": 6895, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v1/batch.json", "source_catalog": false}
+{"bytes": 5491, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v1/preflight.json", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v1/preflight_console.txt", "source_catalog": false}
+{"bytes": 284912, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v1/request_order.npy", "source_catalog": false}
+{"bytes": 2366, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v1/round0_offline_T_b0/report.json", "source_catalog": false}
+{"bytes": 1866, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v1/round0_offline_T_b0_console.txt", "source_catalog": false}
+{"bytes": 292, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v1/telemetry.jsonl", "source_catalog": false}
+{"bytes": 13814309, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/B_tables.pt", "source_catalog": false}
+{"bytes": 13814309, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/F_tables.pt", "source_catalog": false}
+{"bytes": 13814309, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/T_tables.pt", "source_catalog": false}
+{"bytes": 25421, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/batch.json", "source_catalog": false}
+{"bytes": 5491, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/preflight.json", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/preflight_console.txt", "source_catalog": false}
+{"bytes": 284912, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/request_order.npy", "source_catalog": false}
+{"bytes": 3775, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round0_offline_B_b0/report.json", "source_catalog": false}
+{"bytes": 13814309, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round0_offline_B_b0/tables.pt", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round0_offline_B_b0_console.txt", "source_catalog": false}
+{"bytes": 3775, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round0_offline_F_b0/report.json", "source_catalog": false}
+{"bytes": 13814309, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round0_offline_F_b0/tables.pt", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round0_offline_F_b0_console.txt", "source_catalog": false}
+{"bytes": 10408, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round0_offline_T_b0/report.json", "source_catalog": false}
+{"bytes": 13814309, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round0_offline_T_b0/tables.pt", "source_catalog": false}
+{"bytes": 613, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round0_offline_T_b0_console.txt", "source_catalog": false}
+{"bytes": 15227, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round0_online_B_b1/report.json", "source_catalog": false}
+{"bytes": 15057, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round0_online_B_b1024/report.json", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round0_online_B_b1024_console.txt", "source_catalog": false}
+{"bytes": 15144, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round0_online_B_b128/report.json", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round0_online_B_b128_console.txt", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round0_online_B_b1_console.txt", "source_catalog": false}
+{"bytes": 15216, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round0_online_F_b1/report.json", "source_catalog": false}
+{"bytes": 15067, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round0_online_F_b1024/report.json", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round0_online_F_b1024_console.txt", "source_catalog": false}
+{"bytes": 15149, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round0_online_F_b128/report.json", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round0_online_F_b128_console.txt", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round0_online_F_b1_console.txt", "source_catalog": false}
+{"bytes": 15218, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round0_online_T_b1/report.json", "source_catalog": false}
+{"bytes": 15058, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round0_online_T_b1024/report.json", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round0_online_T_b1024_console.txt", "source_catalog": false}
+{"bytes": 15159, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round0_online_T_b128/report.json", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round0_online_T_b128_console.txt", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round0_online_T_b1_console.txt", "source_catalog": false}
+{"bytes": 3772, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round1_offline_B_b0/report.json", "source_catalog": false}
+{"bytes": 13814309, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round1_offline_B_b0/tables.pt", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round1_offline_B_b0_console.txt", "source_catalog": false}
+{"bytes": 3774, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round1_offline_F_b0/report.json", "source_catalog": false}
+{"bytes": 13814309, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round1_offline_F_b0/tables.pt", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round1_offline_F_b0_console.txt", "source_catalog": false}
+{"bytes": 10412, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round1_offline_T_b0/report.json", "source_catalog": false}
+{"bytes": 13814309, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round1_offline_T_b0/tables.pt", "source_catalog": false}
+{"bytes": 613, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round1_offline_T_b0_console.txt", "source_catalog": false}
+{"bytes": 15215, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round1_online_B_b1/report.json", "source_catalog": false}
+{"bytes": 15063, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round1_online_B_b1024/report.json", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round1_online_B_b1024_console.txt", "source_catalog": false}
+{"bytes": 15143, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round1_online_B_b128/report.json", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round1_online_B_b128_console.txt", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round1_online_B_b1_console.txt", "source_catalog": false}
+{"bytes": 15217, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round1_online_F_b1/report.json", "source_catalog": false}
+{"bytes": 15057, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round1_online_F_b1024/report.json", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round1_online_F_b1024_console.txt", "source_catalog": false}
+{"bytes": 15137, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round1_online_F_b128/report.json", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round1_online_F_b128_console.txt", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round1_online_F_b1_console.txt", "source_catalog": false}
+{"bytes": 15229, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round1_online_T_b1/report.json", "source_catalog": false}
+{"bytes": 15065, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round1_online_T_b1024/report.json", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round1_online_T_b1024_console.txt", "source_catalog": false}
+{"bytes": 15140, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round1_online_T_b128/report.json", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round1_online_T_b128_console.txt", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round1_online_T_b1_console.txt", "source_catalog": false}
+{"bytes": 3770, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round2_offline_B_b0/report.json", "source_catalog": false}
+{"bytes": 13814309, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round2_offline_B_b0/tables.pt", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round2_offline_B_b0_console.txt", "source_catalog": false}
+{"bytes": 3777, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round2_offline_F_b0/report.json", "source_catalog": false}
+{"bytes": 13814309, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round2_offline_F_b0/tables.pt", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round2_offline_F_b0_console.txt", "source_catalog": false}
+{"bytes": 10411, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round2_offline_T_b0/report.json", "source_catalog": false}
+{"bytes": 13814309, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round2_offline_T_b0/tables.pt", "source_catalog": false}
+{"bytes": 613, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round2_offline_T_b0_console.txt", "source_catalog": false}
+{"bytes": 15234, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round2_online_B_b1/report.json", "source_catalog": false}
+{"bytes": 15059, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round2_online_B_b1024/report.json", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round2_online_B_b1024_console.txt", "source_catalog": false}
+{"bytes": 15155, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round2_online_B_b128/report.json", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round2_online_B_b128_console.txt", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round2_online_B_b1_console.txt", "source_catalog": false}
+{"bytes": 15207, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round2_online_F_b1/report.json", "source_catalog": false}
+{"bytes": 15059, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round2_online_F_b1024/report.json", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round2_online_F_b1024_console.txt", "source_catalog": false}
+{"bytes": 15139, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round2_online_F_b128/report.json", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round2_online_F_b128_console.txt", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round2_online_F_b1_console.txt", "source_catalog": false}
+{"bytes": 15226, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round2_online_T_b1/report.json", "source_catalog": false}
+{"bytes": 15048, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round2_online_T_b1024/report.json", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round2_online_T_b1024_console.txt", "source_catalog": false}
+{"bytes": 15134, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round2_online_T_b128/report.json", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round2_online_T_b128_console.txt", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round2_online_T_b1_console.txt", "source_catalog": false}
+{"bytes": 10878, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/telemetry.jsonl", "source_catalog": false}
+{"bytes": 10616, "category": "exp", "path": "exp/gradient_checks/sports_matched_target_direction_seed2022_v1/report.json", "source_catalog": false}
+{"bytes": 5527, "category": "exp", "path": "exp/gradient_checks/sports_sharedinit_seed2022_v1/report.json", "source_catalog": false}
+{"bytes": 331565, "category": "exp", "path": "exp/gradient_checks/sports_sharedinit_seed2022_v2/batches.json", "source_catalog": false}
+{"bytes": 38440, "category": "exp", "path": "exp/gradient_checks/sports_sharedinit_seed2022_v2/report.json", "source_catalog": false}
+{"bytes": 5133, "category": "exp", "path": "exp/gradient_checks/sports_weighted_directions_seed2022_v1/report.json", "source_catalog": false}
+{"bytes": 3044, "category": "exp", "path": "exp/handoffs/AFTER_SPORTS300_NEXT_STEPS_2026-09-17.md", "source_catalog": false}
+{"bytes": 816, "category": "exp", "path": "exp/initialization_checks/sports_bpr_teacherinit_seed2022_val300_v1/run.json", "source_catalog": false}
+{"bytes": 2836, "category": "exp", "path": "exp/initialization_checks/sports_initialization_pair_seed2022_val300_v1/batch.json", "source_catalog": false}
+{"bytes": 41440437, "category": "exp", "path": "exp/initialization_checks/sports_initialization_repeatability_seed2022_v1/process0/initial_tensors.pt", "source_catalog": false}
+{"bytes": 15102, "category": "exp", "path": "exp/initialization_checks/sports_initialization_repeatability_seed2022_v1/process0/report.json", "source_catalog": false}
+{"bytes": 41440437, "category": "exp", "path": "exp/initialization_checks/sports_initialization_repeatability_seed2022_v1/process1/initial_tensors.pt", "source_catalog": false}
+{"bytes": 15101, "category": "exp", "path": "exp/initialization_checks/sports_initialization_repeatability_seed2022_v1/process1/report.json", "source_catalog": false}
+{"bytes": 35452, "category": "exp", "path": "exp/initialization_checks/sports_initialization_repeatability_seed2022_v1/report.json", "source_catalog": false}
+{"bytes": 4063, "category": "exp", "path": "exp/initialization_checks/sports_sharedteacherinit_alpha3_seed2022_val300_v1/run.json", "source_catalog": false}
+{"bytes": 4170, "category": "exp", "path": "exp/initialization_checks/sports_sharedteacherinit_equal_matched_seed2022_val300_v1/run.json", "source_catalog": false}
+{"bytes": 6350, "category": "exp", "path": "exp/initialization_checks/sports_sharedteacherinit_pair_seed2022_val300_v1/batch.json", "source_catalog": false}
+{"bytes": 9807, "category": "exp", "path": "exp/paired_coldinit/sports_three_seed_v1/batch.json", "source_catalog": false}
+{"bytes": 13814245, "category": "exp", "path": "exp/paired_coldinit/sports_three_seed_v1/seed2022/initial.pt", "source_catalog": false}
+{"bytes": 788889728, "category": "exp", "path": "exp/paired_coldinit/sports_three_seed_v1/seed2022/triplets.npy", "source_catalog": false}
+{"bytes": 66, "category": "exp", "path": "exp/paired_coldinit/sports_three_seed_v1/seed2022/triplets.sha256", "source_catalog": false}
+{"bytes": 13814245, "category": "exp", "path": "exp/paired_coldinit/sports_three_seed_v1/seed2023/initial.pt", "source_catalog": false}
+{"bytes": 788889728, "category": "exp", "path": "exp/paired_coldinit/sports_three_seed_v1/seed2023/triplets.npy", "source_catalog": false}
+{"bytes": 66, "category": "exp", "path": "exp/paired_coldinit/sports_three_seed_v1/seed2023/triplets.sha256", "source_catalog": false}
+{"bytes": 13814245, "category": "exp", "path": "exp/paired_coldinit/sports_three_seed_v1/seed2024/initial.pt", "source_catalog": false}
+{"bytes": 788889728, "category": "exp", "path": "exp/paired_coldinit/sports_three_seed_v1/seed2024/triplets.npy", "source_catalog": false}
+{"bytes": 66, "category": "exp", "path": "exp/paired_coldinit/sports_three_seed_v1/seed2024/triplets.sha256", "source_catalog": false}
+{"bytes": 4382, "category": "exp", "path": "exp/promptmm_release/sports_promptmm_release_validation300_lr6e5_remaining_v1/batch.json", "source_catalog": false}
+{"bytes": 27630045, "category": "exp", "path": "exp/promptmm_release/sports_promptmm_release_validation300_seed2022_lr6e5_randominit_v1/best.pt", "source_catalog": false}
+{"bytes": 413876, "category": "exp", "path": "exp/promptmm_release/sports_promptmm_release_validation300_seed2022_lr6e5_randominit_v1/report.json", "source_catalog": false}
+{"bytes": 27629405, "category": "exp", "path": "exp/promptmm_release/sports_promptmm_release_validation300_seed2022_lr6e5_v1/best.pt", "source_catalog": false}
+{"bytes": 411456, "category": "exp", "path": "exp/promptmm_release/sports_promptmm_release_validation300_seed2022_lr6e5_v1/report.json", "source_catalog": false}
+{"bytes": 27629405, "category": "exp", "path": "exp/promptmm_release/sports_promptmm_release_validation300_seed2022_v1/best.pt", "source_catalog": false}
+{"bytes": 411554, "category": "exp", "path": "exp/promptmm_release/sports_promptmm_release_validation300_seed2022_v1/report.json", "source_catalog": false}
+{"bytes": 27629405, "category": "exp", "path": "exp/promptmm_release/sports_promptmm_release_validation300_seed2023_lr6e5_v1/best.pt", "source_catalog": false}
+{"bytes": 411406, "category": "exp", "path": "exp/promptmm_release/sports_promptmm_release_validation300_seed2023_lr6e5_v1/report.json", "source_catalog": false}
+{"bytes": 27629405, "category": "exp", "path": "exp/promptmm_release/sports_promptmm_release_validation300_seed2023_v1/best.pt", "source_catalog": false}
+{"bytes": 411537, "category": "exp", "path": "exp/promptmm_release/sports_promptmm_release_validation300_seed2023_v1/report.json", "source_catalog": false}
+{"bytes": 27629405, "category": "exp", "path": "exp/promptmm_release/sports_promptmm_release_validation300_seed2024_lr6e5_v1/best.pt", "source_catalog": false}
+{"bytes": 411368, "category": "exp", "path": "exp/promptmm_release/sports_promptmm_release_validation300_seed2024_lr6e5_v1/report.json", "source_catalog": false}
+{"bytes": 27629405, "category": "exp", "path": "exp/promptmm_release/sports_promptmm_release_validation300_seed2024_v1/best.pt", "source_catalog": false}
+{"bytes": 411566, "category": "exp", "path": "exp/promptmm_release/sports_promptmm_release_validation300_seed2024_v1/report.json", "source_catalog": false}
+{"bytes": 6227, "category": "exp", "path": "exp/promptmm_release/sports_promptmm_release_validation300_three_seed_v1/batch.json", "source_catalog": false}
+{"bytes": 27629405, "category": "exp", "path": "exp/promptmm_release/sports_promptmm_release_validation30_seed2022_v1/best.pt", "source_catalog": false}
+{"bytes": 47428, "category": "exp", "path": "exp/promptmm_release/sports_promptmm_release_validation30_seed2022_v1/report.json", "source_catalog": false}
+{"bytes": 26887, "category": "exp", "path": "exp/reference/promptmm/70da1002a35d6f2c7712c16cd0b2ca24c8813008/Models.py", "source_catalog": false}
+{"bytes": 30940, "category": "exp", "path": "exp/reference/promptmm/70da1002a35d6f2c7712c16cd0b2ca24c8813008/Models_mmlight.py", "source_catalog": false}
+{"bytes": 1349, "category": "exp", "path": "exp/reference/promptmm/70da1002a35d6f2c7712c16cd0b2ca24c8813008/identity.json", "source_catalog": false}
+{"bytes": 49779, "category": "exp", "path": "exp/reference/promptmm/70da1002a35d6f2c7712c16cd0b2ca24c8813008/main.py", "source_catalog": false}
+{"bytes": 51204, "category": "exp", "path": "exp/reference/promptmm/70da1002a35d6f2c7712c16cd0b2ca24c8813008/main_mmlight.py", "source_catalog": false}
+{"bytes": 109486, "category": "exp", "path": "exp/reference/promptmm/70da1002a35d6f2c7712c16cd0b2ca24c8813008/utility/parser.py", "source_catalog": false}
+{"bytes": 11363, "category": "exp", "path": "exp/representation_checks/sports_coldinit_three_seed_selected_v1/report.json", "source_catalog": false}
+{"bytes": 5547, "category": "exp", "path": "exp/resource_checks/sports_promptmm_release_resource_seed2022_v1/report.json", "source_catalog": false}
+{"bytes": 2206, "category": "exp", "path": "exp/runs/amazon/dataset_preflight__2026-07-29 12_23_28_amazon_light_init_pid15100.json", "source_catalog": false}
+{"bytes": 20720, "category": "exp", "path": "exp/runs/amazon/run_manifest__2026-07-29 12_23_28_amazon_light_init_pid15100.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-07-30 10_37_45_baby_light_init_pid29248.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-07-30 11_32_48_baby_light_init_pid24356.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-07-30 11_38_19.732201_baby_light_init_pid13504.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-07-30 11_45_57.443332_baby_light_init_pid24500.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-07-30 11_50_42.544441_baby_light_init_pid2480.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-07-31 12_08_26.244081_baby_light_init_pid24060.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-07-31 12_33_07.292506_baby_light_init_pid7872.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-07-31 15_56_00.884183_baby_light_init_pid15900.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-07-31 18_35_00.450484_baby_light_init_pid22864.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-07-31 23_22_19.126721_baby_light_init_pid17888.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-08-01 20_20_35.101504_baby_light_init_pid29128.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-08-01 21_09_59.190542_baby_light_init_pid33928.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-08-01 23_31_40.280800_baby_light_init_pid15908.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-08-02 00_42_54.029141_baby_light_init_pid29752.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-08-02 02_15_00.996496_baby_light_init_pid37484.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-08-02 11_06_37.355218_baby_light_init_pid17532.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-08-02 12_05_26.329228_baby_light_init_pid27620.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-08-02 12_48_21.776381_baby_light_init_pid36572.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-08-02 13_11_41.705929_baby_light_init_pid4516.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-08-02 15_02_09.238814_baby_light_init_pid33332.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-08-02 16_36_39.774993_baby_light_init_pid5916.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-09-14 15_39_12.331441_baby_light_init_pid30688.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-09-14 17_09_49.294989_baby_light_init_pid2004.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-09-14 21_32_16.560580_baby_light_init_pid8316.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-09-15 13_20_01.591632_baby_light_init_pid2984.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-09-15 15_14_52.846849_baby_light_init_pid39820.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-09-15 15_55_29.823816_baby_light_init_pid6540.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-09-15 17_14_09.096736_baby_light_init_pid37680.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-09-15 17_38_32.051894_baby_light_init_pid40068.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-09-15 18_03_23.947862_baby_light_init_pid33860.json", "source_catalog": false}
+{"bytes": 3399, "category": "exp", "path": "exp/runs/baby/dataset_preflight__2026-09-15 18_28_27.361428_baby_light_init_pid40908.json", "source_catalog": false}
+{"bytes": 23087, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-07-30 10_37_45_baby_light_init_pid29248.json", "source_catalog": false}
+{"bytes": 24180, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-07-30 11_32_48_baby_light_init_pid24356.json", "source_catalog": false}
+{"bytes": 24465, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-07-30 11_38_19.732201_baby_light_init_pid13504.json", "source_catalog": false}
+{"bytes": 24477, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-07-30 11_45_57.443332_baby_light_init_pid24500.json", "source_catalog": false}
+{"bytes": 24200, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-07-30 11_50_42.544441_baby_light_init_pid2480.json", "source_catalog": false}
+{"bytes": 25036, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-07-31 12_08_26.244081_baby_light_init_pid24060.json", "source_catalog": false}
+{"bytes": 25331, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-07-31 12_33_07.292506_baby_light_init_pid7872.json", "source_catalog": false}
+{"bytes": 25102, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-07-31 15_56_00.884183_baby_light_init_pid15900.json", "source_catalog": false}
+{"bytes": 25398, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-07-31 18_35_00.450484_baby_light_init_pid22864.json", "source_catalog": false}
+{"bytes": 24366, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-07-31 23_22_19.126721_baby_light_init_pid17888.json", "source_catalog": false}
+{"bytes": 25383, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-08-01 20_20_35.101504_baby_light_init_pid29128.json", "source_catalog": false}
+{"bytes": 25443, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-08-01 21_09_59.190542_baby_light_init_pid33928.json", "source_catalog": false}
+{"bytes": 25386, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-08-01 23_31_40.280800_baby_light_init_pid15908.json", "source_catalog": false}
+{"bytes": 25447, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-08-02 00_42_54.029141_baby_light_init_pid29752.json", "source_catalog": false}
+{"bytes": 25460, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-08-02 02_15_00.996496_baby_light_init_pid37484.json", "source_catalog": false}
+{"bytes": 24904, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-08-02 11_06_37.355218_baby_light_init_pid17532.json", "source_catalog": false}
+{"bytes": 24963, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-08-02 12_05_26.329228_baby_light_init_pid27620.json", "source_catalog": false}
+{"bytes": 24947, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-08-02 12_48_21.776381_baby_light_init_pid36572.json", "source_catalog": false}
+{"bytes": 24999, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-08-02 13_11_41.705929_baby_light_init_pid4516.json", "source_catalog": false}
+{"bytes": 24950, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-08-02 15_02_09.238814_baby_light_init_pid33332.json", "source_catalog": false}
+{"bytes": 25003, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-08-02 16_36_39.774993_baby_light_init_pid5916.json", "source_catalog": false}
+{"bytes": 25024, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-09-14 15_39_12.331441_baby_light_init_pid30688.json", "source_catalog": false}
+{"bytes": 25454, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-09-14 17_09_49.294989_baby_light_init_pid2004.json", "source_catalog": false}
+{"bytes": 25042, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-09-14 21_32_16.560580_baby_light_init_pid8316.json", "source_catalog": false}
+{"bytes": 25453, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-09-15 13_20_01.591632_baby_light_init_pid2984.json", "source_catalog": false}
+{"bytes": 25444, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-09-15 15_14_52.846849_baby_light_init_pid39820.json", "source_catalog": false}
+{"bytes": 25672, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-09-15 15_55_29.823816_baby_light_init_pid6540.json", "source_catalog": false}
+{"bytes": 25398, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-09-15 17_14_09.096736_baby_light_init_pid37680.json", "source_catalog": false}
+{"bytes": 25681, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-09-15 17_38_32.051894_baby_light_init_pid40068.json", "source_catalog": false}
+{"bytes": 25444, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-09-15 18_03_23.947862_baby_light_init_pid33860.json", "source_catalog": false}
+{"bytes": 25681, "category": "exp", "path": "exp/runs/baby/run_manifest__2026-09-15 18_28_27.361428_baby_light_init_pid40908.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-16 12_38_48.480698_sports_light_init_pid30708.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-16 17_18_56.750542_sports_light_init_pid25008.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-16 18_39_26.957343_sports_light_init_pid24140.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-16 21_40_06.514182_sports_light_init_pid42036.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-16 23_27_49.601262_sports_light_init_pid40628.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-17 00_43_06.905567_sports_light_init_pid9324.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-17 01_59_31.370287_sports_light_init_pid45812.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-17 03_15_48.676117_sports_light_init_pid48292.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-17 04_31_26.826865_sports_light_init_pid29552.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-17 05_47_26.495792_sports_light_init_pid25684.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-17 11_50_42.452019_sports_light_init_pid21216.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-17 17_08_55.469360_sports_light_init_pid47952.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-17 20_34_43.591646_sports_light_init_pid30528.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-17 23_49_20.915423_sports_light_init_pid48412.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-18 02_55_57.358892_sports_light_init_pid38584.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-18 06_05_32.090309_sports_light_init_pid43032.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-18 09_13_44.833581_sports_light_init_pid40228.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-18 12_21_00.822710_sports_light_init_pid47072.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-18 15_59_59.130995_sports_light_init_pid33376.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-22 20_57_40.716760_sports_light_init_pid8964.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-23 10_44_42.563571_sports_light_init_pid31424.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-23 10_55_02.072268_sports_light_init_pid11536.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-23 10_55_13.237860_sports_light_init_pid46176.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-23 11_07_51.352217_sports_light_init_pid2784.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-23 16_11_54.129842_sports_light_init_pid36040.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-23 23_05_29.825139_sports_light_init_pid44284.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-24 12_37_07.329601_sports_light_init_pid39320.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-24 18_22_52.151219_sports_light_init_pid5012.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-24 21_30_49.206663_sports_light_init_pid17448.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-25 00_24_21.134528_sports_light_init_pid35648.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-25 03_32_21.613007_sports_light_init_pid56744.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-25 06_25_38.618521_sports_light_init_pid50812.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-25 09_32_57.783209_sports_light_init_pid56052.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-25 17_46_36.818082_sports_light_init_pid56688.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-25 20_41_43.842353_sports_light_init_pid9624.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-25 23_42_04.894528_sports_light_init_pid15332.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-26 02_38_22.563718_sports_light_init_pid596.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-26 05_34_16.930265_sports_light_init_pid42156.json", "source_catalog": false}
+{"bytes": 3473, "category": "exp", "path": "exp/runs/sports/dataset_preflight__2026-09-26 08_30_07.418852_sports_light_init_pid30132.json", "source_catalog": false}
+{"bytes": 24286, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-16 12_38_48.480698_sports_light_init_pid30708.json", "source_catalog": false}
+{"bytes": 25485, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-16 17_18_56.750542_sports_light_init_pid25008.json", "source_catalog": false}
+{"bytes": 25488, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-16 18_39_26.957343_sports_light_init_pid24140.json", "source_catalog": false}
+{"bytes": 25531, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-16 21_40_06.514182_sports_light_init_pid42036.json", "source_catalog": false}
+{"bytes": 25486, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-16 23_27_49.601262_sports_light_init_pid40628.json", "source_catalog": false}
+{"bytes": 25480, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-17 00_43_06.905567_sports_light_init_pid9324.json", "source_catalog": false}
+{"bytes": 25531, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-17 01_59_31.370287_sports_light_init_pid45812.json", "source_catalog": false}
+{"bytes": 25485, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-17 03_15_48.676117_sports_light_init_pid48292.json", "source_catalog": false}
+{"bytes": 25488, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-17 04_31_26.826865_sports_light_init_pid29552.json", "source_catalog": false}
+{"bytes": 25531, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-17 05_47_26.495792_sports_light_init_pid25684.json", "source_catalog": false}
+{"bytes": 25485, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-17 11_50_42.452019_sports_light_init_pid21216.json", "source_catalog": false}
+{"bytes": 25488, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-17 17_08_55.469360_sports_light_init_pid47952.json", "source_catalog": false}
+{"bytes": 25531, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-17 20_34_43.591646_sports_light_init_pid30528.json", "source_catalog": false}
+{"bytes": 25486, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-17 23_49_20.915423_sports_light_init_pid48412.json", "source_catalog": false}
+{"bytes": 25488, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-18 02_55_57.358892_sports_light_init_pid38584.json", "source_catalog": false}
+{"bytes": 25530, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-18 06_05_32.090309_sports_light_init_pid43032.json", "source_catalog": false}
+{"bytes": 25485, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-18 09_13_44.833581_sports_light_init_pid40228.json", "source_catalog": false}
+{"bytes": 25488, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-18 12_21_00.822710_sports_light_init_pid47072.json", "source_catalog": false}
+{"bytes": 25531, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-18 15_59_59.130995_sports_light_init_pid33376.json", "source_catalog": false}
+{"bytes": 26910, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-22 20_57_40.716760_sports_light_init_pid8964.json", "source_catalog": false}
+{"bytes": 25383, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-23 10_44_42.563571_sports_light_init_pid31424.json", "source_catalog": false}
+{"bytes": 25495, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-23 10_55_02.072268_sports_light_init_pid11536.json", "source_catalog": false}
+{"bytes": 25495, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-23 10_55_13.237860_sports_light_init_pid46176.json", "source_catalog": false}
+{"bytes": 28922, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-23 11_07_51.352217_sports_light_init_pid2784.json", "source_catalog": false}
+{"bytes": 28927, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-23 16_11_54.129842_sports_light_init_pid36040.json", "source_catalog": false}
+{"bytes": 28953, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-23 23_05_29.825139_sports_light_init_pid44284.json", "source_catalog": false}
+{"bytes": 28989, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-24 12_37_07.329601_sports_light_init_pid39320.json", "source_catalog": false}
+{"bytes": 26801, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-24 18_22_52.151219_sports_light_init_pid5012.json", "source_catalog": false}
+{"bytes": 26861, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-24 21_30_49.206663_sports_light_init_pid17448.json", "source_catalog": false}
+{"bytes": 26809, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-25 00_24_21.134528_sports_light_init_pid35648.json", "source_catalog": false}
+{"bytes": 26860, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-25 03_32_21.613007_sports_light_init_pid56744.json", "source_catalog": false}
+{"bytes": 26809, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-25 06_25_38.618521_sports_light_init_pid50812.json", "source_catalog": false}
+{"bytes": 26861, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-25 09_32_57.783209_sports_light_init_pid56052.json", "source_catalog": false}
+{"bytes": 27586, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-25 17_46_36.818082_sports_light_init_pid56688.json", "source_catalog": false}
+{"bytes": 27577, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-25 20_41_43.842353_sports_light_init_pid9624.json", "source_catalog": false}
+{"bytes": 27586, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-25 23_42_04.894528_sports_light_init_pid15332.json", "source_catalog": false}
+{"bytes": 27570, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-26 02_38_22.563718_sports_light_init_pid596.json", "source_catalog": false}
+{"bytes": 27586, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-26 05_34_16.930265_sports_light_init_pid42156.json", "source_catalog": false}
+{"bytes": 27586, "category": "exp", "path": "exp/runs/sports/run_manifest__2026-09-26 08_30_07.418852_sports_light_init_pid30132.json", "source_catalog": false}
+{"bytes": 4669, "category": "exp", "path": "exp/runs/sports/serial_validation300_seed2022_2024.json", "source_catalog": false}
+{"bytes": 9128, "category": "exp", "path": "exp/sham_residual/sports_three_seed_v1/batch.json", "source_catalog": false}
+{"bytes": 3510, "category": "exp", "path": "exp/sham_residual/sports_three_seed_v1/preflight.json", "source_catalog": false}
+{"bytes": 4701097, "category": "exp", "path": "exp/sham_residual/sports_three_seed_v1/seed2022/sham_text.pt", "source_catalog": false}
+{"bytes": 4701097, "category": "exp", "path": "exp/sham_residual/sports_three_seed_v1/seed2023/sham_text.pt", "source_catalog": false}
+{"bytes": 4701097, "category": "exp", "path": "exp/sham_residual/sports_three_seed_v1/seed2024/sham_text.pt", "source_catalog": false}
+{"bytes": 2760, "category": "exp", "path": "exp/validation_checks/sports_promptmm_validation_parity_seed2022_lr6e5_v1/report.json", "source_catalog": false}
+{"bytes": 1283, "category": "logs", "path": "logs/2026-04-09 16_50_09_amazon_light_init", "source_catalog": false}
+{"bytes": 1380, "category": "logs", "path": "logs/2026-04-09 16_52_52_amazon_light_init", "source_catalog": false}
+{"bytes": 13236, "category": "logs", "path": "logs/2026-04-09 16_54_17_amazon_light_init", "source_catalog": false}
+{"bytes": 13502, "category": "logs", "path": "logs/2026-04-09 17_34_22_amazon_light_init", "source_catalog": false}
+{"bytes": 13059, "category": "logs", "path": "logs/2026-04-09 19_12_52_amazon_light_init", "source_catalog": false}
+{"bytes": 11827, "category": "logs", "path": "logs/2026-04-09 19_26_19_amazon_light_init", "source_catalog": false}
+{"bytes": 76727, "category": "logs", "path": "logs/2026-04-09 19_46_08_amazon_light_init", "source_catalog": false}
+{"bytes": 2115, "category": "logs", "path": "logs/2026-04-09 21_33_37_amazon_light_init", "source_catalog": false}
+{"bytes": 250393, "category": "logs", "path": "logs/2026-04-09 21_37_37_amazon_light_init", "source_catalog": false}
+{"bytes": 382892, "category": "logs", "path": "logs/2026-04-10 16_31_49_amazon_light_init", "source_catalog": false}
+{"bytes": 1621, "category": "logs", "path": "logs/2026-04-11 00_27_22_amazon_light_init_pid17924", "source_catalog": false}
+{"bytes": 230992, "category": "logs", "path": "logs/2026-04-11 00_29_36_amazon_light_init_pid22964", "source_catalog": false}
+{"bytes": 1622, "category": "logs", "path": "logs/2026-04-11 11_54_59_amazon_light_init_pid30920", "source_catalog": false}
+{"bytes": 2346, "category": "logs", "path": "logs/2026-04-11 11_57_20_amazon_light_init_pid29808", "source_catalog": false}
+{"bytes": 135484, "category": "logs", "path": "logs/2026-04-11 11_59_06_amazon_light_init_pid26300", "source_catalog": false}
+{"bytes": 145736, "category": "logs", "path": "logs/2026-04-11 15_38_13_amazon_light_init_pid19316", "source_catalog": false}
+{"bytes": 39034, "category": "logs", "path": "logs/2026-04-11 18_23_07_amazon_light_init_pid21740", "source_catalog": false}
+{"bytes": 48699, "category": "logs", "path": "logs/2026-04-11 19_06_47_amazon_light_init_pid22012", "source_catalog": false}
+{"bytes": 165296, "category": "logs", "path": "logs/2026-04-11 19_50_25_amazon_light_init_pid21780", "source_catalog": false}
+{"bytes": 168614, "category": "logs", "path": "logs/2026-04-11 22_56_26_amazon_light_init_pid2384", "source_catalog": false}
+{"bytes": 1905, "category": "logs", "path": "logs/2026-04-12 11_06_50_amazon_light_init_pid5568", "source_catalog": false}
+{"bytes": 10120, "category": "logs", "path": "logs/2026-04-12 11_14_02_amazon_light_init_pid14172", "source_catalog": false}
+{"bytes": 10138, "category": "logs", "path": "logs/2026-04-12 11_57_24_amazon_light_init_pid33984", "source_catalog": false}
+{"bytes": 129748, "category": "logs", "path": "logs/2026-04-12 12_16_10_amazon_light_init_pid21848", "source_catalog": false}
+{"bytes": 131526, "category": "logs", "path": "logs/2026-04-12 15_16_41_amazon_light_init_pid26012", "source_catalog": false}
+{"bytes": 94078, "category": "logs", "path": "logs/2026-04-12 17_00_13_amazon_light_init_pid18928", "source_catalog": false}
+{"bytes": 127433, "category": "logs", "path": "logs/2026-04-12 19_03_46_amazon_light_init_pid6348", "source_catalog": false}
+{"bytes": 124104, "category": "logs", "path": "logs/2026-04-12 22_05_54_amazon_light_init_pid19636", "source_catalog": false}
+{"bytes": 15387, "category": "logs", "path": "logs/2026-04-13 00_02_36_amazon_light_init_pid30912", "source_catalog": false}
+{"bytes": 84861, "category": "logs", "path": "logs/2026-04-13 00_58_16_amazon_light_init_pid25648", "source_catalog": false}
+{"bytes": 15980, "category": "logs", "path": "logs/2026-04-13 09_58_53_amazon_light_init_pid27712", "source_catalog": false}
+{"bytes": 91869, "category": "logs", "path": "logs/2026-04-13 10_50_20_amazon_light_init_pid18884", "source_catalog": false}
+{"bytes": 91767, "category": "logs", "path": "logs/2026-04-13 12_43_21_amazon_light_init_pid12236", "source_catalog": false}
+{"bytes": 116754, "category": "logs", "path": "logs/2026-04-13 14_02_40_amazon_light_init_pid18536", "source_catalog": false}
+{"bytes": 128277, "category": "logs", "path": "logs/2026-04-13 17_25_32_amazon_light_init_pid5896", "source_catalog": false}
+{"bytes": 3359, "category": "logs", "path": "logs/2026-04-13 20_34_17_amazon_light_init_pid33060", "source_catalog": false}
+{"bytes": 151022, "category": "logs", "path": "logs/2026-04-13 20_38_40_amazon_light_init_pid32828", "source_catalog": false}
+{"bytes": 97866, "category": "logs", "path": "logs/2026-04-13 22_40_15_amazon_light_init_pid14760", "source_catalog": false}
+{"bytes": 111874, "category": "logs", "path": "logs/2026-04-13 23_55_04_amazon_light_init_pid12888", "source_catalog": false}
+{"bytes": 96282, "category": "logs", "path": "logs/2026-04-14 01_07_46_amazon_light_init_pid22532", "source_catalog": false}
+{"bytes": 154613, "category": "logs", "path": "logs/2026-04-14 20_26_27_amazon_light_init_pid31404", "source_catalog": false}
+{"bytes": 21631, "category": "logs", "path": "logs/2026-04-14 22_44_59_amazon_light_init_pid32448", "source_catalog": false}
+{"bytes": 21613, "category": "logs", "path": "logs/2026-04-15 08_07_08_amazon_light_init_pid15472", "source_catalog": false}
+{"bytes": 174979, "category": "logs", "path": "logs/2026-04-15 08_28_43_amazon_light_init_pid1896", "source_catalog": false}
+{"bytes": 174821, "category": "logs", "path": "logs/2026-04-15 10_52_54_amazon_light_init_pid16960", "source_catalog": false}
+{"bytes": 174612, "category": "logs", "path": "logs/2026-04-15 13_04_04_amazon_light_init_pid29492", "source_catalog": false}
+{"bytes": 26502, "category": "logs", "path": "logs/2026-04-15 15_14_13_amazon_light_init_pid22040", "source_catalog": false}
+{"bytes": 154572, "category": "logs", "path": "logs/2026-04-15 16_44_18_amazon_light_init_pid18192", "source_catalog": false}
+{"bytes": 150647, "category": "logs", "path": "logs/2026-04-15 19_43_54_amazon_light_init_pid40632", "source_catalog": false}
+{"bytes": 12558, "category": "logs", "path": "logs/2026-04-15 22_13_41_amazon_light_init_pid40944", "source_catalog": false}
+{"bytes": 123834, "category": "logs", "path": "logs/2026-04-15 22_36_12_amazon_light_init_pid8908", "source_catalog": false}
+{"bytes": 12176, "category": "logs", "path": "logs/2026-04-16 00_50_57_amazon_light_init_pid22756", "source_catalog": false}
+{"bytes": 12504, "category": "logs", "path": "logs/2026-04-16 19_41_52_amazon_light_init_pid21524", "source_catalog": false}
+{"bytes": 12515, "category": "logs", "path": "logs/2026-04-16 19_56_11_amazon_light_init_pid26212", "source_catalog": false}
+{"bytes": 174982, "category": "logs", "path": "logs/2026-04-16 20_27_54_amazon_light_init_pid30904", "source_catalog": false}
+{"bytes": 112401, "category": "logs", "path": "logs/2026-04-16 22_42_13_amazon_light_init_pid26048", "source_catalog": false}
+{"bytes": 130674, "category": "logs", "path": "logs/2026-04-16 23_59_47_amazon_light_init_pid26184", "source_catalog": false}
+{"bytes": 3638, "category": "logs", "path": "logs/2026-04-17 01_50_16_amazon_light_init_pid22636", "source_catalog": false}
+{"bytes": 5732, "category": "logs", "path": "logs/2026-07-29 12_23_28_amazon_light_init_pid15100", "source_catalog": false}
+{"bytes": 4579, "category": "logs", "path": "logs/2026-07-30 10_37_45_baby_light_init_pid29248", "source_catalog": false}
+{"bytes": 4661, "category": "logs", "path": "logs/2026-07-30 11_32_48_baby_light_init_pid24356", "source_catalog": false}
+{"bytes": 4731, "category": "logs", "path": "logs/2026-07-30 11_38_19.732201_baby_light_init_pid13504", "source_catalog": false}
+{"bytes": 4743, "category": "logs", "path": "logs/2026-07-30 11_45_57.443332_baby_light_init_pid24500", "source_catalog": false}
+{"bytes": 14821, "category": "logs", "path": "logs/2026-07-30 11_50_42.544441_baby_light_init_pid2480", "source_catalog": false}
+{"bytes": 5902, "category": "logs", "path": "logs/2026-07-31 12_08_26.244081_baby_light_init_pid24060", "source_catalog": false}
+{"bytes": 76795, "category": "logs", "path": "logs/2026-07-31 12_33_07.292506_baby_light_init_pid7872", "source_catalog": false}
+{"bytes": 5835, "category": "logs", "path": "logs/2026-07-31 15_56_00.884183_baby_light_init_pid15900", "source_catalog": false}
+{"bytes": 39273, "category": "logs", "path": "logs/2026-07-31 18_35_00.450484_baby_light_init_pid22864", "source_catalog": false}
+{"bytes": 4927, "category": "logs", "path": "logs/2026-07-31 23_22_19.126721_baby_light_init_pid17888", "source_catalog": false}
+{"bytes": 39035, "category": "logs", "path": "logs/2026-08-01 20_20_35.101504_baby_light_init_pid29128", "source_catalog": false}
+{"bytes": 27194, "category": "logs", "path": "logs/2026-08-01 21_09_59.190542_baby_light_init_pid33928", "source_catalog": false}
+{"bytes": 76963, "category": "logs", "path": "logs/2026-08-01 23_31_40.280800_baby_light_init_pid15908", "source_catalog": false}
+{"bytes": 33827, "category": "logs", "path": "logs/2026-08-02 00_42_54.029141_baby_light_init_pid29752", "source_catalog": false}
+{"bytes": 36787, "category": "logs", "path": "logs/2026-08-02 02_15_00.996496_baby_light_init_pid37484", "source_catalog": false}
+{"bytes": 76554, "category": "logs", "path": "logs/2026-08-02 11_06_37.355218_baby_light_init_pid17532", "source_catalog": false}
+{"bytes": 39027, "category": "logs", "path": "logs/2026-08-02 12_05_26.329228_baby_light_init_pid27620", "source_catalog": false}
+{"bytes": 38789, "category": "logs", "path": "logs/2026-08-02 12_48_21.776381_baby_light_init_pid36572", "source_catalog": false}
+{"bytes": 26943, "category": "logs", "path": "logs/2026-08-02 13_11_41.705929_baby_light_init_pid4516", "source_catalog": false}
+{"bytes": 76717, "category": "logs", "path": "logs/2026-08-02 15_02_09.238814_baby_light_init_pid33332", "source_catalog": false}
+{"bytes": 33576, "category": "logs", "path": "logs/2026-08-02 16_36_39.774993_baby_light_init_pid5916", "source_catalog": false}
+{"bytes": 36541, "category": "logs", "path": "logs/2026-09-14 15_39_12.331441_baby_light_init_pid30688", "source_catalog": false}
+{"bytes": 50402, "category": "logs", "path": "logs/2026-09-14 17_09_49.294989_baby_light_init_pid2004", "source_catalog": false}
+{"bytes": 8400, "category": "logs", "path": "logs/2026-09-14 21_32_16.560580_baby_light_init_pid8316", "source_catalog": false}
+{"bytes": 55315, "category": "logs", "path": "logs/2026-09-15 13_20_01.591632_baby_light_init_pid2984", "source_catalog": false}
+{"bytes": 55354, "category": "logs", "path": "logs/2026-09-15 15_14_52.846849_baby_light_init_pid39820", "source_catalog": false}
+{"bytes": 55365, "category": "logs", "path": "logs/2026-09-15 15_55_29.823816_baby_light_init_pid6540", "source_catalog": false}
+{"bytes": 55508, "category": "logs", "path": "logs/2026-09-15 17_14_09.096736_baby_light_init_pid37680", "source_catalog": false}
+{"bytes": 55547, "category": "logs", "path": "logs/2026-09-15 17_38_32.051894_baby_light_init_pid40068", "source_catalog": false}
+{"bytes": 55427, "category": "logs", "path": "logs/2026-09-15 18_03_23.947862_baby_light_init_pid33860", "source_catalog": false}
+{"bytes": 55312, "category": "logs", "path": "logs/2026-09-15 18_28_27.361428_baby_light_init_pid40908", "source_catalog": false}
+{"bytes": 46496, "category": "logs", "path": "logs/2026-09-16 12_38_48.480698_sports_light_init_pid30708", "source_catalog": false}
+{"bytes": 56353, "category": "logs", "path": "logs/2026-09-16 17_18_56.750542_sports_light_init_pid25008", "source_catalog": false}
+{"bytes": 55679, "category": "logs", "path": "logs/2026-09-16 18_39_26.957343_sports_light_init_pid24140", "source_catalog": false}
+{"bytes": 55918, "category": "logs", "path": "logs/2026-09-16 21_40_06.514182_sports_light_init_pid42036", "source_catalog": false}
+{"bytes": 56337, "category": "logs", "path": "logs/2026-09-16 23_27_49.601262_sports_light_init_pid40628", "source_catalog": false}
+{"bytes": 55842, "category": "logs", "path": "logs/2026-09-17 00_43_06.905567_sports_light_init_pid9324", "source_catalog": false}
+{"bytes": 55984, "category": "logs", "path": "logs/2026-09-17 01_59_31.370287_sports_light_init_pid45812", "source_catalog": false}
+{"bytes": 56354, "category": "logs", "path": "logs/2026-09-17 03_15_48.676117_sports_light_init_pid48292", "source_catalog": false}
+{"bytes": 55645, "category": "logs", "path": "logs/2026-09-17 04_31_26.826865_sports_light_init_pid29552", "source_catalog": false}
+{"bytes": 55885, "category": "logs", "path": "logs/2026-09-17 05_47_26.495792_sports_light_init_pid25684", "source_catalog": false}
+{"bytes": 130939, "category": "logs", "path": "logs/2026-09-17 11_50_42.452019_sports_light_init_pid21216", "source_catalog": false}
+{"bytes": 130495, "category": "logs", "path": "logs/2026-09-17 17_08_55.469360_sports_light_init_pid47952", "source_catalog": false}
+{"bytes": 130892, "category": "logs", "path": "logs/2026-09-17 20_34_43.591646_sports_light_init_pid30528", "source_catalog": false}
+{"bytes": 130810, "category": "logs", "path": "logs/2026-09-17 23_49_20.915423_sports_light_init_pid48412", "source_catalog": false}
+{"bytes": 130621, "category": "logs", "path": "logs/2026-09-18 02_55_57.358892_sports_light_init_pid38584", "source_catalog": false}
+{"bytes": 130773, "category": "logs", "path": "logs/2026-09-18 06_05_32.090309_sports_light_init_pid43032", "source_catalog": false}
+{"bytes": 130989, "category": "logs", "path": "logs/2026-09-18 09_13_44.833581_sports_light_init_pid40228", "source_catalog": false}
+{"bytes": 130507, "category": "logs", "path": "logs/2026-09-18 12_21_00.822710_sports_light_init_pid47072", "source_catalog": false}
+{"bytes": 130527, "category": "logs", "path": "logs/2026-09-18 15_59_59.130995_sports_light_init_pid33376", "source_catalog": false}
+{"bytes": 127840, "category": "logs", "path": "logs/2026-09-22 20_57_40.716760_sports_light_init_pid8964", "source_catalog": false}
+{"bytes": 4998, "category": "logs", "path": "logs/2026-09-23 10_44_42.563571_sports_light_init_pid31424", "source_catalog": false}
+{"bytes": 4759, "category": "logs", "path": "logs/2026-09-23 10_55_02.072268_sports_light_init_pid11536", "source_catalog": false}
+{"bytes": 4759, "category": "logs", "path": "logs/2026-09-23 10_55_13.237860_sports_light_init_pid46176", "source_catalog": false}
+{"bytes": 127851, "category": "logs", "path": "logs/2026-09-23 11_07_51.352217_sports_light_init_pid2784", "source_catalog": false}
+{"bytes": 128026, "category": "logs", "path": "logs/2026-09-23 16_11_54.129842_sports_light_init_pid36040", "source_catalog": false}
+{"bytes": 127995, "category": "logs", "path": "logs/2026-09-23 23_05_29.825139_sports_light_init_pid44284", "source_catalog": false}
+{"bytes": 127892, "category": "logs", "path": "logs/2026-09-24 12_37_07.329601_sports_light_init_pid39320", "source_catalog": false}
+{"bytes": 130522, "category": "logs", "path": "logs/2026-09-24 18_22_52.151219_sports_light_init_pid5012", "source_catalog": false}
+{"bytes": 130925, "category": "logs", "path": "logs/2026-09-24 21_30_49.206663_sports_light_init_pid17448", "source_catalog": false}
+{"bytes": 130654, "category": "logs", "path": "logs/2026-09-25 00_24_21.134528_sports_light_init_pid35648", "source_catalog": false}
+{"bytes": 130806, "category": "logs", "path": "logs/2026-09-25 03_32_21.613007_sports_light_init_pid56744", "source_catalog": false}
+{"bytes": 130540, "category": "logs", "path": "logs/2026-09-25 06_25_38.618521_sports_light_init_pid50812", "source_catalog": false}
+{"bytes": 130560, "category": "logs", "path": "logs/2026-09-25 09_32_57.783209_sports_light_init_pid56052", "source_catalog": false}
+{"bytes": 130535, "category": "logs", "path": "logs/2026-09-25 17_46_36.818082_sports_light_init_pid56688", "source_catalog": false}
+{"bytes": 130905, "category": "logs", "path": "logs/2026-09-25 20_41_43.842353_sports_light_init_pid9624", "source_catalog": false}
+{"bytes": 130661, "category": "logs", "path": "logs/2026-09-25 23_42_04.894528_sports_light_init_pid15332", "source_catalog": false}
+{"bytes": 130772, "category": "logs", "path": "logs/2026-09-26 02_38_22.563718_sports_light_init_pid596", "source_catalog": false}
+{"bytes": 130547, "category": "logs", "path": "logs/2026-09-26 05_34_16.930265_sports_light_init_pid42156", "source_catalog": false}
+{"bytes": 130783, "category": "logs", "path": "logs/2026-09-26 08_30_07.418852_sports_light_init_pid30132", "source_catalog": false}
+{"bytes": 645, "category": "logs", "path": "logs/README.md", "source_catalog": true}
+{"bytes": 3131, "category": "logs", "path": "logs/td_distill_20260412_110510.stderr.log", "source_catalog": false}
+{"bytes": 0, "category": "logs", "path": "logs/td_distill_20260412_110510.stdout.log", "source_catalog": false}
+{"bytes": 1996, "category": "logs", "path": "logs/td_distill_20260412_110644.stderr.log", "source_catalog": false}
+{"bytes": 2051, "category": "logs", "path": "logs/td_distill_20260412_110644.stdout.log", "source_catalog": false}
+{"bytes": 11898, "category": "tests", "path": "tests/test_cached_deployment_benchmark.py", "source_catalog": true}
+{"bytes": 2014, "category": "tests", "path": "tests/test_sports_paired_cold.py", "source_catalog": true}
+{"bytes": 2247, "category": "tests", "path": "tests/test_sports_sham_residual.py", "source_catalog": true}
+{"bytes": 9505, "category": "tools", "path": "tools/build_experiment_navigation.py", "source_catalog": true}
+{"bytes": 16756, "category": "tools", "path": "tools/convert_mmrec_baby.py", "source_catalog": true}
+{"bytes": 10670, "category": "tools", "path": "tools/diagnose_sports_coldinit_selected_geometry.py", "source_catalog": true}
+{"bytes": 5707, "category": "tools", "path": "tools/diagnose_sports_gradients.py", "source_catalog": true}
+{"bytes": 8612, "category": "tools", "path": "tools/diagnose_sports_initialization.py", "source_catalog": true}
+{"bytes": 11920, "category": "tools", "path": "tools/diagnose_sports_matched_target_direction.py", "source_catalog": true}
+{"bytes": 12293, "category": "tools", "path": "tools/diagnose_sports_weighted_directions.py", "source_catalog": true}
+{"bytes": 15714, "category": "tools", "path": "tools/run_sports_cached_deployment.py", "source_catalog": true}
+{"bytes": 8153, "category": "tools", "path": "tools/run_sports_initialization_pair.py", "source_catalog": true}
+{"bytes": 8025, "category": "tools", "path": "tools/run_sports_paired_cold_three_seed.py", "source_catalog": true}
+{"bytes": 15495, "category": "tools", "path": "tools/run_sports_sham_residual_three_seed.py", "source_catalog": true}
+{"bytes": 3311, "category": "tools", "path": "tools/run_sports_sharedinit_alpha3.py", "source_catalog": true}
+{"bytes": 4114, "category": "tools", "path": "tools/run_sports_sharedinit_equal_matched.py", "source_catalog": true}
+{"bytes": 4201, "category": "tools", "path": "tools/run_sports_sharedinit_pair.py", "source_catalog": true}
+{"bytes": 3505, "category": "tools", "path": "tools/run_sports_teacherinit_bpr.py", "source_catalog": true}
+{"bytes": 4091, "category": "tools", "path": "tools/run_sports_validation300.py", "source_catalog": true}
+{"bytes": 1399, "category": "tools", "path": "tools/verify_baseline_assets.ps1", "source_catalog": true}
+{"bytes": 56010, "category": "zhuanli", "path": "zhuanli/24级word/GL专利/GL权利要求书.docx", "source_catalog": false}
+{"bytes": 110791, "category": "zhuanli", "path": "zhuanli/24级word/GL专利/GL说明书.docx", "source_catalog": false}
+{"bytes": 32954, "category": "zhuanli", "path": "zhuanli/24级word/GL专利/GL说明书摘要.docx", "source_catalog": false}
+{"bytes": 1807785, "category": "zhuanli", "path": "zhuanli/24级word/GL专利/GL说明书附图.docx", "source_catalog": false}
+{"bytes": 35840, "category": "zhuanli", "path": "zhuanli/24级word/lj专利/lj权利要求书.doc", "source_catalog": false}
+{"bytes": 102012, "category": "zhuanli", "path": "zhuanli/24级word/lj专利/lj说明书.docx", "source_catalog": false}
+{"bytes": 18328, "category": "zhuanli", "path": "zhuanli/24级word/lj专利/lj说明书摘要.docx", "source_catalog": false}
+{"bytes": 229052, "category": "zhuanli", "path": "zhuanli/24级word/lj专利/lj说明书附图.docx", "source_catalog": false}
+{"bytes": 43244, "category": "zhuanli", "path": "zhuanli/24级word/专利-王京汇/wjh权利要求书.docx", "source_catalog": false}
+{"bytes": 197976, "category": "zhuanli", "path": "zhuanli/24级word/专利-王京汇/wjh权利要求书.pdf", "source_catalog": false}
+{"bytes": 192416, "category": "zhuanli", "path": "zhuanli/24级word/专利-王京汇/wjh说明书.docx", "source_catalog": false}
+{"bytes": 487062, "category": "zhuanli", "path": "zhuanli/24级word/专利-王京汇/wjh说明书.pdf", "source_catalog": false}
+{"bytes": 29942, "category": "zhuanli", "path": "zhuanli/24级word/专利-王京汇/wjh说明书摘要.docx", "source_catalog": false}
+{"bytes": 128372, "category": "zhuanli", "path": "zhuanli/24级word/专利-王京汇/wjh说明书摘要.pdf", "source_catalog": false}
+{"bytes": 288247, "category": "zhuanli", "path": "zhuanli/24级word/专利-王京汇/wjh说明书附图.pdf", "source_catalog": false}
+{"bytes": 4598259, "category": "zhuanli", "path": "zhuanli/24级word/专利-王京汇/专利撰写经验和申请流程 7.0.docx", "source_catalog": false}
+{"bytes": 133120, "category": "zhuanli", "path": "zhuanli/24级word/专利-王晋/权利要求书.doc", "source_catalog": false}
+{"bytes": 291624, "category": "zhuanli", "path": "zhuanli/24级word/专利-王晋/说明书.docx", "source_catalog": false}
+{"bytes": 77243, "category": "zhuanli", "path": "zhuanli/24级word/专利-王晋/说明书摘要.docx", "source_catalog": false}
+{"bytes": 751772, "category": "zhuanli", "path": "zhuanli/24级word/专利-王晋/说明书附图.docx", "source_catalog": false}
+{"bytes": 189395, "category": "zhuanli", "path": "zhuanli/25级else/官司玮专利申请表.pdf", "source_catalog": false}
+{"bytes": 153038, "category": "zhuanli", "path": "zhuanli/25级else/胡仁籍专利申请表.pdf", "source_catalog": false}
+{"bytes": 11675564, "category": "zhuanli", "path": "zhuanli/5.20专利申请.zip", "source_catalog": false}
+{"bytes": 3564238, "category": "zhuanli", "path": "zhuanli/5.20专利申请/专利撰写经验和申请流程8.0.pdf", "source_catalog": false}
+{"bytes": 236780, "category": "zhuanli", "path": "zhuanli/5.20专利申请/官司玮-一种基于双网络动态协同的半监督息肉图像分割方法/权利要求书.pdf", "source_catalog": false}
+{"bytes": 408253, "category": "zhuanli", "path": "zhuanli/5.20专利申请/官司玮-一种基于双网络动态协同的半监督息肉图像分割方法/说明书.pdf", "source_catalog": false}
+{"bytes": 115710, "category": "zhuanli", "path": "zhuanli/5.20专利申请/官司玮-一种基于双网络动态协同的半监督息肉图像分割方法/说明书摘要.pdf", "source_catalog": false}
+{"bytes": 901134, "category": "zhuanli", "path": "zhuanli/5.20专利申请/官司玮-一种基于双网络动态协同的半监督息肉图像分割方法/说明书附图.pdf", "source_catalog": false}
+{"bytes": 230183, "category": "zhuanli", "path": "zhuanli/5.20专利申请/李娇-一种基于跨模态掩码重建和多任务对齐建模的组织病理学空间转录组预测方法/李娇-权利要求书.pdf", "source_catalog": false}
+{"bytes": 395804, "category": "zhuanli", "path": "zhuanli/5.20专利申请/李娇-一种基于跨模态掩码重建和多任务对齐建模的组织病理学空间转录组预测方法/李娇-说明书.pdf", "source_catalog": false}
+{"bytes": 183696, "category": "zhuanli", "path": "zhuanli/5.20专利申请/李娇-一种基于跨模态掩码重建和多任务对齐建模的组织病理学空间转录组预测方法/李娇-说明书摘要.pdf", "source_catalog": false}
+{"bytes": 323160, "category": "zhuanli", "path": "zhuanli/5.20专利申请/李娇-一种基于跨模态掩码重建和多任务对齐建模的组织病理学空间转录组预测方法/李娇-说明书附图.pdf", "source_catalog": false}
+{"bytes": 148729, "category": "zhuanli", "path": "zhuanli/5.20专利申请/杨君鹏-一种训练推理解耦的多模态语义蒸馏方法/权利要求书.pdf", "source_catalog": false}
+{"bytes": 279304, "category": "zhuanli", "path": "zhuanli/5.20专利申请/杨君鹏-一种训练推理解耦的多模态语义蒸馏方法/说明书.pdf", "source_catalog": false}
+{"bytes": 88369, "category": "zhuanli", "path": "zhuanli/5.20专利申请/杨君鹏-一种训练推理解耦的多模态语义蒸馏方法/说明书摘要.pdf", "source_catalog": false}
+{"bytes": 1164816, "category": "zhuanli", "path": "zhuanli/5.20专利申请/杨君鹏-一种训练推理解耦的多模态语义蒸馏方法/说明书附图.pdf", "source_catalog": false}
+{"bytes": 168505, "category": "zhuanli", "path": "zhuanli/5.20专利申请/王晋-基于动态增量的门控聚合知识图谱推荐方法/权利要求书.pdf", "source_catalog": false}
+{"bytes": 353757, "category": "zhuanli", "path": "zhuanli/5.20专利申请/王晋-基于动态增量的门控聚合知识图谱推荐方法/说明书.pdf", "source_catalog": false}
+{"bytes": 161801, "category": "zhuanli", "path": "zhuanli/5.20专利申请/王晋-基于动态增量的门控聚合知识图谱推荐方法/说明书摘要.pdf", "source_catalog": false}
+{"bytes": 278139, "category": "zhuanli", "path": "zhuanli/5.20专利申请/王晋-基于动态增量的门控聚合知识图谱推荐方法/说明书附图.pdf", "source_catalog": false}
+{"bytes": 46686, "category": "zhuanli", "path": "zhuanli/5.20专利申请/王晋-基于动态增量的门控聚合知识图谱推荐方法/重庆邮电大学专利申请审批表.docx", "source_catalog": false}
+{"bytes": 226050, "category": "zhuanli", "path": "zhuanli/5.20专利申请/王晋-基于用户侧信息融合的GAN模拟用户强化学习推荐方法/权利要求书.pdf", "source_catalog": false}
+{"bytes": 381887, "category": "zhuanli", "path": "zhuanli/5.20专利申请/王晋-基于用户侧信息融合的GAN模拟用户强化学习推荐方法/说明书.pdf", "source_catalog": false}
+{"bytes": 136058, "category": "zhuanli", "path": "zhuanli/5.20专利申请/王晋-基于用户侧信息融合的GAN模拟用户强化学习推荐方法/说明书摘要.pdf", "source_catalog": false}
+{"bytes": 403000, "category": "zhuanli", "path": "zhuanli/5.20专利申请/王晋-基于用户侧信息融合的GAN模拟用户强化学习推荐方法/说明书附图.pdf", "source_catalog": false}
+{"bytes": 34847, "category": "zhuanli", "path": "zhuanli/5.20专利申请/王晋-基于用户侧信息融合的GAN模拟用户强化学习推荐方法/重庆邮电大学专利申请审批表.docx", "source_catalog": false}
+{"bytes": 128472, "category": "zhuanli", "path": "zhuanli/5.20专利申请/胡仁籍-一种面向以太坊钓鱼地址检测的时序风险记忆融合实时检测方法/权利要求书.pdf", "source_catalog": false}
+{"bytes": 317720, "category": "zhuanli", "path": "zhuanli/5.20专利申请/胡仁籍-一种面向以太坊钓鱼地址检测的时序风险记忆融合实时检测方法/说明书.pdf", "source_catalog": false}
+{"bytes": 90187, "category": "zhuanli", "path": "zhuanli/5.20专利申请/胡仁籍-一种面向以太坊钓鱼地址检测的时序风险记忆融合实时检测方法/说明书摘要.pdf", "source_catalog": false}
+{"bytes": 650478, "category": "zhuanli", "path": "zhuanli/5.20专利申请/胡仁籍-一种面向以太坊钓鱼地址检测的时序风险记忆融合实时检测方法/说明书附图.pdf", "source_catalog": false}
+{"bytes": 301, "category": "zhuanli", "path": "zhuanli/5.20专利申请/身份证.txt", "source_catalog": false}
+{"bytes": 228741, "category": "zhuanli", "path": "zhuanli/5.20专利申请/高莉-基于对比学习的表征增强型方面情感三元组抽取/GL权利要求书.pdf", "source_catalog": false}
+{"bytes": 21381, "category": "zhuanli", "path": "zhuanli/5.20专利申请/高莉-基于对比学习的表征增强型方面情感三元组抽取/GL申请表.docx", "source_catalog": false}
+{"bytes": 467074, "category": "zhuanli", "path": "zhuanli/5.20专利申请/高莉-基于对比学习的表征增强型方面情感三元组抽取/GL说明书.pdf", "source_catalog": false}
+{"bytes": 128900, "category": "zhuanli", "path": "zhuanli/5.20专利申请/高莉-基于对比学习的表征增强型方面情感三元组抽取/GL说明书摘要.pdf", "source_catalog": false}
+{"bytes": 379148, "category": "zhuanli", "path": "zhuanli/5.20专利申请/高莉-基于对比学习的表征增强型方面情感三元组抽取/GL说明书附图.pdf", "source_catalog": false}
+{"bytes": 332457716, "category": "zhuanli", "path": "zhuanli/word转xml.zip", "source_catalog": false}
+{"bytes": 17408, "category": "zhuanli", "path": "zhuanli/word转xml/WORD转XML编辑器—Word文档编写格式建议.doc", "source_catalog": false}
+{"bytes": 612437, "category": "zhuanli", "path": "zhuanli/word转xml/WORD转XML编辑器五书模板操作说明.pdf", "source_catalog": false}
+{"bytes": 3371613, "category": "zhuanli", "path": "zhuanli/word转xml/WORD转XML编辑器软件用户操作手册（Windows-WORD）.pdf", "source_catalog": false}
+{"bytes": 67681000, "category": "zhuanli", "path": "zhuanli/word转xml/word转xml-安装包-2025.12.18/.NET Framework 4.6.1/NDP461-KB3102436-x86-x64-AllOS-ENU.exe", "source_catalog": false}
+{"bytes": 41649696, "category": "zhuanli", "path": "zhuanli/word转xml/word转xml-安装包-2025.12.18/VSTO 4.0 Runtime/vstor_redist.exe", "source_catalog": false}
+{"bytes": 13698296, "category": "zhuanli", "path": "zhuanli/word转xml/word转xml-安装包-2025.12.18/Visual C++ Redistributable for Visual Studio 2015-2022/VC_redist.x86.exe", "source_catalog": false}
+{"bytes": 4120912, "category": "zhuanli", "path": "zhuanli/word转xml/word转xml-安装包-2025.12.18/word转xml编辑器.exe", "source_catalog": false}
+{"bytes": 206654464, "category": "zhuanli", "path": "zhuanli/word转xml/word转xml-安装包-2025.12.18/word转xml编辑器.msi", "source_catalog": false}
+{"bytes": 1487358, "category": "zhuanli", "path": "zhuanli/word转xml/使用WORD转XML编辑器及专利业务办理系统提交XML文件常见问题解答.pdf", "source_catalog": false}
+{"bytes": 1723922, "category": "zhuanli", "path": "zhuanli/专利网参考/CN202411456643/CN202411456643_FullTextImage.pdf", "source_catalog": false}
+{"bytes": 166604, "category": "zhuanli", "path": "zhuanli/专利网参考/CN202411456643/images/Abstract.png", "source_catalog": false}
+{"bytes": 1117007, "category": "zhuanli", "path": "zhuanli/专利网参考/CN202411608807/CN202411608807_FullTextImage.pdf", "source_catalog": false}
+{"bytes": 229938, "category": "zhuanli", "path": "zhuanli/专利网参考/CN202411608807/images/Abstract.png", "source_catalog": false}
+{"bytes": 1427056, "category": "zhuanli", "path": "zhuanli/专利网参考/CN202511631237/CN202511631237_FullTextImage.pdf", "source_catalog": false}
+{"bytes": 268057, "category": "zhuanli", "path": "zhuanli/专利网参考/CN202511631237/images/Abstract.png", "source_catalog": false}
+{"bytes": 1082548, "category": "zhuanli", "path": "zhuanli/专利网参考/CN202511824631/CN202511824631_FullTextImage.pdf", "source_catalog": false}
+{"bytes": 99982, "category": "zhuanli", "path": "zhuanli/专利网参考/CN202511824631/images/Abstract.png", "source_catalog": false}
+{"bytes": 1046189, "category": "zhuanli", "path": "zhuanli/专利网参考/CN202511824752/CN202511824752_FullTextImage.pdf", "source_catalog": false}
+{"bytes": 95900, "category": "zhuanli", "path": "zhuanli/专利网参考/CN202511824752/images/Abstract.png", "source_catalog": false}
+{"bytes": 442895, "category": "zhuanli", "path": "zhuanli/图/图1.png", "source_catalog": false}
+{"bytes": 509793, "category": "zhuanli", "path": "zhuanli/图/图2.png", "source_catalog": false}
+{"bytes": 508216, "category": "zhuanli", "path": "zhuanli/图/图3.png", "source_catalog": false}
+{"bytes": 546095, "category": "zhuanli", "path": "zhuanli/图/图4.png", "source_catalog": false}
+{"bytes": 561768, "category": "zhuanli", "path": "zhuanli/图/图5.png", "source_catalog": false}
+{"bytes": 393004, "category": "zhuanli", "path": "zhuanli/图/处理后/图1.png", "source_catalog": false}
+{"bytes": 445758, "category": "zhuanli", "path": "zhuanli/图/处理后/图2.png", "source_catalog": false}
+{"bytes": 418291, "category": "zhuanli", "path": "zhuanli/图/处理后/图3.png", "source_catalog": false}
+{"bytes": 446536, "category": "zhuanli", "path": "zhuanli/图/处理后/图4.png", "source_catalog": false}
+{"bytes": 484795, "category": "zhuanli", "path": "zhuanli/图/处理后/图5.png", "source_catalog": false}
+{"bytes": 1862, "category": "zhuanli", "path": "zhuanli/旧存档/backup/README.md", "source_catalog": false}
+{"bytes": 14443, "category": "zhuanli", "path": "zhuanli/旧存档/backup/txt_backup/专利写作侧重点_代码与日志版.txt", "source_catalog": false}
+{"bytes": 2134, "category": "zhuanli", "path": "zhuanli/旧存档/backup/txt_backup/专利目标.txt", "source_catalog": false}
+{"bytes": 10060, "category": "zhuanli", "path": "zhuanli/旧存档/backup/txt_backup/五张附图独立生图文案.txt", "source_catalog": false}
+{"bytes": 11152, "category": "zhuanli", "path": "zhuanli/旧存档/backup/txt_backup/发明内容_具体实施方式_初稿.txt", "source_catalog": false}
+{"bytes": 15594, "category": "zhuanli", "path": "zhuanli/旧存档/backup/txt_backup/完整说明书_初稿.txt", "source_catalog": false}
+{"bytes": 1791, "category": "zhuanli", "path": "zhuanli/旧存档/backup/txt_backup/审批表三段文本_初稿.txt", "source_catalog": false}
+{"bytes": 3892, "category": "zhuanli", "path": "zhuanli/旧存档/backup/txt_backup/权利要求书_初稿.txt", "source_catalog": false}
+{"bytes": 464, "category": "zhuanli", "path": "zhuanli/旧存档/backup/txt_backup/论文路线.txt", "source_catalog": false}
+{"bytes": 3179, "category": "zhuanli", "path": "zhuanli/旧存档/backup/txt_backup/说明书摘要_技术领域_背景技术_初稿.txt", "source_catalog": false}
+{"bytes": 1959, "category": "zhuanli", "path": "zhuanli/旧存档/backup/txt_backup/附图放置位置说明.txt", "source_catalog": false}
+{"bytes": 4873, "category": "zhuanli", "path": "zhuanli/旧存档/backup/txt_backup/附图说明_及绘图建议_初稿.txt", "source_catalog": false}
+{"bytes": 11396, "category": "zhuanli", "path": "zhuanli/旧存档/backup/发明内容_具体实施方式_初稿.md", "source_catalog": false}
+{"bytes": 15806, "category": "zhuanli", "path": "zhuanli/旧存档/backup/完整说明书_初稿.md", "source_catalog": false}
+{"bytes": 2015, "category": "zhuanli", "path": "zhuanli/旧存档/backup/审批表三段文本_初稿.md", "source_catalog": false}
+{"bytes": 4104, "category": "zhuanli", "path": "zhuanli/旧存档/backup/权利要求书_初稿.md", "source_catalog": false}
+{"bytes": 3443, "category": "zhuanli", "path": "zhuanli/旧存档/backup/说明书摘要_技术领域_背景技术_初稿.md", "source_catalog": false}
+{"bytes": 5111, "category": "zhuanli", "path": "zhuanli/旧存档/backup/附图说明_及绘图建议_初稿.md", "source_catalog": false}
+{"bytes": 3930, "category": "zhuanli", "path": "zhuanli/旧存档/md_docs/README.md", "source_catalog": false}
+{"bytes": 20963, "category": "zhuanli", "path": "zhuanli/旧存档/md_docs/专利写作侧重点_代码与日志版.md", "source_catalog": false}
+{"bytes": 5579, "category": "zhuanli", "path": "zhuanli/旧存档/md_docs/专利申请表填写指南_当前版.md", "source_catalog": false}
+{"bytes": 2326, "category": "zhuanli", "path": "zhuanli/旧存档/md_docs/专利目标.md", "source_catalog": false}
+{"bytes": 10288, "category": "zhuanli", "path": "zhuanli/旧存档/md_docs/五张附图独立生图文案.md", "source_catalog": false}
+{"bytes": 18149, "category": "zhuanli", "path": "zhuanli/旧存档/md_docs/完整说明书_修订版.md", "source_catalog": false}
+{"bytes": 4266, "category": "zhuanli", "path": "zhuanli/旧存档/md_docs/权利要求书_修订版.md", "source_catalog": false}
+{"bytes": 4007, "category": "zhuanli", "path": "zhuanli/旧存档/md_docs/权利要求书_正式排版版.md", "source_catalog": false}
+{"bytes": 656, "category": "zhuanli", "path": "zhuanli/旧存档/md_docs/论文路线.md", "source_catalog": false}
+{"bytes": 17063, "category": "zhuanli", "path": "zhuanli/旧存档/md_docs/说明书_正式排版版.md", "source_catalog": false}
+{"bytes": 858, "category": "zhuanli", "path": "zhuanli/旧存档/md_docs/说明书摘要_正式排版版.md", "source_catalog": false}
+{"bytes": 2175, "category": "zhuanli", "path": "zhuanli/旧存档/md_docs/附图放置位置说明.md", "source_catalog": false}
+{"bytes": 46347, "category": "zhuanli", "path": "zhuanli/最终版/bak权利要求书.docx", "source_catalog": false}
+{"bytes": 61236, "category": "zhuanli", "path": "zhuanli/最终版/bak说明书.docx", "source_catalog": false}
+{"bytes": 29987, "category": "zhuanli", "path": "zhuanli/最终版/bak说明书摘要.docx", "source_catalog": false}
+{"bytes": 2600856, "category": "zhuanli", "path": "zhuanli/最终版/bak说明书附图.docx", "source_catalog": false}
+{"bytes": 3564238, "category": "zhuanli", "path": "zhuanli/最终版/专利撰写经验和申请流程8.0.pdf", "source_catalog": false}
+{"bytes": 20067, "category": "zhuanli", "path": "zhuanli/最终版/专利申请表.docx", "source_catalog": false}
+{"bytes": 113748, "category": "zhuanli", "path": "zhuanli/最终版/扫描件.pdf", "source_catalog": false}
+{"bytes": 46672, "category": "zhuanli", "path": "zhuanli/最终版/权利要求书.docx", "source_catalog": false}
+{"bytes": 148729, "category": "zhuanli", "path": "zhuanli/最终版/权利要求书.pdf", "source_catalog": false}
+{"bytes": 7357, "category": "zhuanli", "path": "zhuanli/最终版/权利要求书/100001/100001.xml", "source_catalog": false}
+{"bytes": 2234, "category": "zhuanli", "path": "zhuanli/最终版/权利要求书/100001/100001_1.jpg", "source_catalog": false}
+{"bytes": 2406, "category": "zhuanli", "path": "zhuanli/最终版/权利要求书/100001/100001_2.jpg", "source_catalog": false}
+{"bytes": 2351, "category": "zhuanli", "path": "zhuanli/最终版/权利要求书/100001/100001_3.jpg", "source_catalog": false}
+{"bytes": 2515, "category": "zhuanli", "path": "zhuanli/最终版/权利要求书/100001/100001_4.jpg", "source_catalog": false}
+{"bytes": 1178, "category": "zhuanli", "path": "zhuanli/最终版/权利要求书/100001/100001_5.jpg", "source_catalog": false}
+{"bytes": 1457, "category": "zhuanli", "path": "zhuanli/最终版/权利要求书/100001/100001_6.jpg", "source_catalog": false}
+{"bytes": 1187, "category": "zhuanli", "path": "zhuanli/最终版/权利要求书/100001/100001_7.jpg", "source_catalog": false}
+{"bytes": 1393, "category": "zhuanli", "path": "zhuanli/最终版/权利要求书/100001/100001_8.jpg", "source_catalog": false}
+{"bytes": 21358, "category": "zhuanli", "path": "zhuanli/最终版/杨君鹏专利申请表.docx", "source_catalog": false}
+{"bytes": 144905, "category": "zhuanli", "path": "zhuanli/最终版/杨君鹏专利申请表.pdf", "source_catalog": false}
+{"bytes": 237125, "category": "zhuanli", "path": "zhuanli/最终版/计算机学院专利申请流程  202601.pdf", "source_catalog": false}
+{"bytes": 62785, "category": "zhuanli", "path": "zhuanli/最终版/说明书.docx", "source_catalog": false}
+{"bytes": 279304, "category": "zhuanli", "path": "zhuanli/最终版/说明书.pdf", "source_catalog": false}
+{"bytes": 35739, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002.xml", "source_catalog": false}
+{"bytes": 22028, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_1.jpg", "source_catalog": false}
+{"bytes": 1334, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_10.jpg", "source_catalog": false}
+{"bytes": 2832, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_11.jpg", "source_catalog": false}
+{"bytes": 3991, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_12.jpg", "source_catalog": false}
+{"bytes": 1819, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_13.jpg", "source_catalog": false}
+{"bytes": 1915, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_14.jpg", "source_catalog": false}
+{"bytes": 18400, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_15.jpg", "source_catalog": false}
+{"bytes": 3991, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_16.jpg", "source_catalog": false}
+{"bytes": 2054, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_17.jpg", "source_catalog": false}
+{"bytes": 2180, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_18.jpg", "source_catalog": false}
+{"bytes": 2257, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_19.jpg", "source_catalog": false}
+{"bytes": 17210, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_2.jpg", "source_catalog": false}
+{"bytes": 2392, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_20.jpg", "source_catalog": false}
+{"bytes": 2234, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_21.jpg", "source_catalog": false}
+{"bytes": 2406, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_22.jpg", "source_catalog": false}
+{"bytes": 2351, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_23.jpg", "source_catalog": false}
+{"bytes": 2515, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_24.jpg", "source_catalog": false}
+{"bytes": 1178, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_25.jpg", "source_catalog": false}
+{"bytes": 1457, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_26.jpg", "source_catalog": false}
+{"bytes": 1187, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_27.jpg", "source_catalog": false}
+{"bytes": 1393, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_28.jpg", "source_catalog": false}
+{"bytes": 1993, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_29.jpg", "source_catalog": false}
+{"bytes": 1885, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_3.jpg", "source_catalog": false}
+{"bytes": 1934, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_30.jpg", "source_catalog": false}
+{"bytes": 3813, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_31.jpg", "source_catalog": false}
+{"bytes": 2344, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_4.jpg", "source_catalog": false}
+{"bytes": 1581, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_5.jpg", "source_catalog": false}
+{"bytes": 2308, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_6.jpg", "source_catalog": false}
+{"bytes": 1581, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_7.jpg", "source_catalog": false}
+{"bytes": 5431, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_8.jpg", "source_catalog": false}
+{"bytes": 9286, "category": "zhuanli", "path": "zhuanli/最终版/说明书/100002/100002_9.jpg", "source_catalog": false}
+{"bytes": 33138, "category": "zhuanli", "path": "zhuanli/最终版/说明书摘要.docx", "source_catalog": false}
+{"bytes": 88369, "category": "zhuanli", "path": "zhuanli/最终版/说明书摘要.pdf", "source_catalog": false}
+{"bytes": 1110, "category": "zhuanli", "path": "zhuanli/最终版/说明书摘要/100004/100004.xml", "source_catalog": false}
+{"bytes": 2604143, "category": "zhuanli", "path": "zhuanli/最终版/说明书附图.docx", "source_catalog": false}
+{"bytes": 1164816, "category": "zhuanli", "path": "zhuanli/最终版/说明书附图.pdf", "source_catalog": false}
+{"bytes": 1843, "category": "zhuanli", "path": "zhuanli/最终版/说明书附图/100003/100003.xml", "source_catalog": false}
+{"bytes": 252689, "category": "zhuanli", "path": "zhuanli/最终版/说明书附图/100003/100003_1.jpg", "source_catalog": false}
+{"bytes": 300886, "category": "zhuanli", "path": "zhuanli/最终版/说明书附图/100003/100003_2.jpg", "source_catalog": false}
+{"bytes": 274943, "category": "zhuanli", "path": "zhuanli/最终版/说明书附图/100003/100003_3.jpg", "source_catalog": false}
+{"bytes": 283773, "category": "zhuanli", "path": "zhuanli/最终版/说明书附图/100003/100003_4.jpg", "source_catalog": false}
+{"bytes": 311572, "category": "zhuanli", "path": "zhuanli/最终版/说明书附图/100003/100003_5.jpg", "source_catalog": false}
+{"bytes": 7745982, "category": "zhuanli", "path": "zhuanli/最终版111.zip", "source_catalog": false}
+{"bytes": 7357, "category": "zhuanli", "path": "zhuanli/最终版111/1/100001/100001.xml", "source_catalog": false}
+{"bytes": 2234, "category": "zhuanli", "path": "zhuanli/最终版111/1/100001/100001_1.jpg", "source_catalog": false}
+{"bytes": 2406, "category": "zhuanli", "path": "zhuanli/最终版111/1/100001/100001_2.jpg", "source_catalog": false}
+{"bytes": 2351, "category": "zhuanli", "path": "zhuanli/最终版111/1/100001/100001_3.jpg", "source_catalog": false}
+{"bytes": 2515, "category": "zhuanli", "path": "zhuanli/最终版111/1/100001/100001_4.jpg", "source_catalog": false}
+{"bytes": 1178, "category": "zhuanli", "path": "zhuanli/最终版111/1/100001/100001_5.jpg", "source_catalog": false}
+{"bytes": 1457, "category": "zhuanli", "path": "zhuanli/最终版111/1/100001/100001_6.jpg", "source_catalog": false}
+{"bytes": 1187, "category": "zhuanli", "path": "zhuanli/最终版111/1/100001/100001_7.jpg", "source_catalog": false}
+{"bytes": 1393, "category": "zhuanli", "path": "zhuanli/最终版111/1/100001/100001_8.jpg", "source_catalog": false}
+{"bytes": 35739, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002.xml", "source_catalog": false}
+{"bytes": 22028, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_1.jpg", "source_catalog": false}
+{"bytes": 1334, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_10.jpg", "source_catalog": false}
+{"bytes": 2832, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_11.jpg", "source_catalog": false}
+{"bytes": 3991, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_12.jpg", "source_catalog": false}
+{"bytes": 1819, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_13.jpg", "source_catalog": false}
+{"bytes": 1915, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_14.jpg", "source_catalog": false}
+{"bytes": 18400, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_15.jpg", "source_catalog": false}
+{"bytes": 3991, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_16.jpg", "source_catalog": false}
+{"bytes": 2054, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_17.jpg", "source_catalog": false}
+{"bytes": 2180, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_18.jpg", "source_catalog": false}
+{"bytes": 2257, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_19.jpg", "source_catalog": false}
+{"bytes": 17210, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_2.jpg", "source_catalog": false}
+{"bytes": 2392, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_20.jpg", "source_catalog": false}
+{"bytes": 2234, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_21.jpg", "source_catalog": false}
+{"bytes": 2406, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_22.jpg", "source_catalog": false}
+{"bytes": 2351, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_23.jpg", "source_catalog": false}
+{"bytes": 2515, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_24.jpg", "source_catalog": false}
+{"bytes": 1178, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_25.jpg", "source_catalog": false}
+{"bytes": 1457, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_26.jpg", "source_catalog": false}
+{"bytes": 1187, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_27.jpg", "source_catalog": false}
+{"bytes": 1393, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_28.jpg", "source_catalog": false}
+{"bytes": 1993, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_29.jpg", "source_catalog": false}
+{"bytes": 1885, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_3.jpg", "source_catalog": false}
+{"bytes": 1934, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_30.jpg", "source_catalog": false}
+{"bytes": 3813, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_31.jpg", "source_catalog": false}
+{"bytes": 2344, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_4.jpg", "source_catalog": false}
+{"bytes": 1581, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_5.jpg", "source_catalog": false}
+{"bytes": 2308, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_6.jpg", "source_catalog": false}
+{"bytes": 1581, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_7.jpg", "source_catalog": false}
+{"bytes": 5431, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_8.jpg", "source_catalog": false}
+{"bytes": 9723, "category": "zhuanli", "path": "zhuanli/最终版111/1/100002/100002_9.jpg", "source_catalog": false}
+{"bytes": 1342, "category": "zhuanli", "path": "zhuanli/最终版111/1/100003/100003.xml", "source_catalog": false}
+{"bytes": 252689, "category": "zhuanli", "path": "zhuanli/最终版111/1/100003/100003_1.jpg", "source_catalog": false}
+{"bytes": 300886, "category": "zhuanli", "path": "zhuanli/最终版111/1/100003/100003_2.jpg", "source_catalog": false}
+{"bytes": 274943, "category": "zhuanli", "path": "zhuanli/最终版111/1/100003/100003_3.jpg", "source_catalog": false}
+{"bytes": 283773, "category": "zhuanli", "path": "zhuanli/最终版111/1/100003/100003_4.jpg", "source_catalog": false}
+{"bytes": 311572, "category": "zhuanli", "path": "zhuanli/最终版111/1/100003/100003_5.jpg", "source_catalog": false}
+{"bytes": 1110, "category": "zhuanli", "path": "zhuanli/最终版111/1/100004/100004.xml", "source_catalog": false}
+{"bytes": 1400423, "category": "zhuanli", "path": "zhuanli/最终版111/7.11更新版.zip", "source_catalog": false}
+{"bytes": 2621894, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件.docx", "source_catalog": false}
+{"bytes": 7615, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100001/100001.xml", "source_catalog": false}
+{"bytes": 2234, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100001/100001_1.jpg", "source_catalog": false}
+{"bytes": 2406, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100001/100001_2.jpg", "source_catalog": false}
+{"bytes": 2351, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100001/100001_3.jpg", "source_catalog": false}
+{"bytes": 2515, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100001/100001_4.jpg", "source_catalog": false}
+{"bytes": 1178, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100001/100001_5.jpg", "source_catalog": false}
+{"bytes": 1457, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100001/100001_6.jpg", "source_catalog": false}
+{"bytes": 1187, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100001/100001_7.jpg", "source_catalog": false}
+{"bytes": 1393, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100001/100001_8.jpg", "source_catalog": false}
+{"bytes": 35759, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002.xml", "source_catalog": false}
+{"bytes": 23517, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_1.jpg", "source_catalog": false}
+{"bytes": 1334, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_10.jpg", "source_catalog": false}
+{"bytes": 2832, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_11.jpg", "source_catalog": false}
+{"bytes": 3991, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_12.jpg", "source_catalog": false}
+{"bytes": 1819, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_13.jpg", "source_catalog": false}
+{"bytes": 1915, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_14.jpg", "source_catalog": false}
+{"bytes": 18430, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_15.jpg", "source_catalog": false}
+{"bytes": 3991, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_16.jpg", "source_catalog": false}
+{"bytes": 2054, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_17.jpg", "source_catalog": false}
+{"bytes": 2180, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_18.jpg", "source_catalog": false}
+{"bytes": 2257, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_19.jpg", "source_catalog": false}
+{"bytes": 17734, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_2.jpg", "source_catalog": false}
+{"bytes": 2392, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_20.jpg", "source_catalog": false}
+{"bytes": 2234, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_21.jpg", "source_catalog": false}
+{"bytes": 2406, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_22.jpg", "source_catalog": false}
+{"bytes": 2351, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_23.jpg", "source_catalog": false}
+{"bytes": 2515, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_24.jpg", "source_catalog": false}
+{"bytes": 1178, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_25.jpg", "source_catalog": false}
+{"bytes": 1457, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_26.jpg", "source_catalog": false}
+{"bytes": 1187, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_27.jpg", "source_catalog": false}
+{"bytes": 1393, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_28.jpg", "source_catalog": false}
+{"bytes": 1993, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_29.jpg", "source_catalog": false}
+{"bytes": 1885, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_3.jpg", "source_catalog": false}
+{"bytes": 1934, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_30.jpg", "source_catalog": false}
+{"bytes": 3813, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_31.jpg", "source_catalog": false}
+{"bytes": 2344, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_4.jpg", "source_catalog": false}
+{"bytes": 1581, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_5.jpg", "source_catalog": false}
+{"bytes": 2308, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_6.jpg", "source_catalog": false}
+{"bytes": 1581, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_7.jpg", "source_catalog": false}
+{"bytes": 5431, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_8.jpg", "source_catalog": false}
+{"bytes": 9723, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100002/100002_9.jpg", "source_catalog": false}
+{"bytes": 1224, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100003/100003.xml", "source_catalog": false}
+{"bytes": 206326, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100003/100003_1.jpg", "source_catalog": false}
+{"bytes": 249730, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100003/100003_2.jpg", "source_catalog": false}
+{"bytes": 235573, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100003/100003_3.jpg", "source_catalog": false}
+{"bytes": 233621, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100003/100003_4.jpg", "source_catalog": false}
+{"bytes": 250210, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100003/100003_5.jpg", "source_catalog": false}
+{"bytes": 1110, "category": "zhuanli", "path": "zhuanli/最终版111/WORD转XML编辑器五书模板文件/100004/100004.xml", "source_catalog": false}
+{"bytes": 2621894, "category": "zhuanli", "path": "zhuanli/最终版111/bakWORD转XML编辑器五书模板文件.docx", "source_catalog": false}
+{"bytes": 46347, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/bak权利要求书.docx", "source_catalog": false}
+{"bytes": 61236, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/bak说明书.docx", "source_catalog": false}
+{"bytes": 29987, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/bak说明书摘要.docx", "source_catalog": false}
+{"bytes": 2600856, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/bak说明书附图.docx", "source_catalog": false}
+{"bytes": 20067, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/专利申请表.docx", "source_catalog": false}
+{"bytes": 46672, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/权利要求书.docx", "source_catalog": false}
+{"bytes": 148729, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/权利要求书.pdf", "source_catalog": false}
+{"bytes": 16521, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/权利要求书.zip", "source_catalog": false}
+{"bytes": 7357, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/权利要求书/100001/100001.xml", "source_catalog": false}
+{"bytes": 2234, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/权利要求书/100001/100001_1.jpg", "source_catalog": false}
+{"bytes": 2406, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/权利要求书/100001/100001_2.jpg", "source_catalog": false}
+{"bytes": 2351, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/权利要求书/100001/100001_3.jpg", "source_catalog": false}
+{"bytes": 2515, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/权利要求书/100001/100001_4.jpg", "source_catalog": false}
+{"bytes": 1178, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/权利要求书/100001/100001_5.jpg", "source_catalog": false}
+{"bytes": 1457, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/权利要求书/100001/100001_6.jpg", "source_catalog": false}
+{"bytes": 1187, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/权利要求书/100001/100001_7.jpg", "source_catalog": false}
+{"bytes": 1393, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/权利要求书/100001/100001_8.jpg", "source_catalog": false}
+{"bytes": 21358, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/杨君鹏专利申请表.docx", "source_catalog": false}
+{"bytes": 144905, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/杨君鹏专利申请表.pdf", "source_catalog": false}
+{"bytes": 62811, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书.docx", "source_catalog": false}
+{"bytes": 279304, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书.pdf", "source_catalog": false}
+{"bytes": 133638, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书.zip", "source_catalog": false}
+{"bytes": 35739, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002.xml", "source_catalog": false}
+{"bytes": 22028, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_1.jpg", "source_catalog": false}
+{"bytes": 1334, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_10.jpg", "source_catalog": false}
+{"bytes": 2832, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_11.jpg", "source_catalog": false}
+{"bytes": 3991, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_12.jpg", "source_catalog": false}
+{"bytes": 1819, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_13.jpg", "source_catalog": false}
+{"bytes": 1915, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_14.jpg", "source_catalog": false}
+{"bytes": 18400, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_15.jpg", "source_catalog": false}
+{"bytes": 3991, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_16.jpg", "source_catalog": false}
+{"bytes": 2054, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_17.jpg", "source_catalog": false}
+{"bytes": 2180, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_18.jpg", "source_catalog": false}
+{"bytes": 2257, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_19.jpg", "source_catalog": false}
+{"bytes": 17210, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_2.jpg", "source_catalog": false}
+{"bytes": 2392, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_20.jpg", "source_catalog": false}
+{"bytes": 2234, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_21.jpg", "source_catalog": false}
+{"bytes": 2406, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_22.jpg", "source_catalog": false}
+{"bytes": 2351, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_23.jpg", "source_catalog": false}
+{"bytes": 2515, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_24.jpg", "source_catalog": false}
+{"bytes": 1178, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_25.jpg", "source_catalog": false}
+{"bytes": 1457, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_26.jpg", "source_catalog": false}
+{"bytes": 1187, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_27.jpg", "source_catalog": false}
+{"bytes": 1393, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_28.jpg", "source_catalog": false}
+{"bytes": 1993, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_29.jpg", "source_catalog": false}
+{"bytes": 1885, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_3.jpg", "source_catalog": false}
+{"bytes": 1934, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_30.jpg", "source_catalog": false}
+{"bytes": 3813, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_31.jpg", "source_catalog": false}
+{"bytes": 2344, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_4.jpg", "source_catalog": false}
+{"bytes": 1581, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_5.jpg", "source_catalog": false}
+{"bytes": 2308, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_6.jpg", "source_catalog": false}
+{"bytes": 1581, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_7.jpg", "source_catalog": false}
+{"bytes": 5431, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_8.jpg", "source_catalog": false}
+{"bytes": 9723, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书/100002/100002_9.jpg", "source_catalog": false}
+{"bytes": 33123, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书摘要.docx", "source_catalog": false}
+{"bytes": 88369, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书摘要.pdf", "source_catalog": false}
+{"bytes": 858, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书摘要.zip", "source_catalog": false}
+{"bytes": 1110, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书摘要/100004/100004.xml", "source_catalog": false}
+{"bytes": 2603229, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书附图.docx", "source_catalog": false}
+{"bytes": 1164816, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书附图.pdf", "source_catalog": false}
+{"bytes": 1250542, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书附图.zip", "source_catalog": false}
+{"bytes": 1342, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书附图/100003/100003.xml", "source_catalog": false}
+{"bytes": 252689, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书附图/100003/100003_1.jpg", "source_catalog": false}
+{"bytes": 300886, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书附图/100003/100003_2.jpg", "source_catalog": false}
+{"bytes": 274943, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书附图/100003/100003_3.jpg", "source_catalog": false}
+{"bytes": 283773, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书附图/100003/100003_4.jpg", "source_catalog": false}
+{"bytes": 311572, "category": "zhuanli", "path": "zhuanli/最终版111/最终版/说明书附图/100003/100003_5.jpg", "source_catalog": false}
+{"bytes": 16521, "category": "zhuanli", "path": "zhuanli/杨君鹏-一种训练推理解耦的多模态语义蒸馏方法/权利要求书.zip", "source_catalog": false}
+{"bytes": 1206471, "category": "zhuanli", "path": "zhuanli/杨君鹏-一种训练推理解耦的多模态语义蒸馏方法/杨君鹏-一种训练推理解耦的多模态语义蒸馏方法.zip", "source_catalog": false}
+{"bytes": 133193, "category": "zhuanli", "path": "zhuanli/杨君鹏-一种训练推理解耦的多模态语义蒸馏方法/说明书.zip", "source_catalog": false}
+{"bytes": 858, "category": "zhuanli", "path": "zhuanli/杨君鹏-一种训练推理解耦的多模态语义蒸馏方法/说明书摘要.zip", "source_catalog": false}
+{"bytes": 1250864, "category": "zhuanli", "path": "zhuanli/杨君鹏-一种训练推理解耦的多模态语义蒸馏方法/说明书附图.zip", "source_catalog": false}
+{"bytes": 250027, "category": "zhuanli", "path": "zhuanli/杨君鹏受理.zip", "source_catalog": false}
+{"bytes": 46380, "category": "zhuanli", "path": "zhuanli/缴费/202605290191113066.pdf", "source_catalog": false}
+{"bytes": 54606, "category": "zhuanli", "path": "zhuanli/缴费/94bfd838-e7b3-4ac6-852e-164373ac03bb.png", "source_catalog": false}
+{"bytes": 171846, "category": "zhuanli", "path": "zhuanli/缴费/a5182486-5636-4ff5-87ce-629211fd3d10.png", "source_catalog": false}
+{"bytes": 20, "category": "zhuanli", "path": "zhuanli/缴费/取票码.txt", "source_catalog": false}
+{"bytes": 3995, "category": "root", "path": "论文路线.txt", "source_catalog": true}
