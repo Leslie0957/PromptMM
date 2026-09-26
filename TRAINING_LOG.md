@@ -21,7 +21,7 @@ Updated: 2026-09-26. Latest audited source: f9d0eb504cb0fb17eddcb58cba8aef2517e8
 | Need | Entry |
 |---|---|
 | All experiment families and latest audited result | [Experiment map](docs/experiments/README.md) |
-| Paper results and limitations | [Paper draft](docs/paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md) |
+| Paper results and limitations | [Reviewed paper wording](docs/paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md) |
 | Baby formal/Validation evidence and exceptions | [Baby evidence](docs/research/INNOVATION1_THESIS_EVIDENCE_2026-09-15.md) |
 | Latest Sports mechanism | [Mechanism conclusion](docs/research/SPORTS_INTEGRATED_MECHANISM_CONCLUSION_2026-09-26.md) |
 | Latest Sports efficiency | [Efficiency audit](docs/research/SPORTS_CACHED_DEPLOYMENT_AUDIT_2026-09-26.md) |
@@ -51,7 +51,7 @@ The complete previous active log, including this reorganization's pending entry,
 
 ## Current authorized task / handoff
 
-Paper result/limitation prose and navigation/history organization are complete; see the outcome below. No next experiment is scheduled or authorized. Next step: review the paper draft; propose future experimental work separately if needed.
+Paper wording review is complete; the linked paper file separates body text, discussion/appendix material and editorial decisions. No next experiment is scheduled or authorized. Next step: integrate its sections 1-5 into the thesis using the thesis chapter/table numbering.
 
 ## 2026-09-26 Paper results prose and experiment navigation reorganization (pending)
 
@@ -70,3 +70,17 @@ Paper result/limitation prose and navigation/history organization are complete; 
 - Verification used only stdlib file/path/JSON operations and Git. No training, model forward, gradients, optimizer steps, matrix/weight loading, Validation/Test split reads, ranking evaluation or experiment rerun. Source runtime files and runtime asset paths were not changed. Final staged/committed archive byte identities and clean tree are checked at handoff.
 - Limitations: catalogs describe current reachable local files and are refreshable, not new audit results or independent experiment counts. Private tool/cache directories are excluded explicitly. This is routine organization, not a publication freeze; no tag, main merge, asset deletion or new off-device backup. Ignored assets still require their own backup.
 - Single next step: review `docs/paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md` for incorporation into the thesis. No further experiment is authorized by this handoff.
+
+## 2026-09-26 Paper wording review (pending)
+
+- Authorized scope: review the Sports paper draft against existing audits, choose body/discussion/appendix wording and revise the same paper file plus its navigation/current-state references. Base `a178d981a06630a2b370d02b0010edcbb008e502`; clean branch `codex/experiment/baby-teacher-baseline`. No experiment, metric, protocol or eligibility change.
+- Rationale/risks: distinguish image-coefficient control from total-gradient control, initial matching from full training, fixed-budget Validation evidence from Test/general claims, and offline table generation from cached online cost. Avoid implying full baseline tuning, unique semantics or causal initialization interaction; clearly attribute alpha3 below-initial performance to its final value only.
+- Acceptance/verification: every quantitative claim linked to existing focused audits; separate quality/efficiency tables and paste-ready prose from editorial notes; preserve negative outcomes and limitations; local links and focused diff pass. Refresh only metadata navigation if file sizes change. No model/data loading, training, new evaluation or Test access. Previous draft recoverable from the base commit; no automatic rollback. One coherent local commit, then hand off reviewed wording; no new run authorized.
+
+## 2026-09-26 Paper wording review (completed)
+
+- Revised the existing paper file into reviewed body sections (random-init text benefit; warm-start boundary; offline/cached online cost; limitations), separate quality/efficiency tables, and discussion/appendix/editorial notes. Updated the existing overview links; no new experiment or file family.
+- Retained all limiting/negative evidence: Validation-only status, three pairs without significance, finite budget, single-seed warm start, stronger PromptMM configuration, initial versus trajectory gradient matching and shared student deployment structure. Explicitly distinguished image-coefficient control from total-gradient matching and alpha3 final-below-initial from best-above-initial. The 144.58 phase ratio and F/equal/alpha3 diagnostics are appendix/discussion material, not headline inference claims.
+- Verification: checked the existing strict-pair, sham, warm-pair, equal-target, weighted-direction, alpha3, release-baseline and latest efficiency audits; recomputed quoted relative gains/difference/phase ratio with scalar arithmetic; all edited-document local links and focused whitespace checks passed. Navigation asset-size metadata refreshed only; immutable history and source/runtime assets unchanged.
+- Based on `a178d981a06630a2b370d02b0010edcbb008e502`, branch `codex/experiment/baby-teacher-baseline`; preserved as one local documentation commit. No training/model forward/gradient computation, dataset/checkpoint load, Validation/Test split access or evaluation. No change to original metrics, eligibility, protocol or Baby exceptions. This is wording review, not publication freeze or full-thesis integration.
+- Single next step: incorporate sections 1-5 of `docs/paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md` into the thesis with its actual chapter/table numbering. No new experiment authorized.

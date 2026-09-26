@@ -3,7 +3,7 @@
 先读[仓库总览](../README.md)和[当前短日志](../TRAINING_LOG.md)，再按任务展开。
 
 - [实验族导航](experiments/README.md)：每类实验的审计入口、失败记录及结论范围。
-- [论文结果与局限](paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md)：当前Sports结果文字稿。
+- [论文正文表述（已审阅）](paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md)：已区分正文、讨论和附录内容。
 - [全部源文件/文档](experiments/FILES.md)：按目录查找，不需要逐篇读取。
 - [运行记录导航](experiments/RUN_RECORDS.md)：现存exp JSON；不是独立实验计数。
 - [历史章节索引](../archive/training/ENTRY_INDEX_2026-09-26.md)：老参数、命令和声明按需查询。
