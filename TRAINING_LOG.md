@@ -6,6 +6,8 @@ Updated: 2026-09-26. Latest audited source: f9d0eb504cb0fb17eddcb58cba8aef2517e8
 
 ## Current state
 
+- 写作阶段澄清（2026-09-26）：已有证据足以开始第一创新点的阶段性写作，不代表整篇论文实验完成或可定稿。第二创新点尚未确定并完成实验；当前主要证据集中在Baby与Sports，前者有正式Test，后者相关机制结果主要为Validation，不能计作两套同等完整的正式验证。历史其他数据集记录不能自动补足覆盖。整篇论文是否达到学位要求仍需核对第二创新点、正式评价、数据集覆盖及实际要求，当前不能保证。
+
 - Sports mechanism and cached-deployment efficiency stage is complete. No run is pending for automatic execution; old pending declarations are historical, not a work queue.
 - Baby already has three-seed BPR/Full/original Image-0.3 formal results and seven fixed120 Validation diagnostic runs documented in the Baby evidence book. Broader thesis claims and final publication freeze remain unfinished; do not describe Baby as only a seed2022 baseline.
 - Baby seed2023 Image-0.3 is accepted by user-audited exception; original paper_ready_eligible=false remains unchanged. Seed2024 low outcome is valid and preserved.
@@ -51,7 +53,7 @@ The complete previous active log, including this reorganization's pending entry,
 
 ## Current authorized task / handoff
 
-Paper wording review is complete; the linked paper file separates body text, discussion/appendix material and editorial decisions. No next experiment is scheduled or authorized. Next step: integrate its sections 1-5 into the thesis using the thesis chapter/table numbering.
+Paper wording review is complete for existing Sports evidence only. The latest user clarification supersedes the earlier integration-first handoff: next prepare a thesis completion/gap table covering both contributions, their questions, existing/missing evidence, formal evaluation and dataset coverage, before selecting Innovation2. Partial writing may proceed alongside research; whole-thesis readiness is not established. This task only records that recommendation; the gap table is not yet prepared and no new experiment is authorized.
 
 ## 2026-09-26 Paper results prose and experiment navigation reorganization (pending)
 
@@ -84,3 +86,14 @@ Paper wording review is complete; the linked paper file separates body text, dis
 - Verification: checked the existing strict-pair, sham, warm-pair, equal-target, weighted-direction, alpha3, release-baseline and latest efficiency audits; recomputed quoted relative gains/difference/phase ratio with scalar arithmetic; all edited-document local links and focused whitespace checks passed. Navigation asset-size metadata refreshed only; immutable history and source/runtime assets unchanged.
 - Based on `a178d981a06630a2b370d02b0010edcbb008e502`, branch `codex/experiment/baby-teacher-baseline`; preserved as one local documentation commit. No training/model forward/gradient computation, dataset/checkpoint load, Validation/Test split access or evaluation. No change to original metrics, eligibility, protocol or Baby exceptions. This is wording review, not publication freeze or full-thesis integration.
 - Single next step: incorporate sections 1-5 of `docs/paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md` into the thesis with its actual chapter/table numbering. No new experiment authorized.
+
+## 2026-09-26 Thesis readiness clarification (pending)
+
+- User asks to preserve the latest conversation correction. Scope: current-state handoff, root overview and paper editorial note; refresh affected file-size catalog metadata. Base `650bb42`; clean existing branch. Clarify partial writing readiness versus whole-thesis evidence sufficiency without altering any result/protocol or drafting new experiment plans.
+- Acceptance: explicitly preserve Innovation2 unfinished, Baby formal Test versus Sports Validation distinction, limited dataset coverage and unknown thesis acceptance requirements; replace the current next-step recommendation with a thesis completion/gap table. Prior outcome entries remain verbatim. Verify focused diff/links; no training, data/model load or Test access. Prior source is recoverable from base commit; no rollback performed.
+
+## 2026-09-26 Thesis readiness clarification (completed)
+
+- Recorded the latest correction in the root overview, current log header/handoff and paper editorial note: partial writing is supported; whole-thesis sufficiency is not established. Innovation2 is unfinished; Baby formal Test and Sports mechanism Validation are not equally complete dataset validation. Existing controlled findings have bounded value, without a guarantee of meeting unknown degree requirements.
+- The current recommendation is a thesis completion/gap table before selecting Innovation2; the table itself has not been prepared. Earlier outcome entries remain historical and unchanged. No experiment was authorized or executed, and no data/model/Test access occurred.
+- Verified focused content/diff and local links; refreshed only the three changed documents' byte counts in the existing navigation catalog. Base `650bb42`, branch `codex/experiment/baby-teacher-baseline`; one local documentation commit. Metrics, protocols, original audits and immutable archives unchanged. Next step: prepare the completion/gap table when requested.
