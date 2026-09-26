@@ -6,7 +6,7 @@
 
 > 执行前方案已写入[正式收尾协议](../research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md)：采用固定配置比较，Baby发布版cap1000/patience7，新增隔离评价入口须先过无Test验收。它未改变下表已有格子的结果状态，也未授权训练或Test。
 
-> v1、v2串行批次均已停止；[v2审计](../research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V2_AUDIT.md)保留三次有效Baby训练和九项已通过的预检，未产生新Test。恢复需新命令和独立授权。
+> v1、v2串行批次均已停止；[v2审计](../research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V2_AUDIT.md)保留三次有效Baby训练和九项已通过的预检，未产生新Test。[仅评价恢复声明](../research/INNOVATION1_EVAL_RECOVERY_V1_LAUNCH_2026-09-26.md)已准备，尚无新Validation/Test结果，以下格子状态不变；执行需独立授权。
 
 ## 1. 状态和范围
 
@@ -90,4 +90,4 @@ Baby原Image-0.3的2022/2023 Test Recall略高于Full，2024明显低；均值�
 2. Baby三项训练已完成；v2批次在S3身份读取处失败且不可重跑。评价入口已修复并通过无Test工程检查；恢复需新声明、独立路径和用户授权，修复源码下12项真实Val预检仍须全部先于Test。
 3. 结果完成后按原标准验收，低结果仍保留；收缩结论可作为收尾结果，不用连续加seed/延长训练直到胜出。最终汇总追溯、必要备份及论文段落，再重新讨论第二创新点。
 
-**当前唯一下一步：准备仅评价的恢复批次，复用v2三个Baby检查点，在修复源码下新路径预检后做12次Test；执行另行授权。禁止重跑v2，不重训Baby。** 详见[v2审计](../research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V2_AUDIT.md)；第二点暂缓。
+**当前唯一下一步：另行授权并由用户手动执行[仅评价恢复批次](../research/INNOVATION1_EVAL_RECOVERY_V1_LAUNCH_2026-09-26.md)一次，复用v2三个Baby检查点，在修复源码下新路径预检后做12次Test。禁止重跑v2，不重训Baby。** 第二点暂缓。
