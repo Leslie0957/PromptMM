@@ -2,6 +2,7 @@
 import argparse
 from datetime import datetime
 import json
+import math
 import os
 from pathlib import Path
 import pickle
@@ -15,6 +16,8 @@ LEDGER = ROOT / 'docs/research/INNOVATION1_REUSE_ASSETS_2026-09-26.json'
 KS = (10, 20, 40, 50)
 SLOTS = tuple(f'{arm}_{seed}' for arm in ('b3', 's1', 's2', 's3')
               for seed in (2022, 2023, 2024))
+RECOVERY_COHORT = 'innovation1_eval_recovery_v1'
+RECOVERY_BABY_SOURCE = 'innovation1_fixed_v2'
 
 
 def now():
@@ -40,12 +43,14 @@ def slot_source(slot, ledger, cohort_id=None):
     seed = int(seed)
     if arm == 'b3':
         baby_root = ROOT / 'exp/promptmm_release_baby'
-        if cohort_id:
-            baby_root = baby_root / cohort_id
+        source_cohort = (RECOVERY_BABY_SOURCE if cohort_id == RECOVERY_COHORT
+                         else cohort_id)
+        if source_cohort:
+            baby_root = baby_root / source_cohort
         base = baby_root / f'baby_promptmm_release_cap1000_patience7_seed{seed}_lr6e5_v1'
         return dict(dataset='baby', method='promptmm_release', seed=seed,
                     source_path=base/'report.json', checkpoint_path=base/'best.pt',
-                    infer_path=None, original=None, cohort_id=cohort_id)
+                    infer_path=None, original=None, cohort_id=source_cohort)
     method = {'s1': 'bpr', 's2': 'full', 's3': 'promptmm_release'}[arm]
     matches = [x for x in ledger['sports'] if x['seed'] == seed and x['method'] == method]
     if len(matches) != 1:
@@ -251,6 +256,30 @@ def expected_validation_recall(source, report):
     return float(report['best_selection_recall'])
 
 
+def require_all_recovery_preflights(cohort_id, head, ledger_hash):
+    if cohort_id != RECOVERY_COHORT:
+        return
+    base = ROOT / 'exp/formal_closeout_preflight' / cohort_id
+    for slot in SLOTS:
+        path = base / slot / 'report.json'
+        if not path.is_file():
+            raise RuntimeError(f'All same-source preflights required before Test: {slot}')
+        report = json.loads(path.read_text(encoding='utf-8'))
+        delta = report.get('validation_recall_delta')
+        if (report.get('status') != 'passed' or report.get('slot') != slot
+                or report.get('mode') != 'preflight'
+                or report.get('cohort_id') != cohort_id
+                or report.get('launch_commit') != head
+                or report.get('ledger_sha256') != ledger_hash
+                or report.get('test_access_started') is not False
+                or report.get('test_split_loaded') is not False
+                or report.get('student_test_evaluations') != 0
+                or report.get('teacher_test_evaluations') != 0
+                or not isinstance(delta, (int, float))
+                or not math.isfinite(delta) or abs(delta) > 1e-10):
+            raise RuntimeError(f'Invalid same-source preflight before Test: {slot}')
+
+
 def run(slot, mode, gpu_id=0, cohort_id=None):
     if mode not in ('preflight', 'final-test-once'):
         raise ValueError('Invalid mode.')
@@ -263,6 +292,7 @@ def run(slot, mode, gpu_id=0, cohort_id=None):
                            else 'formal_closeout_eval')
     base = family / cohort_id / slot if cohort_id else family / slot
     if mode == 'final-test-once':
+        require_all_recovery_preflights(cohort_id, head, ledger_hash)
         preflight_root = ROOT / 'exp/formal_closeout_preflight'
         preflight_path = ((preflight_root / cohort_id / slot) if cohort_id else
                           (preflight_root / slot)) / 'report.json'
@@ -379,7 +409,7 @@ def main(argv=None):
     mode.add_argument('--final-test-once', action='store_true')
     parser.add_argument('--slot', required=True, choices=SLOTS)
     parser.add_argument('--gpu_id', type=int, choices=[0], default=0)
-    parser.add_argument('--cohort-id', choices=['innovation1_fixed_v2'])
+    parser.add_argument('--cohort-id', choices=['innovation1_fixed_v2', RECOVERY_COHORT])
     args = parser.parse_args(argv)
     return run(args.slot, 'preflight' if args.preflight else 'final-test-once',
                args.gpu_id, args.cohort_id)

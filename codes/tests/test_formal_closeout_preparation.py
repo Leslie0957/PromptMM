@@ -22,9 +22,86 @@ sys.path.insert(0, str(ROOT/'tools'))
 import formal_closeout_eval as evaluator
 import promptmm_release_baby_formal as baby
 import run_innovation1_formal_closeout as cohort
+import run_innovation1_eval_recovery as recovery
 
 
 class PreparationContracts(unittest.TestCase):
+    def test_eval_only_recovery_plan_and_v2_baby_binding(self):
+        steps = recovery.plan()
+        self.assertEqual(len(steps), 24)
+        self.assertEqual([x['phase'] for x in steps],
+                         ['no_test_validation'] * 12 + ['final_test_once'] * 12)
+        self.assertTrue(all(x['command'][-2:] ==
+                            ['--cohort-id', recovery.COHORT_ID] for x in steps))
+        self.assertFalse(any('baby_release_formal' in x['command'] for x in steps))
+        ledger = json.loads(evaluator.LEDGER.read_text(encoding='utf-8'))
+        baby_source = evaluator.slot_source('b3_2022', ledger, recovery.COHORT_ID)
+        self.assertEqual(baby_source['cohort_id'], 'innovation1_fixed_v2')
+        self.assertIn('innovation1_fixed_v2', str(baby_source['checkpoint_path']))
+        self.assertNotIn(recovery.COHORT_ID, str(baby_source['checkpoint_path']))
+        self.assertTrue(baby_source['checkpoint_path'].is_file())
+        self.assertEqual(recovery.COHORT_ID, evaluator.RECOVERY_COHORT)
+
+    def test_recovery_source_anchor_and_exclusive_paths(self):
+        recovery.check_source_anchor()
+        recovery.check_expected_absent()
+
+    def test_recovery_blocks_test_until_all_same_source_preflights(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            base = root/'exp/formal_closeout_preflight'/recovery.COHORT_ID
+            with patch.object(evaluator, 'ROOT', root):
+                with self.assertRaisesRegex(RuntimeError, 'All same-source preflights'):
+                    evaluator.require_all_recovery_preflights(
+                        recovery.COHORT_ID, 'fixture-head', 'fixture-ledger')
+                for slot in evaluator.SLOTS:
+                    target = base/slot/'report.json'
+                    target.parent.mkdir(parents=True)
+                    target.write_text(json.dumps(dict(
+                        status='passed', slot=slot, mode='preflight',
+                        cohort_id=recovery.COHORT_ID, launch_commit='fixture-head',
+                        ledger_sha256='fixture-ledger', test_access_started=False,
+                        test_split_loaded=False, student_test_evaluations=0,
+                        teacher_test_evaluations=0, validation_recall_delta=0)))
+                evaluator.require_all_recovery_preflights(
+                    recovery.COHORT_ID, 'fixture-head', 'fixture-ledger')
+                target = base/'s3_2024'/'report.json'
+                report = json.loads(target.read_text())
+                report['launch_commit'] = 'old-head'
+                target.write_text(json.dumps(report))
+                with self.assertRaisesRegex(RuntimeError, 'Invalid same-source preflight'):
+                    evaluator.require_all_recovery_preflights(
+                        recovery.COHORT_ID, 'fixture-head', 'fixture-ledger')
+                report['launch_commit'] = 'fixture-head'
+                report['validation_recall_delta'] = float('nan')
+                target.write_text(json.dumps(report))
+                with self.assertRaisesRegex(RuntimeError, 'Invalid same-source preflight'):
+                    evaluator.require_all_recovery_preflights(
+                        recovery.COHORT_ID, 'fixture-head', 'fixture-ledger')
+            self.assertFalse((root/'exp/formal_closeout_eval').exists())
+
+    def test_recovery_runner_rejects_zero_exit_without_report(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            steps = [dict(name='preflight_b3_2022', phase='no_test_validation',
+                          command=[sys.executable, '-c', 'pass']),
+                     dict(name='forbidden_next', phase='final_test_once',
+                          command=[sys.executable, '-c', 'open("should_not_exist", "w")'])]
+            with patch.object(recovery, 'ROOT', root), \
+                 patch.object(recovery, 'COHORT', root/'exp/formal_closeout_cohort'/recovery.COHORT_ID), \
+                 patch.object(recovery, 'clean_head', return_value='fixture-head'), \
+                 patch.object(recovery, 'check_source_anchor', return_value=None), \
+                 patch.object(recovery, 'check_expected_absent', return_value=None), \
+                 patch.object(recovery, 'plan', return_value=steps), \
+                 patch.object(cohort, 'ROOT', root):
+                with contextlib.redirect_stdout(io.StringIO()), self.assertRaisesRegex(RuntimeError, 'without expected report'):
+                    recovery.run()
+                report = json.loads((recovery.COHORT/'batch.json').read_text())
+                self.assertEqual(report['status'], 'failed')
+                self.assertEqual([x['name'] for x in report['steps']], ['preflight_b3_2022'])
+                self.assertEqual(report['steps'][0]['exit_code'], 0)
+                self.assertFalse((root/'should_not_exist').exists())
+
     def test_pinned_sports_schema_all_seeds_without_data_or_tensor_load(self):
         ledger = json.loads(evaluator.LEDGER.read_text(encoding='utf-8'))
         for record in ledger['sports']:
