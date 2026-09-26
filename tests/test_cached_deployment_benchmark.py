@@ -86,12 +86,18 @@ class DeploymentTests(unittest.TestCase):
     def test_io_guard_in_isolated_synthetic_process(self):
         with tempfile.TemporaryDirectory() as temp:
             program = '''
-import sys
+import os, platform, subprocess, sys
 from pathlib import Path
 sys.path.insert(0, sys.argv[1])
 from cached_deployment_benchmark import install_io_guard
 root=Path(sys.argv[2]); install_io_guard(root)
 (root/'allowed.json').write_text('{}')
+handle=os.open(os.devnull, os.O_RDWR)
+os.close(handle)
+subprocess.run([sys.executable, '-B', '-c', 'print("null-device regression")'],
+               stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL,
+               stderr=subprocess.DEVNULL, check=True)
+assert platform.platform()
 for path in (root/'test_mat', root.parent/'forbidden-benchmark-write.tmp'):
     try: path.write_text('blocked')
     except RuntimeError: pass

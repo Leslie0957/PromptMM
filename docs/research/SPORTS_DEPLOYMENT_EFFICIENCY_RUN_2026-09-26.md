@@ -2,6 +2,8 @@
 
 状态：实现准备完成；**真实数据预检、GPU基准均未由助手运行**。依据[效率协议](SPORTS_DEPLOYMENT_EFFICIENCY_PROTOCOL_2026-09-26.md)，一个入口串行执行，失败即停，既有输出不覆盖。
 
+2026-09-26 修订：用户首次 v1 执行在环境信息收集阶段因 Windows NUL 被文件守卫误拦而失败，完成计时条件0/36；CPU预检资产保留。已用独立回归复现并修复，仅放行解析后的平台空设备。当前入口指向全新 v2 目录；是否重新执行由用户决定，助手未重跑。v1 目录不删除、不覆盖，工作负载及教师输出容差不变。
+
 ## 唯一手动入口
 
 接通电源，保持当前性能模式，关闭其他训练/GPU负载，终端保持前台可见，不让其他应用全屏。`--conditions-confirmed` 表示你已安排这些条件，不会自动更改系统设置。
@@ -50,7 +52,7 @@ Set-Location 'D:\Download\PromptMM'
 
 ## 输出、失败及结果边界
 
-独占路径：`exp/efficiency/sports_cached_deployment_seed2022_v1/`。
+当前新尝试独占路径：`exp/efficiency/sports_cached_deployment_seed2022_v2/`。失败的 `sports_cached_deployment_seed2022_v1/` 原样保留。
 
 - `batch.json`：启动commit/分支、源文件指纹、全部条件、每个已完成worker报告及哈希、最终轮级汇总。
 - `preflight.json`、`request_order.npy`、`T/F/B_tables.pt`：固定输入校验及共同部署表。
