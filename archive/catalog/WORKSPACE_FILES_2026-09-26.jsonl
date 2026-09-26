@@ -236,8 +236,8 @@
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 05_34_16.930265_sports_light_init_pid42156.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 08_30_07.418852_sports_light_init_pid30132.pth", "source_catalog": false}
 {"bytes": 432550, "category": "root", "path": "PromptMM.png", "source_catalog": true}
-{"bytes": 3529, "category": "root", "path": "README.md", "source_catalog": true}
-{"bytes": 19930, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
+{"bytes": 3649, "category": "root", "path": "README.md", "source_catalog": true}
+{"bytes": 23106, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
 {"bytes": 739, "category": "archive", "path": "archive/README.md", "source_catalog": true}
 {"bytes": 409, "category": "archive", "path": "archive/run_patent_results/README.md", "source_catalog": true}
 {"bytes": 110276, "category": "archive", "path": "archive/run_patent_results/Result_0409_1319_Photo_a0.1_lr0.001/Result_0409_1319_Photo_a0.1_lr0.001_curve.png", "source_catalog": false}
@@ -380,7 +380,7 @@
 {"bytes": 3177, "category": "docs", "path": "docs/PROMPTMM_RELEASE_VALIDATION300_BATCH.md", "source_catalog": true}
 {"bytes": 4183, "category": "docs", "path": "docs/PROMPTMM_RELEASE_VALIDATION_DIAGNOSTIC.md", "source_catalog": true}
 {"bytes": 2666, "category": "docs", "path": "docs/PROMPTMM_VALIDATION_FAST_PARITY.md", "source_catalog": true}
-{"bytes": 1331, "category": "docs", "path": "docs/README.md", "source_catalog": true}
+{"bytes": 1470, "category": "docs", "path": "docs/README.md", "source_catalog": true}
 {"bytes": 1827, "category": "docs", "path": "docs/SPORTS_GRADIENT_DIAGNOSTIC.md", "source_catalog": true}
 {"bytes": 2087, "category": "docs", "path": "docs/SPORTS_INITIALIZATION_DIAGNOSTIC.md", "source_catalog": true}
 {"bytes": 2554, "category": "docs", "path": "docs/SPORTS_INITIALIZATION_PAIR_SEED2022.md", "source_catalog": true}
@@ -394,9 +394,9 @@
 {"bytes": 3849, "category": "docs", "path": "docs/SPORTS_TEACHER_VALIDATION120_V1.md", "source_catalog": true}
 {"bytes": 100432, "category": "docs", "path": "docs/baselines/ASSET_MANIFEST_2026-07-29.csv", "source_catalog": true}
 {"bytes": 2893, "category": "docs", "path": "docs/baselines/README.md", "source_catalog": true}
-{"bytes": 5610, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
+{"bytes": 5752, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
 {"bytes": 12692, "category": "docs", "path": "docs/paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md", "source_catalog": true}
-{"bytes": 14291, "category": "docs", "path": "docs/paper/THESIS_COMPLETION_GAPS_2026-09-26.md", "source_catalog": true}
+{"bytes": 14322, "category": "docs", "path": "docs/paper/THESIS_COMPLETION_GAPS_2026-09-26.md", "source_catalog": true}
 {"bytes": 239530, "category": "docs", "path": "docs/research/BABY_IMAGE_ONLY_CURVES_2026-09-15.png", "source_catalog": true}
 {"bytes": 9711, "category": "docs", "path": "docs/research/BABY_IMAGE_ONLY_THREE_SEED_SUMMARY_2026-09-15.md", "source_catalog": true}
 {"bytes": 6618, "category": "docs", "path": "docs/research/CONTROLLED_COST_MECHANISM_PLAN_2026-09-22.md", "source_catalog": true}
@@ -404,6 +404,7 @@
 {"bytes": 123366, "category": "docs", "path": "docs/research/INNOVATION1_FIXED120_CURVES_2026-09-15.png", "source_catalog": true}
 {"bytes": 31019, "category": "docs", "path": "docs/research/INNOVATION1_REVIEW_AND_EXPERIMENT_PLAN_2026-09-14.md", "source_catalog": true}
 {"bytes": 32872, "category": "docs", "path": "docs/research/INNOVATION1_THESIS_EVIDENCE_2026-09-15.md", "source_catalog": true}
+{"bytes": 11435, "category": "docs", "path": "docs/research/INNOVATION2_CANDIDATE_DECISION_2026-09-26.md", "source_catalog": true}
 {"bytes": 7969, "category": "docs", "path": "docs/research/PROMPTMM_BASELINE_IDENTITY_2026-09-18.md", "source_catalog": true}
 {"bytes": 11689, "category": "docs", "path": "docs/research/PROMPTMM_FAIR_COMPARISON_PREPARATION_2026-09-18.md", "source_catalog": true}
 {"bytes": 6668, "category": "docs", "path": "docs/research/PROMPTMM_LR6E5_THREE_SEED_2026-09-22.md", "source_catalog": true}

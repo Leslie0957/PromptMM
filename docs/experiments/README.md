@@ -25,6 +25,7 @@
 
 ## 稿件与最小阅读范围
 
+- 查第二创新点：先读[最新候选决策](../research/INNOVATION2_CANDIDATE_DECISION_2026-09-26.md)，旧RGCS仍为条件性候选。
 - 查整篇论文完成度：先读[完成条件与缺口表](../paper/THESIS_COMPLETION_GAPS_2026-09-26.md)，区分已有证据和未关闭条件。
 - 写论文：先读[正文表述（已审阅）](../paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md)，只按段落链接展开对应审计。
 - 查某次运行：从[运行记录清单](RUN_RECORDS.md)定位profile/status/manifest，再读对应历史声明；失败记录与通过记录都保留。

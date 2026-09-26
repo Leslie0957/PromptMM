@@ -23,6 +23,7 @@ Updated: 2026-09-26. Latest audited source: f9d0eb504cb0fb17eddcb58cba8aef2517e8
 | Need | Entry |
 |---|---|
 | All experiment families and latest audited result | [Experiment map](docs/experiments/README.md) |
+| Current Innovation2 candidate decision | [Decision memo](docs/research/INNOVATION2_CANDIDATE_DECISION_2026-09-26.md) |
 | Thesis completion conditions and gaps | [Gap table](docs/paper/THESIS_COMPLETION_GAPS_2026-09-26.md) |
 | Paper results and limitations | [Reviewed paper wording](docs/paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md) |
 | Baby formal/Validation evidence and exceptions | [Baby evidence](docs/research/INNOVATION1_THESIS_EVIDENCE_2026-09-15.md) |
@@ -54,7 +55,7 @@ The complete previous active log, including this reorganization's pending entry,
 
 ## Current authorized task / handoff
 
-The thesis completion/gap table is now prepared at docs/paper/THESIS_COMPLETION_GAPS_2026-09-26.md. Existing Baby/Sports evidence is separated from missing formal coverage, novelty and Innovation2 evidence; degree-specific requirements remain unconfirmed. Partial writing may proceed; whole-thesis readiness is not established. Single next step: a read-only Innovation1 prerequisite review and Innovation2 candidate decision memo, without selecting RGCS by default or declaring the implementation gate passed. No new experiment is authorized.
+The read-only prerequisite/candidate review is complete: docs/research/INNOVATION2_CANDIDATE_DECISION_2026-09-26.md. Historical RGCS (reliability times BPR-gradient compatibility) is recovered and retained for conditional investigation, not selected as an implemented contribution. First-point prerequisites remain partly open; no gate is waived. Single next step: prepare a zero-update item-semantic gating-motivation diagnostic protocol, design only; do not execute it or change training code. All actual runs remain user-manual and separately authorized.
 
 ## 2026-09-26 Paper results prose and experiment navigation reorganization (pending)
 
@@ -111,3 +112,16 @@ The thesis completion/gap table is now prepared at docs/paper/THESIS_COMPLETION_
 - Reconciled historical plans with completed Sports controls and efficiency: do not repeat completed stages by default. Baby formal Test/2023 exception/2024 low result retained; Sports Validation not promoted to Test; old Amazon not counted as qualified coverage. No blanket baseline superiority, global novelty, significance, completed second point or graduation guarantee asserted. Dataset/degree requirements requested optionally and remain unconfirmed; no fixed third-dataset or run-count mandate invented.
 - Verification: source-checked Baby evidence book, Sports three-seed audit, current mechanism/efficiency/baseline evidence and the historical second-point prerequisites; local links and focused whitespace checks passed. Catalog covers the new document. Base `e3129ab`, existing `codex/experiment/baby-teacher-baseline`; one documentation commit preserves this stage. Original audit/log archive files and runtime assets unchanged. No training, implementation, formal declaration, checkpoint/data loading, new metrics or Validation/Test access.
 - Single recommended next stage: read-only Innovation1 prerequisite review and Innovation2 candidate decision memo, resolving retained claims and unmet gates before preparing any diagnostics. This table does not pass the historical implementation gate or authorize an experiment. All actual experiment execution remains user-manual.
+
+## 2026-09-26 Innovation1 prerequisite and Innovation2 candidate review (pending)
+
+- User authorizes read-only evidence/source review and a saved candidate decision memo, including recovery of the historical gating proposal. Base `4586267`, clean existing branch. Scope: one research memo, current handoff/navigation links and metadata catalogs only; old route remains historical. No model/code changes, new diagnostics, training, Test access or literature novelty certification.
+- Check the 09-14 RGCS route against audited Baby/Sports controls, warm-start gradients and cached efficiency; distinguish first-point implementation gate, thesis completeness and candidate diagnostic eligibility. Audit old gate normalization against current source and identify confounds without implementing a replacement.
+- Acceptance: give an explicit per-prerequisite decision, candidate ranking/hold conditions, support versus missing evidence, and one bounded next recommendation. Do not equate modal conflict with BPR harm or stable teacher targets with useful targets; preserve formal/Validation boundaries and negative evidence. Verify local links and focused diff; one coherent documentation commit. Source recovery anchor is base commit; no rollback/asset overwrite planned.
+
+## 2026-09-26 Innovation1 prerequisite and Innovation2 candidate review (completed)
+
+- Recovered historical `SECOND_INNOVATION_ROUTE.md` / RGCS-Distill and its Git anchors; left old route text unchanged. Added the current decision memo with prerequisite-by-prerequisite judgments, updated evidence, candidate conditions and one next recommendation. Some first-point component/deployment conditions are met; broader formal coverage/positioning remains open. No automatic gate waiver or Innovation2 completion claim.
+- Retain reliability-times-compatibility gating for conditional investigation, not implementation. Warm-start total KD/BPR initial cosine0.010416 and image/text local opposition do not establish sustained BPR harm; alpha3 and real/sham outcomes do not certify reliability heterogeneity. Source review identified baseline weight/dimension/denominator equivalence and global attenuation as unresolved old-sketch confounds; no code modified.
+- Verification: old route/formulas, active directional-loss aggregation/export, current audited evidence and relative links checked; focused whitespace checks passed; refreshed navigation metadata for the new memo. No external novelty certification, data/checkpoint loading, gradient/forward computation, Validation/Test access, training, profile edit or new diagnostic execution. Base `4586267`, branch `codex/experiment/baby-teacher-baseline`; one documentation commit. Raw/immutable assets unchanged.
+- Single next step: design a zero-update item-semantic gating-motivation diagnostic protocol with asset feasibility, estimands, controls and predeclared stopping criteria; design only. No diagnostic run, model implementation or training authorized. User continues to execute any later explicitly authorized runs.
