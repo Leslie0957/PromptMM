@@ -4,6 +4,7 @@ import io
 import json
 from pathlib import Path
 import pickle
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -23,6 +24,16 @@ import run_innovation1_formal_closeout as cohort
 
 
 class PreparationContracts(unittest.TestCase):
+    def test_baby_direct_file_describe_invokes_main(self):
+        result = subprocess.run(
+            [sys.executable, '-B', str(ROOT/'codes/promptmm_release_baby_formal.py'),
+             '--baby_release_formal', '--seed', '2022', '--describe'],
+            cwd=ROOT, text=True, capture_output=True, check=True)
+        spec = json.loads(result.stdout)
+        self.assertEqual(spec['run_id'], baby.run_identity(2022))
+        self.assertEqual(spec['config']['seed'], 2022)
+        self.assertEqual(spec['test_evaluations'], 0)
+
     def test_selected_td_and_release_states_without_test(self):
         from promptmm_release import ReleaseStudent
         from promptmm_release_validation import save_best
@@ -209,6 +220,58 @@ class PreparationContracts(unittest.TestCase):
                 self.assertEqual(result['status'], 'failed')
                 self.assertEqual([x['name'] for x in result['steps']], ['fixture_failure'])
                 self.assertFalse((root/'should_not_exist').exists())
+
+    def test_serial_runner_rejects_zero_exit_without_report(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            steps = [dict(name='train_b3_2022', phase='baby_training',
+                          command=[sys.executable, '-c', 'pass']),
+                     dict(name='forbidden_next', phase='final_test_once',
+                          command=[sys.executable, '-c', 'open("should_not_exist", "w")'])]
+            with patch.object(cohort, 'ROOT', root), \
+                 patch.object(cohort, 'COHORT', root/'exp/formal_closeout_cohort/innovation1_fixed_v1'), \
+                 patch.object(cohort, 'clean_head', return_value='fixture-head'), \
+                 patch.object(cohort, 'plan', return_value=steps), \
+                 patch.object(cohort, 'check_expected_absent', return_value=None):
+                with contextlib.redirect_stdout(io.StringIO()), self.assertRaisesRegex(RuntimeError, 'without expected report'):
+                    cohort.run()
+                result = json.loads((cohort.COHORT/'batch.json').read_text())
+                self.assertEqual(result['status'], 'failed')
+                self.assertEqual([x['name'] for x in result['steps']], ['train_b3_2022'])
+                self.assertEqual(result['steps'][0]['status'], 'failed')
+                self.assertEqual(result['steps'][0]['exit_code'], 0)
+                self.assertFalse((root/'should_not_exist').exists())
+
+    def test_runner_verifies_each_report_family_without_model_access(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            baby_dir = root/'exp/promptmm_release_baby'/baby.run_identity(2022)
+            baby_dir.mkdir(parents=True)
+            checkpoint = baby_dir/'best.pt'
+            checkpoint.write_bytes(b'fixture checkpoint')
+            (baby_dir/'report.json').write_text(json.dumps(dict(
+                status='validation_completed', config={'seed': 2022},
+                test_split_loaded=False, test_evaluations=0,
+                best_checkpoint_sha256=cohort.sha256(checkpoint))))
+            preflight_dir = root/'exp/formal_closeout_preflight/b3_2022'
+            preflight_dir.mkdir(parents=True)
+            (preflight_dir/'report.json').write_text(json.dumps(dict(
+                status='passed', slot='b3_2022', test_access_started=False,
+                test_split_loaded=False, student_test_evaluations=0,
+                teacher_test_evaluations=0)))
+            eval_dir = root/'exp/formal_closeout_eval/b3_2022'
+            eval_dir.mkdir(parents=True)
+            (eval_dir/'report.json').write_text(json.dumps(dict(
+                status='completed', slot='b3_2022', test_access_started=True,
+                student_test_attempts=1, student_test_evaluations=1,
+                teacher_test_evaluations=0,
+                selected_checkpoint_sha256='fixture-hash',
+                evaluated_checkpoint_sha256='fixture-hash')))
+            with patch.object(cohort, 'ROOT', root):
+                for name, phase in [('train_b3_2022', 'baby_training'),
+                                    ('preflight_b3_2022', 'no_test_validation'),
+                                    ('final_test_b3_2022', 'final_test_once')]:
+                    self.assertTrue(cohort.verify_step_artifacts(dict(name=name, phase=phase)).is_file())
 
     def test_failed_test_access_marks_attempt_and_refuses_retry(self):
         with tempfile.TemporaryDirectory() as directory:

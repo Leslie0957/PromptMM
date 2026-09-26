@@ -1,5 +1,7 @@
 # 第一创新点固定配置串行收尾：用户启动页
 
+> **历史命令，禁止再次执行。** 2026-09-26 的 `innovation1_fixed_v1` 已在首次预检失败；原批次路径已有不可覆盖的失败记录。三次Baby子进程实际没有训练，零新Test。请先读[失败审计](INNOVATION1_FORMAL_CLOSEOUT_COHORT_V1_AUDIT.md)。恢复执行必须另立批次身份、独立路径和授权。
+
 本页是[当前日志的正式批次声明](../../TRAINING_LOG.md)的便捷入口；完整身份、预算、Test 权限、资产锚和记录目标以该 pending 声明为准。[收尾协议](INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md)规定解释边界，[来源清单](INNOVATION1_REUSE_ASSETS_2026-09-26.json)固定既有检查点。实现源码提交 `67fc82e`；实际启动以包含声明的干净 HEAD 为准。用户执行，本任务没有替用户运行训练或 Test。
 
 ## 一条启动命令（PowerShell，任意当前目录）

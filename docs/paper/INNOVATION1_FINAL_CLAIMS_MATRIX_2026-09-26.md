@@ -2,7 +2,7 @@
 
 日期：2026-09-26；来源基点`09b1251`。用户已决定优先收尾第一创新点，第二创新点及门控诊断设计暂缓。本表是收尾方案与证据分类；执行前边界另见正式收尾协议，逐次运行仍需独立声明。所有新训练、Test及重试仍需明确授权，由用户执行。
 
-> 后续核查已完成：[协议兼容性与资产复用](../research/INNOVATION1_PROTOCOL_REUSE_AUDIT_2026-09-26.md)。Sports9个所选checkpoint身份检查通过，支持不重训的独立评价路线；当前缺隔离评价入口。固定配置范围内新增工作量为Baby发布版3次训练、Baby3＋Sports9次最终Test。预算/配置选择方案见下方执行前协议；非充分调优保证、非执行授权。下表原R项由该审计逐项承接。
+> 后续核查已完成：[协议兼容性与资产复用](../research/INNOVATION1_PROTOCOL_REUSE_AUDIT_2026-09-26.md)。Sports9个所选checkpoint身份检查通过，支持不重训的独立评价路线。固定配置范围内缺口仍为Baby发布版3次训练、Baby3＋Sports9次最终Test。v1串行尝试因Baby直接入口空跑而失败，未产生任何新训练或Test；详见[失败审计](../research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V1_AUDIT.md)。预算/配置选择边界见下方执行前协议；非充分调优保证、非执行授权。下表原R项由该审计逐项承接。
 
 > 执行前方案已写入[正式收尾协议](../research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md)：采用固定配置比较，Baby发布版cap1000/patience7，新增隔离评价入口须先过无Test验收。它未改变下表已有格子的结果状态，也未授权训练或Test。
 
@@ -40,7 +40,7 @@
 |---|---|---|---|---|---|
 | B1 | Baby BPR | **A**：原正式Test | **A**：原正式Test | **A**：原正式Test | 采用Baby总册白名单的08-02三运行；固定配置证据可用。进入最终公平表须过R1/R2 |
 | B2 | Baby Full | **A**：原正式Test | **A**：原正式Test | **A**：原正式Test | 同上；不得用09-15 Val诊断或更早重复运行择优替换。改预算时不能冒充原协议 |
-| B3 | Baby PromptMM-release共享教师适配 | **M-训练**：无对应合格结果 | **M-训练**：无对应合格结果 | **M-训练**：无对应合格结果 | 本次31份Baby manifest及现存release目录/索引未发现该身份结果；本地reference/lightgcn不是发布版替代。需先完成Baby适配与有界配置选择，之后正式训练及一次最终评价 |
+| B3 | Baby PromptMM-release共享教师适配 | **M-训练**：v1空跑 | **M-训练**：v1空跑 | **M-训练**：v1空跑 | [v1失败审计](../research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V1_AUDIT.md)：三次子进程退出0但没有启动训练或产出检查点；入口修复不等于运行完成。仍需正式训练和各一次最终评价 |
 | S1 | Sports BPR | **M-评价**：有Val，无最终Test | **M-评价**：有Val，无最终Test | **M-评价**：有Val，无最终Test | 历史300轮三seed；checkpoint复用与公平配置资格为R1–R3。若不通过，才新增训练 |
 | S2 | Sports Full | **M-评价**：有Val，无最终Test | **M-评价**：有Val，无最终Test | **M-评价**：有Val，无最终Test | 有历史300、严格配对与real重复组。优先核查严格Full/image组的Full作为固定来源，不能逐seed择优拼接 |
 | S3 | Sports PromptMM-release共享教师适配 | **M-评价**：有Val，无最终Test | **M-评价**：有Val，无最终Test | **M-评价**：有Val，无最终Test | lr2e-5与6e-5三seed已审计；建议以验证较优的6e-5为待冻结候选，同时保留另一配置。不再用较弱配置代表唯一PromptMM结论；资格需R1–R3 |
@@ -87,7 +87,7 @@ Baby原Image-0.3的2022/2023 Test Recall略高于Full，2024明显低；均值�
 ## 6. 完成顺序与停止条件
 
 1. 已完成[协议兼容性与复用核查](../research/INNOVATION1_PROTOCOL_REUSE_AUDIT_2026-09-26.md)及[正式收尾协议](../research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md)。R5作为文献定位待办保留，不让它被矩阵存在掩盖。
-2. Baby适配与隔离评价入口已准备，合成无Test工程验收已过；用户可按完整声明手动执行串行批次，所有真实Val预检先于Test，失败即停。
+2. Baby适配与隔离评价入口已修复，合成无Test工程验收已过；v1批次已失败且不可重跑。恢复需新声明、独立路径和用户授权；真实Val预检仍须全部先于Test。
 3. 结果完成后按原标准验收，低结果仍保留；收缩结论可作为收尾结果，不用连续加seed/延长训练直到胜出。最终汇总追溯、必要备份及论文段落，再重新讨论第二创新点。
 
-**当前唯一下一步：用户按[启动页](../research/INNOVATION1_FORMAL_CLOSEOUT_LAUNCH_2026-09-26.md)执行已声明的串行批次，返回总账供审计；失败不得原样重跑。** 第二创新点门控设计暂缓；旧决策单保留为历史候选，不作为当前行动清单。
+**当前唯一下一步：准备单独的恢复声明与不碰撞的新命令，再取得用户授权；不得重跑[v1旧命令](../research/INNOVATION1_FORMAL_CLOSEOUT_LAUNCH_2026-09-26.md)。** 第二创新点门控设计暂缓；旧决策单保留为历史候选，不作为当前行动清单。

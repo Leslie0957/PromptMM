@@ -3,7 +3,7 @@
 先读[仓库总览](../README.md)和[当前短日志](../TRAINING_LOG.md)，再按任务展开。
 
 - [正式收尾协议](research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md)：固定配置、Baby预算和新评价入口验收；[资产复用核查](research/INNOVATION1_PROTOCOL_REUSE_AUDIT_2026-09-26.md)；[实验结束更新规范](experiments/RUN_CLOSEOUT.md)。
-- [串行启动页](research/INNOVATION1_FORMAL_CLOSEOUT_LAUNCH_2026-09-26.md)：用户一条命令，3次Baby训练、12次无Test预检、12次最终评价；真实运行尚未发生。
+- [v1失败审计](research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V1_AUDIT.md)：原串行命令空跑三次Baby入口，在首次预检停止；零新Test。旧[启动页](research/INNOVATION1_FORMAL_CLOSEOUT_LAUNCH_2026-09-26.md)仅供追溯，不能再执行。
 - [第一创新点最终主张—正式实验矩阵](paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md)：当前优先级；逐格区分可用、核查、新训练与最终评价。
 - [第二创新点候选决策](research/INNOVATION2_CANDIDATE_DECISION_2026-09-26.md)：找回RGCS、复核前置条件及门控假设。
 - [论文完成条件与缺口表](paper/THESIS_COMPLETION_GAPS_2026-09-26.md)：两项创新点、数据集、正式评价及待确认要求。

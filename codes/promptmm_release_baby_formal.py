@@ -417,3 +417,7 @@ def main(argv=None):
         save()
         print('Validation diagnostic report:', report_path, flush=True)
     return 0
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())
