@@ -112,7 +112,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（77）
+## docs（80）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -145,6 +145,7 @@
 - [docs/baselines/README.md](../baselines/README.md)
 - [docs/experiments/FILES.md](FILES.md)
 - [docs/experiments/README.md](README.md)
+- [docs/experiments/RUN_CLOSEOUT.md](RUN_CLOSEOUT.md)
 - [docs/experiments/RUN_RECORDS.md](RUN_RECORDS.md)
 - [docs/paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md](../paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md)
 - [docs/paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md](../paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md)
@@ -154,6 +155,8 @@
 - [docs/research/CONTROLLED_COST_MECHANISM_PLAN_2026-09-22.md](../research/CONTROLLED_COST_MECHANISM_PLAN_2026-09-22.md)
 - [docs/research/EXPERIMENT_OVERVIEW_ZH_2026-09-24.md](../research/EXPERIMENT_OVERVIEW_ZH_2026-09-24.md)
 - [docs/research/INNOVATION1_FIXED120_CURVES_2026-09-15.png](../research/INNOVATION1_FIXED120_CURVES_2026-09-15.png)
+- [docs/research/INNOVATION1_PROTOCOL_REUSE_AUDIT_2026-09-26.md](../research/INNOVATION1_PROTOCOL_REUSE_AUDIT_2026-09-26.md)
+- [docs/research/INNOVATION1_REUSE_ASSETS_2026-09-26.json](../research/INNOVATION1_REUSE_ASSETS_2026-09-26.json)
 - [docs/research/INNOVATION1_REVIEW_AND_EXPERIMENT_PLAN_2026-09-14.md](../research/INNOVATION1_REVIEW_AND_EXPERIMENT_PLAN_2026-09-14.md)
 - [docs/research/INNOVATION1_THESIS_EVIDENCE_2026-09-15.md](../research/INNOVATION1_THESIS_EVIDENCE_2026-09-15.md)
 - [docs/research/INNOVATION2_CANDIDATE_DECISION_2026-09-26.md](../research/INNOVATION2_CANDIDATE_DECISION_2026-09-26.md)

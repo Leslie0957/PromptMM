@@ -9,7 +9,7 @@
 Baby既有三种子正式结果及审计例外继续保留。没有待自动执行的实验；旧文档的“下一步”不是当前授权。
 实际实验运行继续由用户手动执行。
 
-**写作状态：可以开始第一创新点的阶段性写作，整篇论文证据尚未闭合。** 第二创新点尚未确定并完成实验；Baby正式Test与Sports相关Validation结果不能视为两套同等完整的正式验证。[论文完成条件与缺口表](docs/paper/THESIS_COMPLETION_GAPS_2026-09-26.md)已整理；[门控候选决策单](docs/research/INNOVATION2_CANDIDATE_DECISION_2026-09-26.md)已完成，找回RGCS旧方案但未选定或实现。用户现决定优先收尾第一创新点，第二点及门控诊断设计暂缓。先读[第一创新点正式矩阵](docs/paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md)，下一步核查正式协议兼容性与资产复用。
+**写作状态：可以开始第一创新点的阶段性写作，整篇论文证据尚未闭合。** 第二创新点尚未确定并完成实验；Baby正式Test与Sports相关Validation结果不能视为两套同等完整的正式验证。[论文完成条件与缺口表](docs/paper/THESIS_COMPLETION_GAPS_2026-09-26.md)已整理；[门控候选决策单](docs/research/INNOVATION2_CANDIDATE_DECISION_2026-09-26.md)已完成，找回RGCS旧方案但未选定或实现。用户现决定优先收尾第一创新点，第二点及门控诊断设计暂缓。先读[第一创新点正式矩阵](docs/paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md)，[协议与资产核查](docs/research/INNOVATION1_PROTOCOL_REUSE_AUDIT_2026-09-26.md)已完成；固定配置收尾范围建议新增3次Baby训练和12次最终Test，需先准备隔离评价/Baby适配协议，当前未授权执行。
 
 ## 核心结论与稿件
 
@@ -17,6 +17,8 @@ Baby既有三种子正式结果及审计例外继续保留。没有待自动执�
 - Sports随机初值严格配对支持当前设置下的文本方向收益；暖启动未证明额外蒸馏优于BPR微调。
 - 学生离线表征生成成本更低；同维缓存教师对照下未证明一致在线加速或向量表压缩。
 - Sports质量证据为Validation；Baby正式Test证据单独陈述。发布版PromptMM较优结果和负结果均保留。
+
+实验结束后的固定更新规则见[RUN_CLOSEOUT.md](docs/experiments/RUN_CLOSEOUT.md)：声明时列明记录目标，结束后按触发条件更新，避免依赖聊天记忆。
 
 ## 按需查阅
 
