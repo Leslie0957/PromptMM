@@ -1,5 +1,6 @@
 """No-Test checks for Baby budget, ranking, fail-fast planning and access guard."""
 import contextlib
+import copy
 import io
 import json
 from pathlib import Path
@@ -24,6 +25,39 @@ import run_innovation1_formal_closeout as cohort
 
 
 class PreparationContracts(unittest.TestCase):
+    def test_pinned_sports_schema_all_seeds_without_data_or_tensor_load(self):
+        ledger = json.loads(evaluator.LEDGER.read_text(encoding='utf-8'))
+        for record in ledger['sports']:
+            source = dict(dataset='sports', method=record['method'], original=record)
+            identity = evaluator.resolve_data_identity(source, ledger)
+            self.assertEqual(identity['dataset'], 'sports')
+            if record['method'] == 'promptmm_release':
+                report_path = ROOT / record['assets'][0]['path']
+                self.assertEqual(evaluator.sha256(report_path), record['assets'][0]['sha256'])
+                report = json.loads(report_path.read_text(encoding='utf-8'))
+                evaluator.verify_release_input_identity(
+                    report['input_sha256'], report['shared_teacher'], identity)
+                source['source_path'] = report_path
+                source['checkpoint_path'] = ROOT / record['assets'][1]['path']
+                checked, checkpoint_hash = evaluator.check_source(source, identity)
+                self.assertEqual(checked['best_checkpoint_sha256'], checkpoint_hash)
+
+    def test_release_identity_rejects_drift_missing_and_conflicting_anchors(self):
+        ledger = json.loads(evaluator.LEDGER.read_text(encoding='utf-8'))
+        original = next(x for x in ledger['sports'] if x['method'] == 'promptmm_release')
+        source = dict(dataset='sports', method='promptmm_release', original=original)
+        changed = copy.deepcopy(source)
+        changed['original']['input_sha256']['val_mat'] = 'wrong-split'
+        with self.assertRaisesRegex(RuntimeError, 'input identity mismatch'):
+            evaluator.resolve_data_identity(changed, ledger)
+        changed_ledger = copy.deepcopy(ledger)
+        anchor = next(x for x in changed_ledger['sports'] if 'data_identity' in x)
+        anchor['data_identity']['matrices']['test']['sha256'] = 'conflicting-test'
+        with self.assertRaisesRegex(RuntimeError, 'inconsistent'):
+            evaluator.resolve_data_identity(source, changed_ledger)
+        with self.assertRaisesRegex(RuntimeError, 'Missing'):
+            evaluator.resolve_data_identity(source, {'sports': [original]})
+
     def test_baby_direct_file_describe_invokes_main(self):
         result = subprocess.run(
             [sys.executable, '-B', str(ROOT/'codes/promptmm_release_baby_formal.py'),

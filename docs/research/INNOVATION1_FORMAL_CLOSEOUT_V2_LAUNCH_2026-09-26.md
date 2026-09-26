@@ -1,5 +1,8 @@
 # 第一创新点固定配置 v2 恢复批次：待授权启动页
 
+> **本命令已执行并失败，禁止重跑。** Baby三次训练和九项预检有效保留，零Test；当前状态以[v2失败审计](INNOVATION1_FORMAL_CLOSEOUT_COHORT_V2_AUDIT.md)为准。以下为原准备声明的历史内容。
+
+
 本页对应[当前日志中的 v2 待执行声明](../../TRAINING_LOG.md)，承接[v1 失败审计](INNOVATION1_FORMAL_CLOSEOUT_COHORT_V1_AUDIT.md)。截至本页提交时，v2 **仅准备完成，未执行**；用户需要单独明确授权实际运行。v1 旧命令不可重试。
 
 ## 唯一拟执行命令
