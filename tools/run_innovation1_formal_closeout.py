@@ -1,6 +1,7 @@
 """One declared, fail-fast user-run cohort: Baby release 3 + selected final Test 12."""
 import argparse
 from datetime import datetime
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -46,6 +47,65 @@ def atomic_json(path, value):
     temporary = path.with_suffix('.json.tmp')
     temporary.write_text(json.dumps(value, indent=2, allow_nan=False), encoding='utf-8')
     os.replace(temporary, path)
+
+
+def sha256(path):
+    digest = hashlib.sha256()
+    with path.open('rb') as source:
+        for block in iter(lambda: source.read(1024 * 1024), b''):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def verify_step_artifacts(step):
+    """Treat the child's exit code as necessary, not sufficient, evidence."""
+    name, phase = step['name'], step['phase']
+    if phase == 'baby_training':
+        slot = name.removeprefix('train_')
+        seed = int(slot.rsplit('_', 1)[1])
+        directory = ROOT / 'exp/promptmm_release_baby' / (
+            f'baby_promptmm_release_cap1000_patience7_seed{seed}_lr6e5_v1')
+        path = directory / 'report.json'
+    elif phase == 'no_test_validation':
+        slot = name.removeprefix('preflight_')
+        path = ROOT / 'exp/formal_closeout_preflight' / slot / 'report.json'
+    elif phase == 'final_test_once':
+        slot = name.removeprefix('final_test_')
+        path = ROOT / 'exp/formal_closeout_eval' / slot / 'report.json'
+    else:
+        raise ValueError(f'Unknown cohort phase: {phase}')
+    if not path.is_file():
+        raise RuntimeError(f'{name} exited 0 without expected report: {path}')
+    report = json.loads(path.read_text(encoding='utf-8'))
+    expected_status = {'baby_training': 'validation_completed',
+                       'no_test_validation': 'passed',
+                       'final_test_once': 'completed'}[phase]
+    if report.get('status') != expected_status:
+        raise RuntimeError(f'{name} report status is {report.get("status")!r}; expected {expected_status!r}')
+    if phase == 'baby_training':
+        checkpoint = directory / 'best.pt'
+        if (report.get('config', {}).get('seed') != seed or
+                report.get('test_split_loaded') is not False or
+                report.get('test_evaluations') != 0 or
+                not checkpoint.is_file() or
+                sha256(checkpoint) != report.get('best_checkpoint_sha256')):
+            raise RuntimeError(f'{name} Baby identity, Test-zero or checkpoint verification failed')
+    elif phase == 'no_test_validation':
+        if (report.get('slot') != slot or
+                report.get('test_access_started') is not False or
+                report.get('test_split_loaded') is not False or
+                report.get('student_test_evaluations') != 0 or
+                report.get('teacher_test_evaluations') != 0):
+            raise RuntimeError(f'{name} preflight identity or Test-zero verification failed')
+    else:
+        if (report.get('slot') != slot or
+                report.get('test_access_started') is not True or
+                report.get('student_test_attempts') != 1 or
+                report.get('student_test_evaluations') != 1 or
+                report.get('teacher_test_evaluations') != 0 or
+                report.get('selected_checkpoint_sha256') != report.get('evaluated_checkpoint_sha256')):
+            raise RuntimeError(f'{name} Test chronology or checkpoint verification failed')
+    return path
 
 
 def check_expected_absent():
@@ -95,11 +155,20 @@ def run():
                     log.flush()
                 process.stdout.close()
                 returncode = process.wait()
-            entry.update(status='completed' if returncode == 0 else 'failed',
-                         exit_code=returncode, finished_at=now())
-            atomic_json(batch_path, report)
             if returncode:
+                entry.update(status='failed', exit_code=returncode, finished_at=now())
+                atomic_json(batch_path, report)
                 raise RuntimeError(f'Fail-fast cohort stopped at {step["name"]}: exit={returncode}')
+            try:
+                verified_path = verify_step_artifacts(step)
+            except BaseException as exc:
+                entry.update(status='failed', exit_code=returncode,
+                             artifact_verification_error=repr(exc), finished_at=now())
+                atomic_json(batch_path, report)
+                raise RuntimeError(f'Fail-fast cohort stopped at {step["name"]}: {exc}') from exc
+            entry.update(status='completed', exit_code=returncode,
+                         verified_report_path=str(verified_path), finished_at=now())
+            atomic_json(batch_path, report)
         report['status'] = 'completed'
     except BaseException as exc:
         report['status'] = 'failed'

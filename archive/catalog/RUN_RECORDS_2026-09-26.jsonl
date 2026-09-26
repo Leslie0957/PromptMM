@@ -42,6 +42,8 @@
 {"bytes": 15226, "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round2_online_T_b1/report.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
 {"bytes": 15048, "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round2_online_T_b1024/report.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
 {"bytes": 15134, "path": "exp/efficiency/sports_cached_deployment_seed2022_v2/round2_online_T_b128/report.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
+{"bytes": 3479, "path": "exp/formal_closeout_cohort/innovation1_fixed_v1/batch.json", "profile": null, "read_status": "parsed", "seed": null, "status": "failed"}
+{"bytes": 2427, "path": "exp/formal_closeout_preflight/b3_2022/report.json", "profile": null, "read_status": "parsed", "seed": null, "status": "failed"}
 {"bytes": 10616, "path": "exp/gradient_checks/sports_matched_target_direction_seed2022_v1/report.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
 {"bytes": 5527, "path": "exp/gradient_checks/sports_sharedinit_seed2022_v1/report.json", "profile": null, "read_status": "parsed", "seed": 2022, "status": "failed"}
 {"bytes": 331565, "path": "exp/gradient_checks/sports_sharedinit_seed2022_v2/batches.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
