@@ -9,7 +9,7 @@
 Baby既有三种子正式结果及审计例外继续保留。没有待自动执行的实验；旧文档的“下一步”不是当前授权。
 实际实验运行继续由用户手动执行。
 
-**写作状态：可以开始第一创新点的阶段性写作，整篇论文证据尚未闭合。** 第二创新点尚未确定并完成实验；Baby正式Test与Sports相关Validation结果不能视为两套同等完整的正式验证。[论文完成条件与缺口表](docs/paper/THESIS_COMPLETION_GAPS_2026-09-26.md)已整理；[门控候选决策单](docs/research/INNOVATION2_CANDIDATE_DECISION_2026-09-26.md)已完成，找回RGCS旧方案但未选定或实现。下一步只设计门控动机零更新诊断协议，未授权执行。
+**写作状态：可以开始第一创新点的阶段性写作，整篇论文证据尚未闭合。** 第二创新点尚未确定并完成实验；Baby正式Test与Sports相关Validation结果不能视为两套同等完整的正式验证。[论文完成条件与缺口表](docs/paper/THESIS_COMPLETION_GAPS_2026-09-26.md)已整理；[门控候选决策单](docs/research/INNOVATION2_CANDIDATE_DECISION_2026-09-26.md)已完成，找回RGCS旧方案但未选定或实现。用户现决定优先收尾第一创新点，第二点及门控诊断设计暂缓。先读[第一创新点正式矩阵](docs/paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md)，下一步核查正式协议兼容性与资产复用。
 
 ## 核心结论与稿件
 

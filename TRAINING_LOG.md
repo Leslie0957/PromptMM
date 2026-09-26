@@ -23,7 +23,8 @@ Updated: 2026-09-26. Latest audited source: f9d0eb504cb0fb17eddcb58cba8aef2517e8
 | Need | Entry |
 |---|---|
 | All experiment families and latest audited result | [Experiment map](docs/experiments/README.md) |
-| Current Innovation2 candidate decision | [Decision memo](docs/research/INNOVATION2_CANDIDATE_DECISION_2026-09-26.md) |
+| Innovation1 final claims and formal matrix | [Current priority](docs/paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md) |
+| Deferred Innovation2 candidate decision | [Decision memo](docs/research/INNOVATION2_CANDIDATE_DECISION_2026-09-26.md) |
 | Thesis completion conditions and gaps | [Gap table](docs/paper/THESIS_COMPLETION_GAPS_2026-09-26.md) |
 | Paper results and limitations | [Reviewed paper wording](docs/paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md) |
 | Baby formal/Validation evidence and exceptions | [Baby evidence](docs/research/INNOVATION1_THESIS_EVIDENCE_2026-09-15.md) |
@@ -55,7 +56,7 @@ The complete previous active log, including this reorganization's pending entry,
 
 ## Current authorized task / handoff
 
-The read-only prerequisite/candidate review is complete: docs/research/INNOVATION2_CANDIDATE_DECISION_2026-09-26.md. Historical RGCS (reliability times BPR-gradient compatibility) is recovered and retained for conditional investigation, not selected as an implemented contribution. First-point prerequisites remain partly open; no gate is waived. Single next step: prepare a zero-update item-semantic gating-motivation diagnostic protocol, design only; do not execute it or change training code. All actual runs remain user-manual and separately authorized.
+User now prioritizes completing Innovation1; Innovation2 and gating-diagnostic design are deferred. The proposed final claims/formal matrix is docs/paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md: Baby original Full/BPR Test available; Baby release baseline needs new training under the proposed scope; Sports final Test outputs missing, checkpoint reuse versus retraining unresolved. Single next step: read-only Baby/Sports protocol compatibility and asset-reuse review before any formal declaration or implementation. No new training/Test execution authorized; all actual runs remain user-manual.
 
 ## 2026-09-26 Paper results prose and experiment navigation reorganization (pending)
 
@@ -125,3 +126,16 @@ The read-only prerequisite/candidate review is complete: docs/research/INNOVATIO
 - Retain reliability-times-compatibility gating for conditional investigation, not implementation. Warm-start total KD/BPR initial cosine0.010416 and image/text local opposition do not establish sustained BPR harm; alpha3 and real/sham outcomes do not certify reliability heterogeneity. Source review identified baseline weight/dimension/denominator equivalence and global attenuation as unresolved old-sketch confounds; no code modified.
 - Verification: old route/formulas, active directional-loss aggregation/export, current audited evidence and relative links checked; focused whitespace checks passed; refreshed navigation metadata for the new memo. No external novelty certification, data/checkpoint loading, gradient/forward computation, Validation/Test access, training, profile edit or new diagnostic execution. Base `4586267`, branch `codex/experiment/baby-teacher-baseline`; one documentation commit. Raw/immutable assets unchanged.
 - Single next step: design a zero-update item-semantic gating-motivation diagnostic protocol with asset feasibility, estimands, controls and predeclared stopping criteria; design only. No diagnostic run, model implementation or training authorized. User continues to execute any later explicitly authorized runs.
+
+## 2026-09-26 Innovation1 final claims and formal matrix (pending)
+
+- User prioritizes finishing Innovation1 and defers Innovation2, including gating-diagnostic design. Authorized scope: a documentation-only claims/formal-result matrix, cell-level reuse/check/missing classification, current navigation/handoff and metadata refresh. Base `09b1251`, clean branch. No training, final Test, new protocol implementation or launch declaration authorized.
+- Evidence: read audited Baby/Sports summaries and existing JSON metadata only; distinguish original accepted formal results from a proposed unified table and distinguish missing final evaluation from missing training. Do not count every manifest as an independent valid run or replace old low outcomes. Scope is a proposed matrix, not frozen execution settings.
+- Acceptance: each retained claim has evidence/limits and per-dataset/seed slots; missing baseline and Test outputs identified without inventing metrics, runtime or approval. Preserve Baby2023 exception, Sports Validation-only status and historical declarations. Links/diff/catalog coverage verified; one coherent documentation commit. Recovery anchor is base commit; no rollback/asset overwrite. No model/checkpoint/data-matrix load or new metric calculation.
+
+## 2026-09-26 Innovation1 final claims and formal matrix (completed)
+
+- Added the claims-to-evidence and per-seed formal matrix; user priority is Innovation1 closure, with Innovation2/gating design deferred. Suggested scope Baby/Sports x BPR/Full/PromptMM-release x seeds2022/2023/2024 yields18 result slots:6 existing original Baby formal Test slots,3 Baby release slots missing training and final evaluation,9 Sports slots missing final evaluation with reuse/retraining unresolved. These are proposed evidence gaps, not authorized executions or frozen settings.
+- Separated original-result usability from final comparison compatibility; recorded R1-R5 checks for budget/initialization/identity, fair bounded configuration selection, Sports checkpoint/evaluator/Test chronology, Baby release adaptation and contribution/baseline positioning. Kept fixed-coefficient ablations, real/sham, warm-start and efficiency as already usable within their limited claims; no default reruns or Test promotion.
+- Verified targeted audits plus JSON-only inventory:31 Baby and39 Sports manifests (not independent accepted-run counts); no Sports final_test_performed=true in that manifest family. Existing release directories/audits are Sports; no matching Baby official-release identity found. No checkpoint or dataset load, rehash of large assets, training, gradient computation or Validation/Test access. Local links/focused diff passed; metadata catalogs refreshed. Original metrics, exceptions, negative outcomes, historical log entries and runtime assets unchanged.
+- Base `09b1251`, branch `codex/experiment/baby-teacher-baseline`; one documentation commit. No protocol launch declaration, implementation, tags or freeze. Single next step: read-only Baby/Sports formal-protocol compatibility and asset-reuse review, yielding unique proposed sources and a justified new-training versus evaluation workload. Actual execution remains user-manual and separately authorized.
