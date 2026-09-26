@@ -115,7 +115,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（92）
+## docs（93）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -152,6 +152,7 @@
 - [docs/experiments/RUN_RECORDS.md](RUN_RECORDS.md)
 - [docs/paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md](../paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md)
 - [docs/paper/INNOVATION1_FIXED_MAIN_TABLE_2026-09-26.md](../paper/INNOVATION1_FIXED_MAIN_TABLE_2026-09-26.md)
+- [docs/paper/INNOVATION1_RATIONALE_REVIEW_2026-09-26.md](../paper/INNOVATION1_RATIONALE_REVIEW_2026-09-26.md)
 - [docs/paper/README.md](../paper/README.md)
 - [docs/paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md](../paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md)
 - [docs/paper/THESIS_COMPLETION_GAPS_2026-09-26.md](../paper/THESIS_COMPLETION_GAPS_2026-09-26.md)

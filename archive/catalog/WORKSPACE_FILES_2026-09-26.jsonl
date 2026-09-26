@@ -236,8 +236,8 @@
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 05_34_16.930265_sports_light_init_pid42156.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 08_30_07.418852_sports_light_init_pid30132.pth", "source_catalog": false}
 {"bytes": 432550, "category": "root", "path": "PromptMM.png", "source_catalog": true}
-{"bytes": 5091, "category": "root", "path": "README.md", "source_catalog": true}
-{"bytes": 84318, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
+{"bytes": 5359, "category": "root", "path": "README.md", "source_catalog": true}
+{"bytes": 88020, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
 {"bytes": 739, "category": "archive", "path": "archive/README.md", "source_catalog": true}
 {"bytes": 409, "category": "archive", "path": "archive/run_patent_results/README.md", "source_catalog": true}
 {"bytes": 110276, "category": "archive", "path": "archive/run_patent_results/Result_0409_1319_Photo_a0.1_lr0.001/Result_0409_1319_Photo_a0.1_lr0.001_curve.png", "source_catalog": false}
@@ -259,6 +259,9 @@
 {"bytes": 122, "category": "backups", "path": "backups/PromptMM_baby_teacher_baseline_seed2022_20260730.bundle.sha256", "source_catalog": false}
 {"bytes": 912055, "category": "backups", "path": "backups/PromptMM_baseline_protocol_smoke_20260729.bundle", "source_catalog": false}
 {"bytes": 115, "category": "backups", "path": "backups/PromptMM_baseline_protocol_smoke_20260729.bundle.sha256", "source_catalog": false}
+{"bytes": 3439297, "category": "backups", "path": "backups/PromptMM_innovation1_fixed_results_20260926.bundle", "source_catalog": false}
+{"bytes": 117, "category": "backups", "path": "backups/PromptMM_innovation1_fixed_results_20260926.bundle.sha256", "source_catalog": false}
+{"bytes": 805, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/FREEZE_RECEIPT.txt", "source_catalog": false}
 {"bytes": 1079, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/README.md", "source_catalog": false}
 {"bytes": 20354975, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-08-02 11_06_37.355218_baby_light_init_pid17532.pth", "source_catalog": false}
 {"bytes": 20354975, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/Model/baby/td_distill/td_distill_full__val_test_once_v1__2026-08-02 12_05_26.329228_baby_light_init_pid27620.pth", "source_catalog": false}
@@ -567,13 +570,14 @@
 {"bytes": 3849, "category": "docs", "path": "docs/SPORTS_TEACHER_VALIDATION120_V1.md", "source_catalog": true}
 {"bytes": 100432, "category": "docs", "path": "docs/baselines/ASSET_MANIFEST_2026-07-29.csv", "source_catalog": true}
 {"bytes": 2893, "category": "docs", "path": "docs/baselines/README.md", "source_catalog": true}
-{"bytes": 7122, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
+{"bytes": 7371, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
 {"bytes": 7207, "category": "docs", "path": "docs/experiments/RUN_CLOSEOUT.md", "source_catalog": true}
-{"bytes": 13351, "category": "docs", "path": "docs/paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md", "source_catalog": true}
+{"bytes": 13879, "category": "docs", "path": "docs/paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md", "source_catalog": true}
 {"bytes": 5335, "category": "docs", "path": "docs/paper/INNOVATION1_FIXED_MAIN_TABLE_2026-09-26.md", "source_catalog": true}
-{"bytes": 1928, "category": "docs", "path": "docs/paper/README.md", "source_catalog": true}
+{"bytes": 7037, "category": "docs", "path": "docs/paper/INNOVATION1_RATIONALE_REVIEW_2026-09-26.md", "source_catalog": true}
+{"bytes": 2150, "category": "docs", "path": "docs/paper/README.md", "source_catalog": true}
 {"bytes": 14769, "category": "docs", "path": "docs/paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md", "source_catalog": true}
-{"bytes": 15401, "category": "docs", "path": "docs/paper/THESIS_COMPLETION_GAPS_2026-09-26.md", "source_catalog": true}
+{"bytes": 15938, "category": "docs", "path": "docs/paper/THESIS_COMPLETION_GAPS_2026-09-26.md", "source_catalog": true}
 {"bytes": 239530, "category": "docs", "path": "docs/research/BABY_IMAGE_ONLY_CURVES_2026-09-15.png", "source_catalog": true}
 {"bytes": 9711, "category": "docs", "path": "docs/research/BABY_IMAGE_ONLY_THREE_SEED_SUMMARY_2026-09-15.md", "source_catalog": true}
 {"bytes": 6618, "category": "docs", "path": "docs/research/CONTROLLED_COST_MECHANISM_PLAN_2026-09-22.md", "source_catalog": true}

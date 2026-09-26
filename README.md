@@ -13,6 +13,8 @@ Baby既有三种子正式结果及审计例外继续保留。没有待自动执�
 
 ## 核心结论与稿件
 
+- [第一创新点立项复核](docs/paper/INNOVATION1_RATIONALE_REVIEW_2026-09-26.md)：当前是共享教师下的另一学生方案；保留简化方向监督研究，不主张相对 PromptMM 的线上降本。下一步先确认贡献定位与导师验收要求。
+
 - [论文正文表述（已审阅）](docs/paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md)：分别陈述文本方向收益、暖启动边界、阶段性效率。
 - [论文写作入口](docs/paper/README.md)：第一创新点[18格主表与表注](docs/paper/INNOVATION1_FIXED_MAIN_TABLE_2026-09-26.md)、机制文字、缺口与[本机快照审计](docs/research/INNOVATION1_RESULT_FREEZE_AUDIT_2026-09-26.md)。
 - Sports随机初值严格配对支持当前设置下的文本方向收益；暖启动未证明额外蒸馏优于BPR微调。

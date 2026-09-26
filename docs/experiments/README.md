@@ -27,6 +27,8 @@
 
 ## 稿件与最小阅读范围
 
+- 研究动机与是否继续：[第一创新点立项决策单](../paper/INNOVATION1_RATIONALE_REVIEW_2026-09-26.md)。文献/源码差异已定位，独立创新强度未认证；效率基准不含 PromptMM 发布版学生，不能扩展解释。
+
 - 第一创新点收尾：先读[论文写作入口](../paper/README.md)；主结果、局限和本机快照均从那里定位，原始结果见[恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md)。v1/v2失败审计和原声明仍保留。第二点门控设计当前暂缓。
 - 查第二创新点：先读[最新候选决策](../research/INNOVATION2_CANDIDATE_DECISION_2026-09-26.md)，旧RGCS仍为条件性候选。
 - 查整篇论文完成度：先读[完成条件与缺口表](../paper/THESIS_COMPLETION_GAPS_2026-09-26.md)，区分已有证据和未关闭条件。
