@@ -54,7 +54,7 @@
 - [archive/upstream/README.md](../../archive/upstream/README.md)
 - [archive/upstream/README_ORIGINAL_2026-09-26.md](../../archive/upstream/README_ORIGINAL_2026-09-26.md)
 
-## codes（55）
+## codes（58）
 
 - [codes/Models.py](../../codes/Models.py)
 - [codes/Models_empower.py](../../codes/Models_empower.py)
@@ -62,12 +62,14 @@
 - [codes/cached_deployment_benchmark.py](../../codes/cached_deployment_benchmark.py)
 - [codes/check_promptmm_validation_parity.py](../../codes/check_promptmm_validation_parity.py)
 - [codes/efficiency_benchmark.py](../../codes/efficiency_benchmark.py)
+- [codes/formal_closeout_eval.py](../../codes/formal_closeout_eval.py)
 - [codes/gradient_diagnostic.py](../../codes/gradient_diagnostic.py)
 - [codes/initialization_audit.py](../../codes/initialization_audit.py)
 - [codes/main.py](../../codes/main.py)
 - [codes/main_empower.py](../../codes/main_empower.py)
 - [codes/main_mmlight.py](../../codes/main_mmlight.py)
 - [codes/promptmm_release.py](../../codes/promptmm_release.py)
+- [codes/promptmm_release_baby_formal.py](../../codes/promptmm_release_baby_formal.py)
 - [codes/promptmm_release_resource.py](../../codes/promptmm_release_resource.py)
 - [codes/promptmm_release_validation.py](../../codes/promptmm_release_validation.py)
 - [codes/promptmm_validation_fast.py](../../codes/promptmm_validation_fast.py)
@@ -84,6 +86,7 @@
 - [codes/tests/fixtures/promptmm_release_reference.json](../../codes/tests/fixtures/promptmm_release_reference.json)
 - [codes/tests/test_dataset_profiles.py](../../codes/tests/test_dataset_profiles.py)
 - [codes/tests/test_experiment_protocol.py](../../codes/tests/test_experiment_protocol.py)
+- [codes/tests/test_formal_closeout_preparation.py](../../codes/tests/test_formal_closeout_preparation.py)
 - [codes/tests/test_gradient_diagnostic.py](../../codes/tests/test_gradient_diagnostic.py)
 - [codes/tests/test_initialization_diagnostic.py](../../codes/tests/test_initialization_diagnostic.py)
 - [codes/tests/test_initialization_pair.py](../../codes/tests/test_initialization_pair.py)
@@ -112,7 +115,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（81）
+## docs（82）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -155,6 +158,7 @@
 - [docs/research/CONTROLLED_COST_MECHANISM_PLAN_2026-09-22.md](../research/CONTROLLED_COST_MECHANISM_PLAN_2026-09-22.md)
 - [docs/research/EXPERIMENT_OVERVIEW_ZH_2026-09-24.md](../research/EXPERIMENT_OVERVIEW_ZH_2026-09-24.md)
 - [docs/research/INNOVATION1_FIXED120_CURVES_2026-09-15.png](../research/INNOVATION1_FIXED120_CURVES_2026-09-15.png)
+- [docs/research/INNOVATION1_FORMAL_CLOSEOUT_LAUNCH_2026-09-26.md](../research/INNOVATION1_FORMAL_CLOSEOUT_LAUNCH_2026-09-26.md)
 - [docs/research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md](../research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md)
 - [docs/research/INNOVATION1_PROTOCOL_REUSE_AUDIT_2026-09-26.md](../research/INNOVATION1_PROTOCOL_REUSE_AUDIT_2026-09-26.md)
 - [docs/research/INNOVATION1_REUSE_ASSETS_2026-09-26.json](../research/INNOVATION1_REUSE_ASSETS_2026-09-26.json)
@@ -212,7 +216,7 @@
 - [tests/test_sports_paired_cold.py](../../tests/test_sports_paired_cold.py)
 - [tests/test_sports_sham_residual.py](../../tests/test_sports_sham_residual.py)
 
-## tools（17）
+## tools（18）
 
 - [tools/build_experiment_navigation.py](../../tools/build_experiment_navigation.py)
 - [tools/convert_mmrec_baby.py](../../tools/convert_mmrec_baby.py)
@@ -221,6 +225,7 @@
 - [tools/diagnose_sports_initialization.py](../../tools/diagnose_sports_initialization.py)
 - [tools/diagnose_sports_matched_target_direction.py](../../tools/diagnose_sports_matched_target_direction.py)
 - [tools/diagnose_sports_weighted_directions.py](../../tools/diagnose_sports_weighted_directions.py)
+- [tools/run_innovation1_formal_closeout.py](../../tools/run_innovation1_formal_closeout.py)
 - [tools/run_sports_cached_deployment.py](../../tools/run_sports_cached_deployment.py)
 - [tools/run_sports_initialization_pair.py](../../tools/run_sports_initialization_pair.py)
 - [tools/run_sports_paired_cold_three_seed.py](../../tools/run_sports_paired_cold_three_seed.py)

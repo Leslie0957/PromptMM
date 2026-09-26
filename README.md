@@ -7,9 +7,9 @@
 
 当前阶段：Sports文本方向机制对照及缓存部署效率审计已完成，正在整理论文材料。
 Baby既有三种子正式结果及审计例外继续保留。没有待自动执行的实验；旧文档的“下一步”不是当前授权。
-实际实验运行继续由用户手动执行。第一点[正式收尾协议](docs/research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md)已准备，规定固定配置边界、Baby预算和隔离评价验收；尚未实现新入口或授权运行。
+实际实验运行继续由用户手动执行。第一点[正式收尾协议](docs/research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md)及[串行启动页](docs/research/INNOVATION1_FORMAL_CLOSEOUT_LAUNCH_2026-09-26.md)已准备；新入口通过合成无Test检查，真实训练/Validation/Test仍待用户运行。
 
-**写作状态：可以开始第一创新点的阶段性写作，整篇论文证据尚未闭合。** 第二创新点尚未确定并完成实验；Baby正式Test与Sports相关Validation结果不能视为两套同等完整的正式验证。[论文完成条件与缺口表](docs/paper/THESIS_COMPLETION_GAPS_2026-09-26.md)已整理；[门控候选决策单](docs/research/INNOVATION2_CANDIDATE_DECISION_2026-09-26.md)已完成，找回RGCS旧方案但未选定或实现。用户现决定优先收尾第一创新点，第二点及门控诊断设计暂缓。先读[第一创新点正式矩阵](docs/paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md)和[正式收尾协议](docs/research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md)；固定配置收尾范围建议新增3次Baby训练和12次最终Test，需先实现并验收隔离评价/Baby适配入口，当前未授权执行。
+**写作状态：可以开始第一创新点的阶段性写作，整篇论文证据尚未闭合。** 第二创新点尚未确定并完成实验；Baby正式Test与Sports相关Validation结果不能视为两套同等完整的正式验证。[论文完成条件与缺口表](docs/paper/THESIS_COMPLETION_GAPS_2026-09-26.md)已整理；[门控候选决策单](docs/research/INNOVATION2_CANDIDATE_DECISION_2026-09-26.md)已完成，找回RGCS旧方案但未选定或实现。用户现决定优先收尾第一创新点，第二点及门控诊断设计暂缓。先读[第一创新点正式矩阵](docs/paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md)、[正式收尾协议](docs/research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md)和[串行启动页](docs/research/INNOVATION1_FORMAL_CLOSEOUT_LAUNCH_2026-09-26.md)；固定配置收尾范围为3次Baby训练和12次最终Test，真实结果尚未产生。
 
 ## 核心结论与稿件
 
