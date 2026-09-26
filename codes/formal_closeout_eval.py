@@ -35,15 +35,17 @@ def clean_head():
     return head
 
 
-def slot_source(slot, ledger):
+def slot_source(slot, ledger, cohort_id=None):
     arm, seed = slot.split('_')
     seed = int(seed)
     if arm == 'b3':
-        base = ROOT / 'exp/promptmm_release_baby' / (
-            f'baby_promptmm_release_cap1000_patience7_seed{seed}_lr6e5_v1')
+        baby_root = ROOT / 'exp/promptmm_release_baby'
+        if cohort_id:
+            baby_root = baby_root / cohort_id
+        base = baby_root / f'baby_promptmm_release_cap1000_patience7_seed{seed}_lr6e5_v1'
         return dict(dataset='baby', method='promptmm_release', seed=seed,
                     source_path=base/'report.json', checkpoint_path=base/'best.pt',
-                    infer_path=None, original=None)
+                    infer_path=None, original=None, cohort_id=cohort_id)
     method = {'s1': 'bpr', 's2': 'full', 's3': 'promptmm_release'}[arm]
     matches = [x for x in ledger['sports'] if x['seed'] == seed and x['method'] == method]
     if len(matches) != 1:
@@ -89,6 +91,7 @@ def check_source(source, identity):
     checkpoint_hash = sha256(source['checkpoint_path'])
     if source['dataset'] == 'baby':
         if (report.get('status') != 'validation_completed'
+                or report.get('cohort_id') != source.get('cohort_id')
                 or report.get('dataset') != 'baby'
                 or report.get('identity') != 'PromptMM-release-Baby-sharedTeacher-v1'
                 or report.get('config', {}).get('learning_rate') != 6e-5
@@ -214,25 +217,29 @@ def expected_validation_recall(source, report):
     return float(report['best_selection_recall'])
 
 
-def run(slot, mode, gpu_id=0):
+def run(slot, mode, gpu_id=0, cohort_id=None):
     if mode not in ('preflight', 'final-test-once'):
         raise ValueError('Invalid mode.')
     head = clean_head()
     os.environ['CUDA_VISIBLE_DEVICES'] = str(gpu_id)
     ledger_hash = sha256(LEDGER)
     ledger = json.loads(LEDGER.read_text(encoding='utf-8'))
-    source = slot_source(slot, ledger)
-    base = ROOT / 'exp' / ('formal_closeout_preflight' if mode == 'preflight'
-                         else 'formal_closeout_eval') / slot
+    source = slot_source(slot, ledger, cohort_id)
+    family = ROOT / 'exp' / ('formal_closeout_preflight' if mode == 'preflight'
+                           else 'formal_closeout_eval')
+    base = family / cohort_id / slot if cohort_id else family / slot
     if mode == 'final-test-once':
-        preflight_path = ROOT / 'exp/formal_closeout_preflight' / slot / 'report.json'
+        preflight_root = ROOT / 'exp/formal_closeout_preflight'
+        preflight_path = ((preflight_root / cohort_id / slot) if cohort_id else
+                          (preflight_root / slot)) / 'report.json'
         preflight = json.loads(preflight_path.read_text(encoding='utf-8'))
         if (preflight.get('status') != 'passed' or preflight.get('launch_commit') != head
+                or preflight.get('cohort_id') != cohort_id
                 or preflight.get('ledger_sha256') != ledger_hash):
             raise RuntimeError('Successful same-source preflight required before Test.')
     base.mkdir(parents=True, exist_ok=False)
     report_path = base / 'report.json'
-    result = dict(slot=slot, mode=mode, status='started', started_at=now(),
+    result = dict(slot=slot, mode=mode, cohort_id=cohort_id, status='started', started_at=now(),
                   launch_commit=head, ledger_sha256=ledger_hash,
                   command=[sys.executable, *sys.argv], teacher_test_evaluations=0,
                   student_test_evaluations=0, test_split_loaded=False,
@@ -338,8 +345,10 @@ def main(argv=None):
     mode.add_argument('--final-test-once', action='store_true')
     parser.add_argument('--slot', required=True, choices=SLOTS)
     parser.add_argument('--gpu_id', type=int, choices=[0], default=0)
+    parser.add_argument('--cohort-id', choices=['innovation1_fixed_v2'])
     args = parser.parse_args(argv)
-    return run(args.slot, 'preflight' if args.preflight else 'final-test-once', args.gpu_id)
+    return run(args.slot, 'preflight' if args.preflight else 'final-test-once',
+               args.gpu_id, args.cohort_id)
 
 
 if __name__ == '__main__':

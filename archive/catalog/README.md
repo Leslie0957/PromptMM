@@ -3,7 +3,7 @@
 导航版本：2026-09-26；可用 `python -B tools/build_experiment_navigation.py` 刷新。
 这些生成清单可刷新，**不是不可变的实验身份记录，也不是物理备份**。正式身份查原manifest及审计。
 
-- [全部文件路径和字节数](WORKSPACE_FILES_2026-09-26.jsonl)：1384项；仅文件元数据，不读数据集/模型内容。
+- [全部文件路径和字节数](WORKSPACE_FILES_2026-09-26.jsonl)：1385项；仅文件元数据，不读数据集/模型内容。
 - [exp JSON元数据](RUN_RECORDS_2026-09-26.jsonl)：219项；对应[可点击记录表](../../docs/experiments/RUN_RECORDS.md)。
 - [源代码与文档导航](../../docs/experiments/FILES.md)；[实验族导航](../../docs/experiments/README.md)。
 - [历史章节索引](../training/ENTRY_INDEX_2026-09-26.md)：279个章节定位。

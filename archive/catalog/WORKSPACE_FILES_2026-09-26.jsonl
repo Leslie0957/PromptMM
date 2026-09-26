@@ -236,8 +236,8 @@
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 05_34_16.930265_sports_light_init_pid42156.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 08_30_07.418852_sports_light_init_pid30132.pth", "source_catalog": false}
 {"bytes": 432550, "category": "root", "path": "PromptMM.png", "source_catalog": true}
-{"bytes": 4464, "category": "root", "path": "README.md", "source_catalog": true}
-{"bytes": 50827, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
+{"bytes": 4535, "category": "root", "path": "README.md", "source_catalog": true}
+{"bytes": 59526, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
 {"bytes": 739, "category": "archive", "path": "archive/README.md", "source_catalog": true}
 {"bytes": 409, "category": "archive", "path": "archive/run_patent_results/README.md", "source_catalog": true}
 {"bytes": 110276, "category": "archive", "path": "archive/run_patent_results/Result_0409_1319_Photo_a0.1_lr0.001/Result_0409_1319_Photo_a0.1_lr0.001_curve.png", "source_catalog": false}
@@ -265,14 +265,14 @@
 {"bytes": 21883, "category": "codes", "path": "codes/cached_deployment_benchmark.py", "source_catalog": true}
 {"bytes": 7041, "category": "codes", "path": "codes/check_promptmm_validation_parity.py", "source_catalog": true}
 {"bytes": 10429, "category": "codes", "path": "codes/efficiency_benchmark.py", "source_catalog": true}
-{"bytes": 18607, "category": "codes", "path": "codes/formal_closeout_eval.py", "source_catalog": true}
+{"bytes": 19198, "category": "codes", "path": "codes/formal_closeout_eval.py", "source_catalog": true}
 {"bytes": 2330, "category": "codes", "path": "codes/gradient_diagnostic.py", "source_catalog": true}
 {"bytes": 2608, "category": "codes", "path": "codes/initialization_audit.py", "source_catalog": true}
 {"bytes": 49862, "category": "codes", "path": "codes/main.py", "source_catalog": true}
 {"bytes": 50434, "category": "codes", "path": "codes/main_empower.py", "source_catalog": true}
 {"bytes": 125569, "category": "codes", "path": "codes/main_mmlight.py", "source_catalog": true}
 {"bytes": 6870, "category": "codes", "path": "codes/promptmm_release.py", "source_catalog": true}
-{"bytes": 23394, "category": "codes", "path": "codes/promptmm_release_baby_formal.py", "source_catalog": true}
+{"bytes": 23592, "category": "codes", "path": "codes/promptmm_release_baby_formal.py", "source_catalog": true}
 {"bytes": 14721, "category": "codes", "path": "codes/promptmm_release_resource.py", "source_catalog": true}
 {"bytes": 24039, "category": "codes", "path": "codes/promptmm_release_validation.py", "source_catalog": true}
 {"bytes": 2627, "category": "codes", "path": "codes/promptmm_validation_fast.py", "source_catalog": true}
@@ -289,7 +289,7 @@
 {"bytes": 9043, "category": "codes", "path": "codes/tests/fixtures/promptmm_release_reference.json", "source_catalog": true}
 {"bytes": 51500, "category": "codes", "path": "codes/tests/test_dataset_profiles.py", "source_catalog": true}
 {"bytes": 26359, "category": "codes", "path": "codes/tests/test_experiment_protocol.py", "source_catalog": true}
-{"bytes": 21581, "category": "codes", "path": "codes/tests/test_formal_closeout_preparation.py", "source_catalog": true}
+{"bytes": 24672, "category": "codes", "path": "codes/tests/test_formal_closeout_preparation.py", "source_catalog": true}
 {"bytes": 4565, "category": "codes", "path": "codes/tests/test_gradient_diagnostic.py", "source_catalog": true}
 {"bytes": 3660, "category": "codes", "path": "codes/tests/test_initialization_diagnostic.py", "source_catalog": true}
 {"bytes": 4331, "category": "codes", "path": "codes/tests/test_initialization_pair.py", "source_catalog": true}
@@ -383,7 +383,7 @@
 {"bytes": 3177, "category": "docs", "path": "docs/PROMPTMM_RELEASE_VALIDATION300_BATCH.md", "source_catalog": true}
 {"bytes": 4183, "category": "docs", "path": "docs/PROMPTMM_RELEASE_VALIDATION_DIAGNOSTIC.md", "source_catalog": true}
 {"bytes": 2666, "category": "docs", "path": "docs/PROMPTMM_VALIDATION_FAST_PARITY.md", "source_catalog": true}
-{"bytes": 2193, "category": "docs", "path": "docs/README.md", "source_catalog": true}
+{"bytes": 2388, "category": "docs", "path": "docs/README.md", "source_catalog": true}
 {"bytes": 1827, "category": "docs", "path": "docs/SPORTS_GRADIENT_DIAGNOSTIC.md", "source_catalog": true}
 {"bytes": 2087, "category": "docs", "path": "docs/SPORTS_INITIALIZATION_DIAGNOSTIC.md", "source_catalog": true}
 {"bytes": 2554, "category": "docs", "path": "docs/SPORTS_INITIALIZATION_PAIR_SEED2022.md", "source_catalog": true}
@@ -397,9 +397,9 @@
 {"bytes": 3849, "category": "docs", "path": "docs/SPORTS_TEACHER_VALIDATION120_V1.md", "source_catalog": true}
 {"bytes": 100432, "category": "docs", "path": "docs/baselines/ASSET_MANIFEST_2026-07-29.csv", "source_catalog": true}
 {"bytes": 2893, "category": "docs", "path": "docs/baselines/README.md", "source_catalog": true}
-{"bytes": 6670, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
+{"bytes": 6839, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
 {"bytes": 7207, "category": "docs", "path": "docs/experiments/RUN_CLOSEOUT.md", "source_catalog": true}
-{"bytes": 13104, "category": "docs", "path": "docs/paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md", "source_catalog": true}
+{"bytes": 13199, "category": "docs", "path": "docs/paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md", "source_catalog": true}
 {"bytes": 12780, "category": "docs", "path": "docs/paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md", "source_catalog": true}
 {"bytes": 14554, "category": "docs", "path": "docs/paper/THESIS_COMPLETION_GAPS_2026-09-26.md", "source_catalog": true}
 {"bytes": 239530, "category": "docs", "path": "docs/research/BABY_IMAGE_ONLY_CURVES_2026-09-15.png", "source_catalog": true}
@@ -410,6 +410,7 @@
 {"bytes": 5478, "category": "docs", "path": "docs/research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V1_AUDIT.md", "source_catalog": true}
 {"bytes": 2587, "category": "docs", "path": "docs/research/INNOVATION1_FORMAL_CLOSEOUT_LAUNCH_2026-09-26.md", "source_catalog": true}
 {"bytes": 11113, "category": "docs", "path": "docs/research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md", "source_catalog": true}
+{"bytes": 2691, "category": "docs", "path": "docs/research/INNOVATION1_FORMAL_CLOSEOUT_V2_LAUNCH_2026-09-26.md", "source_catalog": true}
 {"bytes": 9199, "category": "docs", "path": "docs/research/INNOVATION1_PROTOCOL_REUSE_AUDIT_2026-09-26.md", "source_catalog": true}
 {"bytes": 52810, "category": "docs", "path": "docs/research/INNOVATION1_REUSE_ASSETS_2026-09-26.json", "source_catalog": true}
 {"bytes": 31019, "category": "docs", "path": "docs/research/INNOVATION1_REVIEW_AND_EXPERIMENT_PLAN_2026-09-14.md", "source_catalog": true}
@@ -1011,7 +1012,7 @@
 {"bytes": 8612, "category": "tools", "path": "tools/diagnose_sports_initialization.py", "source_catalog": true}
 {"bytes": 11920, "category": "tools", "path": "tools/diagnose_sports_matched_target_direction.py", "source_catalog": true}
 {"bytes": 12293, "category": "tools", "path": "tools/diagnose_sports_weighted_directions.py", "source_catalog": true}
-{"bytes": 8972, "category": "tools", "path": "tools/run_innovation1_formal_closeout.py", "source_catalog": true}
+{"bytes": 11267, "category": "tools", "path": "tools/run_innovation1_formal_closeout.py", "source_catalog": true}
 {"bytes": 15714, "category": "tools", "path": "tools/run_sports_cached_deployment.py", "source_catalog": true}
 {"bytes": 8153, "category": "tools", "path": "tools/run_sports_initialization_pair.py", "source_catalog": true}
 {"bytes": 8025, "category": "tools", "path": "tools/run_sports_paired_cold_three_seed.py", "source_catalog": true}

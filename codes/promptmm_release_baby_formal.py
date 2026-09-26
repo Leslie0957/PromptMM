@@ -35,6 +35,7 @@ def parse_args(argv=None):
     p.add_argument('--baby_release_formal', action='store_true', required=True)
     p.add_argument('--seed', type=int, choices=[2022, 2023, 2024], default=2022)
     p.add_argument('--gpu_id', type=int, choices=[0], default=0)
+    p.add_argument('--cohort-id', choices=['innovation1_fixed_v2'])
     p.add_argument('--describe', action='store_true')
     return p.parse_args(argv)
 
@@ -50,8 +51,9 @@ def advance_patience(improved, consecutive_misses):
     return misses, misses >= PATIENCE
 
 
-def claim_run_directory(root, run_id=RUN_ID):
-    path = Path(root) / 'exp/promptmm_release_baby' / run_id
+def claim_run_directory(root, run_id=RUN_ID, cohort_id=None):
+    base = Path(root) / 'exp/promptmm_release_baby'
+    path = base / cohort_id / run_id if cohort_id else base / run_id
     path.mkdir(parents=True, exist_ok=False)
     return path
 
@@ -159,6 +161,7 @@ def main(argv=None):
     config = asdict(cfg)
     del config['steps']
     spec = dict(identity='PromptMM-release-Baby-sharedTeacher-v1',
+                cohort_id=cli.cohort_id,
                 student_initialization='teacher', dataset='baby',
                 upstream=UPSTREAM, run_id=run_id, config=config,
                 epochs_cap=epochs, early_stopping=True, early_stopping_patience=PATIENCE,
@@ -175,7 +178,7 @@ def main(argv=None):
     head = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
     if subprocess.check_output(['git', 'status', '--porcelain'], cwd=ROOT, text=True).strip():
         raise RuntimeError('Clean committed launch source required.')
-    run_dir = claim_run_directory(ROOT, run_id)
+    run_dir = claim_run_directory(ROOT, run_id, cli.cohort_id)
     report_path, best_path = run_dir/'report.json', run_dir/'best.pt'
     report = dict(spec, status='started', launch_commit=head, launch_dirty=False,
                   command=[sys.executable, *sys.argv], python=sys.version,
