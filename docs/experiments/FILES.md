@@ -129,7 +129,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（108）
+## docs（109）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -186,6 +186,7 @@
 - [docs/research/CROSS_INTERACTION_P1_AUDIT.md](../research/CROSS_INTERACTION_P1_AUDIT.md)
 - [docs/research/CROSS_INTERACTION_ROUTE_2026-09-27.md](../research/CROSS_INTERACTION_ROUTE_2026-09-27.md)
 - [docs/research/EXPERIMENT_OVERVIEW_ZH_2026-09-24.md](../research/EXPERIMENT_OVERVIEW_ZH_2026-09-24.md)
+- [docs/research/INITIALIZATION_KD_ASSET_PREFLIGHT_2026-09-27.json](../research/INITIALIZATION_KD_ASSET_PREFLIGHT_2026-09-27.json)
 - [docs/research/INITIALIZATION_KD_INTERACTION_CONFIG_2026-09-27.json](../research/INITIALIZATION_KD_INTERACTION_CONFIG_2026-09-27.json)
 - [docs/research/INITIALIZATION_KD_INTERACTION_PREPARATION.md](../research/INITIALIZATION_KD_INTERACTION_PREPARATION.md)
 - [docs/research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md](../research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md)
@@ -263,7 +264,7 @@
 - [tests/test_sports_paired_cold.py](../../tests/test_sports_paired_cold.py)
 - [tests/test_sports_sham_residual.py](../../tests/test_sports_sham_residual.py)
 
-## tools（24）
+## tools（25）
 
 - [tools/build_experiment_navigation.py](../../tools/build_experiment_navigation.py)
 - [tools/convert_mmrec_baby.py](../../tools/convert_mmrec_baby.py)
@@ -273,6 +274,7 @@
 - [tools/diagnose_sports_matched_target_direction.py](../../tools/diagnose_sports_matched_target_direction.py)
 - [tools/diagnose_sports_weighted_directions.py](../../tools/diagnose_sports_weighted_directions.py)
 - [tools/freeze_innovation1_results.py](../../tools/freeze_innovation1_results.py)
+- [tools/preflight_initialization_kd_assets.py](../../tools/preflight_initialization_kd_assets.py)
 - [tools/run_cross_interaction_p0.py](../../tools/run_cross_interaction_p0.py)
 - [tools/run_cross_interaction_p1a.py](../../tools/run_cross_interaction_p1a.py)
 - [tools/run_cross_interaction_precision.py](../../tools/run_cross_interaction_precision.py)

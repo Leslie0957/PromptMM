@@ -2,7 +2,7 @@
 
 先完整阅读 [AGENTS.md](AGENTS.md)，再读本页与 [TRAINING_LOG.md 当前状态及最新记录](TRAINING_LOG.md)。历史 pending 和旧交接不是执行队列。
 
-当前立项结论见[初始化转移 × 持续监督计划](docs/research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md)：受控四臂的[隔离核心与合成准备](docs/research/INITIALIZATION_KD_INTERACTION_PREPARATION.md)已完成，Train/Val 专用适配器与父进程杀停通过合成检查；真实资产字节预检与 GPU 资源门尚未闭合，当前没有启动命令。此方向定位为第一项工作的机制补充，未认定第二算法。跨交互P1a已筛查停止，不推进P1b/P2；实际实验由用户另行授权并手动执行。旧RGCS/门控及历史“下一步”不是执行队列。
+当前立项结论见[初始化转移 × 持续监督计划](docs/research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md)：受控四臂的[隔离核心与合成准备](docs/research/INITIALIZATION_KD_INTERACTION_PREPARATION.md)已完成，Train/Val 专用适配器与父进程杀停通过合成检查；真实资产字节/张量及全部回放三元组预检已通过，最终启动验收与 GPU 资源门仍未闭合，当前没有启动命令。此方向定位为第一项工作的机制补充，未认定第二算法。跨交互P1a已筛查停止，不推进P1b/P2；实际实验由用户另行授权并手动执行。旧RGCS/门控及历史“下一步”不是执行队列。
 
 ## 当前入口
 

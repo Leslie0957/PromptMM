@@ -8,7 +8,7 @@
 
 ## 已完成的实验与诊断族
 
-新规划入口：[初始化 × KD立项单](../research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md)及[四臂准备审计](../research/INITIALIZATION_KD_INTERACTION_PREPARATION.md)。隔离核心、Train/Val 专用适配器与父进程杀停已通过合成验证，但真实资产字节预检和 GPU 资源门未闭合，无启动命令或新实验；这不是P1b/P2延续，也未认证为第二算法。
+新规划入口：[初始化 × KD立项单](../research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md)及[四臂准备审计](../research/INITIALIZATION_KD_INTERACTION_PREPARATION.md)。隔离核心、Train/Val 专用适配器与父进程杀停已通过合成验证，真实资产预检已通过，但最终启动验收和 GPU 资源门未闭合，无启动命令或新实验；这不是P1b/P2延续，也未认证为第二算法。
 
 | 族 | 当前可用证据 / 状态 | 首选入口 |
 |---|---|---|

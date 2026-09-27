@@ -1,0 +1,152 @@
+{
+  "status": "passed_cpu_asset_preflight_only",
+  "config_sha256": "15dced0bc76461a3868a69c1820fe31b809d6cb89ef473d1234852a82c1b0d0d",
+  "assets": {
+    "teacher_checkpoint_record_only": {
+      "path": "Model/sports/runs/teacher_model_val_test_once_v1__2026-09-16 12_38_48.480698_sports_light_init_pid30708.pt",
+      "sha256": "57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea",
+      "bytes": 357779639,
+      "matches_expected": true
+    },
+    "shared_cache": {
+      "path": "exp/initialization_checks/sports_initialization_repeatability_seed2022_v1/process0/initial_tensors.pt",
+      "sha256": "e5573bbdbbb609b4bc037a551455578463795c6df4bc4a1b236788d86c24da20",
+      "bytes": 41440437,
+      "matches_expected": true
+    },
+    "random_initial": {
+      "path": "exp/paired_coldinit/sports_three_seed_v1/seed2022/initial.pt",
+      "sha256": "2357868cefeb086dba14c3808415eac97936f67cf5e6bef8382d95ff43bcffff",
+      "bytes": 13814245,
+      "matches_expected": true
+    },
+    "triplet_tape": {
+      "path": "exp/paired_coldinit/sports_three_seed_v1/seed2022/triplets.npy",
+      "sha256": "e8d982c6a2d1be20a934502d4a1ad6ba7e2b699b21098668343341f10db3d77b",
+      "bytes": 788889728,
+      "matches_expected": true
+    },
+    "train_mat_record_only": {
+      "path": "data/sports/train_mat",
+      "sha256": "5361c5486dddbf50084d011278a11d2f18a37e258f87be218b070ff02f4ab0f8",
+      "bytes": 1890060,
+      "matches_expected": true
+    },
+    "val_mat_record_only": {
+      "path": "data/sports/val_mat",
+      "sha256": "1b4224c3fb091ad23a59e0f8a7b58c7b0c959863a7189cfc8b89eeb90a467e03",
+      "bytes": 445976,
+      "matches_expected": true
+    }
+  },
+  "model_instances": 0,
+  "rankings": 0,
+  "test_reads": 0,
+  "cuda_allocations": 0,
+  "tensors": {
+    "random/user": {
+      "shape": [
+        35598,
+        64
+      ],
+      "dtype": "torch.float32",
+      "finite": true,
+      "device": "cpu"
+    },
+    "random/item": {
+      "shape": [
+        18357,
+        64
+      ],
+      "dtype": "torch.float32",
+      "finite": true,
+      "device": "cpu"
+    },
+    "teacher/user": {
+      "shape": [
+        35598,
+        64
+      ],
+      "dtype": "torch.float32",
+      "finite": true,
+      "device": "cpu"
+    },
+    "teacher/item": {
+      "shape": [
+        18357,
+        64
+      ],
+      "dtype": "torch.float32",
+      "finite": true,
+      "device": "cpu"
+    },
+    "semantics/item_image": {
+      "shape": [
+        18357,
+        64
+      ],
+      "dtype": "torch.float32",
+      "finite": true,
+      "device": "cpu"
+    },
+    "semantics/item_text": {
+      "shape": [
+        18357,
+        64
+      ],
+      "dtype": "torch.float32",
+      "finite": true,
+      "device": "cpu"
+    },
+    "semantics/user_image": {
+      "shape": [
+        35598,
+        64
+      ],
+      "dtype": "torch.float32",
+      "finite": true,
+      "device": "cpu"
+    },
+    "semantics/user_text": {
+      "shape": [
+        35598,
+        64
+      ],
+      "dtype": "torch.float32",
+      "finite": true,
+      "device": "cpu"
+    }
+  },
+  "matrices": {
+    "shape": [
+      35598,
+      18357
+    ],
+    "train_nnz": 218409,
+    "val_nnz": 37899,
+    "val_users": 35598,
+    "overlap_nnz": 0,
+    "minimum_candidates": 18120
+  },
+  "tape": {
+    "shape": [
+      300,
+      214,
+      3,
+      1024
+    ],
+    "dtype": "int32",
+    "writeable": false,
+    "checked_triplets": 65740800,
+    "positive_not_in_train": 0,
+    "negative_in_train": 0
+  },
+  "resources": {
+    "disk_free_bytes": 411798528000,
+    "available_ram_bytes": 3018383360,
+    "preflight_rss_bytes": 1411309568,
+    "gpu_gate": "not_executed"
+  },
+  "formal_output_exists": false,
+  "elapsed_seconds": 6.234000000171363
+}
