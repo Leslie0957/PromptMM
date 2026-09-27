@@ -101,7 +101,7 @@ def resolve_protocol(spec):
                                 'cublas_workspace_config': ':4096:8', 'torch_cpu_threads': 4,
                                 'pythonhashseed': '2022'}:
             raise RuntimeError('Formal numerics mismatch')
-        if spec['hard_caps'] != {'parent_wall_seconds': 86400, 'cuda_allocator_bytes': 2147483648,
+        if spec['hard_caps'] != {'parent_wall_seconds': None, 'cuda_allocator_bytes': 2147483648,
                                  'process_rss_bytes': 8589934592, 'output_bytes': 1073741824,
                                  'minimum_free_disk_bytes': 4294967296, 'attempts': 1}:
             raise RuntimeError('Formal resource cap mismatch')

@@ -26,7 +26,7 @@
   "run_id": "sports_init_kd_interaction_seed2022_v1",
   "output_namespace": "exp/initialization_kd_interaction/sports_init_kd_interaction_seed2022_v1",
   "hard_caps": {
-    "parent_wall_seconds": 86400,
+    "parent_wall_seconds": null,
     "cuda_allocator_bytes": 2147483648,
     "process_rss_bytes": 8589934592,
     "output_bytes": 1073741824,

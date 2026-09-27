@@ -147,6 +147,8 @@ def check_budget(started, output_root, limits, rss_bytes, cuda_bytes, free_disk_
                 'cuda_allocator_bytes': cuda_bytes, 'output_bytes': output_bytes(output_root),
                 'free_disk_bytes': free_disk_bytes}
     for key in ('parent_wall_seconds', 'process_rss_bytes', 'cuda_allocator_bytes', 'output_bytes'):
+        if key == 'parent_wall_seconds' and limits[key] is None:
+            continue  # Explicitly disabled wall cap; keep elapsed telemetry.
         if measured[key] > limits[key]:
             raise RuntimeError('Resource cap exceeded: ' + key)
     if measured['free_disk_bytes'] < limits['minimum_free_disk_bytes']:

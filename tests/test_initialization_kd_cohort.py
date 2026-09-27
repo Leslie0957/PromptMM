@@ -21,6 +21,25 @@ from initialization_kd_runtime import resolve_protocol
 
 
 class CohortTests(unittest.TestCase):
+    def test_disabled_wall_cap_keeps_other_limits(self):
+        from initialization_kd_adapter import check_budget
+        caps = load_spec()['hard_caps']
+        self.assertIsNone(caps['parent_wall_seconds'])
+        with tempfile.TemporaryDirectory() as tmp:
+            measured = check_budget(0, Path(tmp), caps, 0, 0, 10**12, now=10**9)
+            self.assertEqual(measured['parent_wall_seconds'], 10**9)
+            for rss, cuda, disk in [(caps['process_rss_bytes'] + 1, 0, 10**12),
+                                    (0, caps['cuda_allocator_bytes'] + 1, 10**12),
+                                    (0, 0, 0)]:
+                with self.assertRaises(RuntimeError):
+                    check_budget(0, Path(tmp), caps, rss, cuda, disk, now=10**9)
+            with patch('initialization_kd_adapter.output_bytes', return_value=caps['output_bytes'] + 1):
+                with self.assertRaisesRegex(RuntimeError, 'output_bytes'):
+                    check_budget(0, Path(tmp), caps, 0, 0, 10**12, now=10**9)
+            timed = dict(caps, parent_wall_seconds=900)
+            with self.assertRaisesRegex(RuntimeError, 'parent_wall_seconds'):
+                check_budget(0, Path(tmp), timed, 0, 0, 10**12, now=901)
+
     def test_frozen_contract(self):
         spec = load_spec()
         self.assertEqual(resolve_protocol(spec), Protocol())
