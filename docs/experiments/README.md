@@ -8,7 +8,7 @@
 
 ## 已完成的实验与诊断族
 
-新规划入口：[初始化 × KD立项单](../research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md)。仅评审/交接完成，无新实验；四臂准备不是P1b/P2延续，也未认证为第二算法。
+新规划入口：[初始化 × KD立项单](../research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md)及[四臂准备审计](../research/INITIALIZATION_KD_INTERACTION_PREPARATION.md)。隔离核心和合成验证完成，但真实适配器/资产字节/资源门未闭合，无启动命令或新实验；这不是P1b/P2延续，也未认证为第二算法。
 
 | 族 | 当前可用证据 / 状态 | 首选入口 |
 |---|---|---|

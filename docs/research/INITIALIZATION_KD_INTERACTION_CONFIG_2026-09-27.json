@@ -1,0 +1,32 @@
+{
+  "status": "preparation_only_not_launchable",
+  "run_id": "sports_init_kd_interaction_seed2022_v1",
+  "seed": 2022,
+  "arms": {
+    "R0": {"initial": "paired_random_initial", "objective": "BPR", "alpha": 0.0},
+    "R1": {"initial": "paired_random_initial", "objective": "BPR+Full", "alpha": 0.3},
+    "T0": {"initial": "shared_teacher_final_tables", "objective": "BPR", "alpha": 0.0},
+    "T1": {"initial": "shared_teacher_final_tables", "objective": "BPR+Full", "alpha": 0.3}
+  },
+  "common": {
+    "dataset": "sports",
+    "student": "td_distill_no_projection",
+    "dimensions": {"users": 35598, "items": 18357, "id": 64},
+    "training": {"epochs": 300, "batches_per_epoch": 214, "batch_size": 1024, "triplet_batches_per_arm": 64200, "total_triplet_batches": 256800, "early_stopping_disabled_before_300": true},
+    "bpr": {"formula": "mean(-logsigmoid(dot(u,p)-dot(u,n)))", "explicit_embedding_regularizer": 0.0, "parser_regs_inherited_but_unused_in_td_path": "[1e-5,1e-5,1e-2]"},
+    "kd": {"item_image_rate": 1.0, "item_text_rate": 0.3, "user_image_rate": 0.0, "user_text_rate": 0.0, "full_reduction": "alpha * (image_mse_mean + 0.3*text_mse_mean)/1.3", "positive_items_only": true},
+    "optimizer": {"type": "AdamW", "learning_rate": 0.00006, "weight_decay": 0.01, "betas": [0.9, 0.999], "eps": 1e-8, "amsgrad": false, "fresh_empty_moments_each_arm": true},
+    "evaluation": {"split": "validation_only", "candidate_exclusion": "train_only", "Ks": [10, 20, 40, 50], "test_flag": "part", "k": 20, "every_epoch": true, "epoch_zero_descriptive_only": true, "primary": "fixed_epoch300_recall20", "secondary": ["earliest_max_validation_recall20", "same_epoch_ndcg20", "fixed_epoch_curve"], "test_files_open_allowed": false, "test_ranking_allowed": false, "final_test_allowed": false},
+    "assets": {
+      "teacher_checkpoint_record_only": {"path": "Model/sports/runs/teacher_model_val_test_once_v1__2026-09-16 12_38_48.480698_sports_light_init_pid30708.pt", "sha256": "57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea"},
+      "shared_cache": {"path": "exp/initialization_checks/sports_initialization_repeatability_seed2022_v1/process0/initial_tensors.pt", "sha256": "e5573bbdbbb609b4bc037a551455578463795c6df4bc4a1b236788d86c24da20"},
+      "random_initial": {"path": "exp/paired_coldinit/sports_three_seed_v1/seed2022/initial.pt", "sha256": "2357868cefeb086dba14c3808415eac97936f67cf5e6bef8382d95ff43bcffff"},
+      "triplet_tape": {"path": "exp/paired_coldinit/sports_three_seed_v1/seed2022/triplets.npy", "sha256": "e8d982c6a2d1be20a934502d4a1ad6ba7e2b699b21098668343341f10db3d77b", "shape": [300, 214, 3, 1024], "dtype": "int32"},
+      "train_mat_record_only": {"path": "data/sports/train_mat", "sha256": "5361c5486dddbf50084d011278a11d2f18a37e258f87be218b070ff02f4ab0f8"}
+    }
+  },
+  "candidate_screening": {"interaction_definition": "(R1-R0)-(T1-T0)", "primary_min_positive_interaction_absolute_recall20": 0.002, "candidate_noninferiority_margin_absolute_recall20": 0.001, "single_seed_inference": "descriptive_only_no_significance_or_equivalence"},
+  "proposed_hard_caps_not_yet_enforced": {"parent_wall_seconds": 86400, "cuda_allocator_bytes": 2147483648, "process_rss_bytes": 8589934592, "output_bytes": 1073741824, "minimum_free_disk_bytes": 4294967296, "attempts": 1},
+  "output_namespace": "exp/initialization_kd_interaction/sports_init_kd_interaction_seed2022_v1",
+  "launch_command": null
+}
