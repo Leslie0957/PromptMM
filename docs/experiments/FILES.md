@@ -54,6 +54,12 @@
 - [archive/upstream/README.md](../../archive/upstream/README.md)
 - [archive/upstream/README_ORIGINAL_2026-09-26.md](../../archive/upstream/README_ORIGINAL_2026-09-26.md)
 
+## check（3）
+
+- [check/chatgpt.txt](../../check/chatgpt.txt)
+- [check/deepseek.txt](../../check/deepseek.txt)
+- [check/doubao.txt](../../check/doubao.txt)
+
 ## codes（58）
 
 - [codes/Models.py](../../codes/Models.py)
@@ -115,7 +121,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（93）
+## docs（94）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -159,6 +165,7 @@
 - [docs/research/BABY_IMAGE_ONLY_CURVES_2026-09-15.png](../research/BABY_IMAGE_ONLY_CURVES_2026-09-15.png)
 - [docs/research/BABY_IMAGE_ONLY_THREE_SEED_SUMMARY_2026-09-15.md](../research/BABY_IMAGE_ONLY_THREE_SEED_SUMMARY_2026-09-15.md)
 - [docs/research/CONTROLLED_COST_MECHANISM_PLAN_2026-09-22.md](../research/CONTROLLED_COST_MECHANISM_PLAN_2026-09-22.md)
+- [docs/research/CROSS_INTERACTION_ROUTE_2026-09-27.md](../research/CROSS_INTERACTION_ROUTE_2026-09-27.md)
 - [docs/research/EXPERIMENT_OVERVIEW_ZH_2026-09-24.md](../research/EXPERIMENT_OVERVIEW_ZH_2026-09-24.md)
 - [docs/research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md)
 - [docs/research/INNOVATION1_EVAL_RECOVERY_V1_LAUNCH_2026-09-26.md](../research/INNOVATION1_EVAL_RECOVERY_V1_LAUNCH_2026-09-26.md)

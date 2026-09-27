@@ -28,12 +28,14 @@
 
 ## 3. 当前活跃消费者与声明模板
 
-目前第一点收尾：
+2026-09-27 当前研究规划消费者：[跨交互效用路线第5–6节](../research/CROSS_INTERACTION_ROUTE_2026-09-27.md)。当前下一步仅P0资产与测量协议；诊断结果尚不存在。未来P0/P1审计目标分别为 `docs/research/CROSS_INTERACTION_P0_AUDIT.md`、`docs/research/CROSS_INTERACTION_P1_AUDIT.md`，臂/seed/命令在各自运行声明中明确。暂无新正式结果矩阵，诊断不得填入旧18格；P2/P3另行声明。本段只更新路由，不授权执行。
+
+第一点已完成证据消费者继续保留：
 
 - 主矩阵：[INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md](../paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md)，定位B1/B2/B3、S1/S2/S3和seed。
 - 整篇覆盖：[THESIS_COMPLETION_GAPS_2026-09-26.md](../paper/THESIS_COMPLETION_GAPS_2026-09-26.md)，仅在缺口状态改变时更新。
 - Sports文字：[SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md](../paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md)，仅在所引用结论变化时更新。
-- 第二点候选暂缓；第一点普通结果不触发门控文件改写。研究优先级改变时由声明指定新的消费者，并在本节替换活跃指针；历史文件不必跟着改。
+- 第一点评价与旧候选记录保持原样；新的研究优先级按上述路线推进，尚未确认第二点算法。研究优先级改变时由声明指定新的消费者，并在本节替换活跃指针；历史文件不必跟着改。
 
 下一次声明在完整命令、身份、预算、Test规则等已有要求之外，附以下短段（填写真实路径，不保留占位符）：
 

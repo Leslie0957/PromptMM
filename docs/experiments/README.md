@@ -2,6 +2,8 @@
 
 更新：2026-09-26。新窗口只需先读根目录[总览](../../README.md)、[AGENTS](../../AGENTS.md)和[短日志](../../TRAINING_LOG.md)，然后按本表选相关资料。日期较早文档中的“当前”“下一步”均只描述当时状态，不能自动执行旧命令。
 
+2026-09-27 研究优先级更新：[跨交互效用路线](../research/CROSS_INTERACTION_ROUTE_2026-09-27.md)已确定，当前仅准备P0资产与测量协议；未实现或运行诊断。它是计划入口，不属于下表的已完成实验，也不是启动授权。
+
 运行声明与结束审计先读[固定更新规范](RUN_CLOSEOUT.md)。第一点复用结论见[协议核查](../research/INNOVATION1_PROTOCOL_REUSE_AUDIT_2026-09-26.md)，执行边界见[正式收尾协议](../research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md)；v1[失败审计](../research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V1_AUDIT.md)与[v2失败/有效训练审计](../research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V2_AUDIT.md)保留原证据，旧命令不可再执行。[仅评价恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md)是最新正式评价入口。
 
 ## 已完成的实验与诊断族
@@ -30,7 +32,7 @@
 - 研究动机与是否继续：[第一创新点立项决策单](../paper/INNOVATION1_RATIONALE_REVIEW_2026-09-26.md)。文献/源码差异已定位，独立创新强度未认证；效率基准不含 PromptMM 发布版学生，不能扩展解释。
 
 - 第一创新点收尾：先读[论文写作入口](../paper/README.md)；主结果、局限和本机快照均从那里定位，原始结果见[恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md)。v1/v2失败审计和原声明仍保留。第二点门控设计当前暂缓。
-- 查第二创新点：先读[最新候选决策](../research/INNOVATION2_CANDIDATE_DECISION_2026-09-26.md)，旧RGCS仍为条件性候选。
+- 查后续研究：先读[跨交互效用路线](../research/CROSS_INTERACTION_ROUTE_2026-09-27.md)；[旧候选决策](../research/INNOVATION2_CANDIDATE_DECISION_2026-09-26.md)与RGCS保留为历史参考，未选定新算法。
 - 查整篇论文完成度：先读[完成条件与缺口表](../paper/THESIS_COMPLETION_GAPS_2026-09-26.md)，区分已有证据和未关闭条件。
 - 写论文：先读[正文表述（已审阅）](../paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md)，只按段落链接展开对应审计。
 - 查某次运行：从[运行记录清单](RUN_RECORDS.md)定位profile/status/manifest，再读对应历史声明；失败记录与通过记录都保留。
