@@ -21,8 +21,11 @@ from run_initialization_kd_resource_smoke import load_spec as smoke_spec
 from run_initialization_kd_interaction import _json, _source_gate, _supervise
 
 
-def load_spec():
-    delta = json.loads((ROOT / 'docs/research/INITIALIZATION_KD_EVAL_PARITY_CONFIG_2026-09-27.json').read_text(encoding='utf-8'))
+def load_spec(attempt='v1'):
+    if attempt not in ('v1', 'v2'):
+        raise ValueError('Unknown declared attempt')
+    suffix = '' if attempt == 'v1' else '_V2'
+    delta = json.loads((ROOT / f'docs/research/INITIALIZATION_KD_EVAL_PARITY{suffix}_CONFIG_2026-09-27.json').read_text(encoding='utf-8'))
     base = smoke_spec()
     resolve_protocol(base)
     spec = dict(base, **delta)
@@ -141,9 +144,10 @@ def worker(spec, output, manifest):
 
 def main():
     parser = argparse.ArgumentParser()
+    parser.add_argument('--attempt', choices=('v1', 'v2'), default='v1')
     parser.add_argument('--worker', type=Path, help=argparse.SUPPRESS)
     args = parser.parse_args()
-    spec = load_spec()
+    spec = load_spec(args.attempt)
     head = _source_gate(spec)
     output = ROOT / spec['output_namespace']
     if args.worker is not None:
@@ -165,7 +169,8 @@ def main():
         _json(output / 'launch_manifest.json', {'source_commit': head, 'config': spec,
               'config_digest': digest_json(spec), 'parent_pid': os.getpid(),
               'token_sha256': hashlib.sha256(token.encode()).hexdigest()})
-        command = [sys.executable, '-B', str(Path(__file__).resolve()), '--worker', str(output)]
+        command = [sys.executable, '-B', str(Path(__file__).resolve()),
+                   '--attempt', args.attempt, '--worker', str(output)]
         try:
             _supervise(spec, output, command=command, token=token, started=started, completion_check=accept)
         except BaseException as exc:
