@@ -2,7 +2,7 @@
 
 先读[仓库总览](../README.md)和[当前短日志](../TRAINING_LOG.md)，再按任务展开。
 
-- 最新立项与实施交接：[初始化转移 × 持续监督](research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md)及[四臂准备审计](research/INITIALIZATION_KD_INTERACTION_PREPARATION.md)。隔离核心、Train/Val 专用适配器与父进程杀停已通过合成验证，真实资产预检与启动验收合成检查已通过，现有[用户手动资源 smoke 声明](research/INITIALIZATION_KD_RESOURCE_SMOKE_LAUNCH_2026-09-27.md)；GPU 未执行，正式四臂无启动命令；定位机制补充，第二算法未成立。P1a停止状态保留，无新执行授权。下列旧路线仅供追溯。
+- 最新立项与实施交接：[初始化转移 × 持续监督](research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md)及[四臂准备审计](research/INITIALIZATION_KD_INTERACTION_PREPARATION.md)。隔离核心、Train/Val 专用适配器与父进程杀停已通过合成验证，真实资产预检与启动验收合成检查已通过，[用户手动资源smoke已审计通过](research/INITIALIZATION_KD_RESOURCE_SMOKE_AUDIT.md)，但Val耗时使24小时四臂预算缺乏支持；下一步准备评价器提速与等价性验证，正式四臂无启动命令；定位机制补充，第二算法未成立。P1a停止状态保留，无新执行授权。下列旧路线仅供追溯。
 
 - 当前研究路线：[跨交互蒸馏效用综合决策](research/CROSS_INTERACTION_ROUTE_2026-09-27.md)。三份AI建议已评审；P0/P1a 已按门槛完成诊断，尚无新算法或正式训练授权。旧候选不再代表当前优先级。
 

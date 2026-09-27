@@ -8,7 +8,7 @@
 
 ## 已完成的实验与诊断族
 
-新规划入口：[初始化 × KD立项单](../research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md)及[四臂准备审计](../research/INITIALIZATION_KD_INTERACTION_PREPARATION.md)。隔离核心、Train/Val 专用适配器与父进程杀停已通过合成验证，真实资产预检和启动验收合成检查已通过，已准备[用户手动资源 smoke 声明](../research/INITIALIZATION_KD_RESOURCE_SMOKE_LAUNCH_2026-09-27.md)，尚未执行；正式四臂仍不可启动；这不是P1b/P2延续，也未认证为第二算法。
+新规划入口：[初始化 × KD立项单](../research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md)及[四臂准备审计](../research/INITIALIZATION_KD_INTERACTION_PREPARATION.md)。隔离核心、Train/Val 专用适配器与父进程杀停已通过合成验证，真实资产预检和启动验收合成检查已通过，[用户手动资源smoke审计](../research/INITIALIZATION_KD_RESOURCE_SMOKE_AUDIT.md)通过，130.6秒/156MiB；单次Val约122秒，正式四臂24小时预算未闭合，下一步仅准备评价器提速及等价性验证，不重跑smoke；这不是P1b/P2延续，也未认证为第二算法。
 
 | 族 | 当前可用证据 / 状态 | 首选入口 |
 |---|---|---|

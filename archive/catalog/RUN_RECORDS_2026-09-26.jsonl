@@ -478,6 +478,13 @@
 {"bytes": 4063, "path": "exp/initialization_checks/sports_sharedteacherinit_alpha3_seed2022_val300_v1/run.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
 {"bytes": 4170, "path": "exp/initialization_checks/sports_sharedteacherinit_equal_matched_seed2022_val300_v1/run.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
 {"bytes": 6350, "path": "exp/initialization_checks/sports_sharedteacherinit_pair_seed2022_val300_v1/batch.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
+{"bytes": 466, "path": "exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/T1/curve.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
+{"bytes": 553, "path": "exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/acceptance.json", "profile": null, "read_status": "parsed", "seed": null, "status": "passed"}
+{"bytes": 7734, "path": "exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/launch_manifest.json", "profile": null, "read_status": "parsed", "seed": 2022, "status": "manual_resource_smoke_ready"}
+{"bytes": 1389, "path": "exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/report.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
+{"bytes": 128, "path": "exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/supervisor.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
+{"bytes": 189, "path": "exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/telemetry.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
+{"bytes": 35, "path": "exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/worker_claim.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
 {"bytes": 9807, "path": "exp/paired_coldinit/sports_three_seed_v1/batch.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
 {"bytes": 4382, "path": "exp/promptmm_release/sports_promptmm_release_validation300_lr6e5_remaining_v1/batch.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
 {"bytes": 413876, "path": "exp/promptmm_release/sports_promptmm_release_validation300_seed2022_lr6e5_randominit_v1/report.json", "profile": null, "read_status": "parsed", "seed": 2022, "status": "completed"}
