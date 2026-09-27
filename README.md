@@ -10,7 +10,7 @@
 |---|---|
 | 正式训练代码 / 默认参数 | `codes/main_mmlight.py` / `codes/utility/parser.py`（CLI 优先） |
 | 当前路线与边界 | [跨交互路线](docs/research/CROSS_INTERACTION_ROUTE_2026-09-27.md) |
-| P0 精度复核已完成；P1a准备中 | [P0结果审计](docs/research/CROSS_INTERACTION_P0_AUDIT.md)：36项角色效用数值可分辨；[P1a准备审计](docs/research/CROSS_INTERACTION_P1A_PREPARATION_AUDIT_2026-09-27.md)记录统一缓存目标与训练集覆盖3/10/10项；尚无启动命令 |
+| P0 精度复核已完成；P1a待手动运行 | [P0结果审计](docs/research/CROSS_INTERACTION_P0_AUDIT.md)：36项角色效用数值可分辨；[P1a手动声明](docs/research/CROSS_INTERACTION_P1A_DECLARATION.md)固定共同缓存、3/10/10项和372对，真实运行尚未执行 |
 | 实验族、已完成证据 | [实验导航](docs/experiments/README.md) |
 | 文件分类与保留规则 | [工作区地图](docs/experiments/WORKSPACE_MAP.md) |
 | 声明与结果记录路由 | [RUN_CLOSEOUT](docs/experiments/RUN_CLOSEOUT.md) |
