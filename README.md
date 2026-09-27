@@ -10,8 +10,7 @@
 |---|---|
 | 正式训练代码 / 默认参数 | `codes/main_mmlight.py` / `codes/utility/parser.py`（CLI 优先） |
 | 当前路线与边界 | [跨交互路线](docs/research/CROSS_INTERACTION_ROUTE_2026-09-27.md) |
-| P0 准备结果与唯一手动命令 | [资产/实现审计](docs/research/CROSS_INTERACTION_P0_AUDIT.md) / [运行声明](docs/research/CROSS_INTERACTION_P0_DECLARATION.md)（尚未运行） |
-| P0 准备结果与唯一手动命令 | [资产/实现审计](docs/research/CROSS_INTERACTION_P0_AUDIT.md) / [运行声明](docs/research/CROSS_INTERACTION_P0_DECLARATION.md)（尚未运行） |
+| P0 已完成测量与边界 | [结果审计](docs/research/CROSS_INTERACTION_P0_AUDIT.md)：7对完成，效用仍低于数值分辨率；不要重跑旧命令 |
 | 实验族、已完成证据 | [实验导航](docs/experiments/README.md) |
 | 文件分类与保留规则 | [工作区地图](docs/experiments/WORKSPACE_MAP.md) |
 | 声明与结果记录路由 | [RUN_CLOSEOUT](docs/experiments/RUN_CLOSEOUT.md) |

@@ -140,3 +140,7 @@ P1b检查U5、再曝光及Full背景；P2检查实际联合选择与排序指标
 未来声明的记录目标预定如下，实际臂/seed必须在运行前补全：P0审计 `docs/research/CROSS_INTERACTION_P0_AUDIT.md`；P1审计 `docs/research/CROSS_INTERACTION_P1_AUDIT.md`；新诊断原始产物只进入新的 `exp/cross_interaction/` 子命名空间，不覆盖现有资产。本路线第5–6节是当前计划/门槛消费者；没有新正式结果矩阵。P2/P3另建声明和矩阵，不能把诊断写入旧18格。各阶段按 [RUN_CLOSEOUT](../experiments/RUN_CLOSEOUT.md) 追加日志、更新实验族及生成导航；论文消费者仅在主张确实变化后触发。
 
 **唯一下一步：准备P0资产与测量协议，确认可用完整状态及训练内探测覆盖，给出隔离诊断器的实现范围和用户手动运行声明；本次不执行P0、不实现门控。**
+
+## 2026-09-27 P0资源检查结果补充
+
+[P0审计](CROSS_INTERACTION_P0_AUDIT.md)记录用户手动完成warm seed2022的7对测量：5.547秒、CUDA allocator峰值122MiB、零对照严格一致、零Validation/Test读取。执行硬条件通过，但36个角色U1均低于预声明保守数值尺度；测量可识别性仍未建立，不进入P1。单次吞吐不能外推完整诊断成本。下一步只建议准备精度复核方案，任何新运行另行声明授权；上述历史计划不是自动队列。
