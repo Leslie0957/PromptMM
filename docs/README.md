@@ -2,6 +2,8 @@
 
 先读[仓库总览](../README.md)和[当前短日志](../TRAINING_LOG.md)，再按任务展开。
 
+- 最新立项与实施交接：[初始化转移 × 持续监督](research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md)。先准备受控四臂，定位机制补充，第二算法未成立；P1a停止状态保留，无新执行授权。下列旧路线仅供追溯。
+
 - 当前研究路线：[跨交互蒸馏效用综合决策](research/CROSS_INTERACTION_ROUTE_2026-09-27.md)。三份AI建议已评审；P0/P1a 已按门槛完成诊断，尚无新算法或正式训练授权。旧候选不再代表当前优先级。
 
 - [P0精度审计](research/CROSS_INTERACTION_P0_AUDIT.md)7对通过，36项角色效用数值可分辨；旧 P0 粗精度结论保留在审计中。

@@ -8,6 +8,8 @@
 
 ## 已完成的实验与诊断族
 
+新规划入口：[初始化 × KD立项单](../research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md)。仅评审/交接完成，无新实验；四臂准备不是P1b/P2延续，也未认证为第二算法。
+
 | 族 | 当前可用证据 / 状态 | 首选入口 |
 |---|---|---|
 | 跨交互 P0精度复核 / P1a筛查（完成） | P0暖状态7对、36/36角色均值数值可分辨；P1a共同缓存、3/10/10项、372对完成，冷/暖×图文四组 G1/G2 均 `screen_stop`；非联合策略或排名证据 | [P0审计](../research/CROSS_INTERACTION_P0_AUDIT.md) / [P1a结果审计](../research/CROSS_INTERACTION_P1_AUDIT.md) / [原声明](../research/CROSS_INTERACTION_P1A_DECLARATION.md) |

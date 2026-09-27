@@ -127,7 +127,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（105）
+## docs（106）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -184,6 +184,7 @@
 - [docs/research/CROSS_INTERACTION_P1_AUDIT.md](../research/CROSS_INTERACTION_P1_AUDIT.md)
 - [docs/research/CROSS_INTERACTION_ROUTE_2026-09-27.md](../research/CROSS_INTERACTION_ROUTE_2026-09-27.md)
 - [docs/research/EXPERIMENT_OVERVIEW_ZH_2026-09-24.md](../research/EXPERIMENT_OVERVIEW_ZH_2026-09-24.md)
+- [docs/research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md](../research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md)
 - [docs/research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md)
 - [docs/research/INNOVATION1_EVAL_RECOVERY_V1_LAUNCH_2026-09-26.md](../research/INNOVATION1_EVAL_RECOVERY_V1_LAUNCH_2026-09-26.md)
 - [docs/research/INNOVATION1_FIXED120_CURVES_2026-09-15.png](../research/INNOVATION1_FIXED120_CURVES_2026-09-15.png)

@@ -2,14 +2,14 @@
 
 先完整阅读 [AGENTS.md](AGENTS.md)，再读本页与 [TRAINING_LOG.md 当前状态及最新记录](TRAINING_LOG.md)。历史 pending 和旧交接不是执行队列。
 
-当前路线是 [跨交互效用诊断](docs/research/CROSS_INTERACTION_ROUTE_2026-09-27.md)：先做 P0 资产与测量准备，再依据证据决定是否开发方法。尚未选定新算法；实际 GPU 诊断和训练由用户手动执行。旧 RGCS、门控候选和历史“下一步”已被这一路线替代研究优先级，仍保留作历史参考。
+当前立项结论见[初始化转移 × 持续监督计划](docs/research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md)：值得准备受控四臂，当前定位为第一项工作的机制补充，未认定第二算法。跨交互P1a已筛查停止，不推进P1b/P2。下一步仅协议与合成验证准备；实际实验由用户另行授权并手动执行。旧RGCS/门控及历史“下一步”不是执行队列。
 
 ## 当前入口
 
 | 用途 | 入口 |
 |---|---|
 | 正式训练代码 / 默认参数 | `codes/main_mmlight.py` / `codes/utility/parser.py`（CLI 优先） |
-| 当前路线与边界 | [跨交互路线](docs/research/CROSS_INTERACTION_ROUTE_2026-09-27.md) |
+| 当前计划与实施交接 | [初始化 × KD立项单](docs/research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md)；[历史跨交互路线](docs/research/CROSS_INTERACTION_ROUTE_2026-09-27.md) |
 | P0 精度复核与 P1a 筛查已完成 | [P0结果审计](docs/research/CROSS_INTERACTION_P0_AUDIT.md)：36项角色效用数值可分辨；[P1a结果审计](docs/research/CROSS_INTERACTION_P1_AUDIT.md)：共同缓存、3/10/10项、372对完成，冷/暖×图文四组的预定 G1/G2 均筛查停止；尚无联合策略或正式训练结果 |
 | 实验族、已完成证据 | [实验导航](docs/experiments/README.md) |
 | 文件分类与保留规则 | [工作区地图](docs/experiments/WORKSPACE_MAP.md) |
