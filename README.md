@@ -10,7 +10,7 @@
 |---|---|
 | 正式训练代码 / 默认参数 | `codes/main_mmlight.py` / `codes/utility/parser.py`（CLI 优先） |
 | 当前路线与边界 | [跨交互路线](docs/research/CROSS_INTERACTION_ROUTE_2026-09-27.md) |
-| P0 已完成测量与边界 | [结果审计](docs/research/CROSS_INTERACTION_P0_AUDIT.md)：7对完成，未通过保守筛查；[精度复核实现与新手动声明](docs/research/CROSS_INTERACTION_P0_PRECISION_DECLARATION.md)已准备，尚未运行，不重跑旧命令 |
+| P0 精度复核已完成 | [结果审计](docs/research/CROSS_INTERACTION_P0_AUDIT.md)：7对通过，36项角色效用数值可分辨；尚无策略收益证据。下一步仅准备P1a方案，不重跑旧命令 |
 | 实验族、已完成证据 | [实验导航](docs/experiments/README.md) |
 | 文件分类与保留规则 | [工作区地图](docs/experiments/WORKSPACE_MAP.md) |
 | 声明与结果记录路由 | [RUN_CLOSEOUT](docs/experiments/RUN_CLOSEOUT.md) |

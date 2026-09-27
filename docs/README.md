@@ -5,7 +5,7 @@
 - 当前研究路线：[跨交互蒸馏效用综合决策](research/CROSS_INTERACTION_ROUTE_2026-09-27.md)。三份AI建议已评审；先P0资产与测量协议，后按门槛诊断，无新算法/结果或执行授权。旧候选不再代表当前优先级。
 
 - P0手动测量已完成：[结果审计](research/CROSS_INTERACTION_P0_AUDIT.md)。7对完成、效用仍不可识别；原声明保留但不可重跑，尚不进入P1。
-- 当前下一步：[精度复核实现与手动声明](research/CROSS_INTERACTION_P0_PRECISION_DECLARATION.md)已完成20项合成验证，容限已冻结，实际运行尚未执行。
+- 最新结果：[P0精度审计](research/CROSS_INTERACTION_P0_AUDIT.md)7对通过，36项角色效用数值可分辨。下一步仅准备P1a可行性与预注册方案；不重跑旧命令，不直接进入新执行。
 
 - [正式收尾协议](research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md)：固定配置、Baby预算和新评价入口验收；[资产复用核查](research/INNOVATION1_PROTOCOL_REUSE_AUDIT_2026-09-26.md)；[实验结束更新规范](experiments/RUN_CLOSEOUT.md)。
 - [v1失败审计](research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V1_AUDIT.md)：原串行命令空跑三次Baby入口，在首次预检停止；零新Test。旧[启动页](research/INNOVATION1_FORMAL_CLOSEOUT_LAUNCH_2026-09-26.md)仅供追溯，不能再执行。

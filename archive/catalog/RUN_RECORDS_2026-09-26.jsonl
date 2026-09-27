@@ -1,6 +1,10 @@
 {"bytes": 8987, "path": "exp/audit/promptmm300_joint_audit.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
 {"bytes": 2020, "path": "exp/audit/promptmm_lr6e5_three_seed.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
 {"bytes": 25081, "path": "exp/audit/sports300_audit.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
+{"bytes": 279, "path": "exp/cross_interaction/p0_precision_warm2022_v1/launch.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
+{"bytes": 72488, "path": "exp/cross_interaction/p0_precision_warm2022_v1/plan.json", "profile": null, "read_status": "parsed", "seed": 2022, "status": null}
+{"bytes": 317203, "path": "exp/cross_interaction/p0_precision_warm2022_v1/report.json", "profile": null, "read_status": "parsed", "seed": 2022, "status": "completed"}
+{"bytes": 112, "path": "exp/cross_interaction/p0_precision_warm2022_v1/supervisor.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
 {"bytes": 272, "path": "exp/cross_interaction/p0_warm2022_v1/launch.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
 {"bytes": 72488, "path": "exp/cross_interaction/p0_warm2022_v1/plan.json", "profile": null, "read_status": "parsed", "seed": 2022, "status": null}
 {"bytes": 25475, "path": "exp/cross_interaction/p0_warm2022_v1/report.json", "profile": null, "read_status": "parsed", "seed": 2022, "status": "completed"}
