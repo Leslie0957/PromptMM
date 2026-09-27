@@ -25,8 +25,18 @@ from initialization_kd_interaction import (  # noqa: E402
     run_arm)
 from initialization_kd_runtime import (bind_worker, digest_json, resolve_protocol,
                                        validate_artifacts, validate_environment)
+from initialization_kd_fast_eval import evaluate_validation_fast
 
 CONFIG = ROOT / 'docs/research/INITIALIZATION_KD_INTERACTION_CONFIG_2026-09-27.json'
+
+
+def _evaluator(spec):
+    name = spec.get('evaluator', 'reference_heapq')
+    if name == 'exact_topk_v1':
+        return evaluate_validation_fast
+    if name == 'reference_heapq':
+        return evaluate_validation
+    raise RuntimeError('Unknown evaluator')
 
 
 def _json(path, value):
@@ -86,6 +96,7 @@ def _worker(spec, output, manifest):
         device=device)
     _asset_gate(spec)
     protocol = resolve_protocol(spec)
+    evaluator = _evaluator(spec)
     torch.manual_seed(spec['seed'])
     torch.backends.cuda.matmul.allow_tf32 = False
     torch.backends.cudnn.allow_tf32 = False
@@ -132,7 +143,7 @@ def _worker(spec, output, manifest):
             budget()
             torch.cuda.synchronize()
             evaluation_started = time.monotonic()
-            result = evaluate_validation(model, train, val)
+            result = evaluator(model, train, val)
             torch.cuda.synchronize()
             status['timings'][f'{arm}_validation_epoch{epoch}'] = time.monotonic() - evaluation_started
             status['validation_calls'] += 1
@@ -174,6 +185,7 @@ def _worker(spec, output, manifest):
         torch.cuda.empty_cache()
     if not smoke:
         status['interaction'] = interaction(final)
+        status['evaluator'] = spec.get('evaluator', 'reference_heapq')
     status['peak_cuda_reserved_bytes'] = torch.cuda.max_memory_reserved(device)
     status['peak_sampled_rss_bytes'] = peak_rss[0]
     status['runtime_seconds'] = time.monotonic() - started
@@ -208,6 +220,12 @@ def _accept_completion(spec, output):
     expected_calls = 1 if spec.get('mode') == 'resource_smoke' else 1204
     if report.get('validation_calls') != expected_calls:
         raise RuntimeError('Validation call count mismatch')
+    if spec.get('mode') == 'four_arm':
+        if report.get('evaluator') != spec['evaluator'] or report.get('test_file_reads') != 0:
+            raise RuntimeError('Evaluator/Test contract mismatch')
+        finals = {arm: report['arms'][arm]['final_validation']['recall20'] for arm in ARMS}
+        if report.get('interaction') != interaction(finals):
+            raise RuntimeError('Final interaction mismatch')
     if (report.get('peak_cuda_reserved_bytes', float('inf')) > spec['hard_caps']['cuda_allocator_bytes']
             or report.get('peak_sampled_rss_bytes', float('inf')) > spec['hard_caps']['process_rss_bytes']):
         raise RuntimeError('Peak resource cap exceeded')

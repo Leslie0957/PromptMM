@@ -73,3 +73,14 @@
 已实现独立exact_topk：分区仅求K边界，显式按ID处理边界同分，最后只排序K项；原heapq仍是默认/参考。新旧路径共享GEMM、user batch256、全用户/候选、Train排除及全部指标公式/求和顺序，训练频率/轮数/配方没有改动。21项合成CPU检查通过，包含dense ties、signed zero、近邻浮点、mask、非有限/不足候选、完整指标精确相等、错误排名和损坏保存表拒绝。合成128x18357的rank-only三遍中位数加速约63.75倍，不含GPU/GEMM/指标，不能替代真实资源结论。
 
 下一步已准备[一次用户手动评价核验声明](INITIALIZATION_KD_EVAL_PARITY_LAUNCH_2026-09-27.md)：只读固定smoke-final表和Train/Val，先reference再fast两次完整Val，逐用户全分数行hash/有序Top50/完整指标精确相等，保存两份排名表供审计，训练步数0/Test0；新独占目录，900秒/2GiB CUDA allocator/4GiB workerRSS/256MiB输出/4GiB空闲盘。AI本次只执行合成检查，没有真实模型或分割读取/排名/GPU/训练。旧smoke与其结果保留，四臂默认评价器和不可启动配置保持不变。四臂24小时预算仍待真实核验结果后重算，不自动扩大预算或进入正式运行。
+
+
+## 2026-09-27 快评价器接入与四臂手动声明准备完成
+
+真实[parity v2](INITIALIZATION_KD_EVAL_PARITY_V2_AUDIT.md)通过后，新增独立cohort wrapper/config，只在声明four_arm中显式选择exact_topk_v1；旧训练配方、base候选JSON、smoke和parity入口语义不变。严格检查共同参数、数值配置、原24小时/2GiB CUDA/8GiB RSS/1GiB输出/free4GiB上限及原候选效应门槛；parent另核实评价器/Test0/四臂末轮interaction一致。无需恢复或使用smoke训练状态。
+
+29项合成CPU检查通过，含3用户/60物品/2维的四臂300epoch（每epoch1batch），1204次Val全部走快路径、每臂完整checkpoint和空起始AdamW、验收及错误interaction拒绝。未加载真实模型/分割、未运行GPU或真实训练。共同资产沿用预检锚，byte hash由运行时复核。
+
+预算：smoke非Val1.282秒/8步外推256800步约11.431小时，加1204次fastVal约3.386小时=14.817小时；额外50%余量后22.225小时，原24小时硬限不变。短程外推不保证长程完成，约356MiB峰值checkpoint槽位、最坏约50GB累计写入已纳入保存/波动讨论。I>=.002及T0−T1>=−.001冻结为描述性资源决策筛查，不是单seed显著性/非劣证据。
+
+当前唯一下一步由用户执行[完整四臂手动声明](INITIALIZATION_KD_COHORT_LAUNCH_2026-09-27.md)命令一次，之后只审计。独立wrapper以干净提交启动、独占新目录、无CLI参数覆盖，一臂失败即停、不重试或跨阶段。上方旧待准备/不可启动交接保留为历史；base候选入口仍disabled，只有新cohort命令可用于本声明。

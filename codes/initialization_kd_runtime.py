@@ -93,6 +93,24 @@ def resolve_protocol(spec):
             raise RuntimeError('Smoke contract mismatch')
         from dataclasses import replace
         return replace(p, epochs=1, batches_per_epoch=8)
+    if spec.get('mode') == 'four_arm':
+        if spec.get('evaluator') != 'exact_topk_v1':
+            raise RuntimeError('Formal evaluator mismatch')
+        if spec['numerics'] != {'device': 'cuda:0', 'dtype': 'float32', 'tf32': False,
+                                'deterministic_algorithms': True,
+                                'cublas_workspace_config': ':4096:8', 'torch_cpu_threads': 4,
+                                'pythonhashseed': '2022'}:
+            raise RuntimeError('Formal numerics mismatch')
+        if spec['hard_caps'] != {'parent_wall_seconds': 86400, 'cuda_allocator_bytes': 2147483648,
+                                 'process_rss_bytes': 8589934592, 'output_bytes': 1073741824,
+                                 'minimum_free_disk_bytes': 4294967296, 'attempts': 1}:
+            raise RuntimeError('Formal resource cap mismatch')
+        if spec['candidate_screening'] != {
+                'interaction_definition': '(R1-R0)-(T1-T0)',
+                'primary_min_positive_interaction_absolute_recall20': .002,
+                'candidate_noninferiority_margin_absolute_recall20': .001,
+                'single_seed_inference': 'descriptive_only_no_significance_or_equivalence'}:
+            raise RuntimeError('Formal screening threshold mismatch')
     return p
 
 
