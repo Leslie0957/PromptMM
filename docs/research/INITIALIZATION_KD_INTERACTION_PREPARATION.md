@@ -59,3 +59,11 @@
 **唯一下一步：完成最终启动验收修补和合成测试，并准备一个另行声明、有界、用户手动执行的 GPU 资源 smoke，以便关闭真实资源门。** 不直接启动四臂，不恢复旧入口，不提供未经核验的四臂命令。实际意义门槛仍为有依据的候选+0.002，单seed仅描述；非劣界.001不能用于单seed非劣主张。资源及科学判据须在新结果出现前冻结于最终声明。
 
 记录路由：本准备审计、资产预检JSON、TRAINING_LOG当前状态与append-only结果、根/docs/实验族入口更新；六项生成导航刷新。新四臂结果矩阵、旧18格、论文正文/缺口不适用（没有新实验/指标），历史记录不重写。
+
+## 2026-09-27 最终启动保护与资源 smoke 准备完成（GPU未执行）
+
+补强了 `tools/run_initialization_kd_interaction.py`，共用新的 `codes/initialization_kd_runtime.py`：严格核对配置与固定实现、解释器/依赖版本，拒绝脏源（仅豁免未跟踪check/）；内部worker必须与父进程的pipe token、PID、manifest、source/config和独占claim对应。末尾重新核对源，worker检查完整曲线、模型两表和AdamW参数/moments/步数，父进程独立核对完整文件集与SHA；exit0但缺产物不得报成功。修复合成测试发现的Windows路径分隔符不一致。保留失败日志/部分产物，不重试。
+
+新增独立smoke入口与配置，完整范围/命令/上限/输出/验收见 [用户手动smoke声明](INITIALIZATION_KD_RESOURCE_SMOKE_LAUNCH_2026-09-27.md)。只做T1前8批更新和一次完整Val，900秒、2GiB CUDA allocator、4GiB workerRSS、256MiB输出、4GiB空闲盘、一次尝试。正式四臂配置仍disabled，不产生四臂结果。smoke科学验收不使用候选interaction门槛，低Recall不是失败；只核实功能和资源。
+
+16项合成CPU检查通过，覆盖相同worker保存/验收整条路径（GPU接口全部模拟）、父进程超时、exit0缺结果、损坏checkpoint、错步数、错配置/环境与worker旁路拒绝。此准备阶段没有读取真实模型/tape/Train/Val/Test，没有运行GPU、真实排名或训练；共同资产引用5ebf5df的既有预检锚，不重复哈希。真实资源适配只待用户手动执行本次smoke。历史资产/check/原位保持，旧18格和论文主张不变；下一步仅用户运行独立smoke一次后审计，不自动进入正式四臂。

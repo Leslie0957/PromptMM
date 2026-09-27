@@ -1,0 +1,44 @@
+{
+  "status": "manual_resource_smoke_ready",
+  "mode": "resource_smoke",
+  "run_id": "sports_init_kd_resource_smoke_seed2022_v1",
+  "base_config": "docs/research/INITIALIZATION_KD_INTERACTION_CONFIG_2026-09-27.json",
+  "base_config_sha256": "15dced0bc76461a3868a69c1820fe31b809d6cb89ef473d1234852a82c1b0d0d",
+  "launch_branch": "codex/experiment/baby-teacher-baseline",
+  "launch_source_rule": "committed_head",
+  "launch_command": "& 'D:\\miniconda\\envs\\run_5060\\python.exe' -B 'D:\\Download\\PromptMM\\tools\\run_initialization_kd_resource_smoke.py'",
+  "output_namespace": "exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1",
+  "smoke": {
+    "arm": "T1",
+    "epochs": 1,
+    "batches_per_epoch": 8,
+    "epoch_zero_ranking": false,
+    "validation_calls": 1
+  },
+  "hard_caps": {
+    "parent_wall_seconds": 900,
+    "cuda_allocator_bytes": 2147483648,
+    "process_rss_bytes": 4294967296,
+    "output_bytes": 268435456,
+    "minimum_free_disk_bytes": 4294967296,
+    "attempts": 1
+  },
+  "environment": {
+    "python": "3.10.20",
+    "executable": "D:\\miniconda\\envs\\run_5060\\python.exe",
+    "torch": "2.11.0+cu128",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "psutil": "7.2.2"
+  },
+  "numerics": {
+    "device": "cuda:0",
+    "dtype": "float32",
+    "tf32": false,
+    "deterministic_algorithms": true,
+    "cublas_workspace_config": ":4096:8",
+    "torch_cpu_threads": 4,
+    "pythonhashseed": "2022"
+  },
+  "result_use": "resource_and_functionality_only_no_scientific_arm_result"
+}
