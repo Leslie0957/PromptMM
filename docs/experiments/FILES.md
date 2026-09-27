@@ -60,7 +60,7 @@
 - [check/deepseek.txt](../../check/deepseek.txt)
 - [check/doubao.txt](../../check/doubao.txt)
 
-## codes（65）
+## codes（66）
 
 - [codes/Models.py](../../codes/Models.py)
 - [codes/Models_empower.py](../../codes/Models_empower.py)
@@ -77,6 +77,7 @@
 - [codes/formal_closeout_eval.py](../../codes/formal_closeout_eval.py)
 - [codes/gradient_diagnostic.py](../../codes/gradient_diagnostic.py)
 - [codes/initialization_audit.py](../../codes/initialization_audit.py)
+- [codes/initialization_kd_adapter.py](../../codes/initialization_kd_adapter.py)
 - [codes/initialization_kd_interaction.py](../../codes/initialization_kd_interaction.py)
 - [codes/main.py](../../codes/main.py)
 - [codes/main_empower.py](../../codes/main_empower.py)
@@ -249,7 +250,7 @@
 
 - [logs/README.md](../../logs/README.md)
 
-## tests（9）
+## tests（10）
 
 - [tests/test_cached_deployment_benchmark.py](../../tests/test_cached_deployment_benchmark.py)
 - [tests/test_cross_interaction_p0.py](../../tests/test_cross_interaction_p0.py)
@@ -257,11 +258,12 @@
 - [tests/test_cross_interaction_p1a_plan.py](../../tests/test_cross_interaction_p1a_plan.py)
 - [tests/test_cross_interaction_p1a_runtime.py](../../tests/test_cross_interaction_p1a_runtime.py)
 - [tests/test_cross_interaction_precision.py](../../tests/test_cross_interaction_precision.py)
+- [tests/test_initialization_kd_adapter.py](../../tests/test_initialization_kd_adapter.py)
 - [tests/test_initialization_kd_interaction.py](../../tests/test_initialization_kd_interaction.py)
 - [tests/test_sports_paired_cold.py](../../tests/test_sports_paired_cold.py)
 - [tests/test_sports_sham_residual.py](../../tests/test_sports_sham_residual.py)
 
-## tools（23）
+## tools（24）
 
 - [tools/build_experiment_navigation.py](../../tools/build_experiment_navigation.py)
 - [tools/convert_mmrec_baby.py](../../tools/convert_mmrec_baby.py)
@@ -274,6 +276,7 @@
 - [tools/run_cross_interaction_p0.py](../../tools/run_cross_interaction_p0.py)
 - [tools/run_cross_interaction_p1a.py](../../tools/run_cross_interaction_p1a.py)
 - [tools/run_cross_interaction_precision.py](../../tools/run_cross_interaction_precision.py)
+- [tools/run_initialization_kd_interaction.py](../../tools/run_initialization_kd_interaction.py)
 - [tools/run_innovation1_eval_recovery.py](../../tools/run_innovation1_eval_recovery.py)
 - [tools/run_innovation1_formal_closeout.py](../../tools/run_innovation1_formal_closeout.py)
 - [tools/run_sports_cached_deployment.py](../../tools/run_sports_cached_deployment.py)

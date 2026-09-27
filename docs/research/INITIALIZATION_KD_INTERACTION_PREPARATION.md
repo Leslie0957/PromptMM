@@ -36,3 +36,11 @@
 获准的实际 seed2022 四臂若未来能启动，需独立 `pending` 声明：精确源提交、参数/身份 hash、上述每个硬限的执行点、唯一命令、一次性串行 R0→R1→T0→T1、一个失败即停/不重试、Validation-only/Test文件读取0。运行结束审计路径 `docs/research/INITIALIZATION_KD_INTERACTION_AUDIT.md`；`TRAINING_LOG.md` 追加 completed/failed；`docs/experiments/README.md` 更新实验族；新建**独立四臂×seed2022**结果矩阵，旧第一创新点18格不改。立项单仅在机制结论变化时追加状态；论文主张/缺口表仅在证据真的改变时更新；生成六项导航刷新。忽略原始产物留在上述新命名空间，普通准备不创建标签/bundle或冒充资产备份。
 
 **唯一下一步：**单独准备并合成验证 Train/Val 专用实际适配器及限制监督，再做限定范围只读资产字节预检；这些门未通过前不提供启动命令，不运行四臂。
+
+## 2026-09-27 下一准备阶段：隔离适配器（未获运行声明）
+
+按上述单一步骤新增 `codes/initialization_kd_adapter.py` 与封闭的 `tools/run_initialization_kd_interaction.py`。新适配器只定义 Train/Val 两个固定名称的稀疏矩阵读取，先比对 SHA256，再反序列化；新 worker 在调用任何分割加载前安装 Test 文件打开拒绝钩子。Validation 对有 Val 正例的用户，以点积给全部物品打分，排除 Train 物品、用旧 `part` 路径相同的 `heapq.nlargest` 顺序取前 K，按旧 recall/NDCG 定义求平均。旧 `Data`/`batch_test` 均未导入。新增缓存/随机初值/tape 的只读哈希和张量形状/有限性/索引预检函数；教师 checkpoint 仅校验来源哈希，不参与学生训练。
+
+四臂内核现可接受设备、每轮保存回调及资源检查回调。封闭 launcher 设计为一次独占命名空间、串行 R0→R1→T0→T1，按轮保留完整 Val 曲线与最早最优/第300轮模型及 AdamW 状态，部分失败保留已有文件。父进程轮询墙钟、RSS、输出字节和空闲盘；worker 每秒检查这些数值与 CUDA allocator，并设 CUDA allocator 分数限制。边界采样间隔约一秒，超过门限后终止；此处未以真实 GPU 测过实际超限反应时间。现配置仍为 `preparation_only_not_launchable`、`launch_command=null`，所以新脚本在任何资产读取前拒绝启动。`hard_caps`、`launch_branch` 和 `launch_source_rule` 只有经后续预检和正式声明后才能变成可运行字段；当前的候选数值仍标为未执行门。Val SHA256 来源于既有资产清单，但本阶段没有重新哈希当前字节。
+
+合成 CPU 检查覆盖 Train/Val 稀疏读入、Test 实际打开拒绝、哈希错配、排除 Train 的 Val 排名、预算边界、不可启动状态、父进程墙钟超限杀停并保留部分产物，以及原有四臂配对/新 AdamW；未读取任何真实 `.pt`、`.npy`、Train/Val/Test 分割，未跑 GPU 或训练。正式运行前仍需：单独的只读真实资产字节/张量预检；确认候选资源阈值在目标机器上的实际可用性与真实 GPU 监督；冻结阈值和完整正式声明后提交干净启动 HEAD。当前**没有经核验的启动命令**，不得把脚本名称当成手动运行许可。

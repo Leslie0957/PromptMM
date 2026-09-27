@@ -101,7 +101,7 @@ def select_epochs(recall):
 
 
 def run_arm(arm, random_initial, teacher_tables, semantics, tape, validation_callback,
-            protocol=Protocol()):
+            protocol=Protocol(), device='cpu', epoch_callback=None, budget_check=None):
     """Train one arm in memory for a caller-supplied tape and Val-only callback.
 
     No checkpoint, data or report I/O. A future real adapter must enforce the
@@ -122,34 +122,51 @@ def run_arm(arm, random_initial, teacher_tables, semantics, tape, validation_cal
                         ('item', model.item_id_embedding.weight)):
         if not torch.equal(weight.detach(), source[key]):
             raise RuntimeError('Initial pair copy mismatch: ' + key)
+    model.to(device)
+    targets = {key: value.to(device) for key, value in semantics.items()} if config['alpha'] else {}
     optimizer = torch.optim.AdamW(model.parameters(), lr=protocol.lr,
                                   weight_decay=protocol.weight_decay)
     if optimizer.state:
         raise RuntimeError('AdamW state not fresh')
     # Epoch 0 is descriptive and never competes for best checkpoint.
-    initial_metric = validation_callback(model, 0)
+    model.eval()
+    with torch.no_grad():
+        initial_metric = validation_callback(model, 0)
     curve = []
+    best_recall = -math.inf
     for epoch in range(protocol.epochs):
         model.train()
         for batch in range(protocol.batches_per_epoch):
-            ids = torch.as_tensor(tape[epoch, batch], dtype=torch.long)
+            if budget_check is not None:
+                budget_check()
+            ids = torch.as_tensor(tape[epoch, batch].copy(), dtype=torch.long, device=device)
             u = model.user_id_embedding(ids[0])
             pos = model.item_id_embedding(ids[1])
             neg = model.item_id_embedding(ids[2])
             loss = bpr_loss(u, pos, neg)
             if config['alpha']:
-                image = directional_distillation_loss(pos, semantics['item_image'][ids[1]])
-                text = directional_distillation_loss(pos, semantics['item_text'][ids[1]])
+                image = directional_distillation_loss(pos, targets['item_image'][ids[1]])
+                text = directional_distillation_loss(pos, targets['item_text'][ids[1]])
                 loss = loss + config['alpha'] * (image + 0.3 * text) / 1.3
             if not torch.isfinite(loss):
                 raise RuntimeError('Nonfinite training objective')
             optimizer.zero_grad(set_to_none=True)
             loss.backward()
             optimizer.step()
-        metric = validation_callback(model, epoch + 1)
+        model.eval()
+        with torch.no_grad():
+            metric = validation_callback(model, epoch + 1)
         if 'recall20' not in metric or 'ndcg20' not in metric:
             raise ValueError('Validation callback missing fixed endpoints')
+        if any(not math.isfinite(float(metric[key])) for key in ('recall20', 'ndcg20')):
+            raise ValueError('Nonfinite Validation metric')
         curve.append(metric)
+        is_best = metric['recall20'] > best_recall
+        if is_best:
+            best_recall = metric['recall20']
+        if epoch_callback is not None:
+            epoch_callback(arm, epoch + 1, metric, model, optimizer, is_best,
+                           epoch + 1 == protocol.epochs)
     selection = select_epochs([x['recall20'] for x in curve])
     return {'arm': arm, 'config': config, 'initial_validation': initial_metric,
             'curve': curve, 'selection': selection,

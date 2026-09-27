@@ -22,7 +22,8 @@
       "shared_cache": {"path": "exp/initialization_checks/sports_initialization_repeatability_seed2022_v1/process0/initial_tensors.pt", "sha256": "e5573bbdbbb609b4bc037a551455578463795c6df4bc4a1b236788d86c24da20"},
       "random_initial": {"path": "exp/paired_coldinit/sports_three_seed_v1/seed2022/initial.pt", "sha256": "2357868cefeb086dba14c3808415eac97936f67cf5e6bef8382d95ff43bcffff"},
       "triplet_tape": {"path": "exp/paired_coldinit/sports_three_seed_v1/seed2022/triplets.npy", "sha256": "e8d982c6a2d1be20a934502d4a1ad6ba7e2b699b21098668343341f10db3d77b", "shape": [300, 214, 3, 1024], "dtype": "int32"},
-      "train_mat_record_only": {"path": "data/sports/train_mat", "sha256": "5361c5486dddbf50084d011278a11d2f18a37e258f87be218b070ff02f4ab0f8"}
+      "train_mat_record_only": {"path": "data/sports/train_mat", "sha256": "5361c5486dddbf50084d011278a11d2f18a37e258f87be218b070ff02f4ab0f8"},
+      "val_mat_record_only": {"path": "data/sports/val_mat", "sha256": "1b4224c3fb091ad23a59e0f8a7b58c7b0c959863a7189cfc8b89eeb90a467e03"}
     }
   },
   "candidate_screening": {"interaction_definition": "(R1-R0)-(T1-T0)", "primary_min_positive_interaction_absolute_recall20": 0.002, "candidate_noninferiority_margin_absolute_recall20": 0.001, "single_seed_inference": "descriptive_only_no_significance_or_equivalence"},

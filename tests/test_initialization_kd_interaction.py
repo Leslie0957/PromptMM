@@ -83,6 +83,21 @@ class ProtocolTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             interaction({'R0': 0.1})
 
+    def test_epoch_callback_marks_earliest_best_and_final(self):
+        from initialization_kd_interaction import run_arm
+        records = []
+        def val(model, epoch):
+            return {'recall20': [0.0, 0.5, 0.5][epoch], 'ndcg20': 0.25}
+        def record(arm, epoch, metric, model, optimizer, best, final):
+            records.append((arm, epoch, best, final,
+                            {int(state['step']) for state in optimizer.state.values()}))
+        result = run_arm('R0', self.random, self.teacher, self.semantics,
+                         self.tape, val, self.p, epoch_callback=record)
+        self.assertEqual(records, [('R0', 1, True, False, {1}),
+                                   ('R0', 2, False, True, {2})])
+        self.assertEqual(result['selection']['best_index'], 0)
+        self.assertEqual(result['selection']['fixed_final_index'], 1)
+
     def test_split_denial_and_one_attempt(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp) / 'sports'
