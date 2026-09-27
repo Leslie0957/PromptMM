@@ -176,7 +176,7 @@ def item_kd(model, batch, targets, focus):
     return ((F.normalize(student, dim=-1) - F.normalize(targets[pos[selected]].detach(), dim=-1)) ** 2).sum() / (len(pos) * student.shape[-1])
 
 
-def paired_u1(checkpoint, targets, batch, probes, focus, coefficient, device='cpu'):
+def paired_u1(checkpoint, targets, batch, probes, focus, coefficient, device='cpu', observer=None):
     """Full dense reference. Both arms start at saved S, exactly one step each."""
     cpu_rng = torch.get_rng_state()
     cuda_rng = torch.cuda.get_rng_state_all() if device != 'cpu' else None
@@ -231,4 +231,8 @@ def paired_u1(checkpoint, targets, batch, probes, focus, coefficient, device='cp
             v.get('u1', 0) not in (None, 0) for roles in result['pools'].values()
             for v in roles.values() if isinstance(v, dict))):
         raise RuntimeError('Zero intervention mismatch')
+    if observer is not None:
+        # Optional post-update reader. Original updates and float32 results above
+        # are complete before it runs; default legacy behavior is unchanged.
+        result['precision'] = observer(a, b, probes, focus)
     return result
