@@ -67,3 +67,9 @@
 新增独立smoke入口与配置，完整范围/命令/上限/输出/验收见 [用户手动smoke声明](INITIALIZATION_KD_RESOURCE_SMOKE_LAUNCH_2026-09-27.md)。只做T1前8批更新和一次完整Val，900秒、2GiB CUDA allocator、4GiB workerRSS、256MiB输出、4GiB空闲盘、一次尝试。正式四臂配置仍disabled，不产生四臂结果。smoke科学验收不使用候选interaction门槛，低Recall不是失败；只核实功能和资源。
 
 16项合成CPU检查通过，覆盖相同worker保存/验收整条路径（GPU接口全部模拟）、父进程超时、exit0缺结果、损坏checkpoint、错步数、错配置/环境与worker旁路拒绝。此准备阶段没有读取真实模型/tape/Train/Val/Test，没有运行GPU、真实排名或训练；共同资产引用5ebf5df的既有预检锚，不重复哈希。真实资源适配只待用户手动执行本次smoke。历史资产/check/原位保持，旧18格和论文主张不变；下一步仅用户运行独立smoke一次后审计，不自动进入正式四臂。
+
+## 2026-09-27 Validation提速与精确等价核验准备（未执行真实评价）
+
+已实现独立exact_topk：分区仅求K边界，显式按ID处理边界同分，最后只排序K项；原heapq仍是默认/参考。新旧路径共享GEMM、user batch256、全用户/候选、Train排除及全部指标公式/求和顺序，训练频率/轮数/配方没有改动。21项合成CPU检查通过，包含dense ties、signed zero、近邻浮点、mask、非有限/不足候选、完整指标精确相等、错误排名和损坏保存表拒绝。合成128x18357的rank-only三遍中位数加速约63.75倍，不含GPU/GEMM/指标，不能替代真实资源结论。
+
+下一步已准备[一次用户手动评价核验声明](INITIALIZATION_KD_EVAL_PARITY_LAUNCH_2026-09-27.md)：只读固定smoke-final表和Train/Val，先reference再fast两次完整Val，逐用户全分数行hash/有序Top50/完整指标精确相等，保存两份排名表供审计，训练步数0/Test0；新独占目录，900秒/2GiB CUDA allocator/4GiB workerRSS/256MiB输出/4GiB空闲盘。AI本次只执行合成检查，没有真实模型或分割读取/排名/GPU/训练。旧smoke与其结果保留，四臂默认评价器和不可启动配置保持不变。四臂24小时预算仍待真实核验结果后重算，不自动扩大预算或进入正式运行。

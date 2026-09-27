@@ -60,7 +60,7 @@
 - [check/deepseek.txt](../../check/deepseek.txt)
 - [check/doubao.txt](../../check/doubao.txt)
 
-## codes（67）
+## codes（69）
 
 - [codes/Models.py](../../codes/Models.py)
 - [codes/Models_empower.py](../../codes/Models_empower.py)
@@ -78,6 +78,8 @@
 - [codes/gradient_diagnostic.py](../../codes/gradient_diagnostic.py)
 - [codes/initialization_audit.py](../../codes/initialization_audit.py)
 - [codes/initialization_kd_adapter.py](../../codes/initialization_kd_adapter.py)
+- [codes/initialization_kd_eval_parity.py](../../codes/initialization_kd_eval_parity.py)
+- [codes/initialization_kd_fast_eval.py](../../codes/initialization_kd_fast_eval.py)
 - [codes/initialization_kd_interaction.py](../../codes/initialization_kd_interaction.py)
 - [codes/initialization_kd_runtime.py](../../codes/initialization_kd_runtime.py)
 - [codes/main.py](../../codes/main.py)
@@ -130,7 +132,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（112）
+## docs（114）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -188,6 +190,8 @@
 - [docs/research/CROSS_INTERACTION_ROUTE_2026-09-27.md](../research/CROSS_INTERACTION_ROUTE_2026-09-27.md)
 - [docs/research/EXPERIMENT_OVERVIEW_ZH_2026-09-24.md](../research/EXPERIMENT_OVERVIEW_ZH_2026-09-24.md)
 - [docs/research/INITIALIZATION_KD_ASSET_PREFLIGHT_2026-09-27.json](../research/INITIALIZATION_KD_ASSET_PREFLIGHT_2026-09-27.json)
+- [docs/research/INITIALIZATION_KD_EVAL_PARITY_CONFIG_2026-09-27.json](../research/INITIALIZATION_KD_EVAL_PARITY_CONFIG_2026-09-27.json)
+- [docs/research/INITIALIZATION_KD_EVAL_PARITY_LAUNCH_2026-09-27.md](../research/INITIALIZATION_KD_EVAL_PARITY_LAUNCH_2026-09-27.md)
 - [docs/research/INITIALIZATION_KD_INTERACTION_CONFIG_2026-09-27.json](../research/INITIALIZATION_KD_INTERACTION_CONFIG_2026-09-27.json)
 - [docs/research/INITIALIZATION_KD_INTERACTION_PREPARATION.md](../research/INITIALIZATION_KD_INTERACTION_PREPARATION.md)
 - [docs/research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md](../research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md)
@@ -255,7 +259,7 @@
 
 - [logs/README.md](../../logs/README.md)
 
-## tests（11）
+## tests（12）
 
 - [tests/test_cached_deployment_benchmark.py](../../tests/test_cached_deployment_benchmark.py)
 - [tests/test_cross_interaction_p0.py](../../tests/test_cross_interaction_p0.py)
@@ -264,12 +268,13 @@
 - [tests/test_cross_interaction_p1a_runtime.py](../../tests/test_cross_interaction_p1a_runtime.py)
 - [tests/test_cross_interaction_precision.py](../../tests/test_cross_interaction_precision.py)
 - [tests/test_initialization_kd_adapter.py](../../tests/test_initialization_kd_adapter.py)
+- [tests/test_initialization_kd_fast_eval.py](../../tests/test_initialization_kd_fast_eval.py)
 - [tests/test_initialization_kd_interaction.py](../../tests/test_initialization_kd_interaction.py)
 - [tests/test_initialization_kd_runtime.py](../../tests/test_initialization_kd_runtime.py)
 - [tests/test_sports_paired_cold.py](../../tests/test_sports_paired_cold.py)
 - [tests/test_sports_sham_residual.py](../../tests/test_sports_sham_residual.py)
 
-## tools（26）
+## tools（27）
 
 - [tools/build_experiment_navigation.py](../../tools/build_experiment_navigation.py)
 - [tools/convert_mmrec_baby.py](../../tools/convert_mmrec_baby.py)
@@ -283,6 +288,7 @@
 - [tools/run_cross_interaction_p0.py](../../tools/run_cross_interaction_p0.py)
 - [tools/run_cross_interaction_p1a.py](../../tools/run_cross_interaction_p1a.py)
 - [tools/run_cross_interaction_precision.py](../../tools/run_cross_interaction_precision.py)
+- [tools/run_initialization_kd_eval_parity.py](../../tools/run_initialization_kd_eval_parity.py)
 - [tools/run_initialization_kd_interaction.py](../../tools/run_initialization_kd_interaction.py)
 - [tools/run_initialization_kd_resource_smoke.py](../../tools/run_initialization_kd_resource_smoke.py)
 - [tools/run_innovation1_eval_recovery.py](../../tools/run_innovation1_eval_recovery.py)

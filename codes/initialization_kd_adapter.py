@@ -59,7 +59,8 @@ def _dcg(bits):
     return sum(float(bit) / math.log2(index + 2) for index, bit in enumerate(bits))
 
 
-def evaluate_validation(model, train, val, ks=(10, 20, 40, 50), user_batch=256):
+def evaluate_validation(model, train, val, ks=(10, 20, 40, 50), user_batch=256,
+                        ranker=None):
     """Mirror part/heapq evaluator: Val users, Train exclusion, dot-product rank."""
     import torch
 
@@ -81,9 +82,12 @@ def evaluate_validation(model, train, val, ks=(10, 20, 40, 50), user_batch=256):
         for row, uid in enumerate(chunk):
             seen = set(train.indices[train.indptr[uid]:train.indptr[uid + 1]].tolist())
             positives = set(val.indices[val.indptr[uid]:val.indptr[uid + 1]].tolist())
-            candidates = (index for index in range(train.shape[1]) if index not in seen)
-            # heapq.nlargest reproduces old tie behavior and candidate iteration order.
-            ranked = heapq.nlargest(max_k, candidates, key=scores[row].__getitem__)
+            if ranker is None:
+                candidates = (index for index in range(train.shape[1]) if index not in seen)
+                # Preserve the completed smoke's reference implementation.
+                ranked = heapq.nlargest(max_k, candidates, key=scores[row].__getitem__)
+            else:
+                ranked = ranker(scores[row], seen, max_k)
             if len(ranked) < max_k:
                 raise ValueError('Insufficient Validation candidates')
             bits = [int(index in positives) for index in ranked]

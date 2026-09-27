@@ -236,8 +236,8 @@
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 05_34_16.930265_sports_light_init_pid42156.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 08_30_07.418852_sports_light_init_pid30132.pth", "source_catalog": false}
 {"bytes": 432550, "category": "root", "path": "PromptMM.png", "source_catalog": true}
-{"bytes": 2925, "category": "root", "path": "README.md", "source_catalog": true}
-{"bytes": 171613, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
+{"bytes": 3044, "category": "root", "path": "README.md", "source_catalog": true}
+{"bytes": 178480, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
 {"bytes": 739, "category": "archive", "path": "archive/README.md", "source_catalog": true}
 {"bytes": 409, "category": "archive", "path": "archive/run_patent_results/README.md", "source_catalog": true}
 {"bytes": 110276, "category": "archive", "path": "archive/run_patent_results/Result_0409_1319_Photo_a0.1_lr0.001/Result_0409_1319_Photo_a0.1_lr0.001_curve.png", "source_catalog": false}
@@ -450,7 +450,9 @@
 {"bytes": 22475, "category": "codes", "path": "codes/formal_closeout_eval.py", "source_catalog": true}
 {"bytes": 2330, "category": "codes", "path": "codes/gradient_diagnostic.py", "source_catalog": true}
 {"bytes": 2608, "category": "codes", "path": "codes/initialization_audit.py", "source_catalog": true}
-{"bytes": 6556, "category": "codes", "path": "codes/initialization_kd_adapter.py", "source_catalog": true}
+{"bytes": 6695, "category": "codes", "path": "codes/initialization_kd_adapter.py", "source_catalog": true}
+{"bytes": 2507, "category": "codes", "path": "codes/initialization_kd_eval_parity.py", "source_catalog": true}
+{"bytes": 1937, "category": "codes", "path": "codes/initialization_kd_fast_eval.py", "source_catalog": true}
 {"bytes": 9713, "category": "codes", "path": "codes/initialization_kd_interaction.py", "source_catalog": true}
 {"bytes": 10718, "category": "codes", "path": "codes/initialization_kd_runtime.py", "source_catalog": true}
 {"bytes": 49862, "category": "codes", "path": "codes/main.py", "source_catalog": true}
@@ -568,7 +570,7 @@
 {"bytes": 3177, "category": "docs", "path": "docs/PROMPTMM_RELEASE_VALIDATION300_BATCH.md", "source_catalog": true}
 {"bytes": 4183, "category": "docs", "path": "docs/PROMPTMM_RELEASE_VALIDATION_DIAGNOSTIC.md", "source_catalog": true}
 {"bytes": 2666, "category": "docs", "path": "docs/PROMPTMM_VALIDATION_FAST_PARITY.md", "source_catalog": true}
-{"bytes": 3999, "category": "docs", "path": "docs/README.md", "source_catalog": true}
+{"bytes": 4086, "category": "docs", "path": "docs/README.md", "source_catalog": true}
 {"bytes": 1827, "category": "docs", "path": "docs/SPORTS_GRADIENT_DIAGNOSTIC.md", "source_catalog": true}
 {"bytes": 2087, "category": "docs", "path": "docs/SPORTS_INITIALIZATION_DIAGNOSTIC.md", "source_catalog": true}
 {"bytes": 2554, "category": "docs", "path": "docs/SPORTS_INITIALIZATION_PAIR_SEED2022.md", "source_catalog": true}
@@ -582,7 +584,7 @@
 {"bytes": 3849, "category": "docs", "path": "docs/SPORTS_TEACHER_VALIDATION120_V1.md", "source_catalog": true}
 {"bytes": 100432, "category": "docs", "path": "docs/baselines/ASSET_MANIFEST_2026-07-29.csv", "source_catalog": true}
 {"bytes": 2893, "category": "docs", "path": "docs/baselines/README.md", "source_catalog": true}
-{"bytes": 8927, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
+{"bytes": 9033, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
 {"bytes": 8328, "category": "docs", "path": "docs/experiments/RUN_CLOSEOUT.md", "source_catalog": true}
 {"bytes": 1832, "category": "docs", "path": "docs/experiments/WORKSPACE_MAP.md", "source_catalog": true}
 {"bytes": 13879, "category": "docs", "path": "docs/paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md", "source_catalog": true}
@@ -607,8 +609,10 @@
 {"bytes": 23267, "category": "docs", "path": "docs/research/CROSS_INTERACTION_ROUTE_2026-09-27.md", "source_catalog": true}
 {"bytes": 25450, "category": "docs", "path": "docs/research/EXPERIMENT_OVERVIEW_ZH_2026-09-24.md", "source_catalog": true}
 {"bytes": 3875, "category": "docs", "path": "docs/research/INITIALIZATION_KD_ASSET_PREFLIGHT_2026-09-27.json", "source_catalog": true}
+{"bytes": 964, "category": "docs", "path": "docs/research/INITIALIZATION_KD_EVAL_PARITY_CONFIG_2026-09-27.json", "source_catalog": true}
+{"bytes": 6887, "category": "docs", "path": "docs/research/INITIALIZATION_KD_EVAL_PARITY_LAUNCH_2026-09-27.md", "source_catalog": true}
 {"bytes": 3573, "category": "docs", "path": "docs/research/INITIALIZATION_KD_INTERACTION_CONFIG_2026-09-27.json", "source_catalog": true}
-{"bytes": 15637, "category": "docs", "path": "docs/research/INITIALIZATION_KD_INTERACTION_PREPARATION.md", "source_catalog": true}
+{"bytes": 16976, "category": "docs", "path": "docs/research/INITIALIZATION_KD_INTERACTION_PREPARATION.md", "source_catalog": true}
 {"bytes": 13389, "category": "docs", "path": "docs/research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md", "source_catalog": true}
 {"bytes": 6491, "category": "docs", "path": "docs/research/INITIALIZATION_KD_RESOURCE_SMOKE_AUDIT.md", "source_catalog": true}
 {"bytes": 1530, "category": "docs", "path": "docs/research/INITIALIZATION_KD_RESOURCE_SMOKE_CONFIG_2026-09-27.json", "source_catalog": true}
@@ -2078,6 +2082,7 @@
 {"bytes": 6291, "category": "tests", "path": "tests/test_cross_interaction_p1a_runtime.py", "source_catalog": true}
 {"bytes": 7552, "category": "tests", "path": "tests/test_cross_interaction_precision.py", "source_catalog": true}
 {"bytes": 5748, "category": "tests", "path": "tests/test_initialization_kd_adapter.py", "source_catalog": true}
+{"bytes": 6795, "category": "tests", "path": "tests/test_initialization_kd_fast_eval.py", "source_catalog": true}
 {"bytes": 7500, "category": "tests", "path": "tests/test_initialization_kd_interaction.py", "source_catalog": true}
 {"bytes": 10376, "category": "tests", "path": "tests/test_initialization_kd_runtime.py", "source_catalog": true}
 {"bytes": 2014, "category": "tests", "path": "tests/test_sports_paired_cold.py", "source_catalog": true}
@@ -2094,7 +2099,8 @@
 {"bytes": 9192, "category": "tools", "path": "tools/run_cross_interaction_p0.py", "source_catalog": true}
 {"bytes": 16503, "category": "tools", "path": "tools/run_cross_interaction_p1a.py", "source_catalog": true}
 {"bytes": 12189, "category": "tools", "path": "tools/run_cross_interaction_precision.py", "source_catalog": true}
-{"bytes": 14866, "category": "tools", "path": "tools/run_initialization_kd_interaction.py", "source_catalog": true}
+{"bytes": 9321, "category": "tools", "path": "tools/run_initialization_kd_eval_parity.py", "source_catalog": true}
+{"bytes": 14926, "category": "tools", "path": "tools/run_initialization_kd_interaction.py", "source_catalog": true}
 {"bytes": 992, "category": "tools", "path": "tools/run_initialization_kd_resource_smoke.py", "source_catalog": true}
 {"bytes": 8919, "category": "tools", "path": "tools/run_innovation1_eval_recovery.py", "source_catalog": true}
 {"bytes": 11267, "category": "tools", "path": "tools/run_innovation1_formal_closeout.py", "source_catalog": true}

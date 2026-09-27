@@ -2,7 +2,7 @@
 
 先完整阅读 [AGENTS.md](AGENTS.md)，再读本页与 [TRAINING_LOG.md 当前状态及最新记录](TRAINING_LOG.md)。历史 pending 和旧交接不是执行队列。
 
-当前立项结论见[初始化转移 × 持续监督计划](docs/research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md)：受控四臂的[隔离核心与合成准备](docs/research/INITIALIZATION_KD_INTERACTION_PREPARATION.md)已完成，Train/Val 专用适配器与父进程杀停通过合成检查；真实资产预检及启动验收的合成检查已通过，用户手动[GPU资源smoke审计](docs/research/INITIALIZATION_KD_RESOURCE_SMOKE_AUDIT.md)通过（130.6秒、156MiB CUDA allocator）；完整Val约122秒，使原四臂24小时候选预算缺乏支持。下一步仅准备评价器提速与等价性验证，正式四臂仍不可启动，旧smoke命令不可重跑。此方向定位为第一项工作的机制补充，未认定第二算法。跨交互P1a已筛查停止，不推进P1b/P2；实际实验由用户另行授权并手动执行。旧RGCS/门控及历史“下一步”不是执行队列。
+当前立项结论见[初始化转移 × 持续监督计划](docs/research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md)：受控四臂的[隔离核心与合成准备](docs/research/INITIALIZATION_KD_INTERACTION_PREPARATION.md)已完成，Train/Val 专用适配器与父进程杀停通过合成检查；真实资产预检及启动验收的合成检查已通过，用户手动[GPU资源smoke审计](docs/research/INITIALIZATION_KD_RESOURCE_SMOKE_AUDIT.md)通过（130.6秒、156MiB CUDA allocator）；完整Val约122秒，使原四臂24小时候选预算缺乏支持。精确Top-K提速已通过合成验证，现有[用户手动评价等价/计时核验命令](docs/research/INITIALIZATION_KD_EVAL_PARITY_LAUNCH_2026-09-27.md)，不训练；正式四臂仍不可启动，旧smoke命令不可重跑。此方向定位为第一项工作的机制补充，未认定第二算法。跨交互P1a已筛查停止，不推进P1b/P2；实际实验由用户另行授权并手动执行。旧RGCS/门控及历史“下一步”不是执行队列。
 
 ## 当前入口
 

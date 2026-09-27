@@ -1,0 +1,23 @@
+{
+  "status": "launchable",
+  "mode": "evaluation_parity",
+  "run_id": "sports_init_kd_eval_parity_seed2022_v1",
+  "output_namespace": "exp/initialization_kd_interaction/sports_init_kd_eval_parity_seed2022_v1",
+  "launch_command": "& 'D:\\miniconda\\envs\\run_5060\\python.exe' -B 'D:\\Download\\PromptMM\\tools\\run_initialization_kd_eval_parity.py'",
+  "checkpoint": {
+    "path": "exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/T1/final.pt",
+    "sha256": "ec18349231ded3a4b1dcd400bff31b80a2e23b1c819519ad6c6fd0eb64ddbcc7",
+    "source_commit": "42336f5355dd76f4f17f91009deb8a4477ab2e44"
+  },
+  "comparison": {
+    "passes": 2,
+    "order": ["reference", "fast"],
+    "user_batch": 256,
+    "ks": [10, 20, 40, 50],
+    "score_identity": "all_float32_score_row_bytes_equal",
+    "ranking_identity": "all_users_ordered_top50_equal",
+    "metric_identity": "exact_all_report_fields",
+    "training_steps": 0,
+    "test_reads": 0
+  }
+}

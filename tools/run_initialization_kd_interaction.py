@@ -207,7 +207,8 @@ def _accept_completion(spec, output):
     return acceptance
 
 
-def _supervise(spec, output, command=None, poll_seconds=1.0, token=None, started=None):
+def _supervise(spec, output, command=None, poll_seconds=1.0, token=None, started=None,
+               completion_check=None):
     import psutil
 
     caps = _budget_from_spec(spec)
@@ -256,7 +257,7 @@ def _supervise(spec, output, command=None, poll_seconds=1.0, token=None, started
     if not failure and code == 0:
         try:
             check_budget(started, output, caps, 0, 0, shutil.disk_usage(output).free)
-            _accept_completion(spec, output)
+            (completion_check or _accept_completion)(spec, output)
             check_budget(started, output, caps, 0, 0, shutil.disk_usage(output).free)
         except Exception as exc:
             failure = 'Final acceptance failed: ' + str(exc)
