@@ -8,7 +8,7 @@
 
 ## 已完成的实验与诊断族
 
-新规划入口：[初始化 × KD立项单](../research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md)及[四臂准备审计](../research/INITIALIZATION_KD_INTERACTION_PREPARATION.md)。隔离核心、Train/Val 专用适配器与父进程杀停已通过合成验证，真实资产预检和启动验收合成检查已通过，[用户手动资源smoke审计](../research/INITIALIZATION_KD_RESOURCE_SMOKE_AUDIT.md)通过，130.6秒/156MiB；单次Val约122秒，正式四臂24小时预算未闭合，精确提速合成检查通过，[手动等价核验v1失败](../research/INITIALIZATION_KD_EVAL_PARITY_AUDIT.md)于Windows监控JSON替换，I/O修复及[v2手动声明](../research/INITIALIZATION_KD_EVAL_PARITY_V2_LAUNCH_2026-09-27.md)已准备，27项合成检查通过；无真实等价/计时结果，下一步用户执行v2一次，不重跑v1或smoke；这不是P1b/P2延续，也未认证为第二算法。
+新规划入口：[初始化 × KD立项单](../research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md)及[四臂准备审计](../research/INITIALIZATION_KD_INTERACTION_PREPARATION.md)。隔离核心、Train/Val 专用适配器与父进程杀停已通过合成验证，真实资产预检和启动验收合成检查已通过，[用户手动资源smoke审计](../research/INITIALIZATION_KD_RESOURCE_SMOKE_AUDIT.md)通过，130.6秒/156MiB；单次Val约122秒，正式四臂24小时预算未闭合，[评价等价v2审计](../research/INITIALIZATION_KD_EVAL_PARITY_V2_AUDIT.md)已通过：35598用户排名/指标精确一致，reference291.94秒、fast10.12秒，本次观测28.84倍；训练0/Test0。下一步准备快评价器接入隔离四臂并核算训练/保存总预算，再判断手动声明条件；正式四臂仍不可启动，parity及旧smoke不可重跑。这不是P1b/P2延续，也未认证为第二算法。
 
 | 族 | 当前可用证据 / 状态 | 首选入口 |
 |---|---|---|

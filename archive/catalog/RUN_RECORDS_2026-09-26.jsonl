@@ -483,6 +483,12 @@
 {"bytes": 85, "path": "exp/initialization_kd_interaction/sports_init_kd_eval_parity_seed2022_v1/supervisor.json", "profile": null, "read_status": "parsed", "seed": null, "status": "failed"}
 {"bytes": 184, "path": "exp/initialization_kd_interaction/sports_init_kd_eval_parity_seed2022_v1/telemetry.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
 {"bytes": 34, "path": "exp/initialization_kd_interaction/sports_init_kd_eval_parity_seed2022_v1/worker_claim.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
+{"bytes": 387, "path": "exp/initialization_kd_interaction/sports_init_kd_eval_parity_seed2022_v2/acceptance.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
+{"bytes": 7118, "path": "exp/initialization_kd_interaction/sports_init_kd_eval_parity_seed2022_v2/launch_manifest.json", "profile": null, "read_status": "parsed", "seed": 2022, "status": "launchable"}
+{"bytes": 2050, "path": "exp/initialization_kd_interaction/sports_init_kd_eval_parity_seed2022_v2/report.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
+{"bytes": 126, "path": "exp/initialization_kd_interaction/sports_init_kd_eval_parity_seed2022_v2/supervisor.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
+{"bytes": 187, "path": "exp/initialization_kd_interaction/sports_init_kd_eval_parity_seed2022_v2/telemetry.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
+{"bytes": 35, "path": "exp/initialization_kd_interaction/sports_init_kd_eval_parity_seed2022_v2/worker_claim.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
 {"bytes": 466, "path": "exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/T1/curve.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
 {"bytes": 553, "path": "exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/acceptance.json", "profile": null, "read_status": "parsed", "seed": null, "status": "passed"}
 {"bytes": 7734, "path": "exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/launch_manifest.json", "profile": null, "read_status": "parsed", "seed": 2022, "status": "manual_resource_smoke_ready"}

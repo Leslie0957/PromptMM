@@ -236,8 +236,8 @@
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 05_34_16.930265_sports_light_init_pid42156.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 08_30_07.418852_sports_light_init_pid30132.pth", "source_catalog": false}
 {"bytes": 432550, "category": "root", "path": "PromptMM.png", "source_catalog": true}
-{"bytes": 3276, "category": "root", "path": "README.md", "source_catalog": true}
-{"bytes": 188025, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
+{"bytes": 3188, "category": "root", "path": "README.md", "source_catalog": true}
+{"bytes": 192110, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
 {"bytes": 739, "category": "archive", "path": "archive/README.md", "source_catalog": true}
 {"bytes": 409, "category": "archive", "path": "archive/run_patent_results/README.md", "source_catalog": true}
 {"bytes": 110276, "category": "archive", "path": "archive/run_patent_results/Result_0409_1319_Photo_a0.1_lr0.001/Result_0409_1319_Photo_a0.1_lr0.001_curve.png", "source_catalog": false}
@@ -584,7 +584,7 @@
 {"bytes": 3849, "category": "docs", "path": "docs/SPORTS_TEACHER_VALIDATION120_V1.md", "source_catalog": true}
 {"bytes": 100432, "category": "docs", "path": "docs/baselines/ASSET_MANIFEST_2026-07-29.csv", "source_catalog": true}
 {"bytes": 2893, "category": "docs", "path": "docs/baselines/README.md", "source_catalog": true}
-{"bytes": 9216, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
+{"bytes": 9230, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
 {"bytes": 8328, "category": "docs", "path": "docs/experiments/RUN_CLOSEOUT.md", "source_catalog": true}
 {"bytes": 1832, "category": "docs", "path": "docs/experiments/WORKSPACE_MAP.md", "source_catalog": true}
 {"bytes": 13879, "category": "docs", "path": "docs/paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md", "source_catalog": true}
@@ -612,6 +612,7 @@
 {"bytes": 5259, "category": "docs", "path": "docs/research/INITIALIZATION_KD_EVAL_PARITY_AUDIT.md", "source_catalog": true}
 {"bytes": 964, "category": "docs", "path": "docs/research/INITIALIZATION_KD_EVAL_PARITY_CONFIG_2026-09-27.json", "source_catalog": true}
 {"bytes": 6887, "category": "docs", "path": "docs/research/INITIALIZATION_KD_EVAL_PARITY_LAUNCH_2026-09-27.md", "source_catalog": true}
+{"bytes": 6657, "category": "docs", "path": "docs/research/INITIALIZATION_KD_EVAL_PARITY_V2_AUDIT.md", "source_catalog": true}
 {"bytes": 1056, "category": "docs", "path": "docs/research/INITIALIZATION_KD_EVAL_PARITY_V2_CONFIG_2026-09-27.json", "source_catalog": true}
 {"bytes": 6140, "category": "docs", "path": "docs/research/INITIALIZATION_KD_EVAL_PARITY_V2_LAUNCH_2026-09-27.md", "source_catalog": true}
 {"bytes": 3573, "category": "docs", "path": "docs/research/INITIALIZATION_KD_INTERACTION_CONFIG_2026-09-27.json", "source_catalog": true}
@@ -1750,6 +1751,15 @@
 {"bytes": 184, "category": "exp", "path": "exp/initialization_kd_interaction/sports_init_kd_eval_parity_seed2022_v1/telemetry.json.tmp", "source_catalog": false}
 {"bytes": 1623, "category": "exp", "path": "exp/initialization_kd_interaction/sports_init_kd_eval_parity_seed2022_v1/worker.log", "source_catalog": false}
 {"bytes": 34, "category": "exp", "path": "exp/initialization_kd_interaction/sports_init_kd_eval_parity_seed2022_v1/worker_claim.json", "source_catalog": false}
+{"bytes": 387, "category": "exp", "path": "exp/initialization_kd_interaction/sports_init_kd_eval_parity_seed2022_v2/acceptance.json", "source_catalog": false}
+{"bytes": 7119728, "category": "exp", "path": "exp/initialization_kd_interaction/sports_init_kd_eval_parity_seed2022_v2/fast_top50.npy", "source_catalog": false}
+{"bytes": 7118, "category": "exp", "path": "exp/initialization_kd_interaction/sports_init_kd_eval_parity_seed2022_v2/launch_manifest.json", "source_catalog": false}
+{"bytes": 7119728, "category": "exp", "path": "exp/initialization_kd_interaction/sports_init_kd_eval_parity_seed2022_v2/reference_top50.npy", "source_catalog": false}
+{"bytes": 2050, "category": "exp", "path": "exp/initialization_kd_interaction/sports_init_kd_eval_parity_seed2022_v2/report.json", "source_catalog": false}
+{"bytes": 126, "category": "exp", "path": "exp/initialization_kd_interaction/sports_init_kd_eval_parity_seed2022_v2/supervisor.json", "source_catalog": false}
+{"bytes": 187, "category": "exp", "path": "exp/initialization_kd_interaction/sports_init_kd_eval_parity_seed2022_v2/telemetry.json", "source_catalog": false}
+{"bytes": 70, "category": "exp", "path": "exp/initialization_kd_interaction/sports_init_kd_eval_parity_seed2022_v2/worker.log", "source_catalog": false}
+{"bytes": 35, "category": "exp", "path": "exp/initialization_kd_interaction/sports_init_kd_eval_parity_seed2022_v2/worker_claim.json", "source_catalog": false}
 {"bytes": 41441421, "category": "exp", "path": "exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/T1/best.pt", "source_catalog": false}
 {"bytes": 466, "category": "exp", "path": "exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/T1/curve.json", "source_catalog": false}
 {"bytes": 41441755, "category": "exp", "path": "exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/T1/final.pt", "source_catalog": false}
