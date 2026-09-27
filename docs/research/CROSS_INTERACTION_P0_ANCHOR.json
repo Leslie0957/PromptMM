@@ -1,0 +1,64 @@
+{
+  "name": "SPORTS_P0_WARM2022_EXISTING_STATE_V1",
+  "torch": "2.11.0+cu128",
+  "teacher_anchor": "SPORTS_CONVERTED_20260916 / epoch37 / 57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea",
+  "assets": {
+    "warm_full": {
+      "path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-23 11_07_51.352217_sports_light_init_pid2784.pth",
+      "sha256": "bd651d78ab8853ba987c407a23cd485581ccf319a1b6c9202c5413091fc6879c"
+    },
+    "warm_manifest": {
+      "path": "exp/runs/sports/run_manifest__2026-09-23 11_07_51.352217_sports_light_init_pid2784.json",
+      "sha256": "825029a48243ac8780b366f088a754d0f9f3f0738e6e69449aaaaf3cc05530fa"
+    },
+    "cache": {
+      "path": "exp/initialization_checks/sports_initialization_repeatability_seed2022_v1/process0/initial_tensors.pt",
+      "sha256": "e5573bbdbbb609b4bc037a551455578463795c6df4bc4a1b236788d86c24da20"
+    },
+    "cache_report": {
+      "path": "exp/initialization_checks/sports_initialization_repeatability_seed2022_v1/process0/report.json",
+      "sha256": "293eb18c629aef64a598167b3e20a628cf50112898a0c66b514b2cc18caa4ea9"
+    },
+    "train": {
+      "path": "data/sports/train_mat",
+      "sha256": "5361c5486dddbf50084d011278a11d2f18a37e258f87be218b070ff02f4ab0f8"
+    }
+  },
+  "expected_coverage": {
+    "shape": [
+      35598,
+      18357
+    ],
+    "edges": 218409,
+    "item_degree_0": 5,
+    "item_degree_1_to_3": 2050,
+    "items_four_pools": 16302,
+    "pool_edges": {
+      "update": 61345,
+      "A": 56591,
+      "B": 52463,
+      "C": 48010
+    },
+    "chosen": [
+      {
+        "stratum": 0,
+        "item": 1494,
+        "degree": 5,
+        "multiplicity": 1
+      },
+      {
+        "stratum": 1,
+        "item": 1744,
+        "degree": 7,
+        "multiplicity": 1
+      },
+      {
+        "stratum": 2,
+        "item": 1646,
+        "degree": 16,
+        "multiplicity": 1
+      }
+    ],
+    "missing_strata": []
+  }
+}

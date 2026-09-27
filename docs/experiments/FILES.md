@@ -60,13 +60,14 @@
 - [check/deepseek.txt](../../check/deepseek.txt)
 - [check/doubao.txt](../../check/doubao.txt)
 
-## codes（58）
+## codes（59）
 
 - [codes/Models.py](../../codes/Models.py)
 - [codes/Models_empower.py](../../codes/Models_empower.py)
 - [codes/Models_mmlight.py](../../codes/Models_mmlight.py)
 - [codes/cached_deployment_benchmark.py](../../codes/cached_deployment_benchmark.py)
 - [codes/check_promptmm_validation_parity.py](../../codes/check_promptmm_validation_parity.py)
+- [codes/cross_interaction_p0.py](../../codes/cross_interaction_p0.py)
 - [codes/efficiency_benchmark.py](../../codes/efficiency_benchmark.py)
 - [codes/formal_closeout_eval.py](../../codes/formal_closeout_eval.py)
 - [codes/gradient_diagnostic.py](../../codes/gradient_diagnostic.py)
@@ -121,7 +122,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（95）
+## docs（98）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -166,6 +167,9 @@
 - [docs/research/BABY_IMAGE_ONLY_CURVES_2026-09-15.png](../research/BABY_IMAGE_ONLY_CURVES_2026-09-15.png)
 - [docs/research/BABY_IMAGE_ONLY_THREE_SEED_SUMMARY_2026-09-15.md](../research/BABY_IMAGE_ONLY_THREE_SEED_SUMMARY_2026-09-15.md)
 - [docs/research/CONTROLLED_COST_MECHANISM_PLAN_2026-09-22.md](../research/CONTROLLED_COST_MECHANISM_PLAN_2026-09-22.md)
+- [docs/research/CROSS_INTERACTION_P0_ANCHOR.json](../research/CROSS_INTERACTION_P0_ANCHOR.json)
+- [docs/research/CROSS_INTERACTION_P0_AUDIT.md](../research/CROSS_INTERACTION_P0_AUDIT.md)
+- [docs/research/CROSS_INTERACTION_P0_DECLARATION.md](../research/CROSS_INTERACTION_P0_DECLARATION.md)
 - [docs/research/CROSS_INTERACTION_ROUTE_2026-09-27.md](../research/CROSS_INTERACTION_ROUTE_2026-09-27.md)
 - [docs/research/EXPERIMENT_OVERVIEW_ZH_2026-09-24.md](../research/EXPERIMENT_OVERVIEW_ZH_2026-09-24.md)
 - [docs/research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md)
@@ -229,13 +233,14 @@
 
 - [logs/README.md](../../logs/README.md)
 
-## tests（3）
+## tests（4）
 
 - [tests/test_cached_deployment_benchmark.py](../../tests/test_cached_deployment_benchmark.py)
+- [tests/test_cross_interaction_p0.py](../../tests/test_cross_interaction_p0.py)
 - [tests/test_sports_paired_cold.py](../../tests/test_sports_paired_cold.py)
 - [tests/test_sports_sham_residual.py](../../tests/test_sports_sham_residual.py)
 
-## tools（20）
+## tools（21）
 
 - [tools/build_experiment_navigation.py](../../tools/build_experiment_navigation.py)
 - [tools/convert_mmrec_baby.py](../../tools/convert_mmrec_baby.py)
@@ -245,6 +250,7 @@
 - [tools/diagnose_sports_matched_target_direction.py](../../tools/diagnose_sports_matched_target_direction.py)
 - [tools/diagnose_sports_weighted_directions.py](../../tools/diagnose_sports_weighted_directions.py)
 - [tools/freeze_innovation1_results.py](../../tools/freeze_innovation1_results.py)
+- [tools/run_cross_interaction_p0.py](../../tools/run_cross_interaction_p0.py)
 - [tools/run_innovation1_eval_recovery.py](../../tools/run_innovation1_eval_recovery.py)
 - [tools/run_innovation1_formal_closeout.py](../../tools/run_innovation1_formal_closeout.py)
 - [tools/run_sports_cached_deployment.py](../../tools/run_sports_cached_deployment.py)
