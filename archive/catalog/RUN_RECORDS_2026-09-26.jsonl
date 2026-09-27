@@ -9,6 +9,7 @@
 {"bytes": 72488, "path": "exp/cross_interaction/p0_warm2022_v1/plan.json", "profile": null, "read_status": "parsed", "seed": 2022, "status": null}
 {"bytes": 25475, "path": "exp/cross_interaction/p0_warm2022_v1/report.json", "profile": null, "read_status": "parsed", "seed": 2022, "status": "completed"}
 {"bytes": 112, "path": "exp/cross_interaction/p0_warm2022_v1/supervisor.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
+{"bytes": 54292, "path": "exp/cross_interaction/p1a_coverage_seed31027_v1/coverage.json", "profile": null, "read_status": "parsed", "seed": 31027, "status": null}
 {"bytes": 6895, "path": "exp/efficiency/sports_cached_deployment_seed2022_v1/batch.json", "profile": null, "read_status": "parsed", "seed": null, "status": "failed"}
 {"bytes": 5491, "path": "exp/efficiency/sports_cached_deployment_seed2022_v1/preflight.json", "profile": null, "read_status": "parsed", "seed": null, "status": "passed"}
 {"bytes": 2366, "path": "exp/efficiency/sports_cached_deployment_seed2022_v1/round0_offline_T_b0/report.json", "profile": null, "read_status": "parsed", "seed": null, "status": "failed"}

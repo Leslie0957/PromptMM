@@ -2,7 +2,7 @@
 
 更新：2026-09-26。新窗口只需先读根目录[总览](../../README.md)、[AGENTS](../../AGENTS.md)和[短日志](../../TRAINING_LOG.md)，然后按本表选相关资料。日期较早文档中的“当前”“下一步”均只描述当时状态，不能自动执行旧命令。
 
-2026-09-27 研究优先级更新：[跨交互效用路线](../research/CROSS_INTERACTION_ROUTE_2026-09-27.md)已确定；[P0审计](../research/CROSS_INTERACTION_P0_AUDIT.md)及精度复核完成，36项角色效用数值可分辨，尚无策略收益证据。[P1a草案](../research/CROSS_INTERACTION_P1A_FEASIBILITY_2026-09-27.md)仅供可行性与预注册审查，冷缓存身份、独立探测覆盖和实用门槛未闭合，不授权运行。
+2026-09-27 研究优先级更新：[跨交互效用路线](../research/CROSS_INTERACTION_ROUTE_2026-09-27.md)已确定；[P0审计](../research/CROSS_INTERACTION_P0_AUDIT.md)及精度复核完成，36项角色效用数值可分辨，尚无策略收益证据。[P1a准备审计](../research/CROSS_INTERACTION_P1A_PREPARATION_AUDIT_2026-09-27.md)已记录用户选择的共同缓存条件目标及训练集覆盖；完整探测、实用门槛和资源声明未闭合，不授权运行。
 
 运行声明与结束审计先读[固定更新规范](RUN_CLOSEOUT.md)。第一点复用结论见[协议核查](../research/INNOVATION1_PROTOCOL_REUSE_AUDIT_2026-09-26.md)，执行边界见[正式收尾协议](../research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md)；v1[失败审计](../research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V1_AUDIT.md)与[v2失败/有效训练审计](../research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V2_AUDIT.md)保留原证据，旧命令不可再执行。[仅评价恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md)是最新正式评价入口。
 
@@ -10,7 +10,7 @@
 
 | 族 | 当前可用证据 / 状态 | 首选入口 |
 |---|---|---|
-| 跨交互 P0精度复核（完成）/P1a草案 | warm seed2022共7对；4.86秒、122MiB；36/36角色均值数值可分辨，尚非统计/策略通过；P1a未执行 | [P0审计](../research/CROSS_INTERACTION_P0_AUDIT.md) / [P1a草案](../research/CROSS_INTERACTION_P1A_FEASIBILITY_2026-09-27.md) / [精度复核原声明（已执行）](../research/CROSS_INTERACTION_P0_PRECISION_DECLARATION.md) |
+| 跨交互 P0精度复核（完成）/P1a准备 | P0暖状态7对、36/36角色均值数值可分辨；P1a统一缓存目标已选择，双context覆盖3/10/10项、1项C正角色N/A；无真实P1a结果 | [P0审计](../research/CROSS_INTERACTION_P0_AUDIT.md) / [P1a准备](../research/CROSS_INTERACTION_P1A_PREPARATION_AUDIT_2026-09-27.md) / [草案](../research/CROSS_INTERACTION_P1A_FEASIBILITY_2026-09-27.md) |
 | Baby数据/冻结教师/BPR基础线 | 既有正式证据；不是整个项目唯一已完成阶段 | [Baby总册](../research/INNOVATION1_THESIS_EVIDENCE_2026-09-15.md) |
 | Baby BPR / Full / 原Image-0.3 | 三种子正式组；Image2023审计例外、2024低值均保留 | [三种子审计](../research/BABY_IMAGE_ONLY_THREE_SEED_SUMMARY_2026-09-15.md) |
 | Baby固定120与图像系数匹配 | 七次Validation诊断，不能替换既有Test | [总册§4–5](../research/INNOVATION1_THESIS_EVIDENCE_2026-09-15.md) |

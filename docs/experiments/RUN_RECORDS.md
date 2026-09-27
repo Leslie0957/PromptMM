@@ -1,6 +1,6 @@
 # 运行与诊断记录导航
 
-目录版本：2026-09-26。共266个现存exp JSON记录；数量不是独立实验数。
+目录版本：2026-09-26。共267个现存exp JSON记录；数量不是独立实验数。
 保存状态按JSON原文摘录；—表示该字段未记录/未在约定层级找到，不表示成功或失败。
 批报告、子任务、资源检查与正式运行混列供定位，不能相加作为样本数。
 历史已做但本机没有JSON的实验，请查[完整历史章节](../../archive/training/ENTRY_INDEX_2026-09-26.md)。
@@ -19,6 +19,7 @@
 | [exp/cross_interaction/p0_warm2022_v1/plan.json](../../exp/cross_interaction/p0_warm2022_v1/plan.json) | — | — | 2022 | parsed |
 | [exp/cross_interaction/p0_warm2022_v1/report.json](../../exp/cross_interaction/p0_warm2022_v1/report.json) | completed | — | 2022 | parsed |
 | [exp/cross_interaction/p0_warm2022_v1/supervisor.json](../../exp/cross_interaction/p0_warm2022_v1/supervisor.json) | completed | — | — | parsed |
+| [exp/cross_interaction/p1a_coverage_seed31027_v1/coverage.json](../../exp/cross_interaction/p1a_coverage_seed31027_v1/coverage.json) | — | — | 31027 | parsed |
 | [exp/efficiency/sports_cached_deployment_seed2022_v1/batch.json](../../exp/efficiency/sports_cached_deployment_seed2022_v1/batch.json) | failed | — | — | parsed |
 | [exp/efficiency/sports_cached_deployment_seed2022_v1/preflight.json](../../exp/efficiency/sports_cached_deployment_seed2022_v1/preflight.json) | passed | — | — | parsed |
 | [exp/efficiency/sports_cached_deployment_seed2022_v1/round0_offline_T_b0/report.json](../../exp/efficiency/sports_cached_deployment_seed2022_v1/round0_offline_T_b0/report.json) | failed | — | — | parsed |
