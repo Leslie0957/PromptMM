@@ -2,10 +2,10 @@
 
 先读[仓库总览](../README.md)和[当前短日志](../TRAINING_LOG.md)，再按任务展开。
 
-- 当前研究路线：[跨交互蒸馏效用综合决策](research/CROSS_INTERACTION_ROUTE_2026-09-27.md)。三份AI建议已评审；先P0资产与测量协议，后按门槛诊断，无新算法/结果或执行授权。旧候选不再代表当前优先级。
+- 当前研究路线：[跨交互蒸馏效用综合决策](research/CROSS_INTERACTION_ROUTE_2026-09-27.md)。三份AI建议已评审；P0/P1a 已按门槛完成诊断，尚无新算法或正式训练授权。旧候选不再代表当前优先级。
 
-- P0手动测量已完成：[结果审计](research/CROSS_INTERACTION_P0_AUDIT.md)。7对完成、效用仍不可识别；原声明保留但不可重跑，尚不进入P1。
-- 最新结果：[P0精度审计](research/CROSS_INTERACTION_P0_AUDIT.md)7对通过，36项角色效用数值可分辨。[P1a手动声明](research/CROSS_INTERACTION_P1A_DECLARATION.md)与[准备审计](research/CROSS_INTERACTION_P1A_PREPARATION_AUDIT_2026-09-27.md)已封存共同缓存、训练集计划和合成验证；真实P1a尚未运行。
+- [P0精度审计](research/CROSS_INTERACTION_P0_AUDIT.md)7对通过，36项角色效用数值可分辨；旧 P0 粗精度结论保留在审计中。
+- 最新结果：[P1a审计](research/CROSS_INTERACTION_P1_AUDIT.md)核实共同缓存的372对单步诊断完成；冷/暖×图文四组的预定 G1/G2 均筛查停止。尚无联合策略、正式训练或排名证据；[原手动声明](research/CROSS_INTERACTION_P1A_DECLARATION.md)仅供追溯，不可重跑。
 
 - [正式收尾协议](research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md)：固定配置、Baby预算和新评价入口验收；[资产复用核查](research/INNOVATION1_PROTOCOL_REUSE_AUDIT_2026-09-26.md)；[实验结束更新规范](experiments/RUN_CLOSEOUT.md)。
 - [v1失败审计](research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V1_AUDIT.md)：原串行命令空跑三次Baby入口，在首次预检停止；零新Test。旧[启动页](research/INNOVATION1_FORMAL_CLOSEOUT_LAUNCH_2026-09-26.md)仅供追溯，不能再执行。
