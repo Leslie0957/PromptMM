@@ -10,7 +10,7 @@
 
 | 族 | 当前可用证据 / 状态 | 首选入口 |
 |---|---|---|
-| 跨交互 P0（执行完成，效用未分辨） | warm seed2022共7对；5.547秒、122MiB；36项角色效用均低于预声明数值尺度，不进入P1，不重跑 | [P0审计](../research/CROSS_INTERACTION_P0_AUDIT.md) / [声明](../research/CROSS_INTERACTION_P0_DECLARATION.md) |
+| 跨交互 P0（执行完成，效用未分辨） | warm seed2022共7对；5.547秒、122MiB；36项角色效用均低于预声明数值尺度，不进入P1，不重跑 | [P0审计](../research/CROSS_INTERACTION_P0_AUDIT.md) / [精度复核方案（未实现）](../research/CROSS_INTERACTION_P0_PRECISION_REVIEW_2026-09-27.md) |
 | Baby数据/冻结教师/BPR基础线 | 既有正式证据；不是整个项目唯一已完成阶段 | [Baby总册](../research/INNOVATION1_THESIS_EVIDENCE_2026-09-15.md) |
 | Baby BPR / Full / 原Image-0.3 | 三种子正式组；Image2023审计例外、2024低值均保留 | [三种子审计](../research/BABY_IMAGE_ONLY_THREE_SEED_SUMMARY_2026-09-15.md) |
 | Baby固定120与图像系数匹配 | 七次Validation诊断，不能替换既有Test | [总册§4–5](../research/INNOVATION1_THESIS_EVIDENCE_2026-09-15.md) |

@@ -122,7 +122,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（98）
+## docs（99）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -170,6 +170,7 @@
 - [docs/research/CROSS_INTERACTION_P0_ANCHOR.json](../research/CROSS_INTERACTION_P0_ANCHOR.json)
 - [docs/research/CROSS_INTERACTION_P0_AUDIT.md](../research/CROSS_INTERACTION_P0_AUDIT.md)
 - [docs/research/CROSS_INTERACTION_P0_DECLARATION.md](../research/CROSS_INTERACTION_P0_DECLARATION.md)
+- [docs/research/CROSS_INTERACTION_P0_PRECISION_REVIEW_2026-09-27.md](../research/CROSS_INTERACTION_P0_PRECISION_REVIEW_2026-09-27.md)
 - [docs/research/CROSS_INTERACTION_ROUTE_2026-09-27.md](../research/CROSS_INTERACTION_ROUTE_2026-09-27.md)
 - [docs/research/EXPERIMENT_OVERVIEW_ZH_2026-09-24.md](../research/EXPERIMENT_OVERVIEW_ZH_2026-09-24.md)
 - [docs/research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md)
