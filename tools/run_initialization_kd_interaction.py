@@ -32,7 +32,16 @@ CONFIG = ROOT / 'docs/research/INITIALIZATION_KD_INTERACTION_CONFIG_2026-09-27.j
 def _json(path, value):
     temporary = path.with_name(path.name + '.tmp')
     temporary.write_text(json.dumps(value, indent=2, sort_keys=True) + '\n', encoding='utf-8')
-    temporary.replace(path)
+    # Windows readers may briefly deny replacement while holding the old file.
+    # Retry publication of these same bytes only, never the worker or experiment.
+    for attempt in range(11):
+        try:
+            temporary.replace(path)
+            return
+        except OSError as exc:
+            if getattr(exc, 'winerror', None) not in (5, 32, 33) or attempt == 10:
+                raise
+            time.sleep(0.05)  # at most 0.5 seconds of requested waiting
 
 
 def _source_gate(spec):

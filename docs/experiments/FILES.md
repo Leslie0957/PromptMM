@@ -132,7 +132,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（114）
+## docs（115）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -190,6 +190,7 @@
 - [docs/research/CROSS_INTERACTION_ROUTE_2026-09-27.md](../research/CROSS_INTERACTION_ROUTE_2026-09-27.md)
 - [docs/research/EXPERIMENT_OVERVIEW_ZH_2026-09-24.md](../research/EXPERIMENT_OVERVIEW_ZH_2026-09-24.md)
 - [docs/research/INITIALIZATION_KD_ASSET_PREFLIGHT_2026-09-27.json](../research/INITIALIZATION_KD_ASSET_PREFLIGHT_2026-09-27.json)
+- [docs/research/INITIALIZATION_KD_EVAL_PARITY_AUDIT.md](../research/INITIALIZATION_KD_EVAL_PARITY_AUDIT.md)
 - [docs/research/INITIALIZATION_KD_EVAL_PARITY_CONFIG_2026-09-27.json](../research/INITIALIZATION_KD_EVAL_PARITY_CONFIG_2026-09-27.json)
 - [docs/research/INITIALIZATION_KD_EVAL_PARITY_LAUNCH_2026-09-27.md](../research/INITIALIZATION_KD_EVAL_PARITY_LAUNCH_2026-09-27.md)
 - [docs/research/INITIALIZATION_KD_INTERACTION_CONFIG_2026-09-27.json](../research/INITIALIZATION_KD_INTERACTION_CONFIG_2026-09-27.json)
@@ -259,7 +260,7 @@
 
 - [logs/README.md](../../logs/README.md)
 
-## tests（12）
+## tests（13）
 
 - [tests/test_cached_deployment_benchmark.py](../../tests/test_cached_deployment_benchmark.py)
 - [tests/test_cross_interaction_p0.py](../../tests/test_cross_interaction_p0.py)
@@ -270,6 +271,7 @@
 - [tests/test_initialization_kd_adapter.py](../../tests/test_initialization_kd_adapter.py)
 - [tests/test_initialization_kd_fast_eval.py](../../tests/test_initialization_kd_fast_eval.py)
 - [tests/test_initialization_kd_interaction.py](../../tests/test_initialization_kd_interaction.py)
+- [tests/test_initialization_kd_io.py](../../tests/test_initialization_kd_io.py)
 - [tests/test_initialization_kd_runtime.py](../../tests/test_initialization_kd_runtime.py)
 - [tests/test_sports_paired_cold.py](../../tests/test_sports_paired_cold.py)
 - [tests/test_sports_sham_residual.py](../../tests/test_sports_sham_residual.py)

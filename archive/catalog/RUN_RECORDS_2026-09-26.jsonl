@@ -478,6 +478,11 @@
 {"bytes": 4063, "path": "exp/initialization_checks/sports_sharedteacherinit_alpha3_seed2022_val300_v1/run.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
 {"bytes": 4170, "path": "exp/initialization_checks/sports_sharedteacherinit_equal_matched_seed2022_val300_v1/run.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
 {"bytes": 6350, "path": "exp/initialization_checks/sports_sharedteacherinit_pair_seed2022_val300_v1/batch.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
+{"bytes": 98, "path": "exp/initialization_kd_interaction/sports_init_kd_eval_parity_seed2022_v1/failure.json", "profile": null, "read_status": "parsed", "seed": null, "status": "failed"}
+{"bytes": 7104, "path": "exp/initialization_kd_interaction/sports_init_kd_eval_parity_seed2022_v1/launch_manifest.json", "profile": null, "read_status": "parsed", "seed": 2022, "status": "launchable"}
+{"bytes": 85, "path": "exp/initialization_kd_interaction/sports_init_kd_eval_parity_seed2022_v1/supervisor.json", "profile": null, "read_status": "parsed", "seed": null, "status": "failed"}
+{"bytes": 184, "path": "exp/initialization_kd_interaction/sports_init_kd_eval_parity_seed2022_v1/telemetry.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
+{"bytes": 34, "path": "exp/initialization_kd_interaction/sports_init_kd_eval_parity_seed2022_v1/worker_claim.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
 {"bytes": 466, "path": "exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/T1/curve.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
 {"bytes": 553, "path": "exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/acceptance.json", "profile": null, "read_status": "parsed", "seed": null, "status": "passed"}
 {"bytes": 7734, "path": "exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/launch_manifest.json", "profile": null, "read_status": "parsed", "seed": 2022, "status": "manual_resource_smoke_ready"}
