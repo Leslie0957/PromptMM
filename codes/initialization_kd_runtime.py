@@ -63,7 +63,7 @@ def resolve_protocol(spec):
     for key, value in expected.items():
         if common[key] != value:
             raise RuntimeError('Runtime/config mismatch: ' + key)
-    allowed_seeds = (2022, 2023) if spec.get('mode') == 'four_arm' else (2022,)
+    allowed_seeds = (2022, 2023, 2024) if spec.get('mode') == 'four_arm' else (2022,)
     if spec['seed'] not in allowed_seeds or set(spec['arms']) != set(ARMS):
         raise RuntimeError('Seed/arm contract mismatch')
     for arm in ARMS:

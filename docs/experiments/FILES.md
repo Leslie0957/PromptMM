@@ -132,7 +132,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（127）
+## docs（131）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -211,6 +211,10 @@
 - [docs/research/INITIALIZATION_KD_SEED2023_COHORT_LAUNCH_2026-09-28.md](../research/INITIALIZATION_KD_SEED2023_COHORT_LAUNCH_2026-09-28.md)
 - [docs/research/INITIALIZATION_KD_SEED2023_PREFLIGHT_2026-09-28.json](../research/INITIALIZATION_KD_SEED2023_PREFLIGHT_2026-09-28.json)
 - [docs/research/INITIALIZATION_KD_SEED2023_PREFLIGHT_2026-09-28.md](../research/INITIALIZATION_KD_SEED2023_PREFLIGHT_2026-09-28.md)
+- [docs/research/INITIALIZATION_KD_SEED2024_COHORT_CONFIG_2026-09-28.json](../research/INITIALIZATION_KD_SEED2024_COHORT_CONFIG_2026-09-28.json)
+- [docs/research/INITIALIZATION_KD_SEED2024_COHORT_LAUNCH_2026-09-28.md](../research/INITIALIZATION_KD_SEED2024_COHORT_LAUNCH_2026-09-28.md)
+- [docs/research/INITIALIZATION_KD_SEED2024_PREFLIGHT_2026-09-28.json](../research/INITIALIZATION_KD_SEED2024_PREFLIGHT_2026-09-28.json)
+- [docs/research/INITIALIZATION_KD_SEED2024_PREFLIGHT_2026-09-28.md](../research/INITIALIZATION_KD_SEED2024_PREFLIGHT_2026-09-28.md)
 - [docs/research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md)
 - [docs/research/INNOVATION1_EVAL_RECOVERY_V1_LAUNCH_2026-09-26.md](../research/INNOVATION1_EVAL_RECOVERY_V1_LAUNCH_2026-09-26.md)
 - [docs/research/INNOVATION1_FIXED120_CURVES_2026-09-15.png](../research/INNOVATION1_FIXED120_CURVES_2026-09-15.png)
@@ -272,7 +276,7 @@
 
 - [logs/README.md](../../logs/README.md)
 
-## tests（16）
+## tests（17）
 
 - [tests/test_cached_deployment_benchmark.py](../../tests/test_cached_deployment_benchmark.py)
 - [tests/test_cross_interaction_p0.py](../../tests/test_cross_interaction_p0.py)
@@ -288,10 +292,11 @@
 - [tests/test_initialization_kd_parity_v2.py](../../tests/test_initialization_kd_parity_v2.py)
 - [tests/test_initialization_kd_runtime.py](../../tests/test_initialization_kd_runtime.py)
 - [tests/test_initialization_kd_seed2023.py](../../tests/test_initialization_kd_seed2023.py)
+- [tests/test_initialization_kd_seed2024.py](../../tests/test_initialization_kd_seed2024.py)
 - [tests/test_sports_paired_cold.py](../../tests/test_sports_paired_cold.py)
 - [tests/test_sports_sham_residual.py](../../tests/test_sports_sham_residual.py)
 
-## tools（29）
+## tools（30）
 
 - [tools/build_experiment_navigation.py](../../tools/build_experiment_navigation.py)
 - [tools/convert_mmrec_baby.py](../../tools/convert_mmrec_baby.py)
@@ -307,6 +312,7 @@
 - [tools/run_cross_interaction_precision.py](../../tools/run_cross_interaction_precision.py)
 - [tools/run_initialization_kd_cohort.py](../../tools/run_initialization_kd_cohort.py)
 - [tools/run_initialization_kd_cohort_seed2023.py](../../tools/run_initialization_kd_cohort_seed2023.py)
+- [tools/run_initialization_kd_cohort_seed2024.py](../../tools/run_initialization_kd_cohort_seed2024.py)
 - [tools/run_initialization_kd_eval_parity.py](../../tools/run_initialization_kd_eval_parity.py)
 - [tools/run_initialization_kd_interaction.py](../../tools/run_initialization_kd_interaction.py)
 - [tools/run_initialization_kd_resource_smoke.py](../../tools/run_initialization_kd_resource_smoke.py)

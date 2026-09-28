@@ -1,0 +1,18 @@
+{
+  "base_cohort_config": "docs/research/INITIALIZATION_KD_COHORT_CONFIG_2026-09-27.json",
+  "base_cohort_sha256": "fb5f4eb566f5f742f7c3668b55d925b500133e71ef45f4a04c5dfe848b82a48b",
+  "asset_preflight": "docs/research/INITIALIZATION_KD_SEED2024_PREFLIGHT_2026-09-28.json",
+  "asset_preflight_sha256": "60661bae2d3ae59f15001929f78d021b30decc8e7ff83b384871bdd5bd7d2e7b",
+  "seed": 2024,
+  "random_initial": {
+    "path": "exp/paired_coldinit/sports_three_seed_v1/seed2024/initial.pt",
+    "sha256": "e2c6885debdec09a8ff8401fe4f4f96ea5f46dcc1fd90f24dcc4ecdbd2188e37"
+  },
+  "triplet_tape": {
+    "path": "exp/paired_coldinit/sports_three_seed_v1/seed2024/triplets.npy",
+    "sha256": "131cc14ebe6853e79216183f06923f3689d47d26c69eac2521d7f93b1b314bc7"
+  },
+  "run_id": "sports_init_kd_interaction_seed2024_v1",
+  "output_namespace": "exp/initialization_kd_interaction/sports_init_kd_interaction_seed2024_v1",
+  "launch_command": "& 'D:\\miniconda\\envs\\run_5060\\python.exe' -B 'D:\\Download\\PromptMM\\tools\\run_initialization_kd_cohort_seed2024.py'"
+}

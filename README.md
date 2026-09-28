@@ -2,7 +2,7 @@
 
 先完整阅读 [AGENTS.md](AGENTS.md)，再读本页与 [TRAINING_LOG.md 当前状态及最新记录](TRAINING_LOG.md)。历史 pending 和旧交接不是执行队列。
 
-当前[初始化 × KD 立项单](docs/research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md)下的 Sports 四臂已由用户分别完成 [seed2022](docs/research/INITIALIZATION_KD_INTERACTION_AUDIT.md)和 [seed2023](docs/research/INITIALIZATION_KD_INTERACTION_SEED2023_AUDIT.md) 两次 Validation-only 运行；见[独立八格矩阵](docs/research/INITIALIZATION_KD_INTERACTION_RESULTS.md)。两次随机初值组 KD 增量都约 +0.0365，教师初值组都很小且正负号相反；不能据此证明语义冗余、统计显著或第二算法。共同教师缓存固定，Test 均未读取。下一步仅只读综合两 seed 的起点、曲线和成本；不自动启动新实验。历史 [资源smoke](docs/research/INITIALIZATION_KD_RESOURCE_SMOKE_AUDIT.md)、[评价等价](docs/research/INITIALIZATION_KD_EVAL_PARITY_V2_AUDIT.md)及[seed2023启动声明](docs/research/INITIALIZATION_KD_SEED2023_COHORT_LAUNCH_2026-09-28.md)保留作证据，命令已消耗。跨交互 P1a 已筛查停止，不推进 P1b/P2；旧 RGCS/门控及历史“下一步”不是执行队列。
+当前[初始化 × KD 立项单](docs/research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md)下的 Sports 四臂已由用户分别完成 [seed2022](docs/research/INITIALIZATION_KD_INTERACTION_AUDIT.md)和 [seed2023](docs/research/INITIALIZATION_KD_INTERACTION_SEED2023_AUDIT.md) 两次 Validation-only 运行；见[独立八格矩阵](docs/research/INITIALIZATION_KD_INTERACTION_RESULTS.md)。两次随机初值组 KD 增量都约 +0.0365，教师初值组都很小且正负号相反；不能据此证明语义冗余、统计显著或第二算法。用户要求的第三种子 [seed2024只读预检](docs/research/INITIALIZATION_KD_SEED2024_PREFLIGHT_2026-09-28.md)和[一次手动运行声明](docs/research/INITIALIZATION_KD_SEED2024_COHORT_LAUNCH_2026-09-28.md)已准备，下一步仅用户手动执行一次，之后审计并可交另一 AI 独立分析；共同教师缓存固定，全部 Test0。历史 [资源smoke](docs/research/INITIALIZATION_KD_RESOURCE_SMOKE_AUDIT.md)、[评价等价](docs/research/INITIALIZATION_KD_EVAL_PARITY_V2_AUDIT.md)及已消耗 seed2023 声明保留作证据。跨交互 P1a 已筛查停止，不推进 P1b/P2；旧 RGCS/门控及历史“下一步”不是执行队列。
 
 ## 当前入口
 

@@ -1,0 +1,111 @@
+{
+  "status": "passed_cpu_read_only",
+  "seed": 2024,
+  "source_manifest": "exp/paired_coldinit/sports_three_seed_v1/batch.json",
+  "source_manifest_sha256": "b254d9e969edd3e001a4a85c2b14b69f8eb68b3d279d667100973c62fe7797b8",
+  "provenance_arms": [
+    "full",
+    "image_matched"
+  ],
+  "assets": {
+    "random_initial": {
+      "path": "exp/paired_coldinit/sports_three_seed_v1/seed2024/initial.pt",
+      "sha256": "e2c6885debdec09a8ff8401fe4f4f96ea5f46dcc1fd90f24dcc4ecdbd2188e37",
+      "bytes": 13814245,
+      "matches_expected": true
+    },
+    "triplet_tape": {
+      "path": "exp/paired_coldinit/sports_three_seed_v1/seed2024/triplets.npy",
+      "sha256": "131cc14ebe6853e79216183f06923f3689d47d26c69eac2521d7f93b1b314bc7",
+      "bytes": 788889728,
+      "matches_expected": true
+    },
+    "shared_cache": {
+      "path": "exp/initialization_checks/sports_initialization_repeatability_seed2022_v1/process0/initial_tensors.pt",
+      "sha256": "e5573bbdbbb609b4bc037a551455578463795c6df4bc4a1b236788d86c24da20",
+      "anchor": "unchanged_from_seed2023_preflight"
+    },
+    "teacher_checkpoint_record_only": {
+      "path": "Model/sports/runs/teacher_model_val_test_once_v1__2026-09-16 12_38_48.480698_sports_light_init_pid30708.pt",
+      "sha256": "57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea",
+      "anchor": "unchanged_from_seed2023_preflight"
+    },
+    "train_mat_record_only": {
+      "path": "data/sports/train_mat",
+      "sha256": "5361c5486dddbf50084d011278a11d2f18a37e258f87be218b070ff02f4ab0f8",
+      "anchor": "unchanged_from_seed2023_preflight"
+    },
+    "val_mat_record_only": {
+      "path": "data/sports/val_mat",
+      "sha256": "1b4224c3fb091ad23a59e0f8a7b58c7b0c959863a7189cfc8b89eeb90a467e03",
+      "anchor": "unchanged_from_seed2023_preflight"
+    }
+  },
+  "model_instances": 0,
+  "rankings": 0,
+  "test_reads": 0,
+  "cuda_allocations": 0,
+  "random_tensors": {
+    "user": {
+      "shape": [
+        35598,
+        64
+      ],
+      "dtype": "torch.float32",
+      "finite": true
+    },
+    "item": {
+      "shape": [
+        18357,
+        64
+      ],
+      "dtype": "torch.float32",
+      "finite": true
+    }
+  },
+  "teacher_tensors": {
+    "user": {
+      "shape": [
+        35598,
+        64
+      ],
+      "dtype": "torch.float32",
+      "finite": true
+    },
+    "item": {
+      "shape": [
+        18357,
+        64
+      ],
+      "dtype": "torch.float32",
+      "finite": true
+    }
+  },
+  "tape": {
+    "shape": [
+      300,
+      214,
+      3,
+      1024
+    ],
+    "dtype": "int32",
+    "writeable": false,
+    "checked_triplets": 65740800,
+    "positive_not_in_train": 0,
+    "negative_in_train": 0
+  },
+  "matrices": {
+    "shape": [
+      35598,
+      18357
+    ],
+    "train_nnz": 218409,
+    "val_nnz": 37899,
+    "overlap_nnz": 0,
+    "val_users": 35598,
+    "minimum_candidates": 18120
+  },
+  "formal_output_exists": false,
+  "disk_free_bytes": 411204534272,
+  "elapsed_seconds": 16.703999999910593
+}

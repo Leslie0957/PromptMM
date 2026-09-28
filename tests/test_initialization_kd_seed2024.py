@@ -1,4 +1,4 @@
-"""Synthetic seed2023 declaration and four-arm routing checks."""
+"""Synthetic seed2024 declaration and four-arm routing checks."""
 import copy
 import json
 from pathlib import Path
@@ -9,15 +9,16 @@ from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT / p) for p in ('tools', 'codes')]
-import run_initialization_kd_cohort_seed2023 as next_run
-from run_initialization_kd_cohort import load_spec as prior_run
+import run_initialization_kd_cohort_seed2024 as next_run
+from run_initialization_kd_cohort import load_spec as seed2022_spec
+from run_initialization_kd_cohort_seed2023 import load_spec as seed2023_spec
 from initialization_kd_runtime import resolve_protocol
 import tests.test_initialization_kd_cohort as old_tests
 
 
-class Seed2023Tests(unittest.TestCase):
+class Seed2024Tests(unittest.TestCase):
     def test_only_declared_seed_and_asset_delta(self):
-        old, new = prior_run(), next_run.load_spec()
+        old, new = seed2022_spec(), next_run.load_spec()
         self.assertEqual(resolve_protocol(new), resolve_protocol(old))
         changed = copy.deepcopy(new)
         for key in ('seed', 'run_id', 'output_namespace', 'launch_command'):
@@ -25,15 +26,17 @@ class Seed2023Tests(unittest.TestCase):
         for key in ('random_initial', 'triplet_tape'):
             changed['common']['assets'][key] = old['common']['assets'][key]
         self.assertEqual(changed, old)
-        self.assertNotEqual(new['common']['assets']['random_initial']['sha256'], old['common']['assets']['random_initial']['sha256'])
-        self.assertNotEqual(new['common']['assets']['triplet_tape']['sha256'], old['common']['assets']['triplet_tape']['sha256'])
+        prior = seed2023_spec()
+        for key in ('random_initial', 'triplet_tape'):
+            self.assertNotEqual(new['common']['assets'][key]['sha256'], old['common']['assets'][key]['sha256'])
+            self.assertNotEqual(new['common']['assets'][key]['sha256'], prior['common']['assets'][key]['sha256'])
         self.assertEqual(new['environment'], old['environment'])
         self.assertEqual(new['hard_caps'], old['hard_caps'])
         self.assertEqual(new['candidate_screening'], old['candidate_screening'])
 
     def test_closed_delta_rejects_identity_drift(self):
         original = json.loads(next_run.DELTA.read_text(encoding='utf-8'))
-        for change in ({'seed': 2022}, {'output_namespace': 'exp/other'},
+        for change in ({'seed': 2023}, {'output_namespace': 'exp/other'},
                        {'random_initial': {'path': 'wrong', 'sha256': '0'*64}},
                        {'extra': True}):
             bad = dict(original, **change)
@@ -44,7 +47,7 @@ class Seed2023Tests(unittest.TestCase):
             with self.assertRaises(RuntimeError):
                 resolve_protocol(dict(next_run.load_spec(), seed=seed))
 
-    def test_full_synthetic_worker_with_seed2023_route(self):
+    def test_full_synthetic_worker_with_seed2024_route(self):
         with patch.object(old_tests, 'load_spec', next_run.load_spec):
             old_tests.CohortTests().test_full_worker_four_arms_and_acceptance()
 
