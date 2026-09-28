@@ -1,5 +1,7 @@
 # Training Log — current state and new records
 
+2026-09-29当前阶段：已完成[第一项正文整合](docs/paper/INNOVATION1_INTEGRATED_CHAPTER_2026-09-29.md)，包含方法公式、固定Test、受控Validation和独立核验的局部成本。本轮待跑实验为零；下一步审阅具体章节并确认第二项贡献约束。以下旧交接按历史保留。
+
 2026-09-29独立复核：M0通过、M1 v1失败保留/v2通过、M2通过，整体限定接受；M1流程总时间含资产核验，M2未完整固定torch随机源，9.07–9.31倍仅短窗口更新比较。见[独立审计](docs/research/INNOVATION1_COST_INDEPENDENT_AUDIT_2026-09-29.md)。当前下一步仅整合第一项正文与限定贡献，不追加本计划实验；下方旧交接保留。
 
 2026-09-29最新阶段：[M0–M2成本交接包](docs/research/INNOVATION1_COST_FINAL_HANDOFF_2026-09-29.md)已形成：M0通过，M1 v1失败/v2通过30/30，[M2审计](docs/research/INNOVATION1_UPDATE_COST_AUDIT.md)通过27/27。无新Test访问；完整训练成本、同质量训练成本和无损结论仍未验证。唯一下一步是交另一个AI独立只读审计，不启动新实验。
@@ -1011,3 +1013,15 @@ V2 user batch failed at preflight_s3_2022 after three valid Baby trainings and n
 - Independently inspected launch-source blobs, raw JSON, selected-quality bindings and asset/export/report hashes; 877 machine assertions plus telemetry/config/candidate checks recorded in INNOVATION1_COST_INDEPENDENT_VERIFICATION_2026-09-29.json. M0 passed, M1 v1 failure preserved and v2 30/30 accepted, M2 27/27 accepted. No training/evaluation/tensor deserialization/split/Test access. Main median ratios reproduced: release/Full9.307213/9.239367/9.070633. Historical quality unchanged.
 - New independent audit qualifies three interpretations: M1 setup includes hash and full/infer validation overhead, not minimal deployment cost; release large negative objective follows original nonstandard KL inputs and already appears in historical training; M2 pins main tape/DGL but not torch/CUDA dropout RNG, so no exact trajectory reproducibility claim. No evidence that these overturn bounded timing completion; no automatic rerun. Full lifecycle/time-to-quality/lossless/online gain remain unproven.
 - Updated current pointers and appended matrix/goal note only; original handoff/audits/declarations/results/raw/check/ preserved. Verify links/historical body preservation/diff and refresh six catalogs before one scoped local commit. No production code or protocol change, push/tag/merge. Unique next step: integrate independently accepted quality/components/local-cost evidence and limitations into first-work prose, with no additional experiment stage.
+
+
+## 2026-09-29 First-work integrated paper draft (pending)
+
+- User authorizes integration after independent cost audit. Baseb56b23a, tracked clean, preserve check/. Scope: new unified first-work chapter with method equations, fixed Test table, controlled Validation, initialization boundary, independently audited local costs and defensible contribution prose; append current supplements to Sports/contribution/claims/gaps/goal pages and update navigation. No experiment/source/profile/data/metric changes, no new literature novelty certification or Test access. Preserve historical report bodies and all original matrices. Acceptance: all numeric claims trace to existing tables/verification JSON, distinguish selected deployment from fresh update windows and formula identity from novelty, links/diff pass; refresh navigation, completed log and coherent commit. Next step is review this concrete chapter against thesis contribution requirements, not more experiments.
+
+
+## 2026-09-29 First-work integrated paper draft (completed)
+
+- Added INNOVATION1_INTEGRATED_CHAPTER_2026-09-29.md: concrete motivation/contributions, two-table scoring/BPR/normalized-MSE equations with element-mean scaling, actual image/text coefficients and inactive user KD, two-dataset Test table, controlled component Validation, three-seed initialization contrasts, selected-checkpoint deployment and fresh-state update costs, limits and chapter conclusion. No new novelty claim or experiment.
+- Synchronized current supplements in Sports prose/contribution/claims/gaps/current-goal pages and root/docs/paper/family pointers, preserving old bodies and all original numeric cells, raw records and check/. Direct limited cost evidence now distinguished from still-unknown complete lifecycle/time-to-quality; no lossless/online/9x complete-training claim. No policy/source/profile changes or Test access.
+- Verification: 27 numeric fields matched existing fixed main table and independent cost JSON; 300 local links checked; historical modified document bodies and log preserved modulo Git EOL normalization. Refresh six navigation catalogs, focused diff check and scoped local commit. No tag/bundle/push/merge. Unique next step: review this concrete chapter with advisor for contribution form and second-work independence constraints, not an additional experiment.

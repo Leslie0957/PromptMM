@@ -1,5 +1,7 @@
 # 文档入口
 
+2026-09-29当前阶段：已完成[第一项正文整合](paper/INNOVATION1_INTEGRATED_CHAPTER_2026-09-29.md)，包含方法公式、固定Test、受控Validation和独立核验的局部成本。本轮待跑实验为零；下一步审阅具体章节并确认第二项贡献约束。以下旧交接按历史保留。
+
 2026-09-29独立复核：M0通过、M1 v1失败保留/v2通过、M2通过，整体限定接受；M1流程总时间含资产核验，M2未完整固定torch随机源，9.07–9.31倍仅短窗口更新比较。见[独立审计](research/INNOVATION1_COST_INDEPENDENT_AUDIT_2026-09-29.md)。当前下一步仅整合第一项正文与限定贡献，不追加本计划实验；下方旧交接保留。
 
 当前成本实验：[M0–M2交接包](research/INNOVATION1_COST_FINAL_HANDOFF_2026-09-29.md)；[M0审计](research/INNOVATION1_COST_M0_AUDIT.md)通过，[M1审计](research/INNOVATION1_DEPLOYMENT_COST_AUDIT.md)记录v1失败和v2通过30/30，[M2审计](research/INNOVATION1_UPDATE_COST_AUDIT.md)通过27/27。
