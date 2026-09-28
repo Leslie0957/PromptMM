@@ -19,7 +19,8 @@ sys.path.insert(0, str(ROOT / 'tools'))
 import cached_deployment_benchmark as bench
 import innovation1_cost_m0 as m0
 
-OUT = ROOT / 'exp/efficiency/innovation1_cost_v1/m1/serial_v1'
+OUT = ROOT / 'exp/efficiency/innovation1_cost_v1/m1/serial_v2'
+FAILED_V1 = ROOT / 'exp/efficiency/innovation1_cost_v1/m1/serial_v1/report.json'
 PYTHON = Path('D:/miniconda/envs/run_5060/python.exe')
 M0 = ROOT / 'exp/efficiency/innovation1_cost_v1/m0/smoke_v1'
 LIMITS = dict(wall_seconds=3600, cuda_allocated_bytes=4*1024**3,
@@ -46,6 +47,12 @@ def schedule():
             for identity in identities[round_id*3:] + identities[:round_id*3]]
 
 
+def compare_selected_tables(actual, reference_cpu):
+    if any(t.device.type!='cpu' for t in reference_cpu):
+        raise RuntimeError('Selected table parity reference must stay on CPU')
+    return bench.compare_reference(actual,reference_cpu)
+
+
 def self_test():
     import torch
     conditions=schedule()
@@ -64,8 +71,14 @@ def self_test():
     if values.shape!=(2,20) or 24 in indices[0].tolist() or 0 in indices[1].tolist():
         raise AssertionError('Train-only masking/top-k synthetic check failed')
     copied=tuple(t.clone() for t in tables)
-    if not all(x['allclose'] for x in bench.compare_reference(copied,tables)):
+    if not all(x['allclose'] for x in compare_selected_tables(copied,tables)):
         raise AssertionError('Table parity synthetic check failed')
+    try:
+        compare_selected_tables(copied,(torch.empty(1,device='meta'),))
+    except RuntimeError:
+        pass
+    else:
+        raise AssertionError('Non-CPU reference was accepted')
     if not m0.unexpected_source_status(['?? check/','?? unexpected.py']):
         raise AssertionError('Source guard synthetic check failed')
     print('M1 synthetic schedule, mask/top-k, table parity and source guard passed; no real assets loaded')
@@ -196,7 +209,8 @@ def worker(index, head):
         export=old['teacher'] if row is None else next(x for x in old['rows'] if x['slot']==identity)
         bench.check_hash(export['export_path'],export['export_sha256'])
         saved=torch.load(export['export_path'],map_location='cpu',weights_only=True)
-        reference=(saved['users'].to('cuda:0'), saved['items'].to('cuda:0'))
+        reference_cpu=(saved['users'], saved['items'])
+        reference=(reference_cpu[0].to('cuda:0'), reference_cpu[1].to('cuda:0'))
         train_path=ROOT/'data/sports/train_mat'
         bench.check_hash(train_path,bindings['train_sha256'])
         start=time.perf_counter()
@@ -218,7 +232,7 @@ def worker(index, head):
             torch.cuda.synchronize()
             report['generation_once_seconds']=time.perf_counter()-tick
             bench.tables_ok(actual)
-            parity=bench.compare_reference(actual,reference)
+            parity=compare_selected_tables(actual,reference_cpu)
             if not all(x['allclose'] for x in parity):
                 raise RuntimeError('Original/M0 selected table mismatch')
             report['original_m0_parity']=parity
@@ -282,6 +296,10 @@ def parent():
         raise RuntimeError('Declared Python required')
     m0.require_clean_source()
     head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
+    failed=m0.read_json(FAILED_V1)
+    if (failed['status']!='failed' or failed['source_commit']!='978254941ae06255224a69a1c0328a77d99ecf26'
+            or failed['completed']):
+        raise RuntimeError('Consumed v1 failure anchor differs')
     m0_report=m0.read_json(M0/'report.json')
     if m0_report['status']!='completed' or m0_report['source_commit']!='aa7eddd9cc707e6cac8781316c818fb566a6e2db':
         raise RuntimeError('M0 audit anchor incomplete')

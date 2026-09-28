@@ -236,8 +236,8 @@
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 05_34_16.930265_sports_light_init_pid42156.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 08_30_07.418852_sports_light_init_pid30132.pth", "source_catalog": false}
 {"bytes": 432550, "category": "root", "path": "PromptMM.png", "source_catalog": true}
-{"bytes": 2698, "category": "root", "path": "README.md", "source_catalog": true}
-{"bytes": 259342, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
+{"bytes": 2764, "category": "root", "path": "README.md", "source_catalog": true}
+{"bytes": 264856, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
 {"bytes": 739, "category": "archive", "path": "archive/README.md", "source_catalog": true}
 {"bytes": 409, "category": "archive", "path": "archive/run_patent_results/README.md", "source_catalog": true}
 {"bytes": 110276, "category": "archive", "path": "archive/run_patent_results/Result_0409_1319_Photo_a0.1_lr0.001/Result_0409_1319_Photo_a0.1_lr0.001_curve.png", "source_catalog": false}
@@ -570,7 +570,7 @@
 {"bytes": 3177, "category": "docs", "path": "docs/PROMPTMM_RELEASE_VALIDATION300_BATCH.md", "source_catalog": true}
 {"bytes": 4183, "category": "docs", "path": "docs/PROMPTMM_RELEASE_VALIDATION_DIAGNOSTIC.md", "source_catalog": true}
 {"bytes": 2666, "category": "docs", "path": "docs/PROMPTMM_VALIDATION_FAST_PARITY.md", "source_catalog": true}
-{"bytes": 4182, "category": "docs", "path": "docs/README.md", "source_catalog": true}
+{"bytes": 4247, "category": "docs", "path": "docs/README.md", "source_catalog": true}
 {"bytes": 1827, "category": "docs", "path": "docs/SPORTS_GRADIENT_DIAGNOSTIC.md", "source_catalog": true}
 {"bytes": 2087, "category": "docs", "path": "docs/SPORTS_INITIALIZATION_DIAGNOSTIC.md", "source_catalog": true}
 {"bytes": 2554, "category": "docs", "path": "docs/SPORTS_INITIALIZATION_PAIR_SEED2022.md", "source_catalog": true}
@@ -584,7 +584,7 @@
 {"bytes": 3849, "category": "docs", "path": "docs/SPORTS_TEACHER_VALIDATION120_V1.md", "source_catalog": true}
 {"bytes": 100432, "category": "docs", "path": "docs/baselines/ASSET_MANIFEST_2026-07-29.csv", "source_catalog": true}
 {"bytes": 2893, "category": "docs", "path": "docs/baselines/README.md", "source_catalog": true}
-{"bytes": 9415, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
+{"bytes": 9455, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
 {"bytes": 8983, "category": "docs", "path": "docs/experiments/RUN_CLOSEOUT.md", "source_catalog": true}
 {"bytes": 1832, "category": "docs", "path": "docs/experiments/WORKSPACE_MAP.md", "source_catalog": true}
 {"bytes": 7027, "category": "docs", "path": "docs/paper/INNOVATION1_CONTRIBUTION_POSITION_2026-09-28.md", "source_catalog": true}
@@ -643,8 +643,9 @@
 {"bytes": 7436, "category": "docs", "path": "docs/research/INNOVATION1_COST_M0_AUDIT.md", "source_catalog": true}
 {"bytes": 46683, "category": "docs", "path": "docs/research/INNOVATION1_COST_M0_BINDINGS.json", "source_catalog": true}
 {"bytes": 5657, "category": "docs", "path": "docs/research/INNOVATION1_COST_PREPARATION.md", "source_catalog": true}
-{"bytes": 1189, "category": "docs", "path": "docs/research/INNOVATION1_COST_RESULTS.md", "source_catalog": true}
+{"bytes": 1312, "category": "docs", "path": "docs/research/INNOVATION1_COST_RESULTS.md", "source_catalog": true}
 {"bytes": 13051, "category": "docs", "path": "docs/research/INNOVATION1_COST_ROADMAP_2026-09-28.md", "source_catalog": true}
+{"bytes": 4034, "category": "docs", "path": "docs/research/INNOVATION1_DEPLOYMENT_COST_AUDIT.md", "source_catalog": true}
 {"bytes": 8957, "category": "docs", "path": "docs/research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md", "source_catalog": true}
 {"bytes": 3780, "category": "docs", "path": "docs/research/INNOVATION1_EVAL_RECOVERY_V1_LAUNCH_2026-09-26.md", "source_catalog": true}
 {"bytes": 123366, "category": "docs", "path": "docs/research/INNOVATION1_FIXED120_CURVES_2026-09-15.png", "source_catalog": true}
@@ -654,6 +655,7 @@
 {"bytes": 11113, "category": "docs", "path": "docs/research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md", "source_catalog": true}
 {"bytes": 2959, "category": "docs", "path": "docs/research/INNOVATION1_FORMAL_CLOSEOUT_V2_LAUNCH_2026-09-26.md", "source_catalog": true}
 {"bytes": 6463, "category": "docs", "path": "docs/research/INNOVATION1_M1_DEPLOYMENT_LAUNCH_2026-09-28.md", "source_catalog": true}
+{"bytes": 3103, "category": "docs", "path": "docs/research/INNOVATION1_M1_DEPLOYMENT_RECOVERY_V2_2026-09-29.md", "source_catalog": true}
 {"bytes": 9199, "category": "docs", "path": "docs/research/INNOVATION1_PROTOCOL_REUSE_AUDIT_2026-09-26.md", "source_catalog": true}
 {"bytes": 5104, "category": "docs", "path": "docs/research/INNOVATION1_RESULT_FREEZE_AUDIT_2026-09-26.md", "source_catalog": true}
 {"bytes": 5376, "category": "docs", "path": "docs/research/INNOVATION1_RESULT_FREEZE_CHECKLIST_2026-09-26.md", "source_catalog": true}
@@ -1590,6 +1592,12 @@
 {"bytes": 51, "category": "exp", "path": "exp/efficiency/innovation1_cost_v1/m0/smoke_v1/stdout.txt", "source_catalog": false}
 {"bytes": 13814309, "category": "exp", "path": "exp/efficiency/innovation1_cost_v1/m0/smoke_v1/teacher_tables.pt", "source_catalog": false}
 {"bytes": 9012, "category": "exp", "path": "exp/efficiency/innovation1_cost_v1/m0/smoke_v1/worker.json", "source_catalog": false}
+{"bytes": 3592, "category": "exp", "path": "exp/efficiency/innovation1_cost_v1/m1/serial_v1/batch.json", "source_catalog": false}
+{"bytes": 4234, "category": "exp", "path": "exp/efficiency/innovation1_cost_v1/m1/serial_v1/report.json", "source_catalog": false}
+{"bytes": 635, "category": "exp", "path": "exp/efficiency/innovation1_cost_v1/m1/serial_v1/round0_s1_2022.stderr.txt", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/efficiency/innovation1_cost_v1/m1/serial_v1/round0_s1_2022.stdout.txt", "source_catalog": false}
+{"bytes": 2300, "category": "exp", "path": "exp/efficiency/innovation1_cost_v1/m1/serial_v1/round0_s1_2022/report.json", "source_catalog": false}
+{"bytes": 208, "category": "exp", "path": "exp/efficiency/innovation1_cost_v1/m1/serial_v1/telemetry.jsonl", "source_catalog": false}
 {"bytes": 13814309, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v1/B_tables.pt", "source_catalog": false}
 {"bytes": 13814309, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v1/F_tables.pt", "source_catalog": false}
 {"bytes": 13814309, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v1/T_tables.pt", "source_catalog": false}
@@ -2229,7 +2237,7 @@
 {"bytes": 9608, "category": "tools", "path": "tools/run_initialization_kd_eval_parity.py", "source_catalog": true}
 {"bytes": 16201, "category": "tools", "path": "tools/run_initialization_kd_interaction.py", "source_catalog": true}
 {"bytes": 992, "category": "tools", "path": "tools/run_initialization_kd_resource_smoke.py", "source_catalog": true}
-{"bytes": 19364, "category": "tools", "path": "tools/run_innovation1_cost_m1.py", "source_catalog": true}
+{"bytes": 20190, "category": "tools", "path": "tools/run_innovation1_cost_m1.py", "source_catalog": true}
 {"bytes": 8919, "category": "tools", "path": "tools/run_innovation1_eval_recovery.py", "source_catalog": true}
 {"bytes": 11267, "category": "tools", "path": "tools/run_innovation1_formal_closeout.py", "source_catalog": true}
 {"bytes": 15714, "category": "tools", "path": "tools/run_sports_cached_deployment.py", "source_catalog": true}

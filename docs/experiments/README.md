@@ -1,8 +1,8 @@
 # 实验导航：按问题查证据
 
-当前成本实验族：[有界计划](../research/INNOVATION1_COST_ROADMAP_2026-09-28.md)、[M0完成审计](../research/INNOVATION1_COST_M0_AUDIT.md)、[M1串行声明](../research/INNOVATION1_M1_DEPLOYMENT_LAUNCH_2026-09-28.md)及[状态矩阵](../research/INNOVATION1_COST_RESULTS.md)。M0通过；M1声明已准备但未运行，M2未声明，不重跑质量实验。
+当前成本实验族：[有界计划](../research/INNOVATION1_COST_ROADMAP_2026-09-28.md)、[M0完成审计](../research/INNOVATION1_COST_M0_AUDIT.md)、[M1 v1失败审计](../research/INNOVATION1_DEPLOYMENT_COST_AUDIT.md)、[v2恢复声明](../research/INNOVATION1_M1_DEPLOYMENT_RECOVERY_V2_2026-09-29.md)及[状态矩阵](../research/INNOVATION1_COST_RESULTS.md)。M0通过；M1 v1 0/30失败，v2待授权，M2未声明。
 
-> 当前待办看[第一项目标—证据—缺口总表](../paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)及[成本状态](../research/INNOVATION1_COST_RESULTS.md)。下一步由用户手动执行一次 M1 串行命令，随后审计；不追加效果实验种子或启动旧声明。下方实验族与历史交接是证据导航。
+> 当前待办看[第一项目标—证据—缺口总表](../paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)及[成本状态](../research/INNOVATION1_COST_RESULTS.md)。旧 M1 v1 声明已消耗；下一步需用户新授权后手动执行隔离 v2 一次，随后审计。不追加效果实验种子或启动旧声明。
 
 更新：2026-09-26。新窗口只需先读根目录[总览](../../README.md)、[AGENTS](../../AGENTS.md)和[短日志](../../TRAINING_LOG.md)，然后按本表选相关资料。日期较早文档中的“当前”“下一步”均只描述当时状态，不能自动执行旧命令。
 

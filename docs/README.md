@@ -1,8 +1,8 @@
 # 文档入口
 
-当前成本实验：[有界成本计划](research/INNOVATION1_COST_ROADMAP_2026-09-28.md)；[M0审计](research/INNOVATION1_COST_M0_AUDIT.md)通过，[M1串行声明](research/INNOVATION1_M1_DEPLOYMENT_LAUNCH_2026-09-28.md)已准备、未运行，M2未声明。
+当前成本实验：[有界成本计划](research/INNOVATION1_COST_ROADMAP_2026-09-28.md)；[M0审计](research/INNOVATION1_COST_M0_AUDIT.md)通过，[M1 v1失败审计](research/INNOVATION1_DEPLOYMENT_COST_AUDIT.md)已记录，[v2恢复声明](research/INNOVATION1_M1_DEPLOYMENT_RECOVERY_V2_2026-09-29.md)待授权，M2未声明。
 
-> 2026-09-29当前行动以[目标—证据—缺口总表](paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)及[成本状态](research/INNOVATION1_COST_RESULTS.md)为准。已完成实验不重跑；下一步由用户手动执行一次 M1 串行命令，随后审计。下文较早“下一步”保留其历史语境。
+> 2026-09-29当前行动以[目标—证据—缺口总表](paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)及[成本状态](research/INNOVATION1_COST_RESULTS.md)为准。旧 M1 v1 命令已消耗；下一步仅经新授权执行一次隔离的 v2，再审计。下文较早“下一步”保留其历史语境。
 
 先读[仓库总览](../README.md)和[当前短日志](../TRAINING_LOG.md)，再按任务展开。
 
