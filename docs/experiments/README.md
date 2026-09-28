@@ -1,6 +1,6 @@
 # 实验导航：按问题查证据
 
-当前成本实验族：[资产清点与M0/M1/M2计划](../research/INNOVATION1_COST_ROADMAP_2026-09-28.md)。状态：清点完成、测量未运行；不重跑质量实验。
+当前成本实验族：[有界计划](../research/INNOVATION1_COST_ROADMAP_2026-09-28.md)及[M0准备](../research/INNOVATION1_COST_PREPARATION.md)；[状态矩阵](../research/INNOVATION1_COST_RESULTS.md)。M0静态绑定/合成检查完成，真实预检未运行；M1/M2待独立声明，不重跑质量实验。
 
 > 当前待办只看[第一项目标—证据—缺口总表](../paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。下一步只读清点质量—成本资产，不追加种子或启动旧声明。下方实验族与历史交接是证据导航。
 

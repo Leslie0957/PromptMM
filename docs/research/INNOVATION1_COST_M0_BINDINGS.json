@@ -1,0 +1,1040 @@
+{
+  "scope": "M0 static binding; source/checkpoint payload SHA inherited until real smoke",
+  "quality_batch_source_commit": "b3ea32fd7f9685631d33a60f52591e8dd3e0cbb8",
+  "teacher_sha256": "57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea",
+  "train_sha256": "5361c5486dddbf50084d011278a11d2f18a37e258f87be218b070ff02f4ab0f8",
+  "rows": [
+    {
+      "slot": "s1_2022",
+      "dataset": "sports",
+      "method": "bpr",
+      "seed": 2022,
+      "source_commit": null,
+      "source_code_fingerprints": {
+        "batch_test": {
+          "bytes": 5629,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\batch_test.py",
+          "sha256": "08007ff55cf80580341d74e232083a3b4b1c1795de3fca98fd8a2f2b69a7246d"
+        },
+        "dataset_profiles": {
+          "bytes": 18403,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\dataset_profiles.py",
+          "sha256": "abb93854f1cb77c1bad4ba1798fb011a7e4137778ac0a34dee9c4ceacf1b4c60"
+        },
+        "efficiency_benchmark": {
+          "bytes": 10429,
+          "path": "D:\\Download\\PromptMM\\codes\\efficiency_benchmark.py",
+          "sha256": "e0ffe4a64e4f856b3b374da7e89800ddad660670a9731d5690ff8bd74f4520b2"
+        },
+        "experiment_protocol": {
+          "bytes": 27372,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\experiment_protocol.py",
+          "sha256": "30eaf295ae9d6dc0829eea4df0c0dc65b3a18d27a11607c7af30f1f2cc5ee1b0"
+        },
+        "hard_token_cache": {
+          "bytes": 6567,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\hard_token_cache.py",
+          "sha256": "c4c556eff0094c72d01ceb46c445102478cdcf3a90eaa729014ef70fdd5c8206"
+        },
+        "load_data": {
+          "bytes": 9742,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\load_data.py",
+          "sha256": "d5c3c0f7ccc9ef85cefb3b6c1ab83080a22d1ed7e2975f7ba807561f6a6e4746"
+        },
+        "main_mmlight": {
+          "bytes": 117792,
+          "path": "D:\\Download\\PromptMM\\codes\\main_mmlight.py",
+          "sha256": "dc5238669eb3f6f8f8adda0309096134e1123df0c783148f019fdaf55a43911a"
+        },
+        "models_mmlight": {
+          "bytes": 31527,
+          "path": "D:\\Download\\PromptMM\\codes\\Models_mmlight.py",
+          "sha256": "ec993272ccf07d24a70b41bb9fb87273d95e01d2de6eb1dfb1950c10172933dc"
+        },
+        "parser": {
+          "bytes": 126013,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\parser.py",
+          "sha256": "13d5e41243d547bceb2c98505ef5ea3b143780c734d50e643e5310069d89bde4"
+        },
+        "sports_validation_reuse": {
+          "bytes": 1397,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\sports_validation_reuse.py",
+          "sha256": "d588cb8180d924e6ced11c3d49e4611fc3b8b42fec363fac40de5e2bd5b7651a"
+        },
+        "td_distill_model": {
+          "bytes": 3114,
+          "path": "D:\\Download\\PromptMM\\codes\\td_distill_model.py",
+          "sha256": "feb5225275882da28041f08f39dec865b64b992e64c4c8cc4d6e9c4a98e88cb9"
+        },
+        "td_distill_model_no_projection": {
+          "bytes": 4352,
+          "path": "D:\\Download\\PromptMM\\codes\\td_distill_model_no_projection.py",
+          "sha256": "13fd9e55c2ab6bbe7c87aa478935e902feee12b1b3aee953b7f66698e0fdaf1b"
+        }
+      },
+      "config": {
+        "student_lr": 6e-05,
+        "epoch": 300,
+        "early_stopping_patience": 300,
+        "batch_size": 1024,
+        "embed_size": 64,
+        "td_init_from_teacher": false,
+        "td_distill_alpha": 0.0,
+        "td_item_image_rate": 0.0,
+        "td_item_text_rate": 0.0,
+        "td_user_image_rate": 0.0,
+        "td_user_text_rate": 0.0,
+        "student_weight_decay": 0.01
+      },
+      "teacher_path": "Model/sports/runs/teacher_model_val_test_once_v1__2026-09-16 12_38_48.480698_sports_light_init_pid30708.pt",
+      "teacher_sha256": "57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea",
+      "initialization": {
+        "rule": "native random initialization",
+        "record": null
+      },
+      "source_path": "exp/runs/sports/run_manifest__2026-09-17 11_50_42.452019_sports_light_init_pid21216.json",
+      "source_sha256": "78eceaa381efccdd5f157e6d78f2d5ab0041780e3f62fef861af227ede422254",
+      "checkpoint_path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-17 11_50_42.452019_sports_light_init_pid21216.pth",
+      "checkpoint_sha256": "6ca67b9c6d2b00e939fafcc0c5296c6710a43c8ccdcc80d6c8d53c3c0472ad0d",
+      "selection": "Validation Recall@20; strict improvement, earliest tie",
+      "selected_epoch": 298,
+      "selection_recall20": 0.04556633891846942,
+      "quality_report_path": "exp/formal_closeout_eval/innovation1_eval_recovery_v1/s1_2022/report.json",
+      "quality_report_sha256": "d98b132ef76e10eaca216c397abb4b7cab09a34b2c10e84c9f58dcc00de0e417",
+      "final_test_metrics": {
+        "recall": [
+          0.029366807213174258,
+          0.04425380148875857,
+          0.06684896021445992,
+          0.0751792837478852
+        ],
+        "precision": [
+          0.0033765941906849497,
+          0.002552109669082512,
+          0.0019347997078486684,
+          0.0017399853924378278
+        ],
+        "ndcg": [
+          0.018105517667519742,
+          0.02240546860874514,
+          0.027646966880155104,
+          0.029352294844546028
+        ],
+        "hit_ratio": [
+          0.03337266138547038,
+          0.05025563233889584,
+          0.07548176863868962,
+          0.08469576942525127
+        ]
+      },
+      "td_infer_path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-17 11_50_42.452019_sports_light_init_pid21216.pth",
+      "td_infer_sha256": "9902e8dfc6ec9c39680004ea3fa31839ff27874cea4cf71bdc3dd59e5be8c16a"
+    },
+    {
+      "slot": "s1_2023",
+      "dataset": "sports",
+      "method": "bpr",
+      "seed": 2023,
+      "source_commit": null,
+      "source_code_fingerprints": {
+        "batch_test": {
+          "bytes": 5629,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\batch_test.py",
+          "sha256": "08007ff55cf80580341d74e232083a3b4b1c1795de3fca98fd8a2f2b69a7246d"
+        },
+        "dataset_profiles": {
+          "bytes": 18403,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\dataset_profiles.py",
+          "sha256": "abb93854f1cb77c1bad4ba1798fb011a7e4137778ac0a34dee9c4ceacf1b4c60"
+        },
+        "efficiency_benchmark": {
+          "bytes": 10429,
+          "path": "D:\\Download\\PromptMM\\codes\\efficiency_benchmark.py",
+          "sha256": "e0ffe4a64e4f856b3b374da7e89800ddad660670a9731d5690ff8bd74f4520b2"
+        },
+        "experiment_protocol": {
+          "bytes": 27372,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\experiment_protocol.py",
+          "sha256": "30eaf295ae9d6dc0829eea4df0c0dc65b3a18d27a11607c7af30f1f2cc5ee1b0"
+        },
+        "hard_token_cache": {
+          "bytes": 6567,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\hard_token_cache.py",
+          "sha256": "c4c556eff0094c72d01ceb46c445102478cdcf3a90eaa729014ef70fdd5c8206"
+        },
+        "load_data": {
+          "bytes": 9742,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\load_data.py",
+          "sha256": "d5c3c0f7ccc9ef85cefb3b6c1ab83080a22d1ed7e2975f7ba807561f6a6e4746"
+        },
+        "main_mmlight": {
+          "bytes": 117792,
+          "path": "D:\\Download\\PromptMM\\codes\\main_mmlight.py",
+          "sha256": "dc5238669eb3f6f8f8adda0309096134e1123df0c783148f019fdaf55a43911a"
+        },
+        "models_mmlight": {
+          "bytes": 31527,
+          "path": "D:\\Download\\PromptMM\\codes\\Models_mmlight.py",
+          "sha256": "ec993272ccf07d24a70b41bb9fb87273d95e01d2de6eb1dfb1950c10172933dc"
+        },
+        "parser": {
+          "bytes": 126013,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\parser.py",
+          "sha256": "13d5e41243d547bceb2c98505ef5ea3b143780c734d50e643e5310069d89bde4"
+        },
+        "sports_validation_reuse": {
+          "bytes": 1397,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\sports_validation_reuse.py",
+          "sha256": "d588cb8180d924e6ced11c3d49e4611fc3b8b42fec363fac40de5e2bd5b7651a"
+        },
+        "td_distill_model": {
+          "bytes": 3114,
+          "path": "D:\\Download\\PromptMM\\codes\\td_distill_model.py",
+          "sha256": "feb5225275882da28041f08f39dec865b64b992e64c4c8cc4d6e9c4a98e88cb9"
+        },
+        "td_distill_model_no_projection": {
+          "bytes": 4352,
+          "path": "D:\\Download\\PromptMM\\codes\\td_distill_model_no_projection.py",
+          "sha256": "13fd9e55c2ab6bbe7c87aa478935e902feee12b1b3aee953b7f66698e0fdaf1b"
+        }
+      },
+      "config": {
+        "student_lr": 6e-05,
+        "epoch": 300,
+        "early_stopping_patience": 300,
+        "batch_size": 1024,
+        "embed_size": 64,
+        "td_init_from_teacher": false,
+        "td_distill_alpha": 0.0,
+        "td_item_image_rate": 0.0,
+        "td_item_text_rate": 0.0,
+        "td_user_image_rate": 0.0,
+        "td_user_text_rate": 0.0,
+        "student_weight_decay": 0.01
+      },
+      "teacher_path": "Model/sports/runs/teacher_model_val_test_once_v1__2026-09-16 12_38_48.480698_sports_light_init_pid30708.pt",
+      "teacher_sha256": "57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea",
+      "initialization": {
+        "rule": "native random initialization",
+        "record": null
+      },
+      "source_path": "exp/runs/sports/run_manifest__2026-09-17 23_49_20.915423_sports_light_init_pid48412.json",
+      "source_sha256": "3a30b6481db36b0580a5364438b72fba0bbd0e2766a633add93d36acc1269be6",
+      "checkpoint_path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-17 23_49_20.915423_sports_light_init_pid48412.pth",
+      "checkpoint_sha256": "6278b05d08120b0400cb1ea5efff23311ee390921fb9458bcb809530aa404d49",
+      "selection": "Validation Recall@20; strict improvement, earliest tie",
+      "selected_epoch": 295,
+      "selection_recall20": 0.045193547331283744,
+      "quality_report_path": "exp/formal_closeout_eval/innovation1_eval_recovery_v1/s1_2023/report.json",
+      "quality_report_sha256": "47bfc688f502f73d6ac5f8abc131787a5cac9256459480de37f5f00a934ed874",
+      "final_test_metrics": {
+        "recall": [
+          0.030587972215310007,
+          0.045681349585361214,
+          0.06679613265236216,
+          0.0764410030169364
+        ],
+        "precision": [
+          0.003503005786842042,
+          0.0026405977863924626,
+          0.0019362042811393032,
+          0.001772009663464291
+        ],
+        "ndcg": [
+          0.018727818230546044,
+          0.023116953224902623,
+          0.02801440177237237,
+          0.0299887579821639
+        ],
+        "hit_ratio": [
+          0.03460868588122865,
+          0.05185684589021906,
+          0.07559413450194037,
+          0.08618461711332373
+        ]
+      },
+      "td_infer_path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-17 23_49_20.915423_sports_light_init_pid48412.pth",
+      "td_infer_sha256": "859e94dac1b33a8084b2fc8822ea751f7da73c2ddcefc4ac11778b080072f18f"
+    },
+    {
+      "slot": "s1_2024",
+      "dataset": "sports",
+      "method": "bpr",
+      "seed": 2024,
+      "source_commit": null,
+      "source_code_fingerprints": {
+        "batch_test": {
+          "bytes": 5629,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\batch_test.py",
+          "sha256": "08007ff55cf80580341d74e232083a3b4b1c1795de3fca98fd8a2f2b69a7246d"
+        },
+        "dataset_profiles": {
+          "bytes": 18403,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\dataset_profiles.py",
+          "sha256": "abb93854f1cb77c1bad4ba1798fb011a7e4137778ac0a34dee9c4ceacf1b4c60"
+        },
+        "efficiency_benchmark": {
+          "bytes": 10429,
+          "path": "D:\\Download\\PromptMM\\codes\\efficiency_benchmark.py",
+          "sha256": "e0ffe4a64e4f856b3b374da7e89800ddad660670a9731d5690ff8bd74f4520b2"
+        },
+        "experiment_protocol": {
+          "bytes": 27372,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\experiment_protocol.py",
+          "sha256": "30eaf295ae9d6dc0829eea4df0c0dc65b3a18d27a11607c7af30f1f2cc5ee1b0"
+        },
+        "hard_token_cache": {
+          "bytes": 6567,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\hard_token_cache.py",
+          "sha256": "c4c556eff0094c72d01ceb46c445102478cdcf3a90eaa729014ef70fdd5c8206"
+        },
+        "load_data": {
+          "bytes": 9742,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\load_data.py",
+          "sha256": "d5c3c0f7ccc9ef85cefb3b6c1ab83080a22d1ed7e2975f7ba807561f6a6e4746"
+        },
+        "main_mmlight": {
+          "bytes": 117792,
+          "path": "D:\\Download\\PromptMM\\codes\\main_mmlight.py",
+          "sha256": "dc5238669eb3f6f8f8adda0309096134e1123df0c783148f019fdaf55a43911a"
+        },
+        "models_mmlight": {
+          "bytes": 31527,
+          "path": "D:\\Download\\PromptMM\\codes\\Models_mmlight.py",
+          "sha256": "ec993272ccf07d24a70b41bb9fb87273d95e01d2de6eb1dfb1950c10172933dc"
+        },
+        "parser": {
+          "bytes": 126013,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\parser.py",
+          "sha256": "13d5e41243d547bceb2c98505ef5ea3b143780c734d50e643e5310069d89bde4"
+        },
+        "sports_validation_reuse": {
+          "bytes": 1397,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\sports_validation_reuse.py",
+          "sha256": "d588cb8180d924e6ced11c3d49e4611fc3b8b42fec363fac40de5e2bd5b7651a"
+        },
+        "td_distill_model": {
+          "bytes": 3114,
+          "path": "D:\\Download\\PromptMM\\codes\\td_distill_model.py",
+          "sha256": "feb5225275882da28041f08f39dec865b64b992e64c4c8cc4d6e9c4a98e88cb9"
+        },
+        "td_distill_model_no_projection": {
+          "bytes": 4352,
+          "path": "D:\\Download\\PromptMM\\codes\\td_distill_model_no_projection.py",
+          "sha256": "13fd9e55c2ab6bbe7c87aa478935e902feee12b1b3aee953b7f66698e0fdaf1b"
+        }
+      },
+      "config": {
+        "student_lr": 6e-05,
+        "epoch": 300,
+        "early_stopping_patience": 300,
+        "batch_size": 1024,
+        "embed_size": 64,
+        "td_init_from_teacher": false,
+        "td_distill_alpha": 0.0,
+        "td_item_image_rate": 0.0,
+        "td_item_text_rate": 0.0,
+        "td_user_image_rate": 0.0,
+        "td_user_text_rate": 0.0,
+        "student_weight_decay": 0.01
+      },
+      "teacher_path": "Model/sports/runs/teacher_model_val_test_once_v1__2026-09-16 12_38_48.480698_sports_light_init_pid30708.pt",
+      "teacher_sha256": "57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea",
+      "initialization": {
+        "rule": "native random initialization",
+        "record": null
+      },
+      "source_path": "exp/runs/sports/run_manifest__2026-09-18 09_13_44.833581_sports_light_init_pid40228.json",
+      "source_sha256": "844d339aade57867f32434d75939d7971b19a975903c14489598be88bff23d90",
+      "checkpoint_path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-18 09_13_44.833581_sports_light_init_pid40228.pth",
+      "checkpoint_sha256": "d1a8073af9ef1933704086882125b6e956282bee448993de04e4d8f1a7b57daa",
+      "selection": "Validation Recall@20; strict improvement, earliest tie",
+      "selected_epoch": 298,
+      "selection_recall20": 0.04469400245988823,
+      "quality_report_path": "exp/formal_closeout_eval/innovation1_eval_recovery_v1/s1_2024/report.json",
+      "quality_report_sha256": "2f6ea3c5045616cbcc5fe4bdd53ce5deb9b514375c3125e367551b8b4df36c51",
+      "final_test_metrics": {
+        "recall": [
+          0.029782560907202004,
+          0.04292546531506582,
+          0.06480232971889956,
+          0.07387255124909126
+        ],
+        "precision": [
+          0.0034412045620541305,
+          0.0024945221641665123,
+          0.0018898533625483762,
+          0.001722006854317708
+        ],
+        "ndcg": [
+          0.01849273099027472,
+          0.02227267019306723,
+          0.02738898558707732,
+          0.029226577008811434
+        ],
+        "hit_ratio": [
+          0.03418731389403833,
+          0.048851059048261446,
+          0.07362773189505221,
+          0.08334737906624225
+        ]
+      },
+      "td_infer_path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-18 09_13_44.833581_sports_light_init_pid40228.pth",
+      "td_infer_sha256": "46097fd5e34d5cb12fed4bc84e40e04d12a729025d38f37ffc195262badfa9f5"
+    },
+    {
+      "slot": "s2_2022",
+      "dataset": "sports",
+      "method": "full",
+      "seed": 2022,
+      "source_commit": null,
+      "source_code_fingerprints": {
+        "batch_test": {
+          "bytes": 5629,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\batch_test.py",
+          "sha256": "08007ff55cf80580341d74e232083a3b4b1c1795de3fca98fd8a2f2b69a7246d"
+        },
+        "dataset_profiles": {
+          "bytes": 22134,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\dataset_profiles.py",
+          "sha256": "1d5e53f00c3cf4ca4509a0cc0d0347e1a0238d7a78e4632bef6d0254e628778c"
+        },
+        "efficiency_benchmark": {
+          "bytes": 10429,
+          "path": "D:\\Download\\PromptMM\\codes\\efficiency_benchmark.py",
+          "sha256": "e0ffe4a64e4f856b3b374da7e89800ddad660670a9731d5690ff8bd74f4520b2"
+        },
+        "experiment_protocol": {
+          "bytes": 27372,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\experiment_protocol.py",
+          "sha256": "30eaf295ae9d6dc0829eea4df0c0dc65b3a18d27a11607c7af30f1f2cc5ee1b0"
+        },
+        "hard_token_cache": {
+          "bytes": 6567,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\hard_token_cache.py",
+          "sha256": "c4c556eff0094c72d01ceb46c445102478cdcf3a90eaa729014ef70fdd5c8206"
+        },
+        "initialization_audit": {
+          "bytes": 2608,
+          "path": "D:\\Download\\PromptMM\\codes\\initialization_audit.py",
+          "sha256": "698f45f563485c66ca57fa009b21099498cb7b5ce270d15817c3ef42cdf8b40f"
+        },
+        "load_data": {
+          "bytes": 9742,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\load_data.py",
+          "sha256": "d5c3c0f7ccc9ef85cefb3b6c1ab83080a22d1ed7e2975f7ba807561f6a6e4746"
+        },
+        "main_mmlight": {
+          "bytes": 123797,
+          "path": "D:\\Download\\PromptMM\\codes\\main_mmlight.py",
+          "sha256": "dc2520ab56631e6c4266a16127560ab8efa23420b2205ad3d24b00cea3e48435"
+        },
+        "models_mmlight": {
+          "bytes": 31527,
+          "path": "D:\\Download\\PromptMM\\codes\\Models_mmlight.py",
+          "sha256": "ec993272ccf07d24a70b41bb9fb87273d95e01d2de6eb1dfb1950c10172933dc"
+        },
+        "parser": {
+          "bytes": 126013,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\parser.py",
+          "sha256": "13d5e41243d547bceb2c98505ef5ea3b143780c734d50e643e5310069d89bde4"
+        },
+        "shared_initialization": {
+          "bytes": 1623,
+          "path": "D:\\Download\\PromptMM\\codes\\shared_initialization.py",
+          "sha256": "c1391b89e76192b264fda792a5c9390293e599300525d8ea3f6770b1d4a5bcf2"
+        },
+        "sports_paired_cold": {
+          "bytes": 4479,
+          "path": "D:\\Download\\PromptMM\\codes\\sports_paired_cold.py",
+          "sha256": "8ff99419df3eaf8b51c42f55866bc72104a5ed8830ed3667f352596339939668"
+        },
+        "sports_validation_reuse": {
+          "bytes": 1397,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\sports_validation_reuse.py",
+          "sha256": "d588cb8180d924e6ced11c3d49e4611fc3b8b42fec363fac40de5e2bd5b7651a"
+        },
+        "td_distill_model": {
+          "bytes": 3114,
+          "path": "D:\\Download\\PromptMM\\codes\\td_distill_model.py",
+          "sha256": "feb5225275882da28041f08f39dec865b64b992e64c4c8cc4d6e9c4a98e88cb9"
+        },
+        "td_distill_model_no_projection": {
+          "bytes": 4352,
+          "path": "D:\\Download\\PromptMM\\codes\\td_distill_model_no_projection.py",
+          "sha256": "13fd9e55c2ab6bbe7c87aa478935e902feee12b1b3aee953b7f66698e0fdaf1b"
+        }
+      },
+      "config": {
+        "student_lr": 6e-05,
+        "epoch": 300,
+        "early_stopping_patience": 300,
+        "batch_size": 1024,
+        "embed_size": 64,
+        "td_init_from_teacher": false,
+        "td_distill_alpha": 0.3,
+        "td_item_image_rate": 1.0,
+        "td_item_text_rate": 0.3,
+        "td_user_image_rate": 0.0,
+        "td_user_text_rate": 0.0,
+        "student_weight_decay": 0.01
+      },
+      "teacher_path": "Model/sports/runs/teacher_model_val_test_once_v1__2026-09-16 12_38_48.480698_sports_light_init_pid30708.pt",
+      "teacher_sha256": "57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea",
+      "initialization": {
+        "rule": "paired cold initialization",
+        "record": {
+          "path": "D:\\Download\\PromptMM\\exp\\paired_coldinit\\sports_three_seed_v1\\seed2022\\initial.pt",
+          "sha256": "2357868cefeb086dba14c3808415eac97936f67cf5e6bef8382d95ff43bcffff"
+        }
+      },
+      "source_path": "exp/runs/sports/run_manifest__2026-09-24 18_22_52.151219_sports_light_init_pid5012.json",
+      "source_sha256": "d31cf835fd68b575b7312e1328f8e439ad0d459302e65c9587b524ce760d6ddf",
+      "checkpoint_path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-24 18_22_52.151219_sports_light_init_pid5012.pth",
+      "checkpoint_sha256": "d2648d9f1f6c593b8720b27ad226e81152373537f7cb4d3fa18de07acf20b4a2",
+      "selection": "Validation Recall@20; strict improvement, earliest tie",
+      "selected_epoch": 293,
+      "selection_recall20": 0.08232825983607957,
+      "quality_report_path": "exp/formal_closeout_eval/innovation1_eval_recovery_v1/s2_2022/report.json",
+      "quality_report_sha256": "d97dd40f2a461f1223988a2d0ff2e919e0a8d86e46e65961a844570035e6d59f",
+      "final_test_metrics": {
+        "recall": [
+          0.055167335956987876,
+          0.0826534641236335,
+          0.12101753308773806,
+          0.13668220392263822
+        ],
+        "precision": [
+          0.006104275521096529,
+          0.004616832406314912,
+          0.003380105623911632,
+          0.003058036968369105
+        ],
+        "ndcg": [
+          0.03195052335901062,
+          0.039671727916454465,
+          0.04826359436314368,
+          0.051406579305237586
+        ],
+        "hit_ratio": [
+          0.06056520029215232,
+          0.09076352604079187,
+          0.13242316984100444,
+          0.1493623237260469
+        ]
+      },
+      "td_infer_path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-24 18_22_52.151219_sports_light_init_pid5012.pth",
+      "td_infer_sha256": "a9d76fd2d9b108097fa1f89e0cbd7c3b5d69eb5539320ffcc74c5b7881a606ef"
+    },
+    {
+      "slot": "s2_2023",
+      "dataset": "sports",
+      "method": "full",
+      "seed": 2023,
+      "source_commit": null,
+      "source_code_fingerprints": {
+        "batch_test": {
+          "bytes": 5629,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\batch_test.py",
+          "sha256": "08007ff55cf80580341d74e232083a3b4b1c1795de3fca98fd8a2f2b69a7246d"
+        },
+        "dataset_profiles": {
+          "bytes": 22134,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\dataset_profiles.py",
+          "sha256": "1d5e53f00c3cf4ca4509a0cc0d0347e1a0238d7a78e4632bef6d0254e628778c"
+        },
+        "efficiency_benchmark": {
+          "bytes": 10429,
+          "path": "D:\\Download\\PromptMM\\codes\\efficiency_benchmark.py",
+          "sha256": "e0ffe4a64e4f856b3b374da7e89800ddad660670a9731d5690ff8bd74f4520b2"
+        },
+        "experiment_protocol": {
+          "bytes": 27372,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\experiment_protocol.py",
+          "sha256": "30eaf295ae9d6dc0829eea4df0c0dc65b3a18d27a11607c7af30f1f2cc5ee1b0"
+        },
+        "hard_token_cache": {
+          "bytes": 6567,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\hard_token_cache.py",
+          "sha256": "c4c556eff0094c72d01ceb46c445102478cdcf3a90eaa729014ef70fdd5c8206"
+        },
+        "initialization_audit": {
+          "bytes": 2608,
+          "path": "D:\\Download\\PromptMM\\codes\\initialization_audit.py",
+          "sha256": "698f45f563485c66ca57fa009b21099498cb7b5ce270d15817c3ef42cdf8b40f"
+        },
+        "load_data": {
+          "bytes": 9742,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\load_data.py",
+          "sha256": "d5c3c0f7ccc9ef85cefb3b6c1ab83080a22d1ed7e2975f7ba807561f6a6e4746"
+        },
+        "main_mmlight": {
+          "bytes": 123797,
+          "path": "D:\\Download\\PromptMM\\codes\\main_mmlight.py",
+          "sha256": "dc2520ab56631e6c4266a16127560ab8efa23420b2205ad3d24b00cea3e48435"
+        },
+        "models_mmlight": {
+          "bytes": 31527,
+          "path": "D:\\Download\\PromptMM\\codes\\Models_mmlight.py",
+          "sha256": "ec993272ccf07d24a70b41bb9fb87273d95e01d2de6eb1dfb1950c10172933dc"
+        },
+        "parser": {
+          "bytes": 126013,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\parser.py",
+          "sha256": "13d5e41243d547bceb2c98505ef5ea3b143780c734d50e643e5310069d89bde4"
+        },
+        "shared_initialization": {
+          "bytes": 1623,
+          "path": "D:\\Download\\PromptMM\\codes\\shared_initialization.py",
+          "sha256": "c1391b89e76192b264fda792a5c9390293e599300525d8ea3f6770b1d4a5bcf2"
+        },
+        "sports_paired_cold": {
+          "bytes": 4479,
+          "path": "D:\\Download\\PromptMM\\codes\\sports_paired_cold.py",
+          "sha256": "8ff99419df3eaf8b51c42f55866bc72104a5ed8830ed3667f352596339939668"
+        },
+        "sports_validation_reuse": {
+          "bytes": 1397,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\sports_validation_reuse.py",
+          "sha256": "d588cb8180d924e6ced11c3d49e4611fc3b8b42fec363fac40de5e2bd5b7651a"
+        },
+        "td_distill_model": {
+          "bytes": 3114,
+          "path": "D:\\Download\\PromptMM\\codes\\td_distill_model.py",
+          "sha256": "feb5225275882da28041f08f39dec865b64b992e64c4c8cc4d6e9c4a98e88cb9"
+        },
+        "td_distill_model_no_projection": {
+          "bytes": 4352,
+          "path": "D:\\Download\\PromptMM\\codes\\td_distill_model_no_projection.py",
+          "sha256": "13fd9e55c2ab6bbe7c87aa478935e902feee12b1b3aee953b7f66698e0fdaf1b"
+        }
+      },
+      "config": {
+        "student_lr": 6e-05,
+        "epoch": 300,
+        "early_stopping_patience": 300,
+        "batch_size": 1024,
+        "embed_size": 64,
+        "td_init_from_teacher": false,
+        "td_distill_alpha": 0.3,
+        "td_item_image_rate": 1.0,
+        "td_item_text_rate": 0.3,
+        "td_user_image_rate": 0.0,
+        "td_user_text_rate": 0.0,
+        "student_weight_decay": 0.01
+      },
+      "teacher_path": "Model/sports/runs/teacher_model_val_test_once_v1__2026-09-16 12_38_48.480698_sports_light_init_pid30708.pt",
+      "teacher_sha256": "57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea",
+      "initialization": {
+        "rule": "paired cold initialization",
+        "record": {
+          "path": "D:\\Download\\PromptMM\\exp\\paired_coldinit\\sports_three_seed_v1\\seed2023\\initial.pt",
+          "sha256": "bb5429aa8a1edfe53b36fed977146460d1101ae79539d2badf856d5514ef9d85"
+        }
+      },
+      "source_path": "exp/runs/sports/run_manifest__2026-09-25 00_24_21.134528_sports_light_init_pid35648.json",
+      "source_sha256": "d9785ae45b916c5b99ec1501342b8175c74631474e8b4fad216a2386593479a3",
+      "checkpoint_path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-25 00_24_21.134528_sports_light_init_pid35648.pth",
+      "checkpoint_sha256": "d52756660a06c61c012ea9354ced9d3ae6175f55358df72d6ee68156951d6f9b",
+      "selection": "Validation Recall@20; strict improvement, earliest tie",
+      "selected_epoch": 291,
+      "selection_recall20": 0.08205019891416222,
+      "quality_report_path": "exp/formal_closeout_eval/innovation1_eval_recovery_v1/s2_2023/report.json",
+      "quality_report_sha256": "7ee7a875f6ae9b6ba9fa793be071d5d797ca891408a04acfe621a6b14b0a5f7a",
+      "final_test_metrics": {
+        "recall": [
+          0.05548418985550368,
+          0.0828317668996946,
+          0.12242403487979536,
+          0.13716021588514357
+        ],
+        "precision": [
+          0.006129557840327944,
+          0.0046041912466992015,
+          0.003429967975729158,
+          0.003075453677172971
+        ],
+        "ndcg": [
+          0.03192904610256621,
+          0.039488463327023035,
+          0.04846919056099228,
+          0.05140344573363425
+        ],
+        "hit_ratio": [
+          0.06090229788190458,
+          0.09062306871172843,
+          0.13391201752907617,
+          0.149699421315799
+        ]
+      },
+      "td_infer_path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-25 00_24_21.134528_sports_light_init_pid35648.pth",
+      "td_infer_sha256": "62afda7871f0a5c71c2537f80fc9caf763dc0bdcff9f4453ee0c04763492031b"
+    },
+    {
+      "slot": "s2_2024",
+      "dataset": "sports",
+      "method": "full",
+      "seed": 2024,
+      "source_commit": null,
+      "source_code_fingerprints": {
+        "batch_test": {
+          "bytes": 5629,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\batch_test.py",
+          "sha256": "08007ff55cf80580341d74e232083a3b4b1c1795de3fca98fd8a2f2b69a7246d"
+        },
+        "dataset_profiles": {
+          "bytes": 22134,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\dataset_profiles.py",
+          "sha256": "1d5e53f00c3cf4ca4509a0cc0d0347e1a0238d7a78e4632bef6d0254e628778c"
+        },
+        "efficiency_benchmark": {
+          "bytes": 10429,
+          "path": "D:\\Download\\PromptMM\\codes\\efficiency_benchmark.py",
+          "sha256": "e0ffe4a64e4f856b3b374da7e89800ddad660670a9731d5690ff8bd74f4520b2"
+        },
+        "experiment_protocol": {
+          "bytes": 27372,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\experiment_protocol.py",
+          "sha256": "30eaf295ae9d6dc0829eea4df0c0dc65b3a18d27a11607c7af30f1f2cc5ee1b0"
+        },
+        "hard_token_cache": {
+          "bytes": 6567,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\hard_token_cache.py",
+          "sha256": "c4c556eff0094c72d01ceb46c445102478cdcf3a90eaa729014ef70fdd5c8206"
+        },
+        "initialization_audit": {
+          "bytes": 2608,
+          "path": "D:\\Download\\PromptMM\\codes\\initialization_audit.py",
+          "sha256": "698f45f563485c66ca57fa009b21099498cb7b5ce270d15817c3ef42cdf8b40f"
+        },
+        "load_data": {
+          "bytes": 9742,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\load_data.py",
+          "sha256": "d5c3c0f7ccc9ef85cefb3b6c1ab83080a22d1ed7e2975f7ba807561f6a6e4746"
+        },
+        "main_mmlight": {
+          "bytes": 123797,
+          "path": "D:\\Download\\PromptMM\\codes\\main_mmlight.py",
+          "sha256": "dc2520ab56631e6c4266a16127560ab8efa23420b2205ad3d24b00cea3e48435"
+        },
+        "models_mmlight": {
+          "bytes": 31527,
+          "path": "D:\\Download\\PromptMM\\codes\\Models_mmlight.py",
+          "sha256": "ec993272ccf07d24a70b41bb9fb87273d95e01d2de6eb1dfb1950c10172933dc"
+        },
+        "parser": {
+          "bytes": 126013,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\parser.py",
+          "sha256": "13d5e41243d547bceb2c98505ef5ea3b143780c734d50e643e5310069d89bde4"
+        },
+        "shared_initialization": {
+          "bytes": 1623,
+          "path": "D:\\Download\\PromptMM\\codes\\shared_initialization.py",
+          "sha256": "c1391b89e76192b264fda792a5c9390293e599300525d8ea3f6770b1d4a5bcf2"
+        },
+        "sports_paired_cold": {
+          "bytes": 4479,
+          "path": "D:\\Download\\PromptMM\\codes\\sports_paired_cold.py",
+          "sha256": "8ff99419df3eaf8b51c42f55866bc72104a5ed8830ed3667f352596339939668"
+        },
+        "sports_validation_reuse": {
+          "bytes": 1397,
+          "path": "D:\\Download\\PromptMM\\codes\\utility\\sports_validation_reuse.py",
+          "sha256": "d588cb8180d924e6ced11c3d49e4611fc3b8b42fec363fac40de5e2bd5b7651a"
+        },
+        "td_distill_model": {
+          "bytes": 3114,
+          "path": "D:\\Download\\PromptMM\\codes\\td_distill_model.py",
+          "sha256": "feb5225275882da28041f08f39dec865b64b992e64c4c8cc4d6e9c4a98e88cb9"
+        },
+        "td_distill_model_no_projection": {
+          "bytes": 4352,
+          "path": "D:\\Download\\PromptMM\\codes\\td_distill_model_no_projection.py",
+          "sha256": "13fd9e55c2ab6bbe7c87aa478935e902feee12b1b3aee953b7f66698e0fdaf1b"
+        }
+      },
+      "config": {
+        "student_lr": 6e-05,
+        "epoch": 300,
+        "early_stopping_patience": 300,
+        "batch_size": 1024,
+        "embed_size": 64,
+        "td_init_from_teacher": false,
+        "td_distill_alpha": 0.3,
+        "td_item_image_rate": 1.0,
+        "td_item_text_rate": 0.3,
+        "td_user_image_rate": 0.0,
+        "td_user_text_rate": 0.0,
+        "student_weight_decay": 0.01
+      },
+      "teacher_path": "Model/sports/runs/teacher_model_val_test_once_v1__2026-09-16 12_38_48.480698_sports_light_init_pid30708.pt",
+      "teacher_sha256": "57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea",
+      "initialization": {
+        "rule": "paired cold initialization",
+        "record": {
+          "path": "D:\\Download\\PromptMM\\exp\\paired_coldinit\\sports_three_seed_v1\\seed2024\\initial.pt",
+          "sha256": "e2c6885debdec09a8ff8401fe4f4f96ea5f46dcc1fd90f24dcc4ecdbd2188e37"
+        }
+      },
+      "source_path": "exp/runs/sports/run_manifest__2026-09-25 06_25_38.618521_sports_light_init_pid50812.json",
+      "source_sha256": "81d88af57ca1224ad634170c5cbf702ce27bc509a9a54c44d2f1eb2737e9230d",
+      "checkpoint_path": "Model/sports/td_distill/td_distill_full__val_test_once_v1__2026-09-25 06_25_38.618521_sports_light_init_pid50812.pth",
+      "checkpoint_sha256": "a9565b2de2cef1de46a28194f8b49d49c018f609727d6f8b843c76acc399ace3",
+      "selection": "Validation Recall@20; strict improvement, earliest tie",
+      "selected_epoch": 292,
+      "selection_recall20": 0.08254273594807802,
+      "quality_report_path": "exp/formal_closeout_eval/innovation1_eval_recovery_v1/s2_2024/report.json",
+      "quality_report_sha256": "3c3c8ddcafbc7aeae45f34f45cb17e7c44579a2ebe05c12a9fceaa86ba0d23c2",
+      "final_test_metrics": {
+        "recall": [
+          0.055091645062992564,
+          0.0832391265961998,
+          0.12190989417098079,
+          0.13755653964865067
+        ],
+        "precision": [
+          0.006087420641608919,
+          0.004644923872127604,
+          0.0034053879431430525,
+          0.0030777009944379864
+        ],
+        "ndcg": [
+          0.03172246510344837,
+          0.039600124450032664,
+          0.04825990350113451,
+          0.051397226127784613
+        ],
+        "hit_ratio": [
+          0.060396651497276195,
+          0.09155008708354713,
+          0.13326591381538466,
+          0.15026125063205248
+        ]
+      },
+      "td_infer_path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-25 06_25_38.618521_sports_light_init_pid50812.pth",
+      "td_infer_sha256": "401387dba69a6bab22fe60f029f92891aa6d66e53f2661e9a390974ddf1e1824"
+    },
+    {
+      "slot": "s3_2022",
+      "dataset": "sports",
+      "method": "promptmm_release",
+      "seed": 2022,
+      "source_commit": "b6c801e3e8a09073d3f1c4e6b62fde45cd38917b",
+      "source_code_fingerprints": {
+        "codes\\main_mmlight.py": "b869e0a8c01bc146196f9af6d0d3d7053a54395f9cfebe092919602fe8edc8c5",
+        "codes\\promptmm_release_validation.py": "6041210fc1a62a8554653e7579f71af057ce1f9f367896e858bb2d181c3fc08e",
+        "codes\\promptmm_release.py": "37a771f112dab29c6074d160350787c0c0d72536c931461edc000c11958ed021",
+        "codes\\promptmm_release_resource.py": "effb6f3716e8b3b8401908aa2b28ebe9f33b71f47179a15ebb99ffe3c5b805d2",
+        "codes\\Models_mmlight.py": "ec993272ccf07d24a70b41bb9fb87273d95e01d2de6eb1dfb1950c10172933dc",
+        "codes\\utility\\metrics.py": "98097f78f82da4d442b074c1bfa075b20096d6edbfd34db3c9341ec46cdbc0c7",
+        "codes\\utility\\dataset_profiles.py": "abb93854f1cb77c1bad4ba1798fb011a7e4137778ac0a34dee9c4ceacf1b4c60",
+        "codes\\utility\\sports_validation_reuse.py": "d588cb8180d924e6ced11c3d49e4611fc3b8b42fec363fac40de5e2bd5b7651a"
+      },
+      "config": {
+        "seed": 2022,
+        "batch_size": 1024,
+        "embedding_dim": 64,
+        "layers": 1,
+        "learning_rate": 6e-05,
+        "weight_decay": 0.01,
+        "decay": 1e-05,
+        "pair_rate": 1000000.0,
+        "list_rate": 1000000.0,
+        "feature_rate": 0.1,
+        "sce_power": 2.0,
+        "negative_count": 10
+      },
+      "teacher_path": "Model/sports/runs/teacher_model_val_test_once_v1__2026-09-16 12_38_48.480698_sports_light_init_pid30708.pt",
+      "teacher_sha256": "57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea",
+      "initialization": {
+        "rule": "teacher table initialization",
+        "checkpoint_sha256": "57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea"
+      },
+      "source_path": "exp/promptmm_release/sports_promptmm_release_validation300_seed2022_lr6e5_v1/report.json",
+      "source_sha256": "84b6a90f2f5510ff22df24dfa2e267d634a4fbb6a260f0500f3062bf48b9ad03",
+      "checkpoint_path": "exp/promptmm_release/sports_promptmm_release_validation300_seed2022_lr6e5_v1/best.pt",
+      "checkpoint_sha256": "e32f9907d68874f09f4327a6ccfba8b4c86e1b7c73c7d0a06713f990b6e94e27",
+      "selection": "Validation Recall@20; strict improvement, earliest tie",
+      "selected_epoch": 294,
+      "selection_recall20": 0.08763455632938123,
+      "quality_report_path": "exp/formal_closeout_eval/innovation1_eval_recovery_v1/s3_2022/report.json",
+      "quality_report_sha256": "67c72111ba2fa9cf2742a74e8e9cc77f01c99f691d7b75d885ad05098f590762",
+      "final_test_metrics": {
+        "recall": [
+          0.05798405162765619,
+          0.08986115458600161,
+          0.1314201484477922,
+          0.14871933013892644
+        ],
+        "precision": [
+          0.006449800550592529,
+          0.005025563233889573,
+          0.0036940277543684565,
+          0.0033507500421373045
+        ],
+        "ndcg": [
+          0.034140089432556434,
+          0.04301078995562664,
+          0.05240147008868619,
+          0.055896716392508844
+        ],
+        "hit_ratio": [
+          0.0638799932580495,
+          0.09896623405809675,
+          0.14402494522163883,
+          0.1627057699870671
+        ]
+      },
+      "td_infer_path": null,
+      "td_infer_sha256": null
+    },
+    {
+      "slot": "s3_2023",
+      "dataset": "sports",
+      "method": "promptmm_release",
+      "seed": 2023,
+      "source_commit": "09dce8b5654e88e0b6ff510c1c28215c2b25e521",
+      "source_code_fingerprints": {
+        "codes\\main_mmlight.py": "b869e0a8c01bc146196f9af6d0d3d7053a54395f9cfebe092919602fe8edc8c5",
+        "codes\\promptmm_release_validation.py": "ebccd4f4df1a80e4fcc98f00f8c7560b9f562444ff45ebc92f0c4cc674acd8cb",
+        "codes\\promptmm_release.py": "37a771f112dab29c6074d160350787c0c0d72536c931461edc000c11958ed021",
+        "codes\\promptmm_release_resource.py": "effb6f3716e8b3b8401908aa2b28ebe9f33b71f47179a15ebb99ffe3c5b805d2",
+        "codes\\Models_mmlight.py": "ec993272ccf07d24a70b41bb9fb87273d95e01d2de6eb1dfb1950c10172933dc",
+        "codes\\utility\\metrics.py": "98097f78f82da4d442b074c1bfa075b20096d6edbfd34db3c9341ec46cdbc0c7",
+        "codes\\utility\\dataset_profiles.py": "abb93854f1cb77c1bad4ba1798fb011a7e4137778ac0a34dee9c4ceacf1b4c60",
+        "codes\\utility\\sports_validation_reuse.py": "d588cb8180d924e6ced11c3d49e4611fc3b8b42fec363fac40de5e2bd5b7651a"
+      },
+      "config": {
+        "seed": 2023,
+        "batch_size": 1024,
+        "embedding_dim": 64,
+        "layers": 1,
+        "learning_rate": 6e-05,
+        "weight_decay": 0.01,
+        "decay": 1e-05,
+        "pair_rate": 1000000.0,
+        "list_rate": 1000000.0,
+        "feature_rate": 0.1,
+        "sce_power": 2.0,
+        "negative_count": 10
+      },
+      "teacher_path": "Model/sports/runs/teacher_model_val_test_once_v1__2026-09-16 12_38_48.480698_sports_light_init_pid30708.pt",
+      "teacher_sha256": "57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea",
+      "initialization": {
+        "rule": "teacher table initialization",
+        "checkpoint_sha256": "57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea"
+      },
+      "source_path": "exp/promptmm_release/sports_promptmm_release_validation300_seed2023_lr6e5_v1/report.json",
+      "source_sha256": "8ec8b80d9be20c6b6f6e4b3e77e2d8ce5267870490616c1981df65fad17747b4",
+      "checkpoint_path": "exp/promptmm_release/sports_promptmm_release_validation300_seed2023_lr6e5_v1/best.pt",
+      "checkpoint_sha256": "9b85a76b655b5107211b59baba5e1325289b38a6cf0c191d25a26cad8166e9da",
+      "selection": "Validation Recall@20; strict improvement, earliest tie",
+      "selected_epoch": 299,
+      "selection_recall20": 0.0876120831567311,
+      "quality_report_path": "exp/formal_closeout_eval/innovation1_eval_recovery_v1/s3_2023/report.json",
+      "quality_report_sha256": "e868e07d96092f4373056b493ae1e0f73e41899b2d634338c0d894ff0780b648",
+      "final_test_metrics": {
+        "recall": [
+          0.058007851341747504,
+          0.08999893653736858,
+          0.13187359152511843,
+          0.1474814328787813
+        ],
+        "precision": [
+          0.006458227990336334,
+          0.005031181527052112,
+          0.0037143940670826565,
+          0.003322658576324617
+        ],
+        "ndcg": [
+          0.034079191672479595,
+          0.04296530900407169,
+          0.05246395906092335,
+          0.05558444862537207
+        ],
+        "hit_ratio": [
+          0.06393617618967487,
+          0.09905050845553481,
+          0.14464295746951766,
+          0.16146974549130944
+        ]
+      },
+      "td_infer_path": null,
+      "td_infer_sha256": null
+    },
+    {
+      "slot": "s3_2024",
+      "dataset": "sports",
+      "method": "promptmm_release",
+      "seed": 2024,
+      "source_commit": "09dce8b5654e88e0b6ff510c1c28215c2b25e521",
+      "source_code_fingerprints": {
+        "codes\\main_mmlight.py": "b869e0a8c01bc146196f9af6d0d3d7053a54395f9cfebe092919602fe8edc8c5",
+        "codes\\promptmm_release_validation.py": "ebccd4f4df1a80e4fcc98f00f8c7560b9f562444ff45ebc92f0c4cc674acd8cb",
+        "codes\\promptmm_release.py": "37a771f112dab29c6074d160350787c0c0d72536c931461edc000c11958ed021",
+        "codes\\promptmm_release_resource.py": "effb6f3716e8b3b8401908aa2b28ebe9f33b71f47179a15ebb99ffe3c5b805d2",
+        "codes\\Models_mmlight.py": "ec993272ccf07d24a70b41bb9fb87273d95e01d2de6eb1dfb1950c10172933dc",
+        "codes\\utility\\metrics.py": "98097f78f82da4d442b074c1bfa075b20096d6edbfd34db3c9341ec46cdbc0c7",
+        "codes\\utility\\dataset_profiles.py": "abb93854f1cb77c1bad4ba1798fb011a7e4137778ac0a34dee9c4ceacf1b4c60",
+        "codes\\utility\\sports_validation_reuse.py": "d588cb8180d924e6ced11c3d49e4611fc3b8b42fec363fac40de5e2bd5b7651a"
+      },
+      "config": {
+        "seed": 2024,
+        "batch_size": 1024,
+        "embedding_dim": 64,
+        "layers": 1,
+        "learning_rate": 6e-05,
+        "weight_decay": 0.01,
+        "decay": 1e-05,
+        "pair_rate": 1000000.0,
+        "list_rate": 1000000.0,
+        "feature_rate": 0.1,
+        "sce_power": 2.0,
+        "negative_count": 10
+      },
+      "teacher_path": "Model/sports/runs/teacher_model_val_test_once_v1__2026-09-16 12_38_48.480698_sports_light_init_pid30708.pt",
+      "teacher_sha256": "57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea",
+      "initialization": {
+        "rule": "teacher table initialization",
+        "checkpoint_sha256": "57673a54603e2680416925d0c11b24d045b0ef14870feee292011032ea33abea"
+      },
+      "source_path": "exp/promptmm_release/sports_promptmm_release_validation300_seed2024_lr6e5_v1/report.json",
+      "source_sha256": "4e51e8ea14f0b1c948f1616ca0664e90f3e30f039dc010a61c167497d2bb8721",
+      "checkpoint_path": "exp/promptmm_release/sports_promptmm_release_validation300_seed2024_lr6e5_v1/best.pt",
+      "checkpoint_sha256": "d8589d349cc388a5a1e73ed2517744640571ec59aeae1349eacdafcbd5da27a9",
+      "selection": "Validation Recall@20; strict improvement, earliest tie",
+      "selected_epoch": 300,
+      "selection_recall20": 0.08747236155653418,
+      "quality_report_path": "exp/formal_closeout_eval/innovation1_eval_recovery_v1/s3_2024/report.json",
+      "quality_report_sha256": "5881820c488c2073eeec10883b2ba570df4c9b5c1c086d457fc4717203c8f60d",
+      "final_test_metrics": {
+        "recall": [
+          0.05776673292685526,
+          0.08994542898343964,
+          0.1318801462004747,
+          0.14861117799554766
+        ],
+        "precision": [
+          0.006427327377942382,
+          0.0050269678071802075,
+          0.0037080734872748018,
+          0.003345693578291021
+        ],
+        "ndcg": [
+          0.03394555224920129,
+          0.04289720339979367,
+          0.05237024254810598,
+          0.05571641934798766
+        ],
+        "hit_ratio": [
+          0.06368335299736068,
+          0.09905050845553481,
+          0.144614866003705,
+          0.1624810382605657
+        ]
+      },
+      "td_infer_path": null,
+      "td_infer_sha256": null
+    }
+  ]
+}

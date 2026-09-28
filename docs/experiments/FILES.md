@@ -132,7 +132,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（138）
+## docs（141）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -221,6 +221,9 @@
 - [docs/research/INITIALIZATION_KD_THREE_SEED_INDEPENDENT_AUDIT_2026-09-28.md](../research/INITIALIZATION_KD_THREE_SEED_INDEPENDENT_AUDIT_2026-09-28.md)
 - [docs/research/INITIALIZATION_KD_THREE_SEED_VERIFICATION_2026-09-28.json](../research/INITIALIZATION_KD_THREE_SEED_VERIFICATION_2026-09-28.json)
 - [docs/research/INNOVATION1_COST_ASSET_INVENTORY_2026-09-28.json](../research/INNOVATION1_COST_ASSET_INVENTORY_2026-09-28.json)
+- [docs/research/INNOVATION1_COST_M0_BINDINGS.json](../research/INNOVATION1_COST_M0_BINDINGS.json)
+- [docs/research/INNOVATION1_COST_PREPARATION.md](../research/INNOVATION1_COST_PREPARATION.md)
+- [docs/research/INNOVATION1_COST_RESULTS.md](../research/INNOVATION1_COST_RESULTS.md)
 - [docs/research/INNOVATION1_COST_ROADMAP_2026-09-28.md](../research/INNOVATION1_COST_ROADMAP_2026-09-28.md)
 - [docs/research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md)
 - [docs/research/INNOVATION1_EVAL_RECOVERY_V1_LAUNCH_2026-09-26.md](../research/INNOVATION1_EVAL_RECOVERY_V1_LAUNCH_2026-09-26.md)
@@ -303,7 +306,7 @@
 - [tests/test_sports_paired_cold.py](../../tests/test_sports_paired_cold.py)
 - [tests/test_sports_sham_residual.py](../../tests/test_sports_sham_residual.py)
 
-## tools（31）
+## tools（32）
 
 - [tools/audit_initialization_kd_three_seeds.py](../../tools/audit_initialization_kd_three_seeds.py)
 - [tools/build_experiment_navigation.py](../../tools/build_experiment_navigation.py)
@@ -314,6 +317,7 @@
 - [tools/diagnose_sports_matched_target_direction.py](../../tools/diagnose_sports_matched_target_direction.py)
 - [tools/diagnose_sports_weighted_directions.py](../../tools/diagnose_sports_weighted_directions.py)
 - [tools/freeze_innovation1_results.py](../../tools/freeze_innovation1_results.py)
+- [tools/innovation1_cost_m0.py](../../tools/innovation1_cost_m0.py)
 - [tools/preflight_initialization_kd_assets.py](../../tools/preflight_initialization_kd_assets.py)
 - [tools/run_cross_interaction_p0.py](../../tools/run_cross_interaction_p0.py)
 - [tools/run_cross_interaction_p1a.py](../../tools/run_cross_interaction_p1a.py)

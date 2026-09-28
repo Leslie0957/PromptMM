@@ -1,6 +1,6 @@
 # PromptMM 实验工作区
 
-当前阶段：已完成现有成本资产清点，下一阶段按[有界成本计划](docs/research/INNOVATION1_COST_ROADMAP_2026-09-28.md)交执行AI准备；本次无实验运行。
+当前阶段：成本实验 M0 [实现与静态/合成准备](docs/research/INNOVATION1_COST_PREPARATION.md)已完成，九学生＋共同教师的真实有界预检待用户手动运行；[M0/M1/M2状态](docs/research/INNOVATION1_COST_RESULTS.md)。尚无新成本测量或 Test 访问。
 
 先完整阅读 [AGENTS.md](AGENTS.md)，再读本页与 [TRAINING_LOG.md 当前状态及最新记录](TRAINING_LOG.md)。历史 pending 和旧交接不是执行队列。
 
