@@ -1,6 +1,6 @@
 # PromptMM 实验工作区
 
-当前阶段：成本实验 M0 [真实预检审计](docs/research/INNOVATION1_COST_M0_AUDIT.md)通过；[M0/M1/M2状态](docs/research/INNOVATION1_COST_RESULTS.md)。下一步仅准备独立声明的 M1 串行部署测量，不自动运行；尚无 M1/M2 成本结果或新 Test 访问。
+当前阶段：成本实验 M0 [真实预检审计](docs/research/INNOVATION1_COST_M0_AUDIT.md)通过；[M1串行声明](docs/research/INNOVATION1_M1_DEPLOYMENT_LAUNCH_2026-09-28.md)已准备、未运行；[M0/M1/M2状态](docs/research/INNOVATION1_COST_RESULTS.md)。尚无 M1/M2 成本结果或新 Test 访问。
 
 先完整阅读 [AGENTS.md](AGENTS.md)，再读本页与 [TRAINING_LOG.md 当前状态及最新记录](TRAINING_LOG.md)。历史 pending 和旧交接不是执行队列。
 

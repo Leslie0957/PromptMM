@@ -132,7 +132,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（142）
+## docs（143）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -234,6 +234,7 @@
 - [docs/research/INNOVATION1_FORMAL_CLOSEOUT_LAUNCH_2026-09-26.md](../research/INNOVATION1_FORMAL_CLOSEOUT_LAUNCH_2026-09-26.md)
 - [docs/research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md](../research/INNOVATION1_FORMAL_CLOSEOUT_PROTOCOL_2026-09-26.md)
 - [docs/research/INNOVATION1_FORMAL_CLOSEOUT_V2_LAUNCH_2026-09-26.md](../research/INNOVATION1_FORMAL_CLOSEOUT_V2_LAUNCH_2026-09-26.md)
+- [docs/research/INNOVATION1_M1_DEPLOYMENT_LAUNCH_2026-09-28.md](../research/INNOVATION1_M1_DEPLOYMENT_LAUNCH_2026-09-28.md)
 - [docs/research/INNOVATION1_PROTOCOL_REUSE_AUDIT_2026-09-26.md](../research/INNOVATION1_PROTOCOL_REUSE_AUDIT_2026-09-26.md)
 - [docs/research/INNOVATION1_RESULT_FREEZE_AUDIT_2026-09-26.md](../research/INNOVATION1_RESULT_FREEZE_AUDIT_2026-09-26.md)
 - [docs/research/INNOVATION1_RESULT_FREEZE_CHECKLIST_2026-09-26.md](../research/INNOVATION1_RESULT_FREEZE_CHECKLIST_2026-09-26.md)
@@ -307,7 +308,7 @@
 - [tests/test_sports_paired_cold.py](../../tests/test_sports_paired_cold.py)
 - [tests/test_sports_sham_residual.py](../../tests/test_sports_sham_residual.py)
 
-## tools（32）
+## tools（33）
 
 - [tools/audit_initialization_kd_three_seeds.py](../../tools/audit_initialization_kd_three_seeds.py)
 - [tools/build_experiment_navigation.py](../../tools/build_experiment_navigation.py)
@@ -329,6 +330,7 @@
 - [tools/run_initialization_kd_eval_parity.py](../../tools/run_initialization_kd_eval_parity.py)
 - [tools/run_initialization_kd_interaction.py](../../tools/run_initialization_kd_interaction.py)
 - [tools/run_initialization_kd_resource_smoke.py](../../tools/run_initialization_kd_resource_smoke.py)
+- [tools/run_innovation1_cost_m1.py](../../tools/run_innovation1_cost_m1.py)
 - [tools/run_innovation1_eval_recovery.py](../../tools/run_innovation1_eval_recovery.py)
 - [tools/run_innovation1_formal_closeout.py](../../tools/run_innovation1_formal_closeout.py)
 - [tools/run_sports_cached_deployment.py](../../tools/run_sports_cached_deployment.py)
