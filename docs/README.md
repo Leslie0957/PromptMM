@@ -1,8 +1,8 @@
 # 文档入口
 
-当前成本清点与执行交接：[有界成本计划](research/INNOVATION1_COST_ROADMAP_2026-09-28.md)，仅M0/M1/M2，未授权自动运行。
+当前成本实验：[有界成本计划](research/INNOVATION1_COST_ROADMAP_2026-09-28.md)；[M0审计](research/INNOVATION1_COST_M0_AUDIT.md)通过，M1/M2尚未运行。
 
-> 2026-09-28当前行动以[目标—证据—缺口总表](paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)为准。已完成实验不重跑；唯一下一步为已有资产与成本记录的只读可行性清点，不运行计时/训练/评价/Test。下文较早“下一步”保留其历史语境，外部要求核对不再作为只读准备的阻塞项。
+> 2026-09-28当前行动以[目标—证据—缺口总表](paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)及[成本状态](research/INNOVATION1_COST_RESULTS.md)为准。已完成实验不重跑；下一步只准备独立声明的 M1 串行部署测量，当前不运行 M1/M2 或 Test。下文较早“下一步”保留其历史语境。
 
 先读[仓库总览](../README.md)和[当前短日志](../TRAINING_LOG.md)，再按任务展开。
 

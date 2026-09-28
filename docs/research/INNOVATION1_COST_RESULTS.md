@@ -4,8 +4,8 @@
 
 | Stage | Scope | Status | Evidence |
 |---|---|---|---|
-| M0 | Sports nine selected students plus one shared teacher; export/request fidelity and bounded resources | Prepared; real smoke not run | [Preparation and command](INNOVATION1_COST_PREPARATION.md), [static bindings](INNOVATION1_COST_M0_BINDINGS.json); synthetic graph/export/request check passed |
-| M1 | Same-checkpoint deployment preparation and cached service | Pending M0 audit and separate declaration | No new timings or quality evaluation |
-| M2 | Native early update windows, three methods × three seeds × three rounds | Pending M0 audit and separate declaration | No new update measurements |
+| M0 | Sports nine selected students plus one shared teacher; export/request fidelity and bounded resources | Completed; one real non-formal smoke audited | [M0 audit](INNOVATION1_COST_M0_AUDIT.md): 9 student + 1 teacher exports, 12 Train-only requests, zero score delta, 13.953 s parent wall, limits passed, Test0/Validation0/updates0 |
+| M1 | Same-checkpoint deployment preparation and cached service | Pending separate declaration and authorization | No new deployment timings or quality evaluation |
+| M2 | Native early update windows, three methods × three seeds × three rounds | Pending separate declaration and authorization | No new update measurements |
 
 The current plan cannot establish 300-epoch total training cost, time to equal quality, dynamic refresh cost, or lossless cost reduction. No M1/M2 estimates are filled in from historical wall clocks.

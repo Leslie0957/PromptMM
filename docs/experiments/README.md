@@ -1,8 +1,8 @@
 # 实验导航：按问题查证据
 
-当前成本实验族：[有界计划](../research/INNOVATION1_COST_ROADMAP_2026-09-28.md)及[M0准备](../research/INNOVATION1_COST_PREPARATION.md)；[状态矩阵](../research/INNOVATION1_COST_RESULTS.md)。M0静态绑定/合成检查完成，真实预检未运行；M1/M2待独立声明，不重跑质量实验。
+当前成本实验族：[有界计划](../research/INNOVATION1_COST_ROADMAP_2026-09-28.md)、[M0完成审计](../research/INNOVATION1_COST_M0_AUDIT.md)及[状态矩阵](../research/INNOVATION1_COST_RESULTS.md)。M0真实有界预检通过；M1/M2待独立声明与执行，不重跑质量实验。
 
-> 当前待办只看[第一项目标—证据—缺口总表](../paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。下一步只读清点质量—成本资产，不追加种子或启动旧声明。下方实验族与历史交接是证据导航。
+> 当前待办看[第一项目标—证据—缺口总表](../paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)及[成本状态](../research/INNOVATION1_COST_RESULTS.md)。下一步准备 M1 串行部署测量声明，不追加效果实验种子或启动旧声明。下方实验族与历史交接是证据导航。
 
 更新：2026-09-26。新窗口只需先读根目录[总览](../../README.md)、[AGENTS](../../AGENTS.md)和[短日志](../../TRAINING_LOG.md)，然后按本表选相关资料。日期较早文档中的“当前”“下一步”均只描述当时状态，不能自动执行旧命令。
 

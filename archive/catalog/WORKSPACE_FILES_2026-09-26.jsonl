@@ -236,8 +236,8 @@
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 05_34_16.930265_sports_light_init_pid42156.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 08_30_07.418852_sports_light_init_pid30132.pth", "source_catalog": false}
 {"bytes": 432550, "category": "root", "path": "PromptMM.png", "source_catalog": true}
-{"bytes": 2756, "category": "root", "path": "README.md", "source_catalog": true}
-{"bytes": 249783, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
+{"bytes": 2673, "category": "root", "path": "README.md", "source_catalog": true}
+{"bytes": 253990, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
 {"bytes": 739, "category": "archive", "path": "archive/README.md", "source_catalog": true}
 {"bytes": 409, "category": "archive", "path": "archive/run_patent_results/README.md", "source_catalog": true}
 {"bytes": 110276, "category": "archive", "path": "archive/run_patent_results/Result_0409_1319_Photo_a0.1_lr0.001/Result_0409_1319_Photo_a0.1_lr0.001_curve.png", "source_catalog": false}
@@ -570,7 +570,7 @@
 {"bytes": 3177, "category": "docs", "path": "docs/PROMPTMM_RELEASE_VALIDATION300_BATCH.md", "source_catalog": true}
 {"bytes": 4183, "category": "docs", "path": "docs/PROMPTMM_RELEASE_VALIDATION_DIAGNOSTIC.md", "source_catalog": true}
 {"bytes": 2666, "category": "docs", "path": "docs/PROMPTMM_VALIDATION_FAST_PARITY.md", "source_catalog": true}
-{"bytes": 4107, "category": "docs", "path": "docs/README.md", "source_catalog": true}
+{"bytes": 4114, "category": "docs", "path": "docs/README.md", "source_catalog": true}
 {"bytes": 1827, "category": "docs", "path": "docs/SPORTS_GRADIENT_DIAGNOSTIC.md", "source_catalog": true}
 {"bytes": 2087, "category": "docs", "path": "docs/SPORTS_INITIALIZATION_DIAGNOSTIC.md", "source_catalog": true}
 {"bytes": 2554, "category": "docs", "path": "docs/SPORTS_INITIALIZATION_PAIR_SEED2022.md", "source_catalog": true}
@@ -584,7 +584,7 @@
 {"bytes": 3849, "category": "docs", "path": "docs/SPORTS_TEACHER_VALIDATION120_V1.md", "source_catalog": true}
 {"bytes": 100432, "category": "docs", "path": "docs/baselines/ASSET_MANIFEST_2026-07-29.csv", "source_catalog": true}
 {"bytes": 2893, "category": "docs", "path": "docs/baselines/README.md", "source_catalog": true}
-{"bytes": 9268, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
+{"bytes": 9318, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
 {"bytes": 8983, "category": "docs", "path": "docs/experiments/RUN_CLOSEOUT.md", "source_catalog": true}
 {"bytes": 1832, "category": "docs", "path": "docs/experiments/WORKSPACE_MAP.md", "source_catalog": true}
 {"bytes": 7027, "category": "docs", "path": "docs/paper/INNOVATION1_CONTRIBUTION_POSITION_2026-09-28.md", "source_catalog": true}
@@ -640,9 +640,10 @@
 {"bytes": 12092, "category": "docs", "path": "docs/research/INITIALIZATION_KD_THREE_SEED_INDEPENDENT_AUDIT_2026-09-28.md", "source_catalog": true}
 {"bytes": 20263, "category": "docs", "path": "docs/research/INITIALIZATION_KD_THREE_SEED_VERIFICATION_2026-09-28.json", "source_catalog": true}
 {"bytes": 16139, "category": "docs", "path": "docs/research/INNOVATION1_COST_ASSET_INVENTORY_2026-09-28.json", "source_catalog": true}
+{"bytes": 7436, "category": "docs", "path": "docs/research/INNOVATION1_COST_M0_AUDIT.md", "source_catalog": true}
 {"bytes": 46683, "category": "docs", "path": "docs/research/INNOVATION1_COST_M0_BINDINGS.json", "source_catalog": true}
 {"bytes": 5657, "category": "docs", "path": "docs/research/INNOVATION1_COST_PREPARATION.md", "source_catalog": true}
-{"bytes": 1068, "category": "docs", "path": "docs/research/INNOVATION1_COST_RESULTS.md", "source_catalog": true}
+{"bytes": 1126, "category": "docs", "path": "docs/research/INNOVATION1_COST_RESULTS.md", "source_catalog": true}
 {"bytes": 13051, "category": "docs", "path": "docs/research/INNOVATION1_COST_ROADMAP_2026-09-28.md", "source_catalog": true}
 {"bytes": 8957, "category": "docs", "path": "docs/research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md", "source_catalog": true}
 {"bytes": 3780, "category": "docs", "path": "docs/research/INNOVATION1_EVAL_RECOVERY_V1_LAUNCH_2026-09-26.md", "source_catalog": true}
@@ -1573,6 +1574,21 @@
 {"bytes": 9936, "category": "exp", "path": "exp/cross_interaction/p1a_commoncache_seed2022_u1_v1/worker.log", "source_catalog": false}
 {"bytes": 54292, "category": "exp", "path": "exp/cross_interaction/p1a_coverage_seed31027_v1/coverage.json", "source_catalog": false}
 {"bytes": 642, "category": "exp", "path": "exp/efficiency/amazon/efficiency__2026-04-17 01_50_16_amazon_light_init_pid22636.pkl", "source_catalog": false}
+{"bytes": 630, "category": "exp", "path": "exp/efficiency/innovation1_cost_v1/m0/smoke_v1/batch.json", "source_catalog": false}
+{"bytes": 1141, "category": "exp", "path": "exp/efficiency/innovation1_cost_v1/m0/smoke_v1/report.json", "source_catalog": false}
+{"bytes": 13814309, "category": "exp", "path": "exp/efficiency/innovation1_cost_v1/m0/smoke_v1/s1_2022_tables.pt", "source_catalog": false}
+{"bytes": 13814309, "category": "exp", "path": "exp/efficiency/innovation1_cost_v1/m0/smoke_v1/s1_2023_tables.pt", "source_catalog": false}
+{"bytes": 13814309, "category": "exp", "path": "exp/efficiency/innovation1_cost_v1/m0/smoke_v1/s1_2024_tables.pt", "source_catalog": false}
+{"bytes": 13814309, "category": "exp", "path": "exp/efficiency/innovation1_cost_v1/m0/smoke_v1/s2_2022_tables.pt", "source_catalog": false}
+{"bytes": 13814309, "category": "exp", "path": "exp/efficiency/innovation1_cost_v1/m0/smoke_v1/s2_2023_tables.pt", "source_catalog": false}
+{"bytes": 13814309, "category": "exp", "path": "exp/efficiency/innovation1_cost_v1/m0/smoke_v1/s2_2024_tables.pt", "source_catalog": false}
+{"bytes": 13814309, "category": "exp", "path": "exp/efficiency/innovation1_cost_v1/m0/smoke_v1/s3_2022_tables.pt", "source_catalog": false}
+{"bytes": 13814309, "category": "exp", "path": "exp/efficiency/innovation1_cost_v1/m0/smoke_v1/s3_2023_tables.pt", "source_catalog": false}
+{"bytes": 13814309, "category": "exp", "path": "exp/efficiency/innovation1_cost_v1/m0/smoke_v1/s3_2024_tables.pt", "source_catalog": false}
+{"bytes": 559, "category": "exp", "path": "exp/efficiency/innovation1_cost_v1/m0/smoke_v1/stderr.txt", "source_catalog": false}
+{"bytes": 51, "category": "exp", "path": "exp/efficiency/innovation1_cost_v1/m0/smoke_v1/stdout.txt", "source_catalog": false}
+{"bytes": 13814309, "category": "exp", "path": "exp/efficiency/innovation1_cost_v1/m0/smoke_v1/teacher_tables.pt", "source_catalog": false}
+{"bytes": 9012, "category": "exp", "path": "exp/efficiency/innovation1_cost_v1/m0/smoke_v1/worker.json", "source_catalog": false}
 {"bytes": 13814309, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v1/B_tables.pt", "source_catalog": false}
 {"bytes": 13814309, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v1/F_tables.pt", "source_catalog": false}
 {"bytes": 13814309, "category": "exp", "path": "exp/efficiency/sports_cached_deployment_seed2022_v1/T_tables.pt", "source_catalog": false}

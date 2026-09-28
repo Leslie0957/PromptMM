@@ -132,7 +132,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（141）
+## docs（142）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -221,6 +221,7 @@
 - [docs/research/INITIALIZATION_KD_THREE_SEED_INDEPENDENT_AUDIT_2026-09-28.md](../research/INITIALIZATION_KD_THREE_SEED_INDEPENDENT_AUDIT_2026-09-28.md)
 - [docs/research/INITIALIZATION_KD_THREE_SEED_VERIFICATION_2026-09-28.json](../research/INITIALIZATION_KD_THREE_SEED_VERIFICATION_2026-09-28.json)
 - [docs/research/INNOVATION1_COST_ASSET_INVENTORY_2026-09-28.json](../research/INNOVATION1_COST_ASSET_INVENTORY_2026-09-28.json)
+- [docs/research/INNOVATION1_COST_M0_AUDIT.md](../research/INNOVATION1_COST_M0_AUDIT.md)
 - [docs/research/INNOVATION1_COST_M0_BINDINGS.json](../research/INNOVATION1_COST_M0_BINDINGS.json)
 - [docs/research/INNOVATION1_COST_PREPARATION.md](../research/INNOVATION1_COST_PREPARATION.md)
 - [docs/research/INNOVATION1_COST_RESULTS.md](../research/INNOVATION1_COST_RESULTS.md)

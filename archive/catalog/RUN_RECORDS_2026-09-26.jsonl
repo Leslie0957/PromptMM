@@ -386,6 +386,9 @@
 {"bytes": 1293518, "path": "exp/cross_interaction/p1a_commoncache_seed2022_u1_v1/report.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
 {"bytes": 112, "path": "exp/cross_interaction/p1a_commoncache_seed2022_u1_v1/supervisor.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
 {"bytes": 54292, "path": "exp/cross_interaction/p1a_coverage_seed31027_v1/coverage.json", "profile": null, "read_status": "parsed", "seed": 31027, "status": null}
+{"bytes": 630, "path": "exp/efficiency/innovation1_cost_v1/m0/smoke_v1/batch.json", "profile": null, "read_status": "parsed", "seed": null, "status": "started"}
+{"bytes": 1141, "path": "exp/efficiency/innovation1_cost_v1/m0/smoke_v1/report.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
+{"bytes": 9012, "path": "exp/efficiency/innovation1_cost_v1/m0/smoke_v1/worker.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
 {"bytes": 6895, "path": "exp/efficiency/sports_cached_deployment_seed2022_v1/batch.json", "profile": null, "read_status": "parsed", "seed": null, "status": "failed"}
 {"bytes": 5491, "path": "exp/efficiency/sports_cached_deployment_seed2022_v1/preflight.json", "profile": null, "read_status": "parsed", "seed": null, "status": "passed"}
 {"bytes": 2366, "path": "exp/efficiency/sports_cached_deployment_seed2022_v1/round0_offline_T_b0/report.json", "profile": null, "read_status": "parsed", "seed": null, "status": "failed"}
