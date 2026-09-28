@@ -1,5 +1,7 @@
 # 论文写作入口
 
+2026-09-28：三seed初始化依赖已纳入[Sports正文第2节](SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md)，最新[贡献定位及可交导师的确认文本](INNOVATION1_CONTRIBUTION_POSITION_2026-09-28.md)明确第一项的证据边界。当前唯一下一步是确认外部贡献/验收要求，不追加同配置seed。
+
 研究动机和贡献先看[第一创新点立项决策单](INNOVATION1_RATIONALE_REVIEW_2026-09-26.md)：保留简化方向监督与适用边界；不主张二次蒸馏或线上降本。独立创新强度尚待确认。
 
 第一创新点的**可直接引用结果**先看[18 格固定配置主表与表注](INNOVATION1_FIXED_MAIN_TABLE_2026-09-26.md)。论文撰写时从此表复制数值和脚注，不从终端截图、旧计划或文件名挑结果。原始格子与资产指纹见[本机结果快照审计](../research/INNOVATION1_RESULT_FREEZE_AUDIT_2026-09-26.md)；如需逐文件查找，使用[冻结清单](../research/INNOVATION1_RESULT_FREEZE_MANIFEST_2026-09-26.json)中的仓库相对路径。

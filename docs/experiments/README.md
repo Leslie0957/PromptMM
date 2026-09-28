@@ -8,7 +8,7 @@
 
 ## 已完成的实验与诊断族
 
-当前初始化×KD：Sports三seed四臂完成，见[独立原始产物审计](../research/INITIALIZATION_KD_THREE_SEED_INDEPENDENT_AUDIT_2026-09-28.md)、[seed2024收尾](../research/INITIALIZATION_KD_INTERACTION_SEED2024_AUDIT.md)和[十二格Validation矩阵](../research/INITIALIZATION_KD_INTERACTION_RESULTS.md)。全部Test0；大随机组增益可重复，暖组符号不稳，尚不识别语义冗余或第二算法。唯一下步为第一项边界写作与贡献定位复核，不启动旧声明。
+当前初始化×KD：三seed四臂完成并经[独立审计](../research/INITIALIZATION_KD_THREE_SEED_INDEPENDENT_AUDIT_2026-09-28.md)，[十二格Validation矩阵](../research/INITIALIZATION_KD_INTERACTION_RESULTS.md)不变；已纳入[正文与贡献定位](../paper/INNOVATION1_CONTRIBUTION_POSITION_2026-09-28.md)。唯一下一步是确认外部贡献/验收要求，不追加seed、Test或门控。
 
 | 族 | 当前可用证据 / 状态 | 首选入口 |
 |---|---|---|

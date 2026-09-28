@@ -2,7 +2,7 @@
 
 先读[仓库总览](../README.md)和[当前短日志](../TRAINING_LOG.md)，再按任务展开。
 
-- 最新完成：[Sports初始化×KD三seed独立审计](research/INITIALIZATION_KD_THREE_SEED_INDEPENDENT_AUDIT_2026-09-28.md)与[十二格矩阵](research/INITIALIZATION_KD_INTERACTION_RESULTS.md)。全部Test0；定位第一项机制边界补充，第二算法未成立。唯一下步为证据写作与贡献定位复核；下列旧路线不是执行队列。
+- 最新写作：[初始化依赖正文](paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md)与[贡献定位确认文本](paper/INNOVATION1_CONTRIBUTION_POSITION_2026-09-28.md)已完成。证据来自三seed原始审计；下一步确认导师的贡献与验收要求，无新实验授权。
 
 - 当前研究路线：[跨交互蒸馏效用综合决策](research/CROSS_INTERACTION_ROUTE_2026-09-27.md)。三份AI建议已评审；P0/P1a 已按门槛完成诊断，尚无新算法或正式训练授权。旧候选不再代表当前优先级。
 

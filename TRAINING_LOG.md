@@ -6,6 +6,8 @@ Updated: 2026-09-26. Latest audited source: b3ea32fd7f9685631d33a60f52591e8dd3e0
 
 ## Current state
 
+- 2026-09-28 最新写作：三seed初始化依赖已纳入[Sports正文](docs/paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md)，[贡献定位复核](docs/paper/INNOVATION1_CONTRIBUTION_POSITION_2026-09-28.md)完成；第一项保留简化配方及条件性边界，未认证第二算法或学位充分性。G4/G9及C5解释更新，所有结果格子不变。唯一下步：携确认文本向导师明确贡献形式、第二项独立性与验收要求；本次无训练/评价/Test。
+
 - 2026-09-28 最新独立审计：[三seed原始证据复核](docs/research/INITIALIZATION_KD_THREE_SEED_INDEPENDENT_AUDIT_2026-09-28.md)通过，seed2024收尾已补记。12臂各300轮/64200步，24个完整checkpoint及39个验收SHA匹配；3612次已记录Validation、Test0。三次大随机组增益，暖ΔT负/正/负，未证明语义冗余或第二算法。唯一下步：第一项初始化依赖与适用边界写作/贡献定位复核，不追加seed或Test；下方旧交接均为历史。
 
 - 2026-09-28 当前交接：用户要求第三种子，seed2024[只读资产预检](docs/research/INITIALIZATION_KD_SEED2024_PREFLIGHT_2026-09-28.md)通过，初值/回放与前两次不同且全回放Train归属正确；[一次四臂手动声明](docs/research/INITIALIZATION_KD_SEED2024_COHORT_LAUNCH_2026-09-28.md)已准备。四臂串行300轮、共同缓存/其余协议固定、Test0；36项合成CPU检查通过。唯一下一步用户手动执行新命令一次，之后审计并可交另一AI独立复核；agent未运行真实训练/评价。下方两seed“只读综合”交接由本次明确授权更新。
@@ -839,3 +841,17 @@ V2 user batch failed at preflight_s3_2022 after three valid Baby trainings and n
 - Unique next step: first-work initialization-dependence/limits writing and contribution review from existing evidence; no automatic new seed, Test or gating.
 
 - Final verification: standalone raw audit passed; 57 raw artifact SHA rechecks unchanged, focused local links passed, old audits/declaration and historical log bytes preserved (including pre-existing embedded control characters in the old seed2023 command). Navigation refreshed; git diff --check passed. No project training/evaluation or Test execution.
+
+## 2026-09-28 Initialization dependence paper integration (pending)
+
+- User authorized the sole next writing/contribution-review stage. Base2691a0e, tracked clean, check/ preserved. Scope: integrate audited three-seed Validation evidence into active Sports prose; create a bounded contribution-position review; update paper entry and G4/G9/current gap status, root/docs/family pointers and six generated navigation files. Preserve historical research audits, proposal, raw outputs, all result matrices and old Test cells. No training/code/profile/data/parameter change or new evaluation/Test/literature novelty certification.
+- Rationale: replace outdated single-seed-only/current-no-factorial claims with verified conditional interaction, without promoting a mechanism supplement to second algorithm. Risks: mixing best/final or Val/Test, overstating semantic redundancy/equivalence, rewriting historical evidence. Acceptance: table numbers match committed verification JSON; explicit source/teacher/budget/optimizer limits, defensible contribution wording and unresolved external degree requirements; local links and focused diffs pass, historical log bytes preserved. Rollback reference is base commit only; no automatic reset. Append completed after verification and make one scoped local commit. Next action will be external contribution/degree-requirement confirmation using the concrete review, not another run.
+
+- Scope amendment before editing: the active claims matrix still describes C5 as single-seed. Update only its C5 evidence/interpretation row and current supplement link; preserve every formal result cell. This replaces the blanket matrix-preservation statement only for that prose row, not any numeric result or protocol.
+
+## 2026-09-28 Initialization dependence paper integration (completed)
+
+- Integrated three-seed initialization x KD into Sports prose section2 with the fixed epoch300 Validation table, paired protocol, primary contrasts and secondary best/last20 boundaries. Updated obsolete single-seed/no-factorial limitations; historical warm rows remain explicitly historical and cannot be pooled. Added INNOVATION1_CONTRIBUTION_POSITION_2026-09-28.md with usable introduction/contribution prose, evidence mapping, strongest alternative explanation, unresolved novelty/degree constraints and copy-ready advisor confirmation text. No external messages or fresh literature certification.
+- Updated only C5 prose in the claims matrix, G4/G9 and coverage/current commentary in gaps, appended rationale supplement and refreshed paper/root/docs/family entrances. All formal result cells, independent twelve-cell matrix, research audits/proposals, training source/config, raw outputs and check/ unchanged. G1/G5/G6 and external requirements remain open; this is first-work mechanism/limits evidence, not a second algorithm.
+- Verification: 21 displayed primary values/contrasts match committed verification JSON within eight-decimal rounding; 192 local links passed; formal matrix section3 onward identical; historical log content including embedded control characters preserved modulo Git CRLF handling. Focused diff/whitespace check passed. Six navigation outputs refreshed after manual edits (unchanged outputs need no diff). No training, ranking, checkpoint/data loading, Test, new seed, tag/bundle/push/merge. One scoped local documentation commit completes this stage.
+- Unique next step: user takes the concrete contribution-position page to the advisor to clarify acceptable first-work contribution form, independence required of the second contribution and evaluation/degree constraints; record the answer before setting a new research objective. No automatic experiment queue.

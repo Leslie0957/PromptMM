@@ -2,7 +2,7 @@
 
 先完整阅读 [AGENTS.md](AGENTS.md)，再读本页与 [TRAINING_LOG.md 当前状态及最新记录](TRAINING_LOG.md)。历史 pending 和旧交接不是执行队列。
 
-当前Sports初始化×KD的seed2022/2023/2024三次四臂已完成并经[原始产物独立审计](docs/research/INITIALIZATION_KD_THREE_SEED_INDEPENDENT_AUDIT_2026-09-28.md)通过，见[十二格Validation矩阵](docs/research/INITIALIZATION_KD_INTERACTION_RESULTS.md)。随机组KD增益大，暖组增量小且符号不稳；共同教师缓存、固定300轮、Test0。唯一下步为第一项初始化依赖与适用边界写作/贡献定位复核，不追加seed、Test、P1b/P2或门控。历史声明已消耗，不是执行队列。
+当前第一项工作的[初始化依赖与适用边界正文](docs/paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md)和[贡献定位复核](docs/paper/INNOVATION1_CONTRIBUTION_POSITION_2026-09-28.md)已纳入三seed审计结果。随机组KD收益大，暖组小且符号不稳，未识别语义冗余或第二算法。唯一下一步：携贡献定位页向导师确认贡献形式、第二项独立性及验收要求；不追加实验或Test。历史声明不是执行队列。
 
 ## 当前入口
 
