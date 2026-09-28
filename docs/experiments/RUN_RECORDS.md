@@ -1,6 +1,6 @@
 # 运行与诊断记录导航
 
-目录版本：2026-09-26。共681个现存exp JSON记录；数量不是独立实验数。
+目录版本：2026-09-26。共691个现存exp JSON记录；数量不是独立实验数。
 保存状态按JSON原文摘录；—表示该字段未记录/未在约定层级找到，不表示成功或失败。
 批报告、子任务、资源检查与正式运行混列供定位，不能相加作为样本数。
 历史已做但本机没有JSON的实验，请查[完整历史章节](../../archive/training/ENTRY_INDEX_2026-09-26.md)。
@@ -519,6 +519,16 @@
 | [exp/initialization_kd_interaction/sports_init_kd_interaction_seed2023_v1/supervisor.json](../../exp/initialization_kd_interaction/sports_init_kd_interaction_seed2023_v1/supervisor.json) | completed | — | — | parsed |
 | [exp/initialization_kd_interaction/sports_init_kd_interaction_seed2023_v1/telemetry.json](../../exp/initialization_kd_interaction/sports_init_kd_interaction_seed2023_v1/telemetry.json) | — | — | — | parsed |
 | [exp/initialization_kd_interaction/sports_init_kd_interaction_seed2023_v1/worker_claim.json](../../exp/initialization_kd_interaction/sports_init_kd_interaction_seed2023_v1/worker_claim.json) | — | — | — | parsed |
+| [exp/initialization_kd_interaction/sports_init_kd_interaction_seed2024_v1/R0/curve.json](../../exp/initialization_kd_interaction/sports_init_kd_interaction_seed2024_v1/R0/curve.json) | — | — | — | parsed |
+| [exp/initialization_kd_interaction/sports_init_kd_interaction_seed2024_v1/R1/curve.json](../../exp/initialization_kd_interaction/sports_init_kd_interaction_seed2024_v1/R1/curve.json) | — | — | — | parsed |
+| [exp/initialization_kd_interaction/sports_init_kd_interaction_seed2024_v1/T0/curve.json](../../exp/initialization_kd_interaction/sports_init_kd_interaction_seed2024_v1/T0/curve.json) | — | — | — | parsed |
+| [exp/initialization_kd_interaction/sports_init_kd_interaction_seed2024_v1/T1/curve.json](../../exp/initialization_kd_interaction/sports_init_kd_interaction_seed2024_v1/T1/curve.json) | — | — | — | parsed |
+| [exp/initialization_kd_interaction/sports_init_kd_interaction_seed2024_v1/acceptance.json](../../exp/initialization_kd_interaction/sports_init_kd_interaction_seed2024_v1/acceptance.json) | passed | — | — | parsed |
+| [exp/initialization_kd_interaction/sports_init_kd_interaction_seed2024_v1/launch_manifest.json](../../exp/initialization_kd_interaction/sports_init_kd_interaction_seed2024_v1/launch_manifest.json) | launchable | — | 2024 | parsed |
+| [exp/initialization_kd_interaction/sports_init_kd_interaction_seed2024_v1/report.json](../../exp/initialization_kd_interaction/sports_init_kd_interaction_seed2024_v1/report.json) | completed | — | — | parsed |
+| [exp/initialization_kd_interaction/sports_init_kd_interaction_seed2024_v1/supervisor.json](../../exp/initialization_kd_interaction/sports_init_kd_interaction_seed2024_v1/supervisor.json) | completed | — | — | parsed |
+| [exp/initialization_kd_interaction/sports_init_kd_interaction_seed2024_v1/telemetry.json](../../exp/initialization_kd_interaction/sports_init_kd_interaction_seed2024_v1/telemetry.json) | — | — | — | parsed |
+| [exp/initialization_kd_interaction/sports_init_kd_interaction_seed2024_v1/worker_claim.json](../../exp/initialization_kd_interaction/sports_init_kd_interaction_seed2024_v1/worker_claim.json) | — | — | — | parsed |
 | [exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/T1/curve.json](../../exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/T1/curve.json) | — | — | — | parsed |
 | [exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/acceptance.json](../../exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/acceptance.json) | passed | — | — | parsed |
 | [exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/launch_manifest.json](../../exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/launch_manifest.json) | manual_resource_smoke_ready | — | 2022 | parsed |

@@ -8,7 +8,7 @@
 
 ## 已完成的实验与诊断族
 
-当前初始化 × KD 证据：[立项单](../research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md)、[准备审计](../research/INITIALIZATION_KD_INTERACTION_PREPARATION.md)、[资源smoke](../research/INITIALIZATION_KD_RESOURCE_SMOKE_AUDIT.md)、[评价等价](../research/INITIALIZATION_KD_EVAL_PARITY_V2_AUDIT.md)、四臂 [seed2022](../research/INITIALIZATION_KD_INTERACTION_AUDIT.md) / [seed2023](../research/INITIALIZATION_KD_INTERACTION_SEED2023_AUDIT.md) 完成审计及[独立结果矩阵](../research/INITIALIZATION_KD_INTERACTION_RESULTS.md)。两次均为 Validation-only/Test0，随机组 KD 增量大，教师组增量极小且符号不稳。用户要求第三种子；[seed2024只读资产预检](../research/INITIALIZATION_KD_SEED2024_PREFLIGHT_2026-09-28.md)通过，[一次手动声明](../research/INITIALIZATION_KD_SEED2024_COHORT_LAUNCH_2026-09-28.md)已准备，真实训练尚未开始。seed2023 的[已消耗声明](../research/INITIALIZATION_KD_SEED2023_COHORT_LAUNCH_2026-09-28.md)保留。下一步仅用户手动运行 seed2024 一次，之后审计；这不是 P1b/P2 延续，也未认证为第二算法。
+当前初始化×KD：Sports三seed四臂完成，见[独立原始产物审计](../research/INITIALIZATION_KD_THREE_SEED_INDEPENDENT_AUDIT_2026-09-28.md)、[seed2024收尾](../research/INITIALIZATION_KD_INTERACTION_SEED2024_AUDIT.md)和[十二格Validation矩阵](../research/INITIALIZATION_KD_INTERACTION_RESULTS.md)。全部Test0；大随机组增益可重复，暖组符号不稳，尚不识别语义冗余或第二算法。唯一下步为第一项边界写作与贡献定位复核，不启动旧声明。
 
 | 族 | 当前可用证据 / 状态 | 首选入口 |
 |---|---|---|

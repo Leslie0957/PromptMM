@@ -132,7 +132,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（131）
+## docs（134）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -204,6 +204,7 @@
 - [docs/research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md](../research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md)
 - [docs/research/INITIALIZATION_KD_INTERACTION_RESULTS.md](../research/INITIALIZATION_KD_INTERACTION_RESULTS.md)
 - [docs/research/INITIALIZATION_KD_INTERACTION_SEED2023_AUDIT.md](../research/INITIALIZATION_KD_INTERACTION_SEED2023_AUDIT.md)
+- [docs/research/INITIALIZATION_KD_INTERACTION_SEED2024_AUDIT.md](../research/INITIALIZATION_KD_INTERACTION_SEED2024_AUDIT.md)
 - [docs/research/INITIALIZATION_KD_RESOURCE_SMOKE_AUDIT.md](../research/INITIALIZATION_KD_RESOURCE_SMOKE_AUDIT.md)
 - [docs/research/INITIALIZATION_KD_RESOURCE_SMOKE_CONFIG_2026-09-27.json](../research/INITIALIZATION_KD_RESOURCE_SMOKE_CONFIG_2026-09-27.json)
 - [docs/research/INITIALIZATION_KD_RESOURCE_SMOKE_LAUNCH_2026-09-27.md](../research/INITIALIZATION_KD_RESOURCE_SMOKE_LAUNCH_2026-09-27.md)
@@ -215,6 +216,8 @@
 - [docs/research/INITIALIZATION_KD_SEED2024_COHORT_LAUNCH_2026-09-28.md](../research/INITIALIZATION_KD_SEED2024_COHORT_LAUNCH_2026-09-28.md)
 - [docs/research/INITIALIZATION_KD_SEED2024_PREFLIGHT_2026-09-28.json](../research/INITIALIZATION_KD_SEED2024_PREFLIGHT_2026-09-28.json)
 - [docs/research/INITIALIZATION_KD_SEED2024_PREFLIGHT_2026-09-28.md](../research/INITIALIZATION_KD_SEED2024_PREFLIGHT_2026-09-28.md)
+- [docs/research/INITIALIZATION_KD_THREE_SEED_INDEPENDENT_AUDIT_2026-09-28.md](../research/INITIALIZATION_KD_THREE_SEED_INDEPENDENT_AUDIT_2026-09-28.md)
+- [docs/research/INITIALIZATION_KD_THREE_SEED_VERIFICATION_2026-09-28.json](../research/INITIALIZATION_KD_THREE_SEED_VERIFICATION_2026-09-28.json)
 - [docs/research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md)
 - [docs/research/INNOVATION1_EVAL_RECOVERY_V1_LAUNCH_2026-09-26.md](../research/INNOVATION1_EVAL_RECOVERY_V1_LAUNCH_2026-09-26.md)
 - [docs/research/INNOVATION1_FIXED120_CURVES_2026-09-15.png](../research/INNOVATION1_FIXED120_CURVES_2026-09-15.png)
@@ -296,8 +299,9 @@
 - [tests/test_sports_paired_cold.py](../../tests/test_sports_paired_cold.py)
 - [tests/test_sports_sham_residual.py](../../tests/test_sports_sham_residual.py)
 
-## tools（30）
+## tools（31）
 
+- [tools/audit_initialization_kd_three_seeds.py](../../tools/audit_initialization_kd_three_seeds.py)
 - [tools/build_experiment_navigation.py](../../tools/build_experiment_navigation.py)
 - [tools/convert_mmrec_baby.py](../../tools/convert_mmrec_baby.py)
 - [tools/diagnose_sports_coldinit_selected_geometry.py](../../tools/diagnose_sports_coldinit_selected_geometry.py)
