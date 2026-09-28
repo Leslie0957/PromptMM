@@ -499,6 +499,16 @@
 {"bytes": 118, "path": "exp/initialization_kd_interaction/sports_init_kd_interaction_seed2022_v1/supervisor.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
 {"bytes": 189, "path": "exp/initialization_kd_interaction/sports_init_kd_interaction_seed2022_v1/telemetry.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
 {"bytes": 35, "path": "exp/initialization_kd_interaction/sports_init_kd_interaction_seed2022_v1/worker_claim.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
+{"bytes": 140211, "path": "exp/initialization_kd_interaction/sports_init_kd_interaction_seed2023_v1/R0/curve.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
+{"bytes": 139249, "path": "exp/initialization_kd_interaction/sports_init_kd_interaction_seed2023_v1/R1/curve.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
+{"bytes": 138835, "path": "exp/initialization_kd_interaction/sports_init_kd_interaction_seed2023_v1/T0/curve.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
+{"bytes": 138785, "path": "exp/initialization_kd_interaction/sports_init_kd_interaction_seed2023_v1/T1/curve.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
+{"bytes": 1348, "path": "exp/initialization_kd_interaction/sports_init_kd_interaction_seed2023_v1/acceptance.json", "profile": null, "read_status": "parsed", "seed": null, "status": "passed"}
+{"bytes": 7504, "path": "exp/initialization_kd_interaction/sports_init_kd_interaction_seed2023_v1/launch_manifest.json", "profile": null, "read_status": "parsed", "seed": 2023, "status": "launchable"}
+{"bytes": 62736, "path": "exp/initialization_kd_interaction/sports_init_kd_interaction_seed2023_v1/report.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
+{"bytes": 127, "path": "exp/initialization_kd_interaction/sports_init_kd_interaction_seed2023_v1/supervisor.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
+{"bytes": 189, "path": "exp/initialization_kd_interaction/sports_init_kd_interaction_seed2023_v1/telemetry.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
+{"bytes": 35, "path": "exp/initialization_kd_interaction/sports_init_kd_interaction_seed2023_v1/worker_claim.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
 {"bytes": 466, "path": "exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/T1/curve.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
 {"bytes": 553, "path": "exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/acceptance.json", "profile": null, "read_status": "parsed", "seed": null, "status": "passed"}
 {"bytes": 7734, "path": "exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/launch_manifest.json", "profile": null, "read_status": "parsed", "seed": 2022, "status": "manual_resource_smoke_ready"}

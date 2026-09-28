@@ -8,7 +8,7 @@
 
 ## 已完成的实验与诊断族
 
-新规划入口：[初始化 × KD立项单](../research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md)及[四臂准备审计](../research/INITIALIZATION_KD_INTERACTION_PREPARATION.md)。隔离核心、Train/Val 专用适配器与父进程杀停已通过合成验证，真实资产预检和启动验收合成检查已通过，[用户手动资源smoke审计](../research/INITIALIZATION_KD_RESOURCE_SMOKE_AUDIT.md)通过，130.6秒/156MiB；单次Val约122秒，正式四臂24小时预算未闭合，[评价等价v2审计](../research/INITIALIZATION_KD_EVAL_PARITY_V2_AUDIT.md)已通过：35598用户排名/指标精确一致，reference291.94秒、fast10.12秒，本次观测28.84倍；训练0/Test0。[四臂seed2022完成审计](../research/INITIALIZATION_KD_INTERACTION_AUDIT.md)：四臂各300轮，末轮I=+0.03657449、暖KD增量−0.00009130，单seed仅Val；详见[独立四臂矩阵](../research/INITIALIZATION_KD_INTERACTION_RESULTS.md)。[seed2023只读资产预检](../research/INITIALIZATION_KD_SEED2023_PREFLIGHT_2026-09-28.md)通过，初值/回放与seed2022不同、共同缓存固定；[seed2023四臂手动声明](../research/INITIALIZATION_KD_SEED2023_COHORT_LAUNCH_2026-09-28.md)已准备，33项合成CPU检查通过；下一步仅用户手动执行一次，AI未训练/访问Test。这不是P1b/P2延续，也未认证为第二算法。
+当前初始化 × KD 证据：[立项单](../research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md)、[准备审计](../research/INITIALIZATION_KD_INTERACTION_PREPARATION.md)、[资源smoke](../research/INITIALIZATION_KD_RESOURCE_SMOKE_AUDIT.md)、[评价等价](../research/INITIALIZATION_KD_EVAL_PARITY_V2_AUDIT.md)、四臂 [seed2022](../research/INITIALIZATION_KD_INTERACTION_AUDIT.md) / [seed2023](../research/INITIALIZATION_KD_INTERACTION_SEED2023_AUDIT.md) 完成审计及[独立结果矩阵](../research/INITIALIZATION_KD_INTERACTION_RESULTS.md)。两次均为 Validation-only/Test0，随机组 KD 增量大，教师组增量极小且符号不稳。seed2023 的[只读资产预检](../research/INITIALIZATION_KD_SEED2023_PREFLIGHT_2026-09-28.md)和[已消耗的手动声明](../research/INITIALIZATION_KD_SEED2023_COHORT_LAUNCH_2026-09-28.md)保留。下一步仅只读综合两 seed；这不是 P1b/P2 延续，也未认证为第二算法。
 
 | 族 | 当前可用证据 / 状态 | 首选入口 |
 |---|---|---|
