@@ -1,8 +1,8 @@
 # 实验导航：按问题查证据
 
-当前成本实验族：[有界计划](../research/INNOVATION1_COST_ROADMAP_2026-09-28.md)、[M0完成审计](../research/INNOVATION1_COST_M0_AUDIT.md)、[M1审计](../research/INNOVATION1_DEPLOYMENT_COST_AUDIT.md)、[M2串行声明](../research/INNOVATION1_M2_UPDATE_LAUNCH_2026-09-29.md)及[状态矩阵](../research/INNOVATION1_COST_RESULTS.md)。M0通过；M1 v1失败0/30、v2通过30/30；M2已准备未运行。
+当前成本实验族：[M0–M2交接包](../research/INNOVATION1_COST_FINAL_HANDOFF_2026-09-29.md)、[M0审计](../research/INNOVATION1_COST_M0_AUDIT.md)、[M1审计](../research/INNOVATION1_DEPLOYMENT_COST_AUDIT.md)、[M2审计](../research/INNOVATION1_UPDATE_COST_AUDIT.md)及[状态矩阵](../research/INNOVATION1_COST_RESULTS.md)。M0通过；M1 v1失败0/30、v2通过30/30；M2通过27/27，待独立复核。
 
-> 当前待办看[第一项目标—证据—缺口总表](../paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)及[成本状态](../research/INNOVATION1_COST_RESULTS.md)。M1 v1/v2声明均已消耗；下一步按独立声明手动执行一次M2并审计，不启动旧命令或追加效果实验种子。
+> 当前待办看[第一项目标—证据—缺口总表](../paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)及[成本状态](../research/INNOVATION1_COST_RESULTS.md)。M1/M2声明均已消耗；下一步交另一个AI独立只读审计，不启动旧命令或追加效果实验种子。
 
 更新：2026-09-26。新窗口只需先读根目录[总览](../../README.md)、[AGENTS](../../AGENTS.md)和[短日志](../../TRAINING_LOG.md)，然后按本表选相关资料。日期较早文档中的“当前”“下一步”均只描述当时状态，不能自动执行旧命令。
 

@@ -1,6 +1,6 @@
 # 运行与诊断记录导航
 
-目录版本：2026-09-26。共819个现存exp JSON记录；数量不是独立实验数。
+目录版本：2026-09-26。共848个现存exp JSON记录；数量不是独立实验数。
 保存状态按JSON原文摘录；—表示该字段未记录/未在约定层级找到，不表示成功或失败。
 批报告、子任务、资源检查与正式运行混列供定位，不能相加作为样本数。
 历史已做但本机没有JSON的实验，请查[完整历史章节](../../archive/training/ENTRY_INDEX_2026-09-26.md)。
@@ -524,6 +524,35 @@
 | [exp/efficiency/innovation1_cost_v1/m1/serial_v2/round2_teacher/online_b1024.json](../../exp/efficiency/innovation1_cost_v1/m1/serial_v2/round2_teacher/online_b1024.json) | — | — | — | parsed |
 | [exp/efficiency/innovation1_cost_v1/m1/serial_v2/round2_teacher/online_b128.json](../../exp/efficiency/innovation1_cost_v1/m1/serial_v2/round2_teacher/online_b128.json) | — | — | — | parsed |
 | [exp/efficiency/innovation1_cost_v1/m1/serial_v2/round2_teacher/report.json](../../exp/efficiency/innovation1_cost_v1/m1/serial_v2/round2_teacher/report.json) | completed | — | — | parsed |
+| [exp/efficiency/innovation1_cost_v1/m2/serial_v1/batch.json](../../exp/efficiency/innovation1_cost_v1/m2/serial_v1/batch.json) | started | — | — | parsed |
+| [exp/efficiency/innovation1_cost_v1/m2/serial_v1/report.json](../../exp/efficiency/innovation1_cost_v1/m2/serial_v1/report.json) | completed | — | — | parsed |
+| [exp/efficiency/innovation1_cost_v1/m2/serial_v1/round0_s1_2022/report.json](../../exp/efficiency/innovation1_cost_v1/m2/serial_v1/round0_s1_2022/report.json) | completed | — | — | parsed |
+| [exp/efficiency/innovation1_cost_v1/m2/serial_v1/round0_s1_2023/report.json](../../exp/efficiency/innovation1_cost_v1/m2/serial_v1/round0_s1_2023/report.json) | completed | — | — | parsed |
+| [exp/efficiency/innovation1_cost_v1/m2/serial_v1/round0_s1_2024/report.json](../../exp/efficiency/innovation1_cost_v1/m2/serial_v1/round0_s1_2024/report.json) | completed | — | — | parsed |
+| [exp/efficiency/innovation1_cost_v1/m2/serial_v1/round0_s2_2022/report.json](../../exp/efficiency/innovation1_cost_v1/m2/serial_v1/round0_s2_2022/report.json) | completed | — | — | parsed |
+| [exp/efficiency/innovation1_cost_v1/m2/serial_v1/round0_s2_2023/report.json](../../exp/efficiency/innovation1_cost_v1/m2/serial_v1/round0_s2_2023/report.json) | completed | — | — | parsed |
+| [exp/efficiency/innovation1_cost_v1/m2/serial_v1/round0_s2_2024/report.json](../../exp/efficiency/innovation1_cost_v1/m2/serial_v1/round0_s2_2024/report.json) | completed | — | — | parsed |
+| [exp/efficiency/innovation1_cost_v1/m2/serial_v1/round0_s3_2022/report.json](../../exp/efficiency/innovation1_cost_v1/m2/serial_v1/round0_s3_2022/report.json) | completed | — | 2022 | parsed |
+| [exp/efficiency/innovation1_cost_v1/m2/serial_v1/round0_s3_2023/report.json](../../exp/efficiency/innovation1_cost_v1/m2/serial_v1/round0_s3_2023/report.json) | completed | — | 2023 | parsed |
+| [exp/efficiency/innovation1_cost_v1/m2/serial_v1/round0_s3_2024/report.json](../../exp/efficiency/innovation1_cost_v1/m2/serial_v1/round0_s3_2024/report.json) | completed | — | 2024 | parsed |
+| [exp/efficiency/innovation1_cost_v1/m2/serial_v1/round1_s1_2022/report.json](../../exp/efficiency/innovation1_cost_v1/m2/serial_v1/round1_s1_2022/report.json) | completed | — | — | parsed |
+| [exp/efficiency/innovation1_cost_v1/m2/serial_v1/round1_s1_2023/report.json](../../exp/efficiency/innovation1_cost_v1/m2/serial_v1/round1_s1_2023/report.json) | completed | — | — | parsed |
+| [exp/efficiency/innovation1_cost_v1/m2/serial_v1/round1_s1_2024/report.json](../../exp/efficiency/innovation1_cost_v1/m2/serial_v1/round1_s1_2024/report.json) | completed | — | — | parsed |
+| [exp/efficiency/innovation1_cost_v1/m2/serial_v1/round1_s2_2022/report.json](../../exp/efficiency/innovation1_cost_v1/m2/serial_v1/round1_s2_2022/report.json) | completed | — | — | parsed |
+| [exp/efficiency/innovation1_cost_v1/m2/serial_v1/round1_s2_2023/report.json](../../exp/efficiency/innovation1_cost_v1/m2/serial_v1/round1_s2_2023/report.json) | completed | — | — | parsed |
+| [exp/efficiency/innovation1_cost_v1/m2/serial_v1/round1_s2_2024/report.json](../../exp/efficiency/innovation1_cost_v1/m2/serial_v1/round1_s2_2024/report.json) | completed | — | — | parsed |
+| [exp/efficiency/innovation1_cost_v1/m2/serial_v1/round1_s3_2022/report.json](../../exp/efficiency/innovation1_cost_v1/m2/serial_v1/round1_s3_2022/report.json) | completed | — | 2022 | parsed |
+| [exp/efficiency/innovation1_cost_v1/m2/serial_v1/round1_s3_2023/report.json](../../exp/efficiency/innovation1_cost_v1/m2/serial_v1/round1_s3_2023/report.json) | completed | — | 2023 | parsed |
+| [exp/efficiency/innovation1_cost_v1/m2/serial_v1/round1_s3_2024/report.json](../../exp/efficiency/innovation1_cost_v1/m2/serial_v1/round1_s3_2024/report.json) | completed | — | 2024 | parsed |
+| [exp/efficiency/innovation1_cost_v1/m2/serial_v1/round2_s1_2022/report.json](../../exp/efficiency/innovation1_cost_v1/m2/serial_v1/round2_s1_2022/report.json) | completed | — | — | parsed |
+| [exp/efficiency/innovation1_cost_v1/m2/serial_v1/round2_s1_2023/report.json](../../exp/efficiency/innovation1_cost_v1/m2/serial_v1/round2_s1_2023/report.json) | completed | — | — | parsed |
+| [exp/efficiency/innovation1_cost_v1/m2/serial_v1/round2_s1_2024/report.json](../../exp/efficiency/innovation1_cost_v1/m2/serial_v1/round2_s1_2024/report.json) | completed | — | — | parsed |
+| [exp/efficiency/innovation1_cost_v1/m2/serial_v1/round2_s2_2022/report.json](../../exp/efficiency/innovation1_cost_v1/m2/serial_v1/round2_s2_2022/report.json) | completed | — | — | parsed |
+| [exp/efficiency/innovation1_cost_v1/m2/serial_v1/round2_s2_2023/report.json](../../exp/efficiency/innovation1_cost_v1/m2/serial_v1/round2_s2_2023/report.json) | completed | — | — | parsed |
+| [exp/efficiency/innovation1_cost_v1/m2/serial_v1/round2_s2_2024/report.json](../../exp/efficiency/innovation1_cost_v1/m2/serial_v1/round2_s2_2024/report.json) | completed | — | — | parsed |
+| [exp/efficiency/innovation1_cost_v1/m2/serial_v1/round2_s3_2022/report.json](../../exp/efficiency/innovation1_cost_v1/m2/serial_v1/round2_s3_2022/report.json) | completed | — | 2022 | parsed |
+| [exp/efficiency/innovation1_cost_v1/m2/serial_v1/round2_s3_2023/report.json](../../exp/efficiency/innovation1_cost_v1/m2/serial_v1/round2_s3_2023/report.json) | completed | — | 2023 | parsed |
+| [exp/efficiency/innovation1_cost_v1/m2/serial_v1/round2_s3_2024/report.json](../../exp/efficiency/innovation1_cost_v1/m2/serial_v1/round2_s3_2024/report.json) | completed | — | 2024 | parsed |
 | [exp/efficiency/sports_cached_deployment_seed2022_v1/batch.json](../../exp/efficiency/sports_cached_deployment_seed2022_v1/batch.json) | failed | — | — | parsed |
 | [exp/efficiency/sports_cached_deployment_seed2022_v1/preflight.json](../../exp/efficiency/sports_cached_deployment_seed2022_v1/preflight.json) | passed | — | — | parsed |
 | [exp/efficiency/sports_cached_deployment_seed2022_v1/round0_offline_T_b0/report.json](../../exp/efficiency/sports_cached_deployment_seed2022_v1/round0_offline_T_b0/report.json) | failed | — | — | parsed |
