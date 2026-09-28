@@ -1,5 +1,7 @@
 # 文档入口
 
+> 2026-09-28当前行动以[目标—证据—缺口总表](paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)为准。已完成实验不重跑；唯一下一步为已有资产与成本记录的只读可行性清点，不运行计时/训练/评价/Test。下文较早“下一步”保留其历史语境，外部要求核对不再作为只读准备的阻塞项。
+
 先读[仓库总览](../README.md)和[当前短日志](../TRAINING_LOG.md)，再按任务展开。
 
 - 最新写作：[初始化依赖正文](paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md)与[贡献定位确认文本](paper/INNOVATION1_CONTRIBUTION_POSITION_2026-09-28.md)已完成。证据来自三seed原始审计；下一步确认导师的贡献与验收要求，无新实验授权。

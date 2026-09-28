@@ -1,5 +1,7 @@
 # 第一创新点最终主张—正式实验矩阵
 
+> 2026-09-28当前行动以[目标—证据—缺口总表](INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)为准。已完成实验不重跑；唯一下一步为已有资产与成本记录的只读可行性清点，不运行计时/训练/评价/Test。下文较早“下一步”保留其历史语境，外部要求核对不再作为只读准备的阻塞项。
+
 日期：2026-09-26；来源基点`09b1251`。用户已决定优先收尾第一创新点，第二创新点及门控诊断设计暂缓。本表是收尾方案与证据分类；执行前边界另见正式收尾协议，逐次运行仍需独立声明。所有新训练、Test及重试仍需明确授权，由用户执行。
 
 > 后续核查已完成：[协议兼容性与资产复用](../research/INNOVATION1_PROTOCOL_REUSE_AUDIT_2026-09-26.md)。Sports9个所选checkpoint身份检查通过；v2 Baby三次训练已完成，[仅评价恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md)补齐 Baby3＋Sports9 次最终 Test。v1串行尝试因Baby直接入口空跑而失败，未产生任何新训练或Test；详见[失败审计](../research/INNOVATION1_FORMAL_CLOSEOUT_COHORT_V1_AUDIT.md)。预算/配置选择边界见下方执行前协议；固定配置表不等于充分调优保证。下表原R项由审计逐项承接。

@@ -28,6 +28,8 @@
 
 ## 3. 当前活跃消费者与声明模板
 
+2026-09-28当前决策/待办消费者：[目标—证据—缺口总表](../paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。既有正式Test仍由原18格主表保存，初始化Validation由独立十二格矩阵保存；本页下方旧“暂无矩阵/准备四臂”段为历史路由。当前仅只读成本资产清点，未声明新run。此补充只更新消费者指针，不改变其余收尾规则。
+
 最新规划消费者：[初始化 × KD立项单](../research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md)。P0/P1a已完成且P1a四组筛查停止，下段旧P0准备状态不再适用。新阶段仅准备四臂协议，建议准备记录为 `docs/research/INITIALIZATION_KD_INTERACTION_PREPARATION.md`，未来实际审计为 `docs/research/INITIALIZATION_KD_INTERACTION_AUDIT.md`；具体run另行声明。暂无新结果矩阵，未来独立R0/R1/T0/T1矩阵不得填入旧18格。本更新只改变规划路由，不授权执行。
 
 2026-09-27 当前研究规划消费者：[跨交互效用路线第5–6节](../research/CROSS_INTERACTION_ROUTE_2026-09-27.md)。当前下一步仅P0资产与测量协议；诊断结果尚不存在。未来P0/P1审计目标分别为 `docs/research/CROSS_INTERACTION_P0_AUDIT.md`、`docs/research/CROSS_INTERACTION_P1_AUDIT.md`，臂/seed/命令在各自运行声明中明确。暂无新正式结果矩阵，诊断不得填入旧18格；P2/P3另行声明。本段只更新路由，不授权执行。

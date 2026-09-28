@@ -2,7 +2,7 @@
 
 先完整阅读 [AGENTS.md](AGENTS.md)，再读本页与 [TRAINING_LOG.md 当前状态及最新记录](TRAINING_LOG.md)。历史 pending 和旧交接不是执行队列。
 
-当前第一项工作的[初始化依赖与适用边界正文](docs/paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md)和[贡献定位复核](docs/paper/INNOVATION1_CONTRIBUTION_POSITION_2026-09-28.md)已纳入三seed审计结果。随机组KD收益大，暖组小且符号不稳，未识别语义冗余或第二算法。唯一下一步：携贡献定位页向导师确认贡献形式、第二项独立性及验收要求；不追加实验或Test。历史声明不是执行队列。
+当前第一项以[目标—证据—缺口总表](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)统一管理：保推荐质量、降低明确环节成本是研究目标，尚未实现无损降本；18格主比较、文本/残差与三seed初始化实验均已完成。唯一下一步为已有资产与成本记录的只读可行性清点，先明确可复用证据和缺失口径，不运行计时/训练/评价/Test。历史pending不是执行队列。
 
 ## 当前入口
 

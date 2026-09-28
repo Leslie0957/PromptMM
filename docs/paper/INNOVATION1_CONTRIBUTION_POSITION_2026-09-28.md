@@ -1,5 +1,7 @@
 # 第一项工作的贡献定位：三 seed 初始化证据纳入后
 
+> 2026-09-28当前行动以[目标—证据—缺口总表](INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)为准。已完成实验不重跑；唯一下一步为已有资产与成本记录的只读可行性清点，不运行计时/训练/评价/Test。下文较早“下一步”保留其历史语境，外部要求核对不再作为只读准备的阻塞项。
+
 2026-09-28。依据已提交的[三seed独立审计](../research/INITIALIZATION_KD_THREE_SEED_INDEPENDENT_AUDIT_2026-09-28.md)、[固定Test主表](INNOVATION1_FIXED_MAIN_TABLE_2026-09-26.md)和既有[立项复核](INNOVATION1_RATIONALE_REVIEW_2026-09-26.md)。本次是证据整合与写作，不是新实验、全新文献检索或创新性认证。本文更新当前定位；历史决策及审计保留。
 
 ## 1. 结论

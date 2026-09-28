@@ -1,5 +1,7 @@
 # 实验导航：按问题查证据
 
+> 当前待办只看[第一项目标—证据—缺口总表](../paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。下一步只读清点质量—成本资产，不追加种子或启动旧声明。下方实验族与历史交接是证据导航。
+
 更新：2026-09-26。新窗口只需先读根目录[总览](../../README.md)、[AGENTS](../../AGENTS.md)和[短日志](../../TRAINING_LOG.md)，然后按本表选相关资料。日期较早文档中的“当前”“下一步”均只描述当时状态，不能自动执行旧命令。
 
 2026-09-27 研究优先级更新：[跨交互效用路线](../research/CROSS_INTERACTION_ROUTE_2026-09-27.md)已确定；[P0审计](../research/CROSS_INTERACTION_P0_AUDIT.md)及精度复核完成，36项角色效用数值可分辨。[P1a结果审计](../research/CROSS_INTERACTION_P1_AUDIT.md)核实用户手动一次执行共同缓存 U1 筛查；四组预定 G1/G2 均停止，尚无策略收益证据。
