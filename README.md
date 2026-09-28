@@ -1,5 +1,7 @@
 # PromptMM 实验工作区
 
+当前阶段：已完成现有成本资产清点，下一阶段按[有界成本计划](docs/research/INNOVATION1_COST_ROADMAP_2026-09-28.md)交执行AI准备；本次无实验运行。
+
 先完整阅读 [AGENTS.md](AGENTS.md)，再读本页与 [TRAINING_LOG.md 当前状态及最新记录](TRAINING_LOG.md)。历史 pending 和旧交接不是执行队列。
 
 当前第一项以[目标—证据—缺口总表](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)统一管理：保推荐质量、降低明确环节成本是研究目标，尚未实现无损降本；18格主比较、文本/残差与三seed初始化实验均已完成。唯一下一步为已有资产与成本记录的只读可行性清点，先明确可复用证据和缺失口径，不运行计时/训练/评价/Test。历史pending不是执行队列。

@@ -1,5 +1,7 @@
 # 论文写作入口
 
+当前第一项成本补证：[资产清点与有界计划](../research/INNOVATION1_COST_ROADMAP_2026-09-28.md)，完整训练成本仍未测。
+
 > 2026-09-28当前行动以[目标—证据—缺口总表](INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)为准。已完成实验不重跑；唯一下一步为已有资产与成本记录的只读可行性清点，不运行计时/训练/评价/Test。下文较早“下一步”保留其历史语境，外部要求核对不再作为只读准备的阻塞项。
 
 2026-09-28：三seed初始化依赖已纳入[Sports正文第2节](SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md)，最新[贡献定位及可交导师的确认文本](INNOVATION1_CONTRIBUTION_POSITION_2026-09-28.md)明确第一项的证据边界。当前唯一下一步是确认外部贡献/验收要求，不追加同配置seed。

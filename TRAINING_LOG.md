@@ -1,5 +1,7 @@
 # Training Log — current state and new records
 
+2026-09-28最新阶段：[成本资产清点与有限计划](docs/research/INNOVATION1_COST_ROADMAP_2026-09-28.md)完成；正式Sports九学生资产存在且大小匹配既有锚点，未重新核验载荷SHA。下一步交另一AI准备M0，再按用户授权执行M1/M2；本次无计时/训练/评价/Test。完整训练成本及无损结论仍未验证。
+
 Canonical experiment memory: this short active log plus verified immutable history.
 Read README.md and AGENTS.md first; expand only the evidence relevant to the task.
 Updated: 2026-09-26. Latest audited source: b3ea32fd7f9685631d33a60f52591e8dd3e0cbb8.
@@ -869,3 +871,16 @@ V2 user batch failed at preflight_s3_2022 after three valid Baby trainings and n
 - Root/docs/paper/family/log current pointers updated; old claims/gap/contribution bodies and all result cells preserved with superseding current-action banners. RUN_CLOSEOUT only active-consumer pointer supplemented, all prior routing rules/body retained. Raw audits/declarations/artifacts/check/ and code/profile unchanged; no data/model loads, timing/training/evaluation/Test or outbound messages. External degree requirements remain unresolved but do not block read-only cost inventory.
 - Focused verification: 189 local links passed; old matrix/gap/contribution bodies and historical log content including control characters preserved modulo Git EOL handling; git diff --check passed. Refresh six generated navigation outputs after manual edits; unchanged outputs need no diff. One scoped local commit; no tag/bundle/push/merge or asset backup claim.
 - Unique next step: read-only Sports existing-asset/cost-record feasibility inventory for fixed Full/release/BPR/cached teacher, mapping quality/checkpoint/config and existing cost evidence; separate warm mechanism records. Produce a reuse/missing-field table only, no timing, training, ranking or Test. A subsequent measurement protocol/run would require separate scope and authorization.
+
+
+## 2026-09-28 Existing assets and bounded cost roadmap (pending)
+
+- User authorizes inventory and next-stage planning for another AI, not experiment execution. Base16cb3e0; tracked clean; preserve check/, historical logs, raw assets and result cells. Scope: metadata inventory JSON, cost roadmap/handoff, current ledger and navigation pointers. No tensor/split loading, training, evaluation, timing or Test.
+- Rationale: close direct comparator and checkpoint-binding gaps without repeating completed mechanism/quality experiments. Acceptance: distinguish present assets from verified contents and historical timing from controlled cost; finite workloads, hard stops, record routing and unknown full-lifecycle costs explicit. Verify metadata/source links, historical byte preservation, focused diff and refresh six catalogs; append outcome and scoped local commit. Rollback reference only, no reset.
+
+
+## 2026-09-28 Existing assets and bounded cost roadmap (completed)
+
+- Metadata inventory: all Sports nine student asset groups exist and byte sizes match inherited anchors; payload SHA not freshly verified, no tensor or split read. Release reports contain 300 timing rows each; historical train sums 4948.976799/5183.492205/5162.589474s and Val sums41667.002457/51524.749049/50748.641441s, descriptive only. Old deployment uses warm students and lacks release, so cannot bind formal quality.
+- Added inventory JSON and finite M0 preparation/M1 same-checkpoint deployment/M2 short update-window roadmap with resource caps, original-method fidelity, Test0, failure/no-retry rules, explicit routing and execution-AI prompt. No complete retraining or quality retuning; complete lifecycle gap remains open, no lossless claim. Updated current pointers only; historical body/records/raw/check/ retained. No run declared/launched and no external messages.
+- Verification: metadata checks, historical-text preservation, local links and diff checks; refresh six generated navigation files and scoped local commit. Unique next step: hand roadmap to execution AI for M0 implementation and concrete declarations; runtime scope requires user authorization as specified, not inferred from this planning task.

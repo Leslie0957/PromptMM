@@ -1,0 +1,438 @@
+{
+  "scope": "2026-09-28 metadata-only inventory; no tensors/splits/Test opened. SHA values are inherited anchors, NOT freshly verified payload hashes. Historical asset ledger predates final quality closeout; its test_performed/eligible flags are not current quality qualification.",
+  "anchor": "docs/research/INNOVATION1_REUSE_ASSETS_2026-09-26.json",
+  "rows": [
+    {
+      "method": "bpr",
+      "seed": 2022,
+      "profile": "sports_student_bpr_seed2022_val300_v1",
+      "parameters": {
+        "student_lr": 6e-05,
+        "epoch": 300,
+        "early_stopping_patience": 300,
+        "batch_size": 1024,
+        "embed_size": 64,
+        "td_init_from_teacher": false,
+        "td_distill_alpha": 0.0,
+        "td_item_image_rate": 0.0,
+        "td_item_text_rate": 0.0,
+        "td_user_image_rate": 0.0,
+        "td_user_text_rate": 0.0,
+        "student_weight_decay": 0.01
+      },
+      "assets": [
+        {
+          "path": "exp\\runs\\sports\\run_manifest__2026-09-17 11_50_42.452019_sports_light_init_pid21216.json",
+          "exists": true,
+          "current_bytes": 25485,
+          "anchor_bytes": 25485,
+          "anchor_sha256": "78eceaa381efccdd5f157e6d78f2d5ab0041780e3f62fef861af227ede422254",
+          "size_matches": true
+        },
+        {
+          "path": "Model\\sports\\td_distill\\td_distill_full__val_test_once_v1__2026-09-17 11_50_42.452019_sports_light_init_pid21216.pth",
+          "exists": true,
+          "current_bytes": 41444283,
+          "anchor_bytes": 41444283,
+          "anchor_sha256": "6ca67b9c6d2b00e939fafcc0c5296c6710a43c8ccdcc80d6c8d53c3c0472ad0d",
+          "size_matches": true
+        },
+        {
+          "path": "Model\\sports\\td_distill\\td_distill_infer_only__val_test_once_v1__2026-09-17 11_50_42.452019_sports_light_init_pid21216.pth",
+          "exists": true,
+          "current_bytes": 13815773,
+          "anchor_bytes": 13815773,
+          "anchor_sha256": "9902e8dfc6ec9c39680004ea3fa31839ff27874cea4cf71bdc3dd59e5be8c16a",
+          "size_matches": true
+        }
+      ]
+    },
+    {
+      "method": "full",
+      "seed": 2022,
+      "profile": "sports_student_full_pairedcold_seed2022_val300_v1",
+      "parameters": {
+        "student_lr": 6e-05,
+        "epoch": 300,
+        "early_stopping_patience": 300,
+        "batch_size": 1024,
+        "embed_size": 64,
+        "td_init_from_teacher": false,
+        "td_distill_alpha": 0.3,
+        "td_item_image_rate": 1.0,
+        "td_item_text_rate": 0.3,
+        "td_user_image_rate": 0.0,
+        "td_user_text_rate": 0.0,
+        "student_weight_decay": 0.01
+      },
+      "assets": [
+        {
+          "path": "exp\\runs\\sports\\run_manifest__2026-09-24 18_22_52.151219_sports_light_init_pid5012.json",
+          "exists": true,
+          "current_bytes": 26801,
+          "anchor_bytes": 26801,
+          "anchor_sha256": "d31cf835fd68b575b7312e1328f8e439ad0d459302e65c9587b524ce760d6ddf",
+          "size_matches": true
+        },
+        {
+          "path": "Model\\sports\\td_distill\\td_distill_full__val_test_once_v1__2026-09-24 18_22_52.151219_sports_light_init_pid5012.pth",
+          "exists": true,
+          "current_bytes": 41444269,
+          "anchor_bytes": 41444269,
+          "anchor_sha256": "d2648d9f1f6c593b8720b27ad226e81152373537f7cb4d3fa18de07acf20b4a2",
+          "size_matches": true
+        },
+        {
+          "path": "Model\\sports\\td_distill\\td_distill_infer_only__val_test_once_v1__2026-09-24 18_22_52.151219_sports_light_init_pid5012.pth",
+          "exists": true,
+          "current_bytes": 13815765,
+          "anchor_bytes": 13815765,
+          "anchor_sha256": "a9d76fd2d9b108097fa1f89e0cbd7c3b5d69eb5539320ffcc74c5b7881a606ef",
+          "size_matches": true
+        }
+      ]
+    },
+    {
+      "method": "promptmm_release",
+      "seed": 2022,
+      "profile": null,
+      "parameters": {
+        "seed": 2022,
+        "batch_size": 1024,
+        "embedding_dim": 64,
+        "layers": 1,
+        "learning_rate": 6e-05,
+        "weight_decay": 0.01,
+        "decay": 1e-05,
+        "pair_rate": 1000000.0,
+        "list_rate": 1000000.0,
+        "feature_rate": 0.1,
+        "sce_power": 2.0,
+        "negative_count": 10
+      },
+      "assets": [
+        {
+          "path": "exp\\promptmm_release\\sports_promptmm_release_validation300_seed2022_lr6e5_v1\\report.json",
+          "exists": true,
+          "current_bytes": 411456,
+          "anchor_bytes": 411456,
+          "anchor_sha256": "84b6a90f2f5510ff22df24dfa2e267d634a4fbb6a260f0500f3062bf48b9ad03",
+          "size_matches": true
+        },
+        {
+          "path": "exp\\promptmm_release\\sports_promptmm_release_validation300_seed2022_lr6e5_v1\\best.pt",
+          "exists": true,
+          "current_bytes": 27629405,
+          "anchor_bytes": 27629405,
+          "anchor_sha256": "e32f9907d68874f09f4327a6ccfba8b4c86e1b7c73c7d0a06713f990b6e94e27",
+          "size_matches": true
+        }
+      ],
+      "historical_cost": {
+        "epochs": 300,
+        "train_seconds_sum": 4948.976799001452,
+        "validation_seconds_sum": 41667.00245670229,
+        "curve_first_keys": [
+          "epoch",
+          "losses_mean",
+          "validation",
+          "train_seconds",
+          "validation_seconds",
+          "train_peak_allocated_bytes",
+          "train_peak_reserved_bytes",
+          "validation_peak_allocated_bytes",
+          "validation_peak_reserved_bytes",
+          "selected"
+        ]
+      }
+    },
+    {
+      "method": "bpr",
+      "seed": 2023,
+      "profile": "sports_student_bpr_seed2023_val300_v1",
+      "parameters": {
+        "student_lr": 6e-05,
+        "epoch": 300,
+        "early_stopping_patience": 300,
+        "batch_size": 1024,
+        "embed_size": 64,
+        "td_init_from_teacher": false,
+        "td_distill_alpha": 0.0,
+        "td_item_image_rate": 0.0,
+        "td_item_text_rate": 0.0,
+        "td_user_image_rate": 0.0,
+        "td_user_text_rate": 0.0,
+        "student_weight_decay": 0.01
+      },
+      "assets": [
+        {
+          "path": "exp\\runs\\sports\\run_manifest__2026-09-17 23_49_20.915423_sports_light_init_pid48412.json",
+          "exists": true,
+          "current_bytes": 25486,
+          "anchor_bytes": 25486,
+          "anchor_sha256": "3a30b6481db36b0580a5364438b72fba0bbd0e2766a633add93d36acc1269be6",
+          "size_matches": true
+        },
+        {
+          "path": "Model\\sports\\td_distill\\td_distill_full__val_test_once_v1__2026-09-17 23_49_20.915423_sports_light_init_pid48412.pth",
+          "exists": true,
+          "current_bytes": 41444283,
+          "anchor_bytes": 41444283,
+          "anchor_sha256": "6278b05d08120b0400cb1ea5efff23311ee390921fb9458bcb809530aa404d49",
+          "size_matches": true
+        },
+        {
+          "path": "Model\\sports\\td_distill\\td_distill_infer_only__val_test_once_v1__2026-09-17 23_49_20.915423_sports_light_init_pid48412.pth",
+          "exists": true,
+          "current_bytes": 13815773,
+          "anchor_bytes": 13815773,
+          "anchor_sha256": "859e94dac1b33a8084b2fc8822ea751f7da73c2ddcefc4ac11778b080072f18f",
+          "size_matches": true
+        }
+      ]
+    },
+    {
+      "method": "full",
+      "seed": 2023,
+      "profile": "sports_student_full_pairedcold_seed2023_val300_v1",
+      "parameters": {
+        "student_lr": 6e-05,
+        "epoch": 300,
+        "early_stopping_patience": 300,
+        "batch_size": 1024,
+        "embed_size": 64,
+        "td_init_from_teacher": false,
+        "td_distill_alpha": 0.3,
+        "td_item_image_rate": 1.0,
+        "td_item_text_rate": 0.3,
+        "td_user_image_rate": 0.0,
+        "td_user_text_rate": 0.0,
+        "student_weight_decay": 0.01
+      },
+      "assets": [
+        {
+          "path": "exp\\runs\\sports\\run_manifest__2026-09-25 00_24_21.134528_sports_light_init_pid35648.json",
+          "exists": true,
+          "current_bytes": 26809,
+          "anchor_bytes": 26809,
+          "anchor_sha256": "d9785ae45b916c5b99ec1501342b8175c74631474e8b4fad216a2386593479a3",
+          "size_matches": true
+        },
+        {
+          "path": "Model\\sports\\td_distill\\td_distill_full__val_test_once_v1__2026-09-25 00_24_21.134528_sports_light_init_pid35648.pth",
+          "exists": true,
+          "current_bytes": 41444283,
+          "anchor_bytes": 41444283,
+          "anchor_sha256": "d52756660a06c61c012ea9354ced9d3ae6175f55358df72d6ee68156951d6f9b",
+          "size_matches": true
+        },
+        {
+          "path": "Model\\sports\\td_distill\\td_distill_infer_only__val_test_once_v1__2026-09-25 00_24_21.134528_sports_light_init_pid35648.pth",
+          "exists": true,
+          "current_bytes": 13815773,
+          "anchor_bytes": 13815773,
+          "anchor_sha256": "62afda7871f0a5c71c2537f80fc9caf763dc0bdcff9f4453ee0c04763492031b",
+          "size_matches": true
+        }
+      ]
+    },
+    {
+      "method": "promptmm_release",
+      "seed": 2023,
+      "profile": null,
+      "parameters": {
+        "seed": 2023,
+        "batch_size": 1024,
+        "embedding_dim": 64,
+        "layers": 1,
+        "learning_rate": 6e-05,
+        "weight_decay": 0.01,
+        "decay": 1e-05,
+        "pair_rate": 1000000.0,
+        "list_rate": 1000000.0,
+        "feature_rate": 0.1,
+        "sce_power": 2.0,
+        "negative_count": 10
+      },
+      "assets": [
+        {
+          "path": "exp\\promptmm_release\\sports_promptmm_release_validation300_seed2023_lr6e5_v1\\report.json",
+          "exists": true,
+          "current_bytes": 411406,
+          "anchor_bytes": 411406,
+          "anchor_sha256": "8ec8b80d9be20c6b6f6e4b3e77e2d8ce5267870490616c1981df65fad17747b4",
+          "size_matches": true
+        },
+        {
+          "path": "exp\\promptmm_release\\sports_promptmm_release_validation300_seed2023_lr6e5_v1\\best.pt",
+          "exists": true,
+          "current_bytes": 27629405,
+          "anchor_bytes": 27629405,
+          "anchor_sha256": "9b85a76b655b5107211b59baba5e1325289b38a6cf0c191d25a26cad8166e9da",
+          "size_matches": true
+        }
+      ],
+      "historical_cost": {
+        "epochs": 300,
+        "train_seconds_sum": 5183.492204602342,
+        "validation_seconds_sum": 51524.74904900277,
+        "curve_first_keys": [
+          "epoch",
+          "losses_mean",
+          "validation",
+          "train_seconds",
+          "validation_seconds",
+          "train_peak_allocated_bytes",
+          "train_peak_reserved_bytes",
+          "validation_peak_allocated_bytes",
+          "validation_peak_reserved_bytes",
+          "selected"
+        ]
+      }
+    },
+    {
+      "method": "bpr",
+      "seed": 2024,
+      "profile": "sports_student_bpr_seed2024_val300_v1",
+      "parameters": {
+        "student_lr": 6e-05,
+        "epoch": 300,
+        "early_stopping_patience": 300,
+        "batch_size": 1024,
+        "embed_size": 64,
+        "td_init_from_teacher": false,
+        "td_distill_alpha": 0.0,
+        "td_item_image_rate": 0.0,
+        "td_item_text_rate": 0.0,
+        "td_user_image_rate": 0.0,
+        "td_user_text_rate": 0.0,
+        "student_weight_decay": 0.01
+      },
+      "assets": [
+        {
+          "path": "exp\\runs\\sports\\run_manifest__2026-09-18 09_13_44.833581_sports_light_init_pid40228.json",
+          "exists": true,
+          "current_bytes": 25485,
+          "anchor_bytes": 25485,
+          "anchor_sha256": "844d339aade57867f32434d75939d7971b19a975903c14489598be88bff23d90",
+          "size_matches": true
+        },
+        {
+          "path": "Model\\sports\\td_distill\\td_distill_full__val_test_once_v1__2026-09-18 09_13_44.833581_sports_light_init_pid40228.pth",
+          "exists": true,
+          "current_bytes": 41444283,
+          "anchor_bytes": 41444283,
+          "anchor_sha256": "d1a8073af9ef1933704086882125b6e956282bee448993de04e4d8f1a7b57daa",
+          "size_matches": true
+        },
+        {
+          "path": "Model\\sports\\td_distill\\td_distill_infer_only__val_test_once_v1__2026-09-18 09_13_44.833581_sports_light_init_pid40228.pth",
+          "exists": true,
+          "current_bytes": 13815773,
+          "anchor_bytes": 13815773,
+          "anchor_sha256": "46097fd5e34d5cb12fed4bc84e40e04d12a729025d38f37ffc195262badfa9f5",
+          "size_matches": true
+        }
+      ]
+    },
+    {
+      "method": "full",
+      "seed": 2024,
+      "profile": "sports_student_full_pairedcold_seed2024_val300_v1",
+      "parameters": {
+        "student_lr": 6e-05,
+        "epoch": 300,
+        "early_stopping_patience": 300,
+        "batch_size": 1024,
+        "embed_size": 64,
+        "td_init_from_teacher": false,
+        "td_distill_alpha": 0.3,
+        "td_item_image_rate": 1.0,
+        "td_item_text_rate": 0.3,
+        "td_user_image_rate": 0.0,
+        "td_user_text_rate": 0.0,
+        "student_weight_decay": 0.01
+      },
+      "assets": [
+        {
+          "path": "exp\\runs\\sports\\run_manifest__2026-09-25 06_25_38.618521_sports_light_init_pid50812.json",
+          "exists": true,
+          "current_bytes": 26809,
+          "anchor_bytes": 26809,
+          "anchor_sha256": "81d88af57ca1224ad634170c5cbf702ce27bc509a9a54c44d2f1eb2737e9230d",
+          "size_matches": true
+        },
+        {
+          "path": "Model\\sports\\td_distill\\td_distill_full__val_test_once_v1__2026-09-25 06_25_38.618521_sports_light_init_pid50812.pth",
+          "exists": true,
+          "current_bytes": 41444283,
+          "anchor_bytes": 41444283,
+          "anchor_sha256": "a9565b2de2cef1de46a28194f8b49d49c018f609727d6f8b843c76acc399ace3",
+          "size_matches": true
+        },
+        {
+          "path": "Model\\sports\\td_distill\\td_distill_infer_only__val_test_once_v1__2026-09-25 06_25_38.618521_sports_light_init_pid50812.pth",
+          "exists": true,
+          "current_bytes": 13815773,
+          "anchor_bytes": 13815773,
+          "anchor_sha256": "401387dba69a6bab22fe60f029f92891aa6d66e53f2661e9a390974ddf1e1824",
+          "size_matches": true
+        }
+      ]
+    },
+    {
+      "method": "promptmm_release",
+      "seed": 2024,
+      "profile": null,
+      "parameters": {
+        "seed": 2024,
+        "batch_size": 1024,
+        "embedding_dim": 64,
+        "layers": 1,
+        "learning_rate": 6e-05,
+        "weight_decay": 0.01,
+        "decay": 1e-05,
+        "pair_rate": 1000000.0,
+        "list_rate": 1000000.0,
+        "feature_rate": 0.1,
+        "sce_power": 2.0,
+        "negative_count": 10
+      },
+      "assets": [
+        {
+          "path": "exp\\promptmm_release\\sports_promptmm_release_validation300_seed2024_lr6e5_v1\\report.json",
+          "exists": true,
+          "current_bytes": 411368,
+          "anchor_bytes": 411368,
+          "anchor_sha256": "4e51e8ea14f0b1c948f1616ca0664e90f3e30f039dc010a61c167497d2bb8721",
+          "size_matches": true
+        },
+        {
+          "path": "exp\\promptmm_release\\sports_promptmm_release_validation300_seed2024_lr6e5_v1\\best.pt",
+          "exists": true,
+          "current_bytes": 27629405,
+          "anchor_bytes": 27629405,
+          "anchor_sha256": "d8589d349cc388a5a1e73ed2517744640571ec59aeae1349eacdafcbd5da27a9",
+          "size_matches": true
+        }
+      ],
+      "historical_cost": {
+        "epochs": 300,
+        "train_seconds_sum": 5162.589474194683,
+        "validation_seconds_sum": 50748.64144050563,
+        "curve_first_keys": [
+          "epoch",
+          "losses_mean",
+          "validation",
+          "train_seconds",
+          "validation_seconds",
+          "train_peak_allocated_bytes",
+          "train_peak_reserved_bytes",
+          "validation_peak_allocated_bytes",
+          "validation_peak_reserved_bytes",
+          "selected"
+        ]
+      }
+    }
+  ]
+}
