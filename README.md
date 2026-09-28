@@ -1,6 +1,6 @@
 # PromptMM 实验工作区
 
-当前阶段：成本 M1 `serial_v1` 失败0/30，隔离的 `serial_v2` [完成审计](docs/research/INNOVATION1_DEPLOYMENT_COST_AUDIT.md)通过30/30。[状态](docs/research/INNOVATION1_COST_RESULTS.md)：M0/M1已完成，M2未声明，无新Test访问。下一步是独立准备M2更新窗口协议；完整训练成本和无损降本仍未证实。
+当前阶段：成本 M1 `serial_v1` 失败0/30，隔离的 `serial_v2` [完成审计](docs/research/INNOVATION1_DEPLOYMENT_COST_AUDIT.md)通过30/30。[状态](docs/research/INNOVATION1_COST_RESULTS.md)：M0/M1已完成，[M2串行声明](docs/research/INNOVATION1_M2_UPDATE_LAUNCH_2026-09-29.md)已准备、未运行，无新Test访问。完整训练成本和无损降本仍未证实。
 
 先完整阅读 [AGENTS.md](AGENTS.md)，再读本页与 [TRAINING_LOG.md 当前状态及最新记录](TRAINING_LOG.md)。历史 pending 和旧交接不是执行队列。
 

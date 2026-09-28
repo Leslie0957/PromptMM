@@ -6,7 +6,7 @@
 |---|---|---|---|
 | M0 | Sports nine selected students plus one shared teacher; export/request fidelity and bounded resources | Completed; one real non-formal smoke audited | [M0 audit](INNOVATION1_COST_M0_AUDIT.md): 9 student + 1 teacher exports, 12 Train-only requests, zero score delta, 13.953 s parent wall, limits passed, Test0/Validation0/updates0 |
 | M1 | Same-checkpoint deployment preparation and cached service | `serial_v1` failed 0/30; separately authorized `serial_v2` completed 30/30 and accepted | [M1 audit](INNOVATION1_DEPLOYMENT_COST_AUDIT.md) and [v2 declaration](INNOVATION1_M1_DEPLOYMENT_RECOVERY_V2_2026-09-29.md); bounded direct timings, no new quality evaluation |
-| M2 | Native early update windows, three methods × three seeds × three rounds | Pending separate declaration and authorization | No new update measurements |
+| M2 | Native early update windows, three methods × three seeds × three rounds | [One serial run prepared](INNOVATION1_M2_UPDATE_LAUNCH_2026-09-29.md); not launched | No new update measurements; 27-condition protocol and command ready for user review |
 
 ### M1 accepted cells
 
