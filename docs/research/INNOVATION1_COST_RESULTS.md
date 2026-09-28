@@ -1,5 +1,7 @@
 # Innovation1 cost stage status
 
+2026-09-29独立复核：M0通过、M1 v1失败保留/v2通过、M2通过，整体限定接受；M1流程总时间含资产核验，M2未完整固定torch随机源，9.07–9.31倍仅短窗口更新比较。见[独立审计](INNOVATION1_COST_INDEPENDENT_AUDIT_2026-09-29.md)。当前下一步仅整合第一项正文与限定贡献，不追加本计划实验；下方旧交接保留。
+
 2026-09-28; source plan: [bounded cost roadmap](INNOVATION1_COST_ROADMAP_2026-09-28.md). This matrix tracks measurement status, not the existing 18-cell quality results.
 
 | Stage | Scope | Status | Evidence |

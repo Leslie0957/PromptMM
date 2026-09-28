@@ -1,5 +1,7 @@
 # 文档入口
 
+2026-09-29独立复核：M0通过、M1 v1失败保留/v2通过、M2通过，整体限定接受；M1流程总时间含资产核验，M2未完整固定torch随机源，9.07–9.31倍仅短窗口更新比较。见[独立审计](research/INNOVATION1_COST_INDEPENDENT_AUDIT_2026-09-29.md)。当前下一步仅整合第一项正文与限定贡献，不追加本计划实验；下方旧交接保留。
+
 当前成本实验：[M0–M2交接包](research/INNOVATION1_COST_FINAL_HANDOFF_2026-09-29.md)；[M0审计](research/INNOVATION1_COST_M0_AUDIT.md)通过，[M1审计](research/INNOVATION1_DEPLOYMENT_COST_AUDIT.md)记录v1失败和v2通过30/30，[M2审计](research/INNOVATION1_UPDATE_COST_AUDIT.md)通过27/27。
 
 > 2026-09-29当前行动以[目标—证据—缺口总表](paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)及[成本状态](research/INNOVATION1_COST_RESULTS.md)为准。M1/M2命令均已消耗；下一步交另一个AI只读独立审计，不启动新实验。下文较早“下一步”保留其历史语境。
