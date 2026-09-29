@@ -1,0 +1,23 @@
+{
+  "branch": "codex/experiment/baby-teacher-baseline",
+  "output": "exp/innovation2/sparse_item_saved_lists_v1",
+  "anchor_profile": "docs/research/innovation2/RANKING_GAP_PROFILE_V1.json",
+  "verification": "docs/research/innovation2/RANKING_GAP_INDEPENDENT_VERIFICATION.json",
+  "states": [
+    "teacher",
+    "2022_R1",
+    "2022_T0",
+    "2023_R1",
+    "2023_T0",
+    "2024_R1",
+    "2024_T0"
+  ],
+  "groups": "Train unique user count, ascending (count,item_id), equal thirds",
+  "caps": {
+    "seconds": 600,
+    "rss": 2147483648,
+    "output": 104857600
+  },
+  "test": "denied",
+  "command": "& 'D:\\miniconda\\envs\\run_5060\\python.exe' -B tools/run_sparse_item_assessment.py"
+}
