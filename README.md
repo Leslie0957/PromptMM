@@ -14,6 +14,6 @@ AI启动：完整读[AGENTS.md](AGENTS.md)，再读本页和[短日志](TRAINING
 | 第二项接下来研究什么 | [探索工作页](docs/research/innovation2/README.md) |
 | 查具体运行、旧命令或文件 | [深层导航](docs/README.md) |
 
-当前唯一下一步：三seed结果已审计，均screen_stop；用户审阅[HANDOFF](docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_HANDOFF.md)后再决定是否另行评审备选。没有待自动执行的实验。
+当前唯一下一步：按[稀疏物品绝对表现核查计划](docs/research/innovation2/SPARSE_ITEM_ASSESSMENT_PLAN_2026-09-29.md)复用既有top20做CPU分组聚合，交接后再评审备选；尚未执行，不训练。
 
 训练入口为`codes/main_mmlight.py`，参数默认源`codes/utility/parser.py`，CLI优先。`codes/run_patent.py`是独立历史路径。评审材料移至`archive/reviews/check/`，旧代码集中在archive下；原始数据/模型/运行产物与`zhuanli/`保持原位。搬迁详见[路径映射](docs/experiments/ROOT_RELOCATION_2026-09-29.json)。

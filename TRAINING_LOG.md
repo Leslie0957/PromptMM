@@ -145,3 +145,14 @@
 - User-run source427459f completed all three seeds. Independent CPU artifact audit passed289 checks: 51 acceptance SHA bindings, 18 best/final checkpoints and AdamW states, nine complete300-epoch/64200-step curves, all B Recall regressions, finite saved metrics/diagnostics and resources. 2712 recorded Validation calls; no audit scoring/data/Test access. Report: docs/research/innovation2/MINIMAL_RANKING_THREE_SEED_AUDIT_2026-09-29.md; RESULTS/HANDOFF same family.
 - R-B=-.001704605752/-.000731169577/-.001260381580; A/M also below B in all seeds. Three screen_stop results are valid completed negative evidence. Runtime18245.890s total, per-seed resources pass. Secondary ndcg20 uses hit-count IDCG, not standard NDCG; do not compare to historical different-ks NDCG. Recall screening remains valid. Test0 supported by denial/source and zero denied attempts, not OS trace.
 - Original assets/history preserved; active entries/family/matrix and catalogs updated; first-work tables/charter/policy unchanged. Focused links/diff and scoped commit; stop after handoff, no next-stage execution. Sole next step: user reviews HANDOFF and decides whether to separately assess a backup question.
+
+
+## 2026-09-29 Sparse-item backup assessment plan (pending)
+
+- User requests next step after fixed ranking route stopped. Prepare only a saved-list absolute frequency-group assessment protocol, no training/scoring/data/Test access. Base f4702f2. Scope: one plan and current entrances/log/catalogs; freeze original thirds, explicit denominators, seven existing states, interpretation/stopping branches. Avoid equating low-frequency weakness with simplification causality or modality utility. Preserve charter and all historical evidence. Verify links/diff and commit; next is delegated CPU aggregation only.
+
+
+## 2026-09-29 Sparse-item backup assessment plan (completed)
+
+- Added SPARSE_ITEM_ASSESSMENT_PLAN_2026-09-29.md: seven original saved teacher/R1/T0 lists, fixed Train frequency thirds, absolute micro/macro hit metrics and additive original-Recall contributions, exposure/coverage and support/tie-boundary diagnostics. No new ranking, NDCG, training, Test or data load. Explicitly notes prior low-group G=0 rules against a new teacher-over-T0 advantage under identical grouping; no invented algorithm success gate.
+- Updated root/second-work next-step links; first-work, charter, source and artifacts unchanged. Link/diff checks and navigation refresh before scoped commit. Latest next step supersedes header: user delegates bounded saved-list aggregation, then independent review; no automatic module or training.
