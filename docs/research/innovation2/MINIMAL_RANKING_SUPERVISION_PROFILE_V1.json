@@ -1,0 +1,28 @@
+{
+  "status": "preparation_only_not_launchable",
+  "dataset": "sports",
+  "seed": 2022,
+  "branch": "codex/experiment/baby-teacher-baseline",
+  "launch_source_rule": "committed_head",
+  "command": "& 'D:\\miniconda\\envs\\run_5060\\python.exe' -B 'D:\\Download\\PromptMM\\tools\\run_minimal_ranking_supervision.py' --formal",
+  "output": "exp/innovation2/minimal_ranking_seed2022_v1",
+  "smoke_output": "exp/innovation2/minimal_ranking_resource_smoke_seed2022_v1",
+  "anchor_manifest": "exp/initialization_kd_interaction/sports_init_kd_interaction_seed2022_v1/launch_manifest.json",
+  "anchor_manifest_sha256": "d1eb28f82a34c0a8e45b06729336a08260d9668215a3994e184d903f3af3664f",
+  "assets": {
+    "teacher_tables": {"path": "exp/initialization_checks/sports_initialization_repeatability_seed2022_v1/process0/initial_tensors.pt", "sha256": "e5573bbdbbb609b4bc037a551455578463795c6df4bc4a1b236788d86c24da20"},
+    "triplet_tape": {"path": "exp/paired_coldinit/sports_three_seed_v1/seed2022/triplets.npy", "sha256": "e8d982c6a2d1be20a934502d4a1ad6ba7e2b699b21098668343341f10db3d77b"},
+    "train": {"path": "data/sports/train_mat", "sha256": "5361c5486dddbf50084d011278a11d2f18a37e258f87be218b070ff02f4ab0f8"},
+    "validation": {"path": "data/sports/val_mat", "sha256": "1b4224c3fb091ad23a59e0f8a7b58c7b0c959863a7189cfc8b89eeb90a467e03"}
+  },
+  "prepared_candidates": {"path": "exp/innovation2/minimal_ranking_candidate_prepare_seed2022_v1/candidates.npz", "sha256": "9ef0f59bb457a51539856f8def1f156658f0af10808470c3a1c94f074dc6e571", "logical_sha256": "f9acea50a73e7c8ba0bb3bbb7fc02cc7f033d3fdc2f5aa152b17686263ada90e", "users": 35598, "shape": [35598, 64]},
+  "shared_anchor": "sports_init_kd_interaction_seed2022_v1; source 484a4bef36030e0d76a5d77e4da14d84aea46589; config b9372db495735f9af235ecf7dfa41745872f585aa8d5d52987d169e27e85d543",
+  "dimensions": {"users": 35598, "items": 18357, "id": 64},
+  "arms": ["B", "R", "A"],
+  "training": {"epochs": 300, "batches_per_epoch": 214, "batch_size": 1024, "optimizer": "AdamW", "lr": 0.00006, "weight_decay": 0.01, "betas": [0.9, 0.999], "eps": 1e-8, "bpr": "mean(-logsigmoid(dot(u,p)-dot(u,n)))", "rank_kl_weight": 1.0, "anchor_weight": 1.0, "smoke_steps_per_arm": 10},
+  "candidates": {"teacher_top": 32, "uniform_random": 32, "numpy_rng_seed": 20260930, "user_order": "ascending_train_user_id", "tie_rule": "descending_score_ascending_item_id", "smoke_train_users_max": 256},
+  "evaluation": {"split": "Validation_only", "test_access": false, "candidate_exclusion": "Train_only", "k": 20, "primary": "epoch300_recall20", "secondary": "ndcg20", "calls": 904, "user_batch": 256, "dtype": "float32", "tf32": false, "B_epoch0_expected": 0.094184495190847733, "B_epoch300_expected": 0.095151699965148426, "regression_tolerance": 1e-6, "mixture_teacher_fraction": 0.5},
+  "screening": {"delta": 0.001, "simple_alternative_epsilon": 0.0002},
+  "caps": {"wall_seconds": 28800, "cuda_allocator_bytes": 2147483648, "rss_bytes": 6442450944, "output_bytes": 2147483648, "minimum_free_disk_bytes": 4294967296, "sample_interval_seconds": 1, "attempts": 1},
+  "record_targets": {"results": "docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_RESULTS.md", "handoff": "docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_HANDOFF.md", "matrix_rows": ["B", "R", "A", "M"], "family": "second_work_minimal_ranking", "paper_gap": "conditional_only"}
+}
