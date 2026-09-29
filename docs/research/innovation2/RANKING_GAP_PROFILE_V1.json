@@ -1,0 +1,24 @@
+{
+  "dataset": "sports",
+  "source_branch": "codex/experiment/baby-teacher-baseline",
+  "output": "exp/innovation2/ranking_gap_v1",
+  "source_rule": "committed_head",
+  "comparison_anchor": "docs/research/INITIALIZATION_KD_THREE_SEED_INDEPENDENT_AUDIT_2026-09-28.md",
+  "train": {"path": "data/sports/train_mat", "sha256": "5361c5486dddbf50084d011278a11d2f18a37e258f87be218b070ff02f4ab0f8"},
+  "validation": {"path": "data/sports/val_mat", "sha256": "1b4224c3fb091ad23a59e0f8a7b58c7b0c959863a7189cfc8b89eeb90a467e03"},
+  "teacher": {"path": "exp/initialization_checks/sports_initialization_repeatability_seed2022_v1/process0/initial_tensors.pt", "sha256": "e5573bbdbbb609b4bc037a551455578463795c6df4bc4a1b236788d86c24da20", "keys": ["users", "items"], "expected_recall20": 0.09418449519084773},
+  "states": [
+    {"seed": 2022, "arm": "R1", "path": "exp/initialization_kd_interaction/sports_init_kd_interaction_seed2022_v1/R1/final.pt", "sha256": "b8720f29855eece4b1da584367ce34f402e209ba32257081d9790fead3550d62", "expected_recall20": 0.08204953006973559},
+    {"seed": 2022, "arm": "T0", "path": "exp/initialization_kd_interaction/sports_init_kd_interaction_seed2022_v1/T0/final.pt", "sha256": "d432ee6a211caf77c1999f6357d4d55689bafc7daa95b3b6157a8503cef364b0", "expected_recall20": 0.09515169996514843},
+    {"seed": 2023, "arm": "R1", "path": "exp/initialization_kd_interaction/sports_init_kd_interaction_seed2023_v1/R1/final.pt", "sha256": "d6603a9a1b98719c1a3c4b3a170b626383a00c2f23788841efdce7b215284649", "expected_recall20": 0.08170139654698551},
+    {"seed": 2023, "arm": "T0", "path": "exp/initialization_kd_interaction/sports_init_kd_interaction_seed2023_v1/T0/final.pt", "sha256": "13255e543e6d1a643745d11a20305313f45c8a9fc6ea4e8ae20eb5c5879711db", "expected_recall20": 0.0943431785304682},
+    {"seed": 2024, "arm": "R1", "path": "exp/initialization_kd_interaction/sports_init_kd_interaction_seed2024_v1/R1/final.pt", "sha256": "61dd887d9357f6d047209dfb62d104ed7c82aaab4f44c43c86ce03b662fe2bb9", "expected_recall20": 0.08249685322058141},
+    {"seed": 2024, "arm": "T0", "path": "exp/initialization_kd_interaction/sports_init_kd_interaction_seed2024_v1/T0/final.pt", "sha256": "d3438fbc2ee9f177fd0123a4f56ee937c85e5dbecc092afc6637c601f43759c1", "expected_recall20": 0.0946155096851523}
+  ],
+  "dimensions": {"users": 35598, "items": 18357, "dim": 64},
+  "evaluation": {"split": "Validation", "test_access": false, "known_exclusion": "Train", "k": 20, "user_batch": 256, "dtype": "float32", "tf32": false, "tie_rule": "descending_score_ascending_item_id", "recall_tolerance": 1e-6, "identity_tolerance": 1e-10},
+  "bootstrap": {"replicates": 2000, "rng_seed": 20260929},
+  "screen_delta": 0.001,
+  "caps": {"wall_seconds": 1800, "cuda_allocator_bytes": 2147483648, "rss_bytes": 4294967296, "output_bytes": 536870912, "minimum_free_disk_bytes": 2147483648, "telemetry_interval_seconds": 1, "attempts": 1},
+  "command": "& 'D:\\miniconda\\envs\\run_5060\\python.exe' -B 'D:\\Download\\PromptMM\\tools\\run_ranking_gap_diagnostic.py'"
+}
