@@ -7,7 +7,7 @@
 - 第一项：有限实验、独立审计及正文整合完成，暂停扩展；[结论与未验证边界](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。待跑实验为零。
 - 第二项：Sports ranking-gap v1 独立审计完成，数值通过且证据有限定；尚无已选算法或训练声明。[结果](docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_RESULTS.md)。
 - 约束：旧Test不选新方法；P1a已筛查停止；旧RGCS/门控不是队列。未知项不自动补跑。
-- 唯一下一步：准备最小排序监督因果对照方案，见[独立审计](docs/research/innovation2/RANKING_GAP_INDEPENDENT_AUDIT_2026-09-29.md)；尚未授权训练。
+- 唯一下一步：按[最小排序监督方案](docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_PROPOSAL_2026-09-29.md)准备实现及资源预检；尚未授权训练，长尾仅为备选。
 
 ## 证据导航
 
@@ -84,3 +84,14 @@
 - Independent saved-ranking audit passed 168 checks: 14 artifact hashes, nine input hashes, pinned source/profile, seven per-user label/Train-filter checks, six metric/group decompositions and 2000 paired bootstrap replicates. CPU only, no new scoring/training/Test or checkpoint deserialization. Audit: docs/research/innovation2/RANKING_GAP_INDEPENDENT_AUDIT_2026-09-29.md.
 - opportunity_present retained; T0 G=.00719-.00791, all N negative, 98.93%-99.63% of G from high-frequency item third. No causal bottleneck/attainable gain/long-tail claim. Test/update zeros are literal assertions supported by source guard/path, not counters; resource summary overwritten but samples/report remain; no saved-score independent ranking check. Original reports and artifacts preserved.
 - Latest current status supersedes pending-audit header: independent audit complete with evidence qualifications. Updated current entrances and appended RESULTS pointer, refreshed catalogs; first-work matrices/charter/policy unchanged. Verify links/diff then scoped commit. Sole next step: prepare minimal ranking-supervision causal-comparison protocol against teacher-initialized BPR and simple alternatives; no implementation/run authorized.
+
+
+## 2026-09-29 Minimal ranking-supervision protocol (pending)
+
+- User requests next preparation stage, not training. Base d03d76f. Write bounded seed2022 causal-comparison proposal with teacher-init BPR, simple ranking preservation, parameter anchoring and fixed score mixing; define data isolation, resource/preparation gate, primary endpoint and stop rules. Long-tail remains conditional backup, no execution queue. Scope: one proposal, current entrances/log and generated catalogs; no implementation/data/Test or run. Risks: weak single-seed inference, regularization-scale confounding, repeated Validation and novelty overclaim. Verify formulas, controls, links/diff, preserve prior evidence and charter, scoped commit.
+
+
+## 2026-09-29 Minimal ranking-supervision protocol (completed)
+
+- Added MINIMAL_RANKING_SUPERVISION_PROPOSAL_2026-09-29.md v1.0: proposed one seed2022 cohort BPR/ranking KL/initial-table anchor plus fixed 0.5 score mixture, teacher initialization and common tape, epoch300 primary endpoint, bounded resources and descriptive stop rules. No implementation, smoke, training, new evaluation, data loading or Test. Relative loss strengths are explicitly not gradient-matched; one configuration cannot exclude all simple baselines.
+- Checked primary literature abstracts for RD/CD/bidirectional/DCD proximity; no novelty or full reproduction claim. Long-tail is conditional backup, not automatically launched. Charter and historical evidence remain unchanged; root and second-work entrances updated. Verify links/formula definitions/diff and regenerate navigation, then scoped local commit. Unique next step: implementation/profile/resource preparation; formal cohort still needs explicit user delegation.

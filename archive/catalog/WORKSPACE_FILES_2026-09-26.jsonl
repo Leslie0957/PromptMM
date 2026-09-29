@@ -208,9 +208,9 @@
 {"bytes": 13815757, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 02_38_22.563718_sports_light_init_pid596.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 05_34_16.930265_sports_light_init_pid42156.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 08_30_07.418852_sports_light_init_pid30132.pth", "source_catalog": false}
-{"bytes": 1655, "category": "root", "path": "README.md", "source_catalog": true}
+{"bytes": 1618, "category": "root", "path": "README.md", "source_catalog": true}
 {"bytes": 4930, "category": "root", "path": "THESIS_ROADMAP.md", "source_catalog": true}
-{"bytes": 16401, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
+{"bytes": 18151, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
 {"bytes": 739, "category": "archive", "path": "archive/README.md", "source_catalog": true}
 {"bytes": 26887, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/Models.py", "source_catalog": true}
 {"bytes": 26901, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/Models_empower.py", "source_catalog": true}
@@ -715,13 +715,14 @@
 {"bytes": 9798, "category": "docs", "path": "docs/research/SPORTS_THREE_SEED_VALIDATION120_2026-09-17.md", "source_catalog": true}
 {"bytes": 19036, "category": "docs", "path": "docs/research/SPORTS_THREE_SEED_VALIDATION300_2026-09-18.md", "source_catalog": true}
 {"bytes": 5285, "category": "docs", "path": "docs/research/SPORTS_WEIGHTED_DIRECTION_AUDIT_2026-09-24.md", "source_catalog": true}
+{"bytes": 12064, "category": "docs", "path": "docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_PROPOSAL_2026-09-29.md", "source_catalog": true}
 {"bytes": 4756, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_HANDOFF.md", "source_catalog": true}
 {"bytes": 10526, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_PLAN_2026-09-29.md", "source_catalog": true}
 {"bytes": 6328, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_RESULTS.md", "source_catalog": true}
 {"bytes": 5776, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_INDEPENDENT_AUDIT_2026-09-29.md", "source_catalog": true}
 {"bytes": 8160, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_INDEPENDENT_VERIFICATION.json", "source_catalog": true}
 {"bytes": 3047, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_PROFILE_V1.json", "source_catalog": true}
-{"bytes": 1489, "category": "docs", "path": "docs/research/innovation2/README.md", "source_catalog": true}
+{"bytes": 1742, "category": "docs", "path": "docs/research/innovation2/README.md", "source_catalog": true}
 {"bytes": 2015, "category": "docs", "path": "docs/research_notes/KL散度蒸馏vs方向蒸馏对比.txt", "source_catalog": true}
 {"bytes": 756, "category": "docs", "path": "docs/research_notes/README.md", "source_catalog": true}
 {"bytes": 1712, "category": "docs", "path": "docs/research_notes/多模态融合语义鸿沟问答.txt", "source_catalog": true}
