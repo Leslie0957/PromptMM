@@ -5,9 +5,9 @@
 ## 当前状态
 
 - 第一项：有限实验、独立审计及正文整合完成，暂停扩展；[结论与未验证边界](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。待跑实验为零。
-- 第二项：Sports ranking-gap v1 一次既有检查点 Validation 诊断完成，待独立审计；尚无已选算法或训练声明。[结果](docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_RESULTS.md)。
+- 第二项：Sports ranking-gap v1 独立审计完成，数值通过且证据有限定；尚无已选算法或训练声明。[结果](docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_RESULTS.md)。
 - 约束：旧Test不选新方法；P1a已筛查停止；旧RGCS/门控不是队列。未知项不自动补跑。
-- 唯一下一步：由用户将[诊断 HANDOFF](docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_HANDOFF.md)交回独立审计；尚未授权训练。
+- 唯一下一步：准备最小排序监督因果对照方案，见[独立审计](docs/research/innovation2/RANKING_GAP_INDEPENDENT_AUDIT_2026-09-29.md)；尚未授权训练。
 
 ## 证据导航
 
@@ -72,3 +72,15 @@
 - Hard acceptance passed: teacher and six epoch300 R1/T0 Recall@20 values agree with original initialization audit within 1e-6; G-L identity and item contributions within 1e-10, finite/valid scores/IDs/top20 and train exclusion. Shared teacher Recall .0941844951908477. T0 G for seeds 2022/2023/2024 is .00719196/.00790684/.00757911, all above predeclared delta .001: `opportunity_present`. T0 L is .00815917/.00806553/.00801013, so N is negative for all three; opportunity is complementary/oracle, not a demonstrated attainable gain or causal bottleneck. No Test metric exists.
 - Runtime 58.187 s; CUDA allocator peak 75,497,472 B, sampled RSS peak 1,004,249,088 B, output about 9.1 MB, disk floor respected; sampling interval 1 s without OS hard isolation. Full group/paired bootstrap data, phase times, manifest with source/config/asset SHA, raw per-user top20/hits, artifact hashes and limitations are in [RESULTS](docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_RESULTS.md) and [HANDOFF](docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_HANDOFF.md). This is an execution self-check, not independent audit.
 - Closeout routing: this log, second-work RESULTS/HANDOFF and README, root README, experiment-family overview, six generated navigation files updated. Active first-work result matrices, paper/gap consumers, old initialization audit, policy and thesis charter unchanged/not applicable: no new first-work training or Test result. Raw ignored assets preserved; no tag/bundle/merge. Sole next step: user delegates HANDOFF to independent audit; no automatic training or next diagnostic.
+
+
+## 2026-09-29 Ranking-gap independent audit (pending)
+
+- User returns completed handoff for independent audit. Based on de32ef0, inspect pinned source/profile and raw artifacts, independently recompute saved-hit metrics/groups/bootstrap without scoring or training; read only hash-pinned Train/Val for saved-hit verification, deny Test. Scope: new audit and verification record, current navigation/result pointer and append-only log; preserve execution reports and raw assets. Acceptance: identities, saved arrays, aggregation and screening checked, limitations distinguished from failures. No rerun, Test, algorithm implementation or new experiment. Verify focused diff/links/catalogs and create scoped commit.
+
+
+## 2026-09-29 Ranking-gap independent audit (completed)
+
+- Independent saved-ranking audit passed 168 checks: 14 artifact hashes, nine input hashes, pinned source/profile, seven per-user label/Train-filter checks, six metric/group decompositions and 2000 paired bootstrap replicates. CPU only, no new scoring/training/Test or checkpoint deserialization. Audit: docs/research/innovation2/RANKING_GAP_INDEPENDENT_AUDIT_2026-09-29.md.
+- opportunity_present retained; T0 G=.00719-.00791, all N negative, 98.93%-99.63% of G from high-frequency item third. No causal bottleneck/attainable gain/long-tail claim. Test/update zeros are literal assertions supported by source guard/path, not counters; resource summary overwritten but samples/report remain; no saved-score independent ranking check. Original reports and artifacts preserved.
+- Latest current status supersedes pending-audit header: independent audit complete with evidence qualifications. Updated current entrances and appended RESULTS pointer, refreshed catalogs; first-work matrices/charter/policy unchanged. Verify links/diff then scoped commit. Sole next step: prepare minimal ranking-supervision causal-comparison protocol against teacher-initialized BPR and simple alternatives; no implementation/run authorized.

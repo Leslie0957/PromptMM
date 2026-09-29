@@ -2,7 +2,7 @@
 
 核心目标：[论文总体目标与路线](THESIS_ROADMAP.md)。研究决策遵循此页，实验状态不自动改变总体目标。
 
-更新2026-09-29。**第一项阶段性收尾，暂停扩展；第二项排序缺口诊断已完成执行方自审，待独立审计，尚未选定算法。**
+更新2026-09-29。**第一项阶段性收尾，暂停扩展；第二项排序缺口诊断已完成执行方自审，独立审计已完成（数值通过，证据有限定），尚未选定算法。**
 
 AI启动：完整读[AGENTS.md](AGENTS.md)，再读本页和[短日志](TRAINING_LOG.md)。历史命令、pending及旧“下一步”不构成执行授权。
 
@@ -14,6 +14,6 @@ AI启动：完整读[AGENTS.md](AGENTS.md)，再读本页和[短日志](TRAINING
 | 第二项接下来研究什么 | [探索工作页](docs/research/innovation2/README.md) |
 | 查具体运行、旧命令或文件 | [深层导航](docs/README.md) |
 
-当前唯一下一步：由用户将[诊断 HANDOFF](docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_HANDOFF.md)交回独立审计。此次只执行一次既有检查点的 Validation 诊断，没有训练或 Test。
+当前唯一下一步：准备最小排序监督因果对照方案，见[独立审计](docs/research/innovation2/RANKING_GAP_INDEPENDENT_AUDIT_2026-09-29.md)。此次只执行一次既有检查点的 Validation 诊断，没有训练或 Test。
 
 训练入口为`codes/main_mmlight.py`，参数默认源`codes/utility/parser.py`，CLI优先。`codes/run_patent.py`是独立历史路径。评审材料移至`archive/reviews/check/`，旧代码集中在archive下；原始数据/模型/运行产物与`zhuanli/`保持原位。搬迁详见[路径映射](docs/experiments/ROOT_RELOCATION_2026-09-29.json)。

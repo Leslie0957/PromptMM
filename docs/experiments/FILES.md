@@ -134,7 +134,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（160）
+## docs（162）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -290,6 +290,8 @@
 - [docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_HANDOFF.md](../research/innovation2/RANKING_GAP_DIAGNOSTIC_HANDOFF.md)
 - [docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_PLAN_2026-09-29.md](../research/innovation2/RANKING_GAP_DIAGNOSTIC_PLAN_2026-09-29.md)
 - [docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_RESULTS.md](../research/innovation2/RANKING_GAP_DIAGNOSTIC_RESULTS.md)
+- [docs/research/innovation2/RANKING_GAP_INDEPENDENT_AUDIT_2026-09-29.md](../research/innovation2/RANKING_GAP_INDEPENDENT_AUDIT_2026-09-29.md)
+- [docs/research/innovation2/RANKING_GAP_INDEPENDENT_VERIFICATION.json](../research/innovation2/RANKING_GAP_INDEPENDENT_VERIFICATION.json)
 - [docs/research/innovation2/RANKING_GAP_PROFILE_V1.json](../research/innovation2/RANKING_GAP_PROFILE_V1.json)
 - [docs/research/innovation2/README.md](../research/innovation2/README.md)
 - [docs/research_notes/KL散度蒸馏vs方向蒸馏对比.txt](../research_notes/KL%E6%95%A3%E5%BA%A6%E8%92%B8%E9%A6%8Fvs%E6%96%B9%E5%90%91%E8%92%B8%E9%A6%8F%E5%AF%B9%E6%AF%94.txt)
@@ -327,9 +329,10 @@
 - [tests/test_sports_paired_cold.py](../../tests/test_sports_paired_cold.py)
 - [tests/test_sports_sham_residual.py](../../tests/test_sports_sham_residual.py)
 
-## tools（35）
+## tools（36）
 
 - [tools/audit_initialization_kd_three_seeds.py](../../tools/audit_initialization_kd_three_seeds.py)
+- [tools/audit_ranking_gap_saved.py](../../tools/audit_ranking_gap_saved.py)
 - [tools/build_experiment_navigation.py](../../tools/build_experiment_navigation.py)
 - [tools/convert_mmrec_baby.py](../../tools/convert_mmrec_baby.py)
 - [tools/diagnose_sports_coldinit_selected_geometry.py](../../tools/diagnose_sports_coldinit_selected_geometry.py)

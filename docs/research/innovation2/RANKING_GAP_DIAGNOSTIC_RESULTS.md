@@ -50,3 +50,8 @@ Train 交互数或物品频次按 `(count, ID)` 排序，人数/物品数各三�
 执行方自审：`acceptance.json` 为 passed，`exit.json` 为 completed/0，stderr 为空，七个逐用户文件与六行比较齐全；源提交、资产 SHA、环境和原 source/config 见 `manifest.json`，产物 SHA 见 [HANDOFF](RANKING_GAP_DIAGNOSTIC_HANDOFF.md)。独立审计尚未进行。旧第一项矩阵/正文、原 checkpoint、Train/Validation 和 Test 均未修改；未合并、打 tag 或启动下一阶段。
 
 唯一下一步：由用户将 HANDOFF 文档交回独立审计。
+
+
+## 后续独立审计（2026-09-29）
+
+[审计已完成](RANKING_GAP_INDEPENDENT_AUDIT_2026-09-29.md)：保存产物数值和筛查通过；Test计数字段、资源摘要及无保存分数的证据限制见该页。以上执行方原文保留，原“待审计/唯一下步”由此追加状态取代。
