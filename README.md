@@ -14,6 +14,6 @@ AI启动：完整读[AGENTS.md](AGENTS.md)，再读本页和[短日志](TRAINING
 | 第二项接下来研究什么 | [探索工作页](docs/research/innovation2/README.md) |
 | 查具体运行、旧命令或文件 | [深层导航](docs/README.md) |
 
-当前唯一下一步：按[模态邻居HANDOFF](docs/research/innovation2/MODAL_NEIGHBOR_DIAGNOSTIC_HANDOFF.md)做独立只读审计。一次诊断已完成，图像/文本均有超出频次匹配随机对照的关联信号；不等于推荐增益，不自动训练。
+当前唯一下一步：评审并准备实现[第二项共享残差方案](docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_DESIGN_V1.md)。已有邻居关联信号，候选算法已形成；尚未实现/训练，创新与排序增益待证。
 
 训练入口为`codes/main_mmlight.py`，参数默认源`codes/utility/parser.py`，CLI优先。`codes/run_patent.py`是独立历史路径。评审材料移至`archive/reviews/check/`，旧代码集中在archive下；原始数据/模型/运行产物与`zhuanli/`保持原位。搬迁详见[路径映射](docs/experiments/ROOT_RELOCATION_2026-09-29.json)。

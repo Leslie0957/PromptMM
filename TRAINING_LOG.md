@@ -7,7 +7,7 @@
 - 第一项：有限实验、独立审计及正文整合完成，暂停扩展；[结论与未验证边界](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。待跑实验为零。
 - 第二项：最小排序监督三seed已完成独立审计，执行通过，三次screen_stop；[HANDOFF](docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_HANDOFF.md)。
 - 约束：旧Test不选新方法；P1a已筛查停止；旧RGCS/门控不是队列。未知项不自动补跑。
-- 唯一下一步：按[模态邻居HANDOFF](docs/research/innovation2/MODAL_NEIGHBOR_DIAGNOSTIC_HANDOFF.md)独立只读审计；一次诊断完成，两模态candidate_signal，不自动训练。
+- 唯一下一步：评审并准备实现[共享残差设计v1](docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_DESIGN_V1.md)；用户转述外部AI同意方案评审，未提供全文；不自动训练。
 
 ## 证据导航
 
@@ -200,3 +200,12 @@
 - One launch from0ffa725 completed/exit0,464.922s, sampled combinedRSS734605312B, all resource gates passed. Raw exp/innovation2/modal_neighbor_v1 preserved. Runtime SHA/shape/finite/matching/graph-before-Validation guards passed; Test denied attempts0, no training/retry. Profile activation was the sole execution delta; separate saved-artifact audit helper added during run does not change running core.
 - Effective6114 queries/6338 positives/6245 users/4098 targetitems, coverage99.8582%;5 dual-zero vectors excluded. Image association.07873146 vs null.01421269, Delta+.06451878; text.13000947 vs.01719785, Delta+.11281161. Both candidate_signal under predeclared rules; matching support1.0. No effective zero-degree subgroup. This is reused-Validation association, not Recall gain, semantic causality or algorithm success.
 - Saved-artifact self-audit297 checks passed, including hashes/exact-frequency nulls/summary recomputation/resources/screens. Not external independent audit; no original-data intersection or cosine/bootstrap reconstruction. AUDIT/RESULTS/HANDOFF plus current entrances/experiment family updated, generated navigation refreshed; first-work/charter/policy/history untouched. Sole next step: independent read-only audit per HANDOFF; no automatic algorithm or training.
+
+## 2026-09-29 Innovation2 shared-neighbor method design (pending)
+
+- User authorizes concrete algorithm design after reporting another AI agrees on entering scheme review, not training. Base15c132d; tracked clean, unrelated reviews preserved. Scope: one method/comparison design, primary-source proximity review, current entrances/log/catalogs; no implementation, real-data analysis, training or Test. Candidate fixed-neighborhood shared residual optimized by BPR, with exact baseline initialization and foldable ID scoring; explicitly test generic reparameterization/smoothing/collaborative alternatives. Risks: novelty overlap, positive-only diagnostic, teacherTrain/Val dependence, added parameters/optimization and unmeasured budget. Acceptance: complete equations/initialization/gradient path/cost/control/stopping definitions; distinguish proposal from runnable profile and external verdict from artifact audit. Verify doc links/diff and scoped commit; preserve charter and old evidence. Next step only design review/implementation preparation, no run authority.
+
+## 2026-09-29 Innovation2 shared-neighbor method design (completed)
+
+- Added NEIGHBOR_SHARED_RESIDUAL_DESIGN_V1.md: fixed image/text neighbor differences in frozen fused coordinates, Train-only RMS normalization, shared64x128 W with zero initialization, BPR on both positive/negative items and exportable64D table. Explicitly derives ordinarySGD shared kernel and acknowledges unchanged function class/AdamW limitation; no claim of novel loss or proven noise selection. B/N/F/R first-screen comparisons; C/S conditional alternatives only. Suggested thresholds/resources are design proposals, not runnable protocol or training authority.
+- Primary-source proximity checks: LATTICE/FREEDOM/HTD/PromptMM establish substantial overlap; novelty risk medium-high, no exhaustive review claim. External audit verdict is user-reported only. No data/model/Test loads, code implementation or run. Updated current entrances/log and generated navigation; actual experiment-family/results unchanged because no execution; charter/first-work/history/reviews preserved. Focused links/formula/diff checks and coherent commit. Sole next step: scheme review and implementation/resource preparation, no formal training.
