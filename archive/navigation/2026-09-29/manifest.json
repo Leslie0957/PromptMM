@@ -1,0 +1,46 @@
+{
+  "training_log": {
+    "snapshot": "archive/training/TRAINING_LOG_ARCHIVE_FULL_2026-09-29.md",
+    "bytes": 286218,
+    "sha256": "905ec732cdca38e737b79155a81edda832b8549a7853da766175cd2945238413",
+    "lines": 1035
+  },
+  "navigation": [
+    {
+      "source": "README.md",
+      "snapshot": "archive/navigation/2026-09-29/README.md",
+      "bytes": 3470,
+      "sha256": "67da84019615c2e9a285bfbc7ad28f45051562e37bcd0d79b255a2c8c4710572"
+    },
+    {
+      "source": "docs/README.md",
+      "snapshot": "archive/navigation/2026-09-29/docs/README.md",
+      "bytes": 4939,
+      "sha256": "32c0c898e3674b4b6eb0f5190af3a8257eb5f1e9b04b00880026dc725716789f"
+    },
+    {
+      "source": "docs/experiments/README.md",
+      "snapshot": "archive/navigation/2026-09-29/docs/experiments/README.md",
+      "bytes": 10131,
+      "sha256": "5a059515d71080b2552dd6d27d5aa514467f3e256ff39b3c369f517c14b8cbe5"
+    },
+    {
+      "source": "docs/paper/README.md",
+      "snapshot": "archive/navigation/2026-09-29/docs/paper/README.md",
+      "bytes": 3312,
+      "sha256": "79727e3cb2672345f1c336eb4136ec0c45a5ffd589fceb7ad1f157de9347fbb3"
+    },
+    {
+      "source": "docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md",
+      "snapshot": "archive/navigation/2026-09-29/docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md",
+      "bytes": 11173,
+      "sha256": "e2b9fd37d64cb56a6e5a2d31e9aeba534d0079c392052cad474053e2672df205"
+    },
+    {
+      "source": "docs/experiments/RUN_CLOSEOUT.md",
+      "snapshot": "archive/navigation/2026-09-29/docs/experiments/RUN_CLOSEOUT.md",
+      "bytes": 8983,
+      "sha256": "37ca774fb02829834d6bd72a86c74cf211212c4d4cbc6177014026e516f85103"
+    }
+  ]
+}

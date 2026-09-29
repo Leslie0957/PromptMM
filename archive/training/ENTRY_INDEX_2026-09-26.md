@@ -327,3 +327,157 @@
 | 11508–11512 | 2026-09-26 Sports cached deployment v2 outcome audit (pending documentation) |
 | 11513–11522 | 2026-09-26 SPORTS_CACHED_DEPLOYMENT_SEED2022_V2 (completed manual benchmark; read-only audit) |
 | 11523–11527 | 2026-09-26 Paper results prose and experiment navigation reorganization (pending) |
+
+## TRAINING_LOG_ARCHIVE_FULL_2026-09-29.md
+
+[archive/training/TRAINING_LOG_ARCHIVE_FULL_2026-09-29.md](TRAINING_LOG_ARCHIVE_FULL_2026-09-29.md)
+
+286,218 bytes；SHA256 `905ec732cdca38e737b79155a81edda832b8549a7853da766175cd2945238413`
+
+| 起止行 | 原始章节标题 |
+|---|---|
+| 13–72 | Current state |
+| 73–92 | Core navigation (read selectively) |
+| 93–101 | Active implementation and protocol |
+| 102–111 | Verified immutable history |
+| 112–115 | Current authorized task / handoff |
+| 116–122 | 2026-09-26 Paper results prose and experiment navigation reorganization (pending) |
+| 123–133 | 2026-09-26 Paper results prose and experiment navigation reorganization (completed) |
+| 134–139 | 2026-09-26 Paper wording review (pending) |
+| 140–147 | 2026-09-26 Paper wording review (completed) |
+| 148–152 | 2026-09-26 Thesis readiness clarification (pending) |
+| 153–158 | 2026-09-26 Thesis readiness clarification (completed) |
+| 159–164 | 2026-09-26 Thesis completion conditions and gap table (pending) |
+| 165–171 | 2026-09-26 Thesis completion conditions and gap table (completed) |
+| 172–177 | 2026-09-26 Innovation1 prerequisite and Innovation2 candidate review (pending) |
+| 178–184 | 2026-09-26 Innovation1 prerequisite and Innovation2 candidate review (completed) |
+| 185–190 | 2026-09-26 Innovation1 final claims and formal matrix (pending) |
+| 191–197 | 2026-09-26 Innovation1 final claims and formal matrix (completed) |
+| 198–203 | 2026-09-26 Protocol compatibility, asset reuse and closeout contract (pending) |
+| 204–211 | 2026-09-26 Protocol compatibility, asset reuse and closeout contract (completed) |
+| 212–217 | 2026-09-26 Innovation1 formal closeout protocol (pending) |
+| 218–224 | 2026-09-26 Innovation1 formal closeout protocol (completed) |
+| 225–230 | 2026-09-26 Innovation1 serial closeout runner preparation (pending) |
+| 231–236 | 2026-09-26 Innovation1 serial closeout runner preparation (completed) |
+| 237–246 | 2026-09-26 Innovation1 fixed-config serial formal closeout cohort (pending declaration) |
+| 247–250 | 2026-09-26 Innovation1 cohort declaration scope amendment |
+| 251–256 | 2026-09-26 Innovation1 v1 false-success failure audit and source repair (pending) |
+| 257–262 | 2026-09-26 Innovation1 fixed-config serial formal closeout cohort v1 (failed outcome) |
+| 263–267 | 2026-09-26 Innovation1 v1 false-success failure audit and source repair (completed) |
+| 268–273 | 2026-09-26 Innovation1 fixed-config v2 recovery preparation (pending) |
+| 274–279 | 2026-09-26 Innovation1 fixed-config v2 recovery preparation (completed) |
+| 280–288 | 2026-09-26 Innovation1 fixed-config serial formal closeout cohort v2 (pending declaration; not authorized to launch) |
+| 289–294 | 2026-09-26 Innovation1 v2 failure audit and Sports release identity adapter (pending) |
+| 295–300 | 2026-09-26 Innovation1 v2 cohort (failed; valid partial results preserved) |
+| 301–305 | 2026-09-26 Innovation1 v2 failure audit and Sports release identity adapter (completed) |
+| 306–311 | 2026-09-26 Innovation1 evaluation-only recovery preparation (pending) |
+| 312–317 | 2026-09-26 Innovation1 evaluation-only recovery preparation (completed) |
+| 318–325 | 2026-09-26 Innovation1 evaluation-only recovery v1 (pending formal declaration; not authorized to launch) |
+| 326–332 | 2026-09-26 Innovation1 evaluation-only recovery v1 (completed) |
+| 333–338 | 2026-09-26 Innovation1 18-cell paper table and freeze checklist (pending) |
+| 339–344 | 2026-09-26 Innovation1 18-cell paper table and freeze checklist (completed) |
+| 345–350 | 2026-09-26 Innovation1 fixed-result asset freeze (pending) |
+| 351–356 | 2026-09-26 Innovation1 fixed-result local snapshot (completed) |
+| 357–362 | 2026-09-26 Innovation1 rationale review (pending) |
+| 363–368 | 2026-09-26 Innovation1 rationale review (completed) |
+| 369–375 | 2026-09-27 Cross-interaction research route synthesis (pending) |
+| 376–383 | 2026-09-27 Cross-interaction research route synthesis (completed) |
+| 384–389 | 2026-09-27 Experiment entry cleanup (pending) |
+| 390–395 | 2026-09-27 Experiment entry cleanup (completed) |
+| 396–402 | 2026-09-27 P0 isolated diagnostic preparation (pending) |
+| 403–408 | 2026-09-27 P0 preparation scope clarification (pending amendment) |
+| 409–417 | 2026-09-27 P0 isolated diagnostic preparation (completed) |
+| 418–426 | 2026-09-27 Manual P0 warm2022 resource check (pending; not executed) |
+| 427–431 | 2026-09-27 P0 manual outcome closeout (pending audit) |
+| 432–441 | 2026-09-27 P0 manual warm2022 outcome (completed; utility unresolved) |
+| 442–447 | 2026-09-27 P0 measurement-precision review proposal (pending) |
+| 448–455 | 2026-09-27 P0 measurement-precision review proposal (completed; no execution) |
+| 456–462 | 2026-09-27 P0 precision implementation and manual declaration (pending) |
+| 463–470 | 2026-09-27 P0 precision implementation preparation (completed; no real execution) |
+| 471–480 | 2026-09-27 Manual P0 precision warm2022 (pending; not executed) |
+| 481–485 | 2026-09-27 P0 precision outcome closeout (pending audit) |
+| 486–495 | 2026-09-27 Manual P0 precision warm2022 outcome (completed) |
+| 496–503 | 2026-09-27 P1a feasibility and preregistration proposal (pending; no execution) |
+| 504–507 | 2026-09-27 P1a proposal scope amendment (pending) |
+| 508–515 | 2026-09-27 P1a feasibility and preregistration proposal (completed; no execution) |
+| 516–522 | 2026-09-27 P1a train-only plan feasibility preparation (pending; no real diagnostic) |
+| 523–526 | 2026-09-27 P1a target amendment (pending; user decision) |
+| 527–534 | 2026-09-27 P1a train-only coverage and common-cache target (completed; no real diagnostic) |
+| 535–541 | 2026-09-27 P1a user-manual U1 screening preparation (pending; no real execution) |
+| 542–549 | 2026-09-27 P1a common-cache U1 implementation preparation (completed; no real run) |
+| 550–557 | 2026-09-27 Manual P1a common-cache Sports seed2022 U1 screen (pending; not executed) |
+| 558–564 | 2026-09-27 Manual P1a common-cache Sports seed2022 U1 screen (completed) |
+| 565–570 | 2026-09-27 Sports initialization x sustained-KD R0/R1/T0/T1 preparation (pending; no real run) |
+| 571–576 | 2026-09-27 Sports initialization x sustained-KD R0/R1/T0/T1 preparation (completed; not launchable) |
+| 577–582 | 2026-09-27 Initialization versus persistent supervision proposal (pending) |
+| 583–589 | 2026-09-27 Initialization versus persistent supervision proposal (completed; no execution) |
+| 590–596 | 2026-09-27 Initialization x KD real-adapter preparation (pending; no run) |
+| 597–603 | 2026-09-27 Initialization x KD real-adapter preparation (completed; still not launchable) |
+| 604–609 | 2026-09-27 Initialization x KD bounded asset preflight (pending) |
+| 610–616 | 2026-09-27 Initialization x KD bounded asset preflight (completed; no training) |
+| 617–623 | 2026-09-27 Initialization x KD launch hardening and manual resource smoke preparation (pending) |
+| 624–630 | 2026-09-27 Initialization x KD launch hardening and manual resource smoke preparation (completed; no GPU execution) |
+| 631–637 | 2026-09-27 Manual initialization x KD resource smoke seed2022 v1 (pending; user execution only) |
+| 638–642 | 2026-09-27 Manual initialization x KD resource smoke outcome audit (pending; read-only) |
+| 643–650 | 2026-09-27 Manual initialization x KD resource smoke seed2022 v1 (completed) |
+| 651–657 | 2026-09-27 Exact Validation ranking acceleration preparation (pending) |
+| 658–664 | 2026-09-27 Exact Validation ranking acceleration preparation (completed; synthetic only) |
+| 665–671 | 2026-09-27 Manual exact Validation parity/timing seed2022 v1 (pending; user execution only) |
+| 672–677 | 2026-09-27 Parity v1 failure audit and Windows JSON publication fix (pending) |
+| 678–682 | 2026-09-27 Manual exact Validation parity/timing seed2022 v1 (failed) |
+| 683–688 | 2026-09-27 Windows JSON publication repair (completed; synthetic only) |
+| 689–695 | 2026-09-27 Parity v2 manual declaration preparation (pending; no execution) |
+| 696–701 | 2026-09-27 Parity v2 manual declaration preparation (completed; no execution) |
+| 702–708 | 2026-09-27 Manual exact Validation parity/timing seed2022 v2 (pending; user execution only) |
+| 709–714 | 2026-09-27 Parity v2 completed-run audit (pending; read-only evidence) |
+| 715–722 | 2026-09-27 Manual exact Validation parity/timing seed2022 v2 (completed) |
+| 723–730 | 2026-09-27 Fast evaluator four-arm integration and manual cohort preparation (pending) |
+| 731–737 | 2026-09-27 Fast evaluator four-arm integration and manual cohort preparation (completed) |
+| 738–745 | 2026-09-27 Manual initialization x KD four-arm seed2022 v1 (pending; user execution only) |
+| 746–752 | 2026-09-27 User-requested cohort wall-time removal (pending; declaration amendment) |
+| 753–758 | 2026-09-27 User-requested cohort wall-time removal (completed; formal declaration amended) |
+| 759–765 | 2026-09-28 Initialization x KD seed2022 four-arm outcome audit (pending; read-only evidence) |
+| 766–772 | 2026-09-28 Initialization x KD seed2022 four-arm cohort (completed; Validation only) |
+| 773–779 | 2026-09-28 Seed2023 paired-asset read-only preflight (pending; no run) |
+| 780–785 | 2026-09-28 Seed2023 paired-asset read-only preflight (completed; no run) |
+| 786–792 | 2026-09-28 Seed2023 four-arm manual declaration preparation (pending; no execution) |
+| 793–798 | 2026-09-28 Seed2023 four-arm manual declaration preparation (completed; no execution) |
+| 799–806 | 2026-09-28 Manual initialization x KD four-arm seed2023 v1 (pending; user execution only) |
+| 807–812 | 2026-09-28 Seed2023 four-arm outcome audit (pending; read-only evidence) |
+| 813–819 | 2026-09-28 Seed2023 four-arm cohort (completed; Validation only) |
+| 820–825 | 2026-09-28 Seed2024 four-arm repetition preparation (pending; user-manual execution) |
+| 826–831 | 2026-09-28 Seed2024 four-arm repetition preparation (completed; no real run) |
+| 832–837 | 2026-09-28 Manual initialization x KD four-arm seed2024 v1 (pending; user execution only) |
+| 838–844 | 2026-09-28 Three-seed initialization x KD independent audit (pending) |
+| 845–854 | 2026-09-28 Three-seed initialization x KD independent audit (completed; seed2024 outcome included) |
+| 855–861 | 2026-09-28 Initialization dependence paper integration (pending) |
+| 862–868 | 2026-09-28 Initialization dependence paper integration (completed) |
+| 869–873 | 2026-09-28 Goal evidence gap consolidation (pending) |
+| 874–881 | 2026-09-28 Goal evidence gap consolidation (completed) |
+| 882–887 | 2026-09-28 Existing assets and bounded cost roadmap (pending) |
+| 888–893 | 2026-09-28 Existing assets and bounded cost roadmap (completed) |
+| 894–899 | 2026-09-28 Innovation1 cost M0 preparation (pending; no real preflight) |
+| 900–906 | 2026-09-28 Innovation1 cost M0 preparation (completed; real smoke pending) |
+| 907–910 | 2026-09-28 M0 preparation guard amendment (pending; no run) |
+| 911–914 | 2026-09-28 M0 preparation guard amendment (completed; no run) |
+| 915–920 | 2026-09-28 Innovation1 cost M0 real-smoke audit (pending; read-only artifacts) |
+| 921–926 | 2026-09-28 Innovation1 cost M0 real smoke (completed; non-formal) |
+| 927–933 | 2026-09-28 Innovation1 cost M1 serial deployment preparation (pending; no run) |
+| 934–939 | 2026-09-29 Innovation1 cost M1 serial deployment preparation (completed; no measurement) |
+| 940–944 | 2026-09-29 Innovation1 cost M1 serial_v1 (pending; user execution only) |
+| 945–950 | 2026-09-29 M1 serial_v1 failure audit and recovery preparation (pending) |
+| 951–955 | 2026-09-29 Innovation1 cost M1 serial_v1 (failed; zero completed conditions) |
+| 956–960 | 2026-09-29 M1 v2 narrow parity repair (completed; no execution) |
+| 961–965 | 2026-09-29 Innovation1 cost M1 serial_v2 (pending; new authority required) |
+| 966–970 | 2026-09-29 Innovation1 cost M1 serial_v2 outcome closeout (pending; audit only) |
+| 971–977 | 2026-09-29 Innovation1 cost M1 serial_v2 (completed; deployment measurement) |
+| 978–982 | 2026-09-29 Innovation1 cost M2 update-window preparation (pending; no measurement) |
+| 983–988 | 2026-09-29 Innovation1 cost M2 update-window preparation (completed; no measurement) |
+| 989–993 | 2026-09-29 Innovation1 cost M2 serial_v1 (pending; user execution only) |
+| 994–999 | 2026-09-29 Innovation1 cost M2 serial_v1 outcome closeout (pending; audit only) |
+| 1000–1007 | 2026-09-29 Innovation1 cost M2 serial_v1 (completed; bounded update windows) |
+| 1008–1012 | 2026-09-29 Independent M0-M2 cost audit (pending) |
+| 1013–1019 | 2026-09-29 Independent M0-M2 cost audit (completed; qualified acceptance) |
+| 1020–1024 | 2026-09-29 First-work integrated paper draft (pending) |
+| 1025–1031 | 2026-09-29 First-work integrated paper draft (completed) |
+| 1032–1035 | 2026-09-29 Navigation and active-log cleanup (pending) |

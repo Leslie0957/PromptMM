@@ -37,12 +37,19 @@
 - [LATTICE/codes/utility/metrics.py](../../LATTICE/codes/utility/metrics.py)
 - [LATTICE/codes/utility/parser.py](../../LATTICE/codes/utility/parser.py)
 
-## archive（14）
+## archive（22）
 
 - [archive/README.md](../../archive/README.md)
 - [archive/catalog/README.md](../../archive/catalog/README.md)
 - [archive/catalog/RUN_RECORDS_2026-09-26.jsonl](../../archive/catalog/RUN_RECORDS_2026-09-26.jsonl)
 - [archive/catalog/WORKSPACE_FILES_2026-09-26.jsonl](../../archive/catalog/WORKSPACE_FILES_2026-09-26.jsonl)
+- [archive/navigation/2026-09-29/README.md](../../archive/navigation/2026-09-29/README.md)
+- [archive/navigation/2026-09-29/docs/README.md](../../archive/navigation/2026-09-29/docs/README.md)
+- [archive/navigation/2026-09-29/docs/experiments/README.md](../../archive/navigation/2026-09-29/docs/experiments/README.md)
+- [archive/navigation/2026-09-29/docs/experiments/RUN_CLOSEOUT.md](../../archive/navigation/2026-09-29/docs/experiments/RUN_CLOSEOUT.md)
+- [archive/navigation/2026-09-29/docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md](../../archive/navigation/2026-09-29/docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)
+- [archive/navigation/2026-09-29/docs/paper/README.md](../../archive/navigation/2026-09-29/docs/paper/README.md)
+- [archive/navigation/2026-09-29/manifest.json](../../archive/navigation/2026-09-29/manifest.json)
 - [archive/run_patent_results/README.md](../../archive/run_patent_results/README.md)
 - [archive/training/ENTRY_INDEX_2026-09-26.md](../../archive/training/ENTRY_INDEX_2026-09-26.md)
 - [archive/training/README.md](../../archive/training/README.md)
@@ -51,6 +58,7 @@
 - [archive/training/TRAINING_LOG_ARCHIVE_FULL_2026-04-17.md](../../archive/training/TRAINING_LOG_ARCHIVE_FULL_2026-04-17.md)
 - [archive/training/TRAINING_LOG_ARCHIVE_FULL_2026-07-30.md](../../archive/training/TRAINING_LOG_ARCHIVE_FULL_2026-07-30.md)
 - [archive/training/TRAINING_LOG_ARCHIVE_FULL_2026-09-26.md](../../archive/training/TRAINING_LOG_ARCHIVE_FULL_2026-09-26.md)
+- [archive/training/TRAINING_LOG_ARCHIVE_FULL_2026-09-29.md](../../archive/training/TRAINING_LOG_ARCHIVE_FULL_2026-09-29.md)
 - [archive/upstream/README.md](../../archive/upstream/README.md)
 - [archive/upstream/README_ORIGINAL_2026-09-26.md](../../archive/upstream/README_ORIGINAL_2026-09-26.md)
 
@@ -132,7 +140,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（151）
+## docs（153）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -164,6 +172,7 @@
 - [docs/baselines/ASSET_MANIFEST_2026-07-29.csv](../baselines/ASSET_MANIFEST_2026-07-29.csv)
 - [docs/baselines/README.md](../baselines/README.md)
 - [docs/experiments/FILES.md](FILES.md)
+- [docs/experiments/HISTORICAL_FAMILIES.md](HISTORICAL_FAMILIES.md)
 - [docs/experiments/README.md](README.md)
 - [docs/experiments/RUN_CLOSEOUT.md](RUN_CLOSEOUT.md)
 - [docs/experiments/RUN_RECORDS.md](RUN_RECORDS.md)
@@ -281,6 +290,7 @@
 - [docs/research/SPORTS_THREE_SEED_VALIDATION120_2026-09-17.md](../research/SPORTS_THREE_SEED_VALIDATION120_2026-09-17.md)
 - [docs/research/SPORTS_THREE_SEED_VALIDATION300_2026-09-18.md](../research/SPORTS_THREE_SEED_VALIDATION300_2026-09-18.md)
 - [docs/research/SPORTS_WEIGHTED_DIRECTION_AUDIT_2026-09-24.md](../research/SPORTS_WEIGHTED_DIRECTION_AUDIT_2026-09-24.md)
+- [docs/research/innovation2/README.md](../research/innovation2/README.md)
 - [docs/research_notes/KL散度蒸馏vs方向蒸馏对比.txt](../research_notes/KL%E6%95%A3%E5%BA%A6%E8%92%B8%E9%A6%8Fvs%E6%96%B9%E5%90%91%E8%92%B8%E9%A6%8F%E5%AF%B9%E6%AF%94.txt)
 - [docs/research_notes/README.md](../research_notes/README.md)
 - [docs/research_notes/多模态融合语义鸿沟问答.txt](../research_notes/%E5%A4%9A%E6%A8%A1%E6%80%81%E8%9E%8D%E5%90%88%E8%AF%AD%E4%B9%89%E9%B8%BF%E6%B2%9F%E9%97%AE%E7%AD%94.txt)

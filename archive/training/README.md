@@ -23,3 +23,8 @@ active logger.
 ## Targeted historical lookup
 
 Use [the heading/line index](ENTRY_INDEX_2026-09-26.md) before opening a full snapshot. Historical declarations are not current launch authority. Current state is in [the active short log](../../TRAINING_LOG.md).
+
+
+## 2026-09-29 verified snapshot
+
+- [Full active log](TRAINING_LOG_ARCHIVE_FULL_2026-09-29.md): 286218 bytes; SHA256 `905ec732cdca38e737b79155a81edda832b8549a7853da766175cd2945238413`. Includes organization pending; verified before slimming; Git -text preserves all bytes. New records continue in root TRAINING_LOG.md.

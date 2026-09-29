@@ -1,5 +1,7 @@
 # 实验结束后的固定更新规范
 
+2026-09-28最新成本规划消费者：[有界成本计划](../research/INNOVATION1_COST_ROADMAP_2026-09-28.md)，明确未来成本矩阵/审计路由；当前仅清点与规划完成，无新run。以下旧行动指针按时间保留。
+
 生效：2026-09-26。与根目录[AGENTS.md](../../AGENTS.md)配套；本页规定每次运行结束后按什么条件更新哪些文件，不靠聊天记忆。用户授权范围和AGENTS的正式运行规则优先；本页不新增训练/Test授权。
 
 ## 1. 谁负责、何时完成
@@ -28,12 +30,18 @@
 
 ## 3. 当前活跃消费者与声明模板
 
-当前状态：第一项阶段性收尾，第二项问题探索中，无待跑实验。旧路由已按字节保存于[整理前快照](../../archive/navigation/2026-09-29/manifest.json)，不再作为当前行动。
+2026-09-28当前决策/待办消费者：[目标—证据—缺口总表](../paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。既有正式Test仍由原18格主表保存，初始化Validation由独立十二格矩阵保存；本页下方旧“暂无矩阵/准备四臂”段为历史路由。当前仅只读成本资产清点，未声明新run。此补充只更新消费者指针，不改变其余收尾规则。
 
-- [粗粒度实验总览](README.md)：每个实际实验族更新一行，细节进入审计。
-- [第一项阶段总结](../paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)：仅当前结论、未知边界和重启条件。
-- [第二项探索入口](../research/innovation2/README.md)：尚无run矩阵；立项后再指定，不先制造待跑项。
-- 既有数值仍分别保存在[正式Test主表](../paper/INNOVATION1_FIXED_MAIN_TABLE_2026-09-26.md)、[初始化矩阵](../research/INITIALIZATION_KD_INTERACTION_RESULTS.md)、[成本矩阵](../research/INNOVATION1_COST_RESULTS.md)，新实验不能混填。
+最新规划消费者：[初始化 × KD立项单](../research/INITIALIZATION_KD_INTERACTION_PROPOSAL_2026-09-27.md)。P0/P1a已完成且P1a四组筛查停止，下段旧P0准备状态不再适用。新阶段仅准备四臂协议，建议准备记录为 `docs/research/INITIALIZATION_KD_INTERACTION_PREPARATION.md`，未来实际审计为 `docs/research/INITIALIZATION_KD_INTERACTION_AUDIT.md`；具体run另行声明。暂无新结果矩阵，未来独立R0/R1/T0/T1矩阵不得填入旧18格。本更新只改变规划路由，不授权执行。
+
+2026-09-27 当前研究规划消费者：[跨交互效用路线第5–6节](../research/CROSS_INTERACTION_ROUTE_2026-09-27.md)。当前下一步仅P0资产与测量协议；诊断结果尚不存在。未来P0/P1审计目标分别为 `docs/research/CROSS_INTERACTION_P0_AUDIT.md`、`docs/research/CROSS_INTERACTION_P1_AUDIT.md`，臂/seed/命令在各自运行声明中明确。暂无新正式结果矩阵，诊断不得填入旧18格；P2/P3另行声明。本段只更新路由，不授权执行。
+
+第一点已完成证据消费者继续保留：
+
+- 主矩阵：[INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md](../paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md)，定位B1/B2/B3、S1/S2/S3和seed。
+- 整篇覆盖：[THESIS_COMPLETION_GAPS_2026-09-26.md](../paper/THESIS_COMPLETION_GAPS_2026-09-26.md)，仅在缺口状态改变时更新。
+- Sports文字：[SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md](../paper/SPORTS_RESULTS_AND_LIMITATIONS_2026-09-26.md)，仅在所引用结论变化时更新。
+- 第一点评价与旧候选记录保持原样；新的研究优先级按上述路线推进，尚未确认第二点算法。研究优先级改变时由声明指定新的消费者，并在本节替换活跃指针；历史文件不必跟着改。
 
 下一次声明在完整命令、身份、预算、Test规则等已有要求之外，附以下短段（填写真实路径，不保留占位符）：
 

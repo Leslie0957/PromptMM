@@ -17,3 +17,6 @@
 # Verbatim historical snapshots: preserve their recorded byte identities.
 archive/training/TRAINING_LOG_ARCHIVE_FULL_2026-09-26.md -text
 archive/upstream/README_ORIGINAL_2026-09-26.md -text
+
+archive/training/TRAINING_LOG_ARCHIVE_FULL_2026-09-29.md -text
+archive/navigation/2026-09-29/** -text
