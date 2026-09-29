@@ -7,7 +7,7 @@
 - 第一项：有限实验、独立审计及正文整合完成，暂停扩展；[结论与未验证边界](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。待跑实验为零。
 - 第二项：最小排序监督三seed已完成独立审计，执行通过，三次screen_stop；[HANDOFF](docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_HANDOFF.md)。
 - 约束：旧Test不选新方法；P1a已筛查停止；旧RGCS/门控不是队列。未知项不自动补跑。
-- 唯一下一步：稀疏物品统计已完成，独立复核SPARSE_ITEM_ASSESSMENT_HANDOFF后评审共同稀疏问题；无自动训练。
+- 唯一下一步：按[模态邻居诊断协议](docs/research/innovation2/MODAL_NEIGHBOR_DIAGNOSTIC_PLAN_2026-09-29.md)准备实现与合成测试；尚未运行，无自动训练。
 
 ## 证据导航
 
@@ -168,3 +168,13 @@
 - One CPU run from cd053ec completed/exit0, seven states x three fixed groups; hashes/filter/labels/original Recall/additive contributions/prior G-L checks passed. Runtime 6.14s, sampled RSS 168521728 B; no scoring/model/training/Test, denied attempts0. Outputs exp/innovation2/sparse_item_saved_lists_v1; RESULTS/HANDOFF under docs/research/innovation2.
 - Low group has6347 Val positives: teacher10 hits, R1=15/15/17, T0=14/15/16. Shared low-frequency weakness supported descriptively; teacher-over-student tail-transfer deficit not supported. Ties at frequency5/9 cross thirds by ID; no causal/modal-utility/module-success claim. No retry/new stage.
 - Current entrances/family updated, catalogs refreshed, focused links/diff/hash verification before outcome commit. First-work/charter/history/assets unchanged. Sole next step: independent review of aggregation and candidate problem; no automatic training.
+
+
+## 2026-09-29 Modal-neighbor diagnostic preparation (pending)
+
+- User requests preparation of one bounded image/text neighbor association diagnostic against frequency-matched random neighbors. Base255d1ed; tracked clean, unrelated archive/reviews/ preserved. Scope: one frozen protocol plus current entrances/log/catalogs; no implementation, dataset/tensor loading, diagnostic execution, training or Test. Fix Train-only frequencies/history, existing shared teacher branch vectors, exact-degree random controls, Validation association and exploratory limitations, resource/stop rules and closeout routing. Risks: interaction-trained teacher circularity, reused Validation, popularity confounding, dependent observations, insufficient matching support. Acceptance: explicit estimand/null/eligibility/budget/interpretation, focused links/diff and scoped commit. Preserve thesis charter, first-work evidence and all assets/history; base commit is reference, no rollback authorized.
+
+## 2026-09-29 Modal-neighbor diagnostic preparation (completed)
+
+- Added MODAL_NEIGHBOR_DIAGNOSTIC_PLAN_2026-09-29.md: fixed low third, separate image/text k20, 100 exact-degree random controls, Validation target-to-Train-history association, coverage/matching gates, user/item cluster sensitivity and descriptive 0.005 screening threshold. Teacher uses full Train and reused Validation: no independent holdout/semantic-causality/Recall-gain claim. CPU30min/RSS4GiB/output512MiB, no Test/training/retry; budgets unmeasured. Plan only, no executable command or actual diagnostic yet.
+- Verified three input SHA strings against existing profile, local links, preservation of old log entries and focused diff; metadata catalogs refreshed before commit. Current root/second-work entrances updated. Corrected stale experiment-overview preparation row to point to already completed ranking cohort, preserving old declarations. No new run/result matrix, paper/charter/policy or asset changes; unrelated archive/reviews/ untouched. Sole next step: implement this protocol and synthetic tests, then present preparation report for separately authorized execution.
