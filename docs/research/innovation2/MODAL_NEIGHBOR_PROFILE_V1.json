@@ -1,5 +1,5 @@
 {
-  "status": "preparation_only_not_launchable",
+  "status": "authorized_once",
   "branch": "codex/experiment/baby-teacher-baseline",
   "output": "exp/innovation2/modal_neighbor_v1",
   "inputs": {
