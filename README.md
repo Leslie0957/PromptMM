@@ -2,7 +2,7 @@
 
 核心目标：[论文总体目标与路线](THESIS_ROADMAP.md)。研究决策遵循此页，实验状态不自动改变总体目标。
 
-更新2026-09-29。**第一项阶段性收尾，暂停扩展；第二项排序缺口诊断已完成执行方自审，独立审计已完成（数值通过，证据有限定），尚未选定算法。**
+更新2026-09-29。**第一项阶段性收尾，暂停扩展；第二项最小排序监督三seed已完成独立审计，执行通过、科学筛查均screen_stop；暂停该配方。**
 
 AI启动：完整读[AGENTS.md](AGENTS.md)，再读本页和[短日志](TRAINING_LOG.md)。历史命令、pending及旧“下一步”不构成执行授权。
 
@@ -14,6 +14,6 @@ AI启动：完整读[AGENTS.md](AGENTS.md)，再读本页和[短日志](TRAINING
 | 第二项接下来研究什么 | [探索工作页](docs/research/innovation2/README.md) |
 | 查具体运行、旧命令或文件 | [深层导航](docs/README.md) |
 
-当前唯一下一步：用户按[三seed手动启动准备](docs/research/innovation2/MINIMAL_RANKING_THREE_SEED_MANUAL_LAUNCH_2026-09-29.md)从干净提交执行一次串行cohort；尚未启动训练，结束后需独立审计。长尾为条件备选。
+当前唯一下一步：三seed结果已审计，均screen_stop；用户审阅[HANDOFF](docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_HANDOFF.md)后再决定是否另行评审备选。没有待自动执行的实验。
 
 训练入口为`codes/main_mmlight.py`，参数默认源`codes/utility/parser.py`，CLI优先。`codes/run_patent.py`是独立历史路径。评审材料移至`archive/reviews/check/`，旧代码集中在archive下；原始数据/模型/运行产物与`zhuanli/`保持原位。搬迁详见[路径映射](docs/experiments/ROOT_RELOCATION_2026-09-29.json)。

@@ -1,6 +1,6 @@
 # 运行与诊断记录导航
 
-目录版本：2026-09-26。共863个现存exp JSON记录；数量不是独立实验数。
+目录版本：2026-09-26。共892个现存exp JSON记录；数量不是独立实验数。
 保存状态按JSON原文摘录；—表示该字段未记录/未在约定层级找到，不表示成功或失败。
 批报告、子任务、资源检查与正式运行混列供定位，不能相加作为样本数。
 历史已做但本机没有JSON的实验，请查[完整历史章节](../../archive/training/ENTRY_INDEX_2026-09-26.md)。
@@ -703,6 +703,35 @@
 | [exp/innovation2/minimal_ranking_resource_smoke_seed2022_v1/report.json](../../exp/innovation2/minimal_ranking_resource_smoke_seed2022_v1/report.json) | completed | — | — | parsed |
 | [exp/innovation2/minimal_ranking_resource_smoke_seed2022_v1/resource.json](../../exp/innovation2/minimal_ranking_resource_smoke_seed2022_v1/resource.json) | — | — | — | parsed |
 | [exp/innovation2/minimal_ranking_resource_smoke_seed2022_v1/resource_samples.json](../../exp/innovation2/minimal_ranking_resource_smoke_seed2022_v1/resource_samples.json) | — | — | — | parsed |
+| [exp/innovation2/minimal_ranking_three_seed_v1/exit.json](../../exp/innovation2/minimal_ranking_three_seed_v1/exit.json) | completed | — | — | parsed |
+| [exp/innovation2/minimal_ranking_three_seed_v1/manifest.json](../../exp/innovation2/minimal_ranking_three_seed_v1/manifest.json) | — | docs/research/innovation2/MINIMAL_RANKING_THREE_SEED_PROFILE_V1.json | — | parsed |
+| [exp/innovation2/minimal_ranking_three_seed_v1/seed2022/A_curve.json](../../exp/innovation2/minimal_ranking_three_seed_v1/seed2022/A_curve.json) | — | — | — | parsed |
+| [exp/innovation2/minimal_ranking_three_seed_v1/seed2022/B_curve.json](../../exp/innovation2/minimal_ranking_three_seed_v1/seed2022/B_curve.json) | — | — | — | parsed |
+| [exp/innovation2/minimal_ranking_three_seed_v1/seed2022/R_curve.json](../../exp/innovation2/minimal_ranking_three_seed_v1/seed2022/R_curve.json) | — | — | — | parsed |
+| [exp/innovation2/minimal_ranking_three_seed_v1/seed2022/acceptance.json](../../exp/innovation2/minimal_ranking_three_seed_v1/seed2022/acceptance.json) | passed | — | — | parsed |
+| [exp/innovation2/minimal_ranking_three_seed_v1/seed2022/exit.json](../../exp/innovation2/minimal_ranking_three_seed_v1/seed2022/exit.json) | completed | — | — | parsed |
+| [exp/innovation2/minimal_ranking_three_seed_v1/seed2022/manifest.json](../../exp/innovation2/minimal_ranking_three_seed_v1/seed2022/manifest.json) | — | docs/research/innovation2/MINIMAL_RANKING_THREE_SEED_PROFILE_V1.json | — | parsed |
+| [exp/innovation2/minimal_ranking_three_seed_v1/seed2022/report.json](../../exp/innovation2/minimal_ranking_three_seed_v1/seed2022/report.json) | completed | — | — | parsed |
+| [exp/innovation2/minimal_ranking_three_seed_v1/seed2022/resource.json](../../exp/innovation2/minimal_ranking_three_seed_v1/seed2022/resource.json) | — | — | — | parsed |
+| [exp/innovation2/minimal_ranking_three_seed_v1/seed2022/resource_samples.json](../../exp/innovation2/minimal_ranking_three_seed_v1/seed2022/resource_samples.json) | — | — | — | parsed |
+| [exp/innovation2/minimal_ranking_three_seed_v1/seed2023/A_curve.json](../../exp/innovation2/minimal_ranking_three_seed_v1/seed2023/A_curve.json) | — | — | — | parsed |
+| [exp/innovation2/minimal_ranking_three_seed_v1/seed2023/B_curve.json](../../exp/innovation2/minimal_ranking_three_seed_v1/seed2023/B_curve.json) | — | — | — | parsed |
+| [exp/innovation2/minimal_ranking_three_seed_v1/seed2023/R_curve.json](../../exp/innovation2/minimal_ranking_three_seed_v1/seed2023/R_curve.json) | — | — | — | parsed |
+| [exp/innovation2/minimal_ranking_three_seed_v1/seed2023/acceptance.json](../../exp/innovation2/minimal_ranking_three_seed_v1/seed2023/acceptance.json) | passed | — | — | parsed |
+| [exp/innovation2/minimal_ranking_three_seed_v1/seed2023/exit.json](../../exp/innovation2/minimal_ranking_three_seed_v1/seed2023/exit.json) | completed | — | — | parsed |
+| [exp/innovation2/minimal_ranking_three_seed_v1/seed2023/manifest.json](../../exp/innovation2/minimal_ranking_three_seed_v1/seed2023/manifest.json) | — | docs/research/innovation2/MINIMAL_RANKING_THREE_SEED_PROFILE_V1.json | — | parsed |
+| [exp/innovation2/minimal_ranking_three_seed_v1/seed2023/report.json](../../exp/innovation2/minimal_ranking_three_seed_v1/seed2023/report.json) | completed | — | — | parsed |
+| [exp/innovation2/minimal_ranking_three_seed_v1/seed2023/resource.json](../../exp/innovation2/minimal_ranking_three_seed_v1/seed2023/resource.json) | — | — | — | parsed |
+| [exp/innovation2/minimal_ranking_three_seed_v1/seed2023/resource_samples.json](../../exp/innovation2/minimal_ranking_three_seed_v1/seed2023/resource_samples.json) | — | — | — | parsed |
+| [exp/innovation2/minimal_ranking_three_seed_v1/seed2024/A_curve.json](../../exp/innovation2/minimal_ranking_three_seed_v1/seed2024/A_curve.json) | — | — | — | parsed |
+| [exp/innovation2/minimal_ranking_three_seed_v1/seed2024/B_curve.json](../../exp/innovation2/minimal_ranking_three_seed_v1/seed2024/B_curve.json) | — | — | — | parsed |
+| [exp/innovation2/minimal_ranking_three_seed_v1/seed2024/R_curve.json](../../exp/innovation2/minimal_ranking_three_seed_v1/seed2024/R_curve.json) | — | — | — | parsed |
+| [exp/innovation2/minimal_ranking_three_seed_v1/seed2024/acceptance.json](../../exp/innovation2/minimal_ranking_three_seed_v1/seed2024/acceptance.json) | passed | — | — | parsed |
+| [exp/innovation2/minimal_ranking_three_seed_v1/seed2024/exit.json](../../exp/innovation2/minimal_ranking_three_seed_v1/seed2024/exit.json) | completed | — | — | parsed |
+| [exp/innovation2/minimal_ranking_three_seed_v1/seed2024/manifest.json](../../exp/innovation2/minimal_ranking_three_seed_v1/seed2024/manifest.json) | — | docs/research/innovation2/MINIMAL_RANKING_THREE_SEED_PROFILE_V1.json | — | parsed |
+| [exp/innovation2/minimal_ranking_three_seed_v1/seed2024/report.json](../../exp/innovation2/minimal_ranking_three_seed_v1/seed2024/report.json) | completed | — | — | parsed |
+| [exp/innovation2/minimal_ranking_three_seed_v1/seed2024/resource.json](../../exp/innovation2/minimal_ranking_three_seed_v1/seed2024/resource.json) | — | — | — | parsed |
+| [exp/innovation2/minimal_ranking_three_seed_v1/seed2024/resource_samples.json](../../exp/innovation2/minimal_ranking_three_seed_v1/seed2024/resource_samples.json) | — | — | — | parsed |
 | [exp/innovation2/ranking_gap_v1/acceptance.json](../../exp/innovation2/ranking_gap_v1/acceptance.json) | passed | — | — | parsed |
 | [exp/innovation2/ranking_gap_v1/exit.json](../../exp/innovation2/ranking_gap_v1/exit.json) | completed | — | — | parsed |
 | [exp/innovation2/ranking_gap_v1/manifest.json](../../exp/innovation2/ranking_gap_v1/manifest.json) | — | docs/research/innovation2/RANKING_GAP_PROFILE_V1.json | — | parsed |

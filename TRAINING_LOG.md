@@ -5,9 +5,9 @@
 ## 当前状态
 
 - 第一项：有限实验、独立审计及正文整合完成，暂停扩展；[结论与未验证边界](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。待跑实验为零。
-- 第二项：排序缺口独立审计完成；最小排序监督已准备固定 seed2022/2023/2024 串行手动 cohort，正式训练未启动。[手动启动准备](docs/research/innovation2/MINIMAL_RANKING_THREE_SEED_MANUAL_LAUNCH_2026-09-29.md)。
+- 第二项：最小排序监督三seed已完成独立审计，执行通过，三次screen_stop；[HANDOFF](docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_HANDOFF.md)。
 - 约束：旧Test不选新方法；P1a已筛查停止；旧RGCS/门控不是队列。未知项不自动补跑。
-- 唯一下一步：用户从本次干净提交手动启动已声明的三seed串行 cohort 一次；结束后停止并交独立审计，不自动重试或推进下一阶段。
+- 唯一下一步：用户审阅HANDOFF后决定是否另行评审备选；停止本固定配方，无自动运行。
 
 ## 证据导航
 
@@ -133,3 +133,15 @@
 - Shared identity: original Sports Train/Val and teacher tables from `docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_PROFILE_V1.json` SHA `3aa8cb62977b1079f8d05eefe3bd12cc70b9ae34f6cc26726bd28cd1a13335a8`; candidate file SHA `9ef0f59bb457a51539856f8def1f156658f0af10808470c3a1c94f074dc6e571`, logical SHA `f9acea50a73e7c8ba0bb3bbb7fc02cc7f033d3fdc2f5aa152b17686263ada90e`. Fixed cohort delta `docs/research/innovation2/MINIMAL_RANKING_THREE_SEED_PROFILE_V1.json`: ordered seeds 2022, 2023, 2024, each with its own SHA-pinned original launch manifest and 300x214x3x1024 tape; B epoch300 comparison anchors respectively .095151699965148426, .094343178530468197, .094615509685152296. B/R/A objectives, 300 epochs, AdamW 6e-5 and all other base settings unchanged; M=.5 B + .5 teacher. Epoch0 shared anchor .094184495190847733. No parameter search.
 - Hard gates: B epoch0 and B epoch300 regression tolerance 1e-6 per seed, finite objective/gradients/parameters, 64,200 steps per B/R/A, 904 Validation calls per complete seed, output artifact/fingerprint checks, source and resource gates; Test0 throughout. Per-seed 8h/2GiB CUDA allocator/6GiB RSS/2GiB output/4GiB disk floor; cohort 24h/6GiB output/4GiB disk floor. One launch, no retry/resume/next stage. Any seed failure stops later seeds and preserves partial assets. Expected output `exp/innovation2/minimal_ranking_three_seed_v1/seed2022|seed2023|seed2024/`; raw outputs ignored by Git.
 - Comparison: each R/A/M versus that seed's B at fixed epoch300 Validation Recall@20, with NDCG@20 secondary; screen thresholds fixed in base profile. This is not a Test or algorithm-success claim. Record-update targets: outcome `docs/research/innovation2/MINIMAL_RANKING_THREE_SEED_AUDIT_2026-09-29.md`, 12 B/R/A/M-by-seed cells in `docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_RESULTS.md`, `docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_HANDOFF.md`, this active log, second-work page, `docs/experiments/README.md`, six generated navigation outputs; root/paper/gap conditional on audited claim; first-work matrices/charter unchanged. After manual run, stop and request separate independent audit.
+
+
+## 2026-09-29 Minimal ranking three-seed outcome audit (pending)
+
+- User requests read-only closeout of three existing seed directories. Inspect committed source/profile, manifests, acceptance hashes, 18 CPU checkpoints, complete curves/finite diagnostics, B regressions, resources and Test0; independently recalculate deltas/screens without scoring or data/Test loading. Scope: audit/helper/verification, 12-cell results and HANDOFF, active log/entrances/family and catalogs. Preserve all original artifacts/history/reviews; no retry or next stage. Acceptance: distinguish execution qualification from scientific stopping, verify links/diff and scoped commit.
+
+
+## 2026-09-29 Minimal ranking three-seed outcome audit (completed)
+
+- User-run source427459f completed all three seeds. Independent CPU artifact audit passed289 checks: 51 acceptance SHA bindings, 18 best/final checkpoints and AdamW states, nine complete300-epoch/64200-step curves, all B Recall regressions, finite saved metrics/diagnostics and resources. 2712 recorded Validation calls; no audit scoring/data/Test access. Report: docs/research/innovation2/MINIMAL_RANKING_THREE_SEED_AUDIT_2026-09-29.md; RESULTS/HANDOFF same family.
+- R-B=-.001704605752/-.000731169577/-.001260381580; A/M also below B in all seeds. Three screen_stop results are valid completed negative evidence. Runtime18245.890s total, per-seed resources pass. Secondary ndcg20 uses hit-count IDCG, not standard NDCG; do not compare to historical different-ks NDCG. Recall screening remains valid. Test0 supported by denial/source and zero denied attempts, not OS trace.
+- Original assets/history preserved; active entries/family/matrix and catalogs updated; first-work tables/charter/policy unchanged. Focused links/diff and scoped commit; stop after handoff, no next-stage execution. Sole next step: user reviews HANDOFF and decides whether to separately assess a backup question.
