@@ -8,6 +8,7 @@
 | 文本项对照 | Baby固定图像系数诊断；Sports三seed严格配对，添加文本有Val收益 | [Sports审计](../research/SPORTS_PAIRED_COLDINIT_THREE_SEED_AUDIT_2026-09-25.md) · [Baby总册](../research/INNOVATION1_THESIS_EVIDENCE_2026-09-15.md) |
 | 真实/随机残差 | Sports三seed真实残差较好，未唯一归因语言语义 | [审计](../research/SPORTS_SHAM_RESIDUAL_AUDIT_2026-09-26.md) |
 | 初始化×持续KD | 三seed十二臂；随机组增益大、暖组小且符号不稳；仅Val | [独立审计](../research/INITIALIZATION_KD_THREE_SEED_INDEPENDENT_AUDIT_2026-09-28.md) |
+| 稀疏物品已有列表统计 | 七状态×三组；师生低频命中均少，教师不优于学生；CPU统计，无新打分/Test | [结果与自检](../research/innovation2/SPARSE_ITEM_ASSESSMENT_RESULTS.md) · [HANDOFF](../research/innovation2/SPARSE_ITEM_ASSESSMENT_HANDOFF.md) |
 | 最小排序监督三seed | B/R/A各300轮，M固定混合；执行通过，R/A/M末轮均低于B，三次screen_stop；仅Val，NDCG字段有限定 | [独立审计](../research/innovation2/MINIMAL_RANKING_THREE_SEED_AUDIT_2026-09-29.md) · [结果](../research/innovation2/MINIMAL_RANKING_SUPERVISION_RESULTS.md) |
 | 第二项排序缺口诊断 | Sports七个既有评分状态；T0三seed教师独有命中超过描述性门槛，但净差均负；仅Val，独立审计已完成（数值通过，证据有限定） | [结果与自审](../research/innovation2/RANKING_GAP_DIAGNOSTIC_RESULTS.md) · [独立审计](../research/innovation2/RANKING_GAP_INDEPENDENT_AUDIT_2026-09-29.md) |
 | 最小排序监督对照 | 固定三seed串行B/R/A/M手动cohort已准备并声明，正式运行未启动；无结果/Test | [启动准备](../research/innovation2/MINIMAL_RANKING_THREE_SEED_MANUAL_LAUNCH_2026-09-29.md) |

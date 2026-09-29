@@ -7,7 +7,7 @@
 - 第一项：有限实验、独立审计及正文整合完成，暂停扩展；[结论与未验证边界](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。待跑实验为零。
 - 第二项：最小排序监督三seed已完成独立审计，执行通过，三次screen_stop；[HANDOFF](docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_HANDOFF.md)。
 - 约束：旧Test不选新方法；P1a已筛查停止；旧RGCS/门控不是队列。未知项不自动补跑。
-- 唯一下一步：用户审阅HANDOFF后决定是否另行评审备选；停止本固定配方，无自动运行。
+- 唯一下一步：稀疏物品统计已完成，独立复核SPARSE_ITEM_ASSESSMENT_HANDOFF后评审共同稀疏问题；无自动训练。
 
 ## 证据导航
 
@@ -161,3 +161,10 @@
 ## 2026-09-29 Sparse-item saved-list execution (pending)
 
 - User explicitly authorizes direct execution of the fixed sparse-item assessment. Base b2b169c; same seven ranking_gap_v1 NPZs and pinned Train/Val, original thirds, no score/model/Test access. Implement standalone CPU aggregator/profile and synthetic count checks; clean commit then one launch: & D:\miniconda\envs\run_5060\python.exe -B tools/run_sparse_item_assessment.py. Caps600s/RSS2GiB/output100MiB, fresh exp/innovation2/sparse_item_saved_lists_v1 namespace, no retry. Inputs bound to RANKING_GAP_PROFILE_V1 and INDEPENDENT_VERIFICATION hashes; runtime validates. Risks: denominator/group mismatch, small support and causal overinterpretation. Acceptance: hashes/filter/labels, original Recall and G/L identities, finite group metrics/resources. Records: SPARSE_ITEM_ASSESSMENT_RESULTS.md (21 rows), SPARSE_ITEM_ASSESSMENT_HANDOFF.md self-check, log/entrances/family/catalogs. Preserve charter/first-work/history/assets/reviews. After execution close out and stop for independent review.
+
+
+## 2026-09-29 Sparse-item saved-list execution (completed)
+
+- One CPU run from cd053ec completed/exit0, seven states x three fixed groups; hashes/filter/labels/original Recall/additive contributions/prior G-L checks passed. Runtime 6.14s, sampled RSS 168521728 B; no scoring/model/training/Test, denied attempts0. Outputs exp/innovation2/sparse_item_saved_lists_v1; RESULTS/HANDOFF under docs/research/innovation2.
+- Low group has6347 Val positives: teacher10 hits, R1=15/15/17, T0=14/15/16. Shared low-frequency weakness supported descriptively; teacher-over-student tail-transfer deficit not supported. Ties at frequency5/9 cross thirds by ID; no causal/modal-utility/module-success claim. No retry/new stage.
+- Current entrances/family updated, catalogs refreshed, focused links/diff/hash verification before outcome commit. First-work/charter/history/assets unchanged. Sole next step: independent review of aggregation and candidate problem; no automatic training.

@@ -15,4 +15,4 @@
 
 当前已形成[最小排序监督对照方案](MINIMAL_RANKING_SUPERVISION_PROPOSAL_2026-09-29.md)；原seed2022[实现与资源准备报告](MINIMAL_RANKING_SUPERVISION_PREPARATION_REPORT_2026-09-29.md)之后，已固定[三seed串行手动启动准备](MINIMAL_RANKING_THREE_SEED_MANUAL_LAUNCH_2026-09-29.md)。三seed正式训练已完成，[独立审计](MINIMAL_RANKING_THREE_SEED_AUDIT_2026-09-29.md)通过执行验收但均screen_stop；没有算法成功结论。
 
-当前唯一下一步：按[稀疏物品绝对表现核查计划](SPARSE_ITEM_ASSESSMENT_PLAN_2026-09-29.md)复用既有top20做CPU分组聚合，交接后再评审备选；尚未执行，不训练。
+当前唯一下一步：稀疏物品统计已完成，见[HANDOFF](SPARSE_ITEM_ASSESSMENT_HANDOFF.md)；独立复核后评审共同稀疏问题，不自动训练。
