@@ -1,4 +1,5 @@
 import sys
+import json
 from pathlib import Path
 import tempfile
 import unittest
@@ -13,9 +14,23 @@ sys.path.insert(0, str(ROOT / 'tools'))
 from minimal_ranking_supervision import (anchor_loss, candidate_rows, initial_scales,
                                          mixed_tables, rank_kl)
 from run_minimal_ranking_supervision import test_denial, train_step
+from run_minimal_ranking_three_seed import PROFILE as COHORT_PROFILE, build_seed_profiles, run_ordered
 
 
 class ObjectiveTests(unittest.TestCase):
+    def test_three_seed_profile_and_serial_failure_stop(self):
+        cohort = json.loads(COHORT_PROFILE.read_text(encoding='utf-8'))
+        profiles = build_seed_profiles(cohort)
+        self.assertEqual([profile['seed'] for profile in profiles], [2022, 2023, 2024])
+        visited = []
+        def fail_on_2023(profile):
+            visited.append(profile['seed'])
+            if profile['seed'] == 2023:
+                raise RuntimeError('synthetic failure')
+        with self.assertRaisesRegex(RuntimeError, 'synthetic failure'):
+            run_ordered(profiles, fail_on_2023)
+        self.assertEqual(visited, [2022, 2023])
+
     def test_kl_zero_gradient_and_teacher_detach(self):
         user = torch.tensor([[1., 2.]], requires_grad=True)
         item = torch.tensor([[[.3, .1], [.2, .4], [.9, -.2]]], requires_grad=True)

@@ -13,6 +13,6 @@
 | 继续标准 | 固定描述性门槛，仅决定是否值得后续因果对照评审，不认证算法 |
 | 执行状态 | 七状态/六比较硬验收通过；T0三seed G均超过预定门槛但N均为负，独立审计已完成（数值通过，证据有限定）；无训练/Test |
 
-当前已形成[最小排序监督对照方案](MINIMAL_RANKING_SUPERVISION_PROPOSAL_2026-09-29.md)：seed2022三条训练臂B/R/A与一个固定混合评价M；[实现与资源准备报告](MINIMAL_RANKING_SUPERVISION_PREPARATION_REPORT_2026-09-29.md)已完成，正式训练未启动，不认证算法创新。
+当前已形成[最小排序监督对照方案](MINIMAL_RANKING_SUPERVISION_PROPOSAL_2026-09-29.md)；原seed2022[实现与资源准备报告](MINIMAL_RANKING_SUPERVISION_PREPARATION_REPORT_2026-09-29.md)之后，已固定[三seed串行手动启动准备](MINIMAL_RANKING_THREE_SEED_MANUAL_LAUNCH_2026-09-29.md)。正式训练未启动，不认证算法创新。
 
-唯一下一步：由用户决定是否明确授权固定的 seed2022 B/R/A/M 正式cohort；授权后先提交干净启动声明，再执行准备报告中的精确命令一次。长尾信息利用不足为条件备选，须先查绝对分组表现，不是自动执行队列。P1a停止，旧门控不恢复。
+唯一下一步：用户从干净提交手动启动已声明的 seed2022/2023/2024 串行 B/R/A/M cohort 一次；结束后停止并交独立审计。长尾信息利用不足为条件备选，不是自动执行队列。P1a停止，旧门控不恢复。

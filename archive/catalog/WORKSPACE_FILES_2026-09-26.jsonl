@@ -210,7 +210,7 @@
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 08_30_07.418852_sports_light_init_pid30132.pth", "source_catalog": false}
 {"bytes": 1667, "category": "root", "path": "README.md", "source_catalog": true}
 {"bytes": 4930, "category": "root", "path": "THESIS_ROADMAP.md", "source_catalog": true}
-{"bytes": 24073, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
+{"bytes": 31090, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
 {"bytes": 739, "category": "archive", "path": "archive/README.md", "source_catalog": true}
 {"bytes": 26887, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/Models.py", "source_catalog": true}
 {"bytes": 26901, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/Models_empower.py", "source_catalog": true}
@@ -492,7 +492,7 @@
 {"bytes": 4565, "category": "codes", "path": "codes/tests/test_gradient_diagnostic.py", "source_catalog": true}
 {"bytes": 3660, "category": "codes", "path": "codes/tests/test_initialization_diagnostic.py", "source_catalog": true}
 {"bytes": 4331, "category": "codes", "path": "codes/tests/test_initialization_pair.py", "source_catalog": true}
-{"bytes": 4758, "category": "codes", "path": "codes/tests/test_minimal_ranking_supervision.py", "source_catalog": true}
+{"bytes": 5508, "category": "codes", "path": "codes/tests/test_minimal_ranking_supervision.py", "source_catalog": true}
 {"bytes": 10175, "category": "codes", "path": "codes/tests/test_mmrec_baby_converter.py", "source_catalog": true}
 {"bytes": 3677, "category": "codes", "path": "codes/tests/test_promptmm_lr6e5_remaining.py", "source_catalog": true}
 {"bytes": 9965, "category": "codes", "path": "codes/tests/test_promptmm_release.py", "source_catalog": true}
@@ -600,7 +600,7 @@
 {"bytes": 100432, "category": "docs", "path": "docs/baselines/ASSET_MANIFEST_2026-07-29.csv", "source_catalog": true}
 {"bytes": 2893, "category": "docs", "path": "docs/baselines/README.md", "source_catalog": true}
 {"bytes": 7125, "category": "docs", "path": "docs/experiments/HISTORICAL_FAMILIES.md", "source_catalog": true}
-{"bytes": 3181, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
+{"bytes": 3406, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
 {"bytes": 37701, "category": "docs", "path": "docs/experiments/ROOT_RELOCATION_2026-09-29.json", "source_catalog": true}
 {"bytes": 7431, "category": "docs", "path": "docs/experiments/RUN_CLOSEOUT.md", "source_catalog": true}
 {"bytes": 1535, "category": "docs", "path": "docs/experiments/WORKSPACE_MAP.md", "source_catalog": true}
@@ -720,13 +720,15 @@
 {"bytes": 6489, "category": "docs", "path": "docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_PREPARATION_REPORT_2026-09-29.md", "source_catalog": true}
 {"bytes": 3386, "category": "docs", "path": "docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_PROFILE_V1.json", "source_catalog": true}
 {"bytes": 12064, "category": "docs", "path": "docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_PROPOSAL_2026-09-29.md", "source_catalog": true}
+{"bytes": 3558, "category": "docs", "path": "docs/research/innovation2/MINIMAL_RANKING_THREE_SEED_MANUAL_LAUNCH_2026-09-29.md", "source_catalog": true}
+{"bytes": 2537, "category": "docs", "path": "docs/research/innovation2/MINIMAL_RANKING_THREE_SEED_PROFILE_V1.json", "source_catalog": true}
 {"bytes": 4756, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_HANDOFF.md", "source_catalog": true}
 {"bytes": 10526, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_PLAN_2026-09-29.md", "source_catalog": true}
 {"bytes": 6328, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_RESULTS.md", "source_catalog": true}
 {"bytes": 5776, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_INDEPENDENT_AUDIT_2026-09-29.md", "source_catalog": true}
 {"bytes": 8160, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_INDEPENDENT_VERIFICATION.json", "source_catalog": true}
 {"bytes": 3047, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_PROFILE_V1.json", "source_catalog": true}
-{"bytes": 1885, "category": "docs", "path": "docs/research/innovation2/README.md", "source_catalog": true}
+{"bytes": 1875, "category": "docs", "path": "docs/research/innovation2/README.md", "source_catalog": true}
 {"bytes": 2015, "category": "docs", "path": "docs/research_notes/KL散度蒸馏vs方向蒸馏对比.txt", "source_catalog": true}
 {"bytes": 756, "category": "docs", "path": "docs/research_notes/README.md", "source_catalog": true}
 {"bytes": 1712, "category": "docs", "path": "docs/research_notes/多模态融合语义鸿沟问答.txt", "source_catalog": true}
@@ -2603,7 +2605,8 @@
 {"bytes": 28417, "category": "tools", "path": "tools/run_innovation1_cost_m2.py", "source_catalog": true}
 {"bytes": 8919, "category": "tools", "path": "tools/run_innovation1_eval_recovery.py", "source_catalog": true}
 {"bytes": 11267, "category": "tools", "path": "tools/run_innovation1_formal_closeout.py", "source_catalog": true}
-{"bytes": 27611, "category": "tools", "path": "tools/run_minimal_ranking_supervision.py", "source_catalog": true}
+{"bytes": 28133, "category": "tools", "path": "tools/run_minimal_ranking_supervision.py", "source_catalog": true}
+{"bytes": 7392, "category": "tools", "path": "tools/run_minimal_ranking_three_seed.py", "source_catalog": true}
 {"bytes": 16370, "category": "tools", "path": "tools/run_ranking_gap_diagnostic.py", "source_catalog": true}
 {"bytes": 15714, "category": "tools", "path": "tools/run_sports_cached_deployment.py", "source_catalog": true}
 {"bytes": 8153, "category": "tools", "path": "tools/run_sports_initialization_pair.py", "source_catalog": true}

@@ -136,7 +136,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（165）
+## docs（167）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -292,6 +292,8 @@
 - [docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_PREPARATION_REPORT_2026-09-29.md](../research/innovation2/MINIMAL_RANKING_SUPERVISION_PREPARATION_REPORT_2026-09-29.md)
 - [docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_PROFILE_V1.json](../research/innovation2/MINIMAL_RANKING_SUPERVISION_PROFILE_V1.json)
 - [docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_PROPOSAL_2026-09-29.md](../research/innovation2/MINIMAL_RANKING_SUPERVISION_PROPOSAL_2026-09-29.md)
+- [docs/research/innovation2/MINIMAL_RANKING_THREE_SEED_MANUAL_LAUNCH_2026-09-29.md](../research/innovation2/MINIMAL_RANKING_THREE_SEED_MANUAL_LAUNCH_2026-09-29.md)
+- [docs/research/innovation2/MINIMAL_RANKING_THREE_SEED_PROFILE_V1.json](../research/innovation2/MINIMAL_RANKING_THREE_SEED_PROFILE_V1.json)
 - [docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_HANDOFF.md](../research/innovation2/RANKING_GAP_DIAGNOSTIC_HANDOFF.md)
 - [docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_PLAN_2026-09-29.md](../research/innovation2/RANKING_GAP_DIAGNOSTIC_PLAN_2026-09-29.md)
 - [docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_RESULTS.md](../research/innovation2/RANKING_GAP_DIAGNOSTIC_RESULTS.md)
@@ -334,7 +336,7 @@
 - [tests/test_sports_paired_cold.py](../../tests/test_sports_paired_cold.py)
 - [tests/test_sports_sham_residual.py](../../tests/test_sports_sham_residual.py)
 
-## tools（38）
+## tools（39）
 
 - [tools/audit_initialization_kd_three_seeds.py](../../tools/audit_initialization_kd_three_seeds.py)
 - [tools/audit_ranking_gap_saved.py](../../tools/audit_ranking_gap_saved.py)
@@ -363,6 +365,7 @@
 - [tools/run_innovation1_eval_recovery.py](../../tools/run_innovation1_eval_recovery.py)
 - [tools/run_innovation1_formal_closeout.py](../../tools/run_innovation1_formal_closeout.py)
 - [tools/run_minimal_ranking_supervision.py](../../tools/run_minimal_ranking_supervision.py)
+- [tools/run_minimal_ranking_three_seed.py](../../tools/run_minimal_ranking_three_seed.py)
 - [tools/run_ranking_gap_diagnostic.py](../../tools/run_ranking_gap_diagnostic.py)
 - [tools/run_sports_cached_deployment.py](../../tools/run_sports_cached_deployment.py)
 - [tools/run_sports_initialization_pair.py](../../tools/run_sports_initialization_pair.py)

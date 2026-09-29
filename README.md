@@ -14,6 +14,6 @@ AI启动：完整读[AGENTS.md](AGENTS.md)，再读本页和[短日志](TRAINING
 | 第二项接下来研究什么 | [探索工作页](docs/research/innovation2/README.md) |
 | 查具体运行、旧命令或文件 | [深层导航](docs/README.md) |
 
-当前唯一下一步：查阅[最小排序监督准备报告](docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_PREPARATION_REPORT_2026-09-29.md)，由用户决定是否明确授权 seed2022 正式cohort；尚未启动训练。长尾为条件备选。
+当前唯一下一步：用户按[三seed手动启动准备](docs/research/innovation2/MINIMAL_RANKING_THREE_SEED_MANUAL_LAUNCH_2026-09-29.md)从干净提交执行一次串行cohort；尚未启动训练，结束后需独立审计。长尾为条件备选。
 
 训练入口为`codes/main_mmlight.py`，参数默认源`codes/utility/parser.py`，CLI优先。`codes/run_patent.py`是独立历史路径。评审材料移至`archive/reviews/check/`，旧代码集中在archive下；原始数据/模型/运行产物与`zhuanli/`保持原位。搬迁详见[路径映射](docs/experiments/ROOT_RELOCATION_2026-09-29.json)。

@@ -1,0 +1,17 @@
+# Minimal ranking three-seed manual launch preparation
+
+Status: prepared, not executed. This is one serial formal cohort, seeds 2022, 2023, 2024. Only the user launches it, once, from the clean committed HEAD on `codex/experiment/baby-teacher-baseline`.
+
+```powershell
+& 'D:\miniconda\envs\run_5060\python.exe' -B 'D:\Download\PromptMM\tools\run_minimal_ranking_three_seed.py' --formal
+```
+
+The command creates `exp/innovation2/minimal_ranking_three_seed_v1/`, then runs B/R/A training and M evaluation for each seed in order. It refuses an existing output namespace, dirty source, wrong branch, changed base profile, or changed original launch manifest. No automatic retry/resume, extra seed/arm, or Test access is authorized. Any failed seed stops all later seeds and preserves partial artifacts. The runner records per-seed `manifest.json`, `report.json`, `acceptance.json`, `exit.json`, logs, curves, final top20, checkpoints and resource samples; cohort `manifest.json` and `exit.json` give serial status. A source or cap failure is a failed result, not permission to rerun.
+
+The fixed cohort profile is `MINIMAL_RANKING_THREE_SEED_PROFILE_V1.json`; the unchanged base profile has SHA256 `3aa8cb62977b1079f8d05eefe3bd12cc70b9ae34f6cc26726bd28cd1a13335a8`. Shared teacher tables SHA256 `e5573bbdbbb609b4bc037a551455578463795c6df4bc4a1b236788d86c24da20`, Train `5361c5486dddbf50084d011278a11d2f18a37e258f87be218b070ff02f4ab0f8`, Validation `1b4224c3fb091ad23a59e0f8a7b58c7b0c959863a7189cfc8b89eeb90a467e03`; prepared 35,598x64 candidates file SHA256 `9ef0f59bb457a51539856f8def1f156658f0af10808470c3a1c94f074dc6e571`, logical SHA256 `f9acea50a73e7c8ba0bb3bbb7fc02cc7f033d3fdc2f5aa152b17686263ada90e`. Original seed launch manifests are pinned in the cohort profile; each seed uses its matching original triplet tape. The B epoch300 Recall@20 guards are respectively 0.095151699965148426, 0.094343178530468197, and 0.094615509685152296, tolerance 1e-6. Every arm's epoch0 guard is 0.094184495190847733. Validation only, Test0, 904 calls per complete seed.
+
+Per-seed caps: 8h, 2 GiB CUDA allocator, 6 GiB RSS, 2 GiB output, 4 GiB free-disk floor. Cohort caps: 24h, 6 GiB output, 4 GiB free-disk floor. These are cooperative process checks, not OS isolation; the earlier 10-step smoke used only 6-11 triplets per step and cannot establish full-run feasibility. The launch preflight confirms local assets and clean source, but ignored runtime assets are not protected by Git. Three seeds share teacher, Train and Validation; replication is over the fixed student tapes only and is not independent datasets or a Test result.
+
+Preparation verification: seven synthetic unit tests passed, Python compilation passed, the three fixed profiles validated against SHA-pinned original manifests, and all three tape paths and shared candidate path existed. Cohort output did not exist. No formal training or Test access occurred during preparation. The committed source hash is reported in the task handoff and captured by the runtime manifest on launch.
+
+After execution, stop and have a separate AI audit the preserved outputs. The outcome closeout must update `TRAINING_LOG.md`, `MINIMAL_RANKING_THREE_SEED_AUDIT_2026-09-29.md`, the 12 B/R/A/M-by-seed cells in `MINIMAL_RANKING_SUPERVISION_RESULTS.md`, `MINIMAL_RANKING_SUPERVISION_HANDOFF.md`, the relevant second-work/experiment navigation, and generated catalogs per `docs/experiments/RUN_CLOSEOUT.md`. Paper/gap consumers are conditional on the audited claim. Do not fill Test cells or start another experiment.

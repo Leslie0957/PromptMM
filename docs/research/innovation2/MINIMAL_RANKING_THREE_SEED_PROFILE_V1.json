@@ -1,0 +1,19 @@
+{
+  "status": "manual_launch_ready",
+  "branch": "codex/experiment/baby-teacher-baseline",
+  "launch_source_rule": "committed_head",
+  "command": "& 'D:\\miniconda\\envs\\run_5060\\python.exe' -B 'D:\\Download\\PromptMM\\tools\\run_minimal_ranking_three_seed.py' --formal",
+  "base_profile": "docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_PROFILE_V1.json",
+  "base_profile_sha256": "3aa8cb62977b1079f8d05eefe3bd12cc70b9ae34f6cc26726bd28cd1a13335a8",
+  "output": "exp/innovation2/minimal_ranking_three_seed_v1",
+  "ordered_seeds": [2022, 2023, 2024],
+  "seeds": {
+    "2022": {"anchor_manifest": "exp/initialization_kd_interaction/sports_init_kd_interaction_seed2022_v1/launch_manifest.json", "anchor_manifest_sha256": "d1eb28f82a34c0a8e45b06729336a08260d9668215a3994e184d903f3af3664f", "triplet_tape": {"path": "exp/paired_coldinit/sports_three_seed_v1/seed2022/triplets.npy", "sha256": "e8d982c6a2d1be20a934502d4a1ad6ba7e2b699b21098668343341f10db3d77b"}, "B_epoch300_expected": 0.095151699965148426},
+    "2023": {"anchor_manifest": "exp/initialization_kd_interaction/sports_init_kd_interaction_seed2023_v1/launch_manifest.json", "anchor_manifest_sha256": "58018597532c414adb102279b1ae0ca0c3dca3803c13d3d92ba9abdaf8df7a3d", "triplet_tape": {"path": "exp/paired_coldinit/sports_three_seed_v1/seed2023/triplets.npy", "sha256": "3763128ba003228d60c09924b9370b4cab0b8c16679366742835fc4559d89085"}, "B_epoch300_expected": 0.094343178530468197},
+    "2024": {"anchor_manifest": "exp/initialization_kd_interaction/sports_init_kd_interaction_seed2024_v1/launch_manifest.json", "anchor_manifest_sha256": "0c84bbef5a02076d512047e1b32cfff3f2889933852407a4b00083eb6e98c47a", "triplet_tape": {"path": "exp/paired_coldinit/sports_three_seed_v1/seed2024/triplets.npy", "sha256": "131cc14ebe6853e79216183f06923f3689d47d26c69eac2521d7f93b1b314bc7"}, "B_epoch300_expected": 0.094615509685152296}
+  },
+  "cohort_caps": {"wall_seconds": 86400, "output_bytes": 6442450944, "minimum_free_disk_bytes": 4294967296, "attempts": 1},
+  "test_policy": "Test0",
+  "failure_policy": "stop_preserve_no_retry_no_next_seed",
+  "record_targets": {"audit": "docs/research/innovation2/MINIMAL_RANKING_THREE_SEED_AUDIT_2026-09-29.md", "results": "docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_RESULTS.md", "handoff": "docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_HANDOFF.md", "matrix_cells": "B/R/A/M x seeds2022/2023/2024", "experiment_family": "docs/experiments/README.md", "paper_gap": "conditional_only", "navigation": "refresh_after_audit"}
+}

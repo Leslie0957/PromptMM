@@ -121,7 +121,19 @@ def validate_profile(profile):
     if sha(ROOT / profile['anchor_manifest']) != profile['anchor_manifest_sha256']:
         raise RuntimeError('Original launch manifest SHA mismatch')
     anchor = json.loads((ROOT / profile['anchor_manifest']).read_text(encoding='utf-8'))
-    if (profile['dataset'] != 'sports' or profile['seed'] != 2022
+    expected_anchors = {
+        2022: ('484a4bef36030e0d76a5d77e4da14d84aea46589',
+               'b9372db495735f9af235ecf7dfa41745872f585aa8d5d52987d169e27e85d543',
+               0.095151699965148426),
+        2023: ('32c89f119275f3d9001466721452f25e4a35e41e',
+               'da3c34aea7f2569cfa99173ebd04fc35ad7a474cee51058f1c9b41f55006dce8',
+               0.094343178530468197),
+        2024: ('5450185776df81e77bfcc8b92ab54b0f134fd37c',
+               'ae86caee1c1f8451cb6254579cc3292b036eaf422fceb8703e31be9f5b34b6ac',
+               0.094615509685152296),
+    }
+    expected = expected_anchors.get(profile['seed'])
+    if (profile['dataset'] != 'sports' or expected is None
             or profile['arms'] != ['B', 'R', 'A']
             or profile['training'] != {'epochs': 300, 'batches_per_epoch': 214,
                 'batch_size': 1024, 'optimizer': 'AdamW', 'lr': 0.00006,
@@ -134,13 +146,13 @@ def validate_profile(profile):
                 'primary': 'epoch300_recall20', 'secondary': 'ndcg20',
                 'calls': 904, 'user_batch': 256, 'dtype': 'float32', 'tf32': False,
                 'B_epoch0_expected': 0.094184495190847733,
-                'B_epoch300_expected': 0.095151699965148426,
+                'B_epoch300_expected': expected[2],
                 'regression_tolerance': 1e-6, 'mixture_teacher_fraction': 0.5}
             or profile['candidates'] != {'teacher_top': 32, 'uniform_random': 32,
                 'numpy_rng_seed': 20260930, 'user_order': 'ascending_train_user_id',
                 'tie_rule': 'descending_score_ascending_item_id', 'smoke_train_users_max': 256}
-            or anchor['source_commit'] != '484a4bef36030e0d76a5d77e4da14d84aea46589'
-            or anchor['config_digest'] != 'b9372db495735f9af235ecf7dfa41745872f585aa8d5d52987d169e27e85d543'):
+            or anchor['source_commit'] != expected[0]
+            or anchor['config_digest'] != expected[1]):
         raise ValueError('Fixed protocol/anchor mismatch')
     for new, old in (('teacher_tables', 'shared_cache'), ('triplet_tape', 'triplet_tape'),
                      ('train', 'train_mat_record_only'), ('validation', 'val_mat_record_only')):
