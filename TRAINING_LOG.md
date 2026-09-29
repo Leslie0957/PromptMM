@@ -7,7 +7,7 @@
 - 第一项：有限实验、独立审计及正文整合完成，暂停扩展；[结论与未验证边界](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。待跑实验为零。
 - 第二项：最小排序监督三seed已完成独立审计，执行通过，三次screen_stop；[HANDOFF](docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_HANDOFF.md)。
 - 约束：旧Test不选新方法；P1a已筛查停止；旧RGCS/门控不是队列。未知项不自动补跑。
-- 唯一下一步：按[模态邻居诊断协议](docs/research/innovation2/MODAL_NEIGHBOR_DIAGNOSTIC_PLAN_2026-09-29.md)准备实现与合成测试；尚未运行，无自动训练。
+- 唯一下一步：根据[实现准备报告](docs/research/innovation2/MODAL_NEIGHBOR_PREPARATION_REPORT_2026-09-29.md)决定是否授权一次固定模态邻居诊断；9项合成测试通过，真实预算未验证，尚未运行。
 
 ## 证据导航
 
@@ -178,3 +178,12 @@
 
 - Added MODAL_NEIGHBOR_DIAGNOSTIC_PLAN_2026-09-29.md: fixed low third, separate image/text k20, 100 exact-degree random controls, Validation target-to-Train-history association, coverage/matching gates, user/item cluster sensitivity and descriptive 0.005 screening threshold. Teacher uses full Train and reused Validation: no independent holdout/semantic-causality/Recall-gain claim. CPU30min/RSS4GiB/output512MiB, no Test/training/retry; budgets unmeasured. Plan only, no executable command or actual diagnostic yet.
 - Verified three input SHA strings against existing profile, local links, preservation of old log entries and focused diff; metadata catalogs refreshed before commit. Current root/second-work entrances updated. Corrected stale experiment-overview preparation row to point to already completed ranking cohort, preserving old declarations. No new run/result matrix, paper/charter/policy or asset changes; unrelated archive/reviews/ untouched. Sole next step: implement this protocol and synthetic tests, then present preparation report for separately authorized execution.
+
+## 2026-09-29 Modal-neighbor implementation preparation (pending)
+
+- User approves the recorded implementation-preparation next step, not real-data execution. Base3516d40; tracked clean, unrelated archive/reviews/ preserved. Implement independent CPU runner/core, frozen preparation-only profile and synthetic tests under the fixed modal-neighbor protocol. No real Train/Validation/cache loading, Test, training or diagnostic launch. Risks: exact matching, denominators, label isolation, resource enforcement and misleading preparation gates. Acceptance: synthetic graph/matching/statistics/guard/supervisor checks, compile and focused diff; resource feasibility remains unmeasured. Scope includes preparation report/current entrances/log/catalogs, no result matrices or scientific claims. Reference base preserved; no rollback. Next step is user decision on one bounded run after preparation.
+
+## 2026-09-29 Modal-neighbor implementation preparation (completed)
+
+- Implemented modal_neighbor_core.py, standalone supervised runner, frozen preparation-only profile and 9 synthetic tests. Exact-degree/null support, tie/self/zero rules, estimands/bootstrap/screens, Test and early-Validation guards, graph SHA seal, CPU resource supervision and one-output refusal implemented. 9/9 tests pass including actual timeout termination and full temporary synthetic worker with independent set-overlap recomputation; source compile passes. No real data/cache loading or real diagnostic launch; output namespace absent.
+- Preparation report records full future command, input references, code/profile working-byte SHA, resource limitations and closing routes. Caps remain30min/4GiB combined sampledRSS/512MiB output, no real feasibility measurement. Status blocks execution until separately authorized declaration/profile activation and clean commit. Updated current entrances/log and generated metadata navigation; no new result matrix/family run, first-work/charter/policy/history/assets unchanged; unrelated reviews preserved. Sole next step: user decides on one fixed run; no automatic training, Test, retry or next stage.

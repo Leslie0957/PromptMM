@@ -136,7 +136,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（176）
+## docs（178）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -299,6 +299,8 @@
 - [docs/research/innovation2/MINIMAL_RANKING_THREE_SEED_PROFILE_V1.json](../research/innovation2/MINIMAL_RANKING_THREE_SEED_PROFILE_V1.json)
 - [docs/research/innovation2/MINIMAL_RANKING_THREE_SEED_VERIFICATION_2026-09-29.json](../research/innovation2/MINIMAL_RANKING_THREE_SEED_VERIFICATION_2026-09-29.json)
 - [docs/research/innovation2/MODAL_NEIGHBOR_DIAGNOSTIC_PLAN_2026-09-29.md](../research/innovation2/MODAL_NEIGHBOR_DIAGNOSTIC_PLAN_2026-09-29.md)
+- [docs/research/innovation2/MODAL_NEIGHBOR_PREPARATION_REPORT_2026-09-29.md](../research/innovation2/MODAL_NEIGHBOR_PREPARATION_REPORT_2026-09-29.md)
+- [docs/research/innovation2/MODAL_NEIGHBOR_PROFILE_V1.json](../research/innovation2/MODAL_NEIGHBOR_PROFILE_V1.json)
 - [docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_HANDOFF.md](../research/innovation2/RANKING_GAP_DIAGNOSTIC_HANDOFF.md)
 - [docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_PLAN_2026-09-29.md](../research/innovation2/RANKING_GAP_DIAGNOSTIC_PLAN_2026-09-29.md)
 - [docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_RESULTS.md](../research/innovation2/RANKING_GAP_DIAGNOSTIC_RESULTS.md)
@@ -325,7 +327,7 @@
 
 - [logs/README.md](../../logs/README.md)
 
-## tests（17）
+## tests（18）
 
 - [tests/test_cached_deployment_benchmark.py](../../tests/test_cached_deployment_benchmark.py)
 - [tests/test_cross_interaction_p0.py](../../tests/test_cross_interaction_p0.py)
@@ -342,10 +344,11 @@
 - [tests/test_initialization_kd_runtime.py](../../tests/test_initialization_kd_runtime.py)
 - [tests/test_initialization_kd_seed2023.py](../../tests/test_initialization_kd_seed2023.py)
 - [tests/test_initialization_kd_seed2024.py](../../tests/test_initialization_kd_seed2024.py)
+- [tests/test_modal_neighbor_diagnostic.py](../../tests/test_modal_neighbor_diagnostic.py)
 - [tests/test_sports_paired_cold.py](../../tests/test_sports_paired_cold.py)
 - [tests/test_sports_sham_residual.py](../../tests/test_sports_sham_residual.py)
 
-## tools（41）
+## tools（43）
 
 - [tools/audit_initialization_kd_three_seeds.py](../../tools/audit_initialization_kd_three_seeds.py)
 - [tools/audit_minimal_ranking_three_seed.py](../../tools/audit_minimal_ranking_three_seed.py)
@@ -359,6 +362,7 @@
 - [tools/diagnose_sports_weighted_directions.py](../../tools/diagnose_sports_weighted_directions.py)
 - [tools/freeze_innovation1_results.py](../../tools/freeze_innovation1_results.py)
 - [tools/innovation1_cost_m0.py](../../tools/innovation1_cost_m0.py)
+- [tools/modal_neighbor_core.py](../../tools/modal_neighbor_core.py)
 - [tools/preflight_initialization_kd_assets.py](../../tools/preflight_initialization_kd_assets.py)
 - [tools/prepare_minimal_ranking_candidates.py](../../tools/prepare_minimal_ranking_candidates.py)
 - [tools/run_cross_interaction_p0.py](../../tools/run_cross_interaction_p0.py)
@@ -376,6 +380,7 @@
 - [tools/run_innovation1_formal_closeout.py](../../tools/run_innovation1_formal_closeout.py)
 - [tools/run_minimal_ranking_supervision.py](../../tools/run_minimal_ranking_supervision.py)
 - [tools/run_minimal_ranking_three_seed.py](../../tools/run_minimal_ranking_three_seed.py)
+- [tools/run_modal_neighbor_diagnostic.py](../../tools/run_modal_neighbor_diagnostic.py)
 - [tools/run_ranking_gap_diagnostic.py](../../tools/run_ranking_gap_diagnostic.py)
 - [tools/run_sparse_item_assessment.py](../../tools/run_sparse_item_assessment.py)
 - [tools/run_sports_cached_deployment.py](../../tools/run_sports_cached_deployment.py)

@@ -1,0 +1,44 @@
+{
+  "status": "preparation_only_not_launchable",
+  "branch": "codex/experiment/baby-teacher-baseline",
+  "output": "exp/innovation2/modal_neighbor_v1",
+  "inputs": {
+    "train": {
+      "path": "data/sports/train_mat",
+      "sha256": "5361c5486dddbf50084d011278a11d2f18a37e258f87be218b070ff02f4ab0f8"
+    },
+    "validation": {
+      "path": "data/sports/val_mat",
+      "sha256": "1b4224c3fb091ad23a59e0f8a7b58c7b0c959863a7189cfc8b89eeb90a467e03"
+    },
+    "teacher": {
+      "path": "exp/initialization_checks/sports_initialization_repeatability_seed2022_v1/process0/initial_tensors.pt",
+      "sha256": "e5573bbdbbb609b4bc037a551455578463795c6df4bc4a1b236788d86c24da20"
+    }
+  },
+  "shape": [
+    35598,
+    18357
+  ],
+  "k": 20,
+  "block": 128,
+  "random_repeats": 100,
+  "random_seed": 20260929,
+  "bootstrap_repeats": 1000,
+  "user_bootstrap_seed": 20260930,
+  "item_bootstrap_seed": 20260931,
+  "threshold": 0.005,
+  "caps": {
+    "seconds": 1800,
+    "rss": 4294967296,
+    "output_bytes": 536870912,
+    "minimum_free_disk": 4294967296,
+    "sample_seconds": 0.5
+  },
+  "test": "denied",
+  "attempts": 1,
+  "protocol": "docs/research/innovation2/MODAL_NEIGHBOR_DIAGNOSTIC_PLAN_2026-09-29.md",
+  "expected_low_items": 6119,
+  "expected_low_max_degree": 5,
+  "expected_low_validation_pairs": 6347
+}
