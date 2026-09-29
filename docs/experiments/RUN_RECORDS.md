@@ -1,6 +1,6 @@
 # 运行与诊断记录导航
 
-目录版本：2026-09-26。共848个现存exp JSON记录；数量不是独立实验数。
+目录版本：2026-09-26。共853个现存exp JSON记录；数量不是独立实验数。
 保存状态按JSON原文摘录；—表示该字段未记录/未在约定层级找到，不表示成功或失败。
 批报告、子任务、资源检查与正式运行混列供定位，不能相加作为样本数。
 历史已做但本机没有JSON的实验，请查[完整历史章节](../../archive/training/ENTRY_INDEX_2026-09-26.md)。
@@ -693,6 +693,11 @@
 | [exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/supervisor.json](../../exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/supervisor.json) | completed | — | — | parsed |
 | [exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/telemetry.json](../../exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/telemetry.json) | — | — | — | parsed |
 | [exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/worker_claim.json](../../exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/worker_claim.json) | — | — | — | parsed |
+| [exp/innovation2/ranking_gap_v1/acceptance.json](../../exp/innovation2/ranking_gap_v1/acceptance.json) | passed | — | — | parsed |
+| [exp/innovation2/ranking_gap_v1/exit.json](../../exp/innovation2/ranking_gap_v1/exit.json) | completed | — | — | parsed |
+| [exp/innovation2/ranking_gap_v1/manifest.json](../../exp/innovation2/ranking_gap_v1/manifest.json) | — | docs/research/innovation2/RANKING_GAP_PROFILE_V1.json | — | parsed |
+| [exp/innovation2/ranking_gap_v1/report.json](../../exp/innovation2/ranking_gap_v1/report.json) | completed | — | — | parsed |
+| [exp/innovation2/ranking_gap_v1/resource.json](../../exp/innovation2/ranking_gap_v1/resource.json) | — | — | — | parsed |
 | [exp/paired_coldinit/sports_three_seed_v1/batch.json](../../exp/paired_coldinit/sports_three_seed_v1/batch.json) | completed | — | — | parsed |
 | [exp/promptmm_release/sports_promptmm_release_validation300_lr6e5_remaining_v1/batch.json](../../exp/promptmm_release/sports_promptmm_release_validation300_lr6e5_remaining_v1/batch.json) | completed | — | — | parsed |
 | [exp/promptmm_release/sports_promptmm_release_validation300_seed2022_lr6e5_randominit_v1/report.json](../../exp/promptmm_release/sports_promptmm_release_validation300_seed2022_lr6e5_randominit_v1/report.json) | completed | — | 2022 | parsed |

@@ -208,9 +208,9 @@
 {"bytes": 13815757, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 02_38_22.563718_sports_light_init_pid596.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 05_34_16.930265_sports_light_init_pid42156.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 08_30_07.418852_sports_light_init_pid30132.pth", "source_catalog": false}
-{"bytes": 1590, "category": "root", "path": "README.md", "source_catalog": true}
+{"bytes": 1585, "category": "root", "path": "README.md", "source_catalog": true}
 {"bytes": 4930, "category": "root", "path": "THESIS_ROADMAP.md", "source_catalog": true}
-{"bytes": 8118, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
+{"bytes": 14395, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
 {"bytes": 739, "category": "archive", "path": "archive/README.md", "source_catalog": true}
 {"bytes": 26887, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/Models.py", "source_catalog": true}
 {"bytes": 26901, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/Models_empower.py", "source_catalog": true}
@@ -473,6 +473,7 @@
 {"bytes": 14721, "category": "codes", "path": "codes/promptmm_release_resource.py", "source_catalog": true}
 {"bytes": 24039, "category": "codes", "path": "codes/promptmm_release_validation.py", "source_catalog": true}
 {"bytes": 2627, "category": "codes", "path": "codes/promptmm_validation_fast.py", "source_catalog": true}
+{"bytes": 3213, "category": "codes", "path": "codes/ranking_gap_diagnostic.py", "source_catalog": true}
 {"bytes": 6718, "category": "codes", "path": "codes/run_patent.py", "source_catalog": true}
 {"bytes": 5882, "category": "codes", "path": "codes/run_promptmm_lr6e5_remaining.py", "source_catalog": true}
 {"bytes": 5622, "category": "codes", "path": "codes/run_promptmm_validation120.py", "source_catalog": true}
@@ -497,6 +498,7 @@
 {"bytes": 3168, "category": "codes", "path": "codes/tests/test_promptmm_validation120_batch.py", "source_catalog": true}
 {"bytes": 3457, "category": "codes", "path": "codes/tests/test_promptmm_validation300_batch.py", "source_catalog": true}
 {"bytes": 2099, "category": "codes", "path": "codes/tests/test_promptmm_validation_fast.py", "source_catalog": true}
+{"bytes": 1763, "category": "codes", "path": "codes/tests/test_ranking_gap_diagnostic.py", "source_catalog": true}
 {"bytes": 3669, "category": "codes", "path": "codes/tests/test_shared_initialization.py", "source_catalog": true}
 {"bytes": 2625, "category": "codes", "path": "codes/tests/test_sharedinit_alpha3.py", "source_catalog": true}
 {"bytes": 3393, "category": "codes", "path": "codes/tests/test_sharedinit_equal_matched.py", "source_catalog": true}
@@ -596,7 +598,7 @@
 {"bytes": 100432, "category": "docs", "path": "docs/baselines/ASSET_MANIFEST_2026-07-29.csv", "source_catalog": true}
 {"bytes": 2893, "category": "docs", "path": "docs/baselines/README.md", "source_catalog": true}
 {"bytes": 7125, "category": "docs", "path": "docs/experiments/HISTORICAL_FAMILIES.md", "source_catalog": true}
-{"bytes": 2778, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
+{"bytes": 3121, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
 {"bytes": 37701, "category": "docs", "path": "docs/experiments/ROOT_RELOCATION_2026-09-29.json", "source_catalog": true}
 {"bytes": 7431, "category": "docs", "path": "docs/experiments/RUN_CLOSEOUT.md", "source_catalog": true}
 {"bytes": 1535, "category": "docs", "path": "docs/experiments/WORKSPACE_MAP.md", "source_catalog": true}
@@ -713,8 +715,11 @@
 {"bytes": 9798, "category": "docs", "path": "docs/research/SPORTS_THREE_SEED_VALIDATION120_2026-09-17.md", "source_catalog": true}
 {"bytes": 19036, "category": "docs", "path": "docs/research/SPORTS_THREE_SEED_VALIDATION300_2026-09-18.md", "source_catalog": true}
 {"bytes": 5285, "category": "docs", "path": "docs/research/SPORTS_WEIGHTED_DIRECTION_AUDIT_2026-09-24.md", "source_catalog": true}
+{"bytes": 4756, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_HANDOFF.md", "source_catalog": true}
 {"bytes": 10526, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_PLAN_2026-09-29.md", "source_catalog": true}
-{"bytes": 1247, "category": "docs", "path": "docs/research/innovation2/README.md", "source_catalog": true}
+{"bytes": 6016, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_RESULTS.md", "source_catalog": true}
+{"bytes": 3047, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_PROFILE_V1.json", "source_catalog": true}
+{"bytes": 1376, "category": "docs", "path": "docs/research/innovation2/README.md", "source_catalog": true}
 {"bytes": 2015, "category": "docs", "path": "docs/research_notes/KL散度蒸馏vs方向蒸馏对比.txt", "source_catalog": true}
 {"bytes": 756, "category": "docs", "path": "docs/research_notes/README.md", "source_catalog": true}
 {"bytes": 1712, "category": "docs", "path": "docs/research_notes/多模态融合语义鸿沟问答.txt", "source_catalog": true}
@@ -2193,6 +2198,20 @@
 {"bytes": 189, "category": "exp", "path": "exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/telemetry.json", "source_catalog": false}
 {"bytes": 42, "category": "exp", "path": "exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/worker.log", "source_catalog": false}
 {"bytes": 35, "category": "exp", "path": "exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/worker_claim.json", "source_catalog": false}
+{"bytes": 1243776, "category": "exp", "path": "exp/innovation2/ranking_gap_v1/2022_R1_per_user.npz", "source_catalog": false}
+{"bytes": 1344248, "category": "exp", "path": "exp/innovation2/ranking_gap_v1/2022_T0_per_user.npz", "source_catalog": false}
+{"bytes": 1243032, "category": "exp", "path": "exp/innovation2/ranking_gap_v1/2023_R1_per_user.npz", "source_catalog": false}
+{"bytes": 1344625, "category": "exp", "path": "exp/innovation2/ranking_gap_v1/2023_T0_per_user.npz", "source_catalog": false}
+{"bytes": 1243146, "category": "exp", "path": "exp/innovation2/ranking_gap_v1/2024_R1_per_user.npz", "source_catalog": false}
+{"bytes": 1344978, "category": "exp", "path": "exp/innovation2/ranking_gap_v1/2024_T0_per_user.npz", "source_catalog": false}
+{"bytes": 228, "category": "exp", "path": "exp/innovation2/ranking_gap_v1/acceptance.json", "source_catalog": false}
+{"bytes": 91, "category": "exp", "path": "exp/innovation2/ranking_gap_v1/exit.json", "source_catalog": false}
+{"bytes": 6270, "category": "exp", "path": "exp/innovation2/ranking_gap_v1/manifest.json", "source_catalog": false}
+{"bytes": 12259, "category": "exp", "path": "exp/innovation2/ranking_gap_v1/report.json", "source_catalog": false}
+{"bytes": 10331, "category": "exp", "path": "exp/innovation2/ranking_gap_v1/resource.json", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/innovation2/ranking_gap_v1/stderr.log", "source_catalog": false}
+{"bytes": 486, "category": "exp", "path": "exp/innovation2/ranking_gap_v1/stdout.log", "source_catalog": false}
+{"bytes": 1279735, "category": "exp", "path": "exp/innovation2/ranking_gap_v1/teacher_per_user.npz", "source_catalog": false}
 {"bytes": 9807, "category": "exp", "path": "exp/paired_coldinit/sports_three_seed_v1/batch.json", "source_catalog": false}
 {"bytes": 13814245, "category": "exp", "path": "exp/paired_coldinit/sports_three_seed_v1/seed2022/initial.pt", "source_catalog": false}
 {"bytes": 788889728, "category": "exp", "path": "exp/paired_coldinit/sports_three_seed_v1/seed2022/triplets.npy", "source_catalog": false}
@@ -2559,6 +2578,7 @@
 {"bytes": 28417, "category": "tools", "path": "tools/run_innovation1_cost_m2.py", "source_catalog": true}
 {"bytes": 8919, "category": "tools", "path": "tools/run_innovation1_eval_recovery.py", "source_catalog": true}
 {"bytes": 11267, "category": "tools", "path": "tools/run_innovation1_formal_closeout.py", "source_catalog": true}
+{"bytes": 16370, "category": "tools", "path": "tools/run_ranking_gap_diagnostic.py", "source_catalog": true}
 {"bytes": 15714, "category": "tools", "path": "tools/run_sports_cached_deployment.py", "source_catalog": true}
 {"bytes": 8153, "category": "tools", "path": "tools/run_sports_initialization_pair.py", "source_catalog": true}
 {"bytes": 8025, "category": "tools", "path": "tools/run_sports_paired_cold_three_seed.py", "source_catalog": true}

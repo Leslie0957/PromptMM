@@ -60,7 +60,7 @@
 - [archive/upstream/README.md](../../archive/upstream/README.md)
 - [archive/upstream/README_ORIGINAL_2026-09-26.md](../../archive/upstream/README_ORIGINAL_2026-09-26.md)
 
-## codes（69）
+## codes（71）
 
 - [codes/Models.py](../../codes/Models.py)
 - [codes/Models_empower.py](../../codes/Models_empower.py)
@@ -90,6 +90,7 @@
 - [codes/promptmm_release_resource.py](../../codes/promptmm_release_resource.py)
 - [codes/promptmm_release_validation.py](../../codes/promptmm_release_validation.py)
 - [codes/promptmm_validation_fast.py](../../codes/promptmm_validation_fast.py)
+- [codes/ranking_gap_diagnostic.py](../../codes/ranking_gap_diagnostic.py)
 - [codes/run_patent.py](../../codes/run_patent.py)
 - [codes/run_promptmm_lr6e5_remaining.py](../../codes/run_promptmm_lr6e5_remaining.py)
 - [codes/run_promptmm_validation120.py](../../codes/run_promptmm_validation120.py)
@@ -114,6 +115,7 @@
 - [codes/tests/test_promptmm_validation120_batch.py](../../codes/tests/test_promptmm_validation120_batch.py)
 - [codes/tests/test_promptmm_validation300_batch.py](../../codes/tests/test_promptmm_validation300_batch.py)
 - [codes/tests/test_promptmm_validation_fast.py](../../codes/tests/test_promptmm_validation_fast.py)
+- [codes/tests/test_ranking_gap_diagnostic.py](../../codes/tests/test_ranking_gap_diagnostic.py)
 - [codes/tests/test_shared_initialization.py](../../codes/tests/test_shared_initialization.py)
 - [codes/tests/test_sharedinit_alpha3.py](../../codes/tests/test_sharedinit_alpha3.py)
 - [codes/tests/test_sharedinit_equal_matched.py](../../codes/tests/test_sharedinit_equal_matched.py)
@@ -132,7 +134,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（157）
+## docs（160）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -285,7 +287,10 @@
 - [docs/research/SPORTS_THREE_SEED_VALIDATION120_2026-09-17.md](../research/SPORTS_THREE_SEED_VALIDATION120_2026-09-17.md)
 - [docs/research/SPORTS_THREE_SEED_VALIDATION300_2026-09-18.md](../research/SPORTS_THREE_SEED_VALIDATION300_2026-09-18.md)
 - [docs/research/SPORTS_WEIGHTED_DIRECTION_AUDIT_2026-09-24.md](../research/SPORTS_WEIGHTED_DIRECTION_AUDIT_2026-09-24.md)
+- [docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_HANDOFF.md](../research/innovation2/RANKING_GAP_DIAGNOSTIC_HANDOFF.md)
 - [docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_PLAN_2026-09-29.md](../research/innovation2/RANKING_GAP_DIAGNOSTIC_PLAN_2026-09-29.md)
+- [docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_RESULTS.md](../research/innovation2/RANKING_GAP_DIAGNOSTIC_RESULTS.md)
+- [docs/research/innovation2/RANKING_GAP_PROFILE_V1.json](../research/innovation2/RANKING_GAP_PROFILE_V1.json)
 - [docs/research/innovation2/README.md](../research/innovation2/README.md)
 - [docs/research_notes/KL散度蒸馏vs方向蒸馏对比.txt](../research_notes/KL%E6%95%A3%E5%BA%A6%E8%92%B8%E9%A6%8Fvs%E6%96%B9%E5%90%91%E8%92%B8%E9%A6%8F%E5%AF%B9%E6%AF%94.txt)
 - [docs/research_notes/README.md](../research_notes/README.md)
@@ -322,7 +327,7 @@
 - [tests/test_sports_paired_cold.py](../../tests/test_sports_paired_cold.py)
 - [tests/test_sports_sham_residual.py](../../tests/test_sports_sham_residual.py)
 
-## tools（34）
+## tools（35）
 
 - [tools/audit_initialization_kd_three_seeds.py](../../tools/audit_initialization_kd_three_seeds.py)
 - [tools/build_experiment_navigation.py](../../tools/build_experiment_navigation.py)
@@ -348,6 +353,7 @@
 - [tools/run_innovation1_cost_m2.py](../../tools/run_innovation1_cost_m2.py)
 - [tools/run_innovation1_eval_recovery.py](../../tools/run_innovation1_eval_recovery.py)
 - [tools/run_innovation1_formal_closeout.py](../../tools/run_innovation1_formal_closeout.py)
+- [tools/run_ranking_gap_diagnostic.py](../../tools/run_ranking_gap_diagnostic.py)
 - [tools/run_sports_cached_deployment.py](../../tools/run_sports_cached_deployment.py)
 - [tools/run_sports_initialization_pair.py](../../tools/run_sports_initialization_pair.py)
 - [tools/run_sports_paired_cold_three_seed.py](../../tools/run_sports_paired_cold_three_seed.py)

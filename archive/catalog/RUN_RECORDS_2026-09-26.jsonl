@@ -683,6 +683,11 @@
 {"bytes": 128, "path": "exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/supervisor.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
 {"bytes": 189, "path": "exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/telemetry.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
 {"bytes": 35, "path": "exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/worker_claim.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
+{"bytes": 228, "path": "exp/innovation2/ranking_gap_v1/acceptance.json", "profile": null, "read_status": "parsed", "seed": null, "status": "passed"}
+{"bytes": 91, "path": "exp/innovation2/ranking_gap_v1/exit.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
+{"bytes": 6270, "path": "exp/innovation2/ranking_gap_v1/manifest.json", "profile": "docs/research/innovation2/RANKING_GAP_PROFILE_V1.json", "read_status": "parsed", "seed": null, "status": null}
+{"bytes": 12259, "path": "exp/innovation2/ranking_gap_v1/report.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
+{"bytes": 10331, "path": "exp/innovation2/ranking_gap_v1/resource.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
 {"bytes": 9807, "path": "exp/paired_coldinit/sports_three_seed_v1/batch.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
 {"bytes": 4382, "path": "exp/promptmm_release/sports_promptmm_release_validation300_lr6e5_remaining_v1/batch.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
 {"bytes": 413876, "path": "exp/promptmm_release/sports_promptmm_release_validation300_seed2022_lr6e5_randominit_v1/report.json", "profile": null, "read_status": "parsed", "seed": 2022, "status": "completed"}

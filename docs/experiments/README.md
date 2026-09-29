@@ -1,6 +1,6 @@
 # 做过哪些实验：粗粒度总览
 
-更新2026-09-29。先看本表，需要具体seed/命令再点审计。第一项暂停扩展；第二项尚未立项。这里按实验族计，不把重复运行或计时窗口当作新增独立实验。
+更新2026-09-29。先看本表，需要具体seed/命令再点审计。第一项暂停扩展；第二项完成一次问题诊断，尚未立项算法。这里按实验族计，不把重复运行或计时窗口当作新增独立实验。
 
 | 实验族 | 状态与主要发现 | 深入记录 |
 |---|---|---|
@@ -8,6 +8,7 @@
 | 文本项对照 | Baby固定图像系数诊断；Sports三seed严格配对，添加文本有Val收益 | [Sports审计](../research/SPORTS_PAIRED_COLDINIT_THREE_SEED_AUDIT_2026-09-25.md) · [Baby总册](../research/INNOVATION1_THESIS_EVIDENCE_2026-09-15.md) |
 | 真实/随机残差 | Sports三seed真实残差较好，未唯一归因语言语义 | [审计](../research/SPORTS_SHAM_RESIDUAL_AUDIT_2026-09-26.md) |
 | 初始化×持续KD | 三seed十二臂；随机组增益大、暖组小且符号不稳；仅Val | [独立审计](../research/INITIALIZATION_KD_THREE_SEED_INDEPENDENT_AUDIT_2026-09-28.md) |
+| 第二项排序缺口诊断 | Sports七个既有评分状态；T0三seed教师独有命中超过描述性门槛，但净差均负；仅Val，待独立审计 | [结果与自审](../research/innovation2/RANKING_GAP_DIAGNOSTIC_RESULTS.md) · [HANDOFF](../research/innovation2/RANKING_GAP_DIAGNOSTIC_HANDOFF.md) |
 | 早期梯度/几何/蒸馏强度 | 局部诊断与负结果保留，不证明持续冲突或最优权重 | [机制综合](../research/SPORTS_INTEGRATED_MECHANISM_CONCLUSION_2026-09-26.md) |
 | 原缓存部署 | 暖学生对缓存教师无一致在线优势；未含发布版臂 | [旧效率审计](../research/SPORTS_CACHED_DEPLOYMENT_AUDIT_2026-09-26.md) |
 | M0–M2成本补证 | 预检、正式检查点部署、短更新完成；M1 v1失败/v2通过；局部成本收益，无完整训练结论 | [独立审计](../research/INNOVATION1_COST_INDEPENDENT_AUDIT_2026-09-29.md) · [成本表](../research/INNOVATION1_COST_RESULTS.md) |
