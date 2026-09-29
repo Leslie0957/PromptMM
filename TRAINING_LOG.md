@@ -7,7 +7,7 @@
 - 第一项：有限实验、独立审计及正文整合完成，暂停扩展；[结论与未验证边界](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。待跑实验为零。
 - 第二项：最小排序监督三seed已完成独立审计，执行通过，三次screen_stop；[HANDOFF](docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_HANDOFF.md)。
 - 约束：旧Test不选新方法；P1a已筛查停止；旧RGCS/门控不是队列。未知项不自动补跑。
-- 唯一下一步：根据[实现准备报告](docs/research/innovation2/MODAL_NEIGHBOR_PREPARATION_REPORT_2026-09-29.md)决定是否授权一次固定模态邻居诊断；9项合成测试通过，真实预算未验证，尚未运行。
+- 唯一下一步：按[模态邻居HANDOFF](docs/research/innovation2/MODAL_NEIGHBOR_DIAGNOSTIC_HANDOFF.md)独立只读审计；一次诊断完成，两模态candidate_signal，不自动训练。
 
 ## 证据导航
 
@@ -194,3 +194,9 @@
 - Command: & 'D:\miniconda\envs\run_5060\python.exe' -B 'D:\Download\PromptMM\tools\run_modal_neighbor_diagnostic.py' --formal . CPU4 threads, no CUDA, image/text k20, low6119, exact-degree random100 seed20260929, bootstrap1000 seeds20260930/31, screeningDelta.005. Graphs sealed before Validation load. Comparison is frequency-matched random association, not Recall. No selection/training/checkpoint/Test evaluation.
 - Hard limits30min/4GiB combined sampledRSS/512MiB output/4GiB disk floor, sample0.5s; feasibility not measured. Input/shape/finite/matching/source/graph-seal/resource gates; Test denied. One launch, no retry/resume/next stage; failure or low outcome preserved. Reference279c217 is not permission to reset. Preflight checks status-only delta, input existence/anchor, output absent and disk; established synthetic tests remain applicable.
 - Records: raw exp/innovation2/modal_neighbor_v1; audit docs/research/innovation2/MODAL_NEIGHBOR_DIAGNOSTIC_AUDIT.md; matrix MODAL_NEIGHBOR_DIAGNOSTIC_RESULTS.md image/text rows; HANDOFF same family. Append outcome/log current status, add experiment-family row/update root/second-work links, refresh six generated catalogs after closeout. First-work matrices/paper/charter/policy unchanged; not a tag/backup milestone. Sole post-run next step: independent read-only audit, no algorithm execution.
+
+## 2026-09-29 Modal-neighbor fixed diagnostic (completed)
+
+- One launch from0ffa725 completed/exit0,464.922s, sampled combinedRSS734605312B, all resource gates passed. Raw exp/innovation2/modal_neighbor_v1 preserved. Runtime SHA/shape/finite/matching/graph-before-Validation guards passed; Test denied attempts0, no training/retry. Profile activation was the sole execution delta; separate saved-artifact audit helper added during run does not change running core.
+- Effective6114 queries/6338 positives/6245 users/4098 targetitems, coverage99.8582%;5 dual-zero vectors excluded. Image association.07873146 vs null.01421269, Delta+.06451878; text.13000947 vs.01719785, Delta+.11281161. Both candidate_signal under predeclared rules; matching support1.0. No effective zero-degree subgroup. This is reused-Validation association, not Recall gain, semantic causality or algorithm success.
+- Saved-artifact self-audit297 checks passed, including hashes/exact-frequency nulls/summary recomputation/resources/screens. Not external independent audit; no original-data intersection or cosine/bootstrap reconstruction. AUDIT/RESULTS/HANDOFF plus current entrances/experiment family updated, generated navigation refreshed; first-work/charter/policy/history untouched. Sole next step: independent read-only audit per HANDOFF; no automatic algorithm or training.

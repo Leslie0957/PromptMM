@@ -4,6 +4,7 @@
 
 | 实验族 | 状态与主要发现 | 深入记录 |
 |---|---|---|
+| 模态邻居关联诊断 | 一次CPU诊断；图像/文本均candidate_signal，关联差值+6.45/+11.28个百分点，不是Recall收益；执行方核验完成 | [结果](../research/innovation2/MODAL_NEIGHBOR_DIAGNOSTIC_RESULTS.md) · [审计交接](../research/innovation2/MODAL_NEIGHBOR_DIAGNOSTIC_HANDOFF.md) |
 | 两数据集主比较 | Baby/Sports各三方法×三seed，18格Test；Full高于BPR，对发布版Baby略高/Sports较低 | [正式表及来源](../paper/INNOVATION1_FIXED_MAIN_TABLE_2026-09-26.md) |
 | 文本项对照 | Baby固定图像系数诊断；Sports三seed严格配对，添加文本有Val收益 | [Sports审计](../research/SPORTS_PAIRED_COLDINIT_THREE_SEED_AUDIT_2026-09-25.md) · [Baby总册](../research/INNOVATION1_THESIS_EVIDENCE_2026-09-15.md) |
 | 真实/随机残差 | Sports三seed真实残差较好，未唯一归因语言语义 | [审计](../research/SPORTS_SHAM_RESIDUAL_AUDIT_2026-09-26.md) |

@@ -208,9 +208,9 @@
 {"bytes": 13815757, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 02_38_22.563718_sports_light_init_pid596.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 05_34_16.930265_sports_light_init_pid42156.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 08_30_07.418852_sports_light_init_pid30132.pth", "source_catalog": false}
-{"bytes": 1670, "category": "root", "path": "README.md", "source_catalog": true}
+{"bytes": 1666, "category": "root", "path": "README.md", "source_catalog": true}
 {"bytes": 4930, "category": "root", "path": "THESIS_ROADMAP.md", "source_catalog": true}
-{"bytes": 40853, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
+{"bytes": 44217, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
 {"bytes": 739, "category": "archive", "path": "archive/README.md", "source_catalog": true}
 {"bytes": 26887, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/Models.py", "source_catalog": true}
 {"bytes": 26901, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/Models_empower.py", "source_catalog": true}
@@ -600,7 +600,7 @@
 {"bytes": 100432, "category": "docs", "path": "docs/baselines/ASSET_MANIFEST_2026-07-29.csv", "source_catalog": true}
 {"bytes": 2893, "category": "docs", "path": "docs/baselines/README.md", "source_catalog": true}
 {"bytes": 7125, "category": "docs", "path": "docs/experiments/HISTORICAL_FAMILIES.md", "source_catalog": true}
-{"bytes": 4035, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
+{"bytes": 4355, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
 {"bytes": 37701, "category": "docs", "path": "docs/experiments/ROOT_RELOCATION_2026-09-29.json", "source_catalog": true}
 {"bytes": 7431, "category": "docs", "path": "docs/experiments/RUN_CLOSEOUT.md", "source_catalog": true}
 {"bytes": 1535, "category": "docs", "path": "docs/experiments/WORKSPACE_MAP.md", "source_catalog": true}
@@ -726,16 +726,19 @@
 {"bytes": 3558, "category": "docs", "path": "docs/research/innovation2/MINIMAL_RANKING_THREE_SEED_MANUAL_LAUNCH_2026-09-29.md", "source_catalog": true}
 {"bytes": 2537, "category": "docs", "path": "docs/research/innovation2/MINIMAL_RANKING_THREE_SEED_PROFILE_V1.json", "source_catalog": true}
 {"bytes": 19514, "category": "docs", "path": "docs/research/innovation2/MINIMAL_RANKING_THREE_SEED_VERIFICATION_2026-09-29.json", "source_catalog": true}
+{"bytes": 4889, "category": "docs", "path": "docs/research/innovation2/MODAL_NEIGHBOR_DIAGNOSTIC_AUDIT.md", "source_catalog": true}
+{"bytes": 1918, "category": "docs", "path": "docs/research/innovation2/MODAL_NEIGHBOR_DIAGNOSTIC_HANDOFF.md", "source_catalog": true}
 {"bytes": 10156, "category": "docs", "path": "docs/research/innovation2/MODAL_NEIGHBOR_DIAGNOSTIC_PLAN_2026-09-29.md", "source_catalog": true}
+{"bytes": 1829, "category": "docs", "path": "docs/research/innovation2/MODAL_NEIGHBOR_DIAGNOSTIC_RESULTS.md", "source_catalog": true}
 {"bytes": 4411, "category": "docs", "path": "docs/research/innovation2/MODAL_NEIGHBOR_PREPARATION_REPORT_2026-09-29.md", "source_catalog": true}
-{"bytes": 1354, "category": "docs", "path": "docs/research/innovation2/MODAL_NEIGHBOR_PROFILE_V1.json", "source_catalog": true}
+{"bytes": 1338, "category": "docs", "path": "docs/research/innovation2/MODAL_NEIGHBOR_PROFILE_V1.json", "source_catalog": true}
 {"bytes": 4756, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_HANDOFF.md", "source_catalog": true}
 {"bytes": 10526, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_PLAN_2026-09-29.md", "source_catalog": true}
 {"bytes": 6328, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_RESULTS.md", "source_catalog": true}
 {"bytes": 5776, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_INDEPENDENT_AUDIT_2026-09-29.md", "source_catalog": true}
 {"bytes": 8160, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_INDEPENDENT_VERIFICATION.json", "source_catalog": true}
 {"bytes": 3047, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_PROFILE_V1.json", "source_catalog": true}
-{"bytes": 1982, "category": "docs", "path": "docs/research/innovation2/README.md", "source_catalog": true}
+{"bytes": 1978, "category": "docs", "path": "docs/research/innovation2/README.md", "source_catalog": true}
 {"bytes": 2118, "category": "docs", "path": "docs/research/innovation2/SPARSE_ITEM_ASSESSMENT_HANDOFF.md", "source_catalog": true}
 {"bytes": 6558, "category": "docs", "path": "docs/research/innovation2/SPARSE_ITEM_ASSESSMENT_PLAN_2026-09-29.md", "source_catalog": true}
 {"bytes": 712, "category": "docs", "path": "docs/research/innovation2/SPARSE_ITEM_ASSESSMENT_PROFILE_V1.json", "source_catalog": true}
@@ -2302,6 +2305,19 @@
 {"bytes": 397711, "category": "exp", "path": "exp/innovation2/minimal_ranking_three_seed_v1/seed2024/resource_samples.json", "source_catalog": false}
 {"bytes": 0, "category": "exp", "path": "exp/innovation2/minimal_ranking_three_seed_v1/seed2024/stderr.log", "source_catalog": false}
 {"bytes": 0, "category": "exp", "path": "exp/innovation2/minimal_ranking_three_seed_v1/seed2024/stdout.log", "source_catalog": false}
+{"bytes": 971, "category": "exp", "path": "exp/innovation2/modal_neighbor_v1/acceptance.json", "source_catalog": false}
+{"bytes": 130, "category": "exp", "path": "exp/innovation2/modal_neighbor_v1/environment.json", "source_catalog": false}
+{"bytes": 1293, "category": "exp", "path": "exp/innovation2/modal_neighbor_v1/exit.json", "source_catalog": false}
+{"bytes": 1738, "category": "exp", "path": "exp/innovation2/modal_neighbor_v1/graph_seal.json", "source_catalog": false}
+{"bytes": 51261980, "category": "exp", "path": "exp/innovation2/modal_neighbor_v1/image_graphs.npz", "source_catalog": false}
+{"bytes": 376032, "category": "exp", "path": "exp/innovation2/modal_neighbor_v1/image_summaries.npz", "source_catalog": false}
+{"bytes": 2221, "category": "exp", "path": "exp/innovation2/modal_neighbor_v1/manifest.json", "source_catalog": false}
+{"bytes": 12405, "category": "exp", "path": "exp/innovation2/modal_neighbor_v1/report.json", "source_catalog": false}
+{"bytes": 90577, "category": "exp", "path": "exp/innovation2/modal_neighbor_v1/resource.jsonl", "source_catalog": false}
+{"bytes": 172, "category": "exp", "path": "exp/innovation2/modal_neighbor_v1/supervisor.json", "source_catalog": false}
+{"bytes": 51261980, "category": "exp", "path": "exp/innovation2/modal_neighbor_v1/text_graphs.npz", "source_catalog": false}
+{"bytes": 376032, "category": "exp", "path": "exp/innovation2/modal_neighbor_v1/text_summaries.npz", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/innovation2/modal_neighbor_v1/worker.log", "source_catalog": false}
 {"bytes": 1243776, "category": "exp", "path": "exp/innovation2/ranking_gap_v1/2022_R1_per_user.npz", "source_catalog": false}
 {"bytes": 1344248, "category": "exp", "path": "exp/innovation2/ranking_gap_v1/2022_T0_per_user.npz", "source_catalog": false}
 {"bytes": 1243032, "category": "exp", "path": "exp/innovation2/ranking_gap_v1/2023_R1_per_user.npz", "source_catalog": false}
@@ -2666,6 +2682,7 @@
 {"bytes": 2247, "category": "tests", "path": "tests/test_sports_sham_residual.py", "source_catalog": true}
 {"bytes": 10283, "category": "tools", "path": "tools/audit_initialization_kd_three_seeds.py", "source_catalog": true}
 {"bytes": 7220, "category": "tools", "path": "tools/audit_minimal_ranking_three_seed.py", "source_catalog": true}
+{"bytes": 5498, "category": "tools", "path": "tools/audit_modal_neighbor_saved.py", "source_catalog": true}
 {"bytes": 6900, "category": "tools", "path": "tools/audit_ranking_gap_saved.py", "source_catalog": true}
 {"bytes": 9505, "category": "tools", "path": "tools/build_experiment_navigation.py", "source_catalog": true}
 {"bytes": 16756, "category": "tools", "path": "tools/convert_mmrec_baby.py", "source_catalog": true}
