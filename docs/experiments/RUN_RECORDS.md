@@ -1,6 +1,6 @@
 # 运行与诊断记录导航
 
-目录版本：2026-09-26。共904个现存exp JSON记录；数量不是独立实验数。
+目录版本：2026-09-26。共913个现存exp JSON记录；数量不是独立实验数。
 保存状态按JSON原文摘录；—表示该字段未记录/未在约定层级找到，不表示成功或失败。
 批报告、子任务、资源检查与正式运行混列供定位，不能相加作为样本数。
 历史已做但本机没有JSON的实验，请查[完整历史章节](../../archive/training/ENTRY_INDEX_2026-09-26.md)。
@@ -739,6 +739,15 @@
 | [exp/innovation2/modal_neighbor_v1/manifest.json](../../exp/innovation2/modal_neighbor_v1/manifest.json) | — | — | — | parsed |
 | [exp/innovation2/modal_neighbor_v1/report.json](../../exp/innovation2/modal_neighbor_v1/report.json) | — | — | — | parsed |
 | [exp/innovation2/modal_neighbor_v1/supervisor.json](../../exp/innovation2/modal_neighbor_v1/supervisor.json) | completed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_epoch0_preflight_v1/report.json](../../exp/innovation2/neighbor_shared_residual_epoch0_preflight_v1/report.json) | passed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_smoke_v1/completeness.json](../../exp/innovation2/neighbor_shared_residual_smoke_v1/completeness.json) | complete_unreviewed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_smoke_v1/exit.json](../../exp/innovation2/neighbor_shared_residual_smoke_v1/exit.json) | completed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_smoke_v1/manifest.json](../../exp/innovation2/neighbor_shared_residual_smoke_v1/manifest.json) | completed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_smoke_v1/resource.json](../../exp/innovation2/neighbor_shared_residual_smoke_v1/resource.json) | — | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_smoke_v1/seed2022/B/status.json](../../exp/innovation2/neighbor_shared_residual_smoke_v1/seed2022/B/status.json) | completed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_smoke_v1/seed2022/F/status.json](../../exp/innovation2/neighbor_shared_residual_smoke_v1/seed2022/F/status.json) | completed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_smoke_v1/seed2022/N/status.json](../../exp/innovation2/neighbor_shared_residual_smoke_v1/seed2022/N/status.json) | completed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_smoke_v1/seed2022/R/status.json](../../exp/innovation2/neighbor_shared_residual_smoke_v1/seed2022/R/status.json) | completed | — | — | parsed |
 | [exp/innovation2/ranking_gap_v1/acceptance.json](../../exp/innovation2/ranking_gap_v1/acceptance.json) | passed | — | — | parsed |
 | [exp/innovation2/ranking_gap_v1/exit.json](../../exp/innovation2/ranking_gap_v1/exit.json) | completed | — | — | parsed |
 | [exp/innovation2/ranking_gap_v1/manifest.json](../../exp/innovation2/ranking_gap_v1/manifest.json) | — | docs/research/innovation2/RANKING_GAP_PROFILE_V1.json | — | parsed |

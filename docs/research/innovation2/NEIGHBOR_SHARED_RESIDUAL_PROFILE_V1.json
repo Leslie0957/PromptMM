@@ -1,0 +1,136 @@
+{
+  "status": "manual_launch_ready",
+  "branch": "codex/experiment/baby-teacher-baseline",
+  "attempts": 1,
+  "command": "& 'D:\\miniconda\\envs\\run_5060\\python.exe' -B 'D:\\Download\\PromptMM\\tools\\run_neighbor_shared_residual.py' --formal",
+  "output": "exp/innovation2/neighbor_shared_residual_three_seed_v1",
+  "smoke_output": "exp/innovation2/neighbor_shared_residual_smoke_v1",
+  "ordered_seeds": [
+    2022,
+    2023,
+    2024
+  ],
+  "arms": [
+    "B",
+    "N",
+    "F",
+    "R"
+  ],
+  "assets": {
+    "teacher": {
+      "path": "exp/initialization_checks/sports_initialization_repeatability_seed2022_v1/process0/initial_tensors.pt",
+      "sha256": "e5573bbdbbb609b4bc037a551455578463795c6df4bc4a1b236788d86c24da20"
+    },
+    "train": {
+      "path": "data/sports/train_mat",
+      "sha256": "5361c5486dddbf50084d011278a11d2f18a37e258f87be218b070ff02f4ab0f8"
+    },
+    "validation": {
+      "path": "data/sports/val_mat",
+      "sha256": "1b4224c3fb091ad23a59e0f8a7b58c7b0c959863a7189cfc8b89eeb90a467e03"
+    },
+    "image_graph": {
+      "path": "exp/innovation2/modal_neighbor_v1/image_graphs.npz",
+      "sha256": "5e811a19f547ff08bef1db4385fc10990d9ab6367d75ab012c9cea7dbcbf2ccd"
+    },
+    "text_graph": {
+      "path": "exp/innovation2/modal_neighbor_v1/text_graphs.npz",
+      "sha256": "d3eb7e936f2457042897daec8087a8c7811667aee006e1f7965a9d5afa526a58"
+    }
+  },
+  "seeds": {
+    "2022": {
+      "anchor_manifest": {
+        "path": "exp/initialization_kd_interaction/sports_init_kd_interaction_seed2022_v1/launch_manifest.json",
+        "sha256": "d1eb28f82a34c0a8e45b06729336a08260d9668215a3994e184d903f3af3664f"
+      },
+      "triplet_tape": {
+        "path": "exp/paired_coldinit/sports_three_seed_v1/seed2022/triplets.npy",
+        "sha256": "e8d982c6a2d1be20a934502d4a1ad6ba7e2b699b21098668343341f10db3d77b"
+      },
+      "B_epoch300_expected": 0.09515169996514843
+    },
+    "2023": {
+      "anchor_manifest": {
+        "path": "exp/initialization_kd_interaction/sports_init_kd_interaction_seed2023_v1/launch_manifest.json",
+        "sha256": "58018597532c414adb102279b1ae0ca0c3dca3803c13d3d92ba9abdaf8df7a3d"
+      },
+      "triplet_tape": {
+        "path": "exp/paired_coldinit/sports_three_seed_v1/seed2023/triplets.npy",
+        "sha256": "3763128ba003228d60c09924b9370b4cab0b8c16679366742835fc4559d89085"
+      },
+      "B_epoch300_expected": 0.0943431785304682
+    },
+    "2024": {
+      "anchor_manifest": {
+        "path": "exp/initialization_kd_interaction/sports_init_kd_interaction_seed2024_v1/launch_manifest.json",
+        "sha256": "0c84bbef5a02076d512047e1b32cfff3f2889933852407a4b00083eb6e98c47a"
+      },
+      "triplet_tape": {
+        "path": "exp/paired_coldinit/sports_three_seed_v1/seed2024/triplets.npy",
+        "sha256": "131cc14ebe6853e79216183f06923f3689d47d26c69eac2521d7f93b1b314bc7"
+      },
+      "B_epoch300_expected": 0.0946155096851523
+    }
+  },
+  "training": {
+    "epochs": 300,
+    "batches_per_epoch": 214,
+    "batch_size": 1024,
+    "lr": 6e-05,
+    "weight_decay": 0.01,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08
+  },
+  "evaluation": {
+    "primary": "epoch300_validation_recall20",
+    "curve_epochs": [
+      0,
+      50,
+      100,
+      200,
+      300
+    ],
+    "B_epoch0_expected": 0.09418449519084773,
+    "test_access": false,
+    "rank": "all_unobserved_items_train_exclusion_exact_top20",
+    "frequency_groups": "Train_degree_then_item_id_terciles",
+    "screen": {
+      "N_minus_B_low_micro_min": 0.001,
+      "N_minus_B_recall_min": -0.0002,
+      "N_minus_F_low_micro_min": 0.0005,
+      "N_minus_R_low_micro_min": 0.0005,
+      "gate_queue": false
+    }
+  },
+  "caps": {
+    "wall_seconds": 345600,
+    "rss_bytes": 6442450944,
+    "cuda_allocator_bytes": 2147483648,
+    "output_bytes": 8589934592,
+    "minimum_free_disk_bytes": 12884901888,
+    "sample_interval_seconds": 1
+  },
+  "smoke_caps": {
+    "wall_seconds": 600,
+    "rss_bytes": 6442450944,
+    "cuda_allocator_bytes": 2147483648,
+    "output_bytes": 268435456,
+    "minimum_free_disk_bytes": 4294967296,
+    "sample_interval_seconds": 1
+  },
+  "test_policy": "Test0",
+  "failure_policy": "hard_stop_preserve_no_retry",
+  "record_targets": {
+    "audit": "docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_AUDIT.md",
+    "results": "docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_RESULTS.md",
+    "handoff": "docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_HANDOFF.md",
+    "matrix_cells": "B/N/F/R x 2022/2023/2024",
+    "experiment_family": "docs/experiments/README.md",
+    "paper_gap": "conditional_after_independent_audit",
+    "navigation": "refresh_after_audit"
+  }
+}

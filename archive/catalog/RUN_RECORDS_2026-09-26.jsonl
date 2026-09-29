@@ -729,6 +729,15 @@
 {"bytes": 2221, "path": "exp/innovation2/modal_neighbor_v1/manifest.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
 {"bytes": 12405, "path": "exp/innovation2/modal_neighbor_v1/report.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
 {"bytes": 172, "path": "exp/innovation2/modal_neighbor_v1/supervisor.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
+{"bytes": 830, "path": "exp/innovation2/neighbor_shared_residual_epoch0_preflight_v1/report.json", "profile": null, "read_status": "parsed", "seed": null, "status": "passed"}
+{"bytes": 695, "path": "exp/innovation2/neighbor_shared_residual_smoke_v1/completeness.json", "profile": null, "read_status": "parsed", "seed": null, "status": "complete_unreviewed"}
+{"bytes": 178, "path": "exp/innovation2/neighbor_shared_residual_smoke_v1/exit.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
+{"bytes": 3480, "path": "exp/innovation2/neighbor_shared_residual_smoke_v1/manifest.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
+{"bytes": 31965, "path": "exp/innovation2/neighbor_shared_residual_smoke_v1/resource.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
+{"bytes": 420, "path": "exp/innovation2/neighbor_shared_residual_smoke_v1/seed2022/B/status.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
+{"bytes": 440, "path": "exp/innovation2/neighbor_shared_residual_smoke_v1/seed2022/F/status.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
+{"bytes": 440, "path": "exp/innovation2/neighbor_shared_residual_smoke_v1/seed2022/N/status.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
+{"bytes": 440, "path": "exp/innovation2/neighbor_shared_residual_smoke_v1/seed2022/R/status.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
 {"bytes": 228, "path": "exp/innovation2/ranking_gap_v1/acceptance.json", "profile": null, "read_status": "parsed", "seed": null, "status": "passed"}
 {"bytes": 91, "path": "exp/innovation2/ranking_gap_v1/exit.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
 {"bytes": 6270, "path": "exp/innovation2/ranking_gap_v1/manifest.json", "profile": "docs/research/innovation2/RANKING_GAP_PROFILE_V1.json", "read_status": "parsed", "seed": null, "status": null}

@@ -60,7 +60,7 @@
 - [archive/upstream/README.md](../../archive/upstream/README.md)
 - [archive/upstream/README_ORIGINAL_2026-09-26.md](../../archive/upstream/README_ORIGINAL_2026-09-26.md)
 
-## codes（73）
+## codes（75）
 
 - [codes/Models.py](../../codes/Models.py)
 - [codes/Models_empower.py](../../codes/Models_empower.py)
@@ -86,6 +86,7 @@
 - [codes/main_empower.py](../../codes/main_empower.py)
 - [codes/main_mmlight.py](../../codes/main_mmlight.py)
 - [codes/minimal_ranking_supervision.py](../../codes/minimal_ranking_supervision.py)
+- [codes/neighbor_shared_residual.py](../../codes/neighbor_shared_residual.py)
 - [codes/promptmm_release.py](../../codes/promptmm_release.py)
 - [codes/promptmm_release_baby_formal.py](../../codes/promptmm_release_baby_formal.py)
 - [codes/promptmm_release_resource.py](../../codes/promptmm_release_resource.py)
@@ -111,6 +112,7 @@
 - [codes/tests/test_initialization_pair.py](../../codes/tests/test_initialization_pair.py)
 - [codes/tests/test_minimal_ranking_supervision.py](../../codes/tests/test_minimal_ranking_supervision.py)
 - [codes/tests/test_mmrec_baby_converter.py](../../codes/tests/test_mmrec_baby_converter.py)
+- [codes/tests/test_neighbor_shared_residual.py](../../codes/tests/test_neighbor_shared_residual.py)
 - [codes/tests/test_promptmm_lr6e5_remaining.py](../../codes/tests/test_promptmm_lr6e5_remaining.py)
 - [codes/tests/test_promptmm_release.py](../../codes/tests/test_promptmm_release.py)
 - [codes/tests/test_promptmm_release_validation.py](../../codes/tests/test_promptmm_release_validation.py)
@@ -136,7 +138,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（182）
+## docs（184）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -305,6 +307,8 @@
 - [docs/research/innovation2/MODAL_NEIGHBOR_PREPARATION_REPORT_2026-09-29.md](../research/innovation2/MODAL_NEIGHBOR_PREPARATION_REPORT_2026-09-29.md)
 - [docs/research/innovation2/MODAL_NEIGHBOR_PROFILE_V1.json](../research/innovation2/MODAL_NEIGHBOR_PROFILE_V1.json)
 - [docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_DESIGN_V1.md](../research/innovation2/NEIGHBOR_SHARED_RESIDUAL_DESIGN_V1.md)
+- [docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_PREPARATION_2026-09-29.md](../research/innovation2/NEIGHBOR_SHARED_RESIDUAL_PREPARATION_2026-09-29.md)
+- [docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_PROFILE_V1.json](../research/innovation2/NEIGHBOR_SHARED_RESIDUAL_PROFILE_V1.json)
 - [docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_HANDOFF.md](../research/innovation2/RANKING_GAP_DIAGNOSTIC_HANDOFF.md)
 - [docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_PLAN_2026-09-29.md](../research/innovation2/RANKING_GAP_DIAGNOSTIC_PLAN_2026-09-29.md)
 - [docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_RESULTS.md](../research/innovation2/RANKING_GAP_DIAGNOSTIC_RESULTS.md)
@@ -352,7 +356,7 @@
 - [tests/test_sports_paired_cold.py](../../tests/test_sports_paired_cold.py)
 - [tests/test_sports_sham_residual.py](../../tests/test_sports_sham_residual.py)
 
-## tools（44）
+## tools（46）
 
 - [tools/audit_initialization_kd_three_seeds.py](../../tools/audit_initialization_kd_three_seeds.py)
 - [tools/audit_minimal_ranking_three_seed.py](../../tools/audit_minimal_ranking_three_seed.py)
@@ -369,6 +373,7 @@
 - [tools/innovation1_cost_m0.py](../../tools/innovation1_cost_m0.py)
 - [tools/modal_neighbor_core.py](../../tools/modal_neighbor_core.py)
 - [tools/preflight_initialization_kd_assets.py](../../tools/preflight_initialization_kd_assets.py)
+- [tools/preflight_neighbor_shared_residual.py](../../tools/preflight_neighbor_shared_residual.py)
 - [tools/prepare_minimal_ranking_candidates.py](../../tools/prepare_minimal_ranking_candidates.py)
 - [tools/run_cross_interaction_p0.py](../../tools/run_cross_interaction_p0.py)
 - [tools/run_cross_interaction_p1a.py](../../tools/run_cross_interaction_p1a.py)
@@ -386,6 +391,7 @@
 - [tools/run_minimal_ranking_supervision.py](../../tools/run_minimal_ranking_supervision.py)
 - [tools/run_minimal_ranking_three_seed.py](../../tools/run_minimal_ranking_three_seed.py)
 - [tools/run_modal_neighbor_diagnostic.py](../../tools/run_modal_neighbor_diagnostic.py)
+- [tools/run_neighbor_shared_residual.py](../../tools/run_neighbor_shared_residual.py)
 - [tools/run_ranking_gap_diagnostic.py](../../tools/run_ranking_gap_diagnostic.py)
 - [tools/run_sparse_item_assessment.py](../../tools/run_sparse_item_assessment.py)
 - [tools/run_sports_cached_deployment.py](../../tools/run_sports_cached_deployment.py)

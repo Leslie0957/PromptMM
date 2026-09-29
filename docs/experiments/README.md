@@ -13,6 +13,7 @@
 | 最小排序监督三seed | B/R/A各300轮，M固定混合；执行通过，R/A/M末轮均低于B，三次screen_stop；仅Val，NDCG字段有限定 | [独立审计](../research/innovation2/MINIMAL_RANKING_THREE_SEED_AUDIT_2026-09-29.md) · [结果](../research/innovation2/MINIMAL_RANKING_SUPERVISION_RESULTS.md) |
 | 第二项排序缺口诊断 | Sports七个既有评分状态；T0三seed教师独有命中超过描述性门槛，但净差均负；仅Val，独立审计已完成（数值通过，证据有限定） | [结果与自审](../research/innovation2/RANKING_GAP_DIAGNOSTIC_RESULTS.md) · [独立审计](../research/innovation2/RANKING_GAP_INDEPENDENT_AUDIT_2026-09-29.md) |
 | 最小排序监督对照（历史准备） | 准备阶段已结束，完成状态与结果见上方三seed行；此入口仅保留启动来源 | [启动准备](../research/innovation2/MINIMAL_RANKING_THREE_SEED_MANUAL_LAUNCH_2026-09-29.md) |
+| 共享邻域残差 B/N/F/R（准备） | 三seed固定配方、串行手动命令、合成测试和隔离资源检查完成；正式12臂未启动、无效果结果 | [冻结准备与运行声明](../research/innovation2/NEIGHBOR_SHARED_RESIDUAL_PREPARATION_2026-09-29.md) |
 | 早期梯度/几何/蒸馏强度 | 局部诊断与负结果保留，不证明持续冲突或最优权重 | [机制综合](../research/SPORTS_INTEGRATED_MECHANISM_CONCLUSION_2026-09-26.md) |
 | 原缓存部署 | 暖学生对缓存教师无一致在线优势；未含发布版臂 | [旧效率审计](../research/SPORTS_CACHED_DEPLOYMENT_AUDIT_2026-09-26.md) |
 | M0–M2成本补证 | 预检、正式检查点部署、短更新完成；M1 v1失败/v2通过；局部成本收益，无完整训练结论 | [独立审计](../research/INNOVATION1_COST_INDEPENDENT_AUDIT_2026-09-29.md) · [成本表](../research/INNOVATION1_COST_RESULTS.md) |
