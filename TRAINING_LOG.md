@@ -30,3 +30,14 @@
 - Full old active log including pending preserved verbatim at the snapshot above (1035 lines, 286218 bytes); all six replaced navigation documents also byte-preserved with manifest. Git -text protects snapshots. Existing research audits, result matrices, raw assets and check/ unchanged; no tensor/data/Test access, experiment, source/model change or asset relocation.
 - Verified snapshot byte lengths/SHA and current local links; refresh generated catalogs and check staged snapshot identities before scoped commit. Current log is deliberately short; future outcomes append here and detailed runs stay in family audits. This is navigation maintenance, no tag/backup milestone claim.
 - Unique next step: second-work candidate problem comparison with novelty/value hypotheses and minimal falsification conditions; no historical gate or pending automatically resumes.
+
+
+## 2026-09-29 Root organization and thesis charter (pending)
+
+- User authorizes physical organization excluding zhuanli, and stable core thesis roadmap. Base30fa879; preserve active code/data/Model/exp/logs and all historical evidence. Move legacy Photo/LATTICE, pictures, old route, check reviews and P0 scratch to mapped archives; remove only verified empty temporary directories. Preserve moved bytes and untracked review status; update links/navigation/WORKSPACE_MAP and AGENTS startup charter pointer. Charter fixes overall goal and two-work relationship, not an unchosen algorithm. Risks: path dependencies, Git EOL/status drift, silently changing research goal. Verify manifests/hashes, active references, scope and links; no training/Test. Append outcome, scoped local commit; no automatic rollback.
+
+## 2026-09-29 Root organization and thesis charter (completed)
+
+- Relocated legacy Photo/LATTICE, three local reviews, P0 scratch, old route and two PNGs using checked absolute paths; 109 payloads verified byte-for-byte by size/SHA against ROOT_RELOCATION_2026-09-29.json. Removed only two verified empty directories. zhuanli and active code/data/Model/exp/logs untouched. Reviews remain untracked and uncommitted; scratch stays ignored. Historical paths resolve via map; old runtime code may require path adjustment before reuse, no reuse authorized.
+- Added root THESIS_ROADMAP.md v1.0: stable multimodal transfer/efficiency objective, first-work bounded completion, second-work independent incremental value, phased validation and user-confirmed substantive goal changes. No algorithm selected, no degree sufficiency guarantee. AGENTS startup, root/docs/second-work entrances and workspace map aligned; two old route hyperlinks updated only. No training/evaluation/Test or new scientific result.
+- All moved payload hashes and focused links passed; refresh catalogs, diff and scoped local commit. Original immutable archives unchanged; no tag/merge/push or backup milestone claim. Next step: second-work candidate problem comparison under the charter, without launching experiments.

@@ -1,5 +1,7 @@
 # 文档导航
 
+核心目标：[论文总体目标与路线](../THESIS_ROADMAP.md)。研究决策遵循此页，实验状态不自动改变总体目标。
+
 日常只需[当前短日志](../TRAINING_LOG.md)与[实验总览](experiments/README.md)，不必遍读research目录。
 
 | 层级 | 内容 |

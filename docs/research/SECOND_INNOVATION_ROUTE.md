@@ -5,7 +5,7 @@
 - 中文名：面向负迁移抑制的实体-模态可靠语义选择与梯度兼容蒸馏
 - 英文名：Reliability-Guided Gradient-Compatible Semantic Distillation
 - 简称：RGCS-Distill
-- 必读来源：[TRAINING_LOG.md](../../TRAINING_LOG.md)、[论文路线.txt](../../论文路线.txt)
+- 必读来源：[TRAINING_LOG.md](../../TRAINING_LOG.md)、[论文路线.txt](../../archive/research_notes/论文路线.txt)
 - 活跃代码：[main_mmlight.py](../../codes/main_mmlight.py)
 - 参数入口：[parser.py](../../codes/utility/parser.py)
 

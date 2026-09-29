@@ -1,0 +1,668 @@
+{
+  "moves": {
+    "4.9数据集Photo代码": "archive/legacy_code/4.9数据集Photo代码",
+    "LATTICE": "archive/reference_code/LATTICE",
+    "check": "archive/reviews/check",
+    ".codex_tmp": "archive/scratch/codex_tmp_2026-09-29",
+    "论文路线.txt": "archive/research_notes/论文路线.txt",
+    "PromptMM.png": "docs/assets/PromptMM.png",
+    "decouple.png": "docs/assets/decouple.png"
+  },
+  "files": [
+    {
+      "old": "4.9数据集Photo代码/codes/align_data.py",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/align_data.py",
+      "bytes": 1256,
+      "sha256": "a93fbacf62b58f8b8179bb645a917f78fdfdde1bf464892cf15bef15aef97361"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/check_data.py",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/check_data.py",
+      "bytes": 606,
+      "sha256": "f0dcab2715996d126c011e483db5ee640c63ef73453942709e82ac861f778c8d"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/create_mock_data.py",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/create_mock_data.py",
+      "bytes": 1204,
+      "sha256": "206e94513cfeec095b7e5960c42211d2c832771f93cbddd1aa3487c864babf27"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/main.py",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/main.py",
+      "bytes": 49862,
+      "sha256": "86a92ff045c1bc4b766ba0fdca3ce507e41db2f3d16dec6cd98b9033d2bf53a5"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/main_empower.py",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/main_empower.py",
+      "bytes": 50434,
+      "sha256": "e45330b6ea171ddbaf43865d66bb415d0cf091ea8e531a4c62ed74c322ac4671"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/main_mmlight.py",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/main_mmlight.py",
+      "bytes": 51204,
+      "sha256": "4984c4203a2f45c70766d8aec7fd1ff892c73bf21016994df1bebdccc27e2c19"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/Models.py",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/Models.py",
+      "bytes": 26887,
+      "sha256": "5ac1f70387a3d47eda2cee498f49d5b87ddcab8fbc96376f561e849ab6c7b4e4"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/Models_empower.py",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/Models_empower.py",
+      "bytes": 26901,
+      "sha256": "d566be15c6529ef83c07ec7ae16692d42233e8fedff183c78eabceeacb7a25ca"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/Models_mmlight.py",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/Models_mmlight.py",
+      "bytes": 30940,
+      "sha256": "48efc29bf2f695c161d8d22e02d4772fd43acdae36828be6229e9e3c1581ded9"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/patent_test.py",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/patent_test.py",
+      "bytes": 1927,
+      "sha256": "e6025254c788aaa2e5c213be30c7f3d9bf89773263e4a7e3af0f5ff4785cbb6f"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/run_patent.py",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/run_patent.py",
+      "bytes": 6718,
+      "sha256": "668283ef9dd3dcb1fd181eeb6adb2fc3d3bcf06907f8f2399cff97708993c221"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/student_model.py",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/student_model.py",
+      "bytes": 1941,
+      "sha256": "e7953d55446b40ac61d99d006756bd2dafafe3468f43450522b255dcc7967347"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/test.py",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/test.py",
+      "bytes": 173,
+      "sha256": "f2130b673845a155ad4cd32b5dcb760b82345255f58ed99a2294cc61b2e23a22"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/utility/batch_test.py",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/utility/batch_test.py",
+      "bytes": 5570,
+      "sha256": "d397080b6a8ce33d986610e27b81cf0fd874ed8faf83845851e46da945f6fb2b"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/utility/load_data.py",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/utility/load_data.py",
+      "bytes": 7071,
+      "sha256": "4d8b58544088d16f408020423da5cd3eb8de16b26d3c5c4d1a7d2913943f4fcc"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/utility/logging.py",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/utility/logging.py",
+      "bytes": 541,
+      "sha256": "ac8699a36f48caa0d8436ae65a84c222b2a22f8e7d9e7ffa3d8b17bf3c3eb678"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/utility/metrics.py",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/utility/metrics.py",
+      "bytes": 2501,
+      "sha256": "6e792914c7ffb91f1db39c5f068b37792c83011a2bc61b31c839b8e48dae69f5"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/utility/norm.py",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/utility/norm.py",
+      "bytes": 4034,
+      "sha256": "77ea879b066990b1b449ce732b99fd9fb06c8dc01deed7287a76519f2b01804c"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/utility/parser.py",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/utility/parser.py",
+      "bytes": 109486,
+      "sha256": "ab45cf48d9b9b6f7b3ca349b0cb7fdac61d5e5d600808c267aae9ae82cd58af3"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/utility/__pycache__/batch_test.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/utility/__pycache__/batch_test.cpython-38.pyc",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/utility/__pycache__/batch_test.cpython-39.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/utility/__pycache__/batch_test.cpython-39.pyc",
+      "bytes": 4369,
+      "sha256": "319c1813beaaff10e537462757470a54d2d201de2f6b757bcb5cc04634164203"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/utility/__pycache__/load_data.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/utility/__pycache__/load_data.cpython-38.pyc",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/utility/__pycache__/load_data.cpython-39.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/utility/__pycache__/load_data.cpython-39.pyc",
+      "bytes": 5727,
+      "sha256": "2a44f06496326c7dccc1fb3bc6059cfb657f977e8e9d0db3df9ad95ae6b18c3e"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/utility/__pycache__/logging.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/utility/__pycache__/logging.cpython-38.pyc",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/utility/__pycache__/logging.cpython-39.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/utility/__pycache__/logging.cpython-39.pyc",
+      "bytes": 931,
+      "sha256": "244087c0a78b3cac61e9cdbb6f968437b699419b4a6ba321c19a90c4a7f7cb02"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/utility/__pycache__/metrics.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/utility/__pycache__/metrics.cpython-38.pyc",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/utility/__pycache__/metrics.cpython-39.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/utility/__pycache__/metrics.cpython-39.pyc",
+      "bytes": 3383,
+      "sha256": "1e34b56dfc2cbd5478ed2ed1461f48989e4d3e5907dd02a4dbeae784a2dc28e4"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/utility/__pycache__/norm.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/utility/__pycache__/norm.cpython-38.pyc",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/utility/__pycache__/norm.cpython-39.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/utility/__pycache__/norm.cpython-39.pyc",
+      "bytes": 2393,
+      "sha256": "f8931a3765b455ab0ed5c57425d28f2460b6d558d640fc4d540eb355e7ba5182"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/utility/__pycache__/parser.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/utility/__pycache__/parser.cpython-38.pyc",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/utility/__pycache__/parser.cpython-39.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/utility/__pycache__/parser.cpython-39.pyc",
+      "bytes": 6606,
+      "sha256": "b2d80a09d207cc167261495a29a57e1db68dcfc746c5be1f51b64d4375b1992d"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/generator_discriminator.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/generator_discriminator.cpython-38.pyc",
+      "bytes": 5591,
+      "sha256": "923b618b1e49d5a1d276eb11ffde3d7bf4b6327971b1e074c39c415318d4a1d0"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/MMD.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/MMD.cpython-38.pyc",
+      "bytes": 2091,
+      "sha256": "14e4e24d898fe462f111c5848cc7fb9917188ac7810b711ecd5beba48fa90a74"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models.cpython-38.pyc",
+      "bytes": 13376,
+      "sha256": "8ab986ec926e80e8f23962326c89ca7d9659aba1c153105954d6d511969ec263"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models.cpython-39.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models.cpython-39.pyc",
+      "bytes": 15683,
+      "sha256": "a10334252d889028ad18da361d2f954018f2e2d162d934d3599bb2032a367160"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2.cpython-38.pyc",
+      "bytes": 7030,
+      "sha256": "2dbe1d8200b494d6dab669ae97811dcf038c75c73e554df2dfbf65e105c61d1f"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_0938.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_0938.cpython-38.pyc",
+      "bytes": 6875,
+      "sha256": "6a5d4ba25fb0c7af571b5ed701a9bd0984a6233aad83bb11bfe8af5b1db5d625"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_0938_modality.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_0938_modality.cpython-38.pyc",
+      "bytes": 5259,
+      "sha256": "4aa70983b853a797fb3f6a6477ce3986b29f15d4c9f067ff52cccb103a77127f"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_0938_sub_gene.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_0938_sub_gene.cpython-38.pyc",
+      "bytes": 5272,
+      "sha256": "4146d3b91a0b22b1ccdab8bf6f7241cd75c6dca97c482f84560b2bd35c35a6d4"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_MF_VBPR_NGCF_LightGCN.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_MF_VBPR_NGCF_LightGCN.cpython-38.pyc",
+      "bytes": 4470,
+      "sha256": "6b02216dbfaa6fd29bcb10f563e9d0cdc10b70d207a9d69e9949380d22731e1b"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_MF_VBPR_NGCF_LightGCN_MMGCN.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_MF_VBPR_NGCF_LightGCN_MMGCN.cpython-38.pyc",
+      "bytes": 7541,
+      "sha256": "5e006e628923ee8c20dfa0418111cbde40b3d50521e2da05c23de5dd633561b5"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_MF_VBPR_NGCF_LightGCN_MMGCN_HAFR.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_MF_VBPR_NGCF_LightGCN_MMGCN_HAFR.cpython-38.pyc",
+      "bytes": 14721,
+      "sha256": "70071face6018c7c3ccae4686e54fbc1e31bc30391df8a70bbdac53cfa80913e"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_MF_VBPR_NGCF_LightGCN_MMGCN_HAFR_CLCRec.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_MF_VBPR_NGCF_LightGCN_MMGCN_HAFR_CLCRec.cpython-38.pyc",
+      "bytes": 15742,
+      "sha256": "aff42fde8f9f2dffb03f0ffb6b969678fdedac205b68660261d1dfb117008605"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_MF_VBPR_NGCF_LightGCN_MMGCN_HAFR_CLCRec3.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_MF_VBPR_NGCF_LightGCN_MMGCN_HAFR_CLCRec3.cpython-38.pyc",
+      "bytes": 17121,
+      "sha256": "5261004f90580da6c4dd78f0c9ff23c690bf4ff5b49df79874077cae6eeae556"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_MF_VBPR_NGCF_LightGCN_MMGCN_HAFR_CLCRec_SLMRec.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_MF_VBPR_NGCF_LightGCN_MMGCN_HAFR_CLCRec_SLMRec.cpython-38.pyc",
+      "bytes": 20663,
+      "sha256": "c2bb4be2b841c00c84283d6aeff5f9f03bfd19527545ff2b2f2104cdbd69a522"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene.cpython-38.pyc",
+      "bytes": 6269,
+      "sha256": "a0e93bd3937e68134516b5ae50c18602fb8ff2ac7acf5d1eb0ab2c56ecd18fa9"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_0485.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_0485.cpython-38.pyc",
+      "bytes": 6294,
+      "sha256": "c5521720e2aad74316cdc59e0ba95c875e7372665401d603b96b60b8cbbc9751"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight.cpython-38.pyc",
+      "bytes": 6299,
+      "sha256": "332a2666a0d50786dcc097f26147efe506adaa3931f899a5fd2b40ef5c6ab56a"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD.cpython-38.pyc",
+      "bytes": 6232,
+      "sha256": "0a7623fc8aaae4d41bd9f161107ee0f38095207d481de42ac10d33a6bb46ac61"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click.cpython-38.pyc",
+      "bytes": 11045,
+      "sha256": "4cb40d2b4ace9b7033c9fb00ce65f3c8ff82570016e1d42faada06b3d3b977ed"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first.cpython-38.pyc",
+      "bytes": 11053,
+      "sha256": "38fb3350df9dbef515a50bce26fadcfbf85b0e14a35ab5f9dc143d0aacff5271"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto.cpython-38.pyc",
+      "bytes": 11058,
+      "sha256": "3ca3dfef2e5daa7229b184040a888ff8c5e72a71f039252afef07c9208daf804"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_0826.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_0826.cpython-38.pyc",
+      "bytes": 11347,
+      "sha256": "67c2c62069fe5840c74d6298d0d4f199c0db00091667d637978f6c266ab3cb87"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality.cpython-38.pyc",
+      "bytes": 11463,
+      "sha256": "74360dee51a5090ce973e84e6249013edf337bb911be0a8fb2552f5b3243d8ec"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_333333333333.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_333333333333.cpython-38.pyc",
+      "bytes": 12085,
+      "sha256": "c37e092372e7073d2ae9ee9ec9bb69f63671350c709ac41d6c54321022eb1bb2"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_3_5.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_3_5.cpython-38.pyc",
+      "bytes": 11806,
+      "sha256": "3fec924aa336b959f863ab410bcdf8200b9797edaaea0a085ceb004931283228"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_binaryLoss_modelPara.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_binaryLoss_modelPara.cpython-38.pyc",
+      "bytes": 11562,
+      "sha256": "26921265f561015f5fe1284400a65290c49b8a9db74a2dd3fd4a22528cc82d28"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_CL.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_CL.cpython-38.pyc",
+      "bytes": 13472,
+      "sha256": "32340882780b0c3ed2c2be403be9b320930e6e8450aa40d4e0375d5182e7715f"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_CL_4_11_0945_0929_mem.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_CL_4_11_0945_0929_mem.cpython-38.pyc",
+      "bytes": 13471,
+      "sha256": "99891b3fdbdc24d7804b1d4273146d31a4908637697037c572dc08c9e17e1eee"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_CL_4_11_0945_0929_mem_ablation.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_CL_4_11_0945_0929_mem_ablation.cpython-38.pyc",
+      "bytes": 13182,
+      "sha256": "a30a323b4a915cbc588899c5caa9d040b78930bf272ef6ef9ef2eaaa068c7d69"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_CL_4_11_0945_0929_mem_ablation_0962_beforeafterTo0962.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_CL_4_11_0945_0929_mem_ablation_0962_beforeafterTo0962.cpython-38.pyc",
+      "bytes": 13503,
+      "sha256": "a888f832d6b379272f4b54aea4b9d040051a0001d59b87cf3c2064b871621131"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_CL_4_11_0945_0929_mem_ablation_beforeafter.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_CL_4_11_0945_0929_mem_ablation_beforeafter.cpython-38.pyc",
+      "bytes": 14096,
+      "sha256": "33e079159d56104a7972184e37c47915c3908cffcd971003d7782ab8f5e91be3"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_CL_4_11_0945_0929_mem_ablation_copy.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_CL_4_11_0945_0929_mem_ablation_copy.cpython-38.pyc",
+      "bytes": 13370,
+      "sha256": "68ae7f1bb5014e06818d093195f8355462097a5815eac6b11959fb7ae968f929"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_CL_4_11_0945_0929_mem_ablation_delete.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_CL_4_11_0945_0929_mem_ablation_delete.cpython-38.pyc",
+      "bytes": 13059,
+      "sha256": "69d17e41c4b6cbf60656b476e531b36a80e189af51ba5a46c461028da9cfb3f8"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_CL_4_11_0945_0929_mem_ablation_DtwoMLP.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_CL_4_11_0945_0929_mem_ablation_DtwoMLP.cpython-38.pyc",
+      "bytes": 13680,
+      "sha256": "53dba1d05d1be16f13a780a7adb7ebea3255b6e3936517cfaf760b4d33d29559"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_CL_4_11_0945_0929_mem_based_noFeatTrans_ablation.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_CL_4_11_0945_0929_mem_based_noFeatTrans_ablation.cpython-38.pyc",
+      "bytes": 13363,
+      "sha256": "73b6c47f34ed8ec6044d9f0d59dceda47dcbd98c2a9d544b9ba8d9da8eb1c66e"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_CL_4_11_0945_0929_mem_dropGNN.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_CL_4_11_0945_0929_mem_dropGNN.cpython-38.pyc",
+      "bytes": 13891,
+      "sha256": "975edafa1df93d99bb0a8035b8abf442f4bad8cdc8d83c6318ff654a5a1078ed"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_CL_4_11_0945_0929_mem_redoADCL.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_CL_4_11_0945_0929_mem_redoADCL.cpython-38.pyc",
+      "bytes": 13534,
+      "sha256": "3fd38f7eaaa4082ef84d73c412c8e742104dab61803093d54d0bb320551f6018"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_HL_train.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_HL_train.cpython-38.pyc",
+      "bytes": 11076,
+      "sha256": "3a94cebc6b5d38d223b1247367b938cfa1ed83ab478be7a763e4f0e362935a85"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_IRGANdeal.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_IRGANdeal.cpython-38.pyc",
+      "bytes": 11077,
+      "sha256": "3f3fc83a4eb9d5c36f9c1b8f37708466e538d47abe8a00c4d353c35a17b9fc3c"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_MUIT.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_MUIT.cpython-38.pyc",
+      "bytes": 11751,
+      "sha256": "bd78962f038facb5bb613b93b11854296c13e2f505816e8c14a4e4605508155d"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_oversmoothing.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_oversmoothing.cpython-38.pyc",
+      "bytes": 10914,
+      "sha256": "21d8c391df0b9e7e9cc3ba53ef56d35f86953e38f067daae9d4fa2843a3ab4da"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_woFEAT.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_woFEAT.cpython-38.pyc",
+      "bytes": 11339,
+      "sha256": "ee0facb44215a310884529f634b004efc19bc63543762937e83a42f0ee5e893d"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_woIIGRAPH.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_woIIGRAPH.cpython-38.pyc",
+      "bytes": 10949,
+      "sha256": "94d4a6ed40b60086f1165008682b396e6476711c197cc7e289f740dab7091183"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_model_feature.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_model_feature.cpython-38.pyc",
+      "bytes": 11072,
+      "sha256": "26f03dcbe11aa6972e71c240d72f94d075d6f92a306fc9405498bbff4f1fac32"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_samepos.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_samepos.cpython-38.pyc",
+      "bytes": 11066,
+      "sha256": "01369c4601e5cea4023c5aaf868263a9b52c2fa15653579c3061441d6d792405"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_G_first.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_G_first.cpython-38.pyc",
+      "bytes": 11053,
+      "sha256": "75d1336924eac559b8e69dfff31faa463e70efff74d465ed242bd7f1ba6f3d8a"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_G_first_auto.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_G_first_auto.cpython-38.pyc",
+      "bytes": 11058,
+      "sha256": "49fcad5b4495783660e6068e50f48dcfbd99c2787587177062c8b3dcda252256"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_G_first_auto_geneBPR.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models2_sub_gene_co_weight_AD_0938_fake_click_G_first_auto_geneBPR.cpython-38.pyc",
+      "bytes": 9779,
+      "sha256": "ccfdcd06420afee1cb672fe6707ee17d25f673683823750280383047b0735a43"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models3.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models3.cpython-38.pyc",
+      "bytes": 7558,
+      "sha256": "4a8782f591b07099f06553307cecfdd179782a9c15f8e0db6fc6342a015a0c6c"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models3.cpython-39.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models3.cpython-39.pyc",
+      "bytes": 16498,
+      "sha256": "f9cf3328e7758e8c6cb957f1d160709f1935f8da3290b74426dc47bab2271727"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models3_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_CL_4_11_0945_0929_mem_5_28.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models3_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_CL_4_11_0945_0929_mem_5_28.cpython-38.pyc",
+      "bytes": 15131,
+      "sha256": "5641d4668476a3bf316e17ab849ace263ddcf4ba647f276c44bd1cf12c10225b"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models3_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_CL_4_11_0945_0929_mem_5_28_distribution.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models3_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_CL_4_11_0945_0929_mem_5_28_distribution.cpython-38.pyc",
+      "bytes": 15166,
+      "sha256": "d04c16a41edb3a2891ab99fb7f61b2742e8288ce0dd046873e66e725606a142f"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models3_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_CL_4_11_0945_0929_mem_5_28_distribution_noFeatTrans.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models3_sub_gene_co_weight_AD_0938_fake_click_D_first_auto_modality_CL_4_11_0945_0929_mem_5_28_distribution_noFeatTrans.cpython-38.pyc",
+      "bytes": 14975,
+      "sha256": "d63799dd2c9a1211a5022ac4a2ea98041a755c5609f334a77065ad020f2cdee3"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models_AD.cpython-38.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models_AD.cpython-38.pyc",
+      "bytes": 7059,
+      "sha256": "43877cde495f33136d2e68a8a78e7e91cbbd397275f39d2cf0da817b822e50cb"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models_empower.cpython-39.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models_empower.cpython-39.pyc",
+      "bytes": 15895,
+      "sha256": "47a6acde69981161d5d3fc8cf0015c614fe0d11b93b9a611bcfb46adc5d024ca"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/Models_mmlight.cpython-39.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/Models_mmlight.cpython-39.pyc",
+      "bytes": 17839,
+      "sha256": "1359c7b49bcd24ccd418b04ed51bc8dace00009307285f443a9e92f7c3bc5129"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/student_model.cpython-310.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/student_model.cpython-310.pyc",
+      "bytes": 1592,
+      "sha256": "bd0948e30b40c6d6f5d04468ff7600437a872971a663a38afa402c6c148c7ecd"
+    },
+    {
+      "old": "4.9数据集Photo代码/codes/__pycache__/student_model.cpython-39.pyc",
+      "new": "archive/legacy_code/4.9数据集Photo代码/codes/__pycache__/student_model.cpython-39.pyc",
+      "bytes": 1588,
+      "sha256": "42fa49bbde6dcdaa0b44be2ab264b8d29a9d38c5bb9f7a1d7197f18fbec432f5"
+    },
+    {
+      "old": "LATTICE/LICENSE",
+      "new": "archive/reference_code/LATTICE/LICENSE",
+      "bytes": 1105,
+      "sha256": "96f656807aab58ae765eb6dd06417e3df3dc06d78e9240b472c0a520e414002c"
+    },
+    {
+      "old": "LATTICE/README.md",
+      "new": "archive/reference_code/LATTICE/README.md",
+      "bytes": 2228,
+      "sha256": "ae0c7fb564dd48401562b5a83c08c22ce8f7473b186b31a609fbace3929842bd"
+    },
+    {
+      "old": "LATTICE/codes/main.py",
+      "new": "archive/reference_code/LATTICE/codes/main.py",
+      "bytes": 8188,
+      "sha256": "8fc7f59fcf83fb84cd8a16efd612bf35311a2abf29dcfcfb9e9494496a7e51d3"
+    },
+    {
+      "old": "LATTICE/codes/Models.py",
+      "new": "archive/reference_code/LATTICE/codes/Models.py",
+      "bytes": 6825,
+      "sha256": "39db75f432896e63587ce9282747cb9785f39c70ee59dc6778b6d28d1df31f4e"
+    },
+    {
+      "old": "LATTICE/codes/utility/batch_test.py",
+      "new": "archive/reference_code/LATTICE/codes/utility/batch_test.py",
+      "bytes": 5454,
+      "sha256": "cf3838e2bd271a491701f03075fdec2bc8d246098cee15fb76979173fc83c5a8"
+    },
+    {
+      "old": "LATTICE/codes/utility/load_data.py",
+      "new": "archive/reference_code/LATTICE/codes/utility/load_data.py",
+      "bytes": 7443,
+      "sha256": "2cb73bdfe492df3471ffd53f34bac91f5a1df3d8afac56211e9101f279ded7df"
+    },
+    {
+      "old": "LATTICE/codes/utility/metrics.py",
+      "new": "archive/reference_code/LATTICE/codes/utility/metrics.py",
+      "bytes": 2501,
+      "sha256": "6e792914c7ffb91f1db39c5f068b37792c83011a2bc61b31c839b8e48dae69f5"
+    },
+    {
+      "old": "LATTICE/codes/utility/parser.py",
+      "new": "archive/reference_code/LATTICE/codes/utility/parser.py",
+      "bytes": 2968,
+      "sha256": "a9cb6ae62efac87765cf5fbd87033cbbcea2643f7e9e9970df1b4fbc37130d38"
+    },
+    {
+      "old": "LATTICE/codes/utility/__pycache__/batch_test.cpython-38.pyc",
+      "new": "archive/reference_code/LATTICE/codes/utility/__pycache__/batch_test.cpython-38.pyc",
+      "bytes": 4393,
+      "sha256": "b46dec26dfe7de3c6858dbf9117a71e0d5d34f61bdec0b88ec171d57553b14d9"
+    },
+    {
+      "old": "LATTICE/codes/utility/__pycache__/load_data.cpython-38.pyc",
+      "new": "archive/reference_code/LATTICE/codes/utility/__pycache__/load_data.cpython-38.pyc",
+      "bytes": 5872,
+      "sha256": "55abcfaf063952ecfe21fe0ec03d04b4a68020fd5cb0c01eee64e562dcfeace2"
+    },
+    {
+      "old": "LATTICE/codes/utility/__pycache__/metrics.cpython-38.pyc",
+      "new": "archive/reference_code/LATTICE/codes/utility/__pycache__/metrics.cpython-38.pyc",
+      "bytes": 3418,
+      "sha256": "465e66e46af915e1aa91898a5aef436eb9fe0afac66c2bb3d1caed9576b57ce7"
+    },
+    {
+      "old": "LATTICE/codes/utility/__pycache__/parser.cpython-38.pyc",
+      "new": "archive/reference_code/LATTICE/codes/utility/__pycache__/parser.cpython-38.pyc",
+      "bytes": 2086,
+      "sha256": "e386c54d87c216c0337131f5f7e5b01ed848b189e3ee047173a2a6ec5b94f082"
+    },
+    {
+      "old": "LATTICE/codes/__pycache__/Models.cpython-38.pyc",
+      "new": "archive/reference_code/LATTICE/codes/__pycache__/Models.cpython-38.pyc",
+      "bytes": 4367,
+      "sha256": "a26be764a4e921e14ee3eb4eeb64f12a20ca52f0ca4b44746fe85f33c14dc00c"
+    },
+    {
+      "old": "check/chatgpt.txt",
+      "new": "archive/reviews/check/chatgpt.txt",
+      "bytes": 21473,
+      "sha256": "c419aa87e658eb6579c2a643d701ae4264a21eec5ca0c3c2f41dd52c811eee62"
+    },
+    {
+      "old": "check/deepseek.txt",
+      "new": "archive/reviews/check/deepseek.txt",
+      "bytes": 14288,
+      "sha256": "877a79f675fef21b6f0823d1c56a480c4f8c282cfebdea771b45aa73fbd616c9"
+    },
+    {
+      "old": "check/doubao.txt",
+      "new": "archive/reviews/check/doubao.txt",
+      "bytes": 10685,
+      "sha256": "4e9666feecbda37bf8662d235a9ac7e5b41879872c12b2eef403f79f3bd1cfe9"
+    },
+    {
+      "old": ".codex_tmp/p0_plan_preparation.json",
+      "new": "archive/scratch/codex_tmp_2026-09-29/p0_plan_preparation.json",
+      "bytes": 72488,
+      "sha256": "11130dd5cc71ee2da45a485bb04c3946a6d5e9f310940019cc219fe1d1557393"
+    },
+    {
+      "old": "论文路线.txt",
+      "new": "archive/research_notes/论文路线.txt",
+      "bytes": 3995,
+      "sha256": "367dbc1a5abf19bb4b8b0d383e778bcf4a26e875e970ccaa4486f54b0becc3cd"
+    },
+    {
+      "old": "PromptMM.png",
+      "new": "docs/assets/PromptMM.png",
+      "bytes": 432550,
+      "sha256": "079f157a0a1cf09d58427a5baa1285add7d63f2590de6daccde26c1f24abce7f"
+    },
+    {
+      "old": "decouple.png",
+      "new": "docs/assets/decouple.png",
+      "bytes": 307259,
+      "sha256": "9fb7e71af403ca19df7ff310beee9b94abb86fc0554c771545f9293af7ab61ad"
+    }
+  ],
+  "note": "Review and scratch payloads remain local/untracked or ignored; no zhuanli access. Historical references resolve via old/new map."
+}

@@ -4,45 +4,31 @@
 [本机资产目录](../../archive/catalog/README.md)。这是导航，不是启动时必读列表。
 
 
-## 4.9数据集Photo代码（19）
-
-- [4.9数据集Photo代码/codes/Models.py](../../4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/Models.py)
-- [4.9数据集Photo代码/codes/Models_empower.py](../../4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/Models_empower.py)
-- [4.9数据集Photo代码/codes/Models_mmlight.py](../../4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/Models_mmlight.py)
-- [4.9数据集Photo代码/codes/align_data.py](../../4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/align_data.py)
-- [4.9数据集Photo代码/codes/check_data.py](../../4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/check_data.py)
-- [4.9数据集Photo代码/codes/create_mock_data.py](../../4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/create_mock_data.py)
-- [4.9数据集Photo代码/codes/main.py](../../4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/main.py)
-- [4.9数据集Photo代码/codes/main_empower.py](../../4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/main_empower.py)
-- [4.9数据集Photo代码/codes/main_mmlight.py](../../4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/main_mmlight.py)
-- [4.9数据集Photo代码/codes/patent_test.py](../../4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/patent_test.py)
-- [4.9数据集Photo代码/codes/run_patent.py](../../4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/run_patent.py)
-- [4.9数据集Photo代码/codes/student_model.py](../../4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/student_model.py)
-- [4.9数据集Photo代码/codes/test.py](../../4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/test.py)
-- [4.9数据集Photo代码/codes/utility/batch_test.py](../../4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/utility/batch_test.py)
-- [4.9数据集Photo代码/codes/utility/load_data.py](../../4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/utility/load_data.py)
-- [4.9数据集Photo代码/codes/utility/logging.py](../../4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/utility/logging.py)
-- [4.9数据集Photo代码/codes/utility/metrics.py](../../4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/utility/metrics.py)
-- [4.9数据集Photo代码/codes/utility/norm.py](../../4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/utility/norm.py)
-- [4.9数据集Photo代码/codes/utility/parser.py](../../4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/utility/parser.py)
-
-## LATTICE（8）
-
-- [LATTICE/LICENSE](../../LATTICE/LICENSE)
-- [LATTICE/README.md](../../LATTICE/README.md)
-- [LATTICE/codes/Models.py](../../LATTICE/codes/Models.py)
-- [LATTICE/codes/main.py](../../LATTICE/codes/main.py)
-- [LATTICE/codes/utility/batch_test.py](../../LATTICE/codes/utility/batch_test.py)
-- [LATTICE/codes/utility/load_data.py](../../LATTICE/codes/utility/load_data.py)
-- [LATTICE/codes/utility/metrics.py](../../LATTICE/codes/utility/metrics.py)
-- [LATTICE/codes/utility/parser.py](../../LATTICE/codes/utility/parser.py)
-
-## archive（22）
+## archive（53）
 
 - [archive/README.md](../../archive/README.md)
 - [archive/catalog/README.md](../../archive/catalog/README.md)
 - [archive/catalog/RUN_RECORDS_2026-09-26.jsonl](../../archive/catalog/RUN_RECORDS_2026-09-26.jsonl)
 - [archive/catalog/WORKSPACE_FILES_2026-09-26.jsonl](../../archive/catalog/WORKSPACE_FILES_2026-09-26.jsonl)
+- [archive/legacy_code/4.9数据集Photo代码/codes/Models.py](../../archive/legacy_code/4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/Models.py)
+- [archive/legacy_code/4.9数据集Photo代码/codes/Models_empower.py](../../archive/legacy_code/4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/Models_empower.py)
+- [archive/legacy_code/4.9数据集Photo代码/codes/Models_mmlight.py](../../archive/legacy_code/4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/Models_mmlight.py)
+- [archive/legacy_code/4.9数据集Photo代码/codes/align_data.py](../../archive/legacy_code/4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/align_data.py)
+- [archive/legacy_code/4.9数据集Photo代码/codes/check_data.py](../../archive/legacy_code/4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/check_data.py)
+- [archive/legacy_code/4.9数据集Photo代码/codes/create_mock_data.py](../../archive/legacy_code/4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/create_mock_data.py)
+- [archive/legacy_code/4.9数据集Photo代码/codes/main.py](../../archive/legacy_code/4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/main.py)
+- [archive/legacy_code/4.9数据集Photo代码/codes/main_empower.py](../../archive/legacy_code/4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/main_empower.py)
+- [archive/legacy_code/4.9数据集Photo代码/codes/main_mmlight.py](../../archive/legacy_code/4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/main_mmlight.py)
+- [archive/legacy_code/4.9数据集Photo代码/codes/patent_test.py](../../archive/legacy_code/4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/patent_test.py)
+- [archive/legacy_code/4.9数据集Photo代码/codes/run_patent.py](../../archive/legacy_code/4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/run_patent.py)
+- [archive/legacy_code/4.9数据集Photo代码/codes/student_model.py](../../archive/legacy_code/4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/student_model.py)
+- [archive/legacy_code/4.9数据集Photo代码/codes/test.py](../../archive/legacy_code/4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/test.py)
+- [archive/legacy_code/4.9数据集Photo代码/codes/utility/batch_test.py](../../archive/legacy_code/4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/utility/batch_test.py)
+- [archive/legacy_code/4.9数据集Photo代码/codes/utility/load_data.py](../../archive/legacy_code/4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/utility/load_data.py)
+- [archive/legacy_code/4.9数据集Photo代码/codes/utility/logging.py](../../archive/legacy_code/4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/utility/logging.py)
+- [archive/legacy_code/4.9数据集Photo代码/codes/utility/metrics.py](../../archive/legacy_code/4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/utility/metrics.py)
+- [archive/legacy_code/4.9数据集Photo代码/codes/utility/norm.py](../../archive/legacy_code/4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/utility/norm.py)
+- [archive/legacy_code/4.9数据集Photo代码/codes/utility/parser.py](../../archive/legacy_code/4.9%E6%95%B0%E6%8D%AE%E9%9B%86Photo%E4%BB%A3%E7%A0%81/codes/utility/parser.py)
 - [archive/navigation/2026-09-29/README.md](../../archive/navigation/2026-09-29/README.md)
 - [archive/navigation/2026-09-29/docs/README.md](../../archive/navigation/2026-09-29/docs/README.md)
 - [archive/navigation/2026-09-29/docs/experiments/README.md](../../archive/navigation/2026-09-29/docs/experiments/README.md)
@@ -50,6 +36,18 @@
 - [archive/navigation/2026-09-29/docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md](../../archive/navigation/2026-09-29/docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)
 - [archive/navigation/2026-09-29/docs/paper/README.md](../../archive/navigation/2026-09-29/docs/paper/README.md)
 - [archive/navigation/2026-09-29/manifest.json](../../archive/navigation/2026-09-29/manifest.json)
+- [archive/reference_code/LATTICE/LICENSE](../../archive/reference_code/LATTICE/LICENSE)
+- [archive/reference_code/LATTICE/README.md](../../archive/reference_code/LATTICE/README.md)
+- [archive/reference_code/LATTICE/codes/Models.py](../../archive/reference_code/LATTICE/codes/Models.py)
+- [archive/reference_code/LATTICE/codes/main.py](../../archive/reference_code/LATTICE/codes/main.py)
+- [archive/reference_code/LATTICE/codes/utility/batch_test.py](../../archive/reference_code/LATTICE/codes/utility/batch_test.py)
+- [archive/reference_code/LATTICE/codes/utility/load_data.py](../../archive/reference_code/LATTICE/codes/utility/load_data.py)
+- [archive/reference_code/LATTICE/codes/utility/metrics.py](../../archive/reference_code/LATTICE/codes/utility/metrics.py)
+- [archive/reference_code/LATTICE/codes/utility/parser.py](../../archive/reference_code/LATTICE/codes/utility/parser.py)
+- [archive/research_notes/论文路线.txt](../../archive/research_notes/%E8%AE%BA%E6%96%87%E8%B7%AF%E7%BA%BF.txt)
+- [archive/reviews/check/chatgpt.txt](../../archive/reviews/check/chatgpt.txt)
+- [archive/reviews/check/deepseek.txt](../../archive/reviews/check/deepseek.txt)
+- [archive/reviews/check/doubao.txt](../../archive/reviews/check/doubao.txt)
 - [archive/run_patent_results/README.md](../../archive/run_patent_results/README.md)
 - [archive/training/ENTRY_INDEX_2026-09-26.md](../../archive/training/ENTRY_INDEX_2026-09-26.md)
 - [archive/training/README.md](../../archive/training/README.md)
@@ -61,12 +59,6 @@
 - [archive/training/TRAINING_LOG_ARCHIVE_FULL_2026-09-29.md](../../archive/training/TRAINING_LOG_ARCHIVE_FULL_2026-09-29.md)
 - [archive/upstream/README.md](../../archive/upstream/README.md)
 - [archive/upstream/README_ORIGINAL_2026-09-26.md](../../archive/upstream/README_ORIGINAL_2026-09-26.md)
-
-## check（3）
-
-- [check/chatgpt.txt](../../check/chatgpt.txt)
-- [check/deepseek.txt](../../check/deepseek.txt)
-- [check/doubao.txt](../../check/doubao.txt)
 
 ## codes（69）
 
@@ -140,7 +132,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（153）
+## docs（156）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -169,11 +161,14 @@
 - [docs/SPORTS_STUDENT_VALIDATION300.md](../SPORTS_STUDENT_VALIDATION300.md)
 - [docs/SPORTS_TEACHERINIT_BPR_SEED2022.md](../SPORTS_TEACHERINIT_BPR_SEED2022.md)
 - [docs/SPORTS_TEACHER_VALIDATION120_V1.md](../SPORTS_TEACHER_VALIDATION120_V1.md)
+- [docs/assets/PromptMM.png](../assets/PromptMM.png)
+- [docs/assets/decouple.png](../assets/decouple.png)
 - [docs/baselines/ASSET_MANIFEST_2026-07-29.csv](../baselines/ASSET_MANIFEST_2026-07-29.csv)
 - [docs/baselines/README.md](../baselines/README.md)
 - [docs/experiments/FILES.md](FILES.md)
 - [docs/experiments/HISTORICAL_FAMILIES.md](HISTORICAL_FAMILIES.md)
 - [docs/experiments/README.md](README.md)
+- [docs/experiments/ROOT_RELOCATION_2026-09-29.json](ROOT_RELOCATION_2026-09-29.json)
 - [docs/experiments/RUN_CLOSEOUT.md](RUN_CLOSEOUT.md)
 - [docs/experiments/RUN_RECORDS.md](RUN_RECORDS.md)
 - [docs/experiments/WORKSPACE_MAP.md](WORKSPACE_MAP.md)
@@ -363,13 +358,11 @@
 - [tools/run_sports_validation300.py](../../tools/run_sports_validation300.py)
 - [tools/verify_baseline_assets.ps1](../../tools/verify_baseline_assets.ps1)
 
-## 根目录（8）
+## 根目录（6）
 
 - [.gitattributes](../../.gitattributes)
 - [.gitignore](../../.gitignore)
 - [AGENTS.md](../../AGENTS.md)
-- [PromptMM.png](../../PromptMM.png)
 - [README.md](../../README.md)
+- [THESIS_ROADMAP.md](../../THESIS_ROADMAP.md)
 - [TRAINING_LOG.md](../../TRAINING_LOG.md)
-- [decouple.png](../../decouple.png)
-- [论文路线.txt](../../%E8%AE%BA%E6%96%87%E8%B7%AF%E7%BA%BF.txt)

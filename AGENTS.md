@@ -16,6 +16,7 @@ project code in this workspace:
   read the full historical log only when an older dependency is unresolved or
   a cited experiment anchor cannot otherwise be verified. Never substitute an
   old snapshot for the active log.
+- Read root `THESIS_ROADMAP.md` as the stable thesis objective before research decisions. Do not silently change its core goals; follow its versioned change rule. Experiment status belongs in the active log, not in repeated charter edits.
 - Inspect `git status --short --branch` before editing. Preserve and work around
   unrelated user changes; never reset, discard, overwrite, stage, or commit them.
 - Identify whether the task can affect model behavior, experiment protocol,

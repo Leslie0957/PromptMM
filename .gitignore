@@ -55,3 +55,6 @@ Desktop.ini
 *.temp
 *.pid
 
+
+# Relocated local scratch stays outside source history
+/archive/scratch/

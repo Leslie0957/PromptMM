@@ -1,33 +1,6 @@
 {"bytes": 496, "category": "root", "path": ".gitattributes", "source_catalog": true}
-{"bytes": 814, "category": "root", "path": ".gitignore", "source_catalog": true}
-{"bytes": 26887, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/Models.py", "source_catalog": true}
-{"bytes": 26901, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/Models_empower.py", "source_catalog": true}
-{"bytes": 30940, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/Models_mmlight.py", "source_catalog": true}
-{"bytes": 1256, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/align_data.py", "source_catalog": true}
-{"bytes": 606, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/check_data.py", "source_catalog": true}
-{"bytes": 1204, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/create_mock_data.py", "source_catalog": true}
-{"bytes": 49862, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/main.py", "source_catalog": true}
-{"bytes": 50434, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/main_empower.py", "source_catalog": true}
-{"bytes": 51204, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/main_mmlight.py", "source_catalog": true}
-{"bytes": 1927, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/patent_test.py", "source_catalog": true}
-{"bytes": 6718, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/run_patent.py", "source_catalog": true}
-{"bytes": 1941, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/student_model.py", "source_catalog": true}
-{"bytes": 173, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/test.py", "source_catalog": true}
-{"bytes": 5570, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/utility/batch_test.py", "source_catalog": true}
-{"bytes": 7071, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/utility/load_data.py", "source_catalog": true}
-{"bytes": 541, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/utility/logging.py", "source_catalog": true}
-{"bytes": 2501, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/utility/metrics.py", "source_catalog": true}
-{"bytes": 4034, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/utility/norm.py", "source_catalog": true}
-{"bytes": 109486, "category": "4.9数据集Photo代码", "path": "4.9数据集Photo代码/codes/utility/parser.py", "source_catalog": true}
-{"bytes": 15767, "category": "root", "path": "AGENTS.md", "source_catalog": true}
-{"bytes": 1105, "category": "LATTICE", "path": "LATTICE/LICENSE", "source_catalog": true}
-{"bytes": 2228, "category": "LATTICE", "path": "LATTICE/README.md", "source_catalog": true}
-{"bytes": 6825, "category": "LATTICE", "path": "LATTICE/codes/Models.py", "source_catalog": true}
-{"bytes": 8188, "category": "LATTICE", "path": "LATTICE/codes/main.py", "source_catalog": true}
-{"bytes": 5454, "category": "LATTICE", "path": "LATTICE/codes/utility/batch_test.py", "source_catalog": true}
-{"bytes": 7443, "category": "LATTICE", "path": "LATTICE/codes/utility/load_data.py", "source_catalog": true}
-{"bytes": 2501, "category": "LATTICE", "path": "LATTICE/codes/utility/metrics.py", "source_catalog": true}
-{"bytes": 2968, "category": "LATTICE", "path": "LATTICE/codes/utility/parser.py", "source_catalog": true}
+{"bytes": 891, "category": "root", "path": ".gitignore", "source_catalog": true}
+{"bytes": 16224, "category": "root", "path": "AGENTS.md", "source_catalog": true}
 {"bytes": 117675440, "category": "Model", "path": "Model/amazon/runs/teacher_model_great__2026-04-11 00_29_36_amazon_light_init_pid22964.pt", "source_catalog": false}
 {"bytes": 117675440, "category": "Model", "path": "Model/amazon/runs/teacher_model_great__2026-04-11 11_57_20_amazon_light_init_pid29808.pt", "source_catalog": false}
 {"bytes": 117675440, "category": "Model", "path": "Model/amazon/runs/teacher_model_great__2026-04-11 11_59_06_amazon_light_init_pid26300.pt", "source_catalog": false}
@@ -235,10 +208,29 @@
 {"bytes": 13815757, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 02_38_22.563718_sports_light_init_pid596.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 05_34_16.930265_sports_light_init_pid42156.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 08_30_07.418852_sports_light_init_pid30132.pth", "source_catalog": false}
-{"bytes": 432550, "category": "root", "path": "PromptMM.png", "source_catalog": true}
-{"bytes": 1278, "category": "root", "path": "README.md", "source_catalog": true}
-{"bytes": 4066, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
+{"bytes": 1541, "category": "root", "path": "README.md", "source_catalog": true}
+{"bytes": 4930, "category": "root", "path": "THESIS_ROADMAP.md", "source_catalog": true}
+{"bytes": 6169, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
 {"bytes": 739, "category": "archive", "path": "archive/README.md", "source_catalog": true}
+{"bytes": 26887, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/Models.py", "source_catalog": true}
+{"bytes": 26901, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/Models_empower.py", "source_catalog": true}
+{"bytes": 30940, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/Models_mmlight.py", "source_catalog": true}
+{"bytes": 1256, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/align_data.py", "source_catalog": true}
+{"bytes": 606, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/check_data.py", "source_catalog": true}
+{"bytes": 1204, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/create_mock_data.py", "source_catalog": true}
+{"bytes": 49862, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/main.py", "source_catalog": true}
+{"bytes": 50434, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/main_empower.py", "source_catalog": true}
+{"bytes": 51204, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/main_mmlight.py", "source_catalog": true}
+{"bytes": 1927, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/patent_test.py", "source_catalog": true}
+{"bytes": 6718, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/run_patent.py", "source_catalog": true}
+{"bytes": 1941, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/student_model.py", "source_catalog": true}
+{"bytes": 173, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/test.py", "source_catalog": true}
+{"bytes": 5570, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/utility/batch_test.py", "source_catalog": true}
+{"bytes": 7071, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/utility/load_data.py", "source_catalog": true}
+{"bytes": 541, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/utility/logging.py", "source_catalog": true}
+{"bytes": 2501, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/utility/metrics.py", "source_catalog": true}
+{"bytes": 4034, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/utility/norm.py", "source_catalog": true}
+{"bytes": 109486, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/utility/parser.py", "source_catalog": true}
 {"bytes": 3470, "category": "archive", "path": "archive/navigation/2026-09-29/README.md", "source_catalog": true}
 {"bytes": 4939, "category": "archive", "path": "archive/navigation/2026-09-29/docs/README.md", "source_catalog": true}
 {"bytes": 10131, "category": "archive", "path": "archive/navigation/2026-09-29/docs/experiments/README.md", "source_catalog": true}
@@ -246,6 +238,18 @@
 {"bytes": 11173, "category": "archive", "path": "archive/navigation/2026-09-29/docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md", "source_catalog": true}
 {"bytes": 3312, "category": "archive", "path": "archive/navigation/2026-09-29/docs/paper/README.md", "source_catalog": true}
 {"bytes": 1735, "category": "archive", "path": "archive/navigation/2026-09-29/manifest.json", "source_catalog": true}
+{"bytes": 1105, "category": "archive", "path": "archive/reference_code/LATTICE/LICENSE", "source_catalog": true}
+{"bytes": 2228, "category": "archive", "path": "archive/reference_code/LATTICE/README.md", "source_catalog": true}
+{"bytes": 6825, "category": "archive", "path": "archive/reference_code/LATTICE/codes/Models.py", "source_catalog": true}
+{"bytes": 8188, "category": "archive", "path": "archive/reference_code/LATTICE/codes/main.py", "source_catalog": true}
+{"bytes": 5454, "category": "archive", "path": "archive/reference_code/LATTICE/codes/utility/batch_test.py", "source_catalog": true}
+{"bytes": 7443, "category": "archive", "path": "archive/reference_code/LATTICE/codes/utility/load_data.py", "source_catalog": true}
+{"bytes": 2501, "category": "archive", "path": "archive/reference_code/LATTICE/codes/utility/metrics.py", "source_catalog": true}
+{"bytes": 2968, "category": "archive", "path": "archive/reference_code/LATTICE/codes/utility/parser.py", "source_catalog": true}
+{"bytes": 3995, "category": "archive", "path": "archive/research_notes/论文路线.txt", "source_catalog": true}
+{"bytes": 21473, "category": "archive", "path": "archive/reviews/check/chatgpt.txt", "source_catalog": true}
+{"bytes": 14288, "category": "archive", "path": "archive/reviews/check/deepseek.txt", "source_catalog": true}
+{"bytes": 10685, "category": "archive", "path": "archive/reviews/check/doubao.txt", "source_catalog": true}
 {"bytes": 409, "category": "archive", "path": "archive/run_patent_results/README.md", "source_catalog": true}
 {"bytes": 110276, "category": "archive", "path": "archive/run_patent_results/Result_0409_1319_Photo_a0.1_lr0.001/Result_0409_1319_Photo_a0.1_lr0.001_curve.png", "source_catalog": false}
 {"bytes": 448, "category": "archive", "path": "archive/run_patent_results/Result_0409_1319_Photo_a0.1_lr0.001/Result_0409_1319_Photo_a0.1_lr0.001_loss.npy", "source_catalog": false}
@@ -253,6 +257,7 @@
 {"bytes": 26474153, "category": "archive", "path": "archive/run_patent_results/Result_0409_1320_Photo_a0.1_lr0.001/Result_0409_1320_Photo_a0.1_lr0.001_best_model.pth", "source_catalog": false}
 {"bytes": 125558, "category": "archive", "path": "archive/run_patent_results/Result_0409_1320_Photo_a0.1_lr0.001/Result_0409_1320_Photo_a0.1_lr0.001_curve.png", "source_catalog": false}
 {"bytes": 254, "category": "archive", "path": "archive/run_patent_results/Result_0409_1320_Photo_a0.1_lr0.001/Result_0409_1320_Photo_a0.1_lr0.001_report.txt", "source_catalog": false}
+{"bytes": 72488, "category": "archive", "path": "archive/scratch/codex_tmp_2026-09-29/p0_plan_preparation.json", "source_catalog": false}
 {"bytes": 1773, "category": "archive", "path": "archive/training/README.md", "source_catalog": true}
 {"bytes": 231, "category": "archive", "path": "archive/training/TRAINING_HANDOFF_2026-04-10.md", "source_catalog": true}
 {"bytes": 2599, "category": "archive", "path": "archive/training/TRAINING_HANDOFF_2026-04-11.md", "source_catalog": true}
@@ -440,9 +445,6 @@
 {"bytes": 26809, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/runs/sports/run_manifest__2026-09-25 00_24_21.134528_sports_light_init_pid35648.json", "source_catalog": false}
 {"bytes": 26809, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/assets/exp/runs/sports/run_manifest__2026-09-25 06_25_38.618521_sports_light_init_pid50812.json", "source_catalog": false}
 {"bytes": 36199, "category": "backups", "path": "backups/innovation1_fixed_results_2026-09-26/manifest.json", "source_catalog": false}
-{"bytes": 21473, "category": "check", "path": "check/chatgpt.txt", "source_catalog": true}
-{"bytes": 14288, "category": "check", "path": "check/deepseek.txt", "source_catalog": true}
-{"bytes": 10685, "category": "check", "path": "check/doubao.txt", "source_catalog": true}
 {"bytes": 26887, "category": "codes", "path": "codes/Models.py", "source_catalog": true}
 {"bytes": 26901, "category": "codes", "path": "codes/Models_empower.py", "source_catalog": true}
 {"bytes": 31527, "category": "codes", "path": "codes/Models_mmlight.py", "source_catalog": true}
@@ -562,7 +564,6 @@
 {"bytes": 135291008, "category": "data", "path": "data/yelp/text_feat.npy", "source_catalog": false}
 {"bytes": 2666322, "category": "data", "path": "data/yelp/train_mat", "source_catalog": false}
 {"bytes": 888060, "category": "data", "path": "data/yelp/val_mat", "source_catalog": false}
-{"bytes": 307259, "category": "root", "path": "decouple.png", "source_catalog": true}
 {"bytes": 5779, "category": "docs", "path": "docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md", "source_catalog": true}
 {"bytes": 4271, "category": "docs", "path": "docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md", "source_catalog": true}
 {"bytes": 4755, "category": "docs", "path": "docs/BABY_SEED2024_REPLICATION_PROFILES_V1.md", "source_catalog": true}
@@ -578,7 +579,7 @@
 {"bytes": 3177, "category": "docs", "path": "docs/PROMPTMM_RELEASE_VALIDATION300_BATCH.md", "source_catalog": true}
 {"bytes": 4183, "category": "docs", "path": "docs/PROMPTMM_RELEASE_VALIDATION_DIAGNOSTIC.md", "source_catalog": true}
 {"bytes": 2666, "category": "docs", "path": "docs/PROMPTMM_VALIDATION_FAST_PARITY.md", "source_catalog": true}
-{"bytes": 1191, "category": "docs", "path": "docs/README.md", "source_catalog": true}
+{"bytes": 1333, "category": "docs", "path": "docs/README.md", "source_catalog": true}
 {"bytes": 1827, "category": "docs", "path": "docs/SPORTS_GRADIENT_DIAGNOSTIC.md", "source_catalog": true}
 {"bytes": 2087, "category": "docs", "path": "docs/SPORTS_INITIALIZATION_DIAGNOSTIC.md", "source_catalog": true}
 {"bytes": 2554, "category": "docs", "path": "docs/SPORTS_INITIALIZATION_PAIR_SEED2022.md", "source_catalog": true}
@@ -590,12 +591,15 @@
 {"bytes": 3459, "category": "docs", "path": "docs/SPORTS_STUDENT_VALIDATION300.md", "source_catalog": true}
 {"bytes": 2058, "category": "docs", "path": "docs/SPORTS_TEACHERINIT_BPR_SEED2022.md", "source_catalog": true}
 {"bytes": 3849, "category": "docs", "path": "docs/SPORTS_TEACHER_VALIDATION120_V1.md", "source_catalog": true}
+{"bytes": 432550, "category": "docs", "path": "docs/assets/PromptMM.png", "source_catalog": true}
+{"bytes": 307259, "category": "docs", "path": "docs/assets/decouple.png", "source_catalog": true}
 {"bytes": 100432, "category": "docs", "path": "docs/baselines/ASSET_MANIFEST_2026-07-29.csv", "source_catalog": true}
 {"bytes": 2893, "category": "docs", "path": "docs/baselines/README.md", "source_catalog": true}
 {"bytes": 7125, "category": "docs", "path": "docs/experiments/HISTORICAL_FAMILIES.md", "source_catalog": true}
 {"bytes": 2778, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
+{"bytes": 37701, "category": "docs", "path": "docs/experiments/ROOT_RELOCATION_2026-09-29.json", "source_catalog": true}
 {"bytes": 7431, "category": "docs", "path": "docs/experiments/RUN_CLOSEOUT.md", "source_catalog": true}
-{"bytes": 1832, "category": "docs", "path": "docs/experiments/WORKSPACE_MAP.md", "source_catalog": true}
+{"bytes": 1535, "category": "docs", "path": "docs/experiments/WORKSPACE_MAP.md", "source_catalog": true}
 {"bytes": 7846, "category": "docs", "path": "docs/paper/INNOVATION1_CONTRIBUTION_POSITION_2026-09-28.md", "source_catalog": true}
 {"bytes": 3013, "category": "docs", "path": "docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md", "source_catalog": true}
 {"bytes": 15128, "category": "docs", "path": "docs/paper/INNOVATION1_FINAL_CLAIMS_MATRIX_2026-09-26.md", "source_catalog": true}
@@ -678,13 +682,13 @@
 {"bytes": 31019, "category": "docs", "path": "docs/research/INNOVATION1_REVIEW_AND_EXPERIMENT_PLAN_2026-09-14.md", "source_catalog": true}
 {"bytes": 32872, "category": "docs", "path": "docs/research/INNOVATION1_THESIS_EVIDENCE_2026-09-15.md", "source_catalog": true}
 {"bytes": 7683, "category": "docs", "path": "docs/research/INNOVATION1_UPDATE_COST_AUDIT.md", "source_catalog": true}
-{"bytes": 11693, "category": "docs", "path": "docs/research/INNOVATION2_CANDIDATE_DECISION_2026-09-26.md", "source_catalog": true}
+{"bytes": 11716, "category": "docs", "path": "docs/research/INNOVATION2_CANDIDATE_DECISION_2026-09-26.md", "source_catalog": true}
 {"bytes": 7969, "category": "docs", "path": "docs/research/PROMPTMM_BASELINE_IDENTITY_2026-09-18.md", "source_catalog": true}
 {"bytes": 11689, "category": "docs", "path": "docs/research/PROMPTMM_FAIR_COMPARISON_PREPARATION_2026-09-18.md", "source_catalog": true}
 {"bytes": 6668, "category": "docs", "path": "docs/research/PROMPTMM_LR6E5_THREE_SEED_2026-09-22.md", "source_catalog": true}
 {"bytes": 4923, "category": "docs", "path": "docs/research/PROMPTMM_LR_CONTRAST_2026-09-21.md", "source_catalog": true}
 {"bytes": 7027, "category": "docs", "path": "docs/research/PROMPTMM_SPORTS300_AUDIT_2026-09-20.md", "source_catalog": true}
-{"bytes": 14004, "category": "docs", "path": "docs/research/SECOND_INNOVATION_ROUTE.md", "source_catalog": true}
+{"bytes": 14027, "category": "docs", "path": "docs/research/SECOND_INNOVATION_ROUTE.md", "source_catalog": true}
 {"bytes": 3469, "category": "docs", "path": "docs/research/SPORTS_ALPHA3_AUDIT_2026-09-24.md", "source_catalog": true}
 {"bytes": 2589, "category": "docs", "path": "docs/research/SPORTS_BPR_RESULT_2026-09-16.md", "source_catalog": true}
 {"bytes": 12733, "category": "docs", "path": "docs/research/SPORTS_CACHED_DEPLOYMENT_AUDIT_2026-09-26.md", "source_catalog": true}
@@ -709,7 +713,7 @@
 {"bytes": 9798, "category": "docs", "path": "docs/research/SPORTS_THREE_SEED_VALIDATION120_2026-09-17.md", "source_catalog": true}
 {"bytes": 19036, "category": "docs", "path": "docs/research/SPORTS_THREE_SEED_VALIDATION300_2026-09-18.md", "source_catalog": true}
 {"bytes": 5285, "category": "docs", "path": "docs/research/SPORTS_WEIGHTED_DIRECTION_AUDIT_2026-09-24.md", "source_catalog": true}
-{"bytes": 1477, "category": "docs", "path": "docs/research/innovation2/README.md", "source_catalog": true}
+{"bytes": 1625, "category": "docs", "path": "docs/research/innovation2/README.md", "source_catalog": true}
 {"bytes": 2015, "category": "docs", "path": "docs/research_notes/KL散度蒸馏vs方向蒸馏对比.txt", "source_catalog": true}
 {"bytes": 756, "category": "docs", "path": "docs/research_notes/README.md", "source_catalog": true}
 {"bytes": 1712, "category": "docs", "path": "docs/research_notes/多模态融合语义鸿沟问答.txt", "source_catalog": true}
@@ -2923,4 +2927,3 @@
 {"bytes": 54606, "category": "zhuanli", "path": "zhuanli/缴费/94bfd838-e7b3-4ac6-852e-164373ac03bb.png", "source_catalog": false}
 {"bytes": 171846, "category": "zhuanli", "path": "zhuanli/缴费/a5182486-5636-4ff5-87ce-629211fd3d10.png", "source_catalog": false}
 {"bytes": 20, "category": "zhuanli", "path": "zhuanli/缴费/取票码.txt", "source_catalog": false}
-{"bytes": 3995, "category": "root", "path": "论文路线.txt", "source_catalog": true}
