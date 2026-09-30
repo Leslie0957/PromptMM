@@ -208,9 +208,9 @@
 {"bytes": 13815757, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 02_38_22.563718_sports_light_init_pid596.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 05_34_16.930265_sports_light_init_pid42156.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 08_30_07.418852_sports_light_init_pid30132.pth", "source_catalog": false}
-{"bytes": 4909, "category": "root", "path": "README.md", "source_catalog": true}
-{"bytes": 7179, "category": "root", "path": "THESIS_ROADMAP.md", "source_catalog": true}
-{"bytes": 182976, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
+{"bytes": 5160, "category": "root", "path": "README.md", "source_catalog": true}
+{"bytes": 9474, "category": "root", "path": "THESIS_ROADMAP.md", "source_catalog": true}
+{"bytes": 188411, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
 {"bytes": 739, "category": "archive", "path": "archive/README.md", "source_catalog": true}
 {"bytes": 26887, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/Models.py", "source_catalog": true}
 {"bytes": 26901, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/Models_empower.py", "source_catalog": true}
@@ -585,7 +585,7 @@
 {"bytes": 3177, "category": "docs", "path": "docs/PROMPTMM_RELEASE_VALIDATION300_BATCH.md", "source_catalog": true}
 {"bytes": 4183, "category": "docs", "path": "docs/PROMPTMM_RELEASE_VALIDATION_DIAGNOSTIC.md", "source_catalog": true}
 {"bytes": 2666, "category": "docs", "path": "docs/PROMPTMM_VALIDATION_FAST_PARITY.md", "source_catalog": true}
-{"bytes": 1512, "category": "docs", "path": "docs/README.md", "source_catalog": true}
+{"bytes": 1497, "category": "docs", "path": "docs/README.md", "source_catalog": true}
 {"bytes": 1827, "category": "docs", "path": "docs/SPORTS_GRADIENT_DIAGNOSTIC.md", "source_catalog": true}
 {"bytes": 2087, "category": "docs", "path": "docs/SPORTS_INITIALIZATION_DIAGNOSTIC.md", "source_catalog": true}
 {"bytes": 2554, "category": "docs", "path": "docs/SPORTS_INITIALIZATION_PAIR_SEED2022.md", "source_catalog": true}
@@ -602,7 +602,7 @@
 {"bytes": 100432, "category": "docs", "path": "docs/baselines/ASSET_MANIFEST_2026-07-29.csv", "source_catalog": true}
 {"bytes": 2893, "category": "docs", "path": "docs/baselines/README.md", "source_catalog": true}
 {"bytes": 7125, "category": "docs", "path": "docs/experiments/HISTORICAL_FAMILIES.md", "source_catalog": true}
-{"bytes": 7695, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
+{"bytes": 7758, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
 {"bytes": 37701, "category": "docs", "path": "docs/experiments/ROOT_RELOCATION_2026-09-29.json", "source_catalog": true}
 {"bytes": 7857, "category": "docs", "path": "docs/experiments/RUN_CLOSEOUT.md", "source_catalog": true}
 {"bytes": 1535, "category": "docs", "path": "docs/experiments/WORKSPACE_MAP.md", "source_catalog": true}
@@ -695,7 +695,7 @@
 {"bytes": 6668, "category": "docs", "path": "docs/research/PROMPTMM_LR6E5_THREE_SEED_2026-09-22.md", "source_catalog": true}
 {"bytes": 4923, "category": "docs", "path": "docs/research/PROMPTMM_LR_CONTRAST_2026-09-21.md", "source_catalog": true}
 {"bytes": 7027, "category": "docs", "path": "docs/research/PROMPTMM_SPORTS300_AUDIT_2026-09-20.md", "source_catalog": true}
-{"bytes": 27770, "category": "docs", "path": "docs/research/RESEARCH_HANDOFF_FOR_INNOVATION2_REVIEW_2026-09-30.md", "source_catalog": true}
+{"bytes": 38746, "category": "docs", "path": "docs/research/RESEARCH_HANDOFF_FOR_INNOVATION2_REVIEW_2026-09-30.md", "source_catalog": true}
 {"bytes": 14027, "category": "docs", "path": "docs/research/SECOND_INNOVATION_ROUTE.md", "source_catalog": true}
 {"bytes": 3469, "category": "docs", "path": "docs/research/SPORTS_ALPHA3_AUDIT_2026-09-24.md", "source_catalog": true}
 {"bytes": 2589, "category": "docs", "path": "docs/research/SPORTS_BPR_RESULT_2026-09-16.md", "source_catalog": true}
@@ -784,7 +784,7 @@
 {"bytes": 5776, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_INDEPENDENT_AUDIT_2026-09-29.md", "source_catalog": true}
 {"bytes": 8160, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_INDEPENDENT_VERIFICATION.json", "source_catalog": true}
 {"bytes": 3047, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_PROFILE_V1.json", "source_catalog": true}
-{"bytes": 6667, "category": "docs", "path": "docs/research/innovation2/README.md", "source_catalog": true}
+{"bytes": 6874, "category": "docs", "path": "docs/research/innovation2/README.md", "source_catalog": true}
 {"bytes": 16529, "category": "docs", "path": "docs/research/innovation2/RESEARCH_DIRECTION_WITH_EXPANDED_BUDGET_2026-09-30.md", "source_catalog": true}
 {"bytes": 7960, "category": "docs", "path": "docs/research/innovation2/ROUTE_CLOSURE_REVIEW_2026-09-30.md", "source_catalog": true}
 {"bytes": 7213, "category": "docs", "path": "docs/research/innovation2/ROUTE_CONSOLIDATION_2026-09-30.md", "source_catalog": true}

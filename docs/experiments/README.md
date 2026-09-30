@@ -1,6 +1,6 @@
 # 做过哪些实验：粗粒度总览
 
-更新2026-09-30。先看本表，需要具体seed/命令再点审计。[第一项已最终收尾](../paper/INNOVATION1_FINAL_CLOSEOUT_2026-09-30.md)，现有方法/结果/证据至初稿准备阶段冻结；FDRec仅为初稿时可选直接基线，不是当前待跑项。后续研究重心先全部转到第二项，尚无成立的方法。创新判断采用[用户确认标准](../../THESIS_ROADMAP.md)。对外评审可使用[完整研究交接](../research/RESEARCH_HANDOFF_FOR_INNOVATION2_REVIEW_2026-09-30.md)。这里按实验族计，不把重复运行或计时窗口当作新增独立实验。
+更新2026-09-30。先看本表，需要具体seed/命令再点审计。[第一项已最终收尾](../paper/INNOVATION1_FINAL_CLOSEOUT_2026-09-30.md)，现有方法/结果/证据至初稿准备阶段冻结；FDRec仅为初稿时可选直接基线，不是当前待跑项。后续研究重心先全部转到第二项，尚无成立的方法。创新判断采用[用户确认标准](../../THESIS_ROADMAP.md)。对外评审可使用[已补两轮最新诊断与用户新意优先标准的完整研究交接](../research/RESEARCH_HANDOFF_FOR_INNOVATION2_REVIEW_2026-09-30.md)。这里按实验族计，不把重复运行或计时窗口当作新增独立实验。
 
 | 实验族 | 状态与主要发现 | 深入记录 |
 |---|---|---|
@@ -28,7 +28,7 @@
 | 评价恢复/资产核验 | 原失败保留，独立恢复完成12格新Test；不是新增12次训练 | [恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md) |
 | 更早数据/教师/预实验 | 历史背景，不自动并入当前合格主表 | [详细族导航](HISTORICAL_FAMILIES.md) |
 
-当前原Sports未见物品v1 completed/undetermined保留；[质量约束前沿v1](../research/innovation2/QUALITY_CONSTRAINED_FRONTIER_RESULTS.md)已completed，有限开发网格内simple_control_sufficient_in_development，不认证算法/泛化。旧Val/Test/旧probe评价/封存确认0，本轮Train分区接触按新声明披露；无自动重试/扩跑，当前无待跑项。唯一下一步：基于两轮诊断做第二项路线重评，筛选相对“直接学习＋相同校准”有明确新增价值的问题，并设计一个最小可证伪对照；仅评审与设计，不启动实验。 第一项保持冻结。
+当前原Sports未见物品v1 completed/undetermined保留；[质量约束前沿v1](../research/innovation2/QUALITY_CONSTRAINED_FRONTIER_RESULTS.md)已completed，有限开发网格内simple_control_sufficient_in_development，不认证算法/泛化。旧Val/Test/旧probe评价/封存确认0，本轮Train分区接触按新声明披露；无自动重试/扩跑，当前无待跑项。唯一下一步：将已更新的完整研究交接交给新AI，按跨领域可结合、可辨认的新意优先/候选指标其次的标准重新筛选第二项问题；允许换方向，仅分析，不实现或启动实验。 第一项保持冻结。
 
 ## 需要再深入时
 
