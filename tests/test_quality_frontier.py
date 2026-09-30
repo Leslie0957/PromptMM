@@ -6,6 +6,7 @@ import sys
 import unittest
 from types import SimpleNamespace
 from pathlib import Path
+from tempfile import TemporaryDirectory
 from unittest.mock import patch
 
 import numpy as np
@@ -265,6 +266,44 @@ class FrontierTests(unittest.TestCase):
         budget.error = ValueError("sampled resource failure")
         with self.assertRaisesRegex(ValueError, "sampled resource"):
             budget.check()
+
+    def test_feature_anchor_stat_policy_uses_only_fake_payloads(self):
+        with TemporaryDirectory() as directory:
+            base = Path(directory)
+            p = copy.deepcopy(self.p)
+            originals = p["source"]["allowed_original_payloads"]
+            for asset in originals:
+                path = base / asset["path"]
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(b"tiny synthetic payload")
+                asset["bytes"] = path.stat().st_size
+                asset["sha256"] = r.digest(path)
+            batch = base / "exp/innovation2/sports_unseen_transfer_v1/batch.json"
+            batch.parent.mkdir(parents=True)
+            batch.write_bytes(b'{"fixture":true}')
+            p["anchor"]["original_batch_sha256"] = r.digest(batch)
+            access = r.Access(p)
+            with patch.object(r, "local_path", side_effect=lambda value: base / value):
+                with self.assertRaisesRegex(ValueError, "not verified"):
+                    access.verified(originals[1]["path"])
+                access.trust_feature_anchor()
+                with patch.object(r, "digest", side_effect=AssertionError("unchanged feature must not be rehashed")):
+                    access.verified(originals[1]["path"])
+                    access.verified(originals[2]["path"])
+                self.assertEqual(access.identities[originals[1]["path"]]["verification_method"], "cited_anchor_plus_stat_no_feature_rehash")
+                access.verified(originals[0]["path"])
+                self.assertEqual(access.identities[originals[0]["path"]]["verification_method"], "runtime_sha256_before_load")
+                changed = r.Access(p)
+                changed.trust_feature_anchor()
+                (base / originals[1]["path"]).write_bytes(b"changed size")
+                with self.assertRaisesRegex(ValueError, "size changed"):
+                    changed.verified(originals[1]["path"])
+                (base / originals[0]["path"]).write_bytes(b"x" * originals[0]["bytes"])
+                with self.assertRaisesRegex(ValueError, "hash changed"):
+                    changed.verified(originals[0]["path"])
+                batch.write_bytes(b'{"fixture":false}')
+                with self.assertRaisesRegex(ValueError, "stale/untrusted"):
+                    r.Access(p).trust_feature_anchor()
 
 
 if __name__ == "__main__":

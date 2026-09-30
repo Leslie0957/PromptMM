@@ -4,7 +4,7 @@
 
 | 实验族 | 状态与主要发现 | 深入记录 |
 |---|---|---|
-| Sports未见物品教师可迁移性/混合目录瓶颈 | 原诊断seed2022完成/科学undetermined；质量约束前沿评分器与CPU合成预检通过，真实运行未授权；下一步准备正式声明 | [原结果](../research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_RESULTS.md) · [原审计](../research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_AUDIT.md) · [前沿实现/预检](../research/innovation2/QUALITY_CONSTRAINED_FRONTIER_RUNTIME_PREPARATION_2026-09-30.md) |
+| Sports未见物品教师可迁移性/混合目录瓶颈 | 原诊断seed2022完成/科学undetermined；质量约束前沿评分器与CPU合成预检通过，真实运行声明已备妥，等待明确授权 | [原结果](../research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_RESULTS.md) · [原审计](../research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_AUDIT.md) · [前沿实现/预检](../research/innovation2/QUALITY_CONSTRAINED_FRONTIER_RUNTIME_PREPARATION_2026-09-30.md) · [运行声明审核](../research/innovation2/QUALITY_CONSTRAINED_FRONTIER_LAUNCH_REVIEW_V1.md) |
 | 标量校准基线 | 三seed B/G/U执行通过；U低组16/16/16，联合screen_stop；停止扩展 | [结果](../research/innovation2/SCALAR_CALIBRATION_RESULTS.md) · [审计](../research/innovation2/SCALAR_CALIBRATION_AUDIT.md) |
 | 逐用户槽位控制 | 三seed执行通过，整体unresolved；H低组60/62/66接近R，2023总体超过容忍线；诊断链收尾 | [统一判断](../research/innovation2/PER_USER_SLOT_CONTROL_RESULTS.md) · [审计](../research/innovation2/PER_USER_SLOT_CONTROL_AUDIT.md) |
 | 全局曝光匹配加分 | 三seed精确匹配；R低组比Q多10/4/9命中，简单全局加分不足；无训练/Test | [审计](../research/innovation2/EXPOSURE_MATCHED_BONUS_AUDIT.md) · [结果](../research/innovation2/EXPOSURE_MATCHED_BONUS_RESULTS.md) |

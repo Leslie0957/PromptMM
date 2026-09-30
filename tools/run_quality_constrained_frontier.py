@@ -173,7 +173,19 @@ class Budget:
 class Access:
     def __init__(self, profile):
         self.assets = {a["path"]: a for a in profile["anchor"]["assets"] + profile["source"]["allowed_original_payloads"]}
+        self.feature_paths = {a["path"] for a in profile["source"]["allowed_original_payloads"] if a["path"].endswith("_feat.npy")}
+        self.batch_path = "exp/innovation2/sports_unseen_transfer_v1/batch.json"
+        require(self.batch_path in profile["source"]["allowed_metadata"], "batch metadata outside allowlist")
+        self.batch_sha256 = profile["anchor"]["original_batch_sha256"]
+        self.features_trusted = False
         self.events, self.identities = [], {}
+
+    def trust_feature_anchor(self):
+        # Small pinned provenance metadata only; never reopen a sealed payload.
+        actual = digest(local_path(self.batch_path))
+        require(actual == self.batch_sha256, "feature provenance anchor stale/untrusted")
+        self.features_trusted = True
+        self.events.append({"operation": "verify_anchor_metadata_hash", "path": self.batch_path, "sha256": actual})
 
     def verified(self, relative):
         require(relative in self.assets, "payload outside allowlist")
@@ -181,10 +193,17 @@ class Access:
         if relative not in self.identities:
             anchor = self.assets[relative]
             require(path.stat().st_size == anchor["bytes"], "asset size changed: " + relative)
-            actual = digest(path)
-            require(actual == anchor["sha256"], "asset hash changed: " + relative)
-            self.identities[relative] = dict(anchor)
-            self.events.append({"operation": "verify_payload_hash", "path": relative})
+            if relative in self.feature_paths:
+                require(self.features_trusted, "feature provenance anchor not verified")
+                method = "cited_anchor_plus_stat_no_feature_rehash"
+                self.events.append({"operation": "verify_feature_anchor_stat", "path": relative,
+                                    "anchor_metadata_sha256": self.batch_sha256})
+            else:
+                actual = digest(path)
+                require(actual == anchor["sha256"], "asset hash changed: " + relative)
+                method = "runtime_sha256_before_load"
+                self.events.append({"operation": "verify_payload_hash", "path": relative})
+            self.identities[relative] = dict(anchor, verification_method=method)
         self.events.append({"operation": "load_allowed_payload", "path": relative})
         return path
 
@@ -216,6 +235,7 @@ def infer_checkpoint(path, x, dimensions):
 
 
 def real_inputs(profile, access, check):
+    access.trust_feature_anchor()
     train_path = access.verified("data/sports/train_mat")
     with train_path.open("rb") as stream:
         matrix = pickle.load(stream)  # trusted hash-bound prior conversion asset only

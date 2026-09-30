@@ -15,7 +15,7 @@ AI启动：完整读[AGENTS.md](AGENTS.md)，再读本页和[短日志](TRAINING
 | 新物品具体提案与判定 | [评分几何映射提案：算法立项未通过](docs/research/innovation2/NEW_ITEM_METHOD_PROPOSAL_2026-09-30.md) |
 | 时间充裕后的研究路线 | [教师可迁移性与混合目录瓶颈诊断](docs/research/innovation2/RESEARCH_DIRECTION_WITH_EXPANDED_BUDGET_2026-09-30.md) |
 | 当前诊断协议与实现来源 | [Sports未见物品诊断v1](docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_PROTOCOL_V1.md) · [实现与CPU合成预检](docs/research/innovation2/UNSEEN_ITEM_TRANSFER_RUNTIME_PREPARATION_2026-09-30.md) |
-| 质量约束前沿的实现与下一步 | [独立评分器及CPU预检](docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_RUNTIME_PREPARATION_2026-09-30.md)；真实诊断未授权，下一步准备正式声明 |
+| 质量约束前沿的实现与下一步 | [独立评分器及CPU预检](docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_RUNTIME_PREPARATION_2026-09-30.md) · [一次真实运行声明审核](docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_LAUNCH_REVIEW_V1.md)；等待明确授权 |
 | 做过哪些实验、粗略结论 | [实验总览](docs/experiments/README.md) |
 | 第一项收尾与冻结边界 | [最终收尾](docs/paper/INNOVATION1_FINAL_CLOSEOUT_2026-09-30.md) |
 | 第一项已知与未知 | [第一项阶段总结](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md) |
@@ -23,7 +23,7 @@ AI启动：完整读[AGENTS.md](AGENTS.md)，再读本页和[短日志](TRAINING
 | 第二项接下来研究什么 | [探索工作页](docs/research/innovation2/README.md) |
 | 查具体运行、旧命令或文件 | [深层导航](docs/README.md) |
 
-当前：Sports未见物品诊断v1已completed/exit0，保存证据自审567项通过；科学undetermined（多模态教师暖probe优势未建立），第二算法尚未成立。见[结果](docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_RESULTS.md)、[审计](docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_AUDIT.md)、[HANDOFF](docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_HANDOFF.md)。[最新路线重评](docs/research/innovation2/POST_DIAGNOSTIC_ROUTE_REVIEW_2026-09-30.md)保留新物品接入问题、暂缓扩大MM教师/KD；[质量约束前沿协议v1](docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_PROTOCOL_V1.md)已冻结（380状态，开发select，CPU2h上限），[独立实现与合成预检已通过](docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_RUNTIME_PREPARATION_2026-09-30.md)，本次真实数据/模型读取0、真实运行未授权。唯一下一步：准备一次真实诊断的正式声明供审核；当前待跑正式实验零，无自动推进。第一项继续冻结。
+当前：Sports未见物品诊断v1已completed/exit0，保存证据自审567项通过；科学undetermined（多模态教师暖probe优势未建立），第二算法尚未成立。见[结果](docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_RESULTS.md)、[审计](docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_AUDIT.md)、[HANDOFF](docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_HANDOFF.md)。[最新路线重评](docs/research/innovation2/POST_DIAGNOSTIC_ROUTE_REVIEW_2026-09-30.md)保留新物品接入问题、暂缓扩大MM教师/KD；[质量约束前沿协议v1](docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_PROTOCOL_V1.md)已冻结（380状态，开发select，CPU2h上限），[独立实现与合成预检已通过](docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_RUNTIME_PREPARATION_2026-09-30.md)，本次真实数据/模型读取0、真实运行未授权。[一次真实诊断声明已备妥](docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_LAUNCH_REVIEW_V1.md)，包括原Train分区重读例外和单次CPU2h上限；唯一下一步是明确授权此一次诊断。已授权待跑实验零，当前不执行。第一项继续冻结。
 
 训练入口为`codes/main_mmlight.py`，参数默认源`codes/utility/parser.py`，CLI优先。`codes/run_patent.py`是独立历史路径。评审材料移至`archive/reviews/check/`，旧代码集中在archive下；原始数据/模型/运行产物与`zhuanli/`保持原位。搬迁详见[路径映射](docs/experiments/ROOT_RELOCATION_2026-09-29.json)。
 

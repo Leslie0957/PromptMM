@@ -1,0 +1,545 @@
+{
+  "schema_version": 1,
+  "protocol_id": "sports_quality_frontier_v1",
+  "status": "prepared_awaiting_explicit_authorization",
+  "human_authorized": false,
+  "authorization_evidence": null,
+  "originalTrain_partition_exception_acknowledged": false,
+  "authorization_requested": "one exact CPU development cohort including originalTrain partition-only reload, clean declaration/source commit, one launch and outcome audit/commit; no retry/resume/next stage",
+  "scope": "one_fixed_model_frontier_development",
+  "profile_path": "docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_PROFILE_V1.json",
+  "profile_sha256": "a665ed386d58c47067fc33d04304f06752d814b07b0eb8077c524367dfd986cd",
+  "anchor": {
+    "result_commit": "6714bf14880b636261a03584f731bac70e776d09",
+    "route_review_commit": "1dea1c88393c67e2644cddc5bb3dde440291853f",
+    "original_launch_commit": "07eaeee8db0fc62b8fc998f7ebed1c30dd024e78",
+    "original_batch_sha256": "9d4861d0089a230db2b76613443b6b5e3c1f1173dfda0f4e9db25356af026764",
+    "profile_path": "docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_PROFILE_V1.json",
+    "profile_sha256": "8fa483db8ee8fd1a80086b6f7bcbb090803adc4d57ccddf8c85e6cf96ad9ed8e",
+    "assets": [
+      {
+        "path": "exp/innovation2/sports_unseen_transfer_v1/T_CF_tables.npz",
+        "bytes": 6371655,
+        "sha256": "c6afaafcda0be55c22929cae5d44fa1391859ed209d6dd9aea8b0f52db527b52"
+      },
+      {
+        "path": "exp/innovation2/sports_unseen_transfer_v1/transform.npz",
+        "bytes": 2233807,
+        "sha256": "349047a3e398cfa2d63b7aa3d4d22c571d589c8655bdf7c359b1bc44b6a231c2"
+      },
+      {
+        "path": "exp/innovation2/sports_unseen_transfer_v1/teacher_selection.json",
+        "bytes": 1698200,
+        "sha256": "0668df48fb97db898b5916e5765c69734085777929d63a852b22c5250f6d9740"
+      },
+      {
+        "path": "exp/innovation2/sports_unseen_transfer_v1/student_selection.json",
+        "bytes": 14236589,
+        "sha256": "1cb24b2cab2f8c1982b2f585ec34d7d1f9b5ffef846c37852ab547aad2779a84"
+      },
+      {
+        "path": "exp/innovation2/sports_unseen_transfer_v1/split_manifest.json",
+        "bytes": 1410,
+        "sha256": "06c1509d572f23c9b8969fbf9cbbcfcb5640c4e5afa4bf12513477e208092efd"
+      },
+      {
+        "path": "exp/innovation2/sports_unseen_transfer_v1/source_manifest.json",
+        "bytes": 1472,
+        "sha256": "73aa1a7697209627fcd4de12a1f25fae08ad4381b216b0da97db5f94edda4170"
+      },
+      {
+        "path": "exp/innovation2/sports_unseen_transfer_v1/students/R_lambda0.001/selected.npz",
+        "bytes": 63731,
+        "sha256": "81f97ceef4668e57965b25d175a36df3a507069f65fa7cd66944243cbf285e11"
+      },
+      {
+        "path": "exp/innovation2/sports_unseen_transfer_v1/students/V_lr0.001_beta0.0/selected.pt",
+        "bytes": 101415,
+        "sha256": "ca132d4cc47af4585055f693679cb5aa25f6f7ddc7942cd0b0c0b0c0a04c91a3"
+      },
+      {
+        "path": "exp/innovation2/sports_unseen_transfer_v1/students/D_lr0.001_beta0.0/selected.pt",
+        "bytes": 101415,
+        "sha256": "5f8999de0145244dc9c5d9e15ffa63be5a1422f7743fb882b3d64f47c3d8b89d"
+      },
+      {
+        "path": "exp/innovation2/sports_unseen_transfer_v1/students/K_CF_lr0.0003_beta0.1/selected.pt",
+        "bytes": 101415,
+        "sha256": "97695d3984ccda2dc9d1a01ff56e015ac823b51f58e555653b0abcc22cb474f7"
+      },
+      {
+        "path": "exp/innovation2/sports_unseen_transfer_v1/students/K_MM_lr0.0003_beta0.1/selected.pt",
+        "bytes": 101415,
+        "sha256": "3e846289ec593f0e40419b048d99a44eb33356ee1fd7a7000a8bb908c6d7bd6a"
+      }
+    ]
+  },
+  "source_inputs": {
+    "allowed_original_payloads": [
+      {
+        "path": "data/sports/train_mat",
+        "bytes": 1890060,
+        "sha256": "5361c5486dddbf50084d011278a11d2f18a37e258f87be218b070ff02f4ab0f8"
+      },
+      {
+        "path": "data/sports/image_feat.npy",
+        "bytes": 601522304,
+        "sha256": "222f924a0694b6c7e2bc26ea4bc2ef4ec89f7045aa5105ef463af8455c7a7695"
+      },
+      {
+        "path": "data/sports/text_feat.npy",
+        "bytes": 28196480,
+        "sha256": "27d6087f0d8644b8245c60052425530c6446dffe61024b8126db0009ad94de84"
+      }
+    ],
+    "original_shapes": {
+      "users": 35598,
+      "items": 18357,
+      "original_train_nnz": 218409,
+      "image": [
+        18357,
+        4096
+      ],
+      "text": [
+        18357,
+        384
+      ]
+    },
+    "allowed_metadata": [
+      "data/sports/conversion_manifest.json",
+      "exp/innovation2/sports_unseen_transfer_v1/batch.json"
+    ],
+    "input_integrity": "cited_anchor_plus_stat; hash_required_once_at_authorized_runtime_if_anchor_stale_untrusted_or_role_restoration_input; no sealed hash reads",
+    "forbidden_payloads": [
+      "data/sports/val_mat",
+      "data/sports/test_mat",
+      "data/_incoming/mmrec_sports/sports.inter",
+      "exp/innovation2/sports_unseen_transfer_v1/sealed_lock.json",
+      "exp/innovation2/sports_unseen_transfer_v1/report.json",
+      "exp/innovation2/sports_unseen_transfer_v1/per_user_probe.npz",
+      "exp/innovation2/sports_unseen_transfer_v1/T_MM_tables.npz"
+    ],
+    "preparation_payload_access": false
+  },
+  "implementation_base_commit": "06d99b6b4c46ef94b2c2b977cb6f06e71fdb9ef2",
+  "implementation_delta": "feature integrity consistency fix: authenticate pinned original batch metadata; unchanged features cite anchor + stat, no full rehash; originalTrain/small assets still SHA before load; scoring unchanged",
+  "source_sha256_canonical_LF": {
+    "run_quality_constrained_frontier.py": "e97a58221177fe9efe160a525ec79cd8bcf20b1864a844126f726881e164398f",
+    "quality_frontier_core.py": "922a2b96f0bdd56fcce18225572f015fa5c94d76394529b2bfb5b38b832efa20"
+  },
+  "source_rule": "clean_committed_HEAD_containing_this_declaration",
+  "branch": "codex/experiment/baby-teacher-baseline",
+  "command": "& 'D:\\miniconda\\envs\\run_5060\\python.exe' -B tools/run_quality_constrained_frontier.py --execute --declaration docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_RUN_DECLARATION_V1.json",
+  "working_directory": "D:/Download/PromptMM",
+  "output_root": "exp/innovation2/sports_quality_frontier_v1",
+  "one_launch_no_retry_no_resume_no_next_stage": true,
+  "state_seed": 2022,
+  "new_training_runs": 0,
+  "fixed_selected_states": {
+    "R": {
+      "arm": "R",
+      "lambda": 0.001,
+      "epoch": 0,
+      "checkpoint": "students/R_lambda0.001/selected.npz",
+      "checkpoint_sha256": "81f97ceef4668e57965b25d175a36df3a507069f65fa7cd66944243cbf285e11"
+    },
+    "V": {
+      "arm": "V",
+      "lr": 0.001,
+      "beta": 0.0,
+      "epoch": 240,
+      "checkpoint": "students/V_lr0.001_beta0.0/selected.pt",
+      "checkpoint_sha256": "ca132d4cc47af4585055f693679cb5aa25f6f7ddc7942cd0b0c0b0c0a04c91a3"
+    },
+    "D": {
+      "arm": "D",
+      "lr": 0.001,
+      "beta": 0.0,
+      "epoch": 10,
+      "checkpoint": "students/D_lr0.001_beta0.0/selected.pt",
+      "checkpoint_sha256": "5f8999de0145244dc9c5d9e15ffa63be5a1422f7743fb882b3d64f47c3d8b89d"
+    },
+    "K_CF": {
+      "arm": "K_CF",
+      "lr": 0.0003,
+      "beta": 0.1,
+      "epoch": 20,
+      "checkpoint": "students/K_CF_lr0.0003_beta0.1/selected.pt",
+      "checkpoint_sha256": "97695d3984ccda2dc9d1a01ff56e015ac823b51f58e555653b0abcc22cb474f7"
+    },
+    "K_MM": {
+      "arm": "K_MM",
+      "lr": 0.0003,
+      "beta": 0.1,
+      "epoch": 20,
+      "checkpoint": "students/K_MM_lr0.0003_beta0.1/selected.pt",
+      "checkpoint_sha256": "3e846289ec593f0e40419b048d99a44eb33356ee1fd7a7000a8bb908c6d7bd6a"
+    },
+    "N": {
+      "arm": "N",
+      "epoch": 0,
+      "query_sha256": "2b786220a1f52877d6ee4ec51e54bf76ea664ebc589bae8d1a6e56e0791cf736"
+    }
+  },
+  "restoration_identity": {
+    "split": {
+      "algorithm": "sha256_lexicographic_sorted_train_positive_item_ids",
+      "key_format": "sports_unseen_transfer_v1|20260930|item|{id}",
+      "fractions": {
+        "warm": 0.8,
+        "cold_select": 0.05,
+        "cold_probe": 0.05,
+        "cold_lock": 0.1
+      },
+      "rounding": "floor_first_three_remainder_lock",
+      "min_warm_degree": 5,
+      "warm_holdouts": 2,
+      "warm_pair_key": "sports_unseen_transfer_v1|20260930|warm_pair|{user}|{item}",
+      "min_warm_fit_degree": 3,
+      "drop_items_without_warm_fit": true,
+      "filter_users_by_cold_labels": false,
+      "resample": false
+    },
+    "expected_users": 13011,
+    "eligible_users_sha256": "c84719c11fbd0d0790153864b6b267e0fe9746c4c8c1c91d96669e9e78dc40d4",
+    "warm_active_items": 13930,
+    "warm_active_sha256": "b8849c576aa4a4e40d665b843064d443768383cc36b283fd5f15c0e49f3bcdca",
+    "expected_role_metadata": {
+      "warm_fit": {
+        "pairs": 84695,
+        "sha256": "1865ffa1b055e5d221c6d1544df196b7e1c1e26b104313731e7601e00fc240f9",
+        "users": 13011,
+        "items": 13930
+      },
+      "warm_select": {
+        "pairs": 12671,
+        "sha256": "2f98bc343a8fdf58f108a2d08328e2bcb8a64e298cfd21318e231e24dc628cd1",
+        "users": 12671,
+        "items": 6512
+      },
+      "cold_select": {
+        "pairs": 5351,
+        "sha256": "758e253b9e9d4e55d463b5540a562745fe67e1cb7fcea7fd207730a39853461e",
+        "users": 4067,
+        "items": 881
+      }
+    },
+    "cold_select_candidates": 917,
+    "original_train_exception": "future authorized partition-only reload sees full originalTrain container; derive fixed item groups and reserve warm pair rank1 but never retain/evaluate probe/lock labels; export only warm_fit/warm_select/cold_select and allowed IDs; discard whole source before scoring",
+    "no_resample": true,
+    "no_new_seal_write": true,
+    "no_probe_role_export": true,
+    "old_roles_class_forbidden": true,
+    "role_identity_failure": "failed_preserve_no_retry"
+  },
+  "delta_from_original_diagnostic": {
+    "evaluation": "reused warm_select/cold_select only; no old probe/lock/Val/Test",
+    "calibration": "equal fixed 63-point positive affine grid per six arms, no checkpoint reselection",
+    "numerics": "float32 base inner product, float64 affine/tie; old metrics unchanged, bitwise v1 reproduction not required",
+    "quality": "common CF_W_ONLY warm and D/raw mixed overall constraints; primary epsilon .001",
+    "interpretation": "development only; no independent confirmation or innovation certification"
+  },
+  "grid": {
+    "scale_exponents_half_steps": [
+      -4,
+      -3,
+      -2,
+      -1,
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "scale_formula": "2**(exponent/2)",
+    "offset_sigma_units": [
+      -1,
+      -0.5,
+      -0.25,
+      0,
+      0.25,
+      0.5,
+      1
+    ],
+    "candidates_per_arm": 63,
+    "arms": 6,
+    "grid_ranking_states": 378,
+    "additional_warm_only_reference_states": 2,
+    "total_ranking_states": 380,
+    "contains_raw_a1_b0": true,
+    "offset_applies_only_to_cold": true,
+    "magnitude_shrinkage": false,
+    "user_conditioned_calibration": false,
+    "per_item_offsets": false,
+    "search_expand_after_result": false
+  },
+  "scoring": {
+    "catalog": [
+      "warm_active",
+      "cold_select"
+    ],
+    "labels": [
+      "warm_select",
+      "cold_select"
+    ],
+    "mask": "warm_fit_positives_only",
+    "users": "fixed_v1_eligible_users; overall/warm/cold use their respective positive-label users",
+    "k": 20,
+    "user_batch": 128,
+    "base_score_dtype": "float32",
+    "calibrated_score_dtype": "float64",
+    "cold_score": "a*float64(base_cold_score)+b*warm_score_population_std",
+    "warm_score": "float64(base_warm_score) unchanged",
+    "warm_sigma": "per-arm global population std of all fixed eligible user x warm_active finite pre-mask base float32 scores in float64; shared one sigma for five core arms, N own sigma",
+    "sigma_floor": 1e-08,
+    "tie": "calibrated float64 score descending then original item ID ascending",
+    "finite_candidates_only": true,
+    "ranking_method": "one full-candidate base score pass per arm, reuse group top20 only when transformed cold top20 boundary order certified; otherwise fail rather than approximate",
+    "cross_group_merge_top20": true,
+    "no_full_user_item_matrix": true,
+    "preserve_within_cold_order": true,
+    "old_v1_numerical_reproduction_required": false,
+    "numerical_delta": "affine float64/tie protocol declared new; v1 float32 metrics not retroactively replaced"
+  },
+  "quality": {
+    "reference_warm": "CF_W_ONLY warm_select recall; same mixed labels/user denominators, cold scores excluded",
+    "reference_overall": "D/raw a1_b0 mixed-select overall recall from this run",
+    "N_W_ONLY": "descriptive reference only; does not change common quality bounds",
+    "budgets": [
+      0,
+      0.0005,
+      0.001,
+      0.002
+    ],
+    "primary_budget": 0.001,
+    "constraints": "candidate warmR >= CF_W_ONLY warmR-epsilon AND candidate overallR >= D/raw overallR-epsilon",
+    "tolerance_units": "absolute Recall fractions",
+    "selection": "among feasible: max cold Recall, then overall Recall, warm Recall, min abs(log2(a)), min abs(b), smaller a, smaller b",
+    "no_feasible": "no_feasible_grid_candidate; no fabricated zero-cold winner",
+    "references_not_search_candidates": true,
+    "frontier": "all nondominated warm/overall/cold grid points; exact equality retained by stable parameter tie",
+    "max_selected_states": 24,
+    "minimum_positive_cold_recall_for_usable_signal": 0.002
+  },
+  "evaluation": {
+    "groups": [
+      "overall",
+      "warm",
+      "cold"
+    ],
+    "metrics": [
+      "recall20",
+      "ndcg20",
+      "users",
+      "positives",
+      "hits"
+    ],
+    "ndcg": "same mixed top20 with group-specific ideal denominator",
+    "auxiliary": [
+      "cold_only_recall",
+      "cold_slot_share",
+      "cold_exposure_concentration",
+      "feasible_candidate_fraction",
+      "cold_vector_norm",
+      "stage_timing"
+    ],
+    "save_per_user": "CF_W_ONLY/N_W_ONLY, six raw states and each distinct feasible budget-selected state, deduplicated; no repeated ranking",
+    "selected_pair_differences": [
+      [
+        "K_CF",
+        "D"
+      ],
+      [
+        "K_MM",
+        "D"
+      ],
+      [
+        "K_MM",
+        "K_CF"
+      ]
+    ],
+    "bootstrap_replicates": 2000,
+    "bootstrap_seed": 20260930,
+    "bootstrap_quantiles": [
+      0.025,
+      0.975
+    ],
+    "bootstrap_users": "paired identical group users, same resampling indices per group across all comparisons",
+    "bootstrap_interpretation": "descriptive post-selection reused-select intervals; not selection-adjusted significance or independent evidence",
+    "max_selected_bootstrap_comparisons": 36,
+    "minimum_samples": {
+      "warm_select_users": 1000,
+      "cold_select_users": 1000,
+      "cold_select_interactions": 2000,
+      "positive_cold_select_items": 200
+    }
+  },
+  "decision": {
+    "scope": "primary epsilon only; secondary budgets descriptive no best-budget selection",
+    "effect_delta": 0.002,
+    "quality_missing": "development_undetermined",
+    "no_core_feasible": "development_no_feasible_candidate",
+    "best_core_cold_below_effect_delta": "development_no_useful_tradeoff_in_grid",
+    "missing_D_or_either_KD_feasible": "development_incomplete_control_comparison",
+    "D_and_both_KD_feasible": "compare best feasible R/V/D cold vs max feasible K_CF/K_MM cold; gap <=0.002 simple_control_sufficient_in_development else KD_difference_remains_in_development",
+    "MM_comparison": "report primary-budget K_MM-K_CF cold/warm/overall differences when both feasible; no teacher-advantage or transfer certification",
+    "innovation_certified": false,
+    "changes_v1_decision": false,
+    "automatic_next_stage": false
+  },
+  "information": {
+    "test_access": 0,
+    "old_validation_access": 0,
+    "old_probe_evaluation": 0,
+    "lock_payload_reads": 0,
+    "lock_confirmation_access": 0,
+    "selection_only": true,
+    "originalTrain_partition_contact": "explicit future declaration exception, not zero source contact; no probe/lock targets available to scorer",
+    "feature_rows": [
+      "warm_active",
+      "cold_select"
+    ],
+    "old_probe_not_independent": true
+  },
+  "partition_exception_requested": {
+    "full_originalTrain_container_contact": true,
+    "allowed_export": [
+      "warm_fit",
+      "warm_select",
+      "cold_select"
+    ],
+    "warm_pair_rank1": "discard without retaining warm_probe target",
+    "discard_full_matrix_and_pairs_before_scoring": true,
+    "probe_lock_labels_constructed_or_exported": false,
+    "probe_lock_label_statistics": false,
+    "sealed_payload_read_or_hash": false,
+    "new_seal_write": false,
+    "allowed_feature_rows": [
+      "warm_active",
+      "cold_select"
+    ],
+    "authority": "not_granted_until_explicit_user_approval"
+  },
+  "resources": {
+    "device": "CPU",
+    "torch_threads": 4,
+    "BLAS_threads": 4,
+    "serial": true,
+    "gpu_training": false,
+    "cuda_required": false,
+    "rss_limit_gib": 6,
+    "output_limit_gib": 2,
+    "free_disk_floor_gib": 12,
+    "total_wall_seconds": 7200,
+    "stage_limits_seconds": {
+      "restore_assets": 900,
+      "score_grid": 4500,
+      "bootstrap": 900,
+      "closeout": 900
+    },
+    "telemetry_interval_seconds": 5,
+    "limit_type": "cooperative_checks_plus_sampler_not_OS_isolation",
+    "automatic_retry": false
+  },
+  "environment": {
+    "executable": "D:/miniconda/envs/run_5060/python.exe",
+    "python": "3.10.20 | packaged by Anaconda, Inc. | (main, Mar 11 2026, 17:42:35) [MSC v.1942 64 bit (AMD64)]",
+    "numpy": "2.2.6",
+    "torch": "2.11.0+cu128",
+    "scipy": "1.15.3",
+    "scikit-learn": "1.7.2",
+    "psutil": "7.2.2",
+    "scoring_device": "CPU",
+    "torch_threads": 4,
+    "BLAS_threads": 4
+  },
+  "input_verification": "verify pinned original batch metadata SHA; unchanged feature anchors + stat; Train and 11 smaller assets SHA before payload use; any stale metadata, changed identity or size fails without automatic recovery",
+  "acceptance": [
+    "clean committed exact source and human-authorized declaration with this scope",
+    "all frozen asset, allowed-role and N-query identities match",
+    "no training, PCA refit, teacher refit, checkpoint reselection, forbidden payload reads or probe/lock evaluation",
+    "finite scores and full-grid strict cold-order certificate; fail instead of approximate ranking",
+    "380 evaluated-or-explicitly-skipped states, two nonsearch references, shared-label quality bounds",
+    "24 arm/budget cells with infeasible explicit, deterministic choices/nesting, deduplicated per-user states",
+    "36 paired comparison records completed or explicitly skipped; descriptive post-selection bootstrap only",
+    "all13 required artifacts with identities, access and resource evidence; bounds respected",
+    "low quality or undetermined scientific label remains completed when execution/hard gates pass"
+  ],
+  "expected_artifacts": {
+    "root": "exp/innovation2/sports_quality_frontier_v1",
+    "overwrite": false,
+    "required": [
+      "source_manifest.json",
+      "restoration_manifest.json",
+      "resolved_profile.json",
+      "model_manifest.json",
+      "score_cache_manifest.json",
+      "grid_metrics.json",
+      "frontier.json",
+      "budget_selection.json",
+      "per_user_selected.npz",
+      "report.json",
+      "access_audit.json",
+      "resources.jsonl",
+      "batch.json"
+    ]
+  },
+  "record_update_targets": {
+    "protocol": "docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_PROTOCOL_V1.md",
+    "results": "docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_RESULTS.md",
+    "audit": "docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_AUDIT.md",
+    "handoff": "docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_HANDOFF.md",
+    "seed": 2022,
+    "matrix": "six arms x four budgets, infeasible explicit; raw and two references separate; development only",
+    "experiment_family": "Sports未见物品教师可迁移性/混合目录瓶颈",
+    "first_work_consumers": "unchanged_frozen",
+    "navigation_refresh": true
+  },
+  "record_update_details": {
+    "training_log_pending": "2026-09-30 Sports quality frontier v1 formal run declaration (pending; awaiting explicit authorization)",
+    "matrix_cell_ids": [
+      "seed2022/R/epsilon0",
+      "seed2022/R/epsilon0.0005",
+      "seed2022/R/epsilon0.001",
+      "seed2022/R/epsilon0.002",
+      "seed2022/V/epsilon0",
+      "seed2022/V/epsilon0.0005",
+      "seed2022/V/epsilon0.001",
+      "seed2022/V/epsilon0.002",
+      "seed2022/D/epsilon0",
+      "seed2022/D/epsilon0.0005",
+      "seed2022/D/epsilon0.001",
+      "seed2022/D/epsilon0.002",
+      "seed2022/K_CF/epsilon0",
+      "seed2022/K_CF/epsilon0.0005",
+      "seed2022/K_CF/epsilon0.001",
+      "seed2022/K_CF/epsilon0.002",
+      "seed2022/K_MM/epsilon0",
+      "seed2022/K_MM/epsilon0.0005",
+      "seed2022/K_MM/epsilon0.001",
+      "seed2022/K_MM/epsilon0.002",
+      "seed2022/N/epsilon0",
+      "seed2022/N/epsilon0.0005",
+      "seed2022/N/epsilon0.001",
+      "seed2022/N/epsilon0.002"
+    ],
+    "raw_reference_rows": "six fixed-model raw states and CF_W_ONLY/N_W_ONLY separately; development labels only",
+    "current_consumers": [
+      "TRAINING_LOG.md",
+      "README.md",
+      "docs/research/innovation2/README.md",
+      "docs/experiments/README.md"
+    ],
+    "conditional_consumers": "first-work paper/gap/Test matrices and THESIS_ROADMAP unchanged; no current trigger",
+    "generated_navigation": "all six RUN_CLOSEOUT targets refresh after manual edits; sealed payload deny guard",
+    "outcome": "append completed/failed without rewriting pending, preserve all raw evidence including negative results"
+  },
+  "risks": [
+    "select reused for model and coefficient selection; intervals descriptive, no independent generalization",
+    "inherited feature SHA plus stat is not a fresh whole-feature integrity proof",
+    "real-scale role/N-query/numeric/resources gates remain untested; two-hour cap is not duration prediction",
+    "application guards/sampling are not OS isolation; ignored outputs not backed up by Git source commit"
+  ],
+  "failure_policy": "preserve partial output, audit failed/partial, commit records; no retry/resume/reset/revert/delete or later stage without new authority",
+  "next_action": "request explicit approval for this exact one cohort and disclosed Train restoration; after approval record it, commit clean launch source, launch once and close out"
+}
