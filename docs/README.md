@@ -1,12 +1,13 @@
 # 文档导航
 
-核心目标：[论文总体目标与路线](../THESIS_ROADMAP.md)。研究决策遵循此页，实验状态不自动改变总体目标。
+核心目标与用户确认创新标准：[论文总体目标与路线v1.1](../THESIS_ROADMAP.md)。第一项已最终收尾并冻结至初稿准备阶段，FDRec仅作初稿时可选补充；后续研究重心先全部转到第二项。
 
 日常只需[当前短日志](../TRAINING_LOG.md)与[实验总览](experiments/README.md)，不必遍读research目录。
 
 | 层级 | 内容 |
 |---|---|
-| 当前研究 | [第一项阶段总结](paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md) · [第二项探索](research/innovation2/README.md) |
+| 当前研究 | [第二项探索](research/innovation2/README.md) |
+| 第一项冻结交接 | [最终收尾](paper/INNOVATION1_FINAL_CLOSEOUT_2026-09-30.md) · [科学结论](paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md) |
 | 写论文 | [论文入口](paper/README.md) |
 | 按问题查实验 | [粗粒度总览](experiments/README.md)，再进入对应审计 |
 | 查某次运行 | [JSON记录目录](experiments/RUN_RECORDS.md) |

@@ -1,6 +1,6 @@
 # 做过哪些实验：粗粒度总览
 
-更新2026-09-30。先看本表，需要具体seed/命令再点审计。第一项暂停扩展；第二项多轮探索尚未形成独立算法。对外评审可直接使用[完整研究交接](../research/RESEARCH_HANDOFF_FOR_INNOVATION2_REVIEW_2026-09-30.md)。这里按实验族计，不把重复运行或计时窗口当作新增独立实验。
+更新2026-09-30。先看本表，需要具体seed/命令再点审计。[第一项已最终收尾](../paper/INNOVATION1_FINAL_CLOSEOUT_2026-09-30.md)，现有方法/结果/证据至初稿准备阶段冻结；FDRec仅为初稿时可选直接基线，不是当前待跑项。后续研究重心先全部转到第二项，尚无成立的方法。创新判断采用[用户确认标准](../../THESIS_ROADMAP.md)。对外评审可使用[完整研究交接](../research/RESEARCH_HANDOFF_FOR_INNOVATION2_REVIEW_2026-09-30.md)。这里按实验族计，不把重复运行或计时窗口当作新增独立实验。
 
 | 实验族 | 状态与主要发现 | 深入记录 |
 |---|---|---|
@@ -35,4 +35,4 @@
 2. 找不到时查[运行JSON目录](RUN_RECORDS.md)或[历史日志章节](../../archive/training/ENTRY_INDEX_2026-09-26.md)。
 3. 按文件查找用[源码/文档清单](FILES.md)与[资产目录](../../archive/catalog/README.md)。
 
-当前决策：[第一项阶段总结](../paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md) · [第二项探索](../research/innovation2/README.md)。历史pending不是待跑清单。
+当前行动：[第一项冻结边界](../paper/INNOVATION1_FINAL_CLOSEOUT_2026-09-30.md) · [第二项探索](../research/innovation2/README.md)。第一项科学结论见[阶段总结](../paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。历史pending不是待跑清单。

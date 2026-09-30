@@ -2,9 +2,11 @@
 
 核心目标：[论文总体目标与路线](THESIS_ROADMAP.md)。研究决策遵循此页，实验状态不自动改变总体目标。
 
-更新2026-09-30。**第一项阶段性收尾，暂停扩展；第二项标量校准screen_stop，尚无成立的第二算法。**
+更新2026-09-30。**第一项已最终收尾，至论文初稿阶段冻结；后续研究重心先全部转到第二创新点探索。** 第二项尚无成立的方法，历史标量配方screen_stop。
 
 AI启动：完整读[AGENTS.md](AGENTS.md)，再读本页和[短日志](TRAINING_LOG.md)。历史命令、pending及旧“下一步”不构成执行授权。
+
+创新判断统一遵循[论文路线中的用户确认标准](THESIS_ROADMAP.md)：允许有明确差异与价值的组合、跨领域迁移和适配，不要求基础部件原创，不默认采用顶会级新机制门槛。第一项不再默认补实验或重复泛泛评审；FDRec仅为初稿阶段可考虑的直接基线补充，届时按最终质量与成本主张决定，当前不是待跑项。
 
 | 想了解什么 | 入口 |
 |---|---|
@@ -13,6 +15,7 @@ AI启动：完整读[AGENTS.md](AGENTS.md)，再读本页和[短日志](TRAINING
 | 新物品具体提案与判定 | [评分几何映射提案：算法立项未通过](docs/research/innovation2/NEW_ITEM_METHOD_PROPOSAL_2026-09-30.md) |
 | 时间充裕后的研究路线 | [教师可迁移性与混合目录瓶颈诊断](docs/research/innovation2/RESEARCH_DIRECTION_WITH_EXPANDED_BUDGET_2026-09-30.md) |
 | 做过哪些实验、粗略结论 | [实验总览](docs/experiments/README.md) |
+| 第一项收尾与冻结边界 | [最终收尾](docs/paper/INNOVATION1_FINAL_CLOSEOUT_2026-09-30.md) |
 | 第一项已知与未知 | [第一项阶段总结](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md) |
 | 第一项完整方法与结果 | [整合章节](docs/paper/INNOVATION1_INTEGRATED_CHAPTER_2026-09-29.md) |
 | 第二项接下来研究什么 | [探索工作页](docs/research/innovation2/README.md) |
