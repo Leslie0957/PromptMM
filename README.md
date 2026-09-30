@@ -22,7 +22,7 @@ AI启动：完整读[AGENTS.md](AGENTS.md)，再读本页和[短日志](TRAINING
 | 第二项接下来研究什么 | [探索工作页](docs/research/innovation2/README.md) |
 | 查具体运行、旧命令或文件 | [深层导航](docs/README.md) |
 
-当前：Sports未见物品诊断v1的[独立实现与CPU合成预检](docs/research/innovation2/UNSEEN_ITEM_TRANSFER_RUNTIME_PREPARATION_2026-09-30.md)完成，已准备未授权的明确运行声明；未读真实载荷、建真实划分/教师或运行正式诊断，CUDA/真实规模尚未验证。唯一下一步是授权并声明一次固定seed2022串行诊断cohort，按既定真实资产重建/6教师/12神经fit及R/N/校准范围，从干净提交启动一次并审计；不得自动重试/扩跑。评分几何岭回归仅作基线，第二算法尚未成立；有效负证据后与用户讨论。
+当前：用户已授权一次Sports未见物品诊断v1，正式[运行声明](docs/research/innovation2/UNSEEN_ITEM_TRANSFER_RUN_DECLARATION_V1.json)及日志pending已记录。按固定seed2022/真实资产重建/6教师/12神经fit及R/N/校准范围，从干净声明提交启动一次并审计，48h为保护上限；未获得结果前不作科学结论。当前执行进度查 `exp/innovation2/sports_unseen_transfer_v1/batch.json`；若该文件尚不存在，表示尚未launch。不得自动重试/扩跑，旧Val/Test和锁定确认不访问；有效负证据后与用户讨论。第一项继续冻结，第二算法尚未成立。
 
 训练入口为`codes/main_mmlight.py`，参数默认源`codes/utility/parser.py`，CLI优先。`codes/run_patent.py`是独立历史路径。评审材料移至`archive/reviews/check/`，旧代码集中在archive下；原始数据/模型/运行产物与`zhuanli/`保持原位。搬迁详见[路径映射](docs/experiments/ROOT_RELOCATION_2026-09-29.json)。
 

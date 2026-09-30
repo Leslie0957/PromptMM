@@ -8,9 +8,9 @@
 
 当前具体路线仍见[时间充裕后的路线重评](RESEARCH_DIRECTION_WITH_EXPANDED_BUDGET_2026-09-30.md)：先研究未见物品教师额外能力是否可迁移及混合目录瓶颈。评分几何岭回归保留为简单基线，已有配方停止结果不自动撤销，也不自动转跑备选。
 
-当前：[Sports未见物品诊断v1](UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_PROTOCOL_V1.md)和[原参数JSON](UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_PROFILE_V1.json)保持冻结；[独立运行实现与CPU合成预检](UNSEEN_ITEM_TRANSFER_RUNTIME_PREPARATION_2026-09-30.md)完成，六类对照及14报告路径已用fixture贯通。**尚无真实划分/教师或正式效果，CUDA/真实规模未验证**。[运行声明草稿](UNSEEN_ITEM_TRANSFER_RUN_DECLARATION_V1.json)未授权。
+当前：[Sports未见物品诊断v1](UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_PROTOCOL_V1.md)和[原参数JSON](UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_PROFILE_V1.json)保持冻结；[实现与CPU合成预检](UNSEEN_ITEM_TRANSFER_RUNTIME_PREPARATION_2026-09-30.md)后，用户已明确授权一次真实诊断，[正式运行声明](UNSEEN_ITEM_TRANSFER_RUN_DECLARATION_V1.json)和日志pending已记录。**未审计前无有效结果结论**；执行进度以独占输出batch/resources/curve为准。
 
-唯一下一步：授权并声明一次固定seed2022的Sports串行诊断cohort，包含预定真实资产重建/6教师/12神经fit及R/N/校准，从该声明干净提交启动一次并审计。有效负证据后保存结果、与用户讨论，不自动重试/扩跑。阶段进度以[当前日志](../../../TRAINING_LOG.md)为准。
+唯一当前行动：从该声明干净提交启动已授权固定seed2022串行诊断一次并完成审计，包含预定真实资产重建/6教师/12神经fit及R/N/校准，48h保护上限。有效负证据后保存结果、与用户讨论；失败亦保留，禁止自动重试/扩跑/下阶段。阶段进度以[当前日志](../../../TRAINING_LOG.md)为准。
 
 ## 历史进度与依据（不构成当前队列）
 

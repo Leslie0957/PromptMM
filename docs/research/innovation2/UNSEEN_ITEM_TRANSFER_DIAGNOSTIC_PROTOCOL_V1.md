@@ -1,6 +1,6 @@
 # Sports未见物品教师可迁移性与混合目录瓶颈诊断 v1
 
-状态更新（2026-09-30）：[独立运行实现与CPU合成预检已完成](UNSEEN_ITEM_TRANSFER_RUNTIME_PREPARATION_2026-09-30.md)，真实资产/CUDA/效果尚未验证、未获执行授权。下文“当前”及JSON状态保留协议冻结时的快照；实验参数不变，后续进度以准备报告和活跃日志为准。
+状态更新（2026-09-30）：[独立运行实现与CPU合成预检已完成](UNSEEN_ITEM_TRANSFER_RUNTIME_PREPARATION_2026-09-30.md)，用户随后已明确授权既定单次cohort，正式声明/pending见[活跃日志](../../../TRAINING_LOG.md)。下文“当前”及JSON状态保留协议冻结时的快照；实验参数不变，真实进度与结果以活跃日志和独占输出batch为准。
 
 2026-09-30。用户授权准备这项诊断；本次冻结协议和[机器可读配置](UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_PROFILE_V1.json)，不执行真实数据构建、训练或评价。当前状态为 **protocol_frozen_runtime_not_implemented**，不是可立即开跑的训练包。按[用户确认创新标准](../../../THESIS_ROADMAP.md)判断具体差异与价值，不要求基础工具原创；第一项继续冻结。
 

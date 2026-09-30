@@ -1,9 +1,9 @@
 {
-  "status": "draft_not_authorized_not_launched",
+  "status": "authorized_pending_clean_commit_and_single_launch",
   "protocol_id": "sports_unseen_transfer_v1",
   "scope": "one_serial_cohort_assets_teachers_students_report",
-  "explicit_user_authorization": false,
-  "authorization_evidence": null,
+  "explicit_user_authorization": true,
+  "authorization_evidence": "2026-09-30 current user explicitly replies 授权 to one fixed seed2022 Sports serial diagnostic (48h guard), including declared asset rebuilding and post-run audit; no retry/extra seed/next stage",
   "launch_source_rule": "committed_HEAD_containing_this_declaration",
   "profile_sha256": "8fa483db8ee8fd1a80086b6f7bcbb090803adc4d57ccddf8c85e6cf96ad9ed8e",
   "shared_anchor": "sports_unseen_transfer_v1 at e565a949b7417a2c4268552c59a8918954ee53e2; three allowed input fingerprints in frozen profile",
@@ -68,5 +68,5 @@
     "navigation_refresh": true
   },
   "physical_backup_or_tag": "not requested; ordinary exploratory cohort, preserve ignored raw artifacts in place",
-  "guard": "DRAFT ONLY; changing authorization fields requires actual user authorization and pending formal log/clean committed source; never launch by treating this draft as permission"
+  "guard": "ONE AUTHORIZED LAUNCH ONLY from clean committed declaration HEAD; preserve failures; no retry/resume/next seed/next stage; no original Val/Test or locked confirmation access"
 }
