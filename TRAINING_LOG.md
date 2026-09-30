@@ -5,9 +5,9 @@
 ## 当前状态
 
 - 第一项：有限实验、独立审计及正文整合完成，暂停扩展；[结论与未验证边界](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。待跑实验为零。
-- 第二项：共享残差三seed12臂审计通过执行验收，三次screen_stop；N改善B，但低组输给随机R。[审计](docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_AUDIT.md)。
+- 第二项：逐用户槽位三seed完成并通过产物审计；联合筛查unresolved。分配假设有支持，尚无成立的第二算法；[统一判断](docs/research/innovation2/PER_USER_SLOT_CONTROL_RESULTS.md)。
 - 约束：旧Test不选新方法；P1a已筛查停止；旧RGCS/门控不是队列。未知项不自动补跑。
-- 唯一下一步：按[逐用户槽位启动准备](docs/research/innovation2/PER_USER_SLOT_CONTROL_PREPARATION_2026-09-30.md)手动运行固定CPU诊断一次；实现及6项合成测试通过，尚未评价真实数据。
+- 唯一下一步：对“个性化低频分配”做算法立项评审，仅设计；当前诊断链收尾，不启动新实验。
 
 ## 证据导航
 
@@ -341,3 +341,17 @@
 - Added isolated CPU run_per_user_slot_control.py, SHA-pinned profile and launch preparation. Constructs H from B prefixes/R group-position pattern, seals all three H before any interaction matrix access; no model loading/GPU/GEMM/training. Regresses nine saved B/Q/R metrics, computes three H plus S/nonS/low-nonS counts, paired R-H/H-Q/H-B and descriptive decision, one-shot supervised output.
 - Six synthetic tests pass for zero/full/mixed slots, changed identities, invalid padding/order/ties, phase guard, subgroup arithmetic and decision boundaries. Syntax/help/metadata paths/output absence verified; no real cache/tensor/dataset loads, evaluation or Test. CPU600s/RSS2GiB/output128MiB/free2GiB full-run feasibility remains unmeasured; sampled monitoring limitations stated.
 - Preparation provides exact manual command and result/audit/handoff routing. Updated current entrances/family/catalogs; old records/charter/first-work/assets/reviews unchanged. Focused link/history/diff before scoped commit. Sole next step user runs fixed cohort once then returns for audit and unified research judgment; no default further diagnostics or training.
+
+
+## 2026-09-30 Per-user slot outcome audit (pending)
+
+- User reports the declared run complete. Base6a0179e; scope is saved manifest/hash/list-prefix/paired-arithmetic/resource/Test0 verification and unified interpretation of the residual diagnostic chain. No scoring, label loading, training, Test, retry or next experiment. Preserve raw outputs, historical records and untracked reviews.
+- Targets: PER_USER_SLOT_CONTROL_RESULTS/AUDIT/HANDOFF/VERIFICATION, active entrances and experiment-family row, generated navigation. First-work matrices and thesis charter unchanged. Risks: treating unresolved screen as pass, hybrid H as independent algorithm, arithmetic decomposition as causal attribution. Acceptance: pinned identities, slot/prefix invariants, original-state regression, finite saved metrics, recorded limits, historical-log preservation, scoped commit. Recovery reference is current committed source and untouched artifacts; next is a unified design decision, not another automatic diagnostic.
+
+
+## 2026-09-30 Per-user slot outcome audit (completed)
+
+- Source6a0179e; exp/innovation2/per_user_slot_control_v1 completed, exit0. 148 saved-artifact checks passed (hashes, slot/prefix invariants, original metrics, paired arithmetic, seal chronology and caps). 29.203s, sampled RSS92430336B, output4814016B; Test0. Audit did not load labels/models or rerun scoring/evaluation.
+- H low hits60/62/66 versus R61/62/64, Q51/58/55. H−R Recall +0.000414349/−0.000327734/−0.000103894; joint frozen decision unresolved (2023 global tolerance). H−Q low +9/+4/+11 and overall positive in all3 supports allocation as a hypothesis, not independent algorithm/semantic benefit.
+- [Results and unified judgment](docs/research/innovation2/PER_USER_SLOT_CONTROL_RESULTS.md), [audit](docs/research/innovation2/PER_USER_SLOT_CONTROL_AUDIT.md), [handoff](docs/research/innovation2/PER_USER_SLOT_CONTROL_HANDOFF.md). Current diagnostic chain ends. First-work matrices/charter and historical raw records unchanged; entrances/catalogs updated, verify historical log preservation/diff/local links before scoped commit.
+- Unique next step: personalized low-frequency allocation algorithm design review, including existing-method alternatives and stopping conditions; no further run authorized.

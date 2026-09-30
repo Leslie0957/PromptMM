@@ -4,6 +4,7 @@
 
 | 实验族 | 状态与主要发现 | 深入记录 |
 |---|---|---|
+| 逐用户槽位控制 | 三seed执行通过，整体unresolved；H低组60/62/66接近R，2023总体超过容忍线；诊断链收尾 | [统一判断](../research/innovation2/PER_USER_SLOT_CONTROL_RESULTS.md) · [审计](../research/innovation2/PER_USER_SLOT_CONTROL_AUDIT.md) |
 | 全局曝光匹配加分 | 三seed精确匹配；R低组比Q多10/4/9命中，简单全局加分不足；无训练/Test | [审计](../research/innovation2/EXPOSURE_MATCHED_BONUS_AUDIT.md) · [结果](../research/innovation2/EXPOSURE_MATCHED_BONUS_RESULTS.md) |
 | 自身锚点固定检查点干预 | 三seed六状态执行通过；低组增益保留94%–106%，2024总体Recall超容忍线，整体screen_stop | [审计](../research/innovation2/OWN_ANCHOR_CONTROL_AUDIT.md) · [结果](../research/innovation2/OWN_ANCHOR_CONTROL_RESULTS.md) |
 | 残差只读机制复盘 | F系数均负；R残差接近自身变换加共同偏移，未证因果；全表导出公式补验通过 | [分析](../research/innovation2/NEIGHBOR_RESIDUAL_MECHANISM_2026-09-30.md) |
@@ -25,7 +26,7 @@
 | 评价恢复/资产核验 | 原失败保留，独立恢复完成12格新Test；不是新增12次训练 | [恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md) |
 | 更早数据/教师/预实验 | 历史背景，不自动并入当前合格主表 | [详细族导航](HISTORICAL_FAMILIES.md) |
 
-当前准备：[逐用户槽位控制](../research/innovation2/PER_USER_SLOT_CONTROL_PREPARATION_2026-09-30.md)，实现及合成验证完成，待用户一次运行。
+当前无待跑实验；下一步仅个性化低频分配算法立项评审，见上述统一判断。
 
 ## 需要再深入时
 

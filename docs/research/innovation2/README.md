@@ -2,6 +2,8 @@
 
 核心目标：[论文总体路线](../../../THESIS_ROADMAP.md)，保持不变。用户希望探索针对简化学生具体不足的算法改进；尚无已选算法或有效性结论。
 
+以下为历史排序路线（已停止该配方），最新判断见页尾。
+
 2026-09-29：按[教师排序缺口诊断计划](RANKING_GAP_DIAGNOSTIC_PLAN_2026-09-29.md)完成一次 Sports Validation 诊断；[结果与执行方自审](RANKING_GAP_DIAGNOSTIC_RESULTS.md)、[独立审计交接](RANKING_GAP_DIAGNOSTIC_HANDOFF.md)。第一项暂停扩展。
 
 | 项目 | 当前判断 |
@@ -15,4 +17,4 @@
 
 当前已形成[最小排序监督对照方案](MINIMAL_RANKING_SUPERVISION_PROPOSAL_2026-09-29.md)；原seed2022[实现与资源准备报告](MINIMAL_RANKING_SUPERVISION_PREPARATION_REPORT_2026-09-29.md)之后，已固定[三seed串行手动启动准备](MINIMAL_RANKING_THREE_SEED_MANUAL_LAUNCH_2026-09-29.md)。三seed正式训练已完成，[独立审计](MINIMAL_RANKING_THREE_SEED_AUDIT_2026-09-29.md)通过执行验收但均screen_stop；没有算法成功结论。
 
-当前唯一下一步：按[逐用户槽位启动准备](PER_USER_SLOT_CONTROL_PREPARATION_2026-09-30.md)手动运行固定CPU诊断一次；实现及6项合成测试通过，尚未评价真实数据。
+当前唯一下一步：对“个性化低频分配”做算法立项评审，仅设计；当前诊断链收尾，不启动新实验。 [最新结果与统一判断](PER_USER_SLOT_CONTROL_RESULTS.md)。
