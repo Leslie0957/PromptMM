@@ -1,0 +1,72 @@
+{
+  "status": "draft_not_authorized_not_launched",
+  "protocol_id": "sports_unseen_transfer_v1",
+  "scope": "one_serial_cohort_assets_teachers_students_report",
+  "explicit_user_authorization": false,
+  "authorization_evidence": null,
+  "launch_source_rule": "committed_HEAD_containing_this_declaration",
+  "profile_sha256": "8fa483db8ee8fd1a80086b6f7bcbb090803adc4d57ccddf8c85e6cf96ad9ed8e",
+  "shared_anchor": "sports_unseen_transfer_v1 at e565a949b7417a2c4268552c59a8918954ee53e2; three allowed input fingerprints in frozen profile",
+  "delta": "new item-disjoint warm-only assets and newly paired teachers; first-work assets not reused",
+  "comparison_anchor": "selected warm-only T_CF common P/Q, plus R/V/D/K_CF/N and all predeclared calibration variants",
+  "seed": 2022,
+  "planned_counts": {
+    "teacher_fits": 6,
+    "neural_student_fits": 12,
+    "ridge_fits": 3,
+    "content_reference": 1,
+    "calibration_evaluations": 18,
+    "teacher_probe_passes": 2,
+    "student_probe_passes": 12
+  },
+  "output": "exp/innovation2/sports_unseen_transfer_v1",
+  "test_access": 0,
+  "old_validation_access": 0,
+  "lock_confirmation_access": 0,
+  "one_launch": true,
+  "retry": false,
+  "next_stage": false,
+  "command": "& 'D:\\miniconda\\envs\\run_5060\\python.exe' -B tools/run_unseen_transfer_diagnostic.py --execute --declaration docs/research/innovation2/UNSEEN_ITEM_TRANSFER_RUN_DECLARATION_V1.json",
+  "environment_setup": {
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+    "threads": 4,
+    "required_environment": "D:/miniconda/envs/run_5060",
+    "CUDA_status": "not kernel- or real-shape-tested in this preparation"
+  },
+  "wall_time_upper_bound_hours": 48,
+  "stage_budget_hours": {
+    "assets": 2,
+    "teachers_total": 24,
+    "students_total": 18,
+    "report_total": 4
+  },
+  "acceptance": "hard role/identity/finite-objective/selection/resource gates; quality support, screen_stop and undetermined distinct per frozen protocol",
+  "routing": {
+    "protocol": "docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_PROTOCOL_V1.md",
+    "results": "docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_RESULTS.md",
+    "audit": "docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_AUDIT.md",
+    "handoff": "docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_HANDOFF.md",
+    "matrix_rows": [
+      "T_CF",
+      "T_MM",
+      "R/raw",
+      "R/calibrated",
+      "V/raw",
+      "V/calibrated",
+      "D/raw",
+      "D/calibrated",
+      "K_CF/raw",
+      "K_CF/calibrated",
+      "K_MM/raw",
+      "K_MM/calibrated",
+      "N/raw",
+      "N/calibrated"
+    ],
+    "seed": 2022,
+    "first_work_consumers": "unchanged_frozen",
+    "experiment_family": "Sports未见物品教师可迁移性/混合目录瓶颈",
+    "navigation_refresh": true
+  },
+  "physical_backup_or_tag": "not requested; ordinary exploratory cohort, preserve ignored raw artifacts in place",
+  "guard": "DRAFT ONLY; changing authorization fields requires actual user authorization and pending formal log/clean committed source; never launch by treating this draft as permission"
+}

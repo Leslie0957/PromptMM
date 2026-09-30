@@ -27,7 +27,7 @@
 | 评价恢复/资产核验 | 原失败保留，独立恢复完成12格新Test；不是新增12次训练 | [恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md) |
 | 更早数据/教师/预实验 | 历史背景，不自动并入当前合格主表 | [详细族导航](HISTORICAL_FAMILIES.md) |
 
-当前无待跑实验。[Sports未见物品教师可迁移性/混合目录瓶颈诊断v1](../research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_PROTOCOL_V1.md)协议与JSON已冻结，stdlib合成与来源元数据检查通过；未创建真实划分、重建教师或训练，不计作新实验族。唯一下一步是独立运行实现及合成预检准备，真实执行另行声明与授权；有效负证据后与用户讨论，不自动扩跑。评分几何岭回归仅作基线，第二算法尚未成立。
+当前无已授权待跑实验。[Sports未见物品诊断v1实现与CPU合成预检](../research/innovation2/UNSEEN_ITEM_TRANSFER_RUNTIME_PREPARATION_2026-09-30.md)完成，运行声明为未授权草稿；未创建真实划分、重建真实教师或正式训练，不计作新实验族。唯一下一步是授权并声明一次固定seed2022串行诊断cohort（预定资产重建、6教师/12神经fit及R/N/校准），从干净提交启动一次并审计；有效负证据后讨论，不自动重试/扩跑。评分几何岭回归仅作基线，第二算法尚未成立。
 
 ## 需要再深入时
 

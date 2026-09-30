@@ -14,7 +14,7 @@ AI启动：完整读[AGENTS.md](AGENTS.md)，再读本页和[短日志](TRAINING
 | 最新候选评审与优先级 | [第二项独立候选评审](docs/research/innovation2/INDEPENDENT_CANDIDATE_REVIEW_2026-09-30.md) |
 | 新物品具体提案与判定 | [评分几何映射提案：算法立项未通过](docs/research/innovation2/NEW_ITEM_METHOD_PROPOSAL_2026-09-30.md) |
 | 时间充裕后的研究路线 | [教师可迁移性与混合目录瓶颈诊断](docs/research/innovation2/RESEARCH_DIRECTION_WITH_EXPANDED_BUDGET_2026-09-30.md) |
-| 当前诊断协议与准备边界 | [Sports未见物品诊断v1：协议已冻结，运行实现待准备](docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_PROTOCOL_V1.md) |
+| 当前诊断协议与准备边界 | [Sports未见物品诊断v1](docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_PROTOCOL_V1.md) · [实现与CPU合成预检](docs/research/innovation2/UNSEEN_ITEM_TRANSFER_RUNTIME_PREPARATION_2026-09-30.md) |
 | 做过哪些实验、粗略结论 | [实验总览](docs/experiments/README.md) |
 | 第一项收尾与冻结边界 | [最终收尾](docs/paper/INNOVATION1_FINAL_CLOSEOUT_2026-09-30.md) |
 | 第一项已知与未知 | [第一项阶段总结](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md) |
@@ -22,7 +22,7 @@ AI启动：完整读[AGENTS.md](AGENTS.md)，再读本页和[短日志](TRAINING
 | 第二项接下来研究什么 | [探索工作页](docs/research/innovation2/README.md) |
 | 查具体运行、旧命令或文件 | [深层导航](docs/README.md) |
 
-当前：[Sports未见物品诊断协议v1](docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_PROTOCOL_V1.md)已冻结，机器配置及stdlib合成检查通过；尚无运行实现、真实划分或新教师，未训练/评价。唯一下一步是按协议准备独立运行实现和合成预检，再形成真实启动包；具体资产构建/正式执行另行声明与授权。评分几何岭回归仅作基线，第二算法尚未成立；诊断负证据后与用户讨论，不自动扩跑。
+当前：Sports未见物品诊断v1的[独立实现与CPU合成预检](docs/research/innovation2/UNSEEN_ITEM_TRANSFER_RUNTIME_PREPARATION_2026-09-30.md)完成，已准备未授权的明确运行声明；未读真实载荷、建真实划分/教师或运行正式诊断，CUDA/真实规模尚未验证。唯一下一步是授权并声明一次固定seed2022串行诊断cohort，按既定真实资产重建/6教师/12神经fit及R/N/校准范围，从干净提交启动一次并审计；不得自动重试/扩跑。评分几何岭回归仅作基线，第二算法尚未成立；有效负证据后与用户讨论。
 
 训练入口为`codes/main_mmlight.py`，参数默认源`codes/utility/parser.py`，CLI优先。`codes/run_patent.py`是独立历史路径。评审材料移至`archive/reviews/check/`，旧代码集中在archive下；原始数据/模型/运行产物与`zhuanli/`保持原位。搬迁详见[路径映射](docs/experiments/ROOT_RELOCATION_2026-09-29.json)。
 
