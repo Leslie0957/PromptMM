@@ -26,7 +26,7 @@
 | 评价恢复/资产核验 | 原失败保留，独立恢复完成12格新Test；不是新增12次训练 | [恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md) |
 | 更早数据/教师/预实验 | 历史背景，不自动并入当前合格主表 | [详细族导航](HISTORICAL_FAMILIES.md) |
 
-当前无待跑实验；下一步仅个性化低频分配算法立项评审，见上述统一判断。
+当前无待跑实验；[立项评审](../research/innovation2/PERSONALIZED_ALLOCATION_DESIGN_REVIEW_2026-09-30.md)暂缓第二算法认定，下一步仅简单校准基线的实现与协议准备。
 
 ## 需要再深入时
 

@@ -7,7 +7,7 @@
 - 第一项：有限实验、独立审计及正文整合完成，暂停扩展；[结论与未验证边界](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。待跑实验为零。
 - 第二项：逐用户槽位三seed完成并通过产物审计；联合筛查unresolved。分配假设有支持，尚无成立的第二算法；[统一判断](docs/research/innovation2/PER_USER_SLOT_CONTROL_RESULTS.md)。
 - 约束：旧Test不选新方法；P1a已筛查停止；旧RGCS/门控不是队列。未知项不自动补跑。
-- 唯一下一步：对“个性化低频分配”做算法立项评审，仅设计；当前诊断链收尾，不启动新实验。
+- 唯一下一步：准备固定B上的全局/逐用户标量校准基线：实现、合成测试及有界协议；不运行真实实验。
 
 ## 证据导航
 
@@ -355,3 +355,14 @@
 - H low hits60/62/66 versus R61/62/64, Q51/58/55. H−R Recall +0.000414349/−0.000327734/−0.000103894; joint frozen decision unresolved (2023 global tolerance). H−Q low +9/+4/+11 and overall positive in all3 supports allocation as a hypothesis, not independent algorithm/semantic benefit.
 - [Results and unified judgment](docs/research/innovation2/PER_USER_SLOT_CONTROL_RESULTS.md), [audit](docs/research/innovation2/PER_USER_SLOT_CONTROL_AUDIT.md), [handoff](docs/research/innovation2/PER_USER_SLOT_CONTROL_HANDOFF.md). Current diagnostic chain ends. First-work matrices/charter and historical raw records unchanged; entrances/catalogs updated, verify historical log preservation/diff/local links before scoped commit.
 - Unique next step: personalized low-frequency allocation algorithm design review, including existing-method alternatives and stopping conditions; no further run authorized.
+
+
+## 2026-09-30 Personalized allocation design review (pending)
+
+- User approves sole recorded design-review stage. Base7a14362; read evidence and primary related work, document novelty/value decision and a concrete minimal candidate without implementation or execution. Scope new design review and active entrances/catalogs. Risks: confusing popularity calibration with novelty, adding unmotivated modality modules, silently changing thesis goal or reusing Validation as training. Acceptance: sourced nearest-method comparison, explicit mathematical reduction, train-only supervision boundary, costs and falsification; preserve old log, assets/reviews and charter; focused links/diff and commit. No run/Test/new diagnostic.
+
+
+## 2026-09-30 Personalized allocation design review (completed)
+
+- Added [design review](docs/research/innovation2/PERSONALIZED_ALLOCATION_DESIGN_REVIEW_2026-09-30.md). Primary xQuAD personalized-popularity reranking and PPAC establish substantial prior overlap; problem worth pursuing but no independent second-algorithm approval. Concrete candidate is frozen-B train-only scalar correction, explicitly a simple baseline, standard BPR/ridge and65D export identity; no invented multimodal necessity or performance promise.
+- Separate learnability, quality, novelty and cost; prior H screen unchanged, no reuse of Validation labels as training targets, no new diagnostic chain. Next only bounded implementation/protocol preparation and synthetic checks for global/user scalar baselines, no real execution. No data/model/Test access or source change; preserve charter, first-work matrices, old logs and reviews. Entrances/catalogs updated; links/history/diff checks and scoped commit.

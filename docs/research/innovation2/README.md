@@ -17,4 +17,6 @@
 
 当前已形成[最小排序监督对照方案](MINIMAL_RANKING_SUPERVISION_PROPOSAL_2026-09-29.md)；原seed2022[实现与资源准备报告](MINIMAL_RANKING_SUPERVISION_PREPARATION_REPORT_2026-09-29.md)之后，已固定[三seed串行手动启动准备](MINIMAL_RANKING_THREE_SEED_MANUAL_LAUNCH_2026-09-29.md)。三seed正式训练已完成，[独立审计](MINIMAL_RANKING_THREE_SEED_AUDIT_2026-09-29.md)通过执行验收但均screen_stop；没有算法成功结论。
 
-当前唯一下一步：对“个性化低频分配”做算法立项评审，仅设计；当前诊断链收尾，不启动新实验。 [最新结果与统一判断](PER_USER_SLOT_CONTROL_RESULTS.md)。
+当前唯一下一步：准备固定B上的全局/逐用户标量校准基线：实现、合成测试及有界协议；不运行真实实验。
+
+[个性化分配立项评审](PERSONALIZED_ALLOCATION_DESIGN_REVIEW_2026-09-30.md)：问题值得继续，简单用户加分已有近邻；暂不认定第二创新点。

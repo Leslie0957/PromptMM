@@ -138,7 +138,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（212）
+## docs（213）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -329,6 +329,7 @@
 - [docs/research/innovation2/OWN_ANCHOR_CONTROL_PROFILE_V1.json](../research/innovation2/OWN_ANCHOR_CONTROL_PROFILE_V1.json)
 - [docs/research/innovation2/OWN_ANCHOR_CONTROL_RESULTS.md](../research/innovation2/OWN_ANCHOR_CONTROL_RESULTS.md)
 - [docs/research/innovation2/OWN_ANCHOR_CONTROL_VERIFICATION.json](../research/innovation2/OWN_ANCHOR_CONTROL_VERIFICATION.json)
+- [docs/research/innovation2/PERSONALIZED_ALLOCATION_DESIGN_REVIEW_2026-09-30.md](../research/innovation2/PERSONALIZED_ALLOCATION_DESIGN_REVIEW_2026-09-30.md)
 - [docs/research/innovation2/PER_USER_SLOT_CONTROL_AUDIT.md](../research/innovation2/PER_USER_SLOT_CONTROL_AUDIT.md)
 - [docs/research/innovation2/PER_USER_SLOT_CONTROL_HANDOFF.md](../research/innovation2/PER_USER_SLOT_CONTROL_HANDOFF.md)
 - [docs/research/innovation2/PER_USER_SLOT_CONTROL_PLAN_2026-09-30.md](../research/innovation2/PER_USER_SLOT_CONTROL_PLAN_2026-09-30.md)

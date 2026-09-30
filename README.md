@@ -14,6 +14,8 @@ AI启动：完整读[AGENTS.md](AGENTS.md)，再读本页和[短日志](TRAINING
 | 第二项接下来研究什么 | [探索工作页](docs/research/innovation2/README.md) |
 | 查具体运行、旧命令或文件 | [深层导航](docs/README.md) |
 
-当前唯一下一步：对“个性化低频分配”做算法立项评审，仅设计；当前诊断链收尾，不启动新实验。 [统一研究判断](docs/research/innovation2/PER_USER_SLOT_CONTROL_RESULTS.md)。
+当前唯一下一步：准备固定B上的全局/逐用户标量校准基线：实现、合成测试及有界协议；不运行真实实验。
 
 训练入口为`codes/main_mmlight.py`，参数默认源`codes/utility/parser.py`，CLI优先。`codes/run_patent.py`是独立历史路径。评审材料移至`archive/reviews/check/`，旧代码集中在archive下；原始数据/模型/运行产物与`zhuanli/`保持原位。搬迁详见[路径映射](docs/experiments/ROOT_RELOCATION_2026-09-29.json)。
+
+[个性化分配立项评审](docs/research/innovation2/PERSONALIZED_ALLOCATION_DESIGN_REVIEW_2026-09-30.md)：问题值得继续，简单用户加分已有近邻；暂不认定第二创新点。
