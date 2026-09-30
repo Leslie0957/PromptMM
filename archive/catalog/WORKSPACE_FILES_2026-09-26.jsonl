@@ -208,9 +208,9 @@
 {"bytes": 13815757, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 02_38_22.563718_sports_light_init_pid596.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 05_34_16.930265_sports_light_init_pid42156.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 08_30_07.418852_sports_light_init_pid30132.pth", "source_catalog": false}
-{"bytes": 1624, "category": "root", "path": "README.md", "source_catalog": true}
+{"bytes": 1629, "category": "root", "path": "README.md", "source_catalog": true}
 {"bytes": 4930, "category": "root", "path": "THESIS_ROADMAP.md", "source_catalog": true}
-{"bytes": 69444, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
+{"bytes": 71661, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
 {"bytes": 739, "category": "archive", "path": "archive/README.md", "source_catalog": true}
 {"bytes": 26887, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/Models.py", "source_catalog": true}
 {"bytes": 26901, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/Models_empower.py", "source_catalog": true}
@@ -602,7 +602,7 @@
 {"bytes": 100432, "category": "docs", "path": "docs/baselines/ASSET_MANIFEST_2026-07-29.csv", "source_catalog": true}
 {"bytes": 2893, "category": "docs", "path": "docs/baselines/README.md", "source_catalog": true}
 {"bytes": 7125, "category": "docs", "path": "docs/experiments/HISTORICAL_FAMILIES.md", "source_catalog": true}
-{"bytes": 5404, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
+{"bytes": 5408, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
 {"bytes": 37701, "category": "docs", "path": "docs/experiments/ROOT_RELOCATION_2026-09-29.json", "source_catalog": true}
 {"bytes": 7431, "category": "docs", "path": "docs/experiments/RUN_CLOSEOUT.md", "source_catalog": true}
 {"bytes": 1535, "category": "docs", "path": "docs/experiments/WORKSPACE_MAP.md", "source_catalog": true}
@@ -720,6 +720,8 @@
 {"bytes": 19036, "category": "docs", "path": "docs/research/SPORTS_THREE_SEED_VALIDATION300_2026-09-18.md", "source_catalog": true}
 {"bytes": 5285, "category": "docs", "path": "docs/research/SPORTS_WEIGHTED_DIRECTION_AUDIT_2026-09-24.md", "source_catalog": true}
 {"bytes": 7551, "category": "docs", "path": "docs/research/innovation2/EXPOSURE_MATCHED_BONUS_PLAN_2026-09-30.md", "source_catalog": true}
+{"bytes": 4567, "category": "docs", "path": "docs/research/innovation2/EXPOSURE_MATCHED_BONUS_PREPARATION_2026-09-30.md", "source_catalog": true}
+{"bytes": 5265, "category": "docs", "path": "docs/research/innovation2/EXPOSURE_MATCHED_BONUS_PROFILE_V1.json", "source_catalog": true}
 {"bytes": 1722, "category": "docs", "path": "docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_HANDOFF.md", "source_catalog": true}
 {"bytes": 6489, "category": "docs", "path": "docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_PREPARATION_REPORT_2026-09-29.md", "source_catalog": true}
 {"bytes": 3386, "category": "docs", "path": "docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_PROFILE_V1.json", "source_catalog": true}
@@ -757,7 +759,7 @@
 {"bytes": 5776, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_INDEPENDENT_AUDIT_2026-09-29.md", "source_catalog": true}
 {"bytes": 8160, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_INDEPENDENT_VERIFICATION.json", "source_catalog": true}
 {"bytes": 3047, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_PROFILE_V1.json", "source_catalog": true}
-{"bytes": 1936, "category": "docs", "path": "docs/research/innovation2/README.md", "source_catalog": true}
+{"bytes": 1941, "category": "docs", "path": "docs/research/innovation2/README.md", "source_catalog": true}
 {"bytes": 7213, "category": "docs", "path": "docs/research/innovation2/ROUTE_CONSOLIDATION_2026-09-30.md", "source_catalog": true}
 {"bytes": 2118, "category": "docs", "path": "docs/research/innovation2/SPARSE_ITEM_ASSESSMENT_HANDOFF.md", "source_catalog": true}
 {"bytes": 6558, "category": "docs", "path": "docs/research/innovation2/SPARSE_ITEM_ASSESSMENT_PLAN_2026-09-29.md", "source_catalog": true}
@@ -2840,6 +2842,7 @@
 {"bytes": 2645, "category": "tests", "path": "tests/test_cross_interaction_p1a_plan.py", "source_catalog": true}
 {"bytes": 6291, "category": "tests", "path": "tests/test_cross_interaction_p1a_runtime.py", "source_catalog": true}
 {"bytes": 7552, "category": "tests", "path": "tests/test_cross_interaction_precision.py", "source_catalog": true}
+{"bytes": 4035, "category": "tests", "path": "tests/test_exposure_bonus.py", "source_catalog": true}
 {"bytes": 5748, "category": "tests", "path": "tests/test_initialization_kd_adapter.py", "source_catalog": true}
 {"bytes": 6259, "category": "tests", "path": "tests/test_initialization_kd_cohort.py", "source_catalog": true}
 {"bytes": 6795, "category": "tests", "path": "tests/test_initialization_kd_fast_eval.py", "source_catalog": true}
@@ -2866,6 +2869,7 @@
 {"bytes": 8612, "category": "tools", "path": "tools/diagnose_sports_initialization.py", "source_catalog": true}
 {"bytes": 11920, "category": "tools", "path": "tools/diagnose_sports_matched_target_direction.py", "source_catalog": true}
 {"bytes": 12293, "category": "tools", "path": "tools/diagnose_sports_weighted_directions.py", "source_catalog": true}
+{"bytes": 2996, "category": "tools", "path": "tools/exposure_bonus_core.py", "source_catalog": true}
 {"bytes": 10763, "category": "tools", "path": "tools/freeze_innovation1_results.py", "source_catalog": true}
 {"bytes": 25211, "category": "tools", "path": "tools/innovation1_cost_m0.py", "source_catalog": true}
 {"bytes": 6224, "category": "tools", "path": "tools/modal_neighbor_core.py", "source_catalog": true}
@@ -2875,6 +2879,7 @@
 {"bytes": 9192, "category": "tools", "path": "tools/run_cross_interaction_p0.py", "source_catalog": true}
 {"bytes": 16503, "category": "tools", "path": "tools/run_cross_interaction_p1a.py", "source_catalog": true}
 {"bytes": 12189, "category": "tools", "path": "tools/run_cross_interaction_precision.py", "source_catalog": true}
+{"bytes": 14287, "category": "tools", "path": "tools/run_exposure_matched_bonus.py", "source_catalog": true}
 {"bytes": 1497, "category": "tools", "path": "tools/run_initialization_kd_cohort.py", "source_catalog": true}
 {"bytes": 3243, "category": "tools", "path": "tools/run_initialization_kd_cohort_seed2023.py", "source_catalog": true}
 {"bytes": 3443, "category": "tools", "path": "tools/run_initialization_kd_cohort_seed2024.py", "source_catalog": true}

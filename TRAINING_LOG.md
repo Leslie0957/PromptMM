@@ -7,7 +7,7 @@
 - 第一项：有限实验、独立审计及正文整合完成，暂停扩展；[结论与未验证边界](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。待跑实验为零。
 - 第二项：共享残差三seed12臂审计通过执行验收，三次screen_stop；N改善B，但低组输给随机R。[审计](docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_AUDIT.md)。
 - 约束：旧Test不选新方法；P1a已筛查停止；旧RGCS/门控不是队列。未知项不自动补跑。
-- 唯一下一步：按[曝光匹配加分方案](docs/research/innovation2/EXPOSURE_MATCHED_BONUS_PLAN_2026-09-30.md)完成实现、合成验证及启动准备；仅固定检查点对照，未授权正式评价或训练。
+- 唯一下一步：按[曝光匹配启动准备](docs/research/innovation2/EXPOSURE_MATCHED_BONUS_PREPARATION_2026-09-30.md)手动运行固定诊断一次；实现及6项合成测试通过，尚无真实评价或训练结果。
 
 ## 证据导航
 
@@ -301,3 +301,13 @@
 - Added EXPOSURE_MATCHED_BONUS_PLAN_2026-09-30.md. Fixed B epoch300 three seeds plus uniform bonus on original6114 targets, exposure target from same-seed savedR. Calibration uses prediction/Train only; all beta sealed before Validation load. Per-user two-groupTop20 cache, fixed cross-group difference comparison, bounded48-step nonnegative bisection, deterministic nearest endpoint and 0.1% target-exposure tolerance. No new model or semantic success assumption.
 - Defined raw/paired/group metrics and three-way descriptive decisions: Q within3 lowhits/-.0002 Recall in all seeds supports simple explanation; R ahead>=4 lowhits with corresponding Recall tolerance only excludes this global control; mixed/unmatched stops automatic progression. Caps1800s/4GiBRSS/2GiBCUDA/256MiBoutput, runtime unproven. Preparation/closeout paths and no-Test/no-retry boundaries fixed, no launch command fabricated.
 - Current entrances/family updated, generated navigation refreshed; history/charter/old screens/assets/reviews unchanged. No source/profile implementation, data loading, scoring/training/Test. Focused content/link/history/diff checks before scoped commit. Sole next step implementation/synthetic validation/launch preparation, no formal execution authority.
+
+## 2026-09-30 Exposure-matched bonus implementation (pending)
+
+- User approves preparation under59f0aab: isolated scorer/calibrator/profile, synthetic tests and launch handoff only. No real data/checkpoint loading or evaluation/training/Test. Freeze B final three seeds and original R lists, query mask6114, cache two-groupTop20, deterministic exposure-only48-step search; all beta sealed before Val open. Scope new tools/tests/profile/preparation/current navigation; original code/records/assets/reviews unchanged. Risks precision/ties, label leakage, resource estimate, runtime regression. Acceptance synthetic reference/monotonic/unmatched/guard/decision tests, metadata bindings, focused verification and commit. Next sole fixed manual diagnostic launch, not authorized in this task; recovery reference59f0aab without automatic reset.
+
+## 2026-09-30 Exposure-matched bonus implementation (completed)
+
+- Implemented label-free exposure_bonus_core and isolated run_exposure_matched_bonus, pinned PROFILE_V1 plus launch preparation. Uses final B eachseed once, originalR saved lists, two-groupTop20 cache,48-step prediction-only beta search, all calibration/list SHA seals before Val open. Dataset phase guard, parameter immutability, B exactTop20 and B/R metric regression, paired group/Recall checks, sampled external resources, one-shot no-overwrite launch.
+- Six synthetic tests pass: cache/full-reference with ties/negative/huge beta; tiny score gaps/padding; exact/unreachable search; discontinuous nearest endpoint; phase guard; decision boundaries. Syntax/CLI, metadata paths and output absence passed. No real dataset/checkpoint/graph tensor loading, evaluation, training or Test; full1800s budget and actualB regression remain unverified. Synthetic reference does not certify OS-level data isolation or instantaneous resource peaks.
+- Preparation provides one command and closeout routing; no new result matrix. Root/second-work/family/navigation updated, old history/charter/assets/reviews untouched. Focused links/history/diff before scoped commit. Sole next step user runs the fixed three-seed scoring diagnostic once and returns output for audit; no automatic training/retry/nextstage.

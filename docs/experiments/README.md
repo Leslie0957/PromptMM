@@ -24,7 +24,7 @@
 | 评价恢复/资产核验 | 原失败保留，独立恢复完成12格新Test；不是新增12次训练 | [恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md) |
 | 更早数据/教师/预实验 | 历史背景，不自动并入当前合格主表 | [详细族导航](HISTORICAL_FAMILIES.md) |
 
-当前设计：[曝光匹配加分对照](../research/innovation2/EXPOSURE_MATCHED_BONUS_PLAN_2026-09-30.md)，固定方案已完成；下一步仅实现与启动准备。
+当前准备：[曝光匹配加分对照](../research/innovation2/EXPOSURE_MATCHED_BONUS_PREPARATION_2026-09-30.md)，实现及合成测试通过，尚未执行正式诊断。
 
 ## 需要再深入时
 
