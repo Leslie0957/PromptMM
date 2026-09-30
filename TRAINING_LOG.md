@@ -7,7 +7,7 @@
 - 第一项：有限实验、独立审计及正文整合完成，暂停扩展；[结论与未验证边界](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。待跑实验为零。
 - 第二项：共享残差三seed12臂审计通过执行验收，三次screen_stop；N改善B，但低组输给随机R。[审计](docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_AUDIT.md)。
 - 约束：旧Test不选新方法；P1a已筛查停止；旧RGCS/门控不是队列。未知项不自动补跑。
-- 唯一下一步：按[自身锚点启动准备](docs/research/innovation2/OWN_ANCHOR_CONTROL_PREPARATION_2026-09-30.md)运行固定六状态诊断一次；实现及5项合成测试完成，尚无真实评价/训练/Test结果。
+- 唯一下一步：根据[自身锚点审计](docs/research/innovation2/OWN_ANCHOR_CONTROL_AUDIT.md)做第二项候选问题收束评审；六状态执行通过但整体screen_stop，不推进自身替代训练。
 
 ## 证据导航
 
@@ -272,3 +272,13 @@
 - Implemented tools/run_own_anchor_control.py, SHA-pinned OWN_ANCHOR_CONTROL_PROFILE_V1.json and preparation handoff. Six fixed final R/C states, same original CUDA ranking function and batch256, full R Top20 regression, C affine/mask checks, paired group/Recall identities, inference-only and unchanged parameter verification. Runtime dataset open whitelist, external resource supervisor and exclusive one-shot output. Original training code untouched.
 - Five synthetic tests pass; first attempt exposed expected-array FP64 versus storedFP32 mismatch (~7e-9), corrected test expected dtype without changing protocol/tolerance. Python syntax/CLI/help, metadata-bound paths and absent output checked. No real dataset, tensor/checkpoint loading, evaluation, training or Test; complete runtime and exact R regression remain unverified until formal execution. Caps1800s/RSS4GiB/CUDAallocator2GiB/output512MiB/free2GiB, sampled not OS hard isolation.
 - Preparation document provides exact one-shot command and run closeout routes; current entrances/catalogs updated. Prior log/history/assets/reviews/charter and first-work/old matrices preserved; no new result matrix. Focused diff/link/history checks before scoped commit. Sole next step user runs fixed six-state command once (or explicitly delegates); no additional training/retry/stage.
+
+## 2026-09-30 Own-anchor user-run outcome audit (pending)
+
+- User reports fixed six-state run complete. Audit only under bd775f5 preparation: saved manifest/report/acceptance/supervisor/resources/completeness, input identities and saved Top20/paired arrays; no rerun, new ranking, interaction-data/Test reads or next stage. Scope audit helper/verification and OWN_ANCHOR_CONTROL_RESULTS/AUDIT/HANDOFF, current log/entrances/family/catalogs. Recompute paired arithmetic/screens and verify source/hash/resource/regression evidence; distinguish runtime-asserted tensor checks from independently verified saved data. Preserve all raw assets, old history and reviews. Risks: accepting literal Test0/status without source evidence, infer training sufficiency from endpoint replacement. Verification focused diff/links/history and coherent commit; no automatic recovery or training.
+
+## 2026-09-30 Own-anchor user-run outcome audit (completed)
+
+- User-run sourcebd775f55dca2ee6470364e50c3afd57a28d9e396, command run_own_anchor_control.py --formal; three final-checkpoint R/C pairs, no training, Test0. External exit0,26.203s; sampledRSS1094811648B/CUDAallocator96468992B, final output8392967B, caps passed. 95 saved-artifact checks: output/input SHA, pinned source/profile, R exactTop20 regression, candidate IDs/exposure, paired Recall/group arithmetic and screen. No re-scoring or interaction-label reads in audit; tensor/absolute-hit correctness remains bounded by runtime checks, not independent rescoring.
+- Low gain retention97.87%/106.38%/93.75%; C−R Recall−.000056183/+.000140457/−.000337098. Last exceeds pre-fixed tolerance, overallscreen_stop, valid completed result. Supports limited endpoint neighbor-identity dependence for low gains, not training sufficiency/equivalence/algorithm success. No C training authorized; oldN screen_stop remains.
+- RESULTS/AUDIT/HANDOFF/verification and current entrances/family/navigation updated; original evidence/first-work/charter/reviews preserved. Source fingerprints and limits recorded in audit; no milestone tag/backup claim. Unique next step second-work candidate-problem consolidation review, not more modules or automatic experiments.

@@ -767,6 +767,13 @@
 {"bytes": 554, "path": "exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2024/R/acceptance.json", "profile": null, "read_status": "parsed", "seed": null, "status": "passed"}
 {"bytes": 94813, "path": "exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2024/R/status.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
 {"bytes": 21505, "path": "exp/innovation2/neighbor_shared_residual_three_seed_v1/summary.json", "profile": null, "read_status": "parsed", "seed": null, "status": "complete_unreviewed"}
+{"bytes": 67, "path": "exp/innovation2/own_anchor_intervention_v1/acceptance.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
+{"bytes": 1543, "path": "exp/innovation2/own_anchor_intervention_v1/completeness.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
+{"bytes": 3962, "path": "exp/innovation2/own_anchor_intervention_v1/intervention.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
+{"bytes": 5067, "path": "exp/innovation2/own_anchor_intervention_v1/manifest.json", "profile": null, "read_status": "parsed", "seed": null, "status": "launched"}
+{"bytes": 5095, "path": "exp/innovation2/own_anchor_intervention_v1/report.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
+{"bytes": 4079, "path": "exp/innovation2/own_anchor_intervention_v1/supervisor.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
+{"bytes": 91054, "path": "exp/innovation2/own_anchor_intervention_v1/worker_resources.json", "profile": null, "read_status": "parsed", "seed": null, "status": null}
 {"bytes": 228, "path": "exp/innovation2/ranking_gap_v1/acceptance.json", "profile": null, "read_status": "parsed", "seed": null, "status": "passed"}
 {"bytes": 91, "path": "exp/innovation2/ranking_gap_v1/exit.json", "profile": null, "read_status": "parsed", "seed": null, "status": "completed"}
 {"bytes": 6270, "path": "exp/innovation2/ranking_gap_v1/manifest.json", "profile": "docs/research/innovation2/RANKING_GAP_PROFILE_V1.json", "read_status": "parsed", "seed": null, "status": null}

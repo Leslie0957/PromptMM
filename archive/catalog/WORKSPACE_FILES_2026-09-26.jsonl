@@ -208,9 +208,9 @@
 {"bytes": 13815757, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 02_38_22.563718_sports_light_init_pid596.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 05_34_16.930265_sports_light_init_pid42156.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 08_30_07.418852_sports_light_init_pid30132.pth", "source_catalog": false}
-{"bytes": 1631, "category": "root", "path": "README.md", "source_catalog": true}
+{"bytes": 1615, "category": "root", "path": "README.md", "source_catalog": true}
 {"bytes": 4930, "category": "root", "path": "THESIS_ROADMAP.md", "source_catalog": true}
-{"bytes": 63245, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
+{"bytes": 65431, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
 {"bytes": 739, "category": "archive", "path": "archive/README.md", "source_catalog": true}
 {"bytes": 26887, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/Models.py", "source_catalog": true}
 {"bytes": 26901, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/Models_empower.py", "source_catalog": true}
@@ -602,7 +602,7 @@
 {"bytes": 100432, "category": "docs", "path": "docs/baselines/ASSET_MANIFEST_2026-07-29.csv", "source_catalog": true}
 {"bytes": 2893, "category": "docs", "path": "docs/baselines/README.md", "source_catalog": true}
 {"bytes": 7125, "category": "docs", "path": "docs/experiments/HISTORICAL_FAMILIES.md", "source_catalog": true}
-{"bytes": 5124, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
+{"bytes": 5371, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
 {"bytes": 37701, "category": "docs", "path": "docs/experiments/ROOT_RELOCATION_2026-09-29.json", "source_catalog": true}
 {"bytes": 7431, "category": "docs", "path": "docs/experiments/RUN_CLOSEOUT.md", "source_catalog": true}
 {"bytes": 1535, "category": "docs", "path": "docs/experiments/WORKSPACE_MAP.md", "source_catalog": true}
@@ -743,16 +743,20 @@
 {"bytes": 4792, "category": "docs", "path": "docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_PROFILE_V1.json", "source_catalog": true}
 {"bytes": 3266, "category": "docs", "path": "docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_RESULTS.md", "source_catalog": true}
 {"bytes": 22240, "category": "docs", "path": "docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_VERIFICATION_2026-09-30.json", "source_catalog": true}
+{"bytes": 4560, "category": "docs", "path": "docs/research/innovation2/OWN_ANCHOR_CONTROL_AUDIT.md", "source_catalog": true}
+{"bytes": 942, "category": "docs", "path": "docs/research/innovation2/OWN_ANCHOR_CONTROL_HANDOFF.md", "source_catalog": true}
 {"bytes": 7041, "category": "docs", "path": "docs/research/innovation2/OWN_ANCHOR_CONTROL_PLAN_2026-09-30.md", "source_catalog": true}
 {"bytes": 4986, "category": "docs", "path": "docs/research/innovation2/OWN_ANCHOR_CONTROL_PREPARATION_2026-09-30.md", "source_catalog": true}
 {"bytes": 4557, "category": "docs", "path": "docs/research/innovation2/OWN_ANCHOR_CONTROL_PROFILE_V1.json", "source_catalog": true}
+{"bytes": 1409, "category": "docs", "path": "docs/research/innovation2/OWN_ANCHOR_CONTROL_RESULTS.md", "source_catalog": true}
+{"bytes": 5049, "category": "docs", "path": "docs/research/innovation2/OWN_ANCHOR_CONTROL_VERIFICATION.json", "source_catalog": true}
 {"bytes": 4756, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_HANDOFF.md", "source_catalog": true}
 {"bytes": 10526, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_PLAN_2026-09-29.md", "source_catalog": true}
 {"bytes": 6328, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_RESULTS.md", "source_catalog": true}
 {"bytes": 5776, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_INDEPENDENT_AUDIT_2026-09-29.md", "source_catalog": true}
 {"bytes": 8160, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_INDEPENDENT_VERIFICATION.json", "source_catalog": true}
 {"bytes": 3047, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_PROFILE_V1.json", "source_catalog": true}
-{"bytes": 1943, "category": "docs", "path": "docs/research/innovation2/README.md", "source_catalog": true}
+{"bytes": 1927, "category": "docs", "path": "docs/research/innovation2/README.md", "source_catalog": true}
 {"bytes": 2118, "category": "docs", "path": "docs/research/innovation2/SPARSE_ITEM_ASSESSMENT_HANDOFF.md", "source_catalog": true}
 {"bytes": 6558, "category": "docs", "path": "docs/research/innovation2/SPARSE_ITEM_ASSESSMENT_PLAN_2026-09-29.md", "source_catalog": true}
 {"bytes": 712, "category": "docs", "path": "docs/research/innovation2/SPARSE_ITEM_ASSESSMENT_PROFILE_V1.json", "source_catalog": true}
@@ -2467,6 +2471,23 @@
 {"bytes": 1346130, "category": "exp", "path": "exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2024/R/top20_epoch300.npz", "source_catalog": false}
 {"bytes": 1281430, "category": "exp", "path": "exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2024/R/top20_epoch50.npz", "source_catalog": false}
 {"bytes": 21505, "category": "exp", "path": "exp/innovation2/neighbor_shared_residual_three_seed_v1/summary.json", "source_catalog": false}
+{"bytes": 67, "category": "exp", "path": "exp/innovation2/own_anchor_intervention_v1/acceptance.json", "source_catalog": false}
+{"bytes": 1543, "category": "exp", "path": "exp/innovation2/own_anchor_intervention_v1/completeness.json", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/innovation2/own_anchor_intervention_v1/console.log", "source_catalog": false}
+{"bytes": 3962, "category": "exp", "path": "exp/innovation2/own_anchor_intervention_v1/intervention.json", "source_catalog": false}
+{"bytes": 5067, "category": "exp", "path": "exp/innovation2/own_anchor_intervention_v1/manifest.json", "source_catalog": false}
+{"bytes": 5095, "category": "exp", "path": "exp/innovation2/own_anchor_intervention_v1/report.json", "source_catalog": false}
+{"bytes": 1346344, "category": "exp", "path": "exp/innovation2/own_anchor_intervention_v1/seed2022_C_top20.npz", "source_catalog": false}
+{"bytes": 1346085, "category": "exp", "path": "exp/innovation2/own_anchor_intervention_v1/seed2022_R_top20.npz", "source_catalog": false}
+{"bytes": 68086, "category": "exp", "path": "exp/innovation2/own_anchor_intervention_v1/seed2022_paired.npz", "source_catalog": false}
+{"bytes": 1346580, "category": "exp", "path": "exp/innovation2/own_anchor_intervention_v1/seed2023_C_top20.npz", "source_catalog": false}
+{"bytes": 1346297, "category": "exp", "path": "exp/innovation2/own_anchor_intervention_v1/seed2023_R_top20.npz", "source_catalog": false}
+{"bytes": 68064, "category": "exp", "path": "exp/innovation2/own_anchor_intervention_v1/seed2023_paired.npz", "source_catalog": false}
+{"bytes": 1346516, "category": "exp", "path": "exp/innovation2/own_anchor_intervention_v1/seed2024_C_top20.npz", "source_catalog": false}
+{"bytes": 1346130, "category": "exp", "path": "exp/innovation2/own_anchor_intervention_v1/seed2024_R_top20.npz", "source_catalog": false}
+{"bytes": 67998, "category": "exp", "path": "exp/innovation2/own_anchor_intervention_v1/seed2024_paired.npz", "source_catalog": false}
+{"bytes": 4079, "category": "exp", "path": "exp/innovation2/own_anchor_intervention_v1/supervisor.json", "source_catalog": false}
+{"bytes": 91054, "category": "exp", "path": "exp/innovation2/own_anchor_intervention_v1/worker_resources.json", "source_catalog": false}
 {"bytes": 1243776, "category": "exp", "path": "exp/innovation2/ranking_gap_v1/2022_R1_per_user.npz", "source_catalog": false}
 {"bytes": 1344248, "category": "exp", "path": "exp/innovation2/ranking_gap_v1/2022_T0_per_user.npz", "source_catalog": false}
 {"bytes": 1243032, "category": "exp", "path": "exp/innovation2/ranking_gap_v1/2023_R1_per_user.npz", "source_catalog": false}

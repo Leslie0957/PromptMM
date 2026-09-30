@@ -14,6 +14,6 @@ AI启动：完整读[AGENTS.md](AGENTS.md)，再读本页和[短日志](TRAINING
 | 第二项接下来研究什么 | [探索工作页](docs/research/innovation2/README.md) |
 | 查具体运行、旧命令或文件 | [深层导航](docs/README.md) |
 
-当前唯一下一步：按[自身锚点启动准备](docs/research/innovation2/OWN_ANCHOR_CONTROL_PREPARATION_2026-09-30.md)运行固定六状态诊断一次；实现及5项合成测试完成，尚无真实评价/训练/Test结果。
+当前唯一下一步：根据[自身锚点审计](docs/research/innovation2/OWN_ANCHOR_CONTROL_AUDIT.md)做第二项候选问题收束评审；六状态执行通过但整体screen_stop，不推进自身替代训练。
 
 训练入口为`codes/main_mmlight.py`，参数默认源`codes/utility/parser.py`，CLI优先。`codes/run_patent.py`是独立历史路径。评审材料移至`archive/reviews/check/`，旧代码集中在archive下；原始数据/模型/运行产物与`zhuanli/`保持原位。搬迁详见[路径映射](docs/experiments/ROOT_RELOCATION_2026-09-29.json)。
