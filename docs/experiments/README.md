@@ -27,7 +27,7 @@
 | 评价恢复/资产核验 | 原失败保留，独立恢复完成12格新Test；不是新增12次训练 | [恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md) |
 | 更早数据/教师/预实验 | 历史背景，不自动并入当前合格主表 | [详细族导航](HISTORICAL_FAMILIES.md) |
 
-当前无待跑实验；下一步仅第二项路线收束评审。
+当前无待跑实验；[路线收束评审](../research/innovation2/ROUTE_CLOSURE_REVIEW_2026-09-30.md)已完成，下一步仅新物品接入协议的只读可行性核查。
 
 ## 需要再深入时
 

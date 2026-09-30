@@ -14,10 +14,12 @@ AI启动：完整读[AGENTS.md](AGENTS.md)，再读本页和[短日志](TRAINING
 | 第二项接下来研究什么 | [探索工作页](docs/research/innovation2/README.md) |
 | 查具体运行、旧命令或文件 | [深层导航](docs/README.md) |
 
-当前唯一下一步：进行第二项路线收束评审，最多两个符合总体主题的候选；停止当前标量配方扩展，无待跑实验。
+当前唯一下一步：只读核查“新物品接入”的数据划分与教师暴露范围；不读取Test、不生成split或运行实验。
 
 训练入口为`codes/main_mmlight.py`，参数默认源`codes/utility/parser.py`，CLI优先。`codes/run_patent.py`是独立历史路径。评审材料移至`archive/reviews/check/`，旧代码集中在archive下；原始数据/模型/运行产物与`zhuanli/`保持原位。搬迁详见[路径映射](docs/experiments/ROOT_RELOCATION_2026-09-29.json)。
 
 [个性化分配立项评审](docs/research/innovation2/PERSONALIZED_ALLOCATION_DESIGN_REVIEW_2026-09-30.md)：问题值得继续，简单用户加分已有近邻；暂不认定第二创新点。
 
 最新：[标量校准结果](docs/research/innovation2/SCALAR_CALIBRATION_RESULTS.md)。三seed执行通过，科学screen_stop；U仅增加2/1/0个低组命中，当前配方停止扩展。
+
+[第二项路线收束评审](docs/research/innovation2/ROUTE_CLOSURE_REVIEW_2026-09-30.md)：两个候选均未正式立项；仅优先核查新物品接入协议，压缩路线暂缓。

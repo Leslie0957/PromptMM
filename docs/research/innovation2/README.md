@@ -17,8 +17,10 @@
 
 当前已形成[最小排序监督对照方案](MINIMAL_RANKING_SUPERVISION_PROPOSAL_2026-09-29.md)；原seed2022[实现与资源准备报告](MINIMAL_RANKING_SUPERVISION_PREPARATION_REPORT_2026-09-29.md)之后，已固定[三seed串行手动启动准备](MINIMAL_RANKING_THREE_SEED_MANUAL_LAUNCH_2026-09-29.md)。三seed正式训练已完成，[独立审计](MINIMAL_RANKING_THREE_SEED_AUDIT_2026-09-29.md)通过执行验收但均screen_stop；没有算法成功结论。
 
-当前唯一下一步：进行第二项路线收束评审，最多两个符合总体主题的候选；停止当前标量配方扩展，无待跑实验。
+当前唯一下一步：只读核查“新物品接入”的数据划分与教师暴露范围；不读取Test、不生成split或运行实验。
 
 [个性化分配立项评审](PERSONALIZED_ALLOCATION_DESIGN_REVIEW_2026-09-30.md)：问题值得继续，简单用户加分已有近邻；暂不认定第二创新点。
 
 最新：[标量校准结果](SCALAR_CALIBRATION_RESULTS.md)。三seed执行通过，科学screen_stop；U仅增加2/1/0个低组命中，当前配方停止扩展。
+
+[第二项路线收束评审](ROUTE_CLOSURE_REVIEW_2026-09-30.md)：两个候选均未正式立项；仅优先核查新物品接入协议，压缩路线暂缓。

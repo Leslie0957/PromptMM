@@ -138,7 +138,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（219）
+## docs（220）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -344,6 +344,7 @@
 - [docs/research/innovation2/RANKING_GAP_INDEPENDENT_VERIFICATION.json](../research/innovation2/RANKING_GAP_INDEPENDENT_VERIFICATION.json)
 - [docs/research/innovation2/RANKING_GAP_PROFILE_V1.json](../research/innovation2/RANKING_GAP_PROFILE_V1.json)
 - [docs/research/innovation2/README.md](../research/innovation2/README.md)
+- [docs/research/innovation2/ROUTE_CLOSURE_REVIEW_2026-09-30.md](../research/innovation2/ROUTE_CLOSURE_REVIEW_2026-09-30.md)
 - [docs/research/innovation2/ROUTE_CONSOLIDATION_2026-09-30.md](../research/innovation2/ROUTE_CONSOLIDATION_2026-09-30.md)
 - [docs/research/innovation2/SCALAR_CALIBRATION_AUDIT.md](../research/innovation2/SCALAR_CALIBRATION_AUDIT.md)
 - [docs/research/innovation2/SCALAR_CALIBRATION_HANDOFF.md](../research/innovation2/SCALAR_CALIBRATION_HANDOFF.md)

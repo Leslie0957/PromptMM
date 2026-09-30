@@ -7,7 +7,7 @@
 - 第一项：有限实验、独立审计及正文整合完成，暂停扩展；[结论与未验证边界](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。待跑实验为零。
 - 第二项：标量校准三seed审计通过执行验收，科学screen_stop；当前配方停止扩展，尚无成立的第二算法。[结果](docs/research/innovation2/SCALAR_CALIBRATION_RESULTS.md)。
 - 约束：旧Test不选新方法；P1a已筛查停止；旧RGCS/门控不是队列。未知项不自动补跑。
-- 唯一下一步：进行第二项路线收束评审，最多两个符合总体主题的候选；停止当前标量配方扩展，无待跑实验。
+- 唯一下一步：只读核查“新物品接入”的数据划分与教师暴露范围；不读取Test、不生成split或运行实验。
 
 ## 证据导航
 
@@ -401,3 +401,15 @@
 - U low16/16/16 vs B14/15/16/G15/15/16; U−B Recall +0.000056183/+0.000028091/0. Scientific screen_stop (2024 no strict low gain), valid completed low result. Near-optimal sampled training objective did not yield meaningful low-frequency recovery; no universal impossibility claim.
 - [Results](docs/research/innovation2/SCALAR_CALIBRATION_RESULTS.md), [audit](docs/research/innovation2/SCALAR_CALIBRATION_AUDIT.md), [handoff](docs/research/innovation2/SCALAR_CALIBRATION_HANDOFF.md). Stop current scalar recipe; no automatic lambda/sampling/seed/module expansion. Entrances/matrix/family/catalogs updated; first-work/charter/history/assets/reviews preserved; verify links/history/diff and commit.
 - Unique next step: bounded second-work route review, at most two theme-consistent candidates; no new run or implementation.
+
+
+## 2026-09-30 Second-work route closure review (pending)
+
+- User approves bounded route review only, base4cafe23. Compare at most two charter-consistent candidates using existing evidence and primary literature; no new data loads/experiments/code. Scope route decision document and active navigation/log/catalogs. Risks: relabeling low-frequency results as cold-start evidence, teacher leakage, compression benchmark as independent innovation, renewed endless experiment queue. Acceptance: explicit evidence/unknowns, prior-method overlap, stop/entry gates and single non-execution next action; preserve history/charter/assets/reviews; verify and commit.
+
+
+## 2026-09-30 Second-work route closure review (completed)
+
+- Added [two-candidate review](docs/research/innovation2/ROUTE_CLOSURE_REVIEW_2026-09-30.md): new-item content representation/adaptation versus explicit embedding storage budget. Neither currently qualifies as an independent second algorithm; no new experimental queue. Primary DropoutNet/MWUF and mixed-dimension/precision papers show direct prior overlap; bounded literature review, not exhaustive novelty certification.
+- Prioritize only cold-item protocol feasibility because current lookup lacks a new-content representation path, not because old low-frequency results prove cold-start benefit. Explicit teacher-exposure/leakage and possible teacher rebuild constraints; new content visibility and interactions distinguished. Compression deferred for weak deployment-need evidence and overlap with first-work cost ablation. Existing screens/first-work/charter unchanged.
+- No data/tensor/Test loading, split creation, training/evaluation or code changes. Entrances/catalogs updated, old log preserved; focused links/diff verified before scoped commit. Sole next step read-only preprocessing/metadata/teacher-exposure feasibility audit, no module or run design; if infeasible, pause candidates rather than expanding experiments.
