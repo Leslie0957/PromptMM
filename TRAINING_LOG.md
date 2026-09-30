@@ -7,7 +7,7 @@
 - 第一项：有限实验、独立审计及正文整合完成，暂停扩展；[结论与未验证边界](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。待跑实验为零。
 - 第二项：共享残差三seed12臂审计通过执行验收，三次screen_stop；N改善B，但低组输给随机R。[审计](docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_AUDIT.md)。
 - 约束：旧Test不选新方法；P1a已筛查停止；旧RGCS/门控不是队列。未知项不自动补跑。
-- 唯一下一步：按[曝光匹配启动准备](docs/research/innovation2/EXPOSURE_MATCHED_BONUS_PREPARATION_2026-09-30.md)手动运行固定诊断一次；实现及6项合成测试通过，尚无真实评价或训练结果。
+- 唯一下一步：按[曝光匹配审计](docs/research/innovation2/EXPOSURE_MATCHED_BONUS_AUDIT.md)设计逐用户目标槽位匹配对照；全局加分不足，但尚未区分用户分配/物品选择，无训练授权。
 
 ## 证据导航
 
@@ -311,3 +311,13 @@
 - Implemented label-free exposure_bonus_core and isolated run_exposure_matched_bonus, pinned PROFILE_V1 plus launch preparation. Uses final B eachseed once, originalR saved lists, two-groupTop20 cache,48-step prediction-only beta search, all calibration/list SHA seals before Val open. Dataset phase guard, parameter immutability, B exactTop20 and B/R metric regression, paired group/Recall checks, sampled external resources, one-shot no-overwrite launch.
 - Six synthetic tests pass: cache/full-reference with ties/negative/huge beta; tiny score gaps/padding; exact/unreachable search; discontinuous nearest endpoint; phase guard; decision boundaries. Syntax/CLI, metadata paths and output absence passed. No real dataset/checkpoint/graph tensor loading, evaluation, training or Test; full1800s budget and actualB regression remain unverified. Synthetic reference does not certify OS-level data isolation or instantaneous resource peaks.
 - Preparation provides one command and closeout routing; no new result matrix. Root/second-work/family/navigation updated, old history/charter/assets/reviews untouched. Focused links/history/diff before scoped commit. Sole next step user runs the fixed three-seed scoring diagnostic once and returns output for audit; no automatic training/retry/nextstage.
+
+## 2026-09-30 Exposure-matched bonus user-run audit (pending)
+
+- User reports fixed diagnostic complete; audit saved artifacts only under6dbdc40. Verify source/profile/input/output hashes, sealed-beta chronology, calibration search trace, exposure/list/candidate consistency, B/R regression, paired metrics and fixed decisions, resources/Test0. No rerun, scoring, real interaction labels or next stage. Scope verification JSON, RESULTS/AUDIT/HANDOFF plus log/current entrances/family/catalogs. Preserve assets/history/reviews/charter. Distinguish exclusion of global bonus from personalized/semantic attribution; checkpoint-contained historical metrics limit blinding. Focused verification and coherent outcome commit; no automatic training.
+
+## 2026-09-30 Exposure-matched bonus user-run audit (completed)
+
+- User-run6dbdc400cb029340d2c40bdc65e8f4a442941108 via run_exposure_matched_bonus.py --formal completed; six B/Q scoring states and three savedR references, no training/Test. 200 saved-artifact checks passed: source/profile/hashes, all-beta seal beforeVal, bounded monotone trace and endpoint choice, B/R exact saved lists, exposure/micro/contributions, paired differences and fixed decision. Audit no scoring/interaction-label/tensor reads; runtime-only and trace-value limits explicit.
+- Exact S exposures22159/22067/22065; Qlow51/58/55 versus R61/62/64. R−Q Recall−.000021069/+.000390940/+.000433969, all meet descriptive simple_control_insufficient criterion. Q recreates78.72%/91.49%/81.25% of R-minus-B low gains, not causal percentages. Global exposure does not match user allocation; semantic mechanism and second algorithm unproven.
+- External exit0,54.406s; sampledRSS1000292352B/CUDA75497472B, output36441455B within caps. Recorded Train5/Val2 opens allVal after seal, denied0, inference-only parameters unchanged; no OS audit claim. RESULTS/AUDIT/HANDOFF/verification, current entrances/family/catalogs updated; history/first-work/charter/assets/reviews preserved. Sole next step design per-user target-slot control, not execution or oldN/C training.

@@ -4,6 +4,7 @@
 
 | 实验族 | 状态与主要发现 | 深入记录 |
 |---|---|---|
+| 全局曝光匹配加分 | 三seed精确匹配；R低组比Q多10/4/9命中，简单全局加分不足；无训练/Test | [审计](../research/innovation2/EXPOSURE_MATCHED_BONUS_AUDIT.md) · [结果](../research/innovation2/EXPOSURE_MATCHED_BONUS_RESULTS.md) |
 | 自身锚点固定检查点干预 | 三seed六状态执行通过；低组增益保留94%–106%，2024总体Recall超容忍线，整体screen_stop | [审计](../research/innovation2/OWN_ANCHOR_CONTROL_AUDIT.md) · [结果](../research/innovation2/OWN_ANCHOR_CONTROL_RESULTS.md) |
 | 残差只读机制复盘 | F系数均负；R残差接近自身变换加共同偏移，未证因果；全表导出公式补验通过 | [分析](../research/innovation2/NEIGHBOR_RESIDUAL_MECHANISM_2026-09-30.md) |
 | 共享残差三seed四臂 | 12臂执行通过，N低组输给随机R，三次screen_stop | [审计](../research/innovation2/NEIGHBOR_SHARED_RESIDUAL_AUDIT.md) |
@@ -24,7 +25,7 @@
 | 评价恢复/资产核验 | 原失败保留，独立恢复完成12格新Test；不是新增12次训练 | [恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md) |
 | 更早数据/教师/预实验 | 历史背景，不自动并入当前合格主表 | [详细族导航](HISTORICAL_FAMILIES.md) |
 
-当前准备：[曝光匹配加分对照](../research/innovation2/EXPOSURE_MATCHED_BONUS_PREPARATION_2026-09-30.md)，实现及合成测试通过，尚未执行正式诊断。
+当前结论：[曝光匹配交接](../research/innovation2/EXPOSURE_MATCHED_BONUS_HANDOFF.md)，简单全局加分不足，尚未证明语义贡献。
 
 ## 需要再深入时
 

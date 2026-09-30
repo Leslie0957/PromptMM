@@ -1,6 +1,6 @@
 # 运行与诊断记录导航
 
-目录版本：2026-09-26。共949个现存exp JSON记录；数量不是独立实验数。
+目录版本：2026-09-26。共957个现存exp JSON记录；数量不是独立实验数。
 保存状态按JSON原文摘录；—表示该字段未记录/未在约定层级找到，不表示成功或失败。
 批报告、子任务、资源检查与正式运行混列供定位，不能相加作为样本数。
 历史已做但本机没有JSON的实验，请查[完整历史章节](../../archive/training/ENTRY_INDEX_2026-09-26.md)。
@@ -693,6 +693,14 @@
 | [exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/supervisor.json](../../exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/supervisor.json) | completed | — | — | parsed |
 | [exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/telemetry.json](../../exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/telemetry.json) | — | — | — | parsed |
 | [exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/worker_claim.json](../../exp/initialization_kd_interaction/sports_init_kd_resource_smoke_seed2022_v1/worker_claim.json) | — | — | — | parsed |
+| [exp/innovation2/exposure_matched_bonus_v1/acceptance.json](../../exp/innovation2/exposure_matched_bonus_v1/acceptance.json) | — | — | — | parsed |
+| [exp/innovation2/exposure_matched_bonus_v1/calibration.json](../../exp/innovation2/exposure_matched_bonus_v1/calibration.json) | — | — | — | parsed |
+| [exp/innovation2/exposure_matched_bonus_v1/calibration_seal.json](../../exp/innovation2/exposure_matched_bonus_v1/calibration_seal.json) | — | — | — | parsed |
+| [exp/innovation2/exposure_matched_bonus_v1/completeness.json](../../exp/innovation2/exposure_matched_bonus_v1/completeness.json) | — | — | — | parsed |
+| [exp/innovation2/exposure_matched_bonus_v1/manifest.json](../../exp/innovation2/exposure_matched_bonus_v1/manifest.json) | launched | — | — | parsed |
+| [exp/innovation2/exposure_matched_bonus_v1/report.json](../../exp/innovation2/exposure_matched_bonus_v1/report.json) | completed | — | — | parsed |
+| [exp/innovation2/exposure_matched_bonus_v1/supervisor.json](../../exp/innovation2/exposure_matched_bonus_v1/supervisor.json) | — | — | — | parsed |
+| [exp/innovation2/exposure_matched_bonus_v1/worker_resources.json](../../exp/innovation2/exposure_matched_bonus_v1/worker_resources.json) | — | — | — | parsed |
 | [exp/innovation2/minimal_ranking_candidate_prepare_seed2022_v1/acceptance.json](../../exp/innovation2/minimal_ranking_candidate_prepare_seed2022_v1/acceptance.json) | passed | — | — | parsed |
 | [exp/innovation2/minimal_ranking_candidate_prepare_seed2022_v1/exit.json](../../exp/innovation2/minimal_ranking_candidate_prepare_seed2022_v1/exit.json) | completed | — | — | parsed |
 | [exp/innovation2/minimal_ranking_candidate_prepare_seed2022_v1/manifest.json](../../exp/innovation2/minimal_ranking_candidate_prepare_seed2022_v1/manifest.json) | — | — | — | parsed |
