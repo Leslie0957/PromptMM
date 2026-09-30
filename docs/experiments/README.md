@@ -4,7 +4,7 @@
 
 | 实验族 | 状态与主要发现 | 深入记录 |
 |---|---|---|
-| Sports未见物品教师可迁移性/混合目录瓶颈 | 原诊断seed2022完成/科学undetermined；质量约束前沿评分器与CPU合成预检通过，真实运行声明已授权，待用户手动单次启动；尚无该诊断真实结果 | [原结果](../research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_RESULTS.md) · [原审计](../research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_AUDIT.md) · [前沿实现/预检](../research/innovation2/QUALITY_CONSTRAINED_FRONTIER_RUNTIME_PREPARATION_2026-09-30.md) · [运行声明审核](../research/innovation2/QUALITY_CONSTRAINED_FRONTIER_LAUNCH_REVIEW_V1.md) |
+| Sports未见物品教师可迁移性/混合目录瓶颈 | 原诊断seed2022 completed/科学undetermined；质量约束前沿v1已完成380状态，30.376分钟/2536保存证据检查；主ε.001最佳KD−D冷Recall+.000122941，simple_control_sufficient_in_development；非独立确认，无待跑项 | [原结果](../research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_RESULTS.md) · [前沿结果](../research/innovation2/QUALITY_CONSTRAINED_FRONTIER_RESULTS.md) · [前沿审计](../research/innovation2/QUALITY_CONSTRAINED_FRONTIER_AUDIT.md) · [交接](../research/innovation2/QUALITY_CONSTRAINED_FRONTIER_HANDOFF.md) |
 | 标量校准基线 | 三seed B/G/U执行通过；U低组16/16/16，联合screen_stop；停止扩展 | [结果](../research/innovation2/SCALAR_CALIBRATION_RESULTS.md) · [审计](../research/innovation2/SCALAR_CALIBRATION_AUDIT.md) |
 | 逐用户槽位控制 | 三seed执行通过，整体unresolved；H低组60/62/66接近R，2023总体超过容忍线；诊断链收尾 | [统一判断](../research/innovation2/PER_USER_SLOT_CONTROL_RESULTS.md) · [审计](../research/innovation2/PER_USER_SLOT_CONTROL_AUDIT.md) |
 | 全局曝光匹配加分 | 三seed精确匹配；R低组比Q多10/4/9命中，简单全局加分不足；无训练/Test | [审计](../research/innovation2/EXPOSURE_MATCHED_BONUS_AUDIT.md) · [结果](../research/innovation2/EXPOSURE_MATCHED_BONUS_RESULTS.md) |
@@ -28,7 +28,7 @@
 | 评价恢复/资产核验 | 原失败保留，独立恢复完成12格新Test；不是新增12次训练 | [恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md) |
 | 更早数据/教师/预实验 | 历史背景，不自动并入当前合格主表 | [详细族导航](HISTORICAL_FAMILIES.md) |
 
-当前Sports未见物品v1串行诊断已完成并自审，科学undetermined；[路线重评](../research/innovation2/POST_DIAGNOSTIC_ROUTE_REVIEW_2026-09-30.md)已完成，[质量约束前沿协议v1](../research/innovation2/QUALITY_CONSTRAINED_FRONTIER_PROTOCOL_V1.md)已冻结，380状态/CPU2h上限/开发select，评分程序尚未实现；唯一下一步为独立实现与CPU合成预检，不读真实数据/模型或启动诊断。旧Val/Test及锁定确认0，无自动重试/扩跑，待跑正式实验为零；第一项保持冻结，第二算法尚未成立。
+当前原Sports未见物品v1 completed/undetermined保留；[质量约束前沿v1](../research/innovation2/QUALITY_CONSTRAINED_FRONTIER_RESULTS.md)已completed，有限开发网格内simple_control_sufficient_in_development，不认证算法/泛化。旧Val/Test/旧probe评价/封存确认0，本轮Train分区接触按新声明披露；无自动重试/扩跑，当前无待跑项。唯一下一步：基于两轮诊断做第二项路线重评，筛选相对“直接学习＋相同校准”有明确新增价值的问题，并设计一个最小可证伪对照；仅评审与设计，不启动实验。 第一项保持冻结。
 
 ## 需要再深入时
 

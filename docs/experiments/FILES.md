@@ -138,7 +138,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（238）
+## docs（241）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -342,9 +342,12 @@
 - [docs/research/innovation2/PER_USER_SLOT_CONTROL_RESULTS.md](../research/innovation2/PER_USER_SLOT_CONTROL_RESULTS.md)
 - [docs/research/innovation2/PER_USER_SLOT_CONTROL_VERIFICATION.json](../research/innovation2/PER_USER_SLOT_CONTROL_VERIFICATION.json)
 - [docs/research/innovation2/POST_DIAGNOSTIC_ROUTE_REVIEW_2026-09-30.md](../research/innovation2/POST_DIAGNOSTIC_ROUTE_REVIEW_2026-09-30.md)
+- [docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_AUDIT.md](../research/innovation2/QUALITY_CONSTRAINED_FRONTIER_AUDIT.md)
+- [docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_HANDOFF.md](../research/innovation2/QUALITY_CONSTRAINED_FRONTIER_HANDOFF.md)
 - [docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_LAUNCH_REVIEW_V1.md](../research/innovation2/QUALITY_CONSTRAINED_FRONTIER_LAUNCH_REVIEW_V1.md)
 - [docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_PROFILE_V1.json](../research/innovation2/QUALITY_CONSTRAINED_FRONTIER_PROFILE_V1.json)
 - [docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_PROTOCOL_V1.md](../research/innovation2/QUALITY_CONSTRAINED_FRONTIER_PROTOCOL_V1.md)
+- [docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_RESULTS.md](../research/innovation2/QUALITY_CONSTRAINED_FRONTIER_RESULTS.md)
 - [docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_RUNTIME_PREPARATION_2026-09-30.md](../research/innovation2/QUALITY_CONSTRAINED_FRONTIER_RUNTIME_PREPARATION_2026-09-30.md)
 - [docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_RUN_DECLARATION_V1.json](../research/innovation2/QUALITY_CONSTRAINED_FRONTIER_RUN_DECLARATION_V1.json)
 - [docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_HANDOFF.md](../research/innovation2/RANKING_GAP_DIAGNOSTIC_HANDOFF.md)

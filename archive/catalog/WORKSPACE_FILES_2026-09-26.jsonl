@@ -208,9 +208,9 @@
 {"bytes": 13815757, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 02_38_22.563718_sports_light_init_pid596.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 05_34_16.930265_sports_light_init_pid42156.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 08_30_07.418852_sports_light_init_pid30132.pth", "source_catalog": false}
-{"bytes": 5426, "category": "root", "path": "README.md", "source_catalog": true}
+{"bytes": 4909, "category": "root", "path": "README.md", "source_catalog": true}
 {"bytes": 7179, "category": "root", "path": "THESIS_ROADMAP.md", "source_catalog": true}
-{"bytes": 177624, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
+{"bytes": 182976, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
 {"bytes": 739, "category": "archive", "path": "archive/README.md", "source_catalog": true}
 {"bytes": 26887, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/Models.py", "source_catalog": true}
 {"bytes": 26901, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/Models_empower.py", "source_catalog": true}
@@ -602,7 +602,7 @@
 {"bytes": 100432, "category": "docs", "path": "docs/baselines/ASSET_MANIFEST_2026-07-29.csv", "source_catalog": true}
 {"bytes": 2893, "category": "docs", "path": "docs/baselines/README.md", "source_catalog": true}
 {"bytes": 7125, "category": "docs", "path": "docs/experiments/HISTORICAL_FAMILIES.md", "source_catalog": true}
-{"bytes": 7671, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
+{"bytes": 7695, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
 {"bytes": 37701, "category": "docs", "path": "docs/experiments/ROOT_RELOCATION_2026-09-29.json", "source_catalog": true}
 {"bytes": 7857, "category": "docs", "path": "docs/experiments/RUN_CLOSEOUT.md", "source_catalog": true}
 {"bytes": 1535, "category": "docs", "path": "docs/experiments/WORKSPACE_MAP.md", "source_catalog": true}
@@ -770,9 +770,12 @@
 {"bytes": 4101, "category": "docs", "path": "docs/research/innovation2/PER_USER_SLOT_CONTROL_RESULTS.md", "source_catalog": true}
 {"bytes": 5172, "category": "docs", "path": "docs/research/innovation2/PER_USER_SLOT_CONTROL_VERIFICATION.json", "source_catalog": true}
 {"bytes": 9661, "category": "docs", "path": "docs/research/innovation2/POST_DIAGNOSTIC_ROUTE_REVIEW_2026-09-30.md", "source_catalog": true}
+{"bytes": 13635, "category": "docs", "path": "docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_AUDIT.md", "source_catalog": true}
+{"bytes": 2425, "category": "docs", "path": "docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_HANDOFF.md", "source_catalog": true}
 {"bytes": 9134, "category": "docs", "path": "docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_LAUNCH_REVIEW_V1.md", "source_catalog": true}
 {"bytes": 17269, "category": "docs", "path": "docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_PROFILE_V1.json", "source_catalog": true}
 {"bytes": 12825, "category": "docs", "path": "docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_PROTOCOL_V1.md", "source_catalog": true}
+{"bytes": 9230, "category": "docs", "path": "docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_RESULTS.md", "source_catalog": true}
 {"bytes": 8783, "category": "docs", "path": "docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_RUNTIME_PREPARATION_2026-09-30.md", "source_catalog": true}
 {"bytes": 23580, "category": "docs", "path": "docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_RUN_DECLARATION_V1.json", "source_catalog": true}
 {"bytes": 4756, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_HANDOFF.md", "source_catalog": true}
@@ -781,7 +784,7 @@
 {"bytes": 5776, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_INDEPENDENT_AUDIT_2026-09-29.md", "source_catalog": true}
 {"bytes": 8160, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_INDEPENDENT_VERIFICATION.json", "source_catalog": true}
 {"bytes": 3047, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_PROFILE_V1.json", "source_catalog": true}
-{"bytes": 6568, "category": "docs", "path": "docs/research/innovation2/README.md", "source_catalog": true}
+{"bytes": 6667, "category": "docs", "path": "docs/research/innovation2/README.md", "source_catalog": true}
 {"bytes": 16529, "category": "docs", "path": "docs/research/innovation2/RESEARCH_DIRECTION_WITH_EXPANDED_BUDGET_2026-09-30.md", "source_catalog": true}
 {"bytes": 7960, "category": "docs", "path": "docs/research/innovation2/ROUTE_CLOSURE_REVIEW_2026-09-30.md", "source_catalog": true}
 {"bytes": 7213, "category": "docs", "path": "docs/research/innovation2/ROUTE_CONSOLIDATION_2026-09-30.md", "source_catalog": true}
@@ -2614,10 +2617,16 @@
 {"bytes": 2016, "category": "exp", "path": "exp/innovation2/sparse_item_saved_lists_v1/manifest.json", "source_catalog": false}
 {"bytes": 14127, "category": "exp", "path": "exp/innovation2/sparse_item_saved_lists_v1/report.json", "source_catalog": false}
 {"bytes": 886, "category": "exp", "path": "exp/innovation2/sparse_item_saved_lists_v1/resource.json", "source_catalog": false}
-{"bytes": 380, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/batch.json", "source_catalog": false}
+{"bytes": 5242, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/access_audit.json", "source_catalog": false}
+{"bytes": 4025, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/batch.json", "source_catalog": false}
+{"bytes": 17204, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/budget_selection.json", "source_catalog": false}
+{"bytes": 46248, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/frontier.json", "source_catalog": false}
+{"bytes": 298214, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/grid_metrics.json", "source_catalog": false}
 {"bytes": 2401, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/model_manifest.json", "source_catalog": false}
+{"bytes": 9477439, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/per_user_selected.npz", "source_catalog": false}
+{"bytes": 13294, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/report.json", "source_catalog": false}
 {"bytes": 17742, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/resolved_profile.json", "source_catalog": false}
-{"bytes": 35001, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/resources.jsonl", "source_catalog": false}
+{"bytes": 45868, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/resources.jsonl", "source_catalog": false}
 {"bytes": 1103, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/restoration_manifest.json", "source_catalog": false}
 {"bytes": 1476955, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/score_cache/CF_warm.npz", "source_catalog": false}
 {"bytes": 1468076, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/score_cache/D_cold.npz", "source_catalog": false}
@@ -2628,6 +2637,7 @@
 {"bytes": 1398463, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/score_cache/R_cold.npz", "source_catalog": false}
 {"bytes": 1420124, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/score_cache/V_cold.npz", "source_catalog": false}
 {"bytes": 1646, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/score_cache_manifest.json", "source_catalog": false}
+{"bytes": 4407, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/source_manifest.json", "source_catalog": false}
 {"bytes": 6371655, "category": "exp", "path": "exp/innovation2/sports_unseen_transfer_v1/T_CF_tables.npz", "source_catalog": false}
 {"bytes": 6395682, "category": "exp", "path": "exp/innovation2/sports_unseen_transfer_v1/T_MM_tables.npz", "source_catalog": false}
 {"bytes": 182465, "category": "exp", "path": "exp/innovation2/sports_unseen_transfer_v1/access_audit.json", "source_catalog": false}
