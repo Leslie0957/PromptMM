@@ -138,7 +138,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（235）
+## docs（236）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -344,6 +344,7 @@
 - [docs/research/innovation2/POST_DIAGNOSTIC_ROUTE_REVIEW_2026-09-30.md](../research/innovation2/POST_DIAGNOSTIC_ROUTE_REVIEW_2026-09-30.md)
 - [docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_PROFILE_V1.json](../research/innovation2/QUALITY_CONSTRAINED_FRONTIER_PROFILE_V1.json)
 - [docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_PROTOCOL_V1.md](../research/innovation2/QUALITY_CONSTRAINED_FRONTIER_PROTOCOL_V1.md)
+- [docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_RUNTIME_PREPARATION_2026-09-30.md](../research/innovation2/QUALITY_CONSTRAINED_FRONTIER_RUNTIME_PREPARATION_2026-09-30.md)
 - [docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_HANDOFF.md](../research/innovation2/RANKING_GAP_DIAGNOSTIC_HANDOFF.md)
 - [docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_PLAN_2026-09-29.md](../research/innovation2/RANKING_GAP_DIAGNOSTIC_PLAN_2026-09-29.md)
 - [docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_RESULTS.md](../research/innovation2/RANKING_GAP_DIAGNOSTIC_RESULTS.md)
@@ -386,7 +387,7 @@
 
 - [logs/README.md](../../logs/README.md)
 
-## tests（24）
+## tests（25）
 
 - [tests/test_cached_deployment_benchmark.py](../../tests/test_cached_deployment_benchmark.py)
 - [tests/test_cross_interaction_p0.py](../../tests/test_cross_interaction_p0.py)
@@ -408,12 +409,13 @@
 - [tests/test_navigation_sealed_payload.py](../../tests/test_navigation_sealed_payload.py)
 - [tests/test_own_anchor_control.py](../../tests/test_own_anchor_control.py)
 - [tests/test_per_user_slot_control.py](../../tests/test_per_user_slot_control.py)
+- [tests/test_quality_frontier.py](../../tests/test_quality_frontier.py)
 - [tests/test_scalar_calibration.py](../../tests/test_scalar_calibration.py)
 - [tests/test_sports_paired_cold.py](../../tests/test_sports_paired_cold.py)
 - [tests/test_sports_sham_residual.py](../../tests/test_sports_sham_residual.py)
 - [tests/test_unseen_transfer_runtime.py](../../tests/test_unseen_transfer_runtime.py)
 
-## tools（57）
+## tools（59）
 
 - [tools/analyze_neighbor_residual_mechanism.py](../../tools/analyze_neighbor_residual_mechanism.py)
 - [tools/audit_initialization_kd_three_seeds.py](../../tools/audit_initialization_kd_three_seeds.py)
@@ -435,6 +437,7 @@
 - [tools/preflight_initialization_kd_assets.py](../../tools/preflight_initialization_kd_assets.py)
 - [tools/preflight_neighbor_shared_residual.py](../../tools/preflight_neighbor_shared_residual.py)
 - [tools/prepare_minimal_ranking_candidates.py](../../tools/prepare_minimal_ranking_candidates.py)
+- [tools/quality_frontier_core.py](../../tools/quality_frontier_core.py)
 - [tools/run_cross_interaction_p0.py](../../tools/run_cross_interaction_p0.py)
 - [tools/run_cross_interaction_p1a.py](../../tools/run_cross_interaction_p1a.py)
 - [tools/run_cross_interaction_precision.py](../../tools/run_cross_interaction_precision.py)
@@ -455,6 +458,7 @@
 - [tools/run_neighbor_shared_residual.py](../../tools/run_neighbor_shared_residual.py)
 - [tools/run_own_anchor_control.py](../../tools/run_own_anchor_control.py)
 - [tools/run_per_user_slot_control.py](../../tools/run_per_user_slot_control.py)
+- [tools/run_quality_constrained_frontier.py](../../tools/run_quality_constrained_frontier.py)
 - [tools/run_ranking_gap_diagnostic.py](../../tools/run_ranking_gap_diagnostic.py)
 - [tools/run_scalar_calibration.py](../../tools/run_scalar_calibration.py)
 - [tools/run_sparse_item_assessment.py](../../tools/run_sparse_item_assessment.py)

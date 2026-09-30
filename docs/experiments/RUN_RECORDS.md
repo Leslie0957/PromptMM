@@ -1,6 +1,6 @@
 # 运行与诊断记录导航
 
-目录版本：2026-09-26。共1065个现存exp JSON记录；数量不是独立实验数。
+目录版本：2026-09-26。共1096个现存exp JSON记录；数量不是独立实验数。
 保存状态按JSON原文摘录；—表示该字段未记录/未在约定层级找到，不表示成功或失败。
 批报告、子任务、资源检查与正式运行混列供定位，不能相加作为样本数。
 历史已做但本机没有JSON的实验，请查[完整历史章节](../../archive/training/ENTRY_INDEX_2026-09-26.md)。
@@ -799,6 +799,7 @@
 | [exp/innovation2/per_user_slot_control_v1/report.json](../../exp/innovation2/per_user_slot_control_v1/report.json) | completed | — | — | parsed |
 | [exp/innovation2/per_user_slot_control_v1/supervisor.json](../../exp/innovation2/per_user_slot_control_v1/supervisor.json) | — | — | — | parsed |
 | [exp/innovation2/per_user_slot_control_v1/worker_resources.json](../../exp/innovation2/per_user_slot_control_v1/worker_resources.json) | — | — | — | parsed |
+| [exp/innovation2/quality_frontier_preparation_verification_20260930.json](../../exp/innovation2/quality_frontier_preparation_verification_20260930.json) | passed | — | — | parsed |
 | [exp/innovation2/ranking_gap_v1/acceptance.json](../../exp/innovation2/ranking_gap_v1/acceptance.json) | passed | — | — | parsed |
 | [exp/innovation2/ranking_gap_v1/exit.json](../../exp/innovation2/ranking_gap_v1/exit.json) | completed | — | — | parsed |
 | [exp/innovation2/ranking_gap_v1/manifest.json](../../exp/innovation2/ranking_gap_v1/manifest.json) | — | docs/research/innovation2/RANKING_GAP_PROFILE_V1.json | — | parsed |
@@ -847,6 +848,36 @@
 | [exp/innovation2/sports_unseen_transfer_v1/teachers/T_MM_lr0.003/curve.json](../../exp/innovation2/sports_unseen_transfer_v1/teachers/T_MM_lr0.003/curve.json) | — | — | — | parsed |
 | [exp/innovation2/sports_unseen_transfer_v1/transform_manifest.json](../../exp/innovation2/sports_unseen_transfer_v1/transform_manifest.json) | — | — | — | parsed |
 | [exp/innovation2/sports_unseen_transfer_v1_audit/verification.json](../../exp/innovation2/sports_unseen_transfer_v1_audit/verification.json) | passed | — | — | parsed |
+| [exp/innovation2/synthetic_quality_frontier_cpu_final_v1_20260930/access_audit.json](../../exp/innovation2/synthetic_quality_frontier_cpu_final_v1_20260930/access_audit.json) | — | — | — | parsed |
+| [exp/innovation2/synthetic_quality_frontier_cpu_final_v1_20260930/batch.json](../../exp/innovation2/synthetic_quality_frontier_cpu_final_v1_20260930/batch.json) | completed | — | — | parsed |
+| [exp/innovation2/synthetic_quality_frontier_cpu_final_v1_20260930/budget_selection.json](../../exp/innovation2/synthetic_quality_frontier_cpu_final_v1_20260930/budget_selection.json) | — | — | — | parsed |
+| [exp/innovation2/synthetic_quality_frontier_cpu_final_v1_20260930/frontier.json](../../exp/innovation2/synthetic_quality_frontier_cpu_final_v1_20260930/frontier.json) | — | — | — | parsed |
+| [exp/innovation2/synthetic_quality_frontier_cpu_final_v1_20260930/grid_metrics.json](../../exp/innovation2/synthetic_quality_frontier_cpu_final_v1_20260930/grid_metrics.json) | — | — | — | parsed |
+| [exp/innovation2/synthetic_quality_frontier_cpu_final_v1_20260930/model_manifest.json](../../exp/innovation2/synthetic_quality_frontier_cpu_final_v1_20260930/model_manifest.json) | — | — | — | parsed |
+| [exp/innovation2/synthetic_quality_frontier_cpu_final_v1_20260930/report.json](../../exp/innovation2/synthetic_quality_frontier_cpu_final_v1_20260930/report.json) | — | — | — | parsed |
+| [exp/innovation2/synthetic_quality_frontier_cpu_final_v1_20260930/resolved_profile.json](../../exp/innovation2/synthetic_quality_frontier_cpu_final_v1_20260930/resolved_profile.json) | protocol_frozen_runtime_not_implemented | — | — | parsed |
+| [exp/innovation2/synthetic_quality_frontier_cpu_final_v1_20260930/restoration_manifest.json](../../exp/innovation2/synthetic_quality_frontier_cpu_final_v1_20260930/restoration_manifest.json) | — | — | — | parsed |
+| [exp/innovation2/synthetic_quality_frontier_cpu_final_v1_20260930/score_cache_manifest.json](../../exp/innovation2/synthetic_quality_frontier_cpu_final_v1_20260930/score_cache_manifest.json) | — | — | — | parsed |
+| [exp/innovation2/synthetic_quality_frontier_cpu_final_v1_20260930/source_manifest.json](../../exp/innovation2/synthetic_quality_frontier_cpu_final_v1_20260930/source_manifest.json) | — | — | — | parsed |
+| [exp/innovation2/synthetic_quality_frontier_cpu_final_v1_20260930_stdout.json](../../exp/innovation2/synthetic_quality_frontier_cpu_final_v1_20260930_stdout.json) | completed | — | — | parsed |
+| [exp/innovation2/synthetic_quality_frontier_cpu_v1_20260930/access_audit.json](../../exp/innovation2/synthetic_quality_frontier_cpu_v1_20260930/access_audit.json) | — | — | — | parsed |
+| [exp/innovation2/synthetic_quality_frontier_cpu_v1_20260930/batch.json](../../exp/innovation2/synthetic_quality_frontier_cpu_v1_20260930/batch.json) | completed | — | — | parsed |
+| [exp/innovation2/synthetic_quality_frontier_cpu_v1_20260930/budget_selection.json](../../exp/innovation2/synthetic_quality_frontier_cpu_v1_20260930/budget_selection.json) | — | — | — | parsed |
+| [exp/innovation2/synthetic_quality_frontier_cpu_v1_20260930/frontier.json](../../exp/innovation2/synthetic_quality_frontier_cpu_v1_20260930/frontier.json) | — | — | — | parsed |
+| [exp/innovation2/synthetic_quality_frontier_cpu_v1_20260930/grid_metrics.json](../../exp/innovation2/synthetic_quality_frontier_cpu_v1_20260930/grid_metrics.json) | — | — | — | parsed |
+| [exp/innovation2/synthetic_quality_frontier_cpu_v1_20260930/model_manifest.json](../../exp/innovation2/synthetic_quality_frontier_cpu_v1_20260930/model_manifest.json) | — | — | — | parsed |
+| [exp/innovation2/synthetic_quality_frontier_cpu_v1_20260930/report.json](../../exp/innovation2/synthetic_quality_frontier_cpu_v1_20260930/report.json) | — | — | — | parsed |
+| [exp/innovation2/synthetic_quality_frontier_cpu_v1_20260930/resolved_profile.json](../../exp/innovation2/synthetic_quality_frontier_cpu_v1_20260930/resolved_profile.json) | protocol_frozen_runtime_not_implemented | — | — | parsed |
+| [exp/innovation2/synthetic_quality_frontier_cpu_v1_20260930/restoration_manifest.json](../../exp/innovation2/synthetic_quality_frontier_cpu_v1_20260930/restoration_manifest.json) | — | — | — | parsed |
+| [exp/innovation2/synthetic_quality_frontier_cpu_v1_20260930/score_cache_manifest.json](../../exp/innovation2/synthetic_quality_frontier_cpu_v1_20260930/score_cache_manifest.json) | — | — | — | parsed |
+| [exp/innovation2/synthetic_quality_frontier_cpu_v1_20260930/source_manifest.json](../../exp/innovation2/synthetic_quality_frontier_cpu_v1_20260930/source_manifest.json) | — | — | — | parsed |
+| [exp/innovation2/synthetic_quality_frontier_cpu_v1_20260930_stdout.json](../../exp/innovation2/synthetic_quality_frontier_cpu_v1_20260930_stdout.json) | completed | — | — | parsed |
+| [exp/innovation2/synthetic_quality_frontier_failure_v1_20260930/access_audit.json](../../exp/innovation2/synthetic_quality_frontier_failure_v1_20260930/access_audit.json) | — | — | — | parsed |
+| [exp/innovation2/synthetic_quality_frontier_failure_v1_20260930/batch.json](../../exp/innovation2/synthetic_quality_frontier_failure_v1_20260930/batch.json) | failed | — | — | parsed |
+| [exp/innovation2/synthetic_quality_frontier_failure_v1_20260930/model_manifest.json](../../exp/innovation2/synthetic_quality_frontier_failure_v1_20260930/model_manifest.json) | — | — | — | parsed |
+| [exp/innovation2/synthetic_quality_frontier_failure_v1_20260930/resolved_profile.json](../../exp/innovation2/synthetic_quality_frontier_failure_v1_20260930/resolved_profile.json) | protocol_frozen_runtime_not_implemented | — | — | parsed |
+| [exp/innovation2/synthetic_quality_frontier_failure_v1_20260930/restoration_manifest.json](../../exp/innovation2/synthetic_quality_frontier_failure_v1_20260930/restoration_manifest.json) | — | — | — | parsed |
+| [exp/innovation2/synthetic_quality_frontier_metadata_preflight_20260930.json](../../exp/innovation2/synthetic_quality_frontier_metadata_preflight_20260930.json) | metadata_only_preflight | — | — | parsed |
 | [exp/innovation2/synthetic_unseen_failure_gate_5367db349a/access_audit.json](../../exp/innovation2/synthetic_unseen_failure_gate_5367db349a/access_audit.json) | — | — | — | parsed |
 | [exp/innovation2/synthetic_unseen_failure_gate_5367db349a/batch.json](../../exp/innovation2/synthetic_unseen_failure_gate_5367db349a/batch.json) | failed | — | — | parsed |
 | [exp/innovation2/synthetic_unseen_failure_gate_5367db349a/report.json](../../exp/innovation2/synthetic_unseen_failure_gate_5367db349a/report.json) | failed | — | — | parsed |
