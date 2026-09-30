@@ -14,7 +14,7 @@ AI启动：完整读[AGENTS.md](AGENTS.md)，再读本页和[短日志](TRAINING
 | 第二项接下来研究什么 | [探索工作页](docs/research/innovation2/README.md) |
 | 查具体运行、旧命令或文件 | [深层导航](docs/README.md) |
 
-当前唯一下一步：准备固定B上的全局/逐用户标量校准基线：实现、合成测试及有界协议；不运行真实实验。
+当前唯一下一步：按[标量校准启动准备](docs/research/innovation2/SCALAR_CALIBRATION_PREPARATION_2026-09-30.md)手动运行固定B/G/U三状态×三个既有seed的CPU cohort一次；准备完成，未执行真实拟合/评价。
 
 训练入口为`codes/main_mmlight.py`，参数默认源`codes/utility/parser.py`，CLI优先。`codes/run_patent.py`是独立历史路径。评审材料移至`archive/reviews/check/`，旧代码集中在archive下；原始数据/模型/运行产物与`zhuanli/`保持原位。搬迁详见[路径映射](docs/experiments/ROOT_RELOCATION_2026-09-29.json)。
 

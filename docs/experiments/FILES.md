@@ -138,7 +138,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（213）
+## docs（215）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -345,6 +345,8 @@
 - [docs/research/innovation2/RANKING_GAP_PROFILE_V1.json](../research/innovation2/RANKING_GAP_PROFILE_V1.json)
 - [docs/research/innovation2/README.md](../research/innovation2/README.md)
 - [docs/research/innovation2/ROUTE_CONSOLIDATION_2026-09-30.md](../research/innovation2/ROUTE_CONSOLIDATION_2026-09-30.md)
+- [docs/research/innovation2/SCALAR_CALIBRATION_PREPARATION_2026-09-30.md](../research/innovation2/SCALAR_CALIBRATION_PREPARATION_2026-09-30.md)
+- [docs/research/innovation2/SCALAR_CALIBRATION_PROFILE_V1.json](../research/innovation2/SCALAR_CALIBRATION_PROFILE_V1.json)
 - [docs/research/innovation2/SPARSE_ITEM_ASSESSMENT_HANDOFF.md](../research/innovation2/SPARSE_ITEM_ASSESSMENT_HANDOFF.md)
 - [docs/research/innovation2/SPARSE_ITEM_ASSESSMENT_PLAN_2026-09-29.md](../research/innovation2/SPARSE_ITEM_ASSESSMENT_PLAN_2026-09-29.md)
 - [docs/research/innovation2/SPARSE_ITEM_ASSESSMENT_PROFILE_V1.json](../research/innovation2/SPARSE_ITEM_ASSESSMENT_PROFILE_V1.json)
@@ -364,7 +366,7 @@
 
 - [logs/README.md](../../logs/README.md)
 
-## tests（21）
+## tests（22）
 
 - [tests/test_cached_deployment_benchmark.py](../../tests/test_cached_deployment_benchmark.py)
 - [tests/test_cross_interaction_p0.py](../../tests/test_cross_interaction_p0.py)
@@ -385,10 +387,11 @@
 - [tests/test_modal_neighbor_diagnostic.py](../../tests/test_modal_neighbor_diagnostic.py)
 - [tests/test_own_anchor_control.py](../../tests/test_own_anchor_control.py)
 - [tests/test_per_user_slot_control.py](../../tests/test_per_user_slot_control.py)
+- [tests/test_scalar_calibration.py](../../tests/test_scalar_calibration.py)
 - [tests/test_sports_paired_cold.py](../../tests/test_sports_paired_cold.py)
 - [tests/test_sports_sham_residual.py](../../tests/test_sports_sham_residual.py)
 
-## tools（52）
+## tools（54）
 
 - [tools/analyze_neighbor_residual_mechanism.py](../../tools/analyze_neighbor_residual_mechanism.py)
 - [tools/audit_initialization_kd_three_seeds.py](../../tools/audit_initialization_kd_three_seeds.py)
@@ -431,6 +434,7 @@
 - [tools/run_own_anchor_control.py](../../tools/run_own_anchor_control.py)
 - [tools/run_per_user_slot_control.py](../../tools/run_per_user_slot_control.py)
 - [tools/run_ranking_gap_diagnostic.py](../../tools/run_ranking_gap_diagnostic.py)
+- [tools/run_scalar_calibration.py](../../tools/run_scalar_calibration.py)
 - [tools/run_sparse_item_assessment.py](../../tools/run_sparse_item_assessment.py)
 - [tools/run_sports_cached_deployment.py](../../tools/run_sports_cached_deployment.py)
 - [tools/run_sports_initialization_pair.py](../../tools/run_sports_initialization_pair.py)
@@ -441,6 +445,7 @@
 - [tools/run_sports_sharedinit_pair.py](../../tools/run_sports_sharedinit_pair.py)
 - [tools/run_sports_teacherinit_bpr.py](../../tools/run_sports_teacherinit_bpr.py)
 - [tools/run_sports_validation300.py](../../tools/run_sports_validation300.py)
+- [tools/scalar_calibration_core.py](../../tools/scalar_calibration_core.py)
 - [tools/verify_baseline_assets.ps1](../../tools/verify_baseline_assets.ps1)
 
 ## 根目录（6）

@@ -7,7 +7,7 @@
 - 第一项：有限实验、独立审计及正文整合完成，暂停扩展；[结论与未验证边界](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。待跑实验为零。
 - 第二项：逐用户槽位三seed完成并通过产物审计；联合筛查unresolved。分配假设有支持，尚无成立的第二算法；[统一判断](docs/research/innovation2/PER_USER_SLOT_CONTROL_RESULTS.md)。
 - 约束：旧Test不选新方法；P1a已筛查停止；旧RGCS/门控不是队列。未知项不自动补跑。
-- 唯一下一步：准备固定B上的全局/逐用户标量校准基线：实现、合成测试及有界协议；不运行真实实验。
+- 唯一下一步：按[标量校准启动准备](docs/research/innovation2/SCALAR_CALIBRATION_PREPARATION_2026-09-30.md)手动运行固定B/G/U三状态×三个既有seed的CPU cohort一次；准备完成，未执行真实拟合/评价。
 
 ## 证据导航
 
@@ -366,3 +366,24 @@
 
 - Added [design review](docs/research/innovation2/PERSONALIZED_ALLOCATION_DESIGN_REVIEW_2026-09-30.md). Primary xQuAD personalized-popularity reranking and PPAC establish substantial prior overlap; problem worth pursuing but no independent second-algorithm approval. Concrete candidate is frozen-B train-only scalar correction, explicitly a simple baseline, standard BPR/ridge and65D export identity; no invented multimodal necessity or performance promise.
 - Separate learnability, quality, novelty and cost; prior H screen unchanged, no reuse of Validation labels as training targets, no new diagnostic chain. Next only bounded implementation/protocol preparation and synthetic checks for global/user scalar baselines, no real execution. No data/model/Test access or source change; preserve charter, first-work matrices, old logs and reviews. Entrances/catalogs updated; links/history/diff checks and scoped commit.
+
+
+## 2026-09-30 Scalar calibration implementation (pending)
+
+- User approves preparation only, basedd08f4d3. Scope isolated scalar-calibration core/runner/profile/tests/preparation and active navigation. Freeze B from existing2022/2023/2024; fit G global and U per-user using identical Train-only sampled triples; no R/H labels or Validation tuning. Since frozen-score BPR plus positive ridge is convex in scalars, use bounded derivative bisection instead of arbitrary optimizer/epochs (document objective and convergence); this is numerical implementation, not algorithm novelty.
+- Proposed fixed64 triples/user (uniform observed positive, uniform unseen negative), tape seed8721 shared across B states, ridge.01,40 iterations, CPU1800s/RSS4GiB/output256MiB/free2GiB; cached within-group B prefixes for exact full-catalog-equivalent merge. Seal all fitted parameters/lists before Validation. New Test0 family only, no existing assets overwritten.
+- Acceptance: synthetic derivative/convex optimum/sampling/merge/export/guard/decision tests, bounded resources and clean-source one-shot runner; no real data/tensor loads or formal execution during preparation. Risks: sparse cross-group supervision, score precision, Validation reuse, sampling-dependent negative results, no proven full runtime bound. Preserve historical log/reviews/charter; verify and commit. Next manual single fixed cohort only after preparation.
+
+
+## 2026-09-30 Scalar calibration implementation (completed)
+
+- Added isolated CPU core/runner, SHA-anchored profile and [preparation](docs/research/innovation2/SCALAR_CALIBRATION_PREPARATION_2026-09-30.md). Frozen B2022/2023/2024, common64-pair/user Train tape8721, ridge.01 and40 derivative-bisection iterations for G/U; same-group order unchanged. Cached-prefix merge supports signed offsets and ID ties; fits/lists sealed for all seeds before any Validation reads. Test0, no R/H supervision.
+- Seven synthetic tests passed; AST/help, profile path metadata and output absence verified. No real matrices/checkpoints/cache payloads loaded, no real fitting/evaluation/Test or resource smoke. CPU cap1800s/RSS4GiB/output256MiB/free2GiB is an enforced ceiling, not demonstrated feasibility; sampled peak limitations documented. Strict descriptive screen requires U low hits above B/G and totalRecall at least B/G in each seed; not a novelty/significance/noninferiority claim.
+- Entrances/family and generated navigation updated; historical records/charter/first-work/raw assets/reviews unchanged. Verify links/history/diff before coherent commit. Sole next step manual one-shot cohort and later audit, no automatic launch.
+
+## 2026-09-30 Scalar calibration fixed cohort (pending; prepared for manual execution)
+
+- No run occurred or launch authorization inferred in preparation. One fixed Sports cohort scalar_calibration_v1, existing B seeds2022/2023/2024, B/G/U9metric states. Anchor neighbor_shared_residual_three_seed_v1 manifest (sourceb8be549613498e5cbb98412ffa766c62279ad7a6) plus SHA-pinned B caches/inputs in SCALAR_CALIBRATION_PROFILE_V1.json. Delta: train-only scalar fits, no B parameter updates, new64-pair/user tape8721, ridge.01,40iterations; final only, no tuning.
+- Command from repo root: & 'D:\miniconda\envs\run_5060\python.exe' -B 'D:\Download\PromptMM\tools\run_scalar_calibration.py' --formal. Branch codex/experiment/baby-teacher-baseline; clean committed preparation HEAD (or same-protocol declaration-only descendant) captured in manifest; existing archive/reviews exception. Test0; seal all fits/lists before Val; no teacher evaluation.
+- Output exp/innovation2/scalar_calibration_v1, refuse existing directory; CPU1800s/RSS4GiB/output256MiB/free2GiB. One launch, no retry/resume/new seed/arm/Test/next stage. Failure artifacts preserved. Run only when user manually executes or expressly authorizes this exact cohort.
+- Closeout targets: docs/research/innovation2/SCALAR_CALIBRATION_RESULTS.md (B/G/U×2022/2023/2024), SCALAR_CALIBRATION_AUDIT.md, SCALAR_CALIBRATION_HANDOFF.md; active log, scalar-calibration experiment-family row and current entrances; generated navigation refresh. First-work matrices/paper/charter unchanged absent new affected claim; no milestone/tag/bundle.
