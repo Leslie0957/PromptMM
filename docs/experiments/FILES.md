@@ -138,7 +138,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（225）
+## docs（227）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -361,6 +361,8 @@
 - [docs/research/innovation2/SPARSE_ITEM_ASSESSMENT_PLAN_2026-09-29.md](../research/innovation2/SPARSE_ITEM_ASSESSMENT_PLAN_2026-09-29.md)
 - [docs/research/innovation2/SPARSE_ITEM_ASSESSMENT_PROFILE_V1.json](../research/innovation2/SPARSE_ITEM_ASSESSMENT_PROFILE_V1.json)
 - [docs/research/innovation2/SPARSE_ITEM_ASSESSMENT_RESULTS.md](../research/innovation2/SPARSE_ITEM_ASSESSMENT_RESULTS.md)
+- [docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_PROFILE_V1.json](../research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_PROFILE_V1.json)
+- [docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_PROTOCOL_V1.md](../research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_PROTOCOL_V1.md)
 - [docs/research_notes/KL散度蒸馏vs方向蒸馏对比.txt](../research_notes/KL%E6%95%A3%E5%BA%A6%E8%92%B8%E9%A6%8Fvs%E6%96%B9%E5%90%91%E8%92%B8%E9%A6%8F%E5%AF%B9%E6%AF%94.txt)
 - [docs/research_notes/README.md](../research_notes/README.md)
 - [docs/research_notes/多模态融合语义鸿沟问答.txt](../research_notes/%E5%A4%9A%E6%A8%A1%E6%80%81%E8%9E%8D%E5%90%88%E8%AF%AD%E4%B9%89%E9%B8%BF%E6%B2%9F%E9%97%AE%E7%AD%94.txt)
@@ -401,7 +403,7 @@
 - [tests/test_sports_paired_cold.py](../../tests/test_sports_paired_cold.py)
 - [tests/test_sports_sham_residual.py](../../tests/test_sports_sham_residual.py)
 
-## tools（54）
+## tools（55）
 
 - [tools/analyze_neighbor_residual_mechanism.py](../../tools/analyze_neighbor_residual_mechanism.py)
 - [tools/audit_initialization_kd_three_seeds.py](../../tools/audit_initialization_kd_three_seeds.py)
@@ -456,6 +458,7 @@
 - [tools/run_sports_teacherinit_bpr.py](../../tools/run_sports_teacherinit_bpr.py)
 - [tools/run_sports_validation300.py](../../tools/run_sports_validation300.py)
 - [tools/scalar_calibration_core.py](../../tools/scalar_calibration_core.py)
+- [tools/validate_unseen_transfer_protocol.py](../../tools/validate_unseen_transfer_protocol.py)
 - [tools/verify_baseline_assets.ps1](../../tools/verify_baseline_assets.ps1)
 
 ## 根目录（6）

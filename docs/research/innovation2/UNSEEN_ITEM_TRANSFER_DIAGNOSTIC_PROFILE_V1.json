@@ -1,0 +1,351 @@
+{
+  "schema_version": 1,
+  "protocol_id": "sports_unseen_transfer_v1",
+  "status": "protocol_frozen_runtime_not_implemented",
+  "authority": "preparation_only",
+  "innovation_criteria": "THESIS_ROADMAP.md v1.1",
+  "seeds": {
+    "split": 20260930,
+    "teacher": 2022,
+    "student": 2022,
+    "triplet": 2022,
+    "bootstrap": 20260930
+  },
+  "source": {
+    "manifest": "data/sports/conversion_manifest.json",
+    "allowed_payloads": [
+      {
+        "path": "data/sports/train_mat",
+        "bytes": 1890060,
+        "sha256": "5361c5486dddbf50084d011278a11d2f18a37e258f87be218b070ff02f4ab0f8"
+      },
+      {
+        "path": "data/sports/image_feat.npy",
+        "bytes": 601522304,
+        "sha256": "222f924a0694b6c7e2bc26ea4bc2ef4ec89f7045aa5105ef463af8455c7a7695"
+      },
+      {
+        "path": "data/sports/text_feat.npy",
+        "bytes": 28196480,
+        "sha256": "27d6087f0d8644b8245c60052425530c6446dffe61024b8126db0009ad94de84"
+      }
+    ],
+    "metadata_shapes": {
+      "users": 35598,
+      "items": 18357,
+      "original_train_nnz": 218409,
+      "image": [
+        18357,
+        4096
+      ],
+      "text": [
+        18357,
+        384
+      ]
+    },
+    "forbidden_payloads": [
+      "data/sports/val_mat",
+      "data/sports/test_mat",
+      "data/_incoming/mmrec_sports/sports.inter"
+    ],
+    "reuse_original_teachers": false,
+    "reuse_full_catalog_transforms": false
+  },
+  "information": {
+    "test_access": 0,
+    "old_validation_access": 0,
+    "lock_confirmation_access": 0,
+    "fit_roles": [
+      "warm_fit"
+    ],
+    "selection_roles": [
+      "warm_select",
+      "cold_select"
+    ],
+    "report_roles": [
+      "warm_probe",
+      "cold_probe"
+    ],
+    "negative_items": "warm_active_only_exclude_warm_fit_positives",
+    "lock_builder_exception": "partition_only_originalTrain_read_to_seal_roles_no_model_or_selection_access"
+  },
+  "split": {
+    "algorithm": "sha256_lexicographic_sorted_train_positive_item_ids",
+    "key_format": "sports_unseen_transfer_v1|20260930|item|{id}",
+    "fractions": {
+      "warm": 0.8,
+      "cold_select": 0.05,
+      "cold_probe": 0.05,
+      "cold_lock": 0.1
+    },
+    "rounding": "floor_first_three_remainder_lock",
+    "min_warm_degree": 5,
+    "warm_holdouts": 2,
+    "warm_pair_key": "sports_unseen_transfer_v1|20260930|warm_pair|{user}|{item}",
+    "min_warm_fit_degree": 3,
+    "drop_items_without_warm_fit": true,
+    "filter_users_by_cold_labels": false,
+    "resample": false
+  },
+  "features": {
+    "fit_items": "warm_active_only",
+    "image_pca_components": 64,
+    "text_pca_components": 64,
+    "pca_solver": "full",
+    "whiten": false,
+    "modality_row_l2": true,
+    "zero_row_policy": "keep_zero_report_count",
+    "input_dim": 128,
+    "external_encoder_exposure": "unknown_preextracted_features_not_claimed_end_to_end"
+  },
+  "teachers": {
+    "names": [
+      "T_CF",
+      "T_MM"
+    ],
+    "architecture": "paired_2_layer_LightGCN_with_MM_linear_content_injection",
+    "dim": 64,
+    "graph_layers": 2,
+    "graph_normalization": "symmetric_degree_binary_edges_no_self_loops",
+    "initialization": "xavier_normal_shared_ID_rng_independent_of_MM_projection_rng",
+    "projection_bias": false,
+    "graph_forward": "recompute_with_current_parameters_each_optimizer_step",
+    "layer_aggregation": "mean_input_and_two_propagated_layers",
+    "mm_input": "q_id+(W_img*x_img+W_txt*x_txt)/sqrt(2)",
+    "cf_input": "q_id",
+    "shared_initial_id_tables": true,
+    "shared_triplets": true,
+    "learning_rates": [
+      0.0003,
+      0.001,
+      0.003
+    ],
+    "max_epochs": 300,
+    "batch_size": 1024,
+    "optimizer": "AdamW",
+    "weight_decay": 0.00001,
+    "dropout": 0,
+    "objective": "BPR",
+    "evaluate_every_epochs": 10,
+    "selection": "max_warm_select_recall20_earliest_epoch_then_smallest_lr",
+    "fit_scope": "warm_fit_only",
+    "no_cold_teacher_oracle": true
+  },
+  "anchor": {
+    "user_table": "selected_T_CF_P",
+    "warm_item_table": "selected_T_CF_Q",
+    "warm_scores_fixed": true,
+    "refit_after_selection": false
+  },
+  "students": {
+    "arms": [
+      "R",
+      "V",
+      "D",
+      "K_CF",
+      "K_MM",
+      "N"
+    ],
+    "mlp": {
+      "input": 128,
+      "hidden": 128,
+      "output": 64,
+      "activation": "ReLU",
+      "trainable_bias": true,
+      "dropout": 0,
+      "shared_initial_state": true
+    },
+    "max_epochs": 300,
+    "batch_size": 1024,
+    "evaluate_every_epochs": 10,
+    "optimizer": "AdamW",
+    "weight_decay": 0.00001,
+    "learning_rates": [
+      0.0003,
+      0.001
+    ],
+    "ridge": {
+      "lambdas": [
+        0.001,
+        0.1,
+        10
+      ],
+      "objective": "mean_squared_target_coordinate_error+lambda*weight_frobenius_squared",
+      "unpenalized_intercept": true
+    },
+    "vector_objective": "mean_squared_Q_CF_error_divided_by_mean_squared_warm_Q_CF_element",
+    "direct_objective": "BPR_with_fixed_P_CF",
+    "kd": {
+      "weights": [
+        0.1,
+        1
+      ],
+      "objective": "BPR+beta*mean((student_margin/sigma_CF-teacher_margin/sigma_T)^2)",
+      "scale_tape_triplets": 100000,
+      "scale_floor": 0.000001,
+      "centering": false,
+      "teacher_targets_warm_only": true
+    },
+    "knn": {
+      "mode": "user_warm_fit_history_mean_normalized_content_cosine",
+      "hyperparameter_trials": 1
+    },
+    "max_neural_fits": 12,
+    "checkpoint_selection": "max_mixed_select_overall_recall20_then_cold_recall20_then_earliest_epoch_then_smallest_lr_then_smallest_beta",
+    "no_cold_labels_in_gradients": true
+  },
+  "optimization": {
+    "bpr_objective": "batch_mean_softplus_negative_margin",
+    "positive_sampling": "one_seeded_shuffled_warm_fit_edge_pass_per_epoch",
+    "negative_sampling": "uniform_user_unseen_warm_active",
+    "no_negative_user_policy": "exclude_from_triplet_tape_report_count",
+    "tape": "same_per_epoch_triplets_across_paired_teacher_and_ranking_student_fits",
+    "vector_epoch": "one_shuffled_warm_active_item_pass",
+    "mlp_initialization": "xavier_normal_weights_zero_bias",
+    "restart_each_configuration": true,
+    "independent_embedding_penalty": false,
+    "adamw_decay_scope": "all_trainable_parameters",
+    "total_search_budget_equal_across_all_arms": false,
+    "kd_search_budget_equal": true
+  },
+  "calibration": {
+    "cold_score_scales": [
+      0.5,
+      1,
+      2
+    ],
+    "warm_scores_unchanged": true,
+    "apply_to_all_arms": true,
+    "selection_only": true,
+    "no_refit": true,
+    "raw_scale": 1,
+    "conditional_calibrated_copy_of_raw_choice": true,
+    "selection_total_neural_checkpoints_max": 360,
+    "selection_calibration_evaluations_max": 18
+  },
+  "evaluation": {
+    "k": 20,
+    "selection_catalog": [
+      "warm_active",
+      "cold_select"
+    ],
+    "probe_catalog": [
+      "warm_active",
+      "cold_probe"
+    ],
+    "mask": "warm_fit_positives_only",
+    "tie_rule": "score_desc_original_item_id_asc",
+    "dtype": "float32",
+    "exact_full_candidate": true,
+    "user_batch": 128,
+    "report_after_all_choices_frozen": true,
+    "probe_passes_per_arm_per_variant": 1,
+    "variants": [
+      "raw",
+      "calibrated"
+    ],
+    "teacher_probe_passes": 1,
+    "cold_only_auxiliary": true,
+    "bootstrap_replicates": 2000,
+    "confidence_level": 0.95,
+    "interval_method": "percentile_linear_quantiles_0.025_0.975",
+    "shared_resample_indices_per_endpoint": true,
+    "multiplicity_correction": false,
+    "user_resampling": "paired_fixed_probe_population",
+    "ndcg_group_definition": "group_gain_on_shared_mixed_ranking_divided_by_same_group_ideal_dcg",
+    "overall_definition": "per_user_recall_and_ndcg_on_union_labels_then_macro_over_users_with_any_probe_positive"
+  },
+  "decision": {
+    "min_cold_probe_items": 200,
+    "min_cold_probe_users": 1000,
+    "min_cold_probe_interactions": 2000,
+    "min_warm_probe_users": 1000,
+    "teacher_mm_recall_advantage": 0.001,
+    "cold_recall_advantage": 0.002,
+    "mixed_recall_tolerance": 0.001,
+    "warm_recall_tolerance": 0.001,
+    "teacher_plateau": {
+      "last_evaluations": 5,
+      "allowed_range": 0.002
+    },
+    "student_plateau": {
+      "last_evaluations": 5,
+      "allowed_range": 0.002
+    },
+    "support_requires_paired_bootstrap_lower_gt_zero": true,
+    "stop_requires_bootstrap_upper_below_effect_gate": true,
+    "teacher_quality_control_missing_outcome": "undetermined",
+    "one_seed_not_stability": true,
+    "optional_probe_result_cannot_select_next_variant": true
+  },
+  "resources": {
+    "gpu_count": 1,
+    "serial": true,
+    "cuda_allocated_limit_gib": 6,
+    "process_rss_limit_gib": 12,
+    "free_disk_floor_gib": 12,
+    "output_limit_gib": 8,
+    "total_wall_time_limit_hours": 48,
+    "stage_timeout_hours": {
+      "assets": 2,
+      "teachers_total": 24,
+      "students_total": 18,
+      "report_total": 4
+    },
+    "telemetry_interval_seconds": 5,
+    "threads": 4,
+    "automatic_retry": false,
+    "automatic_next_seed": false,
+    "automatic_next_stage": false
+  },
+  "artifacts": {
+    "root": "exp/innovation2/sports_unseen_transfer_v1",
+    "overwrite": false,
+    "required": [
+      "source_manifest.json",
+      "split_manifest.json",
+      "sealed_lock.json",
+      "transform_manifest.json",
+      "teacher_selection.json",
+      "student_selection.json",
+      "report.json",
+      "per_user_probe.npz",
+      "resources.jsonl",
+      "access_audit.json",
+      "batch.json"
+    ]
+  },
+  "routing": {
+    "protocol": "docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_PROTOCOL_V1.md",
+    "results": "docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_RESULTS.md",
+    "audit": "docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_AUDIT.md",
+    "handoff": "docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_HANDOFF.md",
+    "matrix_rows": [
+      "T_CF",
+      "T_MM",
+      "R/raw",
+      "R/calibrated",
+      "V/raw",
+      "V/calibrated",
+      "D/raw",
+      "D/calibrated",
+      "K_CF/raw",
+      "K_CF/calibrated",
+      "K_MM/raw",
+      "K_MM/calibrated",
+      "N/raw",
+      "N/calibrated"
+    ],
+    "seed": 2022,
+    "first_work_consumers": "unchanged_frozen",
+    "experiment_family": "Sports未见物品教师可迁移性/混合目录瓶颈",
+    "navigation_refresh": true
+  },
+  "launch": {
+    "ready": false,
+    "runtime_exists": false,
+    "formal_authorization": false,
+    "validation_command": "& 'D:\\miniconda\\envs\\run_5060\\python.exe' -B tools/validate_unseen_transfer_protocol.py --self-check --verify-source-metadata",
+    "next_stage": "standalone_runtime_implementation_and_synthetic_preflight_no_real_run"
+  }
+}

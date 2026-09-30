@@ -27,7 +27,7 @@
 | 评价恢复/资产核验 | 原失败保留，独立恢复完成12格新Test；不是新增12次训练 | [恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md) |
 | 更早数据/教师/预实验 | 历史背景，不自动并入当前合格主表 | [详细族导航](HISTORICAL_FAMILIES.md) |
 
-当前无待跑实验。[时间充裕后的路线重评](../research/innovation2/RESEARCH_DIRECTION_WITH_EXPANDED_BUDGET_2026-09-30.md)重新开放新物品问题诊断；评分几何岭回归算法否决仍有效。下一步准备并冻结Sports教师可迁移性/混合目录瓶颈诊断协议；未创建划分、重建教师或训练，不计作新实验族。
+当前无待跑实验。[Sports未见物品教师可迁移性/混合目录瓶颈诊断v1](../research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_PROTOCOL_V1.md)协议与JSON已冻结，stdlib合成与来源元数据检查通过；未创建真实划分、重建教师或训练，不计作新实验族。唯一下一步是独立运行实现及合成预检准备，真实执行另行声明与授权；有效负证据后与用户讨论，不自动扩跑。评分几何岭回归仅作基线，第二算法尚未成立。
 
 ## 需要再深入时
 
