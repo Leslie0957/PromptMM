@@ -27,7 +27,7 @@
 | 评价恢复/资产核验 | 原失败保留，独立恢复完成12格新Test；不是新增12次训练 | [恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md) |
 | 更早数据/教师/预实验 | 历史背景，不自动并入当前合格主表 | [详细族导航](HISTORICAL_FAMILIES.md) |
 
-当前无待跑实验。[新物品具体提案](../research/innovation2/NEW_ITEM_METHOD_PROPOSAL_2026-09-30.md)因可归约为评分对齐/岭回归而未通过算法立项，当前接入候选暂停；未重建教师、未训练，不计作新实验族。下一步先明确第二项总预算与数据/资产范围，再重新选问题。
+当前无待跑实验。[时间充裕后的路线重评](../research/innovation2/RESEARCH_DIRECTION_WITH_EXPANDED_BUDGET_2026-09-30.md)重新开放新物品问题诊断；评分几何岭回归算法否决仍有效。下一步准备并冻结Sports教师可迁移性/混合目录瓶颈诊断协议；未创建划分、重建教师或训练，不计作新实验族。
 
 ## 需要再深入时
 

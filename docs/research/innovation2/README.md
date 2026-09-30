@@ -17,11 +17,13 @@
 
 当前已形成[最小排序监督对照方案](MINIMAL_RANKING_SUPERVISION_PROPOSAL_2026-09-29.md)；原seed2022[实现与资源准备报告](MINIMAL_RANKING_SUPERVISION_PREPARATION_REPORT_2026-09-29.md)之后，已固定[三seed串行手动启动准备](MINIMAL_RANKING_THREE_SEED_MANUAL_LAUNCH_2026-09-29.md)。三seed正式训练已完成，[独立审计](MINIMAL_RANKING_THREE_SEED_AUDIT_2026-09-29.md)通过执行验收但均screen_stop；没有算法成功结论。
 
-最新：[独立候选评审](INDEPENDENT_CANDIDATE_REVIEW_2026-09-30.md)。新物品接入优先；TopK边界分配保留备选；预算受限持续更新暂缓。三者均未达到直接开跑条件，本次是当前AI重新判断，不是另一AI或原始产物外部认证。
+前次：[独立候选评审](INDEPENDENT_CANDIDATE_REVIEW_2026-09-30.md)。新物品接入优先；TopK边界分配保留备选；预算受限持续更新暂缓。三者均未达到直接开跑条件，本次是当前AI重新判断，不是另一AI或原始产物外部认证。
 
-最新提案：[用户评分几何下的闭式内容映射](NEW_ITEM_METHOD_PROPOSAL_2026-09-30.md)，可归约为已有评分对齐/各向异性岭回归，算法立项未通过；暂停当前新物品候选，无真实实验。[原研究交接](../RESEARCH_HANDOFF_FOR_INNOVATION2_REVIEW_2026-09-30.md)及上方候选评审保留为历史依据。
+最新提案：[用户评分几何下的闭式内容映射](NEW_ITEM_METHOD_PROPOSAL_2026-09-30.md)，可归约为已有评分对齐/各向异性岭回归，算法立项未通过；该映射候选暂停，无真实实验。[原研究交接](../RESEARCH_HANDOFF_FOR_INNOVATION2_REVIEW_2026-09-30.md)及上方候选评审保留为历史依据。
 
-当前唯一下一步：保持算法新增要求，明确剩余总研究预算及是否允许新数据/资产，再重新选择问题；不自动转跑TopK分配、持续更新或压缩，无实现、教师重建或运行队列。
+最新：[时间充裕后的路线重评](RESEARCH_DIRECTION_WITH_EXPANDED_BUDGET_2026-09-30.md)。用户接受有意义的月级投入；重新开放新物品问题诊断，评分几何岭回归仍不作为新算法。先辨识多模态教师额外能力是否可迁移，区分直接学习、协同蒸馏及简单校准的解释。
+
+当前唯一下一步：准备并冻结一次Sports未见物品教师可迁移性与混合目录瓶颈诊断的可执行协议；不自动转跑备选，未实现、重建或运行。
 
 [个性化分配立项评审](PERSONALIZED_ALLOCATION_DESIGN_REVIEW_2026-09-30.md)：问题值得继续，简单用户加分已有近邻；暂不认定第二创新点。
 
