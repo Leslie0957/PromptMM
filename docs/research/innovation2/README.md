@@ -10,7 +10,7 @@
 
 当前：[Sports未见物品诊断v1](UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_PROTOCOL_V1.md)的一次授权seed2022串行cohort已completed/exit0，6教师/12神经fit及R/N/校准/14报告全部完成，保存证据自审567项通过。**科学undetermined：多模态教师暖probe优势未建立，K_MM低于K_CF的冷Recall且有冷暖质量代价；没有成立的第二创新点。** [结果](UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_RESULTS.md) · [审计](UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_AUDIT.md) · [HANDOFF](UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_HANDOFF.md)。冻结profile、原准备记录与正式声明保留来源；不改历史资格。
 
-唯一下一步：依据本次教师优势缺失与冷暖质量冲突，对第二项路线作一次重评并与用户讨论是否继续未见物品方向；只评审，不运行。原Val/Test及锁定确认0，不自动retry/resume/换seed/扩参/转路线；第一项继续冻结，当前待跑实验为零。
+[最新路线重评](POST_DIAGNOSTIC_ROUTE_REVIEW_2026-09-30.md)：保留未见物品内容接入问题，暂缓扩大MM教师/KD；先辨识同等暖/总体质量约束下的冷暖竞争。唯一下一步：准备并冻结固定内容模型的质量约束冷暖竞争前沿诊断协议，明确开发角色恢复、公平预算、质量基准、确认边界、资源及命令；仅准备，不实现评分或启动实验。原Val/Test及锁定确认0，不自动retry/resume/换seed/扩参/转路线；第一项继续冻结，当前待跑实验为零。
 
 ## 历史进度与依据（不构成当前队列）
 

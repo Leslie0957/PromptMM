@@ -22,7 +22,7 @@ AI启动：完整读[AGENTS.md](AGENTS.md)，再读本页和[短日志](TRAINING
 | 第二项接下来研究什么 | [探索工作页](docs/research/innovation2/README.md) |
 | 查具体运行、旧命令或文件 | [深层导航](docs/README.md) |
 
-当前：Sports未见物品诊断v1已completed/exit0，保存证据自审567项通过；科学undetermined（多模态教师暖probe优势未建立），第二算法尚未成立。见[结果](docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_RESULTS.md)、[审计](docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_AUDIT.md)、[HANDOFF](docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_HANDOFF.md)。当前唯一下一步是依据教师优势缺失与冷暖质量冲突，对第二项路线重评并与用户讨论；只评审，不运行。旧Val/Test及锁定确认0，无自动重试/换seed/扩参；第一项继续冻结。
+当前：Sports未见物品诊断v1已completed/exit0，保存证据自审567项通过；科学undetermined（多模态教师暖probe优势未建立），第二算法尚未成立。见[结果](docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_RESULTS.md)、[审计](docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_AUDIT.md)、[HANDOFF](docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_HANDOFF.md)。[最新路线重评](docs/research/innovation2/POST_DIAGNOSTIC_ROUTE_REVIEW_2026-09-30.md)保留新物品接入问题、暂缓扩大MM教师/KD；唯一下一步是准备固定内容模型的质量约束冷暖竞争前沿诊断协议，仅准备，不实现评分或启动实验。旧Val/Test及锁定确认0，无自动重试/换seed/扩参；第一项继续冻结。
 
 训练入口为`codes/main_mmlight.py`，参数默认源`codes/utility/parser.py`，CLI优先。`codes/run_patent.py`是独立历史路径。评审材料移至`archive/reviews/check/`，旧代码集中在archive下；原始数据/模型/运行产物与`zhuanli/`保持原位。搬迁详见[路径映射](docs/experiments/ROOT_RELOCATION_2026-09-29.json)。
 
