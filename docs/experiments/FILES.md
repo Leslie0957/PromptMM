@@ -138,7 +138,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（229）
+## docs（232）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -361,8 +361,11 @@
 - [docs/research/innovation2/SPARSE_ITEM_ASSESSMENT_PLAN_2026-09-29.md](../research/innovation2/SPARSE_ITEM_ASSESSMENT_PLAN_2026-09-29.md)
 - [docs/research/innovation2/SPARSE_ITEM_ASSESSMENT_PROFILE_V1.json](../research/innovation2/SPARSE_ITEM_ASSESSMENT_PROFILE_V1.json)
 - [docs/research/innovation2/SPARSE_ITEM_ASSESSMENT_RESULTS.md](../research/innovation2/SPARSE_ITEM_ASSESSMENT_RESULTS.md)
+- [docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_AUDIT.md](../research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_AUDIT.md)
+- [docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_HANDOFF.md](../research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_HANDOFF.md)
 - [docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_PROFILE_V1.json](../research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_PROFILE_V1.json)
 - [docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_PROTOCOL_V1.md](../research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_PROTOCOL_V1.md)
+- [docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_RESULTS.md](../research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_RESULTS.md)
 - [docs/research/innovation2/UNSEEN_ITEM_TRANSFER_RUNTIME_PREPARATION_2026-09-30.md](../research/innovation2/UNSEEN_ITEM_TRANSFER_RUNTIME_PREPARATION_2026-09-30.md)
 - [docs/research/innovation2/UNSEEN_ITEM_TRANSFER_RUN_DECLARATION_V1.json](../research/innovation2/UNSEEN_ITEM_TRANSFER_RUN_DECLARATION_V1.json)
 - [docs/research_notes/KL散度蒸馏vs方向蒸馏对比.txt](../research_notes/KL%E6%95%A3%E5%BA%A6%E8%92%B8%E9%A6%8Fvs%E6%96%B9%E5%90%91%E8%92%B8%E9%A6%8F%E5%AF%B9%E6%AF%94.txt)
@@ -380,7 +383,7 @@
 
 - [logs/README.md](../../logs/README.md)
 
-## tests（23）
+## tests（24）
 
 - [tests/test_cached_deployment_benchmark.py](../../tests/test_cached_deployment_benchmark.py)
 - [tests/test_cross_interaction_p0.py](../../tests/test_cross_interaction_p0.py)
@@ -399,6 +402,7 @@
 - [tests/test_initialization_kd_seed2023.py](../../tests/test_initialization_kd_seed2023.py)
 - [tests/test_initialization_kd_seed2024.py](../../tests/test_initialization_kd_seed2024.py)
 - [tests/test_modal_neighbor_diagnostic.py](../../tests/test_modal_neighbor_diagnostic.py)
+- [tests/test_navigation_sealed_payload.py](../../tests/test_navigation_sealed_payload.py)
 - [tests/test_own_anchor_control.py](../../tests/test_own_anchor_control.py)
 - [tests/test_per_user_slot_control.py](../../tests/test_per_user_slot_control.py)
 - [tests/test_scalar_calibration.py](../../tests/test_scalar_calibration.py)

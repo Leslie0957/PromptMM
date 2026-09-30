@@ -79,6 +79,24 @@ def scalar_metadata(data, name):
     return None
 
 
+def json_record(path, size):
+    """A sealed holdout is inventoried, never opened for metadata parsing."""
+    relative = path.relative_to(ROOT).as_posix()
+    row = {"path": relative, "bytes": size, "status": None, "profile": None, "seed": None}
+    if path.name.lower() == "sealed_lock.json":
+        row["read_status"] = "sealed_payload_not_loaded"
+        return row
+    try:
+        if size > 32 * 1024 * 1024:
+            raise ValueError("metadata read capped at 32 MiB")
+        data = json.loads(path.read_text(encoding="utf-8-sig"))
+        row.update({key: scalar_metadata(data, key) for key in ("status", "profile", "seed")})
+        row["read_status"] = "parsed"
+    except (ValueError, OSError) as exc:
+        row["read_status"] = str(exc)
+    return row
+
+
 def main():
     paths = tracked_paths()
     source = ["# 文件导航\n\n按路径列出Git已跟踪文件和当前未忽略的新文件。大型运行资产见",
@@ -103,16 +121,7 @@ def main():
                           "category": relative.split("/")[0] if "/" in relative else "root",
                           "source_catalog": relative in paths})
         if relative.startswith("exp/") and path.suffix.lower() == ".json":
-            row = {"path": relative, "bytes": size, "status": None, "profile": None, "seed": None}
-            try:
-                if size > 32 * 1024 * 1024:
-                    raise ValueError("metadata read capped at 32 MiB")
-                data = json.loads(path.read_text(encoding="utf-8-sig"))
-                row.update({key: scalar_metadata(data, key) for key in ("status", "profile", "seed")})
-                row["read_status"] = "parsed"
-            except (ValueError, OSError) as exc:
-                row["read_status"] = str(exc)
-            records.append(row)
+            records.append(json_record(path, size))
     records.sort(key=lambda r: r["path"])
     inventory.sort(key=lambda r: r["path"])
     run_doc = ["# 运行与诊断记录导航\n",

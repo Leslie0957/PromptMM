@@ -14,7 +14,7 @@ AI启动：完整读[AGENTS.md](AGENTS.md)，再读本页和[短日志](TRAINING
 | 最新候选评审与优先级 | [第二项独立候选评审](docs/research/innovation2/INDEPENDENT_CANDIDATE_REVIEW_2026-09-30.md) |
 | 新物品具体提案与判定 | [评分几何映射提案：算法立项未通过](docs/research/innovation2/NEW_ITEM_METHOD_PROPOSAL_2026-09-30.md) |
 | 时间充裕后的研究路线 | [教师可迁移性与混合目录瓶颈诊断](docs/research/innovation2/RESEARCH_DIRECTION_WITH_EXPANDED_BUDGET_2026-09-30.md) |
-| 当前诊断协议与准备边界 | [Sports未见物品诊断v1](docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_PROTOCOL_V1.md) · [实现与CPU合成预检](docs/research/innovation2/UNSEEN_ITEM_TRANSFER_RUNTIME_PREPARATION_2026-09-30.md) |
+| 当前诊断协议与实现来源 | [Sports未见物品诊断v1](docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_PROTOCOL_V1.md) · [实现与CPU合成预检](docs/research/innovation2/UNSEEN_ITEM_TRANSFER_RUNTIME_PREPARATION_2026-09-30.md) |
 | 做过哪些实验、粗略结论 | [实验总览](docs/experiments/README.md) |
 | 第一项收尾与冻结边界 | [最终收尾](docs/paper/INNOVATION1_FINAL_CLOSEOUT_2026-09-30.md) |
 | 第一项已知与未知 | [第一项阶段总结](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md) |
@@ -22,7 +22,7 @@ AI启动：完整读[AGENTS.md](AGENTS.md)，再读本页和[短日志](TRAINING
 | 第二项接下来研究什么 | [探索工作页](docs/research/innovation2/README.md) |
 | 查具体运行、旧命令或文件 | [深层导航](docs/README.md) |
 
-当前：用户已授权一次Sports未见物品诊断v1，正式[运行声明](docs/research/innovation2/UNSEEN_ITEM_TRANSFER_RUN_DECLARATION_V1.json)及日志pending已记录。按固定seed2022/真实资产重建/6教师/12神经fit及R/N/校准范围，从干净声明提交启动一次并审计，48h为保护上限；未获得结果前不作科学结论。当前执行进度查 `exp/innovation2/sports_unseen_transfer_v1/batch.json`；若该文件尚不存在，表示尚未launch。不得自动重试/扩跑，旧Val/Test和锁定确认不访问；有效负证据后与用户讨论。第一项继续冻结，第二算法尚未成立。
+当前：Sports未见物品诊断v1已completed/exit0，保存证据自审567项通过；科学undetermined（多模态教师暖probe优势未建立），第二算法尚未成立。见[结果](docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_RESULTS.md)、[审计](docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_AUDIT.md)、[HANDOFF](docs/research/innovation2/UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_HANDOFF.md)。当前唯一下一步是依据教师优势缺失与冷暖质量冲突，对第二项路线重评并与用户讨论；只评审，不运行。旧Val/Test及锁定确认0，无自动重试/换seed/扩参；第一项继续冻结。
 
 训练入口为`codes/main_mmlight.py`，参数默认源`codes/utility/parser.py`，CLI优先。`codes/run_patent.py`是独立历史路径。评审材料移至`archive/reviews/check/`，旧代码集中在archive下；原始数据/模型/运行产物与`zhuanli/`保持原位。搬迁详见[路径映射](docs/experiments/ROOT_RELOCATION_2026-09-29.json)。
 

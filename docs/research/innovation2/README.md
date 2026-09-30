@@ -8,9 +8,9 @@
 
 当前具体路线仍见[时间充裕后的路线重评](RESEARCH_DIRECTION_WITH_EXPANDED_BUDGET_2026-09-30.md)：先研究未见物品教师额外能力是否可迁移及混合目录瓶颈。评分几何岭回归保留为简单基线，已有配方停止结果不自动撤销，也不自动转跑备选。
 
-当前：[Sports未见物品诊断v1](UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_PROTOCOL_V1.md)和[原参数JSON](UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_PROFILE_V1.json)保持冻结；[实现与CPU合成预检](UNSEEN_ITEM_TRANSFER_RUNTIME_PREPARATION_2026-09-30.md)后，用户已明确授权一次真实诊断，[正式运行声明](UNSEEN_ITEM_TRANSFER_RUN_DECLARATION_V1.json)和日志pending已记录。**未审计前无有效结果结论**；执行进度以独占输出batch/resources/curve为准。
+当前：[Sports未见物品诊断v1](UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_PROTOCOL_V1.md)的一次授权seed2022串行cohort已completed/exit0，6教师/12神经fit及R/N/校准/14报告全部完成，保存证据自审567项通过。**科学undetermined：多模态教师暖probe优势未建立，K_MM低于K_CF的冷Recall且有冷暖质量代价；没有成立的第二创新点。** [结果](UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_RESULTS.md) · [审计](UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_AUDIT.md) · [HANDOFF](UNSEEN_ITEM_TRANSFER_DIAGNOSTIC_HANDOFF.md)。冻结profile、原准备记录与正式声明保留来源；不改历史资格。
 
-唯一当前行动：从该声明干净提交启动已授权固定seed2022串行诊断一次并完成审计，包含预定真实资产重建/6教师/12神经fit及R/N/校准，48h保护上限。有效负证据后保存结果、与用户讨论；失败亦保留，禁止自动重试/扩跑/下阶段。阶段进度以[当前日志](../../../TRAINING_LOG.md)为准。
+唯一下一步：依据本次教师优势缺失与冷暖质量冲突，对第二项路线作一次重评并与用户讨论是否继续未见物品方向；只评审，不运行。原Val/Test及锁定确认0，不自动retry/resume/换seed/扩参/转路线；第一项继续冻结，当前待跑实验为零。
 
 ## 历史进度与依据（不构成当前队列）
 
@@ -35,7 +35,7 @@
 
 最新：[时间充裕后的路线重评](RESEARCH_DIRECTION_WITH_EXPANDED_BUDGET_2026-09-30.md)。用户接受有意义的月级投入；重新开放新物品问题诊断，评分几何岭回归仍不作为新算法。先辨识多模态教师额外能力是否可迁移，区分直接学习、协同蒸馏及简单校准的解释。
 
-该记录中的“准备协议”已由页首v1完成；当前唯一下一步以页首为准，未实现、重建或运行，不自动转跑备选。
+该段“准备协议/未运行”是原准备时状态；实际已完成cohort及当前唯一下一步见页首，旧建议不构成执行队列。
 
 [个性化分配立项评审](PERSONALIZED_ALLOCATION_DESIGN_REVIEW_2026-09-30.md)：问题值得继续，简单用户加分已有近邻；暂不认定第二创新点。
 
