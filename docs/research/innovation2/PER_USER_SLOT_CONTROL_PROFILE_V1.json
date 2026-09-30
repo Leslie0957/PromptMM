@@ -1,0 +1,76 @@
+{
+  "branch": "codex/experiment/baby-teacher-baseline",
+  "output": "exp/innovation2/per_user_slot_control_v1",
+  "seeds": [
+    2022,
+    2023,
+    2024
+  ],
+  "test_policy": "Test0",
+  "assets": {
+    "train": {
+      "path": "data/sports/train_mat",
+      "sha256": "5361c5486dddbf50084d011278a11d2f18a37e258f87be218b070ff02f4ab0f8"
+    },
+    "validation": {
+      "path": "data/sports/val_mat",
+      "sha256": "1b4224c3fb091ad23a59e0f8a7b58c7b0c959863a7189cfc8b89eeb90a467e03"
+    },
+    "image_graph": {
+      "path": "exp/innovation2/modal_neighbor_v1/image_graphs.npz",
+      "sha256": "5e811a19f547ff08bef1db4385fc10990d9ab6367d75ab012c9cea7dbcbf2ccd"
+    },
+    "text_graph": {
+      "path": "exp/innovation2/modal_neighbor_v1/text_graphs.npz",
+      "sha256": "d3eb7e936f2457042897daec8087a8c7811667aee006e1f7965a9d5afa526a58"
+    }
+  },
+  "inputs": {
+    "manifest.json": {
+      "path": "exp/innovation2/exposure_matched_bonus_v1/manifest.json",
+      "sha256": "7af8ecfe31a4c9d3466453331ecfc03bee81769b8acd87faebad992c6b4b0f6d"
+    },
+    "report.json": {
+      "path": "exp/innovation2/exposure_matched_bonus_v1/report.json",
+      "sha256": "a10efa5c048726a30583cf892ac5cbd0b3654c6cb8fbf45a8b70ccd87c9ef01c"
+    },
+    "completeness.json": {
+      "path": "exp/innovation2/exposure_matched_bonus_v1/completeness.json",
+      "sha256": "bc8603c4cd4ae10ba345e1b0c26453319d9b1f0b8e06a626bfc8183d29bf50ab"
+    },
+    "seed2022_candidates.npz": {
+      "path": "exp/innovation2/exposure_matched_bonus_v1/seed2022_candidates.npz",
+      "sha256": "775858546ae209c04ada5182da04a968e0fff6dd67767ec5797c94c7a1a620e5"
+    },
+    "seed2022_lists.npz": {
+      "path": "exp/innovation2/exposure_matched_bonus_v1/seed2022_lists.npz",
+      "sha256": "2a44f5248665656200d51721b5b9f6a2e5387ebcc9848ad95b9c01bb6b96a505"
+    },
+    "seed2023_candidates.npz": {
+      "path": "exp/innovation2/exposure_matched_bonus_v1/seed2023_candidates.npz",
+      "sha256": "dcb7041453acb2d808ee1705f4a617e72a93dc4fd044e46fe6455f53809943ee"
+    },
+    "seed2023_lists.npz": {
+      "path": "exp/innovation2/exposure_matched_bonus_v1/seed2023_lists.npz",
+      "sha256": "84b8581800f43fc650c736b83c2f7cbad5685b62b7982cb714d82bf80876ed61"
+    },
+    "seed2024_candidates.npz": {
+      "path": "exp/innovation2/exposure_matched_bonus_v1/seed2024_candidates.npz",
+      "sha256": "69736cd0c55396430efc1efc99a7dcd2a8daff94cc8f1b6258906bcfef559661"
+    },
+    "seed2024_lists.npz": {
+      "path": "exp/innovation2/exposure_matched_bonus_v1/seed2024_lists.npz",
+      "sha256": "40765c16f5d6417d6a5d36d682e87d424fa57185d3b00612bfabd2ea18e4d792"
+    }
+  },
+  "caps": {
+    "wall_seconds": 600,
+    "rss_bytes": 2147483648,
+    "output_bytes": 134217728,
+    "minimum_free_disk_bytes": 2147483648
+  },
+  "screen": {
+    "low_hit_tolerance": 3,
+    "recall_tolerance": 0.0002
+  }
+}

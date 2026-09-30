@@ -208,9 +208,9 @@
 {"bytes": 13815757, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 02_38_22.563718_sports_light_init_pid596.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 05_34_16.930265_sports_light_init_pid42156.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 08_30_07.418852_sports_light_init_pid30132.pth", "source_catalog": false}
-{"bytes": 1611, "category": "root", "path": "README.md", "source_catalog": true}
+{"bytes": 1625, "category": "root", "path": "README.md", "source_catalog": true}
 {"bytes": 4930, "category": "root", "path": "THESIS_ROADMAP.md", "source_catalog": true}
-{"bytes": 75603, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
+{"bytes": 77501, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
 {"bytes": 739, "category": "archive", "path": "archive/README.md", "source_catalog": true}
 {"bytes": 26887, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/Models.py", "source_catalog": true}
 {"bytes": 26901, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/Models_empower.py", "source_catalog": true}
@@ -602,7 +602,7 @@
 {"bytes": 100432, "category": "docs", "path": "docs/baselines/ASSET_MANIFEST_2026-07-29.csv", "source_catalog": true}
 {"bytes": 2893, "category": "docs", "path": "docs/baselines/README.md", "source_catalog": true}
 {"bytes": 7125, "category": "docs", "path": "docs/experiments/HISTORICAL_FAMILIES.md", "source_catalog": true}
-{"bytes": 5670, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
+{"bytes": 5665, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
 {"bytes": 37701, "category": "docs", "path": "docs/experiments/ROOT_RELOCATION_2026-09-29.json", "source_catalog": true}
 {"bytes": 7431, "category": "docs", "path": "docs/experiments/RUN_CLOSEOUT.md", "source_catalog": true}
 {"bytes": 1535, "category": "docs", "path": "docs/experiments/WORKSPACE_MAP.md", "source_catalog": true}
@@ -758,13 +758,15 @@
 {"bytes": 1409, "category": "docs", "path": "docs/research/innovation2/OWN_ANCHOR_CONTROL_RESULTS.md", "source_catalog": true}
 {"bytes": 5049, "category": "docs", "path": "docs/research/innovation2/OWN_ANCHOR_CONTROL_VERIFICATION.json", "source_catalog": true}
 {"bytes": 6570, "category": "docs", "path": "docs/research/innovation2/PER_USER_SLOT_CONTROL_PLAN_2026-09-30.md", "source_catalog": true}
+{"bytes": 3618, "category": "docs", "path": "docs/research/innovation2/PER_USER_SLOT_CONTROL_PREPARATION_2026-09-30.md", "source_catalog": true}
+{"bytes": 2935, "category": "docs", "path": "docs/research/innovation2/PER_USER_SLOT_CONTROL_PROFILE_V1.json", "source_catalog": true}
 {"bytes": 4756, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_HANDOFF.md", "source_catalog": true}
 {"bytes": 10526, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_PLAN_2026-09-29.md", "source_catalog": true}
 {"bytes": 6328, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_RESULTS.md", "source_catalog": true}
 {"bytes": 5776, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_INDEPENDENT_AUDIT_2026-09-29.md", "source_catalog": true}
 {"bytes": 8160, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_INDEPENDENT_VERIFICATION.json", "source_catalog": true}
 {"bytes": 3047, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_PROFILE_V1.json", "source_catalog": true}
-{"bytes": 1923, "category": "docs", "path": "docs/research/innovation2/README.md", "source_catalog": true}
+{"bytes": 1937, "category": "docs", "path": "docs/research/innovation2/README.md", "source_catalog": true}
 {"bytes": 7213, "category": "docs", "path": "docs/research/innovation2/ROUTE_CONSOLIDATION_2026-09-30.md", "source_catalog": true}
 {"bytes": 2118, "category": "docs", "path": "docs/research/innovation2/SPARSE_ITEM_ASSESSMENT_HANDOFF.md", "source_catalog": true}
 {"bytes": 6558, "category": "docs", "path": "docs/research/innovation2/SPARSE_ITEM_ASSESSMENT_PLAN_2026-09-29.md", "source_catalog": true}
@@ -2880,6 +2882,7 @@
 {"bytes": 2676, "category": "tests", "path": "tests/test_initialization_kd_seed2024.py", "source_catalog": true}
 {"bytes": 8758, "category": "tests", "path": "tests/test_modal_neighbor_diagnostic.py", "source_catalog": true}
 {"bytes": 2767, "category": "tests", "path": "tests/test_own_anchor_control.py", "source_catalog": true}
+{"bytes": 2775, "category": "tests", "path": "tests/test_per_user_slot_control.py", "source_catalog": true}
 {"bytes": 2014, "category": "tests", "path": "tests/test_sports_paired_cold.py", "source_catalog": true}
 {"bytes": 2247, "category": "tests", "path": "tests/test_sports_sham_residual.py", "source_catalog": true}
 {"bytes": 6017, "category": "tools", "path": "tools/analyze_neighbor_residual_mechanism.py", "source_catalog": true}
@@ -2921,6 +2924,7 @@
 {"bytes": 16001, "category": "tools", "path": "tools/run_modal_neighbor_diagnostic.py", "source_catalog": true}
 {"bytes": 24034, "category": "tools", "path": "tools/run_neighbor_shared_residual.py", "source_catalog": true}
 {"bytes": 15045, "category": "tools", "path": "tools/run_own_anchor_control.py", "source_catalog": true}
+{"bytes": 12589, "category": "tools", "path": "tools/run_per_user_slot_control.py", "source_catalog": true}
 {"bytes": 16370, "category": "tools", "path": "tools/run_ranking_gap_diagnostic.py", "source_catalog": true}
 {"bytes": 7231, "category": "tools", "path": "tools/run_sparse_item_assessment.py", "source_catalog": true}
 {"bytes": 15714, "category": "tools", "path": "tools/run_sports_cached_deployment.py", "source_catalog": true}

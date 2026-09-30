@@ -7,7 +7,7 @@
 - 第一项：有限实验、独立审计及正文整合完成，暂停扩展；[结论与未验证边界](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。待跑实验为零。
 - 第二项：共享残差三seed12臂审计通过执行验收，三次screen_stop；N改善B，但低组输给随机R。[审计](docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_AUDIT.md)。
 - 约束：旧Test不选新方法；P1a已筛查停止；旧RGCS/门控不是队列。未知项不自动补跑。
-- 唯一下一步：按[逐用户槽位对照方案](docs/research/innovation2/PER_USER_SLOT_CONTROL_PLAN_2026-09-30.md)完成CPU缓存工具、合成验证与启动准备；尚未运行评价或授权训练。
+- 唯一下一步：按[逐用户槽位启动准备](docs/research/innovation2/PER_USER_SLOT_CONTROL_PREPARATION_2026-09-30.md)手动运行固定CPU诊断一次；实现及6项合成测试通过，尚未评价真实数据。
 
 ## 证据导航
 
@@ -331,3 +331,13 @@
 - Added PER_USER_SLOT_CONTROL_PLAN_2026-09-30.md: H copies each R user's6114-target slot count and positional group pattern, fills each group with cached B prefixes. Three new H lists only, no model/GPU/training or beta tuning; all construction sealed before Train/Val reads. Reports S/nonS and five low-group non-targets separately; R-Q=(R-H)+(H-Q) is path-dependent arithmetic, not causal percentages.
 - Fixed descriptive3/4-hit and.0002Recall criteria, CPU600s/RSS2GiB/output128MiB/free2GiB, hard identities/regressions/chronology and closeout paths. Hybrid depends on R and cannot establish deployable method/semantics; old screens unchanged. This is final control of current exposure-allocation-selection explanation chain, then unified research judgment, no automatic further ablations or training.
 - Updated entrances/family/catalogs; no data/asset/tensor reads, ranking, implementation, evaluation or Test. History/charter/first-work/assets/reviews preserved; focused links/history/diff before scoped commit. Sole next step implementation/synthetic validation/launch preparation only.
+
+## 2026-09-30 Per-user slot implementation (pending)
+
+- User approves CPU preparation under e06e2df only. Implement cached B-prefix/R-slot construction, pinned profile, phase guard, paired metrics/decision and resource supervisor; synthetic tests and launch handoff. No real tensors/caches/labels loaded, no evaluation/training/Test. Scope new tool/tests/profile/docs/current navigation. Verify prefix/slot invariants, padding/ties, label barrier, subgroup/paired arithmetic and stop decisions. Preserve original artifacts/history/reviews/charter; clean scoped commit. Runtime600s/RSS2GiB/output128MiB remains unmeasured. Next fixed manual launch, not execution now.
+
+## 2026-09-30 Per-user slot implementation (completed)
+
+- Added isolated CPU run_per_user_slot_control.py, SHA-pinned profile and launch preparation. Constructs H from B prefixes/R group-position pattern, seals all three H before any interaction matrix access; no model loading/GPU/GEMM/training. Regresses nine saved B/Q/R metrics, computes three H plus S/nonS/low-nonS counts, paired R-H/H-Q/H-B and descriptive decision, one-shot supervised output.
+- Six synthetic tests pass for zero/full/mixed slots, changed identities, invalid padding/order/ties, phase guard, subgroup arithmetic and decision boundaries. Syntax/help/metadata paths/output absence verified; no real cache/tensor/dataset loads, evaluation or Test. CPU600s/RSS2GiB/output128MiB/free2GiB full-run feasibility remains unmeasured; sampled monitoring limitations stated.
+- Preparation provides exact manual command and result/audit/handoff routing. Updated current entrances/family/catalogs; old records/charter/first-work/assets/reviews unchanged. Focused link/history/diff before scoped commit. Sole next step user runs fixed cohort once then returns for audit and unified research judgment; no default further diagnostics or training.

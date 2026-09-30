@@ -14,6 +14,6 @@ AI启动：完整读[AGENTS.md](AGENTS.md)，再读本页和[短日志](TRAINING
 | 第二项接下来研究什么 | [探索工作页](docs/research/innovation2/README.md) |
 | 查具体运行、旧命令或文件 | [深层导航](docs/README.md) |
 
-当前唯一下一步：按[逐用户槽位对照方案](docs/research/innovation2/PER_USER_SLOT_CONTROL_PLAN_2026-09-30.md)完成CPU缓存工具、合成验证与启动准备；尚未运行评价或授权训练。
+当前唯一下一步：按[逐用户槽位启动准备](docs/research/innovation2/PER_USER_SLOT_CONTROL_PREPARATION_2026-09-30.md)手动运行固定CPU诊断一次；实现及6项合成测试通过，尚未评价真实数据。
 
 训练入口为`codes/main_mmlight.py`，参数默认源`codes/utility/parser.py`，CLI优先。`codes/run_patent.py`是独立历史路径。评审材料移至`archive/reviews/check/`，旧代码集中在archive下；原始数据/模型/运行产物与`zhuanli/`保持原位。搬迁详见[路径映射](docs/experiments/ROOT_RELOCATION_2026-09-29.json)。

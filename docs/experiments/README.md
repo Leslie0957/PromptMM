@@ -25,7 +25,7 @@
 | 评价恢复/资产核验 | 原失败保留，独立恢复完成12格新Test；不是新增12次训练 | [恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md) |
 | 更早数据/教师/预实验 | 历史背景，不自动并入当前合格主表 | [详细族导航](HISTORICAL_FAMILIES.md) |
 
-当前设计：[逐用户槽位控制](../research/innovation2/PER_USER_SLOT_CONTROL_PLAN_2026-09-30.md)，准备区分用户分配与组内选择；尚未实现或运行。
+当前准备：[逐用户槽位控制](../research/innovation2/PER_USER_SLOT_CONTROL_PREPARATION_2026-09-30.md)，实现及合成验证完成，待用户一次运行。
 
 ## 需要再深入时
 
