@@ -25,7 +25,7 @@
 | 评价恢复/资产核验 | 原失败保留，独立恢复完成12格新Test；不是新增12次训练 | [恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md) |
 | 更早数据/教师/预实验 | 历史背景，不自动并入当前合格主表 | [详细族导航](HISTORICAL_FAMILIES.md) |
 
-当前结论：[曝光匹配交接](../research/innovation2/EXPOSURE_MATCHED_BONUS_HANDOFF.md)，简单全局加分不足，尚未证明语义贡献。
+当前设计：[逐用户槽位控制](../research/innovation2/PER_USER_SLOT_CONTROL_PLAN_2026-09-30.md)，准备区分用户分配与组内选择；尚未实现或运行。
 
 ## 需要再深入时
 

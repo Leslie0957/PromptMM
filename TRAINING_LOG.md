@@ -7,7 +7,7 @@
 - 第一项：有限实验、独立审计及正文整合完成，暂停扩展；[结论与未验证边界](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。待跑实验为零。
 - 第二项：共享残差三seed12臂审计通过执行验收，三次screen_stop；N改善B，但低组输给随机R。[审计](docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_AUDIT.md)。
 - 约束：旧Test不选新方法；P1a已筛查停止；旧RGCS/门控不是队列。未知项不自动补跑。
-- 唯一下一步：按[曝光匹配审计](docs/research/innovation2/EXPOSURE_MATCHED_BONUS_AUDIT.md)设计逐用户目标槽位匹配对照；全局加分不足，但尚未区分用户分配/物品选择，无训练授权。
+- 唯一下一步：按[逐用户槽位对照方案](docs/research/innovation2/PER_USER_SLOT_CONTROL_PLAN_2026-09-30.md)完成CPU缓存工具、合成验证与启动准备；尚未运行评价或授权训练。
 
 ## 证据导航
 
@@ -321,3 +321,13 @@
 - User-run6dbdc400cb029340d2c40bdc65e8f4a442941108 via run_exposure_matched_bonus.py --formal completed; six B/Q scoring states and three savedR references, no training/Test. 200 saved-artifact checks passed: source/profile/hashes, all-beta seal beforeVal, bounded monotone trace and endpoint choice, B/R exact saved lists, exposure/micro/contributions, paired differences and fixed decision. Audit no scoring/interaction-label/tensor reads; runtime-only and trace-value limits explicit.
 - Exact S exposures22159/22067/22065; Qlow51/58/55 versus R61/62/64. R−Q Recall−.000021069/+.000390940/+.000433969, all meet descriptive simple_control_insufficient criterion. Q recreates78.72%/91.49%/81.25% of R-minus-B low gains, not causal percentages. Global exposure does not match user allocation; semantic mechanism and second algorithm unproven.
 - External exit0,54.406s; sampledRSS1000292352B/CUDA75497472B, output36441455B within caps. Recorded Train5/Val2 opens allVal after seal, denied0, inference-only parameters unchanged; no OS audit claim. RESULTS/AUDIT/HANDOFF/verification, current entrances/family/catalogs updated; history/first-work/charter/assets/reviews preserved. Sole next step design per-user target-slot control, not execution or oldN/C training.
+
+## 2026-09-30 Per-user target-slot control design (pending)
+
+- User approves sole design after3305e67. Specify cached B within-group selection with R per-user target counts/slot pattern, three existing seeds, no training/scoring/data/Test. Scope new plan/log/entrances/navigation; preserve original records/assets/reviews/charter. Risks hybrid dependence on R mistaken for deployable method or causal attribution, non-target selection effects, repetitive exploratory Validation. Acceptance exact construction, sealed-before-label protocol, frozen decision/resource/record routes and no automatic further diagnostic chain. Focused links/history/diff and scoped commit. Next implementation/preparation only.
+
+## 2026-09-30 Per-user target-slot control design (completed)
+
+- Added PER_USER_SLOT_CONTROL_PLAN_2026-09-30.md: H copies each R user's6114-target slot count and positional group pattern, fills each group with cached B prefixes. Three new H lists only, no model/GPU/training or beta tuning; all construction sealed before Train/Val reads. Reports S/nonS and five low-group non-targets separately; R-Q=(R-H)+(H-Q) is path-dependent arithmetic, not causal percentages.
+- Fixed descriptive3/4-hit and.0002Recall criteria, CPU600s/RSS2GiB/output128MiB/free2GiB, hard identities/regressions/chronology and closeout paths. Hybrid depends on R and cannot establish deployable method/semantics; old screens unchanged. This is final control of current exposure-allocation-selection explanation chain, then unified research judgment, no automatic further ablations or training.
+- Updated entrances/family/catalogs; no data/asset/tensor reads, ranking, implementation, evaluation or Test. History/charter/first-work/assets/reviews preserved; focused links/history/diff before scoped commit. Sole next step implementation/synthetic validation/launch preparation only.

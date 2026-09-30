@@ -15,4 +15,4 @@
 
 当前已形成[最小排序监督对照方案](MINIMAL_RANKING_SUPERVISION_PROPOSAL_2026-09-29.md)；原seed2022[实现与资源准备报告](MINIMAL_RANKING_SUPERVISION_PREPARATION_REPORT_2026-09-29.md)之后，已固定[三seed串行手动启动准备](MINIMAL_RANKING_THREE_SEED_MANUAL_LAUNCH_2026-09-29.md)。三seed正式训练已完成，[独立审计](MINIMAL_RANKING_THREE_SEED_AUDIT_2026-09-29.md)通过执行验收但均screen_stop；没有算法成功结论。
 
-当前唯一下一步：按[曝光匹配审计](EXPOSURE_MATCHED_BONUS_AUDIT.md)设计逐用户目标槽位匹配对照；全局加分不足，但尚未区分用户分配/物品选择，无训练授权。
+当前唯一下一步：按[逐用户槽位对照方案](PER_USER_SLOT_CONTROL_PLAN_2026-09-30.md)完成CPU缓存工具、合成验证与启动准备；尚未运行评价或授权训练。
