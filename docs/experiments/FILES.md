@@ -138,7 +138,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（190）
+## docs（191）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -315,6 +315,7 @@
 - [docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_PROFILE_V1.json](../research/innovation2/NEIGHBOR_SHARED_RESIDUAL_PROFILE_V1.json)
 - [docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_RESULTS.md](../research/innovation2/NEIGHBOR_SHARED_RESIDUAL_RESULTS.md)
 - [docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_VERIFICATION_2026-09-30.json](../research/innovation2/NEIGHBOR_SHARED_RESIDUAL_VERIFICATION_2026-09-30.json)
+- [docs/research/innovation2/OWN_ANCHOR_CONTROL_PLAN_2026-09-30.md](../research/innovation2/OWN_ANCHOR_CONTROL_PLAN_2026-09-30.md)
 - [docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_HANDOFF.md](../research/innovation2/RANKING_GAP_DIAGNOSTIC_HANDOFF.md)
 - [docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_PLAN_2026-09-29.md](../research/innovation2/RANKING_GAP_DIAGNOSTIC_PLAN_2026-09-29.md)
 - [docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_RESULTS.md](../research/innovation2/RANKING_GAP_DIAGNOSTIC_RESULTS.md)

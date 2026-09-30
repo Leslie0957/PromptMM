@@ -15,4 +15,4 @@
 
 当前已形成[最小排序监督对照方案](MINIMAL_RANKING_SUPERVISION_PROPOSAL_2026-09-29.md)；原seed2022[实现与资源准备报告](MINIMAL_RANKING_SUPERVISION_PREPARATION_REPORT_2026-09-29.md)之后，已固定[三seed串行手动启动准备](MINIMAL_RANKING_THREE_SEED_MANUAL_LAUNCH_2026-09-29.md)。三seed正式训练已完成，[独立审计](MINIMAL_RANKING_THREE_SEED_AUDIT_2026-09-29.md)通过执行验收但均screen_stop；没有算法成功结论。
 
-当前唯一下一步：根据[残差机制复盘](NEIGHBOR_RESIDUAL_MECHANISM_2026-09-30.md)设计自身锚点控制方案；R接近自身变换加共同偏移，但尚无因果证明，不自动训练。
+当前唯一下一步：按[自身锚点控制方案](OWN_ANCHOR_CONTROL_PLAN_2026-09-30.md)完成实现、合成验证和启动准备。只拟对既有R三个seed进行原状态/共同邻居均值替换的六状态诊断；无训练或正式评价授权。

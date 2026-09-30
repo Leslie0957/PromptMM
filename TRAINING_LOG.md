@@ -7,7 +7,7 @@
 - 第一项：有限实验、独立审计及正文整合完成，暂停扩展；[结论与未验证边界](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。待跑实验为零。
 - 第二项：共享残差三seed12臂审计通过执行验收，三次screen_stop；N改善B，但低组输给随机R。[审计](docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_AUDIT.md)。
 - 约束：旧Test不选新方法；P1a已筛查停止；旧RGCS/门控不是队列。未知项不自动补跑。
-- 唯一下一步：按[残差机制复盘](docs/research/innovation2/NEIGHBOR_RESIDUAL_MECHANISM_2026-09-30.md)设计自身锚点控制；不自动训练。
+- 唯一下一步：按[自身锚点控制方案](docs/research/innovation2/OWN_ANCHOR_CONTROL_PLAN_2026-09-30.md)完成实现与启动准备；六状态固定检查点干预尚未运行，无训练授权。
 
 ## 证据导航
 
@@ -253,3 +253,12 @@
 - One boundedCPU saved-asset analysis completed3.062s/sampledRSS770383872B; all input bindings and exact X hashes passed. Nine final N/F/R exports fully reconstructed within4.77e-7 maxabs error, non-target unchanged, decomposition cross-term identities passed. No interaction matrix/Test loads, score/rank, training or model modification. Report+JSON NEIGHBOR_RESIDUAL_MECHANISM_2026-09-30; helper under tools.
 - F image/text scalars negative in all seeds: signed residual, not positive smoothing. R input negative-self fraction of component energies88.50%; after learned map about80.4–80.6%, not causal attribution. Replacing neighbor output by its target mean yields24.05–24.06% relative residual error R vs78.66–78.95% N. R has both more low exposure and greater observed hit/exposure thanN; exposure alone not proven cause. Oldscreen_stop unchanged.
 - Updated report/log/current entrances/family/catalogs; old results/audit preserved, no first-work/charter change or backup milestone. Sole next step: design a clean own-anchor control to test the simpler explanation; no automatic training/C/S/newseed. Focused links/history/diff checks and scoped commit.
+
+## 2026-09-30 Own-anchor intervention design (pending)
+
+- Design-only continuation from f93fec5: specify a frozen-checkpoint mean-neighbor replacement control for existing R seeds2022/2023/2024, preserving parameterization/scales and separating endpoint reliance from training sufficiency. Scope new plan/current entrances/family/navigation; no implementation, data loading, scoring, training or Test. Risks: representation approximation mistaken for metric preservation, adaptive Validation reuse, inherited graph statistics and arbitrary descriptive thresholds. Acceptance: exact equations, finite resource proposal, paired metrics/regression, decision boundaries and record routes, no implied launch authority. Preserve original records/assets/reviews/charter. Verify links/diff then coherent commit; next only implementation/preparation of this bounded diagnostic.
+
+## 2026-09-30 Own-anchor intervention design (completed)
+
+- Added OWN_ANCHOR_CONTROL_PLAN_2026-09-30.md: fixed final R three seeds, original versus mean-neighbor substitution only, same W/q/users/scales/mask; six proposed scoring states, no training. Defined exact affine identity, regression/hard checks, resource proposal, paired raw metrics and descriptive 80% low-hit gain retention plus Recall delta >= -0.0002 screen. Explicitly separates endpoint dependence from training sufficiency and preserves original screen_stop.
+- Updated current entrances and experiment navigation; corrected a stale historical-preparation row saying the already audited12 arms were unstarted, preserving its original preparation document. No outcome matrix created because no new evaluation; first-work/charter/old audits/assets unchanged. No interaction/checkpoint/Test loading, execution or implementation. Focused links/content/diff verification and catalog refresh before scoped commit; sole next step implementation/synthetic validation/launch preparation, not formal evaluation authority.
