@@ -1,6 +1,6 @@
 {"bytes": 496, "category": "root", "path": ".gitattributes", "source_catalog": true}
 {"bytes": 891, "category": "root", "path": ".gitignore", "source_catalog": true}
-{"bytes": 16224, "category": "root", "path": "AGENTS.md", "source_catalog": true}
+{"bytes": 18615, "category": "root", "path": "AGENTS.md", "source_catalog": true}
 {"bytes": 117675440, "category": "Model", "path": "Model/amazon/runs/teacher_model_great__2026-04-11 00_29_36_amazon_light_init_pid22964.pt", "source_catalog": false}
 {"bytes": 117675440, "category": "Model", "path": "Model/amazon/runs/teacher_model_great__2026-04-11 11_57_20_amazon_light_init_pid29808.pt", "source_catalog": false}
 {"bytes": 117675440, "category": "Model", "path": "Model/amazon/runs/teacher_model_great__2026-04-11 11_59_06_amazon_light_init_pid26300.pt", "source_catalog": false}
@@ -208,9 +208,9 @@
 {"bytes": 13815757, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 02_38_22.563718_sports_light_init_pid596.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 05_34_16.930265_sports_light_init_pid42156.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 08_30_07.418852_sports_light_init_pid30132.pth", "source_catalog": false}
-{"bytes": 5265, "category": "root", "path": "README.md", "source_catalog": true}
+{"bytes": 5426, "category": "root", "path": "README.md", "source_catalog": true}
 {"bytes": 7179, "category": "root", "path": "THESIS_ROADMAP.md", "source_catalog": true}
-{"bytes": 173741, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
+{"bytes": 177624, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
 {"bytes": 739, "category": "archive", "path": "archive/README.md", "source_catalog": true}
 {"bytes": 26887, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/Models.py", "source_catalog": true}
 {"bytes": 26901, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/Models_empower.py", "source_catalog": true}
@@ -604,7 +604,7 @@
 {"bytes": 7125, "category": "docs", "path": "docs/experiments/HISTORICAL_FAMILIES.md", "source_catalog": true}
 {"bytes": 7671, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
 {"bytes": 37701, "category": "docs", "path": "docs/experiments/ROOT_RELOCATION_2026-09-29.json", "source_catalog": true}
-{"bytes": 7431, "category": "docs", "path": "docs/experiments/RUN_CLOSEOUT.md", "source_catalog": true}
+{"bytes": 7857, "category": "docs", "path": "docs/experiments/RUN_CLOSEOUT.md", "source_catalog": true}
 {"bytes": 1535, "category": "docs", "path": "docs/experiments/WORKSPACE_MAP.md", "source_catalog": true}
 {"bytes": 8633, "category": "docs", "path": "docs/paper/INNOVATION1_CONTRIBUTION_POSITION_2026-09-28.md", "source_catalog": true}
 {"bytes": 3909, "category": "docs", "path": "docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md", "source_catalog": true}
@@ -2614,6 +2614,20 @@
 {"bytes": 2016, "category": "exp", "path": "exp/innovation2/sparse_item_saved_lists_v1/manifest.json", "source_catalog": false}
 {"bytes": 14127, "category": "exp", "path": "exp/innovation2/sparse_item_saved_lists_v1/report.json", "source_catalog": false}
 {"bytes": 886, "category": "exp", "path": "exp/innovation2/sparse_item_saved_lists_v1/resource.json", "source_catalog": false}
+{"bytes": 380, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/batch.json", "source_catalog": false}
+{"bytes": 2401, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/model_manifest.json", "source_catalog": false}
+{"bytes": 17742, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/resolved_profile.json", "source_catalog": false}
+{"bytes": 35001, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/resources.jsonl", "source_catalog": false}
+{"bytes": 1103, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/restoration_manifest.json", "source_catalog": false}
+{"bytes": 1476955, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/score_cache/CF_warm.npz", "source_catalog": false}
+{"bytes": 1468076, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/score_cache/D_cold.npz", "source_catalog": false}
+{"bytes": 1454905, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/score_cache/K_CF_cold.npz", "source_catalog": false}
+{"bytes": 1458512, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/score_cache/K_MM_cold.npz", "source_catalog": false}
+{"bytes": 1496488, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/score_cache/N_cold.npz", "source_catalog": false}
+{"bytes": 1640901, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/score_cache/N_warm.npz", "source_catalog": false}
+{"bytes": 1398463, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/score_cache/R_cold.npz", "source_catalog": false}
+{"bytes": 1420124, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/score_cache/V_cold.npz", "source_catalog": false}
+{"bytes": 1646, "category": "exp", "path": "exp/innovation2/sports_quality_frontier_v1/score_cache_manifest.json", "source_catalog": false}
 {"bytes": 6371655, "category": "exp", "path": "exp/innovation2/sports_unseen_transfer_v1/T_CF_tables.npz", "source_catalog": false}
 {"bytes": 6395682, "category": "exp", "path": "exp/innovation2/sports_unseen_transfer_v1/T_MM_tables.npz", "source_catalog": false}
 {"bytes": 182465, "category": "exp", "path": "exp/innovation2/sports_unseen_transfer_v1/access_audit.json", "source_catalog": false}

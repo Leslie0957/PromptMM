@@ -1,6 +1,6 @@
 # 运行与诊断记录导航
 
-目录版本：2026-09-26。共1096个现存exp JSON记录；数量不是独立实验数。
+目录版本：2026-09-26。共1101个现存exp JSON记录；数量不是独立实验数。
 保存状态按JSON原文摘录；—表示该字段未记录/未在约定层级找到，不表示成功或失败。
 批报告、子任务、资源检查与正式运行混列供定位，不能相加作为样本数。
 历史已做但本机没有JSON的实验，请查[完整历史章节](../../archive/training/ENTRY_INDEX_2026-09-26.md)。
@@ -817,6 +817,11 @@
 | [exp/innovation2/sparse_item_saved_lists_v1/manifest.json](../../exp/innovation2/sparse_item_saved_lists_v1/manifest.json) | — | — | — | parsed |
 | [exp/innovation2/sparse_item_saved_lists_v1/report.json](../../exp/innovation2/sparse_item_saved_lists_v1/report.json) | — | — | — | parsed |
 | [exp/innovation2/sparse_item_saved_lists_v1/resource.json](../../exp/innovation2/sparse_item_saved_lists_v1/resource.json) | — | — | — | parsed |
+| [exp/innovation2/sports_quality_frontier_v1/batch.json](../../exp/innovation2/sports_quality_frontier_v1/batch.json) | running | — | — | parsed |
+| [exp/innovation2/sports_quality_frontier_v1/model_manifest.json](../../exp/innovation2/sports_quality_frontier_v1/model_manifest.json) | — | — | — | parsed |
+| [exp/innovation2/sports_quality_frontier_v1/resolved_profile.json](../../exp/innovation2/sports_quality_frontier_v1/resolved_profile.json) | protocol_frozen_runtime_not_implemented | — | — | parsed |
+| [exp/innovation2/sports_quality_frontier_v1/restoration_manifest.json](../../exp/innovation2/sports_quality_frontier_v1/restoration_manifest.json) | — | — | — | parsed |
+| [exp/innovation2/sports_quality_frontier_v1/score_cache_manifest.json](../../exp/innovation2/sports_quality_frontier_v1/score_cache_manifest.json) | — | — | — | parsed |
 | [exp/innovation2/sports_unseen_transfer_v1/access_audit.json](../../exp/innovation2/sports_unseen_transfer_v1/access_audit.json) | — | — | — | parsed |
 | [exp/innovation2/sports_unseen_transfer_v1/batch.json](../../exp/innovation2/sports_unseen_transfer_v1/batch.json) | completed | — | — | parsed |
 | [exp/innovation2/sports_unseen_transfer_v1/graph_manifest.json](../../exp/innovation2/sports_unseen_transfer_v1/graph_manifest.json) | — | — | — | parsed |
