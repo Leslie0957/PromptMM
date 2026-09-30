@@ -23,7 +23,7 @@
 | 评价恢复/资产核验 | 原失败保留，独立恢复完成12格新Test；不是新增12次训练 | [恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md) |
 | 更早数据/教师/预实验 | 历史背景，不自动并入当前合格主表 | [详细族导航](HISTORICAL_FAMILIES.md) |
 
-当前设计：[自身锚点控制](../research/innovation2/OWN_ANCHOR_CONTROL_PLAN_2026-09-30.md)，仅准备固定检查点六状态干预，无新评价或训练结果。
+当前准备：[自身锚点六状态干预](../research/innovation2/OWN_ANCHOR_CONTROL_PREPARATION_2026-09-30.md)，实现及合成验证完成，尚未运行真实评价。
 
 ## 需要再深入时
 

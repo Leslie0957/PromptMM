@@ -7,7 +7,7 @@
 - 第一项：有限实验、独立审计及正文整合完成，暂停扩展；[结论与未验证边界](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。待跑实验为零。
 - 第二项：共享残差三seed12臂审计通过执行验收，三次screen_stop；N改善B，但低组输给随机R。[审计](docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_AUDIT.md)。
 - 约束：旧Test不选新方法；P1a已筛查停止；旧RGCS/门控不是队列。未知项不自动补跑。
-- 唯一下一步：按[自身锚点控制方案](docs/research/innovation2/OWN_ANCHOR_CONTROL_PLAN_2026-09-30.md)完成实现与启动准备；六状态固定检查点干预尚未运行，无训练授权。
+- 唯一下一步：按[自身锚点启动准备](docs/research/innovation2/OWN_ANCHOR_CONTROL_PREPARATION_2026-09-30.md)运行固定六状态诊断一次；实现及5项合成测试完成，尚无真实评价/训练/Test结果。
 
 ## 证据导航
 
@@ -262,3 +262,13 @@
 
 - Added OWN_ANCHOR_CONTROL_PLAN_2026-09-30.md: fixed final R three seeds, original versus mean-neighbor substitution only, same W/q/users/scales/mask; six proposed scoring states, no training. Defined exact affine identity, regression/hard checks, resource proposal, paired raw metrics and descriptive 80% low-hit gain retention plus Recall delta >= -0.0002 screen. Explicitly separates endpoint dependence from training sufficiency and preserves original screen_stop.
 - Updated current entrances and experiment navigation; corrected a stale historical-preparation row saying the already audited12 arms were unstarted, preserving its original preparation document. No outcome matrix created because no new evaluation; first-work/charter/old audits/assets unchanged. No interaction/checkpoint/Test loading, execution or implementation. Focused links/content/diff verification and catalog refresh before scoped commit; sole next step implementation/synthetic validation/launch preparation, not formal evaluation authority.
+
+## 2026-09-30 Own-anchor diagnostic implementation (pending)
+
+- User approves sole preparation stage under plan6a5f48c. Implement isolated fixed-R/mean-center scorer, pinned profile, synthetic tests and preparation document; no real Train/Validation evaluation or training/Test. Reuse original ranking/tie and group protocol, exact feature scales and final checkpoints. Risks: FP32 regression, path guard gaps, resource caps not certified by synthetic tests. Acceptance: synthetic algebra/masking/ranking/paired accounting/guards and pinned metadata, explicit command/closeout routes, clean scoped commit. Preserve all original artifacts/history/reviews. Recovery reference6a5f48c, no automatic rollback. Formal launch requires subsequent authorization; no hidden smoke on real labels.
+
+## 2026-09-30 Own-anchor diagnostic implementation (completed)
+
+- Implemented tools/run_own_anchor_control.py, SHA-pinned OWN_ANCHOR_CONTROL_PROFILE_V1.json and preparation handoff. Six fixed final R/C states, same original CUDA ranking function and batch256, full R Top20 regression, C affine/mask checks, paired group/Recall identities, inference-only and unchanged parameter verification. Runtime dataset open whitelist, external resource supervisor and exclusive one-shot output. Original training code untouched.
+- Five synthetic tests pass; first attempt exposed expected-array FP64 versus storedFP32 mismatch (~7e-9), corrected test expected dtype without changing protocol/tolerance. Python syntax/CLI/help, metadata-bound paths and absent output checked. No real dataset, tensor/checkpoint loading, evaluation, training or Test; complete runtime and exact R regression remain unverified until formal execution. Caps1800s/RSS4GiB/CUDAallocator2GiB/output512MiB/free2GiB, sampled not OS hard isolation.
+- Preparation document provides exact one-shot command and run closeout routes; current entrances/catalogs updated. Prior log/history/assets/reviews/charter and first-work/old matrices preserved; no new result matrix. Focused diff/link/history checks before scoped commit. Sole next step user runs fixed six-state command once (or explicitly delegates); no additional training/retry/stage.
