@@ -1,6 +1,6 @@
 # 运行与诊断记录导航
 
-目录版本：2026-09-26。共913个现存exp JSON记录；数量不是独立实验数。
+目录版本：2026-09-26。共942个现存exp JSON记录；数量不是独立实验数。
 保存状态按JSON原文摘录；—表示该字段未记录/未在约定层级找到，不表示成功或失败。
 批报告、子任务、资源检查与正式运行混列供定位，不能相加作为样本数。
 历史已做但本机没有JSON的实验，请查[完整历史章节](../../archive/training/ENTRY_INDEX_2026-09-26.md)。
@@ -748,6 +748,35 @@
 | [exp/innovation2/neighbor_shared_residual_smoke_v1/seed2022/F/status.json](../../exp/innovation2/neighbor_shared_residual_smoke_v1/seed2022/F/status.json) | completed | — | — | parsed |
 | [exp/innovation2/neighbor_shared_residual_smoke_v1/seed2022/N/status.json](../../exp/innovation2/neighbor_shared_residual_smoke_v1/seed2022/N/status.json) | completed | — | — | parsed |
 | [exp/innovation2/neighbor_shared_residual_smoke_v1/seed2022/R/status.json](../../exp/innovation2/neighbor_shared_residual_smoke_v1/seed2022/R/status.json) | completed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_three_seed_v1/completeness.json](../../exp/innovation2/neighbor_shared_residual_three_seed_v1/completeness.json) | complete_unreviewed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_three_seed_v1/exit.json](../../exp/innovation2/neighbor_shared_residual_three_seed_v1/exit.json) | completed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_three_seed_v1/manifest.json](../../exp/innovation2/neighbor_shared_residual_three_seed_v1/manifest.json) | completed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_three_seed_v1/resource.json](../../exp/innovation2/neighbor_shared_residual_three_seed_v1/resource.json) | — | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2022/B/acceptance.json](../../exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2022/B/acceptance.json) | passed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2022/B/status.json](../../exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2022/B/status.json) | completed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2022/F/acceptance.json](../../exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2022/F/acceptance.json) | passed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2022/F/status.json](../../exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2022/F/status.json) | completed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2022/N/acceptance.json](../../exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2022/N/acceptance.json) | passed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2022/N/status.json](../../exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2022/N/status.json) | completed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2022/R/acceptance.json](../../exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2022/R/acceptance.json) | passed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2022/R/status.json](../../exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2022/R/status.json) | completed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2023/B/acceptance.json](../../exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2023/B/acceptance.json) | passed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2023/B/status.json](../../exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2023/B/status.json) | completed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2023/F/acceptance.json](../../exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2023/F/acceptance.json) | passed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2023/F/status.json](../../exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2023/F/status.json) | completed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2023/N/acceptance.json](../../exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2023/N/acceptance.json) | passed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2023/N/status.json](../../exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2023/N/status.json) | completed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2023/R/acceptance.json](../../exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2023/R/acceptance.json) | passed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2023/R/status.json](../../exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2023/R/status.json) | completed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2024/B/acceptance.json](../../exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2024/B/acceptance.json) | passed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2024/B/status.json](../../exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2024/B/status.json) | completed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2024/F/acceptance.json](../../exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2024/F/acceptance.json) | passed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2024/F/status.json](../../exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2024/F/status.json) | completed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2024/N/acceptance.json](../../exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2024/N/acceptance.json) | passed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2024/N/status.json](../../exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2024/N/status.json) | completed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2024/R/acceptance.json](../../exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2024/R/acceptance.json) | passed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2024/R/status.json](../../exp/innovation2/neighbor_shared_residual_three_seed_v1/seed2024/R/status.json) | completed | — | — | parsed |
+| [exp/innovation2/neighbor_shared_residual_three_seed_v1/summary.json](../../exp/innovation2/neighbor_shared_residual_three_seed_v1/summary.json) | complete_unreviewed | — | — | parsed |
 | [exp/innovation2/ranking_gap_v1/acceptance.json](../../exp/innovation2/ranking_gap_v1/acceptance.json) | passed | — | — | parsed |
 | [exp/innovation2/ranking_gap_v1/exit.json](../../exp/innovation2/ranking_gap_v1/exit.json) | completed | — | — | parsed |
 | [exp/innovation2/ranking_gap_v1/manifest.json](../../exp/innovation2/ranking_gap_v1/manifest.json) | — | docs/research/innovation2/RANKING_GAP_PROFILE_V1.json | — | parsed |

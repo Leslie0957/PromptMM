@@ -5,9 +5,9 @@
 ## 当前状态
 
 - 第一项：有限实验、独立审计及正文整合完成，暂停扩展；[结论与未验证边界](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。待跑实验为零。
-- 第二项：最小排序监督三seed已完成独立审计，三次screen_stop；共享残差 B/N/F/R 三seed[冻结准备](docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_PREPARATION_2026-09-29.md)完成，正式12臂未启动。
+- 第二项：共享残差三seed12臂审计通过执行验收，三次screen_stop；N改善B，但低组输给随机R。[审计](docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_AUDIT.md)。
 - 约束：旧Test不选新方法；P1a已筛查停止；旧RGCS/门控不是队列。未知项不自动补跑。
-- 唯一下一步：用户审阅冻结协议并决定是否手动执行一条串行命令；运行后保留原始产物，交另一AI独立审计。历史pending不是执行队列。
+- 唯一下一步：评审已有特征/残差的只读机制复盘；不自动训练C/S、重试或追加seed。
 
 ## 证据导航
 
@@ -233,3 +233,13 @@
 - Branch codex/experiment/baby-teacher-baseline; launch-source rule clean committed HEAD containing this declaration/profile/code. Full one-time command: & 'D:\miniconda\envs\run_5060\python.exe' -B 'D:\Download\PromptMM\tools\run_neighbor_shared_residual.py' --formal . Expected raw exp/innovation2/neighbor_shared_residual_three_seed_v1/ with per-arm status, acceptance, epoch curves, best/final checkpoints, export, selected Top20, hashes/resource; machine summary and HANDOFF only after successful complete queue. Test0 across all arms. Epoch300 primary; best supplementary. Fixed individual and cohort screens in profile do not gate later seeds/arms or certify significance/noninferiority.
 - Hard gates: source/branch/hash/output freshness, zero-start score, B epoch300 seed-specific 1e-6 regression, graph/group/finite/objective/denominator/export/resource/artifact/step gates. Caps8h each arm,96h queue, CUDA allocator2GiB, RSS6GiB, output8GiB, free disk12GiB. One launch, no retry/resume, no additional seed/arm/C/S/Test. Hard failure stops entire queue and preserves partial artifacts; low effectiveness or screen_stop proceeds through all planned arms. User manually launches only after this declaration's coherent commit, no redundant agent execution.
 - Record-update targets for later closeout: TRAINING_LOG outcome; docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_AUDIT.md audit of all 12 arm/seed cells; NEIGHBOR_SHARED_RESIDUAL_RESULTS.md matrix and NEIGHBOR_SHARED_RESIDUAL_HANDOFF.md; second-work and docs/experiments/README.md family row; root README only if state changes; paper/gap conditional on independently supported claim; refresh six generated navigation files after manual closeout. First-work matrices and historical audits not applicable. Raw ignored namespace preserved and, at stable milestone, physically backed up separately. Another AI performs independent audit after user supplies HANDOFF and raw path. No formal run/Test performed in this preparation task.
+
+## 2026-09-30 Neighbor shared residual three-seed outcome audit (pending)
+
+- User supplies completed neighbor_shared_residual_three_seed_v1 for evaluation. Read-only artifact/code audit and mandatory closeout only; no training, scoring, data/Test loading or next run. Baseb8be549, tracked clean, unrelated archive/reviews/ preserved. Verify pinned source/profile/input references, all hashes,12 curves/24 checkpoints/12 exports/AdamW states/saved Top20, B regression, resources and independent paired arithmetic. Scope: audit helper/verification, declared AUDIT/RESULTS/HANDOFF, active log/entrances/family/catalogs. Risks: machine summaries hiding protocol defects, random-control advantage and exposure confounding; distinguish qualified execution from scientific stop. Acceptance: record all limitations and verified checks, focused diff/links and coherent commit. Preserve raw assets/history/charter; no automatic rollback.
+
+## 2026-09-30 Neighbor shared residual three-seed outcome audit (completed)
+
+- Sourceb8be549 user-run cohort completed12 arms x300epochs/64200steps,770400total updates,3612Validation calls inferred from complete curves/code, Test0 supported by guard/path and recorded attempts. Independent saved-artifact audit783 checks passed:125 completeness SHA,24 best/final AdamW checkpoints,12exports,60 savedTop20, B regressions, finite curves/parameters/state, paired arithmetic and screen. No training/scoring/data/Test load in audit.
+- Runtime12389.625s(3.442h), sampledRSS2347962368B/CUDAreserved195035136B within caps. N−B Recall+.000095979/+.000266869/+.000096247; low hits+25/+25/+24. N−R low hits−22/−22/−24, allscreen_stop. Preserve valid low outcome; no significance/equivalence or algorithm-success claim. Random features still contain−q0; exposure/optimization alternatives remain. Export validation only16x16 probe, original-data hit/TopK not independently reconstructed; documented limitations, no silent fixes.
+- AUDIT/RESULTS12cells/HANDOFF/verification/helper and current entrances/family/catalogs updated, historical declaration/assets/reviews/charter/first-work unchanged. Focused links/diff verification before coherent commit. Sole next step: bounded read-only mechanism review of existing features/residuals, not automatic training/C/S/newseed/retry.

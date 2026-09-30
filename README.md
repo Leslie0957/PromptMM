@@ -14,6 +14,6 @@ AI启动：完整读[AGENTS.md](AGENTS.md)，再读本页和[短日志](TRAINING
 | 第二项接下来研究什么 | [探索工作页](docs/research/innovation2/README.md) |
 | 查具体运行、旧命令或文件 | [深层导航](docs/README.md) |
 
-当前唯一下一步：审阅[第二项共享残差三seed手动运行准备](docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_PREPARATION_2026-09-29.md)，由用户决定是否执行其中一条串行命令。实现、合成验证和隔离资源检查已完成；正式12臂未训练，创新与排序增益待证。
+当前唯一下一步：按[共享残差三seed交接](docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_HANDOFF.md)评审已有特征/残差的只读机制复盘。12臂执行通过，三次screen_stop：N改善B，但低组输给随机邻居R；不自动训练。
 
 训练入口为`codes/main_mmlight.py`，参数默认源`codes/utility/parser.py`，CLI优先。`codes/run_patent.py`是独立历史路径。评审材料移至`archive/reviews/check/`，旧代码集中在archive下；原始数据/模型/运行产物与`zhuanli/`保持原位。搬迁详见[路径映射](docs/experiments/ROOT_RELOCATION_2026-09-29.json)。
