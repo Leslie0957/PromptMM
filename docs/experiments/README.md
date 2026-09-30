@@ -24,7 +24,7 @@
 | 评价恢复/资产核验 | 原失败保留，独立恢复完成12格新Test；不是新增12次训练 | [恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md) |
 | 更早数据/教师/预实验 | 历史背景，不自动并入当前合格主表 | [详细族导航](HISTORICAL_FAMILIES.md) |
 
-当前判断：[自身锚点干预交接](../research/innovation2/OWN_ANCHOR_CONTROL_HANDOFF.md)，已完成，暂不推进从头训练。
+当前判断：[第二项路线收束](../research/innovation2/ROUTE_CONSOLIDATION_2026-09-30.md)，优先排除简单分组提权解释；无新实验或训练队列。
 
 ## 需要再深入时
 

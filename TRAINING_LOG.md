@@ -7,7 +7,7 @@
 - 第一项：有限实验、独立审计及正文整合完成，暂停扩展；[结论与未验证边界](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。待跑实验为零。
 - 第二项：共享残差三seed12臂审计通过执行验收，三次screen_stop；N改善B，但低组输给随机R。[审计](docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_AUDIT.md)。
 - 约束：旧Test不选新方法；P1a已筛查停止；旧RGCS/门控不是队列。未知项不自动补跑。
-- 唯一下一步：根据[自身锚点审计](docs/research/innovation2/OWN_ANCHOR_CONTROL_AUDIT.md)做第二项候选问题收束评审；六状态执行通过但整体screen_stop，不推进自身替代训练。
+- 唯一下一步：按[第二项收束评审](docs/research/innovation2/ROUTE_CONSOLIDATION_2026-09-30.md)制定B分组加分、曝光匹配R的最小对照方案；只排除简单提权解释，尚不立项算法或启动训练。
 
 ## 证据导航
 
@@ -282,3 +282,12 @@
 - User-run sourcebd775f55dca2ee6470364e50c3afd57a28d9e396, command run_own_anchor_control.py --formal; three final-checkpoint R/C pairs, no training, Test0. External exit0,26.203s; sampledRSS1094811648B/CUDAallocator96468992B, final output8392967B, caps passed. 95 saved-artifact checks: output/input SHA, pinned source/profile, R exactTop20 regression, candidate IDs/exposure, paired Recall/group arithmetic and screen. No re-scoring or interaction-label reads in audit; tensor/absolute-hit correctness remains bounded by runtime checks, not independent rescoring.
 - Low gain retention97.87%/106.38%/93.75%; C−R Recall−.000056183/+.000140457/−.000337098. Last exceeds pre-fixed tolerance, overallscreen_stop, valid completed result. Supports limited endpoint neighbor-identity dependence for low gains, not training sufficiency/equivalence/algorithm success. No C training authorized; oldN screen_stop remains.
 - RESULTS/AUDIT/HANDOFF/verification and current entrances/family/navigation updated; original evidence/first-work/charter/reviews preserved. Source fingerprints and limits recorded in audit; no milestone tag/backup claim. Unique next step second-work candidate-problem consolidation review, not more modules or automatic experiments.
+
+## 2026-09-30 Second-work route consolidation (pending)
+
+- User approves sole candidate-problem review after39bf10c. Scope evidence/alternative/novelty review document and current entrances/log/navigation; no code, scoring, training or Test. Compare ranking-KD revival, neighbor/self residual extension, frequency-exposure versus personalized selection, and cold-start pivot. Use audited outcomes plus limited primary literature; do not treat posthoc screen as universal impossibility or invent established bottleneck. Acceptance: select one bounded question with simple comparator, falsification and no automatic run queue; stable thesis charter/history/assets/reviews unchanged. Verify links/diff and coherent commit.
+
+## 2026-09-30 Second-work route consolidation (completed)
+
+- Added ROUTE_CONSOLIDATION_2026-09-30.md: retain sparse-item problem but do not claim simplification damage or semantic neighbor success. Pause KL revival/N-module/C-training; cold-start remains unestablished reserve with new protocol/teacher leakage requirements. Prioritize one missing comparator: fixed B scores plus common bonus on original6114 residual targets, calibrated by predicted exposure rather than Validation hits, compared with R. This is an explanatory control, not a novel algorithm or confirmed exposure bottleneck; full protocol not yet launchable.
+- Limited primary-paper search confirms weighting/re-ranking/cold-start content methods are established families, not exhaustive novelty review. Documented global-exposure matching limits, B-vs-R training confounding, Validation reuse and falsification; old Cscreen_stop remains. No dataset/checkpoint loading, evaluation/training/Test, code/profile/charter or first-work changes. Current entrances/family updated, generated navigation refreshed, focused history/link/diff checks before commit. Sole next step specify one bounded exposure-matched score-bonus diagnostic, not execution.
