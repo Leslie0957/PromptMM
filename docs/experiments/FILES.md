@@ -138,7 +138,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（198）
+## docs（199）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -291,6 +291,7 @@
 - [docs/research/SPORTS_THREE_SEED_VALIDATION120_2026-09-17.md](../research/SPORTS_THREE_SEED_VALIDATION120_2026-09-17.md)
 - [docs/research/SPORTS_THREE_SEED_VALIDATION300_2026-09-18.md](../research/SPORTS_THREE_SEED_VALIDATION300_2026-09-18.md)
 - [docs/research/SPORTS_WEIGHTED_DIRECTION_AUDIT_2026-09-24.md](../research/SPORTS_WEIGHTED_DIRECTION_AUDIT_2026-09-24.md)
+- [docs/research/innovation2/EXPOSURE_MATCHED_BONUS_PLAN_2026-09-30.md](../research/innovation2/EXPOSURE_MATCHED_BONUS_PLAN_2026-09-30.md)
 - [docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_HANDOFF.md](../research/innovation2/MINIMAL_RANKING_SUPERVISION_HANDOFF.md)
 - [docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_PREPARATION_REPORT_2026-09-29.md](../research/innovation2/MINIMAL_RANKING_SUPERVISION_PREPARATION_REPORT_2026-09-29.md)
 - [docs/research/innovation2/MINIMAL_RANKING_SUPERVISION_PROFILE_V1.json](../research/innovation2/MINIMAL_RANKING_SUPERVISION_PROFILE_V1.json)

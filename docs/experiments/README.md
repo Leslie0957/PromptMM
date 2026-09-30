@@ -24,7 +24,7 @@
 | 评价恢复/资产核验 | 原失败保留，独立恢复完成12格新Test；不是新增12次训练 | [恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md) |
 | 更早数据/教师/预实验 | 历史背景，不自动并入当前合格主表 | [详细族导航](HISTORICAL_FAMILIES.md) |
 
-当前判断：[第二项路线收束](../research/innovation2/ROUTE_CONSOLIDATION_2026-09-30.md)，优先排除简单分组提权解释；无新实验或训练队列。
+当前设计：[曝光匹配加分对照](../research/innovation2/EXPOSURE_MATCHED_BONUS_PLAN_2026-09-30.md)，固定方案已完成；下一步仅实现与启动准备。
 
 ## 需要再深入时
 

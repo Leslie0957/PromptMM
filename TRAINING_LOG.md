@@ -7,7 +7,7 @@
 - 第一项：有限实验、独立审计及正文整合完成，暂停扩展；[结论与未验证边界](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。待跑实验为零。
 - 第二项：共享残差三seed12臂审计通过执行验收，三次screen_stop；N改善B，但低组输给随机R。[审计](docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_AUDIT.md)。
 - 约束：旧Test不选新方法；P1a已筛查停止；旧RGCS/门控不是队列。未知项不自动补跑。
-- 唯一下一步：按[第二项收束评审](docs/research/innovation2/ROUTE_CONSOLIDATION_2026-09-30.md)制定B分组加分、曝光匹配R的最小对照方案；只排除简单提权解释，尚不立项算法或启动训练。
+- 唯一下一步：按[曝光匹配加分方案](docs/research/innovation2/EXPOSURE_MATCHED_BONUS_PLAN_2026-09-30.md)完成实现、合成验证及启动准备；仅固定检查点对照，未授权正式评价或训练。
 
 ## 证据导航
 
@@ -291,3 +291,13 @@
 
 - Added ROUTE_CONSOLIDATION_2026-09-30.md: retain sparse-item problem but do not claim simplification damage or semantic neighbor success. Pause KL revival/N-module/C-training; cold-start remains unestablished reserve with new protocol/teacher leakage requirements. Prioritize one missing comparator: fixed B scores plus common bonus on original6114 residual targets, calibrated by predicted exposure rather than Validation hits, compared with R. This is an explanatory control, not a novel algorithm or confirmed exposure bottleneck; full protocol not yet launchable.
 - Limited primary-paper search confirms weighting/re-ranking/cold-start content methods are established families, not exhaustive novelty review. Documented global-exposure matching limits, B-vs-R training confounding, Validation reuse and falsification; old Cscreen_stop remains. No dataset/checkpoint loading, evaluation/training/Test, code/profile/charter or first-work changes. Current entrances/family updated, generated navigation refreshed, focused history/link/diff checks before commit. Sole next step specify one bounded exposure-matched score-bonus diagnostic, not execution.
+
+## 2026-09-30 Exposure-matched bonus diagnostic design (pending)
+
+- User approves sole fixed-protocol design after7c2080d. Scope new plan and current navigation/log/catalogs, no implementation/evaluation/training/Test. Specify B versus B+uniform6114-target bonus calibrated solely by R exposure, three existing final seeds, bounded deterministic search and candidate caching, regression and record routes. Risks: global exposure not user matching, repeatedValidation exploration, score precision, artificial decision thresholds. Accept exact calibration/data separation/budget/stop rules; preserve old screens/history/assets/charter/reviews. Focused links/diff and coherent commit; next implementation/preparation only.
+
+## 2026-09-30 Exposure-matched bonus diagnostic design (completed)
+
+- Added EXPOSURE_MATCHED_BONUS_PLAN_2026-09-30.md. Fixed B epoch300 three seeds plus uniform bonus on original6114 targets, exposure target from same-seed savedR. Calibration uses prediction/Train only; all beta sealed before Validation load. Per-user two-groupTop20 cache, fixed cross-group difference comparison, bounded48-step nonnegative bisection, deterministic nearest endpoint and 0.1% target-exposure tolerance. No new model or semantic success assumption.
+- Defined raw/paired/group metrics and three-way descriptive decisions: Q within3 lowhits/-.0002 Recall in all seeds supports simple explanation; R ahead>=4 lowhits with corresponding Recall tolerance only excludes this global control; mixed/unmatched stops automatic progression. Caps1800s/4GiBRSS/2GiBCUDA/256MiBoutput, runtime unproven. Preparation/closeout paths and no-Test/no-retry boundaries fixed, no launch command fabricated.
+- Current entrances/family updated, generated navigation refreshed; history/charter/old screens/assets/reviews unchanged. No source/profile implementation, data loading, scoring/training/Test. Focused content/link/history/diff checks before scoped commit. Sole next step implementation/synthetic validation/launch preparation, no formal execution authority.
