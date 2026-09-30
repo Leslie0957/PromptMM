@@ -4,6 +4,7 @@
 
 | 实验族 | 状态与主要发现 | 深入记录 |
 |---|---|---|
+| 残差只读机制复盘 | F系数均负；R残差接近自身变换加共同偏移，未证因果；全表导出公式补验通过 | [分析](../research/innovation2/NEIGHBOR_RESIDUAL_MECHANISM_2026-09-30.md) |
 | 共享残差三seed四臂 | 12臂执行通过，N低组输给随机R，三次screen_stop | [审计](../research/innovation2/NEIGHBOR_SHARED_RESIDUAL_AUDIT.md) |
 | 模态邻居关联诊断 | 一次CPU诊断；图像/文本均candidate_signal，关联差值+6.45/+11.28个百分点，不是Recall收益；执行方核验完成 | [结果](../research/innovation2/MODAL_NEIGHBOR_DIAGNOSTIC_RESULTS.md) · [审计交接](../research/innovation2/MODAL_NEIGHBOR_DIAGNOSTIC_HANDOFF.md) |
 | 两数据集主比较 | Baby/Sports各三方法×三seed，18格Test；Full高于BPR，对发布版Baby略高/Sports较低 | [正式表及来源](../paper/INNOVATION1_FIXED_MAIN_TABLE_2026-09-26.md) |

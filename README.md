@@ -14,6 +14,6 @@ AI启动：完整读[AGENTS.md](AGENTS.md)，再读本页和[短日志](TRAINING
 | 第二项接下来研究什么 | [探索工作页](docs/research/innovation2/README.md) |
 | 查具体运行、旧命令或文件 | [深层导航](docs/README.md) |
 
-当前唯一下一步：按[共享残差三seed交接](docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_HANDOFF.md)评审已有特征/残差的只读机制复盘。12臂执行通过，三次screen_stop：N改善B，但低组输给随机邻居R；不自动训练。
+当前唯一下一步：根据[残差机制复盘](docs/research/innovation2/NEIGHBOR_RESIDUAL_MECHANISM_2026-09-30.md)设计自身锚点控制方案；R接近自身变换加共同偏移，但尚无因果证明，不自动训练。
 
 训练入口为`codes/main_mmlight.py`，参数默认源`codes/utility/parser.py`，CLI优先。`codes/run_patent.py`是独立历史路径。评审材料移至`archive/reviews/check/`，旧代码集中在archive下；原始数据/模型/运行产物与`zhuanli/`保持原位。搬迁详见[路径映射](docs/experiments/ROOT_RELOCATION_2026-09-29.json)。

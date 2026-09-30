@@ -7,7 +7,7 @@
 - 第一项：有限实验、独立审计及正文整合完成，暂停扩展；[结论与未验证边界](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。待跑实验为零。
 - 第二项：共享残差三seed12臂审计通过执行验收，三次screen_stop；N改善B，但低组输给随机R。[审计](docs/research/innovation2/NEIGHBOR_SHARED_RESIDUAL_AUDIT.md)。
 - 约束：旧Test不选新方法；P1a已筛查停止；旧RGCS/门控不是队列。未知项不自动补跑。
-- 唯一下一步：评审已有特征/残差的只读机制复盘；不自动训练C/S、重试或追加seed。
+- 唯一下一步：按[残差机制复盘](docs/research/innovation2/NEIGHBOR_RESIDUAL_MECHANISM_2026-09-30.md)设计自身锚点控制；不自动训练。
 
 ## 证据导航
 
@@ -243,3 +243,13 @@
 - Sourceb8be549 user-run cohort completed12 arms x300epochs/64200steps,770400total updates,3612Validation calls inferred from complete curves/code, Test0 supported by guard/path and recorded attempts. Independent saved-artifact audit783 checks passed:125 completeness SHA,24 best/final AdamW checkpoints,12exports,60 savedTop20, B regressions, finite curves/parameters/state, paired arithmetic and screen. No training/scoring/data/Test load in audit.
 - Runtime12389.625s(3.442h), sampledRSS2347962368B/CUDAreserved195035136B within caps. N−B Recall+.000095979/+.000266869/+.000096247; low hits+25/+25/+24. N−R low hits−22/−22/−24, allscreen_stop. Preserve valid low outcome; no significance/equivalence or algorithm-success claim. Random features still contain−q0; exposure/optimization alternatives remain. Export validation only16x16 probe, original-data hit/TopK not independently reconstructed; documented limitations, no silent fixes.
 - AUDIT/RESULTS12cells/HANDOFF/verification/helper and current entrances/family/catalogs updated, historical declaration/assets/reviews/charter/first-work unchanged. Focused links/diff verification before coherent commit. Sole next step: bounded read-only mechanism review of existing features/residuals, not automatic training/C/S/newseed/retry.
+
+## 2026-09-30 Shared residual saved-feature mechanism analysis (pending)
+
+- User approves the sole next step: bounded CPU read-only analysis of existing teacher anchor, saved graphs, final N/F/R checkpoints/exports and existing status metrics. Base4ce9964; no training, new ranking, Train/Validation/Test matrix loading or new seed. Implement analysis helper and one report: reconstruct exact X hashes; decompose neighbor mean versus negative-self input/output with cross terms and centered variation; compare mean-only neighbor approximation; verify full exported tables; summarize existing exposure/hit ratios. Caps600s/RSS4GiB, small JSON output; one analysis, no automated retry. Posthoc descriptive algebra cannot establish causal ranking contribution. Preserve all raw assets, history/reviews and old screens. Verify finite/decomposition/export identities, write report/log/navigation, scoped commit. Next step decided from this analysis, no run authority.
+
+## 2026-09-30 Shared residual saved-feature mechanism analysis (completed)
+
+- One boundedCPU saved-asset analysis completed3.062s/sampledRSS770383872B; all input bindings and exact X hashes passed. Nine final N/F/R exports fully reconstructed within4.77e-7 maxabs error, non-target unchanged, decomposition cross-term identities passed. No interaction matrix/Test loads, score/rank, training or model modification. Report+JSON NEIGHBOR_RESIDUAL_MECHANISM_2026-09-30; helper under tools.
+- F image/text scalars negative in all seeds: signed residual, not positive smoothing. R input negative-self fraction of component energies88.50%; after learned map about80.4–80.6%, not causal attribution. Replacing neighbor output by its target mean yields24.05–24.06% relative residual error R vs78.66–78.95% N. R has both more low exposure and greater observed hit/exposure thanN; exposure alone not proven cause. Oldscreen_stop unchanged.
+- Updated report/log/current entrances/family/catalogs; old results/audit preserved, no first-work/charter change or backup milestone. Sole next step: design a clean own-anchor control to test the simpler explanation; no automatic training/C/S/newseed. Focused links/history/diff checks and scoped commit.
