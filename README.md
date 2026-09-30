@@ -10,13 +10,14 @@ AI启动：完整读[AGENTS.md](AGENTS.md)，再读本页和[短日志](TRAINING
 |---|---|
 | 交给其他AI评审第二项方向 | [第一项成果与第二项全部探索交接](docs/research/RESEARCH_HANDOFF_FOR_INNOVATION2_REVIEW_2026-09-30.md) |
 | 最新候选评审与优先级 | [第二项独立候选评审](docs/research/innovation2/INDEPENDENT_CANDIDATE_REVIEW_2026-09-30.md) |
+| 新物品具体提案与判定 | [评分几何映射提案：算法立项未通过](docs/research/innovation2/NEW_ITEM_METHOD_PROPOSAL_2026-09-30.md) |
 | 做过哪些实验、粗略结论 | [实验总览](docs/experiments/README.md) |
 | 第一项已知与未知 | [第一项阶段总结](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md) |
 | 第一项完整方法与结果 | [整合章节](docs/paper/INNOVATION1_INTEGRATED_CHAPTER_2026-09-29.md) |
 | 第二项接下来研究什么 | [探索工作页](docs/research/innovation2/README.md) |
 | 查具体运行、旧命令或文件 | [深层导航](docs/README.md) |
 
-当前唯一下一步：依据[最新候选评审](docs/research/innovation2/INDEPENDENT_CANDIDATE_REVIEW_2026-09-30.md)，为新物品接入形成具体方法立项提案，明确相对ALDI/SiBraR的差异和资产预算；不实现、不重建教师、不运行。三候选均未获实验批准。
+当前唯一下一步：保持算法新增要求，明确第二项剩余总研究预算及是否允许新数据/资产，再重新选择问题。[新物品提案](docs/research/innovation2/NEW_ITEM_METHOD_PROPOSAL_2026-09-30.md)可归约为评分对齐/岭回归，算法立项未通过，当前接入候选暂停；无实现、教师重建或实验队列。
 
 训练入口为`codes/main_mmlight.py`，参数默认源`codes/utility/parser.py`，CLI优先。`codes/run_patent.py`是独立历史路径。评审材料移至`archive/reviews/check/`，旧代码集中在archive下；原始数据/模型/运行产物与`zhuanli/`保持原位。搬迁详见[路径映射](docs/experiments/ROOT_RELOCATION_2026-09-29.json)。
 
