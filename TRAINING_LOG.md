@@ -5,9 +5,9 @@
 ## 当前状态
 
 - 第一项：有限实验、独立审计及正文整合完成，暂停扩展；[结论与未验证边界](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。待跑实验为零。
-- 第二项：逐用户槽位三seed完成并通过产物审计；联合筛查unresolved。分配假设有支持，尚无成立的第二算法；[统一判断](docs/research/innovation2/PER_USER_SLOT_CONTROL_RESULTS.md)。
+- 第二项：标量校准三seed审计通过执行验收，科学screen_stop；当前配方停止扩展，尚无成立的第二算法。[结果](docs/research/innovation2/SCALAR_CALIBRATION_RESULTS.md)。
 - 约束：旧Test不选新方法；P1a已筛查停止；旧RGCS/门控不是队列。未知项不自动补跑。
-- 唯一下一步：按[标量校准启动准备](docs/research/innovation2/SCALAR_CALIBRATION_PREPARATION_2026-09-30.md)手动运行固定B/G/U三状态×三个既有seed的CPU cohort一次；准备完成，未执行真实拟合/评价。
+- 唯一下一步：进行第二项路线收束评审，最多两个符合总体主题的候选；停止当前标量配方扩展，无待跑实验。
 
 ## 证据导航
 
@@ -387,3 +387,17 @@
 - Command from repo root: & 'D:\miniconda\envs\run_5060\python.exe' -B 'D:\Download\PromptMM\tools\run_scalar_calibration.py' --formal. Branch codex/experiment/baby-teacher-baseline; clean committed preparation HEAD (or same-protocol declaration-only descendant) captured in manifest; existing archive/reviews exception. Test0; seal all fits/lists before Val; no teacher evaluation.
 - Output exp/innovation2/scalar_calibration_v1, refuse existing directory; CPU1800s/RSS4GiB/output256MiB/free2GiB. One launch, no retry/resume/new seed/arm/Test/next stage. Failure artifacts preserved. Run only when user manually executes or expressly authorizes this exact cohort.
 - Closeout targets: docs/research/innovation2/SCALAR_CALIBRATION_RESULTS.md (B/G/U×2022/2023/2024), SCALAR_CALIBRATION_AUDIT.md, SCALAR_CALIBRATION_HANDOFF.md; active log, scalar-calibration experiment-family row and current entrances; generated navigation refresh. First-work matrices/paper/charter unchanged absent new affected claim; no milestone/tag/bundle.
+
+
+## 2026-09-30 Scalar calibration outcome audit (pending)
+
+- User reports fixed cohort complete; source61496ee. Read-only saved-artifact audit, no refit/scoring/evaluation, no Train/Val/Test matrix loading. Scope hash/source/profile/seal/tape/fit summaries/cache-prefix and paired-arithmetic/resource checks, results/audit/handoff/verification and active navigation. Risks: tiny gains overstated, screen_stop mislabeled failed, optimizer convergence confused with validation utility. Preserve historical records/raw outputs/reviews/charter. Verify scoped docs and commit. No next run authorized; determine route decision from evidence.
+
+
+## 2026-09-30 Scalar calibration fixed cohort and audit (completed)
+
+- Launch61496eeb7e9e09485862d8875f71c55d8fcdde89, exp/innovation2/scalar_calibration_v1; six fits/nine metric states, exit0/hard acceptance true. Frozen B2022/2023/2024, tape8721×64pairs/user, ridge.01 and40 bisections as declared; final only, no selection or Test. 57.453s, sampled RSS741142528B, output21200886B.
+- Saved-artifact150 checks passed: input/output/seal hashes, tape/offset summaries, convergence records, B regression, cached-prefix/cutoff conditions, pair/group arithmetic, chronology/caps. No audit-time label/checkpoint tensor loading or refit/ranking/evaluation; stationarity/label-membership evidence remains runtime-derived.
+- U low16/16/16 vs B14/15/16/G15/15/16; U−B Recall +0.000056183/+0.000028091/0. Scientific screen_stop (2024 no strict low gain), valid completed low result. Near-optimal sampled training objective did not yield meaningful low-frequency recovery; no universal impossibility claim.
+- [Results](docs/research/innovation2/SCALAR_CALIBRATION_RESULTS.md), [audit](docs/research/innovation2/SCALAR_CALIBRATION_AUDIT.md), [handoff](docs/research/innovation2/SCALAR_CALIBRATION_HANDOFF.md). Stop current scalar recipe; no automatic lambda/sampling/seed/module expansion. Entrances/matrix/family/catalogs updated; first-work/charter/history/assets/reviews preserved; verify links/history/diff and commit.
+- Unique next step: bounded second-work route review, at most two theme-consistent candidates; no new run or implementation.

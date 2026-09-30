@@ -208,9 +208,9 @@
 {"bytes": 13815757, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 02_38_22.563718_sports_light_init_pid596.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 05_34_16.930265_sports_light_init_pid42156.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 08_30_07.418852_sports_light_init_pid30132.pth", "source_catalog": false}
-{"bytes": 1822, "category": "root", "path": "README.md", "source_catalog": true}
+{"bytes": 1927, "category": "root", "path": "README.md", "source_catalog": true}
 {"bytes": 4930, "category": "root", "path": "THESIS_ROADMAP.md", "source_catalog": true}
-{"bytes": 85818, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
+{"bytes": 87903, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
 {"bytes": 739, "category": "archive", "path": "archive/README.md", "source_catalog": true}
 {"bytes": 26887, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/Models.py", "source_catalog": true}
 {"bytes": 26901, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/Models_empower.py", "source_catalog": true}
@@ -602,7 +602,7 @@
 {"bytes": 100432, "category": "docs", "path": "docs/baselines/ASSET_MANIFEST_2026-07-29.csv", "source_catalog": true}
 {"bytes": 2893, "category": "docs", "path": "docs/baselines/README.md", "source_catalog": true}
 {"bytes": 7125, "category": "docs", "path": "docs/experiments/HISTORICAL_FAMILIES.md", "source_catalog": true}
-{"bytes": 5969, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
+{"bytes": 6081, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
 {"bytes": 37701, "category": "docs", "path": "docs/experiments/ROOT_RELOCATION_2026-09-29.json", "source_catalog": true}
 {"bytes": 7431, "category": "docs", "path": "docs/experiments/RUN_CLOSEOUT.md", "source_catalog": true}
 {"bytes": 1535, "category": "docs", "path": "docs/experiments/WORKSPACE_MAP.md", "source_catalog": true}
@@ -771,10 +771,14 @@
 {"bytes": 5776, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_INDEPENDENT_AUDIT_2026-09-29.md", "source_catalog": true}
 {"bytes": 8160, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_INDEPENDENT_VERIFICATION.json", "source_catalog": true}
 {"bytes": 3047, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_PROFILE_V1.json", "source_catalog": true}
-{"bytes": 2207, "category": "docs", "path": "docs/research/innovation2/README.md", "source_catalog": true}
+{"bytes": 2312, "category": "docs", "path": "docs/research/innovation2/README.md", "source_catalog": true}
 {"bytes": 7213, "category": "docs", "path": "docs/research/innovation2/ROUTE_CONSOLIDATION_2026-09-30.md", "source_catalog": true}
+{"bytes": 3595, "category": "docs", "path": "docs/research/innovation2/SCALAR_CALIBRATION_AUDIT.md", "source_catalog": true}
+{"bytes": 1136, "category": "docs", "path": "docs/research/innovation2/SCALAR_CALIBRATION_HANDOFF.md", "source_catalog": true}
 {"bytes": 8080, "category": "docs", "path": "docs/research/innovation2/SCALAR_CALIBRATION_PREPARATION_2026-09-30.md", "source_catalog": true}
 {"bytes": 4048, "category": "docs", "path": "docs/research/innovation2/SCALAR_CALIBRATION_PROFILE_V1.json", "source_catalog": true}
+{"bytes": 3859, "category": "docs", "path": "docs/research/innovation2/SCALAR_CALIBRATION_RESULTS.md", "source_catalog": true}
+{"bytes": 5770, "category": "docs", "path": "docs/research/innovation2/SCALAR_CALIBRATION_VERIFICATION.json", "source_catalog": true}
 {"bytes": 2118, "category": "docs", "path": "docs/research/innovation2/SPARSE_ITEM_ASSESSMENT_HANDOFF.md", "source_catalog": true}
 {"bytes": 6558, "category": "docs", "path": "docs/research/innovation2/SPARSE_ITEM_ASSESSMENT_PLAN_2026-09-29.md", "source_catalog": true}
 {"bytes": 712, "category": "docs", "path": "docs/research/innovation2/SPARSE_ITEM_ASSESSMENT_PROFILE_V1.json", "source_catalog": true}
@@ -2561,6 +2565,30 @@
 {"bytes": 0, "category": "exp", "path": "exp/innovation2/ranking_gap_v1/stderr.log", "source_catalog": false}
 {"bytes": 486, "category": "exp", "path": "exp/innovation2/ranking_gap_v1/stdout.log", "source_catalog": false}
 {"bytes": 1279735, "category": "exp", "path": "exp/innovation2/ranking_gap_v1/teacher_per_user.npz", "source_catalog": false}
+{"bytes": 97, "category": "exp", "path": "exp/innovation2/scalar_calibration_v1/acceptance.json", "source_catalog": false}
+{"bytes": 2216, "category": "exp", "path": "exp/innovation2/scalar_calibration_v1/completeness.json", "source_catalog": false}
+{"bytes": 0, "category": "exp", "path": "exp/innovation2/scalar_calibration_v1/console.log", "source_catalog": false}
+{"bytes": 722, "category": "exp", "path": "exp/innovation2/scalar_calibration_v1/fit_seal.json", "source_catalog": false}
+{"bytes": 4544, "category": "exp", "path": "exp/innovation2/scalar_calibration_v1/manifest.json", "source_catalog": false}
+{"bytes": 36505, "category": "exp", "path": "exp/innovation2/scalar_calibration_v1/report.json", "source_catalog": false}
+{"bytes": 61277, "category": "exp", "path": "exp/innovation2/scalar_calibration_v1/seed2022_G_minus_B.npz", "source_catalog": false}
+{"bytes": 61509, "category": "exp", "path": "exp/innovation2/scalar_calibration_v1/seed2022_U_minus_B.npz", "source_catalog": false}
+{"bytes": 61466, "category": "exp", "path": "exp/innovation2/scalar_calibration_v1/seed2022_U_minus_G.npz", "source_catalog": false}
+{"bytes": 278364, "category": "exp", "path": "exp/innovation2/scalar_calibration_v1/seed2022_fit.npz", "source_catalog": false}
+{"bytes": 3887554, "category": "exp", "path": "exp/innovation2/scalar_calibration_v1/seed2022_lists.npz", "source_catalog": false}
+{"bytes": 61270, "category": "exp", "path": "exp/innovation2/scalar_calibration_v1/seed2023_G_minus_B.npz", "source_catalog": false}
+{"bytes": 61436, "category": "exp", "path": "exp/innovation2/scalar_calibration_v1/seed2023_U_minus_B.npz", "source_catalog": false}
+{"bytes": 61457, "category": "exp", "path": "exp/innovation2/scalar_calibration_v1/seed2023_U_minus_G.npz", "source_catalog": false}
+{"bytes": 278247, "category": "exp", "path": "exp/innovation2/scalar_calibration_v1/seed2023_fit.npz", "source_catalog": false}
+{"bytes": 3888882, "category": "exp", "path": "exp/innovation2/scalar_calibration_v1/seed2023_lists.npz", "source_catalog": false}
+{"bytes": 61259, "category": "exp", "path": "exp/innovation2/scalar_calibration_v1/seed2024_G_minus_B.npz", "source_catalog": false}
+{"bytes": 61465, "category": "exp", "path": "exp/innovation2/scalar_calibration_v1/seed2024_U_minus_B.npz", "source_catalog": false}
+{"bytes": 61482, "category": "exp", "path": "exp/innovation2/scalar_calibration_v1/seed2024_U_minus_G.npz", "source_catalog": false}
+{"bytes": 278280, "category": "exp", "path": "exp/innovation2/scalar_calibration_v1/seed2024_fit.npz", "source_catalog": false}
+{"bytes": 3889811, "category": "exp", "path": "exp/innovation2/scalar_calibration_v1/seed2024_lists.npz", "source_catalog": false}
+{"bytes": 8856, "category": "exp", "path": "exp/innovation2/scalar_calibration_v1/supervisor.json", "source_catalog": false}
+{"bytes": 8034141, "category": "exp", "path": "exp/innovation2/scalar_calibration_v1/train_pairs.npz", "source_catalog": false}
+{"bytes": 60046, "category": "exp", "path": "exp/innovation2/scalar_calibration_v1/worker_resources.json", "source_catalog": false}
 {"bytes": 495, "category": "exp", "path": "exp/innovation2/sparse_item_saved_lists_v1/acceptance.json", "source_catalog": false}
 {"bytes": 83, "category": "exp", "path": "exp/innovation2/sparse_item_saved_lists_v1/exit.json", "source_catalog": false}
 {"bytes": 2016, "category": "exp", "path": "exp/innovation2/sparse_item_saved_lists_v1/manifest.json", "source_catalog": false}

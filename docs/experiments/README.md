@@ -4,6 +4,7 @@
 
 | 实验族 | 状态与主要发现 | 深入记录 |
 |---|---|---|
+| 标量校准基线 | 三seed B/G/U执行通过；U低组16/16/16，联合screen_stop；停止扩展 | [结果](../research/innovation2/SCALAR_CALIBRATION_RESULTS.md) · [审计](../research/innovation2/SCALAR_CALIBRATION_AUDIT.md) |
 | 逐用户槽位控制 | 三seed执行通过，整体unresolved；H低组60/62/66接近R，2023总体超过容忍线；诊断链收尾 | [统一判断](../research/innovation2/PER_USER_SLOT_CONTROL_RESULTS.md) · [审计](../research/innovation2/PER_USER_SLOT_CONTROL_AUDIT.md) |
 | 全局曝光匹配加分 | 三seed精确匹配；R低组比Q多10/4/9命中，简单全局加分不足；无训练/Test | [审计](../research/innovation2/EXPOSURE_MATCHED_BONUS_AUDIT.md) · [结果](../research/innovation2/EXPOSURE_MATCHED_BONUS_RESULTS.md) |
 | 自身锚点固定检查点干预 | 三seed六状态执行通过；低组增益保留94%–106%，2024总体Recall超容忍线，整体screen_stop | [审计](../research/innovation2/OWN_ANCHOR_CONTROL_AUDIT.md) · [结果](../research/innovation2/OWN_ANCHOR_CONTROL_RESULTS.md) |
@@ -26,7 +27,7 @@
 | 评价恢复/资产核验 | 原失败保留，独立恢复完成12格新Test；不是新增12次训练 | [恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md) |
 | 更早数据/教师/预实验 | 历史背景，不自动并入当前合格主表 | [详细族导航](HISTORICAL_FAMILIES.md) |
 
-当前准备：[标量校准基线](../research/innovation2/SCALAR_CALIBRATION_PREPARATION_2026-09-30.md)，合成验证通过，尚未运行真实拟合/评价；不认定第二创新点。
+当前无待跑实验；下一步仅第二项路线收束评审。
 
 ## 需要再深入时
 
