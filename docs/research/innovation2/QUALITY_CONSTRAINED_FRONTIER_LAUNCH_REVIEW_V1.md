@@ -1,6 +1,6 @@
 # 质量约束前沿v1：一次真实诊断的运行声明审核
 
-2026-09-30。**声明已准备，等待明确授权；没有启动真实诊断。** [机器声明](QUALITY_CONSTRAINED_FRONTIER_RUN_DECLARATION_V1.json)的`human_authorized=false`、`authorization_evidence=null`、`originalTrain_partition_exception_acknowledged=false`，程序会拒绝真实执行。授权后只记录本次许可并提交干净启动源码，不再重复请求同一次运行的批准。
+2026-09-30。**用户已明确授权本次诊断及原Train分区恢复；启动声明已更新，待用户手动单次启动，agent尚未运行。** [机器声明](QUALITY_CONSTRAINED_FRONTIER_RUN_DECLARATION_V1.json)的`human_authorized=true`、`originalTrain_partition_exception_acknowledged=true`，authorization_evidence保存用户原文与所批准声明提交5e5bdc9。用户最新要求是以后准备好可运行任务后直接给命令，不再增加授权环节；本次完成核查与提交后交命令，不由agent启动。
 
 本页承接[独立实现与CPU合成预检](QUALITY_CONSTRAINED_FRONTIER_RUNTIME_PREPARATION_2026-09-30.md)；[冻结协议](QUALITY_CONSTRAINED_FRONTIER_PROTOCOL_V1.md)和[profile](QUALITY_CONSTRAINED_FRONTIER_PROFILE_V1.json)保持不变。旧profile/实现准备页中的不存在/未授权文字是各自历史状态；当前阶段由本页与活跃日志负责。没有第二创新点已成立的结论，第一项继续冻结至初稿。
 
@@ -28,7 +28,7 @@
 
 ## 明确请求的原Train分区重读例外
 
-原运行没有保存允许角色的完整标签，必须重新读取原Train来恢复固定分区。**反序列化会接触完整源容器，包括其中probe/lock来源的字节；这不是“源字节零接触”。** 这项重读尚未授权，不能沿用旧诊断授权。
+原运行没有保存允许角色的完整标签，必须重新读取原Train来恢复固定分区。**反序列化会接触完整源容器，包括其中probe/lock来源的字节；这不是“源字节零接触”。** 用户本次授权已包含这项具体重读；授权依据是新的直接回复，未沿用旧诊断许可。
 
 恢复时只导出warm_fit/warm_select/cold_select和允许的ID；暖pair第1项直接丢弃，不保留为warm_probe目标。核对原角色SHA/counts后，在评分前释放完整矩阵和临时全部pairs。probe/lock标签不构造、不导出、不计数，不生成新的seal。
 
@@ -48,13 +48,13 @@
 
 ## 命令、源码与结果路由
 
-授权后，从`D:\Download\PromptMM`执行一次以下精确命令：
+声明提交干净且启动门槛通过后，用户从`D:\Download\PromptMM`执行一次以下精确命令：
 
 ```powershell
 & 'D:\miniconda\envs\run_5060\python.exe' -B tools/run_quality_constrained_frontier.py --execute --declaration docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_RUN_DECLARATION_V1.json
 ```
 
-分支`codex/experiment/baby-teacher-baseline`。启动源为**包含已授权声明的干净committed HEAD**；提交后的真实运行会记录实际launch SHA。不能把本次尚未授权的准备提交当成已经发起实验；授权后必要的授权字段更新、干净提交、单次启动、审计与outcome提交由同一次明确许可覆盖。
+分支`codex/experiment/baby-teacher-baseline`。启动源为**包含已授权声明的干净committed HEAD**；提交后的真实运行会记录实际launch SHA。授权声明提交和启动门槛核查不等于实验已发起。本次许可覆盖准备和后续结果审计；用户最新要求手动启动，agent不代执行，不再次索要相同许可。
 
 | 记录目标 | 运行后处理 |
 |---|---|
@@ -65,10 +65,10 @@
 | 六生成导航 | 手工更新完成后刷新，sealed读取拒绝；本次声明也刷新 |
 | 第一项正文/gap/Test主表、论文charter及原v1记录 | 无触发，不改动；本次不创建虚假结果表或数值占位 |
 
-源码提交只保护已跟踪源文件。新输出是Git忽略资产，不等于有物理/off-device备份；本次不是标签、bundle或稳定结果冻结里程碑。失败/低结果保留，任何回滚或重跑需独立授权。
+源码提交只保护已跟踪源文件。新输出是Git忽略资产，不等于有物理/off-device备份；本次不是标签、bundle或稳定结果冻结里程碑。失败/低结果保留，不自动回滚、覆盖或重跑；后续准备按用户最新工作流直接交可运行命令，由用户手动决定执行。
 
-## 下一步授权范围
+## 唯一下一步：用户手动启动
 
-唯一下一步是明确批准此一次诊断及上述原Train分区重读。可直接回复：**“授权这一次质量约束前沿诊断，包括所述原Train分区恢复，按声明单次执行并完成审计。”**
+用户2026-09-30原文：“授权，以后不要再授权了，以后如果这次能跑起来就把跑起来的指令给我就行”。这条最新工作流指示已写入活跃日志和根入口，后续对话应遵守，不再复制旧文案制造额外授权轮次。
 
-需要这次确认的来源是[AGENTS.md](../../../AGENTS.md)的规则：“A clear next step is not authorization to start it.” 原协议也要求这一新重读例外获得具体许可。当前“下一步”批准的是准备可审核声明，不是已经批准读取真实资产或执行；不要求重复批准既有实现/预检工作。
+本次只完成已授权声明的记录、核查与提交，没有真实Train/特征/模型/Val/Test/probe/封存payload访问、恢复角色、训练或排名。后续由用户执行上方精确命令一次；运行后的既有产物可按原路由直接审计，不再请求同一次运行的许可。启动门槛包括committed source/declaration一致、允许资产stat与磁盘上限、输出未存在；真实角色/N-query/数值与资源硬验收仍须由真实运行验证，不能提前保证成功。

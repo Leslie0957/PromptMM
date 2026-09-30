@@ -1,10 +1,16 @@
 {
   "schema_version": 1,
   "protocol_id": "sports_quality_frontier_v1",
-  "status": "prepared_awaiting_explicit_authorization",
-  "human_authorized": false,
-  "authorization_evidence": null,
-  "originalTrain_partition_exception_acknowledged": false,
+  "status": "authorized_ready_for_user_manual_launch",
+  "human_authorized": true,
+  "authorization_evidence": {
+    "date": "2026-09-30",
+    "source": "direct user message in this conversation",
+    "verbatim": "授权，以后不要再授权了，以后如果这次能跑起来就把跑起来的指令给我就行",
+    "reviewed_declaration_commit": "5e5bdc9afe70db42111c0f102228b4627c06d1f8",
+    "scope": "one exact reviewed cohort including disclosed originalTrain partition-only restoration"
+  },
+  "originalTrain_partition_exception_acknowledged": true,
   "authorization_requested": "one exact CPU development cohort including originalTrain partition-only reload, clean declaration/source commit, one launch and outcome audit/commit; no retry/resume/next stage",
   "scope": "one_fixed_model_frontier_development",
   "profile_path": "docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_PROFILE_V1.json",
@@ -418,7 +424,7 @@
       "warm_active",
       "cold_select"
     ],
-    "authority": "not_granted_until_explicit_user_approval"
+    "authority": "granted_by_explicit_user_message_2026-09-30"
   },
   "resources": {
     "device": "CPU",
@@ -541,5 +547,8 @@
     "application guards/sampling are not OS isolation; ignored outputs not backed up by Git source commit"
   ],
   "failure_policy": "preserve partial output, audit failed/partial, commit records; no retry/resume/reset/revert/delete or later stage without new authority",
-  "next_action": "request explicit approval for this exact one cohort and disclosed Train restoration; after approval record it, commit clean launch source, launch once and close out"
+  "next_action": "user manually launches the exact fixed command once from clean committed source; agent audits existing output afterward under current authority; no duplicate authorization request",
+  "execution_owner": "user_manual",
+  "agent_launch_in_this_task": false,
+  "workflow_preference": "user requests no further authorization rounds: finish runnable preparations and provide commands directly; user manually starts runs, no inferred agent-side automatic execution"
 }

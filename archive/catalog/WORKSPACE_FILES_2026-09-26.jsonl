@@ -208,9 +208,9 @@
 {"bytes": 13815757, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 02_38_22.563718_sports_light_init_pid596.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 05_34_16.930265_sports_light_init_pid42156.pth", "source_catalog": false}
 {"bytes": 13815773, "category": "Model", "path": "Model/sports/td_distill/td_distill_infer_only__val_test_once_v1__2026-09-26 08_30_07.418852_sports_light_init_pid30132.pth", "source_catalog": false}
-{"bytes": 4887, "category": "root", "path": "README.md", "source_catalog": true}
+{"bytes": 5265, "category": "root", "path": "README.md", "source_catalog": true}
 {"bytes": 7179, "category": "root", "path": "THESIS_ROADMAP.md", "source_catalog": true}
-{"bytes": 170517, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
+{"bytes": 173741, "category": "root", "path": "TRAINING_LOG.md", "source_catalog": true}
 {"bytes": 739, "category": "archive", "path": "archive/README.md", "source_catalog": true}
 {"bytes": 26887, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/Models.py", "source_catalog": true}
 {"bytes": 26901, "category": "archive", "path": "archive/legacy_code/4.9数据集Photo代码/codes/Models_empower.py", "source_catalog": true}
@@ -602,7 +602,7 @@
 {"bytes": 100432, "category": "docs", "path": "docs/baselines/ASSET_MANIFEST_2026-07-29.csv", "source_catalog": true}
 {"bytes": 2893, "category": "docs", "path": "docs/baselines/README.md", "source_catalog": true}
 {"bytes": 7125, "category": "docs", "path": "docs/experiments/HISTORICAL_FAMILIES.md", "source_catalog": true}
-{"bytes": 7632, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
+{"bytes": 7671, "category": "docs", "path": "docs/experiments/README.md", "source_catalog": true}
 {"bytes": 37701, "category": "docs", "path": "docs/experiments/ROOT_RELOCATION_2026-09-29.json", "source_catalog": true}
 {"bytes": 7431, "category": "docs", "path": "docs/experiments/RUN_CLOSEOUT.md", "source_catalog": true}
 {"bytes": 1535, "category": "docs", "path": "docs/experiments/WORKSPACE_MAP.md", "source_catalog": true}
@@ -770,18 +770,18 @@
 {"bytes": 4101, "category": "docs", "path": "docs/research/innovation2/PER_USER_SLOT_CONTROL_RESULTS.md", "source_catalog": true}
 {"bytes": 5172, "category": "docs", "path": "docs/research/innovation2/PER_USER_SLOT_CONTROL_VERIFICATION.json", "source_catalog": true}
 {"bytes": 9661, "category": "docs", "path": "docs/research/innovation2/POST_DIAGNOSTIC_ROUTE_REVIEW_2026-09-30.md", "source_catalog": true}
-{"bytes": 8508, "category": "docs", "path": "docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_LAUNCH_REVIEW_V1.md", "source_catalog": true}
+{"bytes": 9134, "category": "docs", "path": "docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_LAUNCH_REVIEW_V1.md", "source_catalog": true}
 {"bytes": 17269, "category": "docs", "path": "docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_PROFILE_V1.json", "source_catalog": true}
 {"bytes": 12825, "category": "docs", "path": "docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_PROTOCOL_V1.md", "source_catalog": true}
 {"bytes": 8783, "category": "docs", "path": "docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_RUNTIME_PREPARATION_2026-09-30.md", "source_catalog": true}
-{"bytes": 22889, "category": "docs", "path": "docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_RUN_DECLARATION_V1.json", "source_catalog": true}
+{"bytes": 23580, "category": "docs", "path": "docs/research/innovation2/QUALITY_CONSTRAINED_FRONTIER_RUN_DECLARATION_V1.json", "source_catalog": true}
 {"bytes": 4756, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_HANDOFF.md", "source_catalog": true}
 {"bytes": 10526, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_PLAN_2026-09-29.md", "source_catalog": true}
 {"bytes": 6328, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_DIAGNOSTIC_RESULTS.md", "source_catalog": true}
 {"bytes": 5776, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_INDEPENDENT_AUDIT_2026-09-29.md", "source_catalog": true}
 {"bytes": 8160, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_INDEPENDENT_VERIFICATION.json", "source_catalog": true}
 {"bytes": 3047, "category": "docs", "path": "docs/research/innovation2/RANKING_GAP_PROFILE_V1.json", "source_catalog": true}
-{"bytes": 6436, "category": "docs", "path": "docs/research/innovation2/README.md", "source_catalog": true}
+{"bytes": 6568, "category": "docs", "path": "docs/research/innovation2/README.md", "source_catalog": true}
 {"bytes": 16529, "category": "docs", "path": "docs/research/innovation2/RESEARCH_DIRECTION_WITH_EXPANDED_BUDGET_2026-09-30.md", "source_catalog": true}
 {"bytes": 7960, "category": "docs", "path": "docs/research/innovation2/ROUTE_CLOSURE_REVIEW_2026-09-30.md", "source_catalog": true}
 {"bytes": 7213, "category": "docs", "path": "docs/research/innovation2/ROUTE_CONSOLIDATION_2026-09-30.md", "source_catalog": true}
