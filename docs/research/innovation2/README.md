@@ -17,7 +17,9 @@
 
 当前已形成[最小排序监督对照方案](MINIMAL_RANKING_SUPERVISION_PROPOSAL_2026-09-29.md)；原seed2022[实现与资源准备报告](MINIMAL_RANKING_SUPERVISION_PREPARATION_REPORT_2026-09-29.md)之后，已固定[三seed串行手动启动准备](MINIMAL_RANKING_THREE_SEED_MANUAL_LAUNCH_2026-09-29.md)。三seed正式训练已完成，[独立审计](MINIMAL_RANKING_THREE_SEED_AUDIT_2026-09-29.md)通过执行验收但均screen_stop；没有算法成功结论。
 
-当前唯一下一步：将[第一项与第二项完整交接](../RESEARCH_HANDOFF_FOR_INNOVATION2_REVIEW_2026-09-30.md)交给其他AI独立评审新候选；没有运行队列。该页汇总各轮有效结果、未达筛查标准的原因及冷物品协议源码/元数据核查。
+最新：[独立候选评审](INDEPENDENT_CANDIDATE_REVIEW_2026-09-30.md)。新物品接入优先；TopK边界分配保留备选；预算受限持续更新暂缓。三者均未达到直接开跑条件，本次是当前AI重新判断，不是另一AI或原始产物外部认证。
+
+当前唯一下一步：为新物品接入形成具体方法立项提案，明确ALDI/SiBraR以外的机制差异、强简单替代、内容可见性、必须重建资产及预算上限；不实现、不重建、不运行。若无独立差异则暂停该候选。[原研究交接](../RESEARCH_HANDOFF_FOR_INNOVATION2_REVIEW_2026-09-30.md)保留全部历史证据与原评审任务，没有运行队列。
 
 [个性化分配立项评审](PERSONALIZED_ALLOCATION_DESIGN_REVIEW_2026-09-30.md)：问题值得继续，简单用户加分已有近邻；暂不认定第二创新点。
 
