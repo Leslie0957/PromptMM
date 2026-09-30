@@ -28,7 +28,7 @@
 | 评价恢复/资产核验 | 原失败保留，独立恢复完成12格新Test；不是新增12次训练 | [恢复审计](../research/INNOVATION1_EVAL_RECOVERY_V1_AUDIT.md) |
 | 更早数据/教师/预实验 | 历史背景，不自动并入当前合格主表 | [详细族导航](HISTORICAL_FAMILIES.md) |
 
-当前Sports未见物品v1串行诊断已完成并自审，科学undetermined；[路线重评](../research/innovation2/POST_DIAGNOSTIC_ROUTE_REVIEW_2026-09-30.md)已完成，唯一下一步为准备固定模型的质量约束冷暖竞争前沿诊断协议，仅准备，不实现或运行。旧Val/Test及锁定确认0，无自动重试/扩跑，待跑正式实验为零；第一项保持冻结，第二算法尚未成立。
+当前Sports未见物品v1串行诊断已完成并自审，科学undetermined；[路线重评](../research/innovation2/POST_DIAGNOSTIC_ROUTE_REVIEW_2026-09-30.md)已完成，[质量约束前沿协议v1](../research/innovation2/QUALITY_CONSTRAINED_FRONTIER_PROTOCOL_V1.md)已冻结，380状态/CPU2h上限/开发select，评分程序尚未实现；唯一下一步为独立实现与CPU合成预检，不读真实数据/模型或启动诊断。旧Val/Test及锁定确认0，无自动重试/扩跑，待跑正式实验为零；第一项保持冻结，第二算法尚未成立。
 
 ## 需要再深入时
 
