@@ -1,13 +1,13 @@
 # Training Log — 当前状态与近期记录
 
-更新：2026-09-29。此文件与已核验历史快照共同构成实验记忆。先读AGENTS.md及README.md，历史pending不是执行队列。
+更新：2026-09-30。此文件与已核验历史快照共同构成实验记忆。先读AGENTS.md及README.md，历史pending不是执行队列。
 
 ## 当前状态
 
 - 第一项：有限实验、独立审计及正文整合完成，暂停扩展；[结论与未验证边界](docs/paper/INNOVATION1_CURRENT_GOAL_EVIDENCE_GAPS.md)。待跑实验为零。
 - 第二项：标量校准三seed审计通过执行验收，科学screen_stop；当前配方停止扩展，尚无成立的第二算法。[结果](docs/research/innovation2/SCALAR_CALIBRATION_RESULTS.md)。
 - 约束：旧Test不选新方法；P1a已筛查停止；旧RGCS/门控不是队列。未知项不自动补跑。
-- 唯一下一步：只读核查“新物品接入”的数据划分与教师暴露范围；不读取Test、不生成split或运行实验。
+- 唯一下一步：使用[研究交接](docs/research/RESEARCH_HANDOFF_FOR_INNOVATION2_REVIEW_2026-09-30.md)进行外部独立候选评审；冷物品协议源码/元数据核查已汇总，重建教师未获授权，两个新候选均暂缓。无待跑实验。
 
 ## 证据导航
 
@@ -413,3 +413,14 @@
 - Added [two-candidate review](docs/research/innovation2/ROUTE_CLOSURE_REVIEW_2026-09-30.md): new-item content representation/adaptation versus explicit embedding storage budget. Neither currently qualifies as an independent second algorithm; no new experimental queue. Primary DropoutNet/MWUF and mixed-dimension/precision papers show direct prior overlap; bounded literature review, not exhaustive novelty certification.
 - Prioritize only cold-item protocol feasibility because current lookup lacks a new-content representation path, not because old low-frequency results prove cold-start benefit. Explicit teacher-exposure/leakage and possible teacher rebuild constraints; new content visibility and interactions distinguished. Compression deferred for weak deployment-need evidence and overlap with first-work cost ablation. Existing screens/first-work/charter unchanged.
 - No data/tensor/Test loading, split creation, training/evaluation or code changes. Entrances/catalogs updated, old log preserved; focused links/diff verified before scoped commit. Sole next step read-only preprocessing/metadata/teacher-exposure feasibility audit, no module or run design; if infeasible, pause candidates rather than expanding experiments.
+
+## 2026-09-30 Consolidated research handoff (pending)
+
+- User requests one self-contained document covering first-work achievements and all second-work attempts/problems for external AI route review. Base c6a1246; scope new consolidated handoff, short current entrance/status corrections and generated navigation. No new algorithm, protocol, evaluation, training or Test access; historical source/results remain authoritative and unchanged. Preserve untracked archive/reviews/, charter, raw assets and zhuanli/.
+- Risks: flattening conditional results into universal failures, confusing repeated seeds/shared Validation with independent confirmation, treating cold-item candidate as approved, overstating novelty/cost. Verify numeric tables against saved reports, local links, historical-log preservation and focused diff; append outcome and one scoped local commit. Record source/metadata-only cold-item feasibility findings with limits; no raw split/checkpoint loading. Next action is external independent candidate review, not execution.
+
+## 2026-09-30 Consolidated research handoff (completed)
+
+- Added docs/research/RESEARCH_HANDOFF_FOR_INNOVATION2_REVIEW_2026-09-30.md: standalone first-work method/formulas/main results/mechanism/cost limits, all second-work exploration families and controls, facts versus hypotheses, conditional cold-item feasibility and deferred compression, and external-AI review instructions. No algorithm preselected or experiment queued. Current entrances corrected to external review; charter and historical scientific decisions unchanged.
+- Checked key numeric tables against saved results. The sparse-statistics source conclusion gives warm exposure upper bound .186%, whereas its seven-state table gives .181892%; new handoff explicitly uses the table (.182% rounded), preserving the original record. Cold-item source/metadata confirms split labels rather than proven arrival chronology, original-Train teacher exposure and full-feature PCA/ICA concerns; new strict protocol/teacher rebuilding remains unapproved, not an experiment result.
+- No training, evaluation, raw Train/Val/Test matrices or checkpoint tensor loading. Read existing conversion metadata (including historical split counts), not Test payloads; no new Test access/evaluation. Raw assets, reviews, zhuanli and archived logs unchanged. Verify links/history/diff and refresh generated navigation before scoped local commit. Unique next action: give the consolidated document to another AI for independent candidate review, then jointly decide whether a new second-work proposal merits commitment.

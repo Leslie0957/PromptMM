@@ -138,7 +138,7 @@
 - [codes/utility/parser.py](../../codes/utility/parser.py)
 - [codes/utility/sports_validation_reuse.py](../../codes/utility/sports_validation_reuse.py)
 
-## docs（220）
+## docs（221）
 
 - [docs/BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md](../BABY_ITEM_IMAGE_ONLY_ABLATION_PROFILES_V1.md)
 - [docs/BABY_SEED2023_REPLICATION_PROFILES_V1.md](../BABY_SEED2023_REPLICATION_PROFILES_V1.md)
@@ -266,6 +266,7 @@
 - [docs/research/PROMPTMM_LR6E5_THREE_SEED_2026-09-22.md](../research/PROMPTMM_LR6E5_THREE_SEED_2026-09-22.md)
 - [docs/research/PROMPTMM_LR_CONTRAST_2026-09-21.md](../research/PROMPTMM_LR_CONTRAST_2026-09-21.md)
 - [docs/research/PROMPTMM_SPORTS300_AUDIT_2026-09-20.md](../research/PROMPTMM_SPORTS300_AUDIT_2026-09-20.md)
+- [docs/research/RESEARCH_HANDOFF_FOR_INNOVATION2_REVIEW_2026-09-30.md](../research/RESEARCH_HANDOFF_FOR_INNOVATION2_REVIEW_2026-09-30.md)
 - [docs/research/SECOND_INNOVATION_ROUTE.md](../research/SECOND_INNOVATION_ROUTE.md)
 - [docs/research/SPORTS_ALPHA3_AUDIT_2026-09-24.md](../research/SPORTS_ALPHA3_AUDIT_2026-09-24.md)
 - [docs/research/SPORTS_BPR_RESULT_2026-09-16.md](../research/SPORTS_BPR_RESULT_2026-09-16.md)
