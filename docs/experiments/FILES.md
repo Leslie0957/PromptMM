@@ -4,7 +4,7 @@
 [本机资产目录](../../archive/catalog/README.md)。这是导航，不是启动时必读列表。
 
 
-## archive（53）
+## archive（56）
 
 - [archive/README.md](../../archive/README.md)
 - [archive/catalog/README.md](../../archive/catalog/README.md)
@@ -59,6 +59,9 @@
 - [archive/training/TRAINING_LOG_ARCHIVE_FULL_2026-09-29.md](../../archive/training/TRAINING_LOG_ARCHIVE_FULL_2026-09-29.md)
 - [archive/upstream/README.md](../../archive/upstream/README.md)
 - [archive/upstream/README_ORIGINAL_2026-09-26.md](../../archive/upstream/README_ORIGINAL_2026-09-26.md)
+- [archive/versioning/github-attribution-2026-10-01/README.md](../../archive/versioning/github-attribution-2026-10-01/README.md)
+- [archive/versioning/github-attribution-2026-10-01/commit-map.json](../../archive/versioning/github-attribution-2026-10-01/commit-map.json)
+- [archive/versioning/github-attribution-2026-10-01/preservation-audit.json](../../archive/versioning/github-attribution-2026-10-01/preservation-audit.json)
 
 ## codes（75）
 

@@ -1,0 +1,72 @@
+{
+  "status": "rewritten_history_published_and_account_attribution_verified",
+  "original_main": "1e071b2f45a9d9834cea33eae763226f35563095",
+  "rewritten_main": "c09bbeb1f26a4e3bff2d6a8bb2fa576294c3cf25",
+  "commit_count": 254,
+  "verified_byte_exact_commits": 254,
+  "allowed_changes": [
+    "author email",
+    "committer email",
+    "mapped parent IDs"
+  ],
+  "preserved": [
+    "tree IDs/all tracked content",
+    "names",
+    "author/committer dates and timezones",
+    "messages",
+    "parent order/merge topology",
+    "baseline tag objects and targets"
+  ],
+  "original_branches": {
+    "refs/heads/codex/experiment/baby-data-adapter": "bde102537a01a14a628b4296ffb192de38fcf88f",
+    "refs/heads/codex/experiment/baby-dataset-onboarding": "254fc701d90b8d6bb90f612ab016023b620aee51",
+    "refs/heads/codex/experiment/baby-teacher-baseline": "1e071b2f45a9d9834cea33eae763226f35563095",
+    "refs/heads/main": "1e071b2f45a9d9834cea33eae763226f35563095",
+    "refs/heads/maintenance/versioning-policy": "8145ee4c2a71210bbbb174b48ca0c119e2e23eaf"
+  },
+  "rewritten_branches": {
+    "refs/heads/codex/experiment/baby-data-adapter": "64bebbe73146ced49e1451512468e257914379a3",
+    "refs/heads/codex/experiment/baby-dataset-onboarding": "cf6400c9091758738ad904708334c1dd42af1f15",
+    "refs/heads/codex/experiment/baby-teacher-baseline": "c09bbeb1f26a4e3bff2d6a8bb2fa576294c3cf25",
+    "refs/heads/main": "c09bbeb1f26a4e3bff2d6a8bb2fa576294c3cf25",
+    "refs/heads/maintenance/versioning-policy": "58be9656c1c7c5f4ca54743925649830c4e8a5df"
+  },
+  "preserved_tag_objects": {
+    "refs/tags/baby-adapter-smoke-20260730": "10ea04561b3fc15a6b38820126f7eff76ee8ee19",
+    "refs/tags/baby-teacher-baseline-seed2022-20260730": "06239e27af85b2475e1935cab6c060ed9211b7a1",
+    "refs/tags/baseline-protocol-smoke-20260729": "7a1ab1243454bfda06400568d01ea50e241e0a27",
+    "refs/tags/innovation1-fixed-results-20260926-local": "414dcd67675af4347df0806027663937668ef9bf"
+  },
+  "original_bundle": {
+    "path": "D:\\Download\\PromptMM\\.codex_tmp\\github-attribution-20261001\\before.bundle",
+    "bytes": 4643450,
+    "sha256": "fccee04f01e436c80e3d5571784928acdf0f58bba1ee2e38ff2568b821f57393"
+  },
+  "mapping_sha256": "052718831c8a6d86ad1ed81a631a83a52928f4d7305c03a28796062384a9007b",
+  "old_research_references": "Kept verbatim; old objects remain reachable from unchanged original tags or verified before.bundle. Map old IDs to content-identical new IDs; this is not a new run/source-behavior identity.",
+  "runtime_assets": "Not loaded, rehashed, modified, committed or included in source bundle.",
+  "remote_publication": {
+    "original_five_branches": "Atomic push succeeded with explicit old-SHA force-with-lease for each branch.",
+    "verified_remote_heads": {
+      "refs/heads/codex/experiment/baby-data-adapter": "64bebbe73146ced49e1451512468e257914379a3",
+      "refs/heads/codex/experiment/baby-dataset-onboarding": "cf6400c9091758738ad904708334c1dd42af1f15",
+      "refs/heads/codex/experiment/baby-teacher-baseline": "c09bbeb1f26a4e3bff2d6a8bb2fa576294c3cf25",
+      "refs/heads/main": "c09bbeb1f26a4e3bff2d6a8bb2fa576294c3cf25",
+      "refs/heads/maintenance/versioning-policy": "58be9656c1c7c5f4ca54743925649830c4e8a5df"
+    },
+    "github_api_attribution": {
+      "commits_checked": 254,
+      "authors_matched": 254,
+      "committers_matched": 254,
+      "author_login": "Leslie0957",
+      "committer_login": "Leslie0957",
+      "repository": "Leslie0957/PromptMM",
+      "queried_branch": "main",
+      "head": "c09bbeb1f26a4e3bff2d6a8bb2fa576294c3cf25",
+      "method": "Paginated GitHub REST commits API, exact254-SHA mapping set compared",
+      "retrieved_utc": "2026-09-30T16:21:13.3682202Z"
+    },
+    "final_trace_commit": "Documentation trace is committed afterward, then fast-forwarded to main and published; final trace SHA reported in handoff."
+  },
+  "mapping_encoding": "UTF-8, canonical LF; SHA256 matches committed Git blob"
+}
